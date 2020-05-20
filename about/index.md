@@ -4,7 +4,7 @@ title: About Me
 ---
 <center>
     <div class="photoset-grid-custom" data-layout="213">
-     <img src="/website/images/kamranAfzali.png" />
+     <img src="/images/kamranAfzali.png" />
     </div>
 </center>
 
