@@ -158,7 +158,7 @@ svg:not(:root) {
     
     a:hover {
     	text-transform: uppercase;
-        color: lighten(#FF851B,50);
+        color: lighten(#FF851B,10);
         font-weight: 100;
     }
 }
@@ -217,7 +217,7 @@ b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a 
 
     h1, a, div {
     	text-transform: uppercase;
-		color: #85144b;
+		color: #FF851B;
 		letter-spacing: 5px;
 	}
 }
