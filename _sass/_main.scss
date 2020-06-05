@@ -151,14 +151,14 @@ svg:not(:root) {
 
     a{
     	text-transform: uppercase;
-        //color: $base-color;
-        color: lighten($base-color,30);
+        color: #FF851B;
+        //color: lighten($base-color,30);
         font-weight: 100;
     }
     
     a:hover {
     	text-transform: uppercase;
-        color: lighten($base-color,60);
+        color: lighten(#FF851B,30);
         font-weight: 100;
     }
 }
@@ -217,7 +217,7 @@ b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a 
 
     h1, a, div {
     	text-transform: uppercase;
-		color: lighten($base-color, 60);
+		color: #FFDC00;
 		letter-spacing: 5px;
 	}
 }
