@@ -3,6 +3,7 @@
 a {  
 	text-decoration: none;
 	color: $link-color; 
+	font-weight: 500;
 
 	&:visited { 
 		color: lighten($link-color, 20); 
