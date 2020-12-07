@@ -9,7 +9,7 @@ title: Software
       <li>Data management (dplyr)</li>
       <li>Data visualization (ggplot2)</li>
       <li>Statistical modelling (Stan, lavaan)</li>
-      <li>Machine learning (Caret)</li>
+      <li>Machine learning (Caret, tidymodels)</li>
       <li>Social network analysis (qgraph)</li>
    </ul>
   </li>
