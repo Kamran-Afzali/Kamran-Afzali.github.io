@@ -18,9 +18,9 @@ title: Software
       <li>General and generalized linear modelling</li>
     </ul>
   </li>
-    <li>SQL
+    <li>Data Bases
     <ul>
-      <li>Data management</li>
+      <li>SQL</li>
     </ul>
   </li>
     <li>Python
