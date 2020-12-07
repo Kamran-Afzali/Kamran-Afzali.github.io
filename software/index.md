@@ -13,16 +13,6 @@ title: Software
       <li>Social network analysis (qgraph)</li>
    </ul>
   </li>
-  <li>SAS
-    <ul>
-      <li>General and generalized linear modelling</li>
-    </ul>
-  </li>
-    <li>Data Bases
-    <ul>
-      <li>SQL</li>
-    </ul>
-  </li>
     <li>Python
     <ul>
       <li>Data management (Pandas)</li>
@@ -35,6 +25,16 @@ title: Software
    <li>Mplus
     <ul>
       <li>Latent variable modelling</li>
+    </ul>
+       </li>
+  <li>SAS
+    <ul>
+      <li>General and generalized linear modelling</li>
+    </ul>
+  </li>
+    <li>Data Bases
+    <ul>
+      <li>SQL</li>
     </ul>
   </li>
  </ul>
