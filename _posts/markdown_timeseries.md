@@ -191,13 +191,13 @@ A possibility given by quantmod is the calculation of returns for different peri
 plot(dailyReturn(BTC))
 ```
 
-![](markdown_timeseries_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](/images/01unnamed-chunk-3-1.png)<!-- -->
 
 ```r
 plot(weeklyReturn(BTC))
 ```
 
-![](markdown_timeseries_files/figure-html/unnamed-chunk-3-2.png)<!-- -->
+![](/images/01unnamed-chunk-3-2.png)<!-- -->
 Here we add the date column to the time-series data set.
 
 ```r
@@ -220,7 +220,7 @@ train_data %>% mutate(type = "train") %>%
   geom_line()
 ```
 
-![](markdown_timeseries_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](/images/01unnamed-chunk-6-1.png)<!-- -->
 
 The model fitting procedure is similar to that tidy models, here is the example for an ARIMA model fitted on the training data,
 
