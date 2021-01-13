@@ -292,4 +292,4 @@ forecast_table %>%
   modeltime_forecast(actual_data = test_data) #%>% 
   plot_modeltime_forecast()
 ```
-![](markdown_timeseries_files/figure-html/newplot.png)<!-- -->
+![](/images/01newplot.png)<!-- -->
