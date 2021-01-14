@@ -17,14 +17,14 @@ Is the dependant variable autocorrelated?
 Is there a seasonality in the time series?
 
 
-##Stationarity
+## Stationarity
 A time series is said to be stationary if its statistical properties do not change over time. Stationarity is essential as in its absence, the model forcasting the data will vary in performance at different time points. Therefore, stationarity is required for sample statistics such as means, variances, and correlations to accurately describe the data at all time points of interest.
 
-##Autocorrelation
+## Autocorrelation
 Autocorrelation measures the relationship between a variable's current value and its past values. In other words, it is the relationship between observations based on the time lag between them that can be represented in a plot looks like sinusoidal function.
 This means that we will find a very similar value at a given lagged unit of time (e.g., once in each 12th observation). 
 
-##Seasonality
+## Seasonality
 Seasonality refers to periodic fluctuations in time series data that is characterized by the presence of variations that occur at specific regular intervals. For example, natural consumption is high during the winter and low during summer, or online sales increase during black Friday weekend before slowing down again. Seasonality can be derived from an autocorrelation plot with a sinusoidal shape. Simply look at the period, and it gives the length of the season.
 
 An important note is that stock return is not *always* stationary. As mentioned above, non-stationary processes have variable mean and variance, in contrast to stationary processes that reverts around a constant long-term mean and has a constant variance independent of time. Generally, non-stationary data, cannot be forecasted or modeled with traditional forecasting methods. Modelling non-stationary time series data may result in spurious associations in that they may indicate a relationship where one does not exist. Along these lines, to receive consistent, reliable results, the non-stationary data needs to be transformed into stationary data. Similarly autocorrelation and seasonality of stocks data have been discussed thoroughly in the literature.
