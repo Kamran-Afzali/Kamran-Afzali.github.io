@@ -1,9 +1,12 @@
 ---
-title: "time series"
+title: "Stock Forecasting with R"
 output: 
   html_document:
     keep_md: true
 ---
+
+#Stock Forecasting with R
+
 Forecasting the fluctuation patterns of stock prices has been an extensively researched domain both in statistics and data science literature. Although the efficient market hypothesis asserts that it is impossible to predict stock prices, several cases established that if correctly formulated and modeled, prediction of stock prices can be done with a fairly high level of accuracy. This latter viewpoint focused on the construction of robust machine learning and statistical models based on the careful choice of variables/hyper parameters and appropriate functional forms or models of forecasting. Along the same lines a strand of research in the literature focused on time series analysis and decomposition for forecasting future values of stocks.
 
 Previous studies attempting forecast the patterns of stock prices can be classified into three strands, according to the choice of techniques of estimation and variables used for forecasting. The first strand consists of studies using linear or non-linear regression techniques. The second strand of the previous studies following time series data and capitalizing on forecasting models and techniques to forecast stock returns like autoregressive integrated moving average (ARIMA), quantile regression (QR), autoregressive distributed lag (ARDL), and Granger causality test, to forecast stock prices. The third strand includes work using modern machine learning and deep learning tools for the prediction of stock returns.
@@ -14,14 +17,14 @@ Is the dependant variable autocorrelated?
 Is there a seasonality in the time series?
 
 
-Stationarity
+##Stationarity
 A time series is said to be stationary if its statistical properties do not change over time. Stationarity is essential as in its absence, the model forcasting the data will vary in performance at different time points. Therefore, stationarity is required for sample statistics such as means, variances, and correlations to accurately describe the data at all time points of interest.
 
-Autocorrelation
+##Autocorrelation
 Autocorrelation measures the relationship between a variable's current value and its past values. In other words, it is the relationship between observations based on the time lag between them that can be represented in a plot looks like sinusoidal function.
 This means that we will find a very similar value at a given lagged unit of time (e.g., once in each 12th observation). 
 
-Seasonality
+##Seasonality
 Seasonality refers to periodic fluctuations in time series data that is characterized by the presence of variations that occur at specific regular intervals. For example, natural consumption is high during the winter and low during summer, or online sales increase during black Friday weekend before slowing down again. Seasonality can be derived from an autocorrelation plot with a sinusoidal shape. Simply look at the period, and it gives the length of the season.
 
 An important note is that stock return is not *always* stationary. As mentioned above, non-stationary processes have variable mean and variance, in contrast to stationary processes that reverts around a constant long-term mean and has a constant variance independent of time. Generally, non-stationary data, cannot be forecasted or modeled with traditional forecasting methods. Modelling non-stationary time series data may result in spurious associations in that they may indicate a relationship where one does not exist. Along these lines, to receive consistent, reliable results, the non-stationary data needs to be transformed into stationary data. Similarly autocorrelation and seasonality of stocks data have been discussed thoroughly in the literature.
@@ -35,75 +38,12 @@ Here we are going to focus on forecasting of an equity return using the tidy mod
 library(PerformanceAnalytics)
 ```
 
-```
-## Loading required package: xts
-```
-
-```
-## Loading required package: zoo
-```
-
-```
-## 
-## Attaching package: 'zoo'
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     as.Date, as.Date.numeric
-```
-
-```
-## 
-## Attaching package: 'PerformanceAnalytics'
-```
-
-```
-## The following object is masked from 'package:graphics':
-## 
-##     legend
-```
-
 ```r
 library(quantmod)
 ```
 
-```
-## Loading required package: TTR
-```
-
-```
-## Registered S3 method overwritten by 'quantmod':
-##   method            from
-##   as.zoo.data.frame zoo
-```
-
-```
-## Version 0.4-0 included new data defaults. See ?getSymbols.
-```
-
 ```r
 library(tidyverse)
-```
-
-```
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
-```
-
-```
-## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-## ✓ tibble  3.0.4     ✓ dplyr   1.0.2
-## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-## ✓ readr   1.4.0     ✓ forcats 0.5.0
-```
-
-```
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::first()  masks xts::first()
-## x dplyr::lag()    masks stats::lag()
-## x dplyr::last()   masks xts::last()
 ```
 
 ```r
@@ -112,78 +52,23 @@ library(forecast)
 library(tidymodels)
 ```
 
-```
-## ── Attaching packages ────────────────────────────────────── tidymodels 0.1.2 ──
-```
-
-```
-## ✓ broom     0.7.2      ✓ rsample   0.0.8 
-## ✓ dials     0.0.9      ✓ tune      0.1.2 
-## ✓ infer     0.5.3      ✓ workflows 0.2.1 
-## ✓ parsnip   0.1.4      ✓ yardstick 0.0.7 
-## ✓ recipes   0.1.15
-```
-
-```
-## ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
-## x yardstick::accuracy() masks forecast::accuracy()
-## x scales::discard()     masks purrr::discard()
-## x dplyr::filter()       masks stats::filter()
-## x dplyr::first()        masks xts::first()
-## x recipes::fixed()      masks stringr::fixed()
-## x dplyr::lag()          masks stats::lag()
-## x dplyr::last()         masks xts::last()
-## x yardstick::spec()     masks readr::spec()
-## x recipes::step()       masks stats::step()
-```
 
 ```r
 library(modeltime)
 ```
 
-```
-## 
-## Attaching package: 'modeltime'
-```
 
-```
-## The following object is masked from 'package:TTR':
-## 
-##     growth
-```
 
 ```r
 library(timetk)
 library(lubridate)
 ```
 
-```
-## 
-## Attaching package: 'lubridate'
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     date, intersect, setdiff, union
-```
-
-
 
 ```r
 BTC <- getSymbols("BTC-USD", src = "yahoo", from = "2013-01-01", to = "2020-11-01", auto.assign = FALSE)
 ```
 
-```
-## 'getSymbols' currently uses auto.assign=TRUE by default, but will
-## use auto.assign=FALSE in 0.5-0. You will still be able to use
-## 'loadSymbols' to automatically load data. getOption("getSymbols.env")
-## and getOption("getSymbols.auto.assign") will still be checked for
-## alternate defaults.
-## 
-## This message is shown once per session and may be disabled by setting 
-## options("getSymbols.warning4.0"=FALSE). See ?getSymbols for details.
-```
 A possibility given by quantmod is the calculation of returns for different periods. For example, it’s possible to calculate the returns by day, week, month, quarter and year, just by using the following commands:
 
 
@@ -191,13 +76,13 @@ A possibility given by quantmod is the calculation of returns for different peri
 plot(dailyReturn(BTC))
 ```
 
-![](/images/01unnamed-chunk-3-1.png)<!-- -->
+![](/images/01unnamed-chunk-3-1.png)
 
 ```r
 plot(weeklyReturn(BTC))
 ```
 
-![](/images/01unnamed-chunk-3-2.png)<!-- -->
+![](/images/01unnamed-chunk-3-2.png)
 Here we add the date column to the time-series data set.
 
 ```r
@@ -220,7 +105,7 @@ train_data %>% mutate(type = "train") %>%
   geom_line()
 ```
 
-![](/images/01unnamed-chunk-6-1.png)<!-- -->
+![](/images/01unnamed-chunk-6-1.png)
 
 The model fitting procedure is similar to that tidy models, here is the example for an ARIMA model fitted on the training data,
 
@@ -292,4 +177,4 @@ forecast_table %>%
   modeltime_forecast(actual_data = test_data) #%>% 
   plot_modeltime_forecast()
 ```
-![](/images/01newplot.png)<!-- -->
+![](/images/01newplot.png)
