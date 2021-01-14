@@ -5,7 +5,7 @@ output:
     keep_md: true
 ---
 
-#Stock Forecasting with R
+# Stock Forecasting with R
 
 Forecasting the fluctuation patterns of stock prices has been an extensively researched domain both in statistics and data science literature. Although the efficient market hypothesis asserts that it is impossible to predict stock prices, several cases established that if correctly formulated and modeled, prediction of stock prices can be done with a fairly high level of accuracy. This latter viewpoint focused on the construction of robust machine learning and statistical models based on the careful choice of variables/hyper parameters and appropriate functional forms or models of forecasting. Along the same lines a strand of research in the literature focused on time series analysis and decomposition for forecasting future values of stocks.
 
