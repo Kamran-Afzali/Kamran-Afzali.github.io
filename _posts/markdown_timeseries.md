@@ -1,8 +1,10 @@
 ---
-title: "Stock Forecasting with R"
-output: 
-  html_document:
-    keep_md: true
+layout: post
+categories: posts
+title: Stock Forecasting with R   
+featured-image: /images/st.jpg
+tags: [Finance, Stocks, Quant]
+date-string: January 2021
 ---
 
 # Stock Forecasting with R
