@@ -28,7 +28,7 @@ Under PIPEDA, personal information includes any factual or subjective informatio
 Deidentification is the process of removing personally identifiable information (PII) from data. PII can include items such as banking information, Social Security numbers, and addresses. This topic is valuable because data deidentification protects the privacy of individuals and is important in many industries, including but not limited to health care, banking, pharmaceuticals, and education. Deidentification ensures compliance to ethical and legal standards of data collection and analysis.
 
 Package ‘detector’
-detector makes detecting data containing Personally Identifiable Information (PII) quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, detector will be able to detect the following types of PII (https://github.com/paulhendricks/detector).
+detector makes detecting data containing Personally Identifiable Information (PII) quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, detector will be able to detect the following types of PII.
 
 Package ‘anonymizer’
 Package ‘anonymizer’ uses a mix of methods to replace PII with a random unique identifier (Hendricks, 2015). The package can be installed from CRAN or from GitHub depending on your version of R.
