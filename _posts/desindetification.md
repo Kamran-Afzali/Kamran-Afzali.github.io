@@ -43,8 +43,8 @@ Package ‘duawranglr’
 This package offers a set of functions to help users create shareable data sets from raw data files that contain protected elements. Relying on master crosswalk files that list restricted variables, package functions warn users about possible violations of data usage agreement and prevent writing protected elements.
 
 
-+	Paul Hendricks (2015). “Package ‘detector’.”[https://cran.r-project.org/web/packages/detector/index.html]
-+	Paul Hendricks (2015). “anonymizer: Anonymize Data Containing Personally Identifiable Information.” https://github.com/paulhendricks/anonymizer
-+	Wilcox (2019). “deidentify: Deidentify a dataset.” https://rdrr.io/github/wilkox/deidentifyr/man/deidentify.html
-+	Eddelbuettel , et. al (2020). “Package ‘digest’.” https://cran.r-project.org/web/packages/digest/digest.pdf
-+	Benjamin Skinner (2020) “Package ‘duawranglr’.” https://cran.r-project.org/web/packages/duawranglr/index.html
++	Paul Hendricks (2015). [“Package ‘detector’.”](https://cran.r-project.org/web/packages/detector/index.html)
++	Paul Hendricks (2015). [“anonymizer: Anonymize Data Containing Personally Identifiable Information.”](https://github.com/paulhendricks/anonymizer)
++	Wilcox (2019). [“deidentify: Deidentify a dataset.”](https://rdrr.io/github/wilkox/deidentifyr/man/deidentify.html)
++	Eddelbuettel , et. al (2020). [“Package ‘digest’.”](https://cran.r-project.org/web/packages/digest/digest.pdf)
++	Benjamin Skinner (2020) [“Package ‘duawranglr’.”](https://cran.r-project.org/web/packages/duawranglr/index.html)
