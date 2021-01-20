@@ -1,17 +1,15 @@
 
 
-Privacy (GDPR in the EU, HIPAA in the US) has now become part of business-as-usual considerations whereas the other dimensions of ethics, being less clear and more prone to interpretations, as far less watched out
+Privacy (GDPR in the EU, HIPAA in the US, PIPEDA in Canada) has now become part of business-as-usual considerations whereas the other dimensions of ethics, being less clear and more prone to interpretations, as far less watched out
 
 
-What is GDPR?
+(GDPR)
 GDPR is an EU regulation put in place to protect user’s personally identifiable information (PII) and hold businesses to a higher standard when it comes to how they collect, store, and use this data.
 The ultimate goal of GDPR?
 It’s to give EU citizens control over their personal data and change the data privacy approach of organizations across the world. PII includes name, emails, physical address, IP address, health information, income, etc. You can read the full text of the regulation.
 
-HIPAA
-HIPAA came into force in 1996. It was designed to make health insurance coverage fairer for employees moving between jobs. It also sought to reduce the cost of health care by bringing in a more standardised process for financial transactions and admin.
-
-Through the “Privacy Rule” contained within the legislation, HIPAA also sets out requirements designed to protect sensitive personal health information (PHI). As well as setting out data governance procedures in areas such as billing and admin, this Rule sets out the right of patients to receive copies of PHI from organisations. It also stipulates the circumstances under which healthcare providers may disclose this information to third parties – and when express patient permission is needed for this.
+(HIPAA)
+HIPAA came into force in 1996. It was designed to make health insurance coverage fairer for employees moving between jobs. It also sought to reduce the cost of health care by bringing in a more standardised process for financial transactions and admin. Through the “Privacy Rule” contained within the legislation, HIPAA also sets out requirements designed to protect sensitive personal health information (PHI). As well as setting out data governance procedures in areas such as billing and admin, this Rule sets out the right of patients to receive copies of PHI from organisations. It also stipulates the circumstances under which healthcare providers may disclose this information to third parties – and when express patient permission is needed for this.
 
 The Personal Information Protection and Electronic Documents Act (PIPEDA)
 
