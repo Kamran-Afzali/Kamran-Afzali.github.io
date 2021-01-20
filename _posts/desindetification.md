@@ -1,5 +1,3 @@
-https://rpubs.com/ckantoris2/642533
-https://www.povertyactionlab.org/sites/default/files/research-resources/J-PAL-guide-to-deidentifying-data.pdf
 
 
 Privacy (GDPR in the EU, HIPAA in the US) has now become part of business-as-usual considerations whereas the other dimensions of ethics, being less clear and more prone to interpretations, as far less watched out
@@ -48,3 +46,5 @@ This package offers a set of functions to help users create shareable data sets 
 +	Wilcox (2019). [“deidentify: Deidentify a dataset.”](https://rdrr.io/github/wilkox/deidentifyr/man/deidentify.html)
 +	Eddelbuettel , et. al (2020). [“Package ‘digest’.”](https://cran.r-project.org/web/packages/digest/digest.pdf)
 +	Benjamin Skinner (2020) [“Package ‘duawranglr’.”](https://cran.r-project.org/web/packages/duawranglr/index.html)
++ https://rpubs.com/ckantoris2/642533
++ https://www.povertyactionlab.org/sites/default/files/research-resources/J-PAL-guide-to-deidentifying-data.pdf
