@@ -3,23 +3,24 @@
 Privacy (GDPR in the EU, HIPAA in the US, PIPEDA in Canada) has now become part of business-as-usual considerations whereas the other dimensions of ethics, being less clear and more prone to interpretations, as far less watched out
 
 
-(GDPR)
+General Data Protection Regulation (GDPR)
+
 GDPR is an EU regulation put in place to protect user’s personally identifiable information (PII) and hold businesses to a higher standard when it comes to how they collect, store, and use this data.
 The ultimate goal of GDPR?
 It’s to give EU citizens control over their personal data and change the data privacy approach of organizations across the world. PII includes name, emails, physical address, IP address, health information, income, etc. You can read the full text of the regulation.
 
-(HIPAA)
+Health Insurance Portability and Accountability Act (HIPAA)
+
 HIPAA came into force in 1996. It was designed to make health insurance coverage fairer for employees moving between jobs. It also sought to reduce the cost of health care by bringing in a more standardised process for financial transactions and admin. Through the “Privacy Rule” contained within the legislation, HIPAA also sets out requirements designed to protect sensitive personal health information (PHI). As well as setting out data governance procedures in areas such as billing and admin, this Rule sets out the right of patients to receive copies of PHI from organisations. It also stipulates the circumstances under which healthcare providers may disclose this information to third parties – and when express patient permission is needed for this.
 
 The Personal Information Protection and Electronic Documents Act (PIPEDA)
 
-Organizations covered by PIPEDA must generally obtain an individual's consent when they collect, use or disclose that individual's personal information. People have the right to access their personal information held by an organization. They also have the right to challenge its accuracy. Personal information can only be used for the purposes for which it was collected. If an organization is going to use it for another purpose, they must obtain consent again. Personal information must be protected by appropriate safeguards.
+Organizations covered by PIPEDA must generally obtain an individual's consent when they collect, use or disclose that individual's personal information. People have the right to access their personal information held by an organization. They also have the right to challenge its accuracy. Personal information can only be used for the purposes for which it was collected. If an organization is going to use it for another purpose, they must obtain consent again. Personal information must be protected by appropriate safeguards. Under PIPEDA, personal information includes any factual or subjective information, recorded or not, about an identifiable individual. This includes information in any form, such as:
++	age, name, ID numbers, income, ethnic origin, or blood type;
++	opinions, evaluations, comments, social status, or disciplinary actions; and
++	employee files, credit records, loan records, medical records, existence of a dispute between a consumer and a merchant, intentions (for example, to acquire goods or services, or change jobs).
 
-Under PIPEDA, personal information includes any factual or subjective information, recorded or not, about an identifiable individual. This includes information in any form, such as:
-•	age, name, ID numbers, income, ethnic origin, or blood type;
-•	opinions, evaluations, comments, social status, or disciplinary actions; and
-•	employee files, credit records, loan records, medical records, existence of a dispute between a consumer and a merchant, intentions (for example, to acquire goods or services, or change jobs).
-
+Deidentification
 
 Deidentification is the process of removing personally identifiable information (PII) from data. PII can include items such as banking information, Social Security numbers, and addresses. This topic is valuable because data deidentification protects the privacy of individuals and is important in many industries, including but not limited to health care, banking, pharmaceuticals, and education. Deidentification ensures compliance to ethical and legal standards of data collection and analysis.
 
