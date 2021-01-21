@@ -28,6 +28,36 @@ Deidentification is the process of removing personally identifiable information 
 ### Package ‘detector’
 detector makes detecting data containing Personally Identifiable Information (PII) quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, detector will be able to detect the following types of PII.
 
+```r
+if (packageVersion("devtools") < 1.6) {
+  install.packages("devtools")
+}
+devtools::install_github("paulhendricks/detector")
+
+
+library(dplyr, warn.conflicts = FALSE)
+library(generator)
+n <- 6
+set.seed(1)
+ashley_madison <- 
+  data.frame(name = r_full_names(n), 
+             snn = r_national_identification_numbers(n), 
+             dob = r_date_of_births(n), 
+             email = r_email_addresses(n), 
+             ip = r_ipv4_addresses(n), 
+             phone = r_phone_numbers(n), 
+             credit_card = r_credit_card_numbers(n), 
+             lat = r_latitudes(n), 
+             lon = r_longitudes(n), 
+             stringsAsFactors = FALSE)
+knitr::kable(ashley_madison, format = "markdown")
+
+library(detector)
+ashley_madison %>% 
+  detect %>% 
+  knitr::kable(format = "markdown")
+```
+
 ### Package ‘anonymizer’
 Package ‘anonymizer’ uses a mix of methods to replace PII with a random unique identifier (Hendricks, 2015). The package can be installed from CRAN or from GitHub depending on your version of R.
 
