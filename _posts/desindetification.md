@@ -61,7 +61,7 @@ ashley_madison %>%
 ### Package ‘anonymizer’
 Package ‘anonymizer’ uses a mix of methods to replace PII with a random unique identifier (Hendricks, 2015). The package can be installed from CRAN or from GitHub depending on your version of R.
 
-```
+```r
 ashley_madison[] <- lapply(ashley_madison, anonymize, .algo = "crc32")
 ashley_madison %>% 
   knitr::kable(format = "markdown")
