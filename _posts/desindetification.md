@@ -61,6 +61,11 @@ ashley_madison %>%
 ### Package ‘anonymizer’
 Package ‘anonymizer’ uses a mix of methods to replace PII with a random unique identifier (Hendricks, 2015). The package can be installed from CRAN or from GitHub depending on your version of R.
 
+```
+ashley_madison[] <- lapply(ashley_madison, anonymize, .algo = "crc32")
+ashley_madison %>% 
+  knitr::kable(format = "markdown")
+```
 ### Package ‘deidentifyr’
 Another package that can be used for data deidentification is ‘deidentifyr.’ Using a slightly longer SHA-256 hash to generate a unique ID code, this package aims to avoid the potential recovery of hashed PII (Wilcox, 2019). This package is not yet on CRAN, but can be installed from GitHub. 'deidentify()' will generate a unique ID from personally identifying information. Because the IDs are generated with the SHA-256 algorithm, they are a) very unlikely to be the same for people with different identifying information, and b) nearly impossible to recover the identifying information from.
 
