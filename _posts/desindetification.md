@@ -69,6 +69,44 @@ ashley_madison %>%
 ### Package ‘deidentifyr’
 Another package that can be used for data deidentification is ‘deidentifyr.’ Using a slightly longer SHA-256 hash to generate a unique ID code, this package aims to avoid the potential recovery of hashed PII (Wilcox, 2019). This package is not yet on CRAN, but can be installed from GitHub. 'deidentify()' will generate a unique ID from personally identifying information. Because the IDs are generated with the SHA-256 algorithm, they are a) very unlikely to be the same for people with different identifying information, and b) nearly impossible to recover the identifying information from.
 
+```{r, eval = FALSE}
+devtools::install_github('wilkox/deidentifyr')
+```
+
+```{r, include = FALSE}
+set.seed(1)
+n <- 10
+MRNs <- sample(10000000:99999999, n)
+DOBs <- lubridate::today() - lubridate::dyears(sample(18:99, n, replace = T))
+days_in_hospitals <- sample(1:100, n, replace = T)
+patient_data <- data.frame(MRN = MRNs, DOB = DOBs, 
+                           days_in_hospital = days_in_hospitals)
+patient_data
+```
+
+```{r}
+library(deidentifyr)
+patient_data <- deidentify(patient_data, MRN, DOB)
+patient_data
+```
+
+```{r, include = FALSE}
+sexes <- sample(c("F", "M"), n, replace = T)
+patient_data2 <- data.frame(MRN = MRNs, DOB = DOBs, 
+                           sex = sexes)
+```
+
+```{r}
+patient_data2
+patient_data2 <- deidentify(patient_data2, DOB, MRN)
+patient_data2
+```
+
+```{r}
+combined_data <- merge(patient_data, patient_data2, by = "id")
+combined_data
+```
+
 ### Package ‘digest’
 A third package that can be used is ‘digest.’ This package generates a hashed character string and a variety of algorithms can be used depending on your need (Eddelbuettel et al., 2020). The digest package provides a principal function digest() for the creation of hash digests of arbitrary R objects (using the md5, sha-1, sha-256, crc32, xxhash, murmurhash, spookyhash and blake3 algorithms) permitting easy comparison of R language objects.
 
