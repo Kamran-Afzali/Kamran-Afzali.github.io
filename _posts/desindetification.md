@@ -113,6 +113,16 @@ A third package that can be used is ‘digest.’ This package generates a hashe
 ### Package ‘duawranglr’
 This package offers a set of functions to help users create shareable data sets from raw data files that contain protected elements. Relying on master crosswalk files that list restricted variables, package functions warn users about possible violations of data usage agreement and prevent writing protected elements.
 
+```{r, echo = FALSE}
+## deidentify data
+tmpdir <- tempdir()
+df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20,
+               crosswalk_filename = file.path(tmpdir, 'tmp.csv'))
+```
+```{r, eval = FALSE}
+## deidentify data
+df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
+```
 
 +	Paul Hendricks (2015). [“Package ‘detector’.”](https://cran.r-project.org/web/packages/detector/index.html)
 +	Paul Hendricks (2015). [“anonymizer: Anonymize Data Containing Personally Identifiable Information.”](https://github.com/paulhendricks/anonymizer)
