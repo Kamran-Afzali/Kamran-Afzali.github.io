@@ -102,13 +102,50 @@ patient_data2 <- deidentify(patient_data2, DOB, MRN)
 patient_data2
 ```
 
-```{r}
+```r
 combined_data <- merge(patient_data, patient_data2, by = "id")
 combined_data
 ```
 
 ### Package ‘digest’
 A third package that can be used is ‘digest.’ This package generates a hashed character string and a variety of algorithms can be used depending on your need (Eddelbuettel et al., 2020). The digest package provides a principal function digest() for the creation of hash digests of arbitrary R objects (using the md5, sha-1, sha-256, crc32, xxhash, murmurhash, spookyhash and blake3 algorithms) permitting easy comparison of R language objects.
+
+```r
+library(digest)
+
+#vectorisation
+md5 <- getVDigest()
+digest2 <- base::Vectorize(digest)
+x <- rep(letters, 1e3)
+rbenchmark::benchmark(
+    vdigest = md5(x, serialize = FALSE),
+    Vectorize = digest2(x, serialize = FALSE),
+    vapply = vapply(x, digest, character(1), serialize = FALSE),
+    replications = 5
+)[,1:4]
+all(md5(x, serialize=FALSE) == digest2(x, serialize=FALSE))
+all(md5(x, serialize=FALSE) == vapply(x, digest, character(1), serialize = FALSE))
+
+#repeated calls
+stretch_key <- function(d, n) {
+    md5 <- getVDigest()
+    for (i in seq_len(n))
+        d <- md5(d, serialize = FALSE)
+    d
+}
+
+stretch_key2 <- function(d, n) {
+    for (i in seq_len(n))
+        d <- digest(d, serialize = FALSE)
+    d
+}
+rbenchmark::benchmark(
+    vdigest = stretch_key('abc123', 65e3),
+    plaindigest = stretch_key2('abc123', 65e3),
+    replications = 10
+)[,1:4]
+stretch_key('abc123', 65e3) == stretch_key2('abc123', 65e3)
+```
 
 ### Package ‘duawranglr’
 This package offers a set of functions to help users create shareable data sets from raw data files that contain protected elements. Relying on master crosswalk files that list restricted variables, package functions warn users about possible violations of data usage agreement and prevent writing protected elements.
