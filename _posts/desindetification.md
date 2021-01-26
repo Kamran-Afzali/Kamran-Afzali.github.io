@@ -161,6 +161,11 @@ df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20,
 df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
 ```
 
+### Package ‘easySdcTable’
+
+The main function, ProtectTable(), performs table suppression according to a frequency rule with a data set as the only required input. Within this function, protectTable(), protectLinkedTables() or runArgusBatchFile() in package 'sdcTable' is called. Lists of level-hierarchy (parameter 'dimList') and other required input to these functions are created automatically. The function, PTgui(), starts a graphical user interface based on the shiny package.
+
+
 +	Paul Hendricks (2015). [“Package ‘detector’.”](https://cran.r-project.org/web/packages/detector/index.html)
 +	Paul Hendricks (2015). [“anonymizer: Anonymize Data Containing Personally Identifiable Information.”](https://github.com/paulhendricks/anonymizer)
 +	Wilcox (2019). [“deidentify: Deidentify a dataset.”](https://rdrr.io/github/wilkox/deidentifyr/man/deidentify.html)
@@ -168,3 +173,5 @@ df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
 +	Benjamin Skinner (2020) [“Package ‘duawranglr’.”](https://cran.r-project.org/web/packages/duawranglr/index.html)
 + https://rpubs.com/ckantoris2/642533
 + https://www.povertyactionlab.org/sites/default/files/research-resources/J-PAL-guide-to-deidentifying-data.pdf
++ Øyvind Langsrud (2020) [“Package ‘easySdcTable’.”](https://cran.r-project.org/web/packages/easySdcTable/vignettes/easySdcTableVignette.html)
++ https://bookdown.org/martin_monkman/DataScienceResources_book/anonymity-and-confidentiality.html#k-anonymity
