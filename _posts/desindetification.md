@@ -174,4 +174,4 @@ The main function, ProtectTable(), performs table suppression according to a fre
 + Cassidy Kantoris (2020) [Deidentifying Data](https://rpubs.com/ckantoris2/642533)
 + Sarah Kooper, Anja Sautmann, and James Turrito(2020) [J-PAL Guide to De-Identifying Data](https://www.povertyactionlab.org/sites/default/files/research-resources/J-PAL-guide-to-deidentifying-data.pdf)
 + Øyvind Langsrud (2020) [“Package ‘easySdcTable’.”](https://cran.r-project.org/web/packages/easySdcTable/vignettes/easySdcTableVignette.html)
-+ Martin Monkman(2020)[Data Science with R: A Resource Compendium](https://bookdown.org/martin_monkman/DataScienceResources_book/anonymity-and-confidentiality.html#k-anonymity)
++ Martin Monkman(2020) [Data Science with R: A Resource Compendium](https://bookdown.org/martin_monkman/DataScienceResources_book/anonymity-and-confidentiality.html#k-anonymity)
