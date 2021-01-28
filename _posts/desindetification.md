@@ -25,6 +25,9 @@ Organizations covered by PIPEDA must generally obtain an individual's consent wh
 
 Deidentification is the process of removing personally identifiable information (PII) from data. PII can include items such as banking information, Social Security numbers, and addresses. This topic is valuable because data deidentification protects the privacy of individuals and is important in many industries, including but not limited to health care, banking, pharmaceuticals, and education. Deidentification ensures compliance to ethical and legal standards of data collection and analysis.
 
+## Risk of re-identification and K-anonymity
+A shared database provides K-anonymity protection if the information about each person in the release cannot be distinguished from at least k-1 individuals whose information is also included in the release. 
+
 ### Package ‘detector’
 detector makes detecting data containing Personally Identifiable Information (PII) quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, detector will be able to detect the following types of PII.
 
@@ -163,7 +166,8 @@ df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
 
 ### Package ‘easySdcTable’
 
-The main function, ProtectTable(), performs table suppression according to a frequency rule with a data set as the only required input. Within this function, protectTable(), protectLinkedTables() or runArgusBatchFile() in package 'sdcTable' is called. Lists of level-hierarchy (parameter 'dimList') and other required input to these functions are created automatically. The function, PTgui(), starts a graphical user interface based on the shiny package.
+This package provides functions to create shareable datasets based on K-anonymity. The main function, ProtectTable (), performs row deletion according to a frequency rule predefined by K-anonymity on a dataset. The functions, protectLinkedTables () or runArgusBatchFile () for linked tables (relational databases) or batch tables that generalize the same structure. 
+
 ```r
 ex2w <- ProtectTable(z2w,1,4:7) 
 ex2wHITAS <- ProtectTable(z2w,dimVar = c("region"),freqVar = c("annet", "arbeid", "soshjelp", "trygd"), method="HITAS") 
