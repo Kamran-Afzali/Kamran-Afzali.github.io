@@ -28,6 +28,15 @@ Deidentification is the process of removing personally identifiable information 
 ## Risk of re-identification and K-anonymity
 A shared database provides K-anonymity protection if the information about each person in the release cannot be distinguished from at least k-1 individuals whose information is also included in the release. 
 
+## Automated De-Identification Tools
+
+Several automated de-identification programs have been developed in recent years, which can be grouped into three categories:
+
++ Tools for efficiently handling direct identifiers in record-level data,
++ Tools for reducing the risk of re-identification from indirect identifiers in record-level data
++ Tools for handling aggregate data sets.
+
+
 ### Package ‘detector’
 detector makes detecting data containing Personally Identifiable Information (PII) quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, detector will be able to detect the following types of PII.
 
