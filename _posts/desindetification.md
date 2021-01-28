@@ -1,6 +1,6 @@
 
 
-Privacy (GDPR in the EU, HIPAA in the US, PIPEDA in Canada) has now become part of business-as-usual considerations whereas the other dimensions of ethics, being less clear and more prone to interpretations, as far less watched out
+In the context of healthcare data where governance dimensions such as ethics and security can be unclear and prone to interpretations concepts of privacy and anonymity (reffering to GDPR in the EU, HIPAA in the US, PIPEDA in Canada) has now become part of business-as-usual considerations. 
 
 
 ## General Data Protection Regulation (GDPR)
