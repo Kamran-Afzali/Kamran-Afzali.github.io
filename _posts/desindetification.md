@@ -5,9 +5,7 @@ In the context of healthcare data where governance dimensions such as ethics and
 
 ## General Data Protection Regulation (GDPR)
 
-GDPR is an EU regulation put in place to protect user’s personally identifiable information (PII) and hold businesses to a higher standard when it comes to how they collect, store, and use this data.
-The ultimate goal of GDPR?
-It’s to give EU citizens control over their personal data and change the data privacy approach of organizations across the world. PII includes name, emails, physical address, IP address, health information, income, etc. You can read the full text of the regulation.
+To protect users’ personally identifiable information (PII-name, emails, physical address, IP address, health information, income, etc) European Union  has pput in place GDPR regulation that hold businesses to a higher standard when it comes to how they collect, store, and use the data. The ultimate goal of GDPR is to challenge the data privacy approach of organizations across the world to give EU citizens control over their personal data . 
 
 ## Health Insurance Portability and Accountability Act (HIPAA)
 
