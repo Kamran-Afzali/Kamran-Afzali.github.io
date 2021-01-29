@@ -34,6 +34,7 @@ Several automated de-identification programs have been developed in recent years
 + Tools for reducing the risk of re-identification from indirect identifiers in record-level data
 + Tools for handling aggregate data sets.
 
+Here we are going to focus on some R packages for handling direct identifiers and reducing the risk of re-identification.
 
 ### Package ‘detector’
 detector makes detecting data containing Personally Identifiable Information (PII) quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, detector will be able to detect the following types of PII.
