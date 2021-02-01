@@ -9,7 +9,7 @@ To protect users’ personally identifiable information (PII-name, emails, physi
 
 ## Health Insurance Portability and Accountability Act (HIPAA)
 
-HIPAA came into force in 1996. It was designed to make health insurance coverage fairer for employees moving between jobs. It also sought to reduce the cost of health care by bringing in a more standardised process for financial transactions and admin. Through the “Privacy Rule” contained within the legislation, HIPAA also sets out requirements designed to protect sensitive personal health information (PHI). As well as setting out data governance procedures in areas such as billing and admin, this Rule sets out the right of patients to receive copies of PHI from organisations. It also stipulates the circumstances under which healthcare providers may disclose this information to third parties – and when express patient permission is needed for this.
+HIPAA is specifically designed for healthcare purposes in 1996 with the perspective of reducing the cost of health care by creating a standardised process for financial transactions and admin. HIPAA also sets out requirements intended to protect different types if sensitive personal health information (PHI) by implementation of data governance procedures. It also specifies the circumstances where healthcare providers may disclose this information to third parties with or without patients’ consent.
 
 ## The Personal Information Protection and Electronic Documents Act (PIPEDA)
 
