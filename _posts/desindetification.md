@@ -13,11 +13,12 @@ HIPAA is specifically designed for healthcare purposes in 1996 with the perspect
 
 ## The Personal Information Protection and Electronic Documents Act (PIPEDA)
 
-Organizations covered by PIPEDA must generally obtain an individual's consent when they collect, use or disclose that individual's personal information. People have the right to access their personal information held by an organization. They also have the right to challenge its accuracy. Personal information can only be used for the purposes for which it was collected. If an organization is going to use it for another purpose, they must obtain consent again. Personal information must be protected by appropriate safeguards. Under PIPEDA, personal information includes any factual or subjective information, recorded or not, about an identifiable individual. This includes information in any form, such as:
+Under Canadian PIPEDA, personal information includes any type of subjective or objective information, about an identifiable person. This includes information in any form, such as:
++ PIIs including age, name, ID numbers, income, ethnic origin, or blood type
++ Subjective opinions, evaluations, as well as intentions (for example, to acquire goods or services, or change jobs), comments, social status, or disciplinary actions
++ Factual and background details such as employee files, credit records, loan records, medical records, existence of a dispute between a consumer and a merchant.
+PIPEDA requires organizations to obtain the data owners’ consent when they collect, use or disclose the information. Personal information can only be used for the purposes for which it was collected in case an organization is going to use it for another purpose, they must obtain consent again. Personal information must be protected by appropriate safeguards. Data owners have the right to access their personal information held by an organization and challenge its accuracy. 
 
-+	age, name, ID numbers, income, ethnic origin, or blood type
-+	opinions, evaluations, comments, social status, or disciplinary actions
-+	employee files, credit records, loan records, medical records, existence of a dispute between a consumer and a merchant, intentions (for example, to acquire goods or services, or change jobs).
 
 ## Deidentification
 
