@@ -22,7 +22,7 @@ PIPEDA requires organizations to obtain the data owners’ consent when they col
 
 ## Deidentification
 
-Deidentification is the process of removing personally identifiable information (PII) from data. PII can include items such as banking information, Social Security numbers, and addresses. This topic is valuable because data deidentification protects the privacy of individuals and is important in many industries, including but not limited to health care, banking, pharmaceuticals, and education. Deidentification ensures compliance to ethical and legal standards of data collection and analysis.
+Deidentification is the process of removing personally identifiable information (PII) from the raw data. This procedure ensures compliance to legal and ethical standards of data collection, storage, and analysis. PII can include items such as nominal information, social security numbers, health insurance number, and addresses. The procedures and methodology of deidentification is important as it protects the privacy of individuals and prevents any biased use or interpretation of the data.
 
 ## Risk of re-identification and K-anonymity
 A shared database provides K-anonymity protection if the information about each person in the release cannot be distinguished from at least k-1 individuals whose information is also included in the release. 
