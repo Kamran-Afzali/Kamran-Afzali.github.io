@@ -14,7 +14,7 @@ HIPAA is specifically designed for healthcare purposes in 1996 with the perspect
 ## The Personal Information Protection and Electronic Documents Act (PIPEDA)
 
 Under Canadian PIPEDA, personal information includes any type of subjective or objective information, about an identifiable person. This includes information in any form, such as:
-+ PIIs including age, name, ID numbers, income, ethnic origin, or blood type
++ Personally identifiable information (PII) including age, name, ID numbers, income, ethnic origin, or blood type
 + Subjective opinions, evaluations, as well as intentions (for example, to acquire goods or services, or change jobs), comments, social status, or disciplinary actions
 + Factual and background details such as employee files, credit records, loan records, medical records, existence of a dispute between a consumer and a merchant.
 PIPEDA requires organizations to obtain the data owners’ consent when they collect, use or disclose the information. Personal information can only be used for the purposes for which it was collected in case an organization is going to use it for another purpose, they must obtain consent again. Personal information must be protected by appropriate safeguards. Data owners have the right to access their personal information held by an organization and challenge its accuracy. 
@@ -38,7 +38,7 @@ Several automated de-identification programs have been developed in recent years
 Here we are going to focus on some R packages for handling direct identifiers and reducing the risk of re-identification.
 
 ### Package ‘detector’
-detector makes detecting data containing Personally Identifiable Information (PII) quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, detector will be able to detect the following types of PII.
+The detector package aimes to make identification of  data containing PIIs quick, easy, and scalable. It provides high-level functions that can take vectors and dataframes and return important summary statistics in a convenient dataframe foramt. The function detect() is  able to detect the different types of PII (e.g. name, social security number, etc.).
 
 ```r
 if (packageVersion("devtools") < 1.6) {
@@ -71,7 +71,7 @@ ashley_madison %>%
 ```
 
 ### Package ‘anonymizer’
-Package ‘anonymizer’ uses a mix of methods to replace PII with a random unique identifier (Hendricks, 2015). The package can be installed from CRAN or from GitHub depending on your version of R.
+Package ‘anonymizer’ proposes several options for replacing PIIs with a random unique identifier (Hendricks, 2015). The package can be installed from CRAN or from GitHub depending on your version of R.
 
 ```r
 ashley_madison[] <- lapply(ashley_madison, anonymize, .algo = "crc32")
@@ -79,7 +79,7 @@ ashley_madison %>%
   knitr::kable(format = "markdown")
 ```
 ### Package ‘deidentifyr’
-Another package that can be used for data deidentification is ‘deidentifyr.’ Using a slightly longer SHA-256 hash to generate a unique ID code, this package aims to avoid the potential recovery of hashed PII (Wilcox, 2019). This package is not yet on CRAN, but can be installed from GitHub. 'deidentify()' will generate a unique ID from personally identifying information. Because the IDs are generated with the SHA-256 algorithm, they are a) very unlikely to be the same for people with different identifying information, and b) nearly impossible to recover the identifying information from.
+Another package that can be used for data deidentification is ‘deidentifyr.’ This package aims to avoid the potential recovery of hashed PIIs by using a longer SHA-256 hash to generate a unique ID code (Wilcox, 2019). This package is not yet on CRAN, but can be installed from the author's GitHub. The functtion 'deidentify()' will generate a unique ID from personally identifying information. Because the IDs are generated with the SHA-256 algorithm, they are a) very unlikely to be the same for people with different identifying information, and b) nearly impossible to recover the identifying information from.
 
 ```{r, eval = FALSE}
 devtools::install_github('wilkox/deidentifyr')
