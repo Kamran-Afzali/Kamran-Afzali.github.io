@@ -120,7 +120,9 @@ combined_data
 ```
 
 ### Package ‘digest’
-A third package that can be used is ‘digest.’ This package generates a hashed character string and a variety of algorithms can be used depending on your need (Eddelbuettel et al., 2020). The digest package provides a principal function digest() for the creation of hash digests of arbitrary R objects (using the md5, sha-1, sha-256, crc32, xxhash, murmurhash, spookyhash and blake3 algorithms) permitting easy comparison of R language objects.
+
+The third package that can be used in the context of deidentification is ‘digest.’ This package generates hashed character strings based on a variety of algorithms (e.g. md5, sha-1, sha-256, crc32, xxhash, murmurhash, spookyhash and blake3 algorithms). The digest package provides a principal function digest() that creats hash digests of arbitrary R objects permitting easy deidentification of R language objects not limited to vectors and dataframes (Eddelbuettel et al., 2020).
+
 
 ```r
 library(digest)
@@ -160,7 +162,7 @@ stretch_key('abc123', 65e3) == stretch_key2('abc123', 65e3)
 ```
 
 ### Package ‘duawranglr’
-This package offers a set of functions to help users create shareable data sets from raw data files that contain protected elements. Relying on master crosswalk files that list restricted variables, package functions warn users about possible violations of data usage agreement and prevent writing protected elements.
+Similar to above this package offers a set of functions to help users create shareable data sets from raw data files with protected elements. Relying on a master crosswalk files that lists variables to be restricted, package functions (e.g. deid_dua) warn users about possible violations of data usage agreement and prevent writing protected elements.
 
 ```{r, echo = FALSE}
 ## deidentify data
@@ -175,7 +177,7 @@ df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
 
 ### Package ‘easySdcTable’
 
-This package provides functions to create shareable datasets based on K-anonymity. The main function, ProtectTable (), performs row deletion according to a frequency rule predefined by K-anonymity on a dataset. The functions, protectLinkedTables () or runArgusBatchFile () for linked tables (relational databases) or batch tables that generalize the same structure. 
+This package provides functions to create shareable datasets based on K-anonymity. The main function, ProtectTable(), performs row deletion according to a frequency rule predefined by K-anonymity on a dataset. The functions, protectLinkedTables () or runArgusBatchFile () for linked tables (relational databases) or batch tables that generalize the same structure. 
 
 ```r
 ex2w <- ProtectTable(z2w,1,4:7) 
