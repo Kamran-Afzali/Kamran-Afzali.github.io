@@ -175,8 +175,6 @@ library(duawranglr)
 tmpdir <- tempdir()
 df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20,
                crosswalk_filename = file.path(tmpdir, 'tmp.csv'))
-```
-```{r, eval = FALSE}
 ## deidentify data
 df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
 ```
