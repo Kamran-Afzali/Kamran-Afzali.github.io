@@ -44,6 +44,8 @@ The detector package aimes to make identification of  data containing PIIs quick
 if (packageVersion("devtools") < 1.6) {
   install.packages("devtools")
 }
+
+
 devtools::install_github("paulhendricks/detector")
 
 
@@ -74,6 +76,8 @@ ashley_madison %>%
 Package ‘anonymizer’ proposes several options for replacing PIIs with a random unique identifier (Hendricks, 2015). The package can be installed from CRAN or from GitHub depending on your version of R.
 
 ```r
+install.packages("anonymizer")
+library(anonymizer)
 ashley_madison[] <- lapply(ashley_madison, anonymize, .algo = "crc32")
 ashley_madison %>% 
   knitr::kable(format = "markdown")
@@ -81,11 +85,10 @@ ashley_madison %>%
 ### Package ‘deidentifyr’
 Another package that can be used for data deidentification is ‘deidentifyr.’ This package aims to avoid the potential recovery of hashed PIIs by using a longer SHA-256 hash to generate a unique ID code (Wilcox, 2019). This package is not yet on CRAN, but can be installed from the author's GitHub. The functtion 'deidentify()' will generate a unique ID from personally identifying information. Because the IDs are generated with the SHA-256 algorithm, they are a) very unlikely to be the same for people with different identifying information, and b) nearly impossible to recover the identifying information from.
 
-```{r, eval = FALSE}
-devtools::install_github('wilkox/deidentifyr')
-```
+```r
 
-```{r, include = FALSE}
+devtools::install_github('wilkox/deidentifyr')
+library(deidentifyr)
 set.seed(1)
 n <- 10
 MRNs <- sample(10000000:99999999, n)
@@ -96,13 +99,13 @@ patient_data <- data.frame(MRN = MRNs, DOB = DOBs,
 patient_data
 ```
 
-```{r}
+```r
 library(deidentifyr)
 patient_data <- deidentify(patient_data, MRN, DOB)
 patient_data
 ```
 
-```{r, include = FALSE}
+```r
 sexes <- sample(c("F", "M"), n, replace = T)
 patient_data2 <- data.frame(MRN = MRNs, DOB = DOBs, 
                            sex = sexes)
@@ -125,6 +128,7 @@ The third package that can be used in the context of deidentification is ‘dige
 
 
 ```r
+install.packages("digest")
 library(digest)
 
 #vectorisation
@@ -164,7 +168,9 @@ stretch_key('abc123', 65e3) == stretch_key2('abc123', 65e3)
 ### Package ‘duawranglr’
 Similar to above this package offers a set of functions to help users create shareable data sets from raw data files with protected elements. Relying on a master crosswalk files that lists variables to be restricted, package functions (e.g. deid_dua) warn users about possible violations of data usage agreement and prevent writing protected elements.
 
-```{r, echo = FALSE}
+```r
+install.packages("duawranglr")
+library(duawranglr)
 ## deidentify data
 tmpdir <- tempdir()
 df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20,
@@ -180,6 +186,8 @@ df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
 This package provides functions to create shareable datasets based on K-anonymity. The main function, ProtectTable(), performs row deletion according to a frequency rule predefined by K-anonymity on a dataset. The functions, protectLinkedTables () or runArgusBatchFile () for linked tables (relational databases) or batch tables that generalize the same structure. 
 
 ```r
+install.packages("easySdcTable")
+library(easySdcTable)
 ex2w <- ProtectTable(z2w,1,4:7) 
 ex2wHITAS <- ProtectTable(z2w,dimVar = c("region"),freqVar = c("annet", "arbeid", "soshjelp", "trygd"), method="HITAS") 
 ```
