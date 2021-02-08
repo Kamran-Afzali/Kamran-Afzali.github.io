@@ -45,15 +45,16 @@ if (packageVersion("devtools") < 1.6) {
   install.packages("devtools")
 }
 
-
 devtools::install_github("paulhendricks/detector")
-
-
 library(dplyr, warn.conflicts = FALSE)
 library(generator)
-n <- 6
+library(detector)
+
+
+
+n <- 10
 set.seed(1)
-ashley_madison <- 
+nominal_data <- 
   data.frame(name = r_full_names(n), 
              snn = r_national_identification_numbers(n), 
              dob = r_date_of_births(n), 
@@ -66,8 +67,7 @@ ashley_madison <-
              stringsAsFactors = FALSE)
 knitr::kable(ashley_madison, format = "markdown")
 
-library(detector)
-ashley_madison %>% 
+nominal_data %>% 
   detect %>% 
   knitr::kable(format = "markdown")
 ```
@@ -76,10 +76,14 @@ ashley_madison %>%
 Package ‘anonymizer’ proposes several options for replacing PIIs with a random unique identifier (Hendricks, 2015). The package can be installed from CRAN or from GitHub depending on your version of R.
 
 ```r
+devtools::install_github("paulhendricks/anonymizer")
 install.packages("anonymizer")
 library(anonymizer)
-ashley_madison[] <- lapply(ashley_madison, anonymize, .algo = "crc32")
-ashley_madison %>% 
+
+non_nominal_data=nominal_data
+
+non_nominal_data[] <- lapply(nominal_data, anonymize, .algo = "crc32")
+non_nominal_data %>% 
   knitr::kable(format = "markdown")
 ```
 ### Package ‘deidentifyr’
@@ -97,27 +101,19 @@ days_in_hospitals <- sample(1:100, n, replace = T)
 patient_data <- data.frame(MRN = MRNs, DOB = DOBs, 
                            days_in_hospital = days_in_hospitals)
 patient_data
-```
 
-```r
 library(deidentifyr)
 patient_data <- deidentify(patient_data, MRN, DOB)
 patient_data
-```
 
-```r
 sexes <- sample(c("F", "M"), n, replace = T)
 patient_data2 <- data.frame(MRN = MRNs, DOB = DOBs, 
                            sex = sexes)
-```
 
-```{r}
 patient_data2
 patient_data2 <- deidentify(patient_data2, DOB, MRN)
 patient_data2
-```
 
-```r
 combined_data <- merge(patient_data, patient_data2, by = "id")
 combined_data
 ```
