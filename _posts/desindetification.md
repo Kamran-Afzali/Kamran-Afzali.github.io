@@ -90,32 +90,39 @@ non_nominal_data %>%
 Another package that can be used for data deidentification is ‘deidentifyr.’ This package aims to avoid the potential recovery of hashed PIIs by using a longer SHA-256 hash to generate a unique ID code (Wilcox, 2019). This package is not yet on CRAN, but can be installed from the author's GitHub. The functtion 'deidentify()' will generate a unique ID from personally identifying information. Because the IDs are generated with the SHA-256 algorithm, they are a) very unlikely to be the same for people with different identifying information, and b) nearly impossible to recover the identifying information from.
 
 ```r
-
 devtools::install_github('wilkox/deidentifyr')
 library(deidentifyr)
-set.seed(1)
+set.seed(1234)
 n <- 10
-MRNs <- sample(10000000:99999999, n)
+SSNs <- sample(10000000:99999999, n)
 DOBs <- lubridate::today() - lubridate::dyears(sample(18:99, n, replace = T))
-days_in_hospitals <- sample(1:100, n, replace = T)
-patient_data <- data.frame(MRN = MRNs, DOB = DOBs, 
-                           days_in_hospital = days_in_hospitals)
-patient_data
 
-library(deidentifyr)
-patient_data <- deidentify(patient_data, MRN, DOB)
-patient_data
+days_in_hospitals <- sample(1:100, n, replace = T)
+
+nominal_patient_data <- data.frame(SSN = SSNs, DOB = DOBs, 
+                           days_in_hospital = days_in_hospitals)
+nominal_patient_data%>% 
+  knitr::kable(format = "markdown")
+
+masked_patient_data <- deidentify(nominal_patient_data, SSN, DOB)
+
+masked_patient_data%>% 
+  knitr::kable(format = "markdown")
 
 sexes <- sample(c("F", "M"), n, replace = T)
-patient_data2 <- data.frame(MRN = MRNs, DOB = DOBs, 
-                           sex = sexes)
+nominal_patient_data2 <- data.frame(SSN = SSNs, DOB = DOBs, sex = sexes)
 
-patient_data2
-patient_data2 <- deidentify(patient_data2, DOB, MRN)
-patient_data2
+nominal_patient_data2%>% 
+  knitr::kable(format = "markdown")
+  
+masked_patient_data2 <- deidentify(nominal_patient_data2, DOB, SSN)
 
-combined_data <- merge(patient_data, patient_data2, by = "id")
-combined_data
+masked_patient_data2%>% 
+  knitr::kable(format = "markdown")
+
+combined_data <- merge(masked_patient_data, masked_patient_data2, by = "id")
+combined_data%>% 
+  knitr::kable(format = "markdown")
 ```
 
 ### Package ‘digest’
