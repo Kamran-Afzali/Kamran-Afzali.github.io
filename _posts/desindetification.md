@@ -132,40 +132,41 @@ The third package that can be used in the context of deidentification is ‘dige
 
 ```r
 install.packages("digest")
+install.packages("rbenchmark")
 library(digest)
+library(rbenchmark)
 
 #vectorisation
 md5 <- getVDigest()
 digest2 <- base::Vectorize(digest)
 x <- rep(letters, 1e3)
 rbenchmark::benchmark(
-    vdigest = md5(x, serialize = FALSE),
-    Vectorize = digest2(x, serialize = FALSE),
-    vapply = vapply(x, digest, character(1), serialize = FALSE),
-    replications = 5
+  vdigest = md5(x, serialize = FALSE),
+  Vectorize = digest2(x, serialize = FALSE),
+  vapply = vapply(x, digest, character(1), serialize = FALSE),
+  replications = 5
 )[,1:4]
-all(md5(x, serialize=FALSE) == digest2(x, serialize=FALSE))
-all(md5(x, serialize=FALSE) == vapply(x, digest, character(1), serialize = FALSE))
 
-#repeated calls
-stretch_key <- function(d, n) {
-    md5 <- getVDigest()
-    for (i in seq_len(n))
-        d <- md5(d, serialize = FALSE)
-    d
-}
 
-stretch_key2 <- function(d, n) {
-    for (i in seq_len(n))
-        d <- digest(d, serialize = FALSE)
-    d
-}
-rbenchmark::benchmark(
-    vdigest = stretch_key('abc123', 65e3),
-    plaindigest = stretch_key2('abc123', 65e3),
-    replications = 10
-)[,1:4]
-stretch_key('abc123', 65e3) == stretch_key2('abc123', 65e3)
+set.seed(1234)
+n <- 10
+SSNs <- sample(10000000:99999999, n)
+DOBs <- lubridate::today() - lubridate::dyears(sample(18:99, n, replace = T))
+
+days_in_hospitals <- sample(1:100, n, replace = T)
+
+nominal_patient_data <- data.frame(SSN = SSNs, DOB = DOBs, 
+                                   days_in_hospital = days_in_hospitals)
+nominal_patient_data%>% 
+  knitr::kable(format = "markdown")
+
+masked_patient_data=nominal_patient_data
+
+masked_patient_data$SSN=md5(as.vector(masked_patient_data$SSN))
+masked_patient_data$DOB=md5(as.vector(masked_patient_data$DOB))
+masked_patient_data%>% 
+  knitr::kable(format = "markdown")
+
 ```
 
 ### Package ‘duawranglr’
