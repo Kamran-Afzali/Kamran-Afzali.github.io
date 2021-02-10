@@ -173,14 +173,24 @@ masked_patient_data%>%
 Similar to above this package offers a set of functions to help users create shareable data sets from raw data files with protected elements. Relying on a master crosswalk files that lists variables to be restricted, package functions (e.g. deid_dua) warn users about possible violations of data usage agreement and prevent writing protected elements.
 
 ```r
-install.packages("duawranglr")
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(readr))
 library(duawranglr)
-## deidentify data
+dua_cw_file <- system.file('extdata', 'dua_cw.csv', package = 'duawranglr')
+admin_file <- system.file('extdata', 'admin_data.csv', package = 'duawranglr')
+set_dua_cw(dua_cw_file)
+see_dua_options(level = c('level_ii', 'level_iii'))
+set_dua_level('level_ii', deidentify_required = TRUE, id_column = 'sid')
+see_dua_level(show_restrictions = TRUE)
+see_dua_level(show_restrictions = TRUE)
+df <- read_dua_file(admin_file)
+df%>% 
+  knitr::kable(format = "markdown")
+
 tmpdir <- tempdir()
-df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20,
-               crosswalk_filename = file.path(tmpdir, 'tmp.csv'))
-## deidentify data
-df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
+df <- deid_dua(df, write_crosswalk = TRUE, id_length = 20, crosswalk_filename = file.path(tmpdir, 'tmp.csv'))
+df%>% 
+  knitr::kable(format = "markdown")
 ```
 
 ### Package ‘easySdcTable’
