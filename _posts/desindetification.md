@@ -198,10 +198,17 @@ df%>%
 This package provides functions to create shareable datasets based on K-anonymity. The main function, ProtectTable(), performs row deletion according to a frequency rule predefined by K-anonymity on a dataset. The functions, protectLinkedTables () or runArgusBatchFile () for linked tables (relational databases) or batch tables that generalize the same structure. 
 
 ```r
-install.packages("easySdcTable")
-library(easySdcTable)
-ex2w <- ProtectTable(z2w,1,4:7) 
-ex2wHITAS <- ProtectTable(z2w,dimVar = c("region"),freqVar = c("annet", "arbeid", "soshjelp", "trygd"), method="HITAS") 
+set.seed(1234)
+n <- 1000
+SSNs <- sample(10000000:99999999, n)
+DOBs <- lubridate::today() - lubridate::dyears(sample(1:100, n, replace = T))
+Region <- sample(c("a","b","c", "d","e","f","g"), n, replace = T)
+Sex <- sample(c("m","w"), n, replace = T)
+days_in_hospitals <- sample(1:100, n, replace = T)
+nominal_patient_data <- data.frame(SSN = SSNs, DOB = DOBs, days_in_hospital = days_in_hospitals, Region=Region, Sex=Sex)
+K_ano_patient_data=ProtectTable(nominal_patient_data,dimVar = c("Region","Sex"), freqVar = c("days_in_hospital"), method="HITAS") 
+K_ano_patient_data$data
+
 ```
 
 +	Paul Hendricks (2015). [“Package ‘detector’.”](https://cran.r-project.org/web/packages/detector/index.html)
