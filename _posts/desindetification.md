@@ -289,12 +289,6 @@ rbenchmark::benchmark(
 )[,1:4]
 ```
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["test"],"name":[1],"type":["chr"],"align":["left"]},{"label":["replications"],"name":[2],"type":["int"],"align":["right"]},{"label":["elapsed"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["relative"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"vapply","2":"5","3":"1.083","4":"5.415","_rn_":"3"},{"1":"vdigest","2":"5","3":"0.200","4":"1.000","_rn_":"1"},{"1":"Vectorize","2":"5","3":"1.325","4":"6.625","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-
 ```r
 set.seed(1234)
 n <- 10
