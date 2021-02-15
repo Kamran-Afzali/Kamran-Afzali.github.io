@@ -1,12 +1,14 @@
-
-
 ---
-title: "R Notebook"
-output:
-  html_document:
-    df_print: paged
-    keep_md: yes
+layout: post
+categories: posts
+title: De-Identification Packages in R   
+featured-image: /images/st.jpg
+tags: [De-Identification, K-anonymity , Privacy]
+date-string: January 2021
 ---
+
+# De-Identification Packages in R
+
 
 In the context of healthcare data where governance dimensions such as ethics and security can be unclear and prone to interpretations concepts of privacy and anonymity (reffering to GDPR in the EU, HIPAA in the US, PIPEDA in Canada) has now become part of business-as-usual considerations. 
 
@@ -439,9 +441,6 @@ nominal_patient_data <- data.frame(SSN = SSNs, DOB = DOBs, days_in_hospital = da
 K_ano_patient_data=ProtectTable(nominal_patient_data,dimVar = c("Region","Sex"), freqVar = c("days_in_hospital"), method="HITAS") 
 ```
 
-```
-## .....
-```
 
 ```r
 head(K_ano_patient_data$data)%>% 
