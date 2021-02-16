@@ -9,9 +9,7 @@ date-string: January 2021
 
 # De-Identification Packages in R
 
-
 In the context of healthcare data where governance dimensions such as ethics and security can be unclear and prone to interpretations concepts of privacy and anonymity (reffering to GDPR in the EU, HIPAA in the US, PIPEDA in Canada) has now become part of business-as-usual considerations. 
-
 
 ## General Data Protection Regulation (GDPR)
 
@@ -355,9 +353,7 @@ library(duawranglr)
 dua_cw_file <- system.file('extdata', 'dua_cw.csv', package = 'duawranglr')
 admin_file <- system.file('extdata', 'admin_data.csv', package = 'duawranglr')
 set_dua_cw(dua_cw_file)
-```
 
-```r
 see_dua_options(level = c('level_ii', 'level_iii'))
 
 set_dua_level('level_ii', deidentify_required = TRUE, id_column = 'sid')
