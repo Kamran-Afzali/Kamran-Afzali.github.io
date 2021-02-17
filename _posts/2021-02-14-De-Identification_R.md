@@ -4,7 +4,7 @@ categories: posts
 title: De-Identification Packages in R   
 featured-image: /images/DID.jpeg
 tags: [De-Identification, K-anonymity , Privacy]
-date-string: January 2021
+date-string: February 2021
 ---
 
 # De-Identification Packages in R
