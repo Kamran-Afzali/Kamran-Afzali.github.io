@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: FAIR Principles    
-featured-image: /images/DID.jpeg
+featured-image: /images/FAIR.png
 tags: [FAIR, Findability, Accessibility, Interoperability, and Reusability]
 date-string: MARCH 2021
 ---
