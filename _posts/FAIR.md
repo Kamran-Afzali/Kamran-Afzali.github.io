@@ -13,12 +13,61 @@ A March 2016 publication by a consortium of scientists and organizations specifi
 
 The authors intended to provide guidelines to improve the findability, accessibility, interoperability, and reuse of digital assets. The FAIR principles emphasize machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
 
-Factors affecting value of data 
+The FAIR Data Principles apply to metadata, data, and supporting infrastructure (e.g., search engines). Most of the requirements for findability and accessibility can be achieved at the metadata level. Interoperability and reuse require more efforts at the data level. 
+
+## Findable
+
+The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services.
+
++ F1. (Meta)data are assigned a globally unique and persistent identifier
+
++ F2. Data are described with rich metadata (defined by R1 below)
+
++ F3. Metadata clearly and explicitly include the identifier of the data they describe
+
++ F4. (Meta)data are registered or indexed in a searchable resource
+
+## Accessible
+
+Once the user finds the required data, she/he needs to know how can they be accessed, possibly including authentication and authorisation.
+
++ A1. (Meta)data are retrievable by their identifier using a standardised communications protocol
+
++ A1.1 The protocol is open, free, and universally implementable
+
++ A1.2 The protocol allows for an authentication and authorisation procedure, where necessary
+
++ A2. Metadata are accessible, even when the data are no longer available
+
+## Interoperable
+
+The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing.
+
++ I1. (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+
++ I2. (Meta)data use vocabularies that follow FAIR principles
+
++ I3. (Meta)data include qualified references to other (meta)data
+
+## Reusable
+
+The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, metadata and data should be well-described so that they can be replicated and/or combined in different settings.
+
++ R1. (Meta)data are richly described with a plurality of accurate and relevant attributes
+
++ R1.1. (Meta)data are released with a clear and accessible data usage license
+
++ R1.2. (Meta)data are associated with detailed provenance
+
++ R1.3. (Meta)data meet domain-relevant community standards
+
+## Factors affecting value of data 
+
 There are national initiatives underway to support the ubiquitous exchange, sharing, and reuse of operational clinical data stored in EHRs Just because information can be exchanged electronically does not mean it can be digitally analyzed. Data need to be structured using clear electronic standards such as FAIR principles to improve the management and organization of health care data for professionals and clinicians to analyze and use data for critical decision making.
 
 
-Nature of data 
-Data access and availability 
+## Nature of data 
+## Data access and availability 
 Data access and availability refer to how quickly data is available to the buyer after it is created. Contemporaneous data is one that is immediately available for analysis. 
 The age of the data can increase or decrease its value, but in general, rapid access to fresh data is thought to be of more value, as it provides real-time insights and enables timely informed decisions. 
 Exclusivity or scarcity 
@@ -35,19 +84,19 @@ Altered or inaccurate data may result in misleading conclusions and faulty decis
 It should be noted, however, that many third-party data aggregators and resellers may clean and organise data to make it easier to analyse. The incremental increase of data value resulting from this analytical process is addressed in 5.1.2 of the framework and should be weighted against the increased risk of data alteration
 
 
-Data quality, maturity and embedded analytics insights 
-Data maturity 
+## Data quality, maturity and embedded analytics insights 
+## Data maturity 
 The concept of data maturity addresses the progression of a data set along the data analytics process. 
 More often than not, raw data sets are disorganised and complex, or lack structure. To extract insights from it, one must clean, organise and analyse it. 
 Complexity of data capture 
-Data capture 
+## Data capture 
 The value of data is also affected by the effort and risk associated with capturing it. In general, data that is auto captured as a by-product of everyday business processes would generally be perceived as less valuable — on a cost-approach basis — than the data that is collected in a separate process with human intervention and by including or not including other incremental resources involved in the process. 
-Accessibility of data 
+## Accessibility of data 
 Generally speaking, any restrictions on access to data that is perceived by multiple parties as useful to their decision-making processes will increase its value. Hence, the value of data that is freely available to any interested party would be lower than the value of the data that calls for certain qualifications from the potential buyer, ranging from a monetary payment or through qualifications, such as citizenship or a need to submit a use case request. 
 In the case of government or public data sets, a monetary payment set for accessing may not reflect full market value of the data across multiple user groups. When using such payments as price benchmarks in an fair market value (FMV) assessment, careful consideration should be given to understanding the price formation of such access restrictions and their consistency with true market value of the data. 
 For example, government data, such as census results, allows for ready resource allocation, capital investment planning, policy-making and monitoring numerous other benefits. In the G20 countries, open-sourced data is estimated to be valued between US$700bn and US$950bn per annum according to a 2014 study by Lateral Economics. 
-Use or application 
-Use and potential impact 
+## Use or application 
+## Use and potential impact 
 The ultimate determinant of data value is its use and application — its power to inform decisions. These may range from ongoing daily operating decisions of a pharmaceutical company, to reducing time to market for new medicines and improving patient adherence to therapy. 
 The more uses the data set has to multiple buyers, and the more risky and impactful are the resulting decisions on the user’s long-term strategy and operations, the more valuable it is to the buyers. 
 
