@@ -3,7 +3,7 @@ layout: post
 categories: posts
 title: FAIR Principles    
 featured-image: /images/FAIR.png
-tags: [FAIR, Findability, Accessibility, Interoperability, and Reusability]
+tags: [FAIR, Findability, Accessibility, Interoperability, Reusability]
 date-string: MARCH 2021
 ---
 
@@ -33,9 +33,9 @@ Once the user finds the required data, she/he needs to know how can they be acce
 
 + A1. (Meta)data are retrievable by their identifier using a standardised communications protocol
 
-+ A1.1 The protocol is open, free, and universally implementable
+  + A1.1 The protocol is open, free, and universally implementable
 
-+ A1.2 The protocol allows for an authentication and authorisation procedure, where necessary
+  + A1.2 The protocol allows for an authentication and authorisation procedure, where necessary
 
 + A2. Metadata are accessible, even when the data are no longer available
 
