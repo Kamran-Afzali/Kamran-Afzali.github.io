@@ -15,6 +15,14 @@ The authors intended to provide guidelines to improve the findability, accessibi
 
 The FAIR Data Principles apply to metadata, data, and supporting infrastructure (e.g., search engines). Most of the requirements for findability and accessibility can be achieved at the metadata level. Interoperability and reuse require more efforts at the data level. 
 
+
+The FAIR Data Principles make data more valuable as it is easier to find through unique identifiers and easier to combine and integrate thanks to the formal shared knowledge representation. Such data is easier to reuse, repurpose and share because machines have the means to understand where data comes from and what it is about. It also accelerates research, boosts cooperation and facilitates reuse in scientific research. Policymakers and stakeholders have seen its value in driving innovation and many have embraced these principles.
+
+As early as in 2016, the leaders of the G20 voiced their support to research based on open science and the FAIR principles. The European Union has also embraced them and had an expert group report on how to turn FAIR into reality.
+
+In the United States, the Office of Science at the Department of Energy announced in April 2020 a total of US$8.5 million for new research aimed at advancing the FAIR Data Principles in Artificial Intelligence (AI) research and development.
+
+
 ## Findable
 
 The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services.
@@ -103,3 +111,7 @@ The more uses the data set has to multiple buyers, and the more risky and impact
 https://www.go-fair.org/fair-principles/
 
 https://portagenetwork.ca/
+
+Wise, J., de Barron, A. G., Splendiani, A., Balali-Mood, B., Vasant, D., Little, E., ... & Hedley, V. (2019). Implementation and relevance of FAIR data principles in biopharmaceutical R&D. Drug discovery today, 24(4), 933-938.  https://www.sciencedirect.com/science/article/pii/S1359644618303039
+
+Jansen, P., van den Berg, L., van Overveld, P., & Boiten, J. W. (2019). Research data stewardship for healthcare professionals. Fundamentals of Clinical Data Science, 37-53.https://www.ncbi.nlm.nih.gov/books/NBK543528/
