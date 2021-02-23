@@ -9,12 +9,17 @@ date-string: MARCH 2021
 
 # FAIR Principles
 
-A March 2016 publication by a consortium of scientists and organizations specified the "FAIR Guiding Principles for scientific data management and stewardship" in Scientific Data, using FAIR as an acronym and making the concept easier to discuss.
+## Factors Affecting Value of Healthcare Data 
+
+There are national initiatives underway to support the ubiquitous exchange, sharing, and reuse of operational clinical data stored in EHRs Just because information can be exchanged electronically does not mean it can be digitally analyzed. Data need to be structured using clear electronic standards such as FAIR principles to improve the management and organization of health care data for professionals and clinicians to analyze and use data for critical decision making.
+
+## FAIR Principles
+
+A publication by a consortium of scientists and organizations back in March 2016 specified the details of "FAIR Guiding Principles for scientific data management and stewardship" in Scientific Data, using FAIR as an acronym and making the concept easier to discuss.
 
 The authors intended to provide guidelines to improve the findability, accessibility, interoperability, and reuse of digital assets. The FAIR principles emphasize machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
 
 The FAIR Data Principles apply to metadata, data, and supporting infrastructure (e.g., search engines). Most of the requirements for findability and accessibility can be achieved at the metadata level. Interoperability and reuse require more efforts at the data level. 
-
 
 The FAIR Data Principles make data more valuable as it is easier to find through unique identifiers and easier to combine and integrate thanks to the formal shared knowledge representation. Such data is easier to reuse, repurpose and share because machines have the means to understand where data comes from and what it is about. It also accelerates research, boosts cooperation and facilitates reuse in scientific research. Policymakers and stakeholders have seen its value in driving innovation and many have embraced these principles.
 
@@ -69,9 +74,7 @@ The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, met
 
   + R1.3. (Meta)data meet domain-relevant community standards
 
-## Factors affecting value of data 
 
-There are national initiatives underway to support the ubiquitous exchange, sharing, and reuse of operational clinical data stored in EHRs Just because information can be exchanged electronically does not mean it can be digitally analyzed. Data need to be structured using clear electronic standards such as FAIR principles to improve the management and organization of health care data for professionals and clinicians to analyze and use data for critical decision making.
 
 
 ## Nature of data 
