@@ -11,7 +11,7 @@ date-string: MARCH 2021
 
 ## Factors Affecting Value of Healthcare Data 
 
-There are national initiatives underway to support the ubiquitous exchange, sharing, and reuse of operational clinical data stored in EHRs Just because information can be exchanged electronically does not mean it can be digitally analyzed. Data need to be structured using clear electronic standards such as FAIR principles to improve the management and organization of health care data for professionals and clinicians to analyze and use data for critical decision making.
+Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health  records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards  such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making.  
 
 ## FAIR Principles
 
