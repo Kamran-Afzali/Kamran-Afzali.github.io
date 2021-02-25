@@ -11,13 +11,11 @@ date-string: MARCH 2021
 
 ## Factors Affecting Value of Healthcare Data 
 
-Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health  records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards  such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making.  
+Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards  such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making.  
 
 ## FAIR Principles
 
-A publication by a consortium of scientists and organizations back in March 2016 specified the details of "FAIR Guiding Principles for scientific data management and stewardship" in Scientific Data, using FAIR as an acronym and making the concept easier to discuss.
-
-The authors intended to provide guidelines to improve the findability, accessibility, interoperability, and reuse of digital assets. The FAIR principles emphasize machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
+A publication by a consortium of scientists and organizations back in March 2016 specified the details of "FAIR Guiding Principles for scientific data management and stewardship" in Scientific Data, using FAIR as an acronym and making the concept easier to discuss. The authors of this document intended to promote general guidelines that improve the Findability, Accessibility, Interoperability, and Reuse of digital assets such as electronic health records. The FAIR principles emphasize that computerized systems should Find, Access, Interoperate, and Reuse the data with none or minimal human intervention (i.e., the capacity of machine-actionability) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
 
 The FAIR Data Principles apply to metadata, data, and supporting infrastructure (e.g., search engines). Most of the requirements for findability and accessibility can be achieved at the metadata level. Interoperability and reuse require more efforts at the data level. 
 
