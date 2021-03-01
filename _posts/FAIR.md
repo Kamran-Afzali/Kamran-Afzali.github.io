@@ -24,7 +24,7 @@ Focusing on the research based on open science, the FAIR principles received the
 
 ## Findable
 
-The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services.
+The first step in FAIRification of data is to facilitate finding them. Both data and metadata should be easy to find for computers and humans. Machine-readable metadata are essential for automatic discovery of datasets and services.
 
 + F1. (Meta)data are assigned a globally unique and persistent identifier
 
@@ -36,7 +36,7 @@ The first step in (re)using data is to find them. Metadata and data should be ea
 
 ## Accessible
 
-Once the user finds the required data, she/he needs to know how can they be accessed, possibly including authentication and authorisation.
+After finding the required data, the next step is to accesse the data possibly including authentication and authorisation procedures.
 
 + A1. (Meta)data are retrievable by their identifier using a standardised communications protocol
 
