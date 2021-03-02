@@ -11,7 +11,7 @@ date-string: MARCH 2021
 
 ## Factors Affecting Value of Healthcare Data 
 
-Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards  such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making.  
+Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards  such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making. The ultimate determinant of healthcare data value is its power to inform decisions. Application and utility of healthcare data may vary from ongoing daily operating decisions of a hospital, to reducing time to develpe for new treatments and enhancing patient adherence to therapy. Once the data has utility  for multiple stake holders, it's use impliese risky and impactful decisions afeecting long-term strategy and operations, which make it more valuable. 
 
 ## FAIR Principles
 
@@ -100,10 +100,7 @@ The value of data is also affected by the effort and risk associated with captur
 Generally speaking, any restrictions on access to data that is perceived by multiple parties as useful to their decision-making processes will increase its value. Hence, the value of data that is freely available to any interested party would be lower than the value of the data that calls for certain qualifications from the potential buyer, ranging from a monetary payment or through qualifications, such as citizenship or a need to submit a use case request. 
 In the case of government or public data sets, a monetary payment set for accessing may not reflect full market value of the data across multiple user groups. When using such payments as price benchmarks in an fair market value (FMV) assessment, careful consideration should be given to understanding the price formation of such access restrictions and their consistency with true market value of the data. 
 For example, government data, such as census results, allows for ready resource allocation, capital investment planning, policy-making and monitoring numerous other benefits. In the G20 countries, open-sourced data is estimated to be valued between US$700bn and US$950bn per annum according to a 2014 study by Lateral Economics. 
-## Use or application 
-## Use and potential impact 
-The ultimate determinant of data value is its use and application — its power to inform decisions. These may range from ongoing daily operating decisions of a pharmaceutical company, to reducing time to market for new medicines and improving patient adherence to therapy. 
-The more uses the data set has to multiple buyers, and the more risky and impactful are the resulting decisions on the user’s long-term strategy and operations, the more valuable it is to the buyers. 
+
 
 https://www.go-fair.org/fair-principles/
 
