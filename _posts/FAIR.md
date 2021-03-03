@@ -36,7 +36,7 @@ The first step in FAIRification of data is to facilitate finding them. Both data
 
 ## Accessible
 
-After finding the required data, the next step is to accesse the data possibly including authentication and authorisation procedures.
+After finding the required data, the next step is to accesse the data possibly including authentication and authorisation procedures.  In the G20 countries, open-sourced data is estimated to be valued between US$700bn and US$950bn per annum. For example, government data, such as census results, allows for ready resource allocation, capital investment planning, policy-making and monitoring numerous other benefits.
 
 + A1. (Meta)data are retrievable by their identifier using a standardised communications protocol
 
@@ -96,10 +96,7 @@ More often than not, raw data sets are disorganised and complex, or lack structu
 Complexity of data capture 
 ## Data capture 
 The value of data is also affected by the effort and risk associated with capturing it. In general, data that is auto captured as a by-product of everyday business processes would generally be perceived as less valuable — on a cost-approach basis — than the data that is collected in a separate process with human intervention and by including or not including other incremental resources involved in the process. 
-## Accessibility of data 
-Generally speaking, any restrictions on access to data that is perceived by multiple parties as useful to their decision-making processes will increase its value. Hence, the value of data that is freely available to any interested party would be lower than the value of the data that calls for certain qualifications from the potential buyer, ranging from a monetary payment or through qualifications, such as citizenship or a need to submit a use case request. 
-In the case of government or public data sets, a monetary payment set for accessing may not reflect full market value of the data across multiple user groups. When using such payments as price benchmarks in an fair market value (FMV) assessment, careful consideration should be given to understanding the price formation of such access restrictions and their consistency with true market value of the data. 
-For example, government data, such as census results, allows for ready resource allocation, capital investment planning, policy-making and monitoring numerous other benefits. In the G20 countries, open-sourced data is estimated to be valued between US$700bn and US$950bn per annum according to a 2014 study by Lateral Economics. 
+
 
 
 https://www.go-fair.org/fair-principles/
