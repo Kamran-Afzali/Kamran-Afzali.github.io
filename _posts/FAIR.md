@@ -11,7 +11,7 @@ date-string: MARCH 2021
 
 ## Factors Affecting Value of Healthcare Data 
 
-Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards  such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making. The ultimate determinant of healthcare data value is its power to inform decisions. Application and utility of healthcare data may vary from ongoing daily operating decisions of a hospital, to reducing time to develpe for new treatments and enhancing patient adherence to therapy. Once the data has utility  for multiple stake holders, it's use impliese risky and impactful decisions afeecting long-term strategy and operations, which make it more valuable. 
+Application and utility of healthcare data may vary from ongoing daily operating decisions of a hospital, to reducing time to develpe for new treatments and enhancing patient adherence to therapy. Once the data has utility  for multiple stake holders, it's use impliese risky and impactful decisions afeecting long-term strategy and operations, which make it more valuable. The value of data is also a function of the risk and effort associated with data collection. Auto captured data which is a by-product of everyday business processes would generally be perceived as less valuable compared to the data that is collected using other incremental resources involved in the process such as human intervention. This latter is also related ot the concept of data maturity reffering to the progression of a data set along the data analytics process. Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making. The ultimate determinant of healthcare data value is its power to inform decisions. 
 
 ## FAIR Principles
 
@@ -89,13 +89,7 @@ Altered or inaccurate data may result in misleading conclusions and faulty decis
 It should be noted, however, that many third-party data aggregators and resellers may clean and organise data to make it easier to analyse. The incremental increase of data value resulting from this analytical process is addressed in 5.1.2 of the framework and should be weighted against the increased risk of data alteration
 
 
-## Data quality, maturity and embedded analytics insights 
-## Data maturity 
-The concept of data maturity addresses the progression of a data set along the data analytics process. 
-More often than not, raw data sets are disorganised and complex, or lack structure. To extract insights from it, one must clean, organise and analyse it. 
-Complexity of data capture 
-## Data capture 
-The value of data is also affected by the effort and risk associated with capturing it. In general, data that is auto captured as a by-product of everyday business processes would generally be perceived as less valuable — on a cost-approach basis — than the data that is collected in a separate process with human intervention and by including or not including other incremental resources involved in the process. 
+
 
 
 
