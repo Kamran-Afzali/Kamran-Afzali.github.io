@@ -11,7 +11,7 @@ date-string: MARCH 2021
 
 ## Factors Affecting Value of Healthcare Data 
 
-Application and utility of healthcare data may vary from ongoing daily operating decisions of a hospital, to reducing time to develpe for new treatments and enhancing patient adherence to therapy. Once the data has utility  for multiple stake holders, it's use impliese risky and impactful decisions afeecting long-term strategy and operations, which make it more valuable. The value of data is also a function of the risk and effort associated with data collection. Auto captured data which is a by-product of everyday business processes would generally be perceived as less valuable compared to the data that is collected using other incremental resources involved in the process such as human intervention. This latter is also related ot the concept of data maturity reffering to the progression of a data set along the data analytics process. Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making. The ultimate determinant of healthcare data value is its power to inform decisions. 
+Application and utility of healthcare data may vary from ongoing daily operating decisions of a hospital, to reducing time to develpe for new treatments and enhancing patient adherence to therapy. Once the data has utility  for multiple stake holders, it's use impliese risky and impactful decisions afeecting long-term strategy and operations, which make it more valuable. The value of data is also a function of the risk and effort associated with data collection as well as granularity of data . In general, the increased granularity or specificity of a data set increases its value by allowing the user to extract additional insights absent from aggregated data sets. In health care context, granularity translates into patient-and transaction-level data (e.g., medical product dispense, patient encounters, change in status, etc.).Along the same lines, auto captured data which is a by-product of everyday business processes would generally be perceived as less valuable compared to the data that is collected using other incremental resources involved in the process such as human intervention. These two concepts (i.e. granularity and effort) are related ot the concept of data maturity reffering to the progression of a data set along the data analytics process. Several initiatives are underway to support the seemless sharing, exchange, and reuse of healthcare data whether stored in electronic health records or measurment devices. The goal of these initiatives is  to improve the healthcare data in a way that it can be exchanged electronically and analyzed digitally. To attain this goal and to improve the management and organization of health care data, it needs to be structured based on operational electronic standards such as FAIR principles that insures clinicians and professionals use suitable data for critical decision making. The ultimate determinant of healthcare data value is its power to inform decisions. 
 
 ## FAIR Principles
 
@@ -36,7 +36,7 @@ The first step in FAIRification of data is to facilitate finding them. Both data
 
 ## Accessible
 
-After finding the required data, the next step is to accesse the data possibly including authentication and authorisation procedures.  In the G20 countries, open-sourced data is estimated to be valued between US$700bn and US$950bn per annum. For example, government data, such as census results, allows for ready resource allocation, capital investment planning, policy-making and monitoring numerous other benefits.
+After finding the required data, the next step is to accesse the data possibly including authentication and authorisation procedures. In the case that data is only available from a single source and there are some projected disruption caused by losing access to such data, the party holding the data acquires monopoly over the data and has an ability to charge a premium price. Access to data can be limited via physical barriers, expense of the collection process, business strategy or contractual restrictions.  In the G20 countries, open-sourced data is estimated to be valued between US$700bn and US$950bn per annum. For example, government data, such as census results, allows for ready resource allocation, capital investment planning, policy-making and monitoring numerous other benefits.
 
 + A1. (Meta)data are retrievable by their identifier using a standardised communications protocol
 
@@ -73,15 +73,9 @@ The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, met
 
 ## Nature of data 
 ## Data access and availability 
-Data access and availability refer to how quickly data is available to the buyer after it is created. Contemporaneous data is one that is immediately available for analysis. 
-The age of the data can increase or decrease its value, but in general, rapid access to fresh data is thought to be of more value, as it provides real-time insights and enables timely informed decisions. 
-Exclusivity or scarcity 
-When data is only available from a single source, the party holding the data acquires monopoly pricing power over the data. The larger the business disruption caused by losing access to such data, the more significant will be the seller’s ability to charge a premium price. 
-Access to data can be limited via physical barriers, expense of the collection process, business strategy or contractual restrictions. 
-Granularity of data 
-In general, the increased granularity or specificity of a data set increases its value by allowing the user to extract additional insights absent from aggregated data sets. 
-In health care context, granularity translates into patient-and transaction-level data (e.g., medical product dispense, patient encounters, change in status, etc.). 
-By analysing dispense data at a transaction level, pharmaceutical companies can hone in on dispensing patterns in specific zip codes — which would not be possible using aggregated data. 
+
+ 
+
 Another example of value evident in granularity is genome sequencing data. By using predictive analytics on patient-level genome sequencing data, one can identify individual patients that are at high risk for certain conditions. Providers can then take preventative actions with the patient to decrease the likelihood of developing or worsening a medical condition. According to the 2016 McKinsey report: The Age of Analytics — Competing in a Data-Driven World, the impact from personalised medicine resulting from such data analytics could result in US$2tn to US$10tn in health care savings on a global basis. 
 Source or seller 
 Data that is purchased directly from the party that generated it will generally be more valuable as compared with the data purchased from a reseller. This is due to data accuracy. 
