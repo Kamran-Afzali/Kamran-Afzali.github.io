@@ -77,11 +77,11 @@ The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, met
 
 
 
+## References
 
+[The FAIR Guiding Principles for scientific data management and stewardship](https://www.go-fair.org/fair-principles/)
 
-https://www.go-fair.org/fair-principles/
-
-https://portagenetwork.ca/
+[The Portage Network](https://portagenetwork.ca/)
 
 Wise, J., de Barron, A. G., Splendiani, A., Balali-Mood, B., Vasant, D., Little, E., ... & Hedley, V. (2019). [Implementation and relevance of FAIR data principles in biopharmaceutical R&D](https://www.sciencedirect.com/science/article/pii/S1359644618303039). Drug discovery today, 24(4), 933-938.  
 
