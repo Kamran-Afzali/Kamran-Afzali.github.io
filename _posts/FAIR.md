@@ -85,4 +85,4 @@ https://portagenetwork.ca/
 
 Wise, J., de Barron, A. G., Splendiani, A., Balali-Mood, B., Vasant, D., Little, E., ... & Hedley, V. (2019). [Implementation and relevance of FAIR data principles in biopharmaceutical R&D](https://www.sciencedirect.com/science/article/pii/S1359644618303039). Drug discovery today, 24(4), 933-938.  
 
-Jansen, P., van den Berg, L., van Overveld, P., & Boiten, J. W. (2019). Research data stewardship for healthcare professionals. Fundamentals of Clinical Data Science, 37-53.https://www.ncbi.nlm.nih.gov/books/NBK543528/
+Jansen, P., van den Berg, L., van Overveld, P., & Boiten, J. W. (2019). [Research data stewardship for healthcare professionals](https://www.ncbi.nlm.nih.gov/books/NBK543528/). Fundamentals of Clinical Data Science, 37-53.
