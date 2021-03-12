@@ -36,7 +36,7 @@ The first step in FAIRification of data is to facilitate finding them. Both data
 
 ## Accessible
 
-After finding the required data, the next step is to accesse the data possibly including authentication and authorisation procedures. In the case that data is only available from a single source and there are some projected disruption caused by losing access to such data, the party holding the data acquires monopoly over the data and has an ability to charge a premium price. Access to data can be limited via physical barriers, expense of the collection process, business strategy or contractual restrictions.  In the G20 countries, open-sourced data is estimated to be valued between US$700bn and US$950bn per annum. For example, government data, such as census results, allows for ready resource allocation, capital investment planning, policy-making and monitoring numerous other benefits.
+After finding the required data, the next step is to accesse the data possibly including authentication and authorisation procedures. In the case that data is only available from a single source and there are some projected disruption caused by losing access to such data, the party holding the data acquires monopoly over the data. Access to data can be limited via physical barriers, expense of the collection process, business strategy or contractual restrictions.  In the G20 countries, open-sourced data is estimated to be valued between US$700bn and US$950bn per annum. For example, government data, such as census results, allows for ready resource allocation, capital investment planning, policy-making and monitoring numerous other benefits.
 
 + A1. (Meta)data are retrievable by their identifier using a standardised communications protocol
 
@@ -48,7 +48,7 @@ After finding the required data, the next step is to accesse the data possibly i
 
 ## Interoperable
 
-The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing.
+The data usually need to be integrated with other data. In addition, data need to interoperate with various applications or workflows for analysis, storage, and processing.
 
 + I1. (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
 
@@ -67,11 +67,6 @@ The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, met
   + R1.2. (Meta)data are associated with detailed provenance
 
   + R1.3. (Meta)data meet domain-relevant community standards
-
-
-
-
-
 
 
 
