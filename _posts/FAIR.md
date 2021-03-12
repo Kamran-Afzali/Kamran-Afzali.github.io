@@ -71,10 +71,10 @@ The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, met
 
 ## References
 
-[The FAIR Guiding Principles for scientific data management and stewardship](https://www.go-fair.org/fair-principles/)
++ [The FAIR Guiding Principles for scientific data management and stewardship](https://www.go-fair.org/fair-principles/)
 
-[The Portage Network](https://portagenetwork.ca/)
++ [The Portage Network](https://portagenetwork.ca/)
 
-Wise, J., de Barron, A. G., Splendiani, A., Balali-Mood, B., Vasant, D., Little, E., ... & Hedley, V. (2019). [Implementation and relevance of FAIR data principles in biopharmaceutical R&D](https://www.sciencedirect.com/science/article/pii/S1359644618303039). Drug discovery today, 24(4), 933-938.  
++ Wise, J., de Barron, A. G., Splendiani, A., Balali-Mood, B., Vasant, D., Little, E., ... & Hedley, V. (2019). [Implementation and relevance of FAIR data principles in biopharmaceutical R&D](https://www.sciencedirect.com/science/article/pii/S1359644618303039). Drug discovery today, 24(4), 933-938.  
 
-Jansen, P., van den Berg, L., van Overveld, P., & Boiten, J. W. (2019). [Research data stewardship for healthcare professionals](https://www.ncbi.nlm.nih.gov/books/NBK543528/). Fundamentals of Clinical Data Science, 37-53.
++ Jansen, P., van den Berg, L., van Overveld, P., & Boiten, J. W. (2019). [Research data stewardship for healthcare professionals](https://www.ncbi.nlm.nih.gov/books/NBK543528/). Fundamentals of Clinical Data Science, 37-53.
