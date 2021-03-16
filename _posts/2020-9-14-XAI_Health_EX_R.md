@@ -19,7 +19,7 @@ First, load the libraries and data
 
 
 ```r
-df <- read_csv("C:/Users/kafza/Downloads/datasets_33180_43520_heart.csv")
+df <- read_csv("datasets_33180_43520_heart.csv")
 ```
 
 ```
@@ -220,12 +220,9 @@ rf_res %>%
 autoplot(rf_res)
 ```
 
-
-
 +  Step 5
 
 Fit the best performing model to the test data using the last fit function.
-
 
 ```r
 last_rf_mod <- 
@@ -255,7 +252,6 @@ last_rf_fit %>%
 ## 1 accuracy binary         0.867
 ## 2 roc_auc  binary         0.960
 ```
-
 
 +  Step 6
 
