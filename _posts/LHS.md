@@ -27,6 +27,8 @@ Learning Health Systems require vision, leadership and infrastructure to flouris
 
 ## THE DIGITAL HEALTH INFRASTRUCTURE
 
+The digital infrastructure for the learning health system will not solely be the result of features designed and built de novo; there is a growing body of existing initiatives and resources actively in play at multiple levels. These include expanding adoption of technologies such as electronic health records (EHRs), personal health records (PHRs), telehealth, health informa- tion portals, electronic monitoring devices, mobile health applications, and advances in molecular diagnostics. Also in play are collections of health information, such as biobanks, and health information databases main- tained by large health systems, private insurers, and regulatory agencies. Each adds important capacity for clinical care, clinical and health services research, public health surveillance and intervention, patient education and self-management, and safety and cost monitoring.
+
 https://www.ncbi.nlm.nih.gov/books/NBK83569/pdf/Bookshelf_NBK83569.pdf
 
 https://www.mcmasterforum.org/docs/default-source/product-documents/rapid-responses/creating-rapid-learning-health-systems-in-canada.pdf?sfvrsn=102554d5_4
