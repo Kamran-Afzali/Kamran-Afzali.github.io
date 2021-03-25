@@ -46,6 +46,8 @@ Health information vendors, large and small, have emerged to meet the growing de
 
 The technological pillar is similarly central to LHSs and includes a wide range of health technologies, devices, and IT infrastructure and systems. The array of technologies relevant to the LHS has been explored by the NAM but is constantly expanding and evolving. A distinctive feature of LHSs is their capacity to promote learning as a by-product of everyday care, which is only made possible through infrastructure that enables high-quality clinical data to be collected, aggregated, analysed and acted on. Some LHSs have been built around clinical registers housing uniformly collected data used to describe populations with specific diseases or characteristics and monitor their outcomes such as the registers used by ImprovingCareNow or the Swedish Rheumatology Society. In other LHSs, health data is gathered from electronic health record (EHR) systems, patients’ personal health records and/or research databases. Data from millions of patients can be stored in centralised data warehouses where it can then be aggregated, linked with other forms of data, and then leveraged for system learning and improvement. Other platforms for integrating data based on federated or mediated approaches have also been established. Hardware and software supporting the use of algorithms, machine learning, data mining and advances in artificial intelligence also offer unmistakable potential to identify new problems, examine trends in care, test solutions, and ultimately accelerate learning and innovation.
 
+## REFERENCES
+
 https://www.ncbi.nlm.nih.gov/books/NBK83574/
 
 https://www.ncbi.nlm.nih.gov/books/NBK83569/pdf/Bookshelf_NBK83569.pdf
