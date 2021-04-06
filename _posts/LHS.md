@@ -21,7 +21,7 @@ Against this backdrop of opportunity and urgency, the Institute of Medicine (IOM
 
 In 2001, the IOM report Crossing the Quality Chasm called national attention to untenable deficiencies in health care, noting that every patient should expect care that is safe, effective, patient-centered, timely, efficient, and equitable (IOM, 2001). Based on the determination that health care is a complex adaptive system—one in which progress on its central purpose is shaped by tenets that are few, simple, and basic—the report identified several rules to guide health care. In particular, these rules underscore the importance of issues related to the locus of decisions, patient perspectives, evidence, transparency, and waste reduction. The report envisioned, in ef- fect, engaging patients, providers, and policy makers alike to ensure that every healthcare decision is guided by timely, accurate, and comprehensive health information provided in real time to ensure constantly improving delivery of the right care to the right person for the right price.
 
-Learning health systems (LHS) are healthcare systems in which knowledge generation processes are embedded in daily practice to produce continual improvement in care.
+Along these lines, Learning health systems (LHS) are healthcare systems in which continual improvement in care is guided by data-based knowledge generation processes are embedded in daily practice.
 
 Learning Health Systems are systems in which “science, informatics, incentives, and culture are aligned for continuous improvement and innovation, with best practices seamlessly embedded in the delivery process and new knowledge captured as an integral by‐product of the delivery experience” (Institute of Medicine, 2015).
 
