@@ -11,6 +11,7 @@ title: Software
       <li>Statistical modelling (Stan, lavaan)</li>
       <li>Machine learning (Caret, tidymodels)</li>
       <li>Social network analysis (qgraph)</li>
+      <li>Time series analysis (modeltime, forecast)</li>
    </ul>
   </li>
     <li>Python
