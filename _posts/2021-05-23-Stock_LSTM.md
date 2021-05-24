@@ -73,6 +73,7 @@ appl_df['Open'].plot(title="Apple's stock price")
 ![](/images/output_2_1.png)
 
 here we covert the stock price to daily stock returns and to plot it
+
 ``` {.python}
 appl_df['Open']=appl_df['Open'].pct_change()
 appl_df['Open'].plot(title="Apple's stock return")
@@ -207,9 +208,11 @@ model.compile(loss='mean_squared_error', optimizer='adam')
 that we train for 100 epochs
 
 ``` {.python}
+
 model.fit(X_train_t, c,
           epochs=100, batch_size=1, verbose=1,
           callbacks=[early_stop])
+          
 ```
 
     Epoch 1/100
@@ -223,6 +226,7 @@ Here we create a rolling forecast function that predicts the values
 based on the previous outcomes of the model.
 
 ``` {.python}
+
 ypredr=[]
 st=X_test_t[0].reshape(1, 1, 24)
 tmp=st
@@ -235,6 +239,7 @@ for i in range(1, X_test_t.shape[0]):
     ptmp=np.vstack((ptmp,tmp))
     val=model.predict(tmp)
     ypredr.append(val.tolist()[0])
+    
 ```
 
 the plot here shows the rolling forecast which base each forecast on 24
