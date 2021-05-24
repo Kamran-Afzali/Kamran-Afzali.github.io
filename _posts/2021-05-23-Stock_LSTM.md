@@ -1,9 +1,9 @@
 ---
 layout: post
 categories: posts
-title: Stock Forecasting with R   
+title: Stock Forecasting with LSTM   
 featured-image: /images/st.jpg
-tags: [Finance, Stocks, TimeSeries]
+tags: [Finance, Stocks, LSTM]
 date-string: May 2021
 ---
 
