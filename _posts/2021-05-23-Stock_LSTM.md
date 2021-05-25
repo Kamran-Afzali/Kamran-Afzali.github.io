@@ -7,7 +7,8 @@ tags: [Finance, Stocks, LSTM]
 date-string: May 2021
 ---
 
-Introduction
+# Stock Forecasting with LSTM 
+## Introduction
 
 As indicated in a previous blog post, time-series models are designed to
 predict future values based on previously observed values. In other
@@ -26,6 +27,8 @@ etc.) using time series analysis algorithms, though the performance is
 sub par and cannot be used to efficiently predict the market. It is
 noteworthy that this is a technical tutorial and does not intent to
 guide people into buying stocks.
+
+## LSTM
 
 The LSTM stands for Long Short-Term Memory a member of recurrent neural
 network (RNN) family used for sequence data in deep learning. Unlike
@@ -213,14 +216,15 @@ model.fit(X_train_t, c,
           epochs=100, batch_size=1, verbose=1,
           callbacks=[early_stop])
           
-```
-
+          
     Epoch 1/100
     429/429 [==============================] - 2s 1ms/step - loss: 1.3043
     Epoch 2/100
     429/429 [==============================] - 0s 1ms/step - loss: 0.9467
     ...
     Epoch 00029: early stopping
+```
+
 
 Here we create a rolling forecast function that predicts the values
 based on the previous outcomes of the model.
@@ -324,8 +328,8 @@ and to train the model for 100 epochs
 ``` {.python}
 n_net.fit(x=[X_train_A, X_train_S], y=Ac, epochs=100, batch_size=1, verbose=1,
           callbacks=[early_stop])
-```
-
+          
+          
     Epoch 1/100
     429/429 [==============================] - 0s 832us/step - loss: 0.7942
     Epoch 2/100
@@ -334,6 +338,9 @@ n_net.fit(x=[X_train_A, X_train_S], y=Ac, epochs=100, batch_size=1, verbose=1,
     Epoch 14/100
     429/429 [==============================] - 0s 802us/step - loss: 0.7143
     Epoch 00014: early stopping
+    
+    ```
+
 
 the plot here shows the rolling forecast which base each forecast on 24
 data points forecasted beforehand, this should be contrasted to the one
