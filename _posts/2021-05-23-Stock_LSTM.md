@@ -84,12 +84,11 @@ appl_df['Open'].plot(title="Apple's stock return")
 
 ![](/images/output_3_1.png)
 
-Feature Scaling
-
 From previous experience with deep learning models, we know that we have
 to scale our data for optimal performance. In our case, we'll use
 Scikit- Learn's StandardScaler and scale our dataset to numbers between
 zero and one.
+
 
 ``` {.python}
 sc = StandardScaler()
