@@ -8,6 +8,7 @@ date-string: May 2021
 ---
 
 # Stock Forecasting with LSTM 
+
 ## Introduction
 
 As indicated in a previous blog post, time-series models are designed to
@@ -75,7 +76,7 @@ appl_df['Open'].plot(title="Apple's stock price")
 
 ![](/images/output_2_1.png)
 
-here we covert the stock price to daily stock returns and to plot it
+here we covert the stock price to daily stock **returns** and to plot it
 
 ``` {.python}
 appl_df['Open']=appl_df['Open'].pct_change()
@@ -85,7 +86,7 @@ appl_df['Open'].plot(title="Apple's stock return")
 ![](/images/output_3_1.png)
 
 From previous experience with deep learning models, we know that we have
-to scale our data for optimal performance. In our case, we'll use
+to **scale** our data for optimal performance. In our case, we'll use
 Scikit- Learn's StandardScaler and scale our dataset to numbers between
 zero and one.
 
