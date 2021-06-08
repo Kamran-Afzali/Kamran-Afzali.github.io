@@ -25,3 +25,15 @@ Many supervised learning algorithms can naturally emit some measure of importanc
 
 
 In the era of “big data”, it is becoming more of a challenge to not only build state-of-the-art predictive models, but also gain an understanding of what’s really going on in the data. For example, it is often of interest to know which, if any, of the predictors in a fitted model are relatively influential on the predicted outcome. Some modern algorithms—like random forests and gradient boosted decision trees—have a natural way of quantifying the importance or relative influence of each feature.
+
+
+Features
+Model-based variable importance - Compute variable importance specific to a particular model (like a random forest, gradient boosted decision trees, or multivariate adaptive regression splines) from a wide range of package (e.g., randomForest, ranger, xgboost, and many more). Also supports the caret and parsnip (starting with version 0.0.4) packages.
+
+Permutation-based variable importance - An efficient implementation of the permutation feature importance algorithm discussed in this chapter from Christoph Molnar’s Interpretable Machine Learning book.
+
+SHAP-based variable importance - An efficient implementation of feature importance based on the popular SHAP values via the fastshap package.
+
+PDP/ICE-based variable importance - Compute variable importance by quantifying the variability in marginal effect plots like partial dependence plots and individual conditional expectations via the pdp package.
+
+
