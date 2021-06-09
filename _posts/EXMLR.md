@@ -32,7 +32,9 @@ Model-based variable importance - Compute variable importance specific to a part
 
 Permutation-based variable importance - An efficient implementation of the permutation feature importance algorithm discussed in this chapter from Christoph Molnar’s Interpretable Machine Learning book.
 
-SHAP-based variable importance - An efficient implementation of feature importance based on the popular SHAP values via the fastshap package.
+
+Global interpretations help us understand the inputs and their entire modeled relationship with the prediction target, but global interpretations can be highly approximate in some cases. Local interpretations help us understand model predictions for a single row of data or a group of similar rows.This post demonstrates how to use the lime package to perform local interpretations of ML models. This will not focus on the theoretical and mathematical underpinnings but, rather, on the practical application of using lime.
+SHAP-based variable importance - An efficient implementation of feature importance based on the popular SHAP values via the fastshap package.  LIME, which stands for Local Interpretable Model-agnostic Explanations, has opened the doors to black-box (complex, high-performance, but unexplainable) models in business applications! 
 
 PDP/ICE-based variable importance - Compute variable importance by quantifying the variability in marginal effect plots like partial dependence plots and individual conditional expectations via the pdp package.
 
