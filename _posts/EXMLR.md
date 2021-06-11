@@ -50,3 +50,10 @@ ICE curve method
 
 The ICE curve method is similar to the PDP method. The only difference is that we measure the “flatness” of each ICE curve and then aggregate the results (e.g., by averaging)2. If there are no (substantial) interaction effects, using method = "ice" will produce results similar to using method = "pdp". However, if strong interaction effects are present, they can obfuscate the main effects and render the PDP-based approach less useful (since the PDPs for important features can be relatively flat when certain interactions are present; see Goldstein et al. (2015) for details). In fact, it is probably safest to always use method = "ice".
 
+Permutation method
+
+The permutation method exists in various forms and was made popular in Breiman (2001) for random forests. A more general approach to the permutation method is described in Assessing Variable Importance for Predictive Models of Arbitrary Type, an R package vignette by DataRobot. The permutation approach used in vip is quite simple. The idea is that if we randomly permute the values of an important feature in the training data, the training performance would degrade (since permuting the values of a feature effectively destroys any relationship between that feature and the target variable). This of course assumes that the model has been properly tuned (e.g., using cross-validation) and is not over fitting. The permutation approach uses the difference between some baseline performance measure (e.g., training 𝑅2
+R
+2
+ or RMSE) and the same performance measure obtained after permuting the values of a particular feature in the training data (Note: the model is NOT refit to the training data after randomly permuting the values of a feature). To use the permutation approach, specify method = "permute" in the call to vi() or vip(). Note that using method = "permute" requires specifying a few additional arguments; see ?vi_permute for details.
+
