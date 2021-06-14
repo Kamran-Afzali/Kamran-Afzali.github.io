@@ -57,3 +57,15 @@ R
 2
  or RMSE) and the same performance measure obtained after permuting the values of a particular feature in the training data (Note: the model is NOT refit to the training data after randomly permuting the values of a feature). To use the permutation approach, specify method = "permute" in the call to vi() or vip(). Note that using method = "permute" requires specifying a few additional arguments; see ?vi_permute for details.
 
+
+Local Interpretation
+Local Interpretable Model-agnostic Explanations (LIME) is a visualization technique that helps explain individual predictions. As the name implies, it is model agnostic so it can be applied to any supervised regression or classification model. Behind the workings of LIME lies the assumption that every complex model is linear on a local scale and asserting that it is possible to fit a simple model around a single observation that will mimic how the global model behaves at that locality. The simple model can then be used to explain the predictions of the more complex model locally.
+
+The generalized algorithm LIME applies is:
+
+Given an observation, permute it to create replicated feature data with slight value modifications.
+Compute similarity distance measure between original observation and permuted observations.
+Apply selected machine learning model to predict outcomes of permuted data.
+Select m number of features to best describe predicted outcomes.
+Fit a simple model to the permuted data, explaining the complex model outcome with m features from the permuted data weighted by its similarity to the original observation .
+Use the resulting feature weights to explain local behavior.
