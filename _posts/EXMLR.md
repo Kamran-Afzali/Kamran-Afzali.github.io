@@ -22,6 +22,10 @@ output:
 
 + <https://cran.r-project.org/web/packages/lime/vignettes/Understanding_lime.html>
 
++ https://cran.r-project.org/web/packages/shapr/vignettes/understanding_shapr.html
+
++ https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a
+
 
 vip is an R package for constructing variable importance plots (VIPs). VIPs are part of a larger framework referred to as interpretable machine learning (IML), which includes (but not limited to): partial dependence plots (PDPs) and individual conditional expectation (ICE) curves. While PDPs and ICE curves (available in the R package pdp) help visualize feature effects, VIPs help visualize feature impact (either locally or globally). An in-progress, but comprehensive, overview of IML can be found here: https://github.com/christophM/interpretable-ml-book.
 
@@ -63,6 +67,10 @@ R
 
 
 Local Interpretation
+
+LIME
+
+
 Local Interpretable Model-agnostic Explanations (LIME) is a visualization technique that helps explain individual predictions. As the name implies, it is model agnostic so it can be applied to any supervised regression or classification model. Behind the workings of LIME lies the assumption that every complex model is linear on a local scale and asserting that it is possible to fit a simple model around a single observation that will mimic how the global model behaves at that locality. The simple model can then be used to explain the predictions of the more complex model locally.
 
 The generalized algorithm LIME applies is:
@@ -73,3 +81,20 @@ Apply selected machine learning model to predict outcomes of permuted data.
 Select m number of features to best describe predicted outcomes.
 Fit a simple model to the permuted data, explaining the complex model outcome with m features from the permuted data weighted by its similarity to the original observation .
 Use the resulting feature weights to explain local behavior.
+
+SHAP
+
+Complex predictive models are not easy to interpret. By complex I mean: random forest, xgboost, deep learning, etc.
+
+In other words, given a certain prediction, like having a likelihood of buying= 90%, what was the influence of each input variable in order to get that score?
+
+A recent technique to interpret black-box models has stood out among others: SHAP (SHapley Additive exPlanations) developed by Scott M. Lundberg.
+
+Imagine a sales score model. A customer living in zip code "A1" with "10 purchases" arrives and its score is 95%, while other from zip code "A2" and "7 purchases" has a score of 60%.
+
+Each variable had its contribution to the final score. Maybe a slight change in the number of purchases changes the score a lot, while changing the zip code only contributes a tiny amount on that specific customer.
+
+SHAP measures the impact of variables taking into account the interaction with other variables.
+
+Shapley values calculate the importance of a feature by comparing what a model predicts with and without the feature. However, since the order in which a model sees features can affect its predictions, this is done in every possible order, so that the features are fairly compared.
+
