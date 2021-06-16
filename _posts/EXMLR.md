@@ -84,6 +84,12 @@ Use the resulting feature weights to explain local behavior.
 
 SHAP
 
+Use the SHAP Values to Interpret Your Sophisticated Model
+Consider this question: “Is your sophisticated machine learning model easy to understand?” That means your model can be understood by input variables that make business sense. Your variables will fit the expectations of users that they have learned from prior knowledge.
+Lundberg et al. in their brilliant paper “A unified approach to interpreting model predictions” proposed the SHAP (SHapley Additive exPlanations) values which offer a high level of interpretability for a model. The SHAP values provide two great advantages:
+Global interpretability — the SHAP values can show how much each predictor contributes, either positively or negatively, to the target variable. This is like the variable importance plot but it is able to show the positive or negative relationship for each variable with the target (see the summary plots below).
+Local interpretability — each observation gets its own set of SHAP values (see the individual force plots below). This greatly increases its transparency. We can explain why a case receives its prediction and the contributions of the predictors. Traditional variable importance algorithms only show the results across the entire population but not on each individual case. The local interpretability enables us to pinpoint and contrast the impacts of the factors.
+
 Complex predictive models are not easy to interpret. By complex I mean: random forest, xgboost, deep learning, etc.
 
 In other words, given a certain prediction, like having a likelihood of buying= 90%, what was the influence of each input variable in order to get that score?
