@@ -74,22 +74,22 @@ In other words, given a certain prediction, like having a likelihood of buying= 
 
 + [here](https://koalaverse.github.io/vip/)
 
-+ <https://koalaverse.github.io/vip/articles/vip.html>
++ [here](https://koalaverse.github.io/vip/articles/vip.html)
 
-+ <https://cran.r-project.org/web/packages/vip/vignettes/vip-introduction.pdf>
++ [here](https://cran.r-project.org/web/packages/vip/vignettes/vip-introduction.pdf)
 
-+ <https://uc-r.github.io/lime>
++ [here](https://uc-r.github.io/lime)
 
-+ <https://www.business-science.io/business/2018/06/25/lime-local-feature-interpretation.html>
++ [here](https://www.business-science.io/business/2018/06/25/lime-local-feature-interpretation.html)
 
-+ <https://juliasilge.com/blog/mario-kart/>
++ [here](https://juliasilge.com/blog/mario-kart/)
 
-+ <https://www.analyticsvidhya.com/blog/2021/01/ml-interpretability-using-lime-in-r/>
++ [here](https://www.analyticsvidhya.com/blog/2021/01/ml-interpretability-using-lime-in-r/)
 
-+ <https://cran.r-project.org/web/packages/lime/vignettes/Understanding_lime.html>
++ [here](https://cran.r-project.org/web/packages/lime/vignettes/Understanding_lime.html)
 
-+ https://cran.r-project.org/web/packages/shapr/vignettes/understanding_shapr.html
++ [here](https://cran.r-project.org/web/packages/shapr/vignettes/understanding_shapr.html)
 
-+ https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a
++ [here](https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a)
 
-+ https://github.com/christophM/interpretable-ml-book
++ [here](https://github.com/christophM/interpretable-ml-book)
