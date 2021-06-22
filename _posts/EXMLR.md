@@ -72,7 +72,7 @@ In other words, given a certain prediction, like having a likelihood of buying= 
 
 ## Refrences
 
-+ <https://koalaverse.github.io/vip/>
++ [here](https://koalaverse.github.io/vip/)
 
 + <https://koalaverse.github.io/vip/articles/vip.html>
 
