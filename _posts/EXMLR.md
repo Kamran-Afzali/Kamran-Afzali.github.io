@@ -72,24 +72,16 @@ In other words, given a certain prediction, like having a likelihood of buying= 
 
 ## Refrences
 
-+ [here](https://koalaverse.github.io/vip/)
++ [vip: Variable Importance Plots](https://koalaverse.github.io/vip/)
 
-+ [here](https://koalaverse.github.io/vip/articles/vip.html)
++ [Variable importance plots: an introduction to vip](https://koalaverse.github.io/vip/articles/vip.html)
 
-+ [here](https://cran.r-project.org/web/packages/vip/vignettes/vip-introduction.pdf)
++ [Visualizing ML Models with LIME](https://uc-r.github.io/lime)
 
-+ [here](https://uc-r.github.io/lime)
++ [Explain Any Models with the SHAP Values — Use the KernelExplainer](https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a)
 
-+ [here](https://www.business-science.io/business/2018/06/25/lime-local-feature-interpretation.html)
++ [Understanding lime](https://cran.r-project.org/web/packages/lime/vignettes/Understanding_lime.html)
 
-+ [here](https://juliasilge.com/blog/mario-kart/)
++ [Understanding shapr](https://cran.r-project.org/web/packages/shapr/vignettes/understanding_shapr.html)
 
-+ [here](https://www.analyticsvidhya.com/blog/2021/01/ml-interpretability-using-lime-in-r/)
-
-+ [here](https://cran.r-project.org/web/packages/lime/vignettes/Understanding_lime.html)
-
-+ [here](https://cran.r-project.org/web/packages/shapr/vignettes/understanding_shapr.html)
-
-+ [here](https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a)
-
-+ [here](https://github.com/christophM/interpretable-ml-book)
++ [Interpretable ML Book](https://github.com/christophM/interpretable-ml-book)
