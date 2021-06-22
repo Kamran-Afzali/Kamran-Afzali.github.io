@@ -72,7 +72,7 @@ In other words, given a certain prediction, like having a likelihood of buying= 
 
 ## Refrences
 
-+ [vip: Variable Importance Plots](https://koalaverse.github.io/vip/)
++ [Vip: Variable Importance Plots](https://koalaverse.github.io/vip/)
 
 + [Variable importance plots: an introduction to vip](https://koalaverse.github.io/vip/articles/vip.html)
 
