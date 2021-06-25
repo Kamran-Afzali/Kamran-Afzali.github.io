@@ -8,15 +8,14 @@ output:
 
 # Feature Importance 
 
-In the era of “big data”, it is becoming more of a challenge to not only build state-of-the-art predictive models, but also gain an understanding of what’s really going on in the data. For example, it is often of interest to know which, if any, of the predictors in a fitted model are relatively influential on the predicted outcome. Some modern algorithms—like random forests and gradient boosted decision trees—have a natural way of quantifying the importance or relative influence of each feature.
-
+In the era of machine learning, there is an emerging challenge to build state-of-the-art predictive models that also provide an understanding of what’s really going on in the data. it is often of interest to know which, if any, of the predictors in a fitted model are relatively influential on the predicted outcome. 
 There are many methodologies to interpret machine learning results (i.e. variable importance via permutation, partial dependence plots, local interpretable model-agnostic explanations), and many machine learning R packages implement their own versions of one or more methodologies. However, some recent R packages that focus purely on ML interpretability agnostic to any specific ML algorithm are gaining popularity. One such package is DALEX and this post covers what this package does (and does not do) so that you can determine if it should become part of your preferred machine learning toolbox. VIP is an R package for constructing variable importance plots (VIPs). VIPs are part of a larger framework referred to as interpretable machine learning (IML), which includes feature importance measures either locally or globally including Partial Dependence Plots (PDPs) and Individual Conditional Expectation (ICE) curves.
 
 ## Global Measures
 
 ### Model-Based Variable Importance 
 
-These mesures compute variable importance specific to a particular model (like a random forest, gradient boosted decision trees, or multivariate adaptive regression splines) from a wide range of package (e.g., randomForest, ranger, xgboost, and many more). Also supports the caret and parsnip (starting with version 0.0.4) packages. Many supervised learning algorithms can naturally emit some measure of importance for the features used in the model, and these approaches are embedded in many different packages. 
+Some modern algorithms—like random forests and gradient boosted decision trees—have a natural way of quantifying the importance or relative influence of each feature. These mesures compute variable importance specific to a particular model (like a random forest, gradient boosted decision trees, or multivariate adaptive regression splines) from a wide range of package (e.g., randomForest, ranger, xgboost, and many more). Also supports the caret and parsnip (starting with version 0.0.4) packages. Many supervised learning algorithms can naturally emit some measure of importance for the features used in the model, and these approaches are embedded in many different packages. 
 
 ### Permutation Method
 
