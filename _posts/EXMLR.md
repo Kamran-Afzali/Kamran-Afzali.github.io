@@ -33,34 +33,18 @@ Partial Dependence Plots provide model-agnostic interpretations and can be const
 The Individual Conditional Expectations curve method is similar to the PDP method, however, in this approach the “flatness” of each ICE curve and then aggregate the results (e.g., by averaging). Therefore, in absence of interaction effects, using method = "ice" will produce results similar to using method = "pdp". Some would argue that it is probably more reasonable to always use method = "ice".
 
 ## Local Measures
-Global interpretations help us understand the inputs and their entire modeled relationship with the prediction target, but global interpretations can be highly approximate in some cases. Local interpretations help us understand model predictions for a single row of data or a group of similar rows.This post demonstrates how to use the lime package to perform local interpretations of ML models. This will not focus on the theoretical and mathematical underpinnings but, rather, on the practical application of using lime.
-
-SHAP-based variable importance - An efficient implementation of feature importance based on the popular SHAP values via the fastshap package.  LIME, which stands for Local Interpretable Model-agnostic Explanations, has opened the doors to black-box (complex, high-performance, but unexplainable) models in health usecases! 
+Global interpretations are based on the relationship between the features and the outcome in the entire model. However, global measures can be highly approximate in some cases. Local measures, in contrast, highlight model predictions for a single observation or a group of similar observations. Local interpretability measures like SHAP-based variable importance and LIME, which stands for Local Interpretable Model-agnostic Explanations, has the potential to facilitate the interpretation of black-box models.
 
 ### LIME
 
-Local Interpretable Model-agnostic Explanations (LIME) is a visualization technique that helps explain individual predictions. As the name implies, it is model agnostic so it can be applied to any supervised regression or classification model. Behind the workings of LIME lies the assumption that every complex model is linear on a local scale and asserting that it is possible to fit a simple model around a single observation that will mimic how the global model behaves at that locality. The simple model can then be used to explain the predictions of the more complex model locally.
-
-The generalized algorithm LIME applies is as follows:
-
-Given an observation, permute it to create replicated feature data with slight value modifications.
-Compute similarity distance measure between original observation and permuted observations.
-Apply selected machine learning model to predict outcomes of permuted data.
-
-Select m number of features to best describe predicted outcomes, fit a simple model to the permuted data, explaining the complex model outcome with m features from the permuted data weighted by its similarity to the original observation and to use the resulting feature weights to explain local behavior.
+Local Interpretable Model-agnostic Explanations (LIME) is a model agnostic method that can be applied to any supervised regression or classification model, based on the the assumption that every complex model is linear on a local scale. In other words, it is possible to fit a simple model around a single observation that will mimic how the global model behaves at that locality. To attain this lime permute features for a given observation and computes similarity distance measure between original observation and permuted observations and then applies selected machine learning model to predict outcomes of permuted data.
 
 ### SHAP
 
-Use the SHAP Values to Interpret Your Sophisticated Model Consider this question: “Is your sophisticated machine learning model easy to understand?” That means your model can be understood by input variables that make business sense. Your variables will fit the expectations of users that they have learned from prior knowledge.
+Similar to LIME method, Lundberg et al. in their paper “A unified approach to interpreting model predictions” proposed the SHAP (SHapley Additive exPlanations). The SHAP values can provide global interpretability about how much each predictor contributes, either positively or negatively, to the target variable, as well as local interpretability measures where each observation gets its own set of SHAP values which increases its transparency of the model. In contrast to LIME method that creates a substitute model around the local unit to understand. 
+Shapely values 'decompose' the final prediction into the contribution of each attribute in an additive way.
 
-Lundberg et al. in their brilliant paper “A unified approach to interpreting model predictions” proposed the SHAP (SHapley Additive exPlanations) values which offer a high level of interpretability for a model. The SHAP values provide two great advantages:
-Global interpretability — the SHAP values can show how much each predictor contributes, either positively or negatively, to the target variable. This is like the variable importance plot but it is able to show the positive or negative relationship for each variable with the target (see the summary plots below).
-
-Local interpretability — each observation gets its own set of SHAP values (see the individual force plots below). This greatly increases its transparency. We can explain why a case receives its prediction and the contributions of the predictors. Traditional variable importance algorithms only show the results across the entire population but not on each individual case. The local interpretability enables us to pinpoint and contrast the impacts of the factors.
-
-In other words, given a certain prediction, like having a likelihood of buying= 90%, what was the influence of each input variable in order to get that score? Shapley values calculate the importance of a feature by comparing what a model predicts with and without the feature. However, since the order in which a model sees features can affect its predictions, this is done in every possible order, so that the features are fairly compared.SHAP measures the impact of variables taking into account the interaction with other variables.
-
-## Refrences
+## References
 
 + [Vip: Variable Importance Plots](https://koalaverse.github.io/vip/)
 
