@@ -176,7 +176,7 @@ rf_res %>%
 autoplot(rf_res)
 ```
 
-![](VIP_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](/images/unnamed-chunk-4-10.png)
 
 ```r
 final_rf <- finalize_model(
@@ -254,7 +254,7 @@ final_rf %>%
   ) %>%vip( method = "firm",feature_names = setdiff(names(train_preped), "outcome"), train = train_preped)
 ```
 
-![](VIP_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](/images/unnamed-chunk-7-10.png)
 
 
 
@@ -292,7 +292,7 @@ pdps <- lapply(features, FUN = function(feature) {
 grid.arrange(grobs = pdps, ncol = 5)
 ```
 
-![](VIP_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](/images/unnamed-chunk-9-10.png)
 
 #### ICE curve Method
 
@@ -312,7 +312,7 @@ grid.arrange(grobs = ices, ncol = 5)
 
 
 
-![](VIP_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](/images/unnamed-chunk-10-10.png)
 
 ## Local Measures
 
@@ -346,7 +346,7 @@ explanation <- explain(
 plot(explanation, plot_phi0 = FALSE, index_x_test = c(1, 6))
 ```
 
-![](VIP_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](/images/unnamed-chunk-11-10.png)
 
 ### LIME
 
@@ -359,7 +359,7 @@ explanation <- lime::explain(as.data.frame(x_test), explainer, n_labels = 1, n_f
 plot_features(explanation, ncol = 3)
 ```
 
-![](VIP_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](/images/unnamed-chunk-12-10.png)
 
 ## References
 
