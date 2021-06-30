@@ -1,12 +1,13 @@
 ---
-title: "R Notebook"
-output:
-  html_document:
-    df_print: paged
-    keep_md: yes
+layout: post
+categories: posts
+title: Feature Importance Analysis in R  
+featured-image: /images/XAI2.png
+tags: [Machine Learning, Interpretability, DigitalHealth]
+date-string: June 2021
 ---
 
-# Feature Importance
+# Feature Importance Analysis in R
 
 In new the era of machine learning and data science, there is an emerging challenge to build state-of-the-art predictive models that also provide an understanding of what's really going on under the hood and in the data. Therefore, it is often of interest to know which, of the predictors in a fitted model are relatively influential on the predicted outcome. There are many methodologies to interpret machine learning results (i.e., variable importance via permutation, partial dependence plots, local interpretable model-agnostic explanations), and many machine learning R packages implement their own versions of one or more methodologies. However, some recent R packages that focus purely on ML interpretability agnostic to any specific ML algorithm are gaining popularity. As a part of a larger framework referred to as interpretable machine learning (IML), VIP is an R package for constructing variable importance plots (VIPs).
 
