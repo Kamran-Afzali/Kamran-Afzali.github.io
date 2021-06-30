@@ -24,19 +24,6 @@ df=pima%>%
   drop_na()
 ```
 
-```
-## Note: Using an external vector in selections is ambiguous.
-## ℹ Use `all_of(out)` instead of `out` to silence this message.
-## ℹ See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
-## This message is displayed once per session.
-```
-
-```
-## Note: Using an external vector in selections is ambiguous.
-## ℹ Use `all_of(preds)` instead of `preds` to silence this message.
-## ℹ See <https://tidyselect.r-lib.org/reference/faq-external-vector.html>.
-## This message is displayed once per session.
-```
 
 ```r
 table(df$diabetes)
@@ -63,19 +50,6 @@ standardized <- recipe(diabetes ~ ., data = train_data)%>%
   themis::step_smote (diabetes)
 ```
 
-```
-## Registered S3 methods overwritten by 'themis':
-##   method                  from   
-##   bake.step_downsample    recipes
-##   bake.step_upsample      recipes
-##   prep.step_downsample    recipes
-##   prep.step_upsample      recipes
-##   tidy.step_downsample    recipes
-##   tidy.step_upsample      recipes
-##   tunable.step_downsample recipes
-##   tunable.step_upsample   recipes
-```
-
 ```r
 train_preped <- prep(standardized) %>%
   bake(new_data = NULL)
@@ -85,36 +59,7 @@ test_preped <-  prep(standardized) %>%
 
 
 require(doParallel)
-```
 
-```
-## Loading required package: doParallel
-```
-
-```
-## Loading required package: foreach
-```
-
-```
-## 
-## Attaching package: 'foreach'
-```
-
-```
-## The following objects are masked from 'package:purrr':
-## 
-##     accumulate, when
-```
-
-```
-## Loading required package: iterators
-```
-
-```
-## Loading required package: parallel
-```
-
-```r
 cores <- parallel::detectCores(logical = FALSE)
 registerDoParallel(cores = cores)
 ```
@@ -188,55 +133,6 @@ rf_res <-
             control = control_stack_grid(),
             metrics = metric_set(roc_auc,f_meas,sens,bal_accuracy), 
             resamples = cv_train)
-```
-
-```
-## i Creating pre-processing data to finalize unknown parameter: mtry
-```
-
-```
-## 
-## Attaching package: 'rlang'
-```
-
-```
-## The following objects are masked from 'package:purrr':
-## 
-##     %@%, as_function, flatten, flatten_chr, flatten_dbl, flatten_int,
-##     flatten_lgl, flatten_raw, invoke, list_along, modify, prepend,
-##     splice
-```
-
-```
-## 
-## Attaching package: 'vctrs'
-```
-
-```
-## The following object is masked from 'package:dplyr':
-## 
-##     data_frame
-```
-
-```
-## The following object is masked from 'package:tibble':
-## 
-##     data_frame
-```
-
-```
-## 
-## Attaching package: 'themis'
-```
-
-```
-## The following objects are masked from 'package:recipes':
-## 
-##     step_downsample, step_upsample
-```
-
-```
-## The workflow being saved contains a recipe, which is 0.04 Mb in memory. If this was not intentional, please set the control setting `save_workflow = FALSE`.
 ```
 
 ```r
@@ -395,78 +291,6 @@ pdps <- lapply(features, FUN = function(feature) {
 grid.arrange(grobs = pdps, ncol = 5)
 ```
 
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
 ![](VIP_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 #### ICE curve Method
@@ -481,213 +305,11 @@ ices <- lapply(features, FUN = function(feature) {
   autoplot(ice) + 
     theme_light()
 })
-```
 
-```
-## Warning: `fun.y` is deprecated. Use `fun` instead.
-
-## Warning: `fun.y` is deprecated. Use `fun` instead.
-
-## Warning: `fun.y` is deprecated. Use `fun` instead.
-
-## Warning: `fun.y` is deprecated. Use `fun` instead.
-
-## Warning: `fun.y` is deprecated. Use `fun` instead.
-
-## Warning: `fun.y` is deprecated. Use `fun` instead.
-
-## Warning: `fun.y` is deprecated. Use `fun` instead.
-
-## Warning: `fun.y` is deprecated. Use `fun` instead.
-```
-
-```r
 grid.arrange(grobs = ices, ncol = 5)
 ```
 
-```
-## Warning: Use of `object[["yhat.id"]]` is discouraged. Use `.data[["yhat.id"]]`
-## instead.
-```
 
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[["yhat.id"]]` is discouraged. Use `.data[["yhat.id"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[["yhat.id"]]` is discouraged. Use `.data[["yhat.id"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[["yhat.id"]]` is discouraged. Use `.data[["yhat.id"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[["yhat.id"]]` is discouraged. Use `.data[["yhat.id"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[["yhat.id"]]` is discouraged. Use `.data[["yhat.id"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[["yhat.id"]]` is discouraged. Use `.data[["yhat.id"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[["yhat.id"]]` is discouraged. Use `.data[["yhat.id"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
-
-```
-## Warning: Use of `object[[1L]]` is discouraged. Use `.data[[1L]]` instead.
-```
-
-```
-## Warning: Use of `object[["yhat"]]` is discouraged. Use `.data[["yhat"]]`
-## instead.
-```
 
 ![](VIP_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
@@ -737,3 +359,19 @@ plot_features(explanation, ncol = 3)
 ```
 
 ![](VIP_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+
+## References
+
++ [Vip: Variable Importance Plots](https://koalaverse.github.io/vip/)
+
++ [Variable importance plots: an introduction to vip](https://koalaverse.github.io/vip/articles/vip.html)
+
++ [Visualizing ML Models with LIME](https://uc-r.github.io/lime)
+
++ [Explain Any Models with the SHAP Values — Use the KernelExplainer](https://towardsdatascience.com/explain-any-models-with-the-shap-values-use-the-kernelexplainer-79de9464897a)
+
++ [Understanding lime](https://cran.r-project.org/web/packages/lime/vignettes/Understanding_lime.html)
+
++ [Understanding shapr](https://cran.r-project.org/web/packages/shapr/vignettes/understanding_shapr.html)
+
++ [Interpretable ML Book](https://github.com/christophM/interpretable-ml-book)
