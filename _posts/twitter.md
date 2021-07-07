@@ -38,3 +38,6 @@ https://towardsdatascience.com/twitter-sentiment-analysis-and-visualization-usin
 https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/use-twitter-api-r/
 
 https://towardsdatascience.com/a-guide-to-mining-and-analysing-tweets-with-r-2f56818fdd16
+
+https://mkearney.github.io/nicar_tworkshop/#47
+
