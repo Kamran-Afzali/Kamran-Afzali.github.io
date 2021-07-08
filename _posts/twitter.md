@@ -35,11 +35,11 @@ In contrast to Bing, the AFINN lexicon assigns a “positive” or “negative�
 
 ## References
 
-[j](https://towardsdatascience.com/twitter-sentiment-analysis-and-visualization-using-r-22e1f70f6967)
+[Twitter Sentiment Analysis and Visualization using R](https://towardsdatascience.com/twitter-sentiment-analysis-and-visualization-using-r-22e1f70f6967)
 
-[j](https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/use-twitter-api-r/)
+[Twitter Data in R Using Rtweet: Analyze and Download Twitter Data](https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/use-twitter-api-r/)
 
-[j](https://towardsdatascience.com/a-guide-to-mining-and-analysing-tweets-with-r-2f56818fdd16)
+[A Guide to Mining and Analysing Tweets with R](https://towardsdatascience.com/a-guide-to-mining-and-analysing-tweets-with-r-2f56818fdd16)
 
-[j](https://mkearney.github.io/nicar_tworkshop/#47)
+[Collecting and Analyzing Twitter Data](https://mkearney.github.io/nicar_tworkshop/#47)
 
