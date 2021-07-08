@@ -33,11 +33,13 @@ The get_sentiments function returns a tibble, so to take a look at what is inclu
 
 In contrast to Bing, the AFINN lexicon assigns a “positive” or “negative” score to each word in its lexicon; further sentiment analysis will then add up the emotion score to determine overall expression. A score greater than zero indicates positive sentiment, while a score less than zero would mean negative overall emotion. A calculated score of zero indicates neutral sentiment (neither positive or negative).
 
-https://towardsdatascience.com/twitter-sentiment-analysis-and-visualization-using-r-22e1f70f6967
+## References
 
-https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/use-twitter-api-r/
+[](https://towardsdatascience.com/twitter-sentiment-analysis-and-visualization-using-r-22e1f70f6967)
 
-https://towardsdatascience.com/a-guide-to-mining-and-analysing-tweets-with-r-2f56818fdd16
+[](https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/use-twitter-api-r/)
 
-https://mkearney.github.io/nicar_tworkshop/#47
+[](https://towardsdatascience.com/a-guide-to-mining-and-analysing-tweets-with-r-2f56818fdd16)
+
+[](https://mkearney.github.io/nicar_tworkshop/#47)
 
