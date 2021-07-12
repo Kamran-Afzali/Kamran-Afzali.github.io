@@ -24,16 +24,19 @@ Search tweets on the topic of your choice; narrow the number of tweets as you se
 
 ## Step 4: 
 
-Process each set of tweets into tidy text or corpus objects.
-
-## Step 5: 
-
+Process each set of tweets into tidy text or corpus objects. 
 Use pre-processing text transformations to clean up the tweets; this includes stemming words. An example of stemming is rolling the words “computer”, “computational” and “computation” to the root “comput”.
 Additional pre-processing involves converting all words to lower-case, removing links to web pages (http elements), and deleting punctuation as well as stop words. The tidytext package contains a list of over 1,000 stop words in the English language that are not helpful in determining the overall sentiment of a text body; these are words such as “I”, “ myself”, “ themselves”, “being” and “have”. We are using the tidytext package with an anti-join to remove the stop words from the tweets that were extracted in step 3.
 
-## Step 6 : 
+
+## Step 5: 
+
 SHOW THE MOST FREQUENTLY USED HASHTAGS
 You can do the same analysis with the hashtags. In this case, you’ll want to use the hashtags variable from the rtweet package. A nice way to visualise these is using a word cloud as shown below.
+
+## Step 6 : 
+Bigram analysis
+Rather than looking at individual words we can look at what words tend to co-occur. We want to use the data set where we’ve corrected the spelling so this is going to require us to transform from long to wide and then back to long because the night is dark and full of terror. DID YOU SEE WHAT I DID THERE.
 
 ## Step 7: 
 
