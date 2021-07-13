@@ -32,7 +32,7 @@ Additional pre-processing involves converting all words to lower-case, removing 
 
 You can do the same analysis with the hashtags. In this case, you’ll want to use the hashtags variable from the rtweet package. A nice way to visualise these is using a word cloud as shown below.
 
-## Step 6 : 
+## Step 6: 
 Bigram analysis:
 Rather than looking at individual words we can look at what words tend to co-occur. We want to use the data set where we’ve corrected the spelling so this is going to require us to transform from long to wide and then back to long because the night is dark and full of terror. DID YOU SEE WHAT I DID THERE.
 
