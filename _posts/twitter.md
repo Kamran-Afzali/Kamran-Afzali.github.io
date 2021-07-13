@@ -11,10 +11,11 @@ Load the required packages (including rtweet) in RStudio
 
 Authenticate using your credentials to Twitter’s API by creating an access token. Steps on getting Twitter access tokens.
 In order to get started, you first need to get a Twitter API. This will allow you to retrieve the tweets — without it, you cannot do anything. Getting a Twitter API is easy. First make sure you have a Twitter account, otherwise create one. Then, apply for a developer account via the website [here]( https://developer.twitter.com/en/apply-for-access.html). You’ll need to fill in an application form, which includes explaining a little a bit more what you wish you analyse. Once you application has been accepted by Twitter (which doesn’t take too long), you’ll receive the following credentials that you need to keep safe:
-Consumer key:#######################
-Consumer Secret:#######################
-Access Token:#######################
-Access Secret:#######################
+
++ Consumer key:#######################
++ Consumer Secret:#######################
++ Access Token:#######################
++ Access Secret:#######################
 
 ## Step 3: 
 
