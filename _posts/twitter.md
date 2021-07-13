@@ -1,7 +1,7 @@
-Twitter provides us with vast amounts of user-generated language data — a dream for anyone wanting to conduct textual analysis. More than that, tweets allow us to gain insights into the online public behaviour. As such, analysing Twitter has become a crucial source of information for brands and agencies.
-Several factors have given Twitter considerable advantages over other social media platforms for analysis. First, the limited character size of tweets provides us with a relatively homogeneous corpora. Second, the millions of tweets published everyday allows access to large data samples. Third, the tweets are publicly available and easily accessible as well as retrievable via APIs.
-Nonetheless, extracting these insights still requires a bit of coding and programming knowledge. This is why, most often, brands and agencies rely on easy-to-use analytics tools such as SproutSocial and Talkwalker who provide these insights at a cost in just one click.
-In this article, I help you to break down these barriers and provide you with a simple guide on how to extract and analyse tweets with the programming software R.
+## Twitter Analysis with R
+
+Twitter provides us with vast amounts of user-generated language data. More than that, tweets allow us to gain insights into the online public behaviour. As such, analysing Twitter has become a crucial source of information for brands and agencies. Several factors have given Twitter considerable advantages over other social media platforms for analysis. First, the limited character size of tweets provides us with a relatively homogeneous corpora. Second, the millions of tweets published everyday allows access to large data samples. Third, the tweets are publicly available and easily accessible as well as retrievable via APIs.
+Nonetheless, extracting these insights still requires a bit of coding and programming knowledge. This is why, most often, brands and agencies rely on easy-to-use analytics tools such as SproutSocial and Talkwalker who provide these insights at a cost in just one click. This article provides a simple guide on how to extract and analyse tweets with the programming software R.
 
 ## Step 1: 
 
@@ -9,14 +9,12 @@ Load the required packages (including rtweet) in RStudio
 
 ## Step 2: 
 
-Authenticate using your credentials to Twitter’s API by creating an access token. Steps on getting Twitter access tokens:
-Getting your Twitter API access
-In order to get started, you first need to get a Twitter API. This will allow you to retrieve the tweets — without it, you cannot do anything. Getting a Twitter API is easy. First make sure you have a Twitter account, otherwise create one. Then, apply for a developer account via the website [here]( https://developer.twitter.com/en/apply-for-access.html). You’ll need to fill in an application form, which includes explaining a little a bit more what you wish you analyse.
-Once you application has been accepted by Twitter (which doesn’t take too long), you’ll receive the following credentials that you need to keep safe:
-Consumer key
-Consumer Secret
-Access Token
-Access Secret
+Authenticate using your credentials to Twitter’s API by creating an access token. Steps on getting Twitter access tokens.
+In order to get started, you first need to get a Twitter API. This will allow you to retrieve the tweets — without it, you cannot do anything. Getting a Twitter API is easy. First make sure you have a Twitter account, otherwise create one. Then, apply for a developer account via the website [here]( https://developer.twitter.com/en/apply-for-access.html). You’ll need to fill in an application form, which includes explaining a little a bit more what you wish you analyse. Once you application has been accepted by Twitter (which doesn’t take too long), you’ll receive the following credentials that you need to keep safe:
+Consumer key:#######################
+Consumer Secret:#######################
+Access Token:#######################
+Access Secret:#######################
 
 ## Step 3: 
 
@@ -31,16 +29,15 @@ Additional pre-processing involves converting all words to lower-case, removing 
 
 ## Step 5: 
 
-SHOW THE MOST FREQUENTLY USED HASHTAGS
 You can do the same analysis with the hashtags. In this case, you’ll want to use the hashtags variable from the rtweet package. A nice way to visualise these is using a word cloud as shown below.
 
 ## Step 6 : 
-Bigram analysis
+Bigram analysis:
 Rather than looking at individual words we can look at what words tend to co-occur. We want to use the data set where we’ve corrected the spelling so this is going to require us to transform from long to wide and then back to long because the night is dark and full of terror. DID YOU SEE WHAT I DID THERE.
 
 ## Step 7: 
 
-Perform sentiment analysis using the Bing lexicon and get_sentiments function from the tidytext package. There are many libraries, dictionaries and packages available in R to evaluate the emotion prevalent in a text. The tidytext and textdata packages have such word-to-emotion evaluation repositories. Three of the general purpose lexicons are Bing, AFINN and nrc (from the textdata package).
+Sentiment analysis There are many libraries, dictionaries and packages available in R to evaluate the emotion prevalent in a text. The tidytext and textdata packages have such word-to-emotion evaluation repositories. Three of the general purpose lexicons are Bing, AFINN and nrc (from the textdata package).
 To take a look at what each package contains, you can run the following commands in R:
 
 The get_sentiments function returns a tibble, so to take a look at what is included as “positive” and “negative” sentiment, you will need to filter accordingly. Since I wanted a general glimpse, I didn’t need to extract the entire dataset, however depending on your needs, you may want to do so.
