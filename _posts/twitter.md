@@ -1,7 +1,6 @@
 ## Twitter Analysis with R
 
-Twitter provides us with vast amounts of user-generated language data. More than that, tweets allow us to gain insights into the online public behaviour. As such, analysing Twitter has become a crucial source of information for brands and agencies. Several factors have given Twitter considerable advantages over other social media platforms for analysis. First, the limited character size of tweets provides us with a relatively homogeneous corpora. Second, the millions of tweets published everyday allows access to large data samples. Third, the tweets are publicly available and easily accessible as well as retrievable via APIs.
-Nonetheless, extracting these insights still requires a bit of coding and programming knowledge. This is why, most often, brands and agencies rely on easy-to-use analytics tools such as SproutSocial and Talkwalker who provide these insights at a cost in just one click. This article provides a simple guide on how to extract and analyse tweets with the programming software R.
+Twitter APIs are one of the easily available and retrievable sources of user-generated language data that provides the opportunity to gain insights into the online public behaviour of a given person or around a given subject of matter. Hence, getting access and analysing Twitter has become a crucial source of information for both scientific and business investigations. Twitter has considerable advantages over other social media platforms for analysis of the text data because of the large number of tweets published every day that allows access to large data samples as well as the size of the tweets leading to a relatively homogeneous corpus. However, extracting the insights still requires coding, this article provides a simple guide on how to extract and analyse tweets with the R programming software.
 
 ## Step 1: 
 
@@ -9,8 +8,7 @@ Load the required packages (including rtweet) in RStudio
 
 ## Step 2: 
 
-Authenticate using your credentials to Twitter’s API by creating an access token. Steps on getting Twitter access tokens.
-In order to get started, you first need to get a Twitter API. This will allow you to retrieve the tweets — without it, you cannot do anything. Getting a Twitter API is easy. First make sure you have a Twitter account, otherwise create one. Then, apply for a developer account via the website [here]( https://developer.twitter.com/en/apply-for-access.html). You’ll need to fill in an application form, which includes explaining a little a bit more what you wish you analyse. Once you application has been accepted by Twitter (which doesn’t take too long), you’ll receive the following credentials that you need to keep safe:
+Authenticate using your credentials to Twitter’s API by creating an access token. In order to get started, you first need to get a Twitter API that allows you to retrieve the tweets. To get a Twitter API you have to use your Twitter account and apply for a developer account via the website [here]( https://developer.twitter.com/en/apply-for-access.html). There is an application form to be accepted by Twitter. Once accepted, you’ll receive the following credentials that you need to keep safe:
 
 + Consumer key:#######################
 + Consumer Secret:#######################
@@ -19,7 +17,7 @@ In order to get started, you first need to get a Twitter API. This will allow yo
 
 ## Step 3: 
 
-Search tweets on the topic of your choice; narrow the number of tweets as you see fit and decide on whether or not to include retweets. I decided to include 100 tweets each for Canada and Scotland, plus decided not to include retweets, so as to avoid duplicate tweets impacting the evaluation.
+Search tweets on the topic of your choice; narrow the number of tweets as you see fit and decide on whether or not to include retweets. I decided to include 100 tweets each for Canada and Scotland, plus decided not to include retweets, so as to avoid duplicate tweets impacting the evaluation. You can do the same analysis with the hashtags. In this case, you’ll want to use the hashtags variable from the rtweet package.
 
 ## Step 4: 
 
@@ -30,7 +28,7 @@ Additional pre-processing involves converting all words to lower-case, removing 
 
 ## Step 5: 
 
-You can do the same analysis with the hashtags. In this case, you’ll want to use the hashtags variable from the rtweet package. A nice way to visualise these is using a word cloud as shown below.
+. A nice way to visualise these is using a word cloud as shown below.
 
 ## Step 6: 
 Bigram analysis:
