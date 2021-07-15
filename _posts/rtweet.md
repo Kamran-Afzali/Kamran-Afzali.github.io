@@ -1,0 +1,266 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+    keep_md: yes
+---
+
+## Twitter Analysis with R
+
+Twitter APIs are one of the easily available and retrievable sources of user-generated language data that provides the opportunity to gain insights into the online public behaviour of a given person or around a given subject of matter. Hence, getting access and analysing Twitter has become a crucial source of information for both scientific and business investigations. Twitter has considerable advantages over other social media platforms for analysis of the text data because of the large number of tweets published every day that allows access to large data samples as well as the size of the tweets leading to a relatively homogeneous corpus. However, extracting the insights still requires coding, this article provides a simple guide on how to extract and analyse tweets with the R programming software.
+
+## Step 1: 
+
+Load the required packages (including rtweet) in RStudio
+
+```r
+library(rtweet)        
+library(tm)            
+library(stringr)       
+library(qdapRegex)     
+library(wordcloud2)    
+library(tidytext)
+library(dplyr)
+library(stopwords)
+library(PersianStemmer)
+library(tidyr)
+library(stringr)
+library(igraph)
+library(ggraph)
+library(textdata)
+```
+
+## Step 2: 
+
+Authenticate using your credentials to Twitter’s API by creating an access token. In order to get started, you first need to get a Twitter API that allows you to retrieve the tweets. To get a Twitter API you have to use your Twitter account and apply for a developer account via the website [here]( https://developer.twitter.com/en/apply-for-access.html). There is an application form to be accepted by Twitter. Once accepted, you’ll receive the following credentials that you need to keep safe:
+
++ Consumer key:#######################
++ Consumer Secret:#######################
++ Access Token:#######################
++ Access Secret:#######################
+
+
+```r
+token=create_token(
+  app = "#######################",
+  consumer_key = "#######################",
+  consumer_secret = "#######################",
+  access_token = "##############################################",
+  access_secret = "#######################")
+token
+```
+
+```
+## <Token>
+## <oauth_endpoint>
+##  request:   https://api.twitter.com/oauth/request_token
+##  authorize: https://api.twitter.com/oauth/authenticate
+##  access:    https://api.twitter.com/oauth/access_token
+## <oauth_app> #######################
+##   key:    #######################
+##   secret: <hidden>
+## <credentials> oauth_token, oauth_token_secret
+## ---
+```
+
+```r
+head(rtweet::trends_available())
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["url"],"name":[2],"type":["chr"],"align":["left"]},{"label":["parentid"],"name":[3],"type":["int"],"align":["right"]},{"label":["country"],"name":[4],"type":["chr"],"align":["left"]},{"label":["woeid"],"name":[5],"type":["int"],"align":["right"]},{"label":["countryCode"],"name":[6],"type":["chr"],"align":["left"]},{"label":["code"],"name":[7],"type":["int"],"align":["right"]},{"label":["place_type"],"name":[8],"type":["chr"],"align":["left"]}],"data":[{"1":"Worldwide","2":"http://where.yahooapis.com/v1/place/1","3":"0","4":"","5":"1","6":"NA","7":"19","8":"Supername"},{"1":"Winnipeg","2":"http://where.yahooapis.com/v1/place/2972","3":"23424775","4":"Canada","5":"2972","6":"CA","7":"7","8":"Town"},{"1":"Ottawa","2":"http://where.yahooapis.com/v1/place/3369","3":"23424775","4":"Canada","5":"3369","6":"CA","7":"7","8":"Town"},{"1":"Quebec","2":"http://where.yahooapis.com/v1/place/3444","3":"23424775","4":"Canada","5":"3444","6":"CA","7":"7","8":"Town"},{"1":"Montreal","2":"http://where.yahooapis.com/v1/place/3534","3":"23424775","4":"Canada","5":"3534","6":"CA","7":"7","8":"Town"},{"1":"Toronto","2":"http://where.yahooapis.com/v1/place/4118","3":"23424775","4":"Canada","5":"4118","6":"CA","7":"7","8":"Town"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+## Step 3: 
+
+Search tweets on the topic or person of your choice to limit the number of tweets as you see fit and decide on whether or not to include retweets. You can do the same analysis with the hashtags. In this case, you’ll want to use the hashtags variable from the rtweet package. Here we included 5000 tweets the ChristophMolnar twitter account. 
+
+
+```r
+tweets_CM <- get_timelines(c("ChristophMolnar"), n = 5000)
+text <- str_c(tweets_CM$text, collapse = "")
+```
+
+## Step 4: 
+
+
+The next step is to pre-process set of tweets into tidy text or corpus objects or simply put to clean up the tweets this includes converting all words to lower-case, removing links to web pages (http elements), hashtags, and mnetions using @ sign, as well as deleting punctuation and stop words. Here we use the tidytext and stopwords packages to remove the words from the tweets that are not helpful in the overall analysis of a text body such as “I”, “ myself”, “ themselves”, “being” and “have”. 
+
+
+
+```r
+text <- 
+  text %>%
+  str_remove("\\n") %>%                  
+  rm_twitter_url() %>%                   
+  rm_url() %>%
+  str_remove_all("#\\S+") %>%             
+  str_remove_all("@\\S+") %>%             
+  removeWords(c(stopwords("english"))) %>%  
+  removeNumbers() %>%
+  stripWhitespace() %>%
+  removeWords(c("amp", "the"))          
+
+
+textCorpus <- 
+  Corpus(VectorSource(text)) %>%
+  TermDocumentMatrix() %>%
+  as.matrix()
+```
+
+
+## Step 5: 
+
+The word frequency table can be visualized using a word cloud as shown below.
+
+
+```r
+textCorpus <- sort(rowSums(textCorpus), decreasing=TRUE)
+textCorpus <- data.frame(word = names(textCorpus), freq=textCorpus, row.names = NULL)
+textCorpus=textCorpus[textCorpus$freq>4,]
+textCorpus=textCorpus[-c(which(as.vector(textCorpus$word)%in%stopwordslangs$word[stopwordslangs$lang=="en"][1:500])),]
+
+yellowPalette <- c("#2B2B2B", "#373D3F", "#333333", "#303030", "#404040", "#484848", "#505050", "#606060", 
+                   "#444444", "#555555", "#666666", "#777777", "#888888", "#999999")
+
+wordcloud <-wordcloud2(data = textCorpus, color=rep_len( yellowPalette, nrow(textCorpus)))
+#wordcloud
+```
+![](rtweet_files/figure-html/rtweet5.png)
+
+## Step 6: 
+Bigram analysis:
+Rather than looking at individual words it is also possible to examine cooccurance between terms. Based on the cleaned data we have to transform from long to wide and extract the bigrams.
+
+
+```r
+tweets_CM2=as.data.frame(tweets_CM[,c(1,5)])
+
+tweets_CM2$text <- 
+  tweets_CM2$text %>%
+  str_remove("\\n") %>%                  
+  rm_twitter_url() %>%                   
+  rm_url() %>%
+  str_remove_all("#\\S+") %>%             
+  str_remove_all("@\\S+") %>%             
+  removeWords(c(stopwords("english"))) %>%  
+  removeNumbers() %>%
+  stripWhitespace() %>%
+  removeWords(c("amp", "the"))          
+
+d <- tibble(txt = tweets_CM2$text)
+CM_bigrams <- d %>% unnest_tokens(bigram, txt, token = "ngrams", n = 2)
+
+
+bigrams_separated <- CM_bigrams %>%
+  separate(bigram, c("word1", "word2"), sep = " ")
+
+bigrams_filtered <- bigrams_separated %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word)
+
+
+bigram_counts <- bigrams_filtered %>% 
+  count(word1, word2, sort = TRUE)
+
+#bigram_counts
+
+
+bigram_graph <- bigram_counts %>%
+  filter(n > 5) %>%
+  graph_from_data_frame()
+```
+
+```r
+set.seed(2017)
+
+ggraph(bigram_graph, layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1)
+```
+
+![](rtweet_files/figure-html/rtweet6-1.png)
+
+```r
+trigrams <- d %>% unnest_tokens(trigram, txt, token = "ngrams", n = 3)
+
+
+trigram_counts=
+  trigrams %>%
+  separate(trigram, c("word1", "word2", "word3"), sep = " ") %>%
+  filter(!word1 %in% stop_words$word,
+         !word2 %in% stop_words$word,
+         !word3 %in% stop_words$word) %>%
+  count(word1, word2, word3, sort = TRUE)
+
+trigram_graph <- trigram_counts %>%
+  filter(n >2) %>%
+  graph_from_data_frame()
+```
+
+
+```r
+set.seed(2017)
+
+ggraph(trigram_graph, layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1)
+```
+
+![](rtweet_files/figure-html/rtweet6-2.png)
+
+```r
+#trigram_graph
+#bigram_graph
+```
+
+
+## Step 7: 
+
+There are many libraries, dictionaries and packages available in R to perform sentiment analysis which is to evaluate the emotion prevalent in a text. Here we use textdata and tidytext packages for word-to-emotion evaluation using two dictionaries namely Bing, AFINN. The get_sentiments function returns a tibble with either “positive” and “negative” sentiment or a numerical value, where a calculated score of zero indicates neutral sentiment, a score greater than zero indicates positive sentiment, while a score less than zero would mean negative overall emotion.  
+
+
+```r
+mat=as.data.frame(as.matrix(TermDocumentMatrix(Corpus(VectorSource(tweets_CM2$text)))))
+mat$word=row.names(mat)
+mat=data.table::as.data.table(mat)
+mat2=data.table::melt(mat,id.vars="word")
+mat3= mat2 %>% inner_join(get_sentiments("afinn"))
+
+mat4= mat2 %>% 
+  inner_join(get_sentiments("nrc") %>% 
+               filter(sentiment %in% c("positive", 
+
+mat5= mat2 %>% 
+  inner_join(get_sentiments("bing"))
+
+pp=aggregate(value~word, data=mat4[mat4$sentiment=="positive",],sum)
+head(pp[rev(order(pp$value)),])
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["word"],"name":[1],"type":["chr"],"align":["left"]},{"label":["value"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"learning","2":"211","_rn_":"239"},{"1":"model","2":"164","_rn_":"258"},{"1":"good","2":"94","_rn_":"174"},{"1":"feature","2":"59","_rn_":"142"},{"1":"important","2":"32","_rn_":"197"},{"1":"interesting","2":"26","_rn_":"219"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+```r
+##nn=aggregate(value~word, data=mat4[mat4$sentiment=="negative",],sum)
+##head(nn[rev(order(nn$value)),])
+```
+
+
+## References
+
++ [Twitter Sentiment Analysis and Visualization using R](https://towardsdatascience.com/twitter-sentiment-analysis-and-visualization-using-r-22e1f70f6967)
+
++ [Twitter Data in R Using Rtweet: Analyze and Download Twitter Data](https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/use-twitter-api-r/)
+
++ [A Guide to Mining and Analysing Tweets with R](https://towardsdatascience.com/a-guide-to-mining-and-analysing-tweets-with-r-2f56818fdd16)
+
++ [Collecting and Analyzing Twitter Data](https://mkearney.github.io/nicar_tworkshop/#47)
