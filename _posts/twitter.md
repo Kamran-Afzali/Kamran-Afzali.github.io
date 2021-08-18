@@ -1,47 +1,261 @@
-## Twitter Analysis with R
 
-Twitter APIs are one of the easily available and retrievable sources of user-generated language data that provides the opportunity to gain insights into the online public behaviour of a given person or around a given subject of matter. Hence, getting access and analysing Twitter has become a crucial source of information for both scientific and business investigations. Twitter has considerable advantages over other social media platforms for analysis of the text data because of the large number of tweets published every day that allows access to large data samples as well as the size of the tweets leading to a relatively homogeneous corpus. However, extracting the insights still requires coding, this article provides a simple guide on how to extract and analyse tweets with the R programming software.
+# New Features In TidyModels 
 
-## Step 1: 
+In new the era of machine learning and data science, there is an emerging challenge to build state-of-the-art predictive models that also provide an understanding of what's really going on under the hood and in the data. Therefore, it is often of interest to know which, of the predictors in a fitted model are relatively influential on the predicted outcome. There are many methodologies to interpret machine learning results (i.e., variable importance via permutation, partial dependence plots, local interpretable model-agnostic explanations), and many machine learning R packages implement their own versions of one or more methodologies. However, some recent R packages that focus purely on ML interpretability agnostic to any specific ML algorithm are gaining popularity. As a part of a larger framework referred to as interpretable machine learning (IML), VIP is an R package for constructing variable importance plots (VIPs).
 
-Load the required packages (including rtweet) in RStudio
+```{r, include=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(stacks)
+library(vip)
+library(pdp)
+library(sparkline)
+library(plotly)
+library(readr)
+library(DALEX)
+library(DALEXtra)
+library(lime)
+library(shapr)
+library(PerformanceAnalytics)
+ library(quantmod)
+ library(tidyverse)
+ library(modeldata)
+ library(forecast)
+ library(finreportr)
+ library(tidymodels)
+ library(stacks)
+ library(finetune)
+ library(vip)
+ library(tidyposterior)
+ library(modeldata)
+ library(workflowsets)
+ library(timetk)
+ library(dials)
+```
 
-## Step 2: 
+here for our example we use the diabetes data from pdp package
 
-Authenticate using your credentials to Twitter’s API by creating an access token. In order to get started, you first need to get a Twitter API that allows you to retrieve the tweets. To get a Twitter API you have to use your Twitter account and apply for a developer account via the website [here]( https://developer.twitter.com/en/apply-for-access.html). There is an application form to be accepted by Twitter. Once accepted, you’ll receive the following credentials that you need to keep safe:
-
-+ Consumer key:#######################
-+ Consumer Secret:#######################
-+ Access Token:#######################
-+ Access Secret:#######################
-
-## Step 3: 
-
-Search tweets on the topic of your choice; narrow the number of tweets as you see fit and decide on whether or not to include retweets. I decided to include 100 tweets each for Canada and Scotland, plus decided not to include retweets, so as to avoid duplicate tweets impacting the evaluation. You can do the same analysis with the hashtags. In this case, you’ll want to use the hashtags variable from the rtweet package.
-
-## Step 4: 
-
-Process each set of tweets into tidy text or corpus objects. 
-Use pre-processing text transformations to clean up the tweets; this includes stemming words. An example of stemming is rolling the words “computer”, “computational” and “computation” to the root “comput”.
-Additional pre-processing involves converting all words to lower-case, removing links to web pages (http elements), and deleting punctuation as well as stop words. The tidytext package contains a list of over 1,000 stop words in the English language that are not helpful in determining the overall sentiment of a text body; these are words such as “I”, “ myself”, “ themselves”, “being” and “have”. We are using the tidytext package with an anti-join to remove the stop words from the tweets that were extracted in step 3.
+```{r}
+data(pima, package = "pdp")
+out="diabetes"
+preds=colnames(pima)[-c(9)]
+df=pima%>%
+  select(c(out,preds))%>% 
+  drop_na()
 
 
-## Step 5: 
+table(df$diabetes)
 
-. A nice way to visualise these is using a word cloud as shown below.
 
-## Step 6: 
-Bigram analysis:
-Rather than looking at individual words we can look at what words tend to co-occur. We want to use the data set where we’ve corrected the spelling so this is going to require us to transform from long to wide and then back to long because the night is dark and full of terror. DID YOU SEE WHAT I DID THERE.
 
-## Step 7: 
+```
 
-Sentiment analysis There are many libraries, dictionaries and packages available in R to evaluate the emotion prevalent in a text. The tidytext and textdata packages have such word-to-emotion evaluation repositories. Three of the general purpose lexicons are Bing, AFINN and nrc (from the textdata package).
-To take a look at what each package contains, you can run the following commands in R:
+first data is divided to train and test sets and pre-processing is done with the Recipes package
 
-The get_sentiments function returns a tibble, so to take a look at what is included as “positive” and “negative” sentiment, you will need to filter accordingly. Since I wanted a general glimpse, I didn’t need to extract the entire dataset, however depending on your needs, you may want to do so.
+```{r}
+df_split <- initial_split(df)
+train_data <- training(df_split)
+test_data <- testing(df_split)
+cv_train <- vfold_cv(train_data, v = 5, repeats = 2, strata = out)
 
-In contrast to Bing, the AFINN lexicon assigns a “positive” or “negative” score to each word in its lexicon; further sentiment analysis will then add up the emotion score to determine overall expression. A score greater than zero indicates positive sentiment, while a score less than zero would mean negative overall emotion. A calculated score of zero indicates neutral sentiment (neither positive or negative).
+class_rec <- recipe(diabetes ~ ., data = train_data)%>%
+  step_center(all_predictors())  %>%
+  step_scale(all_predictors()) %>%
+  themis::step_smote (diabetes)
+
+train_preped <- prep(class_rec) %>%
+  bake(new_data = NULL)
+
+test_preped <-  prep(class_rec) %>%
+  bake(new_data = test_data)
+
+
+require(doParallel)
+cores <- parallel::detectCores(logical = FALSE)
+registerDoParallel(cores = cores)
+```
+
+## Workflowsets
+```{r}
+elastic_class <- logistic_reg(mixture = tune(), penalty = tune()) %>% 
+  set_mode("classification") %>% 
+  set_engine("glmnet")
+xgboost_class <- boost_tree(learn_rate = tune(), trees = tune()) %>% 
+  set_mode("classification") %>% 
+  set_engine("xgboost")
+randomForest_class <- rand_forest(trees = tune()) %>% 
+  set_mode("classification") %>% 
+  set_engine("ranger")
+
+
+classification_metrics <- metric_set(roc_auc)
+model_control <- control_stack_grid()
+
+classification_set <- workflow_set(
+  preproc = list(regular = class_rec),
+  models = list(elastic = elastic_class, xgboost = xgboost_class, randomForest = randomForest_class),
+  cross = TRUE )
+
+
+classification_set <- classification_set %>% 
+  workflow_map("tune_sim_anneal", resamples = cv_train, metrics = classification_metrics)
+autoplot(classification_set)
+
+
+autoplot(classification_set, rank_metric = "roc_auc", id = "regular_elastic")
+rank_results(classification_set, rank_metric = "roc_auc") %>% 
+  filter(.metric == "roc_auc")
+classification_set %>% 
+  extract_workflow_set_result("regular_elastic") %>% 
+  show_best("roc_auc", n = 1)
+classification_set %>% 
+  extract_workflow_set_result("regular_randomForest") %>% 
+  show_best("roc_auc", n = 1)
+
+
+classification_set %>% 
+  extract_workflow_set_result("regular_xgboost") %>% 
+  show_best("roc_auc", n = 1)
+
+rf_best=classification_set %>% 
+  extract_workflow_set_result("regular_randomForest") %>% 
+  show_best("roc_auc", n = 1)
+
+final_rf <- finalize_model(
+  randomForest_class,
+  rf_best
+)
+
+final_rf
+
+final_rf %>%
+  set_mode("classification") %>% 
+  set_engine("ranger", importance = "impurity")%>%
+  fit(diabetes ~ .,
+      data = train_preped
+  ) %>%
+  vip()
+
+mod_pred=final_rf %>%
+  set_mode("classification") %>% 
+  set_engine("ranger")%>%
+  fit(diabetes ~ .,
+      data = train_preped
+  ) %>% predict(test_preped)%>% 
+  bind_cols(test_preped %>% select(diabetes))
+
+mod_pred%>% yardstick::accuracy(truth = diabetes, .pred_class)%>%bind_rows(mod_pred%>% yardstick::sens(truth = diabetes, .pred_class))%>%
+  bind_rows(mod_pred%>% yardstick::spec(truth = diabetes, .pred_class))%>%bind_rows(mod_pred%>% yardstick::f_meas(truth = diabetes, .pred_class))
+```
+
+
+## Stacks
+
+
+```{r}
+a=classification_set %>% 
+  extract_workflow_set_result("regular_elastic") 
+
+b=classification_set %>% 
+  extract_workflow_set_result("regular_randomForest") 
+
+c=classification_set %>% 
+  extract_workflow_set_result("regular_xgboost")
+
+
+model_ensemble <- 
+  stacks() %>%
+  add_candidates(a) %>%
+  add_candidates(b) %>%
+  add_candidates(c) %>%
+  blend_predictions() %>%
+  fit_members()
+
+
+
+
+elastic_class <- logistic_reg(mixture = tune(), penalty = tune()) %>% 
+  set_mode("classification") %>% 
+  set_engine("glmnet")
+xgboost_class <- boost_tree(learn_rate = tune(), trees = tune()) %>% 
+  set_mode("classification") %>% 
+  set_engine("xgboost")
+randomForest_class <- rand_forest(trees = tune()) %>% 
+  set_mode("classification") %>% 
+  set_engine("ranger")
+
+
+
+lr_workflow <- 
+  workflow() %>% 
+  add_model(elastic_class) %>% 
+  add_recipe(class_rec)
+
+lr_workflow
+
+set.seed(345)
+lr_res <- 
+  lr_workflow %>% 
+  tune_grid(grid = 100,
+            control = control_stack_grid(),
+            metrics = metric_set(roc_auc,f_meas,sens,bal_accuracy), 
+            resamples = cv_train)
+
+
+
+xgboost_workflow <- 
+  workflow() %>% 
+  add_model(xgboost_class) %>% 
+  add_recipe(class_rec)
+
+xgboost_workflow
+
+set.seed(345)
+xgboost_res <- 
+  xgboost_workflow %>% 
+  tune_grid(grid = 100,
+            control = control_stack_grid(),
+            metrics = metric_set(roc_auc,f_meas,sens,bal_accuracy), 
+            resamples = cv_train)
+
+rf_workflow <- 
+  workflow() %>% 
+  add_model(randomForest_class) %>% 
+  add_recipe(class_rec)
+
+rf_workflow
+
+set.seed(345)
+rf_res <- 
+  rf_workflow %>% 
+  tune_grid(grid = 100,
+            control = control_stack_grid(),
+            metrics = metric_set(roc_auc,f_meas,sens,bal_accuracy), 
+            resamples = cv_train)
+
+
+
+ensemble_model <- stacks() %>% 
+  add_candidates(lr_res) %>% 
+  add_candidates(xgboost_res) %>% 
+  add_candidates(rf_res) %>% 
+  blend_predictions()
+autoplot(ensemble_model)
+autoplot(ensemble_model, type = "members")
+autoplot(ensemble_model, type = "weights")
+
+ensemble_model <- stacks() %>% 
+  add_candidates(lr_res) %>% 
+  add_candidates(xgboost_res) %>% 
+  add_candidates(rf_res) %>% 
+  blend_predictions() %>%
+  fit_members()
+
+
+ens_mod_pred <-
+  test_preped%>%
+  bind_cols(predict(ensemble_model, test_preped, type = "prob"))
+```
 
 ## References
 
