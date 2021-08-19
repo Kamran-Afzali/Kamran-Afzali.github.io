@@ -75,6 +75,73 @@ cores <- parallel::detectCores(logical = FALSE)
 registerDoParallel(cores = cores)
 ```
 
+## Hyper-parameter tuning with racing methods
+
+```{r}
+
+
+library(finetune)
+doParallel::registerDoParallel()
+
+xgboost_class <- boost_tree(learn_rate = tune(), trees = tune()) %>% 
+  set_mode("classification") %>% 
+  set_engine("xgboost")
+
+
+xgboost_workflow <- 
+  workflow() %>% 
+  add_model(xgboost_class) %>% 
+  add_recipe(class_rec)
+
+xgboost_workflow
+
+set.seed(345)
+xgboost_res_race <- tune_race_anova(
+  xgboost_workflow,
+  resamples = cv_train,
+  grid = 15,
+  metrics = metric_set(roc_auc,f_meas,sens,bal_accuracy),
+  control = control_race(verbose_elim = TRUE)
+)
+plot_race(xgboost_res_race)
+
+
+
+xgb_best=xgboost_res_race %>% 
+  show_best("roc_auc", n = 1)
+
+final_xgb <- finalize_model(
+  xgboost_class,
+  xgb_best
+)
+
+final_xgb
+
+final_xgb %>%
+  set_mode("classification") %>% 
+  set_engine("xgboost")%>%
+  fit(diabetes ~ .,
+      data = train_preped
+  ) %>%
+  vip()
+
+mod_pred=final_xgb %>%
+  set_mode("classification") %>% 
+  set_engine("xgboost")%>%
+  fit(diabetes ~ .,
+      data = train_preped
+  ) %>% predict(test_preped)%>% 
+  bind_cols(test_preped %>% select(diabetes))
+
+mod_pred%>% yardstick::accuracy(truth = diabetes, .pred_class)%>%bind_rows(mod_pred%>% yardstick::sens(truth = diabetes, .pred_class))%>%
+  bind_rows(mod_pred%>% yardstick::spec(truth = diabetes, .pred_class))%>%bind_rows(mod_pred%>% yardstick::f_meas(truth = diabetes, .pred_class))
+
+
+
+```
+
+
+
 ## Workflowsets
 ```{r}
 elastic_class <- logistic_reg(mixture = tune(), penalty = tune()) %>% 
