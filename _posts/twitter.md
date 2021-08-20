@@ -1,5 +1,5 @@
 
-# New Features In TidyModels 
+# Three New Features In TidyModels 
 
 In new the era of machine learning and data science, there is an emerging challenge to build state-of-the-art predictive models that also provide an understanding of what's really going on under the hood and in the data. Therefore, it is often of interest to know which, of the predictors in a fitted model are relatively influential on the predicted outcome. There are many methodologies to interpret machine learning results (i.e., variable importance via permutation, partial dependence plots, local interpretable model-agnostic explanations), and many machine learning R packages implement their own versions of one or more methodologies. However, some recent R packages that focus purely on ML interpretability agnostic to any specific ML algorithm are gaining popularity. As a part of a larger framework referred to as interpretable machine learning (IML), VIP is an R package for constructing variable importance plots (VIPs).
 
@@ -9,28 +9,10 @@ library(tidymodels)
 library(stacks)
 library(vip)
 library(pdp)
-library(sparkline)
-library(plotly)
-library(readr)
-library(DALEX)
-library(DALEXtra)
-library(lime)
-library(shapr)
-library(PerformanceAnalytics)
- library(quantmod)
- library(tidyverse)
- library(modeldata)
- library(forecast)
- library(finreportr)
- library(tidymodels)
- library(stacks)
- library(finetune)
- library(vip)
- library(tidyposterior)
- library(modeldata)
- library(workflowsets)
- library(timetk)
- library(dials)
+library(tidyposterior)
+library(modeldata)
+library(workflowsets)
+library(dials)
 ```
 
 here for our example we use the diabetes data from pdp package
@@ -326,11 +308,9 @@ ens_mod_pred <-
 
 ## References
 
-+ [Twitter Sentiment Analysis and Visualization using R](https://towardsdatascience.com/twitter-sentiment-analysis-and-visualization-using-r-22e1f70f6967)
++ [Efficient grid search via racing with ANOVA models](https://finetune.tidymodels.org/reference/tune_race_anova.html)
 
-+ [Twitter Data in R Using Rtweet: Analyze and Download Twitter Data](https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/use-twitter-api-r/)
++ [https://workflowsets.tidymodels.org](https://workflowsets.tidymodels.org)
 
-+ [A Guide to Mining and Analysing Tweets with R](https://towardsdatascience.com/a-guide-to-mining-and-analysing-tweets-with-r-2f56818fdd16)
-
-+ [Collecting and Analyzing Twitter Data](https://mkearney.github.io/nicar_tworkshop/#47)
++ [Getting Started With stacks](https://stacks.tidymodels.org/articles/basics.html)
 
