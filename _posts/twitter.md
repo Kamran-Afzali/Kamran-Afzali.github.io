@@ -221,6 +221,18 @@ mod_pred%>% yardstick::accuracy(truth = diabetes, .pred_class)%>%bind_rows(mod_p
 
 ## Stacks
 
+Model stacking is an ensembling technique that involves training a model to combine the outputs of many diverse statistical models. The stacks package implements a grammar for tidymodels-aligned model stacking.
+
+At a high level, the workflow looks something like this:
+
++ Define candidate ensemble members using functionality from rsample, parsnip, workflows, recipes, and tune
++ Initialize a data_stack object with stacks()
++ Iteratively add candidate ensemble members to the data_stack with add_candidates()
++ Evaluate how to combine their predictions with blend_predictions()
++ Fit candidate ensemble members with non-zero stacking coefficients with fit_members()
++ Predict on new data with predict()!
+
+
 
 ```{r}
 a=classification_set %>% 
