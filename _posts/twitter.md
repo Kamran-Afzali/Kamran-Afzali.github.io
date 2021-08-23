@@ -1,7 +1,10 @@
 
 # Three New Features In TidyModels 
 
-In new the era of machine learning and data science, there is an emerging challenge to build state-of-the-art predictive models that also provide an understanding of what's really going on under the hood and in the data. Therefore, it is often of interest to know which, of the predictors in a fitted model are relatively influential on the predicted outcome. There are many methodologies to interpret machine learning results (i.e., variable importance via permutation, partial dependence plots, local interpretable model-agnostic explanations), and many machine learning R packages implement their own versions of one or more methodologies. However, some recent R packages that focus purely on ML interpretability agnostic to any specific ML algorithm are gaining popularity. As a part of a larger framework referred to as interpretable machine learning (IML), VIP is an R package for constructing variable importance plots (VIPs).
+Based on tidyverse principles, TidyModels framework provides a collection of R packages adapted for modeling and machine learning. As there are regular updates and developments in the ecosystem, summarizing recent developments in the tidymodels ecosystem can be of interest. This is the first part of a series of blog posts intented to keep you informed about any releases you may have missed and useful new functionalities. You can check out the *tidymodels* tag to find all tidymodels blog posts here, including those that focus on a the use of a single model or more major releases and developments. Here we discuss three new features in TidyModels, namely race anova for model tuning, workflowsets for model comparison, and stacking for ensemble learning.  
+
+
+first we load the required packgaes
 
 ```{r, include=FALSE}
 library(tidyverse)
