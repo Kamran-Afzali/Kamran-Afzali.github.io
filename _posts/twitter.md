@@ -131,17 +131,7 @@ mod_pred%>% yardstick::accuracy(truth = diabetes, .pred_class)%>%bind_rows(mod_p
 
 ## Workflowsets
 
-The goal of workflowsets is to allow users to create and easily fit a large number of models. workflowsets can create a workflow set that holds multiple workflow objects. These objects can be created by crossing all combinations of preprocessors (e.g., formula, recipe, etc) and model specifications. This set can be easier tuned or resampled using a set of simple commands.
-
-It is often a good idea to try different types of models and preprocessing methods on a specific data set. tidymodels provides tools for this purpose: recipes for preprocessing/feature engineering and model specifications. workflowsets has functions for creating and evaluating combinations of modeling elements.
-
-For example, the Chicago train ridership data has many numeric predictors that are highly correlated. There are a few approaches to compensating for this issue during modeling:
-
-Use a feature filter to remove redundant predictors.
-
-Apply principal component analysis to decorrelate the data.
-
-Use a regularized model to make the estimation process insensitive to correlated predictors.
+It is often recommended to investigate different types of models and preprocessing methods on a specific data set. Workflowsets has functions for creating and evaluating combinations of  Tidyverse modeling elements. The workflowsets function holds multiple workflow objects with goal of creating and fiting large number of models within the TidyModels ecosystem. These workflow objects can be created by crossing all combinations of recipe preprocessors, model specifications, and hyperparameter tuning procedures. This set can be easier tuned or resampled using a set of simple commands.
 
 ```{r}
 elastic_class <- logistic_reg(mixture = tune(), penalty = tune()) %>% 
