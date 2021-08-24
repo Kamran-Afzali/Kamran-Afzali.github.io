@@ -62,10 +62,7 @@ registerDoParallel(cores = cores)
 
 ## Hyper-parameter tuning with racing methods
 
-tune_race_anova() computes a set of performance metrics (e.g. accuracy or RMSE) for a pre-defined set of tuning parameters that correspond to a model or recipe across one or more resamples of the data. After an initial number of resamples have been evaluated, the process eliminates tuning parameter combinations that are unlikely to be the best results using a repeated measure ANOVA model.
-The performance statistics from these resamples are analyzed to determine which tuning parameters are not statistically different from the current best setting. If a parameter is statistically different, it is excluded from further resampling.
-
-The next resample is used with the remaining parameter combinations and the statistical analysis is updated. More candidate parameters may be excluded with each new resample that is processed.
+Hyper parameter tuning can be both time and resource consuming, ANOVA based race tuning method implemented in tune_race_anova() function tune a pre-defined set of hyper parameters corresponding to a model or recipe across one or more resamples of the data to optimize a set of performance metrics (e.g. accuracy or roc). After an initial number of resamples have been evaluated and using a repeated measure ANOVA procedure, the race tuning method eliminates tuning parameter combinations that are unlikely to be the best results. In other words, tuning parameters are not statistically different from the current best setting will be eliminated hence it is excluded from further resampling. The next resample is used with the remaining parameter combinations and the statistical analysis is updated. More candidate parameters may be excluded with each new resample that is processed. 
 
 ```{r}
 
