@@ -1,3 +1,11 @@
+---
+layout: post
+categories: posts
+title: Three New Features In TidyModels   
+featured-image: /images/rtweet5.png
+tags: [Tuning, Machine-learning, TidyModels]
+date-string: August 2021
+---
 
 # Three New Features In TidyModels 
 
@@ -6,7 +14,7 @@ Based on tidyverse principles, TidyModels framework provides a collection of R p
 
 first we load the required packgaes
 
-```{r, include=FALSE}
+```r
 library(tidyverse)
 library(tidymodels)
 library(stacks)
@@ -20,24 +28,31 @@ library(dials)
 
 here for our example we use the diabetes data from pdp package
 
-```{r}
+
+```r
 data(pima, package = "pdp")
 out="diabetes"
 preds=colnames(pima)[-c(9)]
 df=pima%>%
   select(c(out,preds))%>% 
   drop_na()
+```
 
 
+```r
 table(df$diabetes)
+```
 
-
-
+```
+## 
+## neg pos 
+## 262 130
 ```
 
 first data is divided to train and test sets and pre-processing is done with the Recipes package
 
-```{r}
+
+```r
 df_split <- initial_split(df)
 train_data <- training(df_split)
 test_data <- testing(df_split)
@@ -47,7 +62,9 @@ class_rec <- recipe(diabetes ~ ., data = train_data)%>%
   step_center(all_predictors())  %>%
   step_scale(all_predictors()) %>%
   themis::step_smote (diabetes)
+```
 
+```r
 train_preped <- prep(class_rec) %>%
   bake(new_data = NULL)
 
@@ -56,6 +73,9 @@ test_preped <-  prep(class_rec) %>%
 
 
 require(doParallel)
+```
+
+```r
 cores <- parallel::detectCores(logical = FALSE)
 registerDoParallel(cores = cores)
 ```
@@ -64,9 +84,10 @@ registerDoParallel(cores = cores)
 
 Hyper parameter tuning can be both time and resource consuming, ANOVA based race tuning method implemented in tune_race_anova() function tune a pre-defined set of hyper parameters corresponding to a model or recipe across one or more resamples of the data to optimize a set of performance metrics (e.g. accuracy or roc). After an initial number of resamples have been evaluated and using a repeated measure ANOVA procedure, the race tuning method eliminates tuning parameter combinations that are unlikely to be the best results. In other words, tuning parameters are not statistically different from the current best setting will be eliminated hence it is excluded from further resampling. The next resample is used with the remaining parameter combinations and the statistical analysis is updated. More candidate parameters may be excluded with each new resample that is processed. 
 
-```{r}
 
+First lets define the workflow
 
+```r
 library(finetune)
 doParallel::registerDoParallel()
 
@@ -81,7 +102,35 @@ xgboost_workflow <-
   add_recipe(class_rec)
 
 xgboost_workflow
+```
 
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: boost_tree()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_center()
+## • step_scale()
+## • step_smote()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Boosted Tree Model Specification (classification)
+## 
+## Main Arguments:
+##   trees = tune()
+##   learn_rate = tune()
+## 
+## Computational engine: xgboost
+```
+
+
+then to tune the model using the tune_race_anova() function
+
+
+```r
 set.seed(345)
 xgboost_res_race <- tune_race_anova(
   xgboost_workflow,
@@ -90,10 +139,19 @@ xgboost_res_race <- tune_race_anova(
   metrics = metric_set(roc_auc,f_meas,sens,bal_accuracy),
   control = control_race(verbose_elim = TRUE)
 )
+```
+
+
+```r
 plot_race(xgboost_res_race)
+```
+
+![](/images/tidymodels1-1.png)
+
+finally to select the best fitting model and to highlight VIPs.
 
 
-
+```r
 xgb_best=xgboost_res_race %>% 
   show_best("roc_auc", n = 1)
 
@@ -103,7 +161,19 @@ final_xgb <- finalize_model(
 )
 
 final_xgb
+```
 
+```
+## Boosted Tree Model Specification (classification)
+## 
+## Main Arguments:
+##   trees = 1892
+##   learn_rate = 0.00970156370506386
+## 
+## Computational engine: xgboost
+```
+
+```r
 final_xgb %>%
   set_mode("classification") %>% 
   set_engine("xgboost")%>%
@@ -111,7 +181,11 @@ final_xgb %>%
       data = train_preped
   ) %>%
   vip()
+```
 
+![](/images/tidymodels2-1.png)
+
+```r
 mod_pred=final_xgb %>%
   set_mode("classification") %>% 
   set_engine("xgboost")%>%
@@ -122,10 +196,8 @@ mod_pred=final_xgb %>%
 
 mod_pred%>% yardstick::accuracy(truth = diabetes, .pred_class)%>%bind_rows(mod_pred%>% yardstick::sens(truth = diabetes, .pred_class))%>%
   bind_rows(mod_pred%>% yardstick::spec(truth = diabetes, .pred_class))%>%bind_rows(mod_pred%>% yardstick::f_meas(truth = diabetes, .pred_class))
-
-
-
 ```
+
 
 
 
@@ -133,7 +205,11 @@ mod_pred%>% yardstick::accuracy(truth = diabetes, .pred_class)%>%bind_rows(mod_p
 
 It is often recommended to investigate different types of models and preprocessing methods on a specific data set. Workflowsets has functions for creating and evaluating combinations of  Tidyverse modeling elements. The workflowsets function holds multiple workflow objects with goal of creating and fiting large number of models within the TidyModels ecosystem. These workflow objects can be created by crossing all combinations of recipe preprocessors, model specifications, and hyperparameter tuning procedures. This set can be easier tuned or resampled using a set of simple commands.
 
-```{r}
+
+first lets define individual workflows
+
+
+```r
 elastic_class <- logistic_reg(mixture = tune(), penalty = tune()) %>% 
   set_mode("classification") %>% 
   set_engine("glmnet")
@@ -147,7 +223,12 @@ randomForest_class <- rand_forest(trees = tune()) %>%
 
 classification_metrics <- metric_set(roc_auc)
 model_control <- control_stack_grid()
+```
 
+then to fit all workflows together using the workflow_set() function
+
+
+```r
 classification_set <- workflow_set(
   preproc = list(regular = class_rec),
   models = list(elastic = elastic_class, xgboost = xgboost_class, randomForest = randomForest_class),
@@ -156,24 +237,57 @@ classification_set <- workflow_set(
 
 classification_set <- classification_set %>% 
   workflow_map("tune_sim_anneal", resamples = cv_train, metrics = classification_metrics)
+```
+
+ 
+and to plot the results
+ 
+
+```r
 autoplot(classification_set)
+```
 
+![](/images/tidymodels5-1.png)
 
+```r
 autoplot(classification_set, rank_metric = "roc_auc", id = "regular_elastic")
+```
+
+![](/images/tidymodels5-2.png)
+
+
+finally to select the best fitting model and to highlight VIPs.
+
+
+
+```r
 rank_results(classification_set, rank_metric = "roc_auc") %>% 
   filter(.metric == "roc_auc")
+```
+
+```r
 classification_set %>% 
   extract_workflow_set_result("regular_elastic") %>% 
   show_best("roc_auc", n = 1)
+```
+
+
+```r
 classification_set %>% 
   extract_workflow_set_result("regular_randomForest") %>% 
   show_best("roc_auc", n = 1)
+```
 
 
+
+```r
 classification_set %>% 
   extract_workflow_set_result("regular_xgboost") %>% 
   show_best("roc_auc", n = 1)
+```
 
+
+```r
 rf_best=classification_set %>% 
   extract_workflow_set_result("regular_randomForest") %>% 
   show_best("roc_auc", n = 1)
@@ -184,7 +298,18 @@ final_rf <- finalize_model(
 )
 
 final_rf
+```
 
+```
+## Random Forest Model Specification (classification)
+## 
+## Main Arguments:
+##   trees = 1082
+## 
+## Computational engine: ranger
+```
+
+```r
 final_rf %>%
   set_mode("classification") %>% 
   set_engine("ranger", importance = "impurity")%>%
@@ -192,7 +317,11 @@ final_rf %>%
       data = train_preped
   ) %>%
   vip()
+```
 
+![](/images/tidymodels6-1.png)
+
+```r
 mod_pred=final_rf %>%
   set_mode("classification") %>% 
   set_engine("ranger")%>%
@@ -204,6 +333,7 @@ mod_pred=final_rf %>%
 mod_pred%>% yardstick::accuracy(truth = diabetes, .pred_class)%>%bind_rows(mod_pred%>% yardstick::sens(truth = diabetes, .pred_class))%>%
   bind_rows(mod_pred%>% yardstick::spec(truth = diabetes, .pred_class))%>%bind_rows(mod_pred%>% yardstick::f_meas(truth = diabetes, .pred_class))
 ```
+
 
 
 ## Stacks
@@ -221,28 +351,9 @@ At a high level, the workflow looks something like this:
 
 
 
-```{r}
-a=classification_set %>% 
-  extract_workflow_set_result("regular_elastic") 
+first we define and fit individual models
 
-b=classification_set %>% 
-  extract_workflow_set_result("regular_randomForest") 
-
-c=classification_set %>% 
-  extract_workflow_set_result("regular_xgboost")
-
-
-model_ensemble <- 
-  stacks() %>%
-  add_candidates(a) %>%
-  add_candidates(b) %>%
-  add_candidates(c) %>%
-  blend_predictions() %>%
-  fit_members()
-
-
-
-
+```r
 elastic_class <- logistic_reg(mixture = tune(), penalty = tune()) %>% 
   set_mode("classification") %>% 
   set_engine("glmnet")
@@ -261,7 +372,31 @@ lr_workflow <-
   add_recipe(class_rec)
 
 lr_workflow
+```
 
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: logistic_reg()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_center()
+## • step_scale()
+## • step_smote()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Logistic Regression Model Specification (classification)
+## 
+## Main Arguments:
+##   penalty = tune()
+##   mixture = tune()
+## 
+## Computational engine: glmnet
+```
+
+```r
 set.seed(345)
 lr_res <- 
   lr_workflow %>% 
@@ -278,7 +413,31 @@ xgboost_workflow <-
   add_recipe(class_rec)
 
 xgboost_workflow
+```
 
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: boost_tree()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_center()
+## • step_scale()
+## • step_smote()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Boosted Tree Model Specification (classification)
+## 
+## Main Arguments:
+##   trees = tune()
+##   learn_rate = tune()
+## 
+## Computational engine: xgboost
+```
+
+```r
 set.seed(345)
 xgboost_res <- 
   xgboost_workflow %>% 
@@ -293,7 +452,30 @@ rf_workflow <-
   add_recipe(class_rec)
 
 rf_workflow
+```
 
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: rand_forest()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_center()
+## • step_scale()
+## • step_smote()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Random Forest Model Specification (classification)
+## 
+## Main Arguments:
+##   trees = tune()
+## 
+## Computational engine: ranger
+```
+
+```r
 set.seed(345)
 rf_res <- 
   rf_workflow %>% 
@@ -301,30 +483,69 @@ rf_res <-
             control = control_stack_grid(),
             metrics = metric_set(roc_auc,f_meas,sens,bal_accuracy), 
             resamples = cv_train)
+```
+
+then we define the ensemble model using stacks() function
 
 
 
+```r
 ensemble_model <- stacks() %>% 
   add_candidates(lr_res) %>% 
   add_candidates(xgboost_res) %>% 
   add_candidates(rf_res) %>% 
   blend_predictions()
-autoplot(ensemble_model)
-autoplot(ensemble_model, type = "members")
-autoplot(ensemble_model, type = "weights")
+```
 
+```
+## Warning: Predictions from the candidates c(".pred_neg_lr_res_1_053",
+## ".pred_neg_lr_res_1_067", ".pred_neg_lr_res_1_061", ".pred_pos_lr_res_1_053",
+## ".pred_pos_lr_res_1_067", ".pred_pos_lr_res_1_061") were identical to those from
+## existing candidates and were removed from the data stack.
+```
+
+```
+## Warning: Predictions from the candidates c(".pred_neg_xgboost_res_1_005",
+## ".pred_neg_xgboost_res_1_001", ".pred_neg_xgboost_res_1_004",
+## ".pred_pos_xgboost_res_1_002", ".pred_pos_xgboost_res_1_005",
+## ".pred_pos_xgboost_res_1_001", ".pred_pos_xgboost_res_1_004") were identical to
+## those from existing candidates and were removed from the data stack.
+```
+
+```r
+autoplot(ensemble_model)
+```
+
+![](/images/tidymodels8-1.png)
+
+```r
+autoplot(ensemble_model, type = "members")
+```
+
+![](/images/tidymodels8-2.png)
+
+```r
+autoplot(ensemble_model, type = "weights")
+```
+
+![](/images/tidymodels8-3.png)
+
+```r
 ensemble_model <- stacks() %>% 
   add_candidates(lr_res) %>% 
   add_candidates(xgboost_res) %>% 
   add_candidates(rf_res) %>% 
   blend_predictions() %>%
   fit_members()
-
-
-ens_mod_pred <-
-  test_preped%>%
-  bind_cols(predict(ensemble_model, test_preped, type = "prob"))
 ```
+
+
+```r
+# ens_mod_pred <-
+#   test_preped%>%
+#   bind_cols(predict(ensemble_model, test_preped, type = "prob"))
+```
+
 
 ## References
 
@@ -333,4 +554,6 @@ ens_mod_pred <-
 + [Create a Collection of tidymodels Workflows](https://workflowsets.tidymodels.org)
 
 + [Getting Started With stacks](https://stacks.tidymodels.org/articles/basics.html)
+
+
 
