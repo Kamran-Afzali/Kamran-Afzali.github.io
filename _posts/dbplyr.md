@@ -20,6 +20,59 @@ This vignette focuses on the first scenario because it’s the most common. If y
 
 
 
+library(nycflights13)
+library(tidyverse)
+library(DBI)
+library(RSQLite)
+
+planes <- planes
+
+flights <- flights
+con <- dbConnect(SQLite(), ":memory:")
+copy_to(con, flights)
+copy_to(con, planes)
+dbGetQuery(con, '
+SELECT * 
+FROM flights
+           ')
+
+
+
+dbGetQuery(con, '
+SELECT tailnum, COUNT(tailnum)
+FROM flights
+GROUP BY tailnum
+ORDER BY COUNT(tailnum) DESC
+           ')
+
+
+dbGetQuery(con, '
+SELECT *
+FROM flights
+JOIN planes
+ON flights.tailnum = planes.tailnum
+ORDER BY planes.tailnum
+           ')
+
+
+
+
+```{sql, connection = con, output.var = "df"}
+# SELECT fight.fight_pk, fight.fighter, B.opponent, CASE WHEN 
+# fight.res = "W" THEN 1 ELSE 0 END AS fight_res
+# FROM FIGHT
+# JOIN (SELECT fight_pk, fighter AS opponent FROM FIGHT) B
+# ON FIGHT.fight_pk = B.fight_pk
+# WHERE fight.fighter != B.opponent AND fighter > opponent
+# ORDER BY fight.fight_pk
+ ```
+
+```{r}
+# df
+```
+
+
+
 ## References
 
 
