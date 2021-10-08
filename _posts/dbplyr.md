@@ -72,15 +72,26 @@ ORDER BY planes.tailnum
 ```
 
 
+dbGetQuery(con, '
+  SELECT COUNT (dest)
+FROM flights
+WHERE (dest="SEA" AND year=2013)')  
+
+dbGetQuery(con, '
+  SELECT COUNT (distinct carrier) AS "Number of unique airlines"
+FROM flights
+WHERE (dest="SEA" AND year=2013)')  
+
+
+
+
+
 
 ## References
 
 
-
-
 + [Efficient grid search via racing with ANOVA models](https://rdbsql.rsquaredacademy.com/dbi.html)
-
 + [Create a Collection of tidymodels Workflows](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html)
-
 + [Getting Started With stacks](https://github.com/andrew-couch/Tidy-Tuesday/blob/master/Season%201/Scripts/TidyTuesdayDatabase.Rmd)
++ [hhh](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
 
