@@ -83,6 +83,36 @@ FROM flights
 WHERE (dest="SEA" AND year=2013)')  
 
 
+copy_to(con, nycflights13::flights, "flights",
+        temporary = FALSE, 
+        indexes = list(
+          c("year", "month", "day"), 
+          "carrier", 
+          "tailnum",
+          "dest"
+        )
+)
+flights_db <- tbl(con, "flights")
+
+flights_db
+
+
+tailnum_delay_db <- flights_db %>% 
+  group_by(tailnum) %>%
+  summarise(
+    delay = mean(arr_delay),
+    n = n()
+  ) %>% 
+  arrange(desc(delay)) %>%
+  filter(n > 100)
+
+tailnum_delay_db %>% show_query()
+
+
+tailnum_delay <- tailnum_delay_db %>% collect()
+
+tailnum_delay
+
 
 
 
@@ -94,4 +124,5 @@ WHERE (dest="SEA" AND year=2013)')
 + [Create a Collection of tidymodels Workflows](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html)
 + [Getting Started With stacks](https://github.com/andrew-couch/Tidy-Tuesday/blob/master/Season%201/Scripts/TidyTuesdayDatabase.Rmd)
 + [hhh](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
++ 
 
