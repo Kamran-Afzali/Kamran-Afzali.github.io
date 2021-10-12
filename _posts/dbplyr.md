@@ -114,6 +114,12 @@ tailnum_delay <- tailnum_delay_db %>% collect()
 tailnum_delay
 
 
+model <- lm(arr_delay ~ month + distance + air_time, data = flights)
+tidypredict_sql(model, dbplyr::simulate_mssql())
+
+
+dbGetQuery(con, 'SELECT -1.17390925699898 + (month * -0.0414672658738873) + (distance * -0.0875558911189957) + (air_time * 0.664509571024122) AS estimated_Delay, arr_delay
+           FROM flights')  
 
 
 
@@ -124,5 +130,5 @@ tailnum_delay
 + [Create a Collection of tidymodels Workflows](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html)
 + [Getting Started With stacks](https://github.com/andrew-couch/Tidy-Tuesday/blob/master/Season%201/Scripts/TidyTuesdayDatabase.Rmd)
 + [hhh](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
-+ 
++ [tidy_predict](https://tidypredict.netlify.app)
 
