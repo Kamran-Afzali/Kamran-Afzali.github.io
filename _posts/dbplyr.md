@@ -20,45 +20,52 @@ This vignette focuses on the first scenario because it’s the most common. If y
 
 
 
-```library(nycflights13)
+```
+library(nycflights13)
 library(tidyverse)
 library(DBI)
 library(RSQLite)
 
 planes <- planes
 
-flights <- flights```
+flights <- flights
+```
 
-```con <- dbConnect(SQLite(), ":memory:")
+```
+con <- dbConnect(SQLite(), ":memory:")
 copy_to(con, flights)
 copy_to(con, planes)
 dbGetQuery(con, '
 SELECT * 
 FROM flights
-           ')```
+           ')
+```
 
 
 
-```dbGetQuery(con, '
+```
+dbGetQuery(con, '
 SELECT tailnum, COUNT(tailnum)
 FROM flights
 GROUP BY tailnum
 ORDER BY COUNT(tailnum) DESC
-           ')```
+           ')
+```
 
 
-```dbGetQuery(con, '
+```
+dbGetQuery(con, '
 SELECT *
 FROM flights
 JOIN planes
 ON flights.tailnum = planes.tailnum
-ORDER BY planes.tailnum
-           ')```
+ORDER BY planes.tailnum')
+```
 
 
 
 
-```{sql, connection = con, output.var = "df"}
+```
 # SELECT fight.fight_pk, fight.fighter, B.opponent, CASE WHEN 
 # fight.res = "W" THEN 1 ELSE 0 END AS fight_res
 # FROM FIGHT
@@ -66,42 +73,50 @@ ORDER BY planes.tailnum
 # ON FIGHT.fight_pk = B.fight_pk
 # WHERE fight.fighter != B.opponent AND fighter > opponent
 # ORDER BY fight.fight_pk
- ```
+```
 
 ```{r}
 # df
 ```
 
 
-```dbGetQuery(con, '
+```
+dbGetQuery(con, '
   SELECT COUNT (dest)
 FROM flights
-WHERE (dest="SEA" AND year=2013)')```  
+WHERE (dest="SEA" AND year=2013)')
+```  
 
-```dbGetQuery(con, '
+```
+dbGetQuery(con, '
   SELECT COUNT (distinct carrier) AS "Number of unique airlines"
 FROM flights
-WHERE (dest="SEA" AND year=2013)')```  
+WHERE (dest="SEA" AND year=2013)')
+```  
 
 
-```copy_to(con, nycflights13::flights, "flights",
+```
+copy_to(con, nycflights13::flights, "flights",
         temporary = FALSE, 
         indexes = list(
           c("year", "month", "day"), 
           "carrier", 
           "tailnum",
           "dest"
-        )
-)```
+        ))
+```
 
 
 
-```flights_db <- tbl(con, "flights")
+```
+flights_db <- tbl(con, "flights")
 
-flights_db```
+flights_db
+```
 
 
-```tailnum_delay_db <- flights_db %>% 
+```
+tailnum_delay_db <- flights_db %>% 
   group_by(tailnum) %>%
   summarise(
     delay = mean(arr_delay),
@@ -110,20 +125,27 @@ flights_db```
   arrange(desc(delay)) %>%
   filter(n > 100)
 
-tailnum_delay_db %>% show_query()```
+tailnum_delay_db %>% show_query()
+```
 
 
-```tailnum_delay <- tailnum_delay_db %>% collect()
+```
+tailnum_delay <- tailnum_delay_db %>% collect()
 
-tailnum_delay```
-
-
-```model <- lm(arr_delay ~ month + distance + air_time, data = flights)
-tidypredict_sql(model, dbplyr::simulate_mssql())```
+tailnum_delay
+```
 
 
-```dbGetQuery(con, 'SELECT -1.17390925699898 + (month * -0.0414672658738873) + (distance * -0.0875558911189957) + (air_time * 0.664509571024122) AS estimated_Delay, arr_delay
-           FROM flights') ```
+```
+model <- lm(arr_delay ~ month + distance + air_time, data = flights)
+tidypredict_sql(model, dbplyr::simulate_mssql())
+```
+
+
+```
+dbGetQuery(con, 'SELECT -1.17390925699898 + (month * -0.0414672658738873) + (distance * -0.0875558911189957) + (air_time * 0.664509571024122) AS estimated_Delay, arr_delay
+           FROM flights') 
+```
 
 
 
@@ -133,6 +155,7 @@ tidypredict_sql(model, dbplyr::simulate_mssql())```
 + [Efficient grid search via racing with ANOVA models](https://rdbsql.rsquaredacademy.com/dbi.html)
 + [Create a Collection of tidymodels Workflows](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html)
 + [Getting Started With stacks](https://github.com/andrew-couch/Tidy-Tuesday/blob/master/Season%201/Scripts/TidyTuesdayDatabase.Rmd)
-+ [hhh](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
++ [NYC Queries](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
 + [tidy_predict](https://tidypredict.netlify.app)
+
 
