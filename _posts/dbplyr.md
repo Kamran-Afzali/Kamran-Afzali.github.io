@@ -20,7 +20,7 @@ This vignette focuses on the first scenario because it’s the most common. If y
 
 
 
-```
+```{r}
 library(nycflights13)
 library(tidyverse)
 library(DBI)
@@ -31,7 +31,7 @@ planes <- planes
 flights <- flights
 ```
 
-```
+```{r}
 con <- dbConnect(SQLite(), ":memory:")
 copy_to(con, flights)
 copy_to(con, planes)
@@ -43,7 +43,7 @@ FROM flights
 
 
 
-```
+```{r}
 dbGetQuery(con, '
 SELECT tailnum, COUNT(tailnum)
 FROM flights
@@ -53,7 +53,7 @@ ORDER BY COUNT(tailnum) DESC
 ```
 
 
-```
+```{r}
 dbGetQuery(con, '
 SELECT *
 FROM flights
@@ -65,14 +65,14 @@ ORDER BY planes.tailnum')
 
 
 
-```
-# SELECT fight.fight_pk, fight.fighter, B.opponent, CASE WHEN 
-# fight.res = "W" THEN 1 ELSE 0 END AS fight_res
-# FROM FIGHT
-# JOIN (SELECT fight_pk, fighter AS opponent FROM FIGHT) B
-# ON FIGHT.fight_pk = B.fight_pk
-# WHERE fight.fighter != B.opponent AND fighter > opponent
-# ORDER BY fight.fight_pk
+```{sql, connection = con, output.var = "df"}
+SELECT fight.fight_pk, fight.fighter, B.opponent, CASE WHEN 
+fight.res = "W" THEN 1 ELSE 0 END AS fight_res
+FROM FIGHT
+JOIN (SELECT fight_pk, fighter AS opponent FROM FIGHT) B
+ON FIGHT.fight_pk = B.fight_pk
+WHERE fight.fighter != B.opponent AND fighter > opponent
+ORDER BY fight.fight_pk
 ```
 
 ```{r}
@@ -80,14 +80,14 @@ ORDER BY planes.tailnum')
 ```
 
 
-```
+```{r}
 dbGetQuery(con, '
   SELECT COUNT (dest)
 FROM flights
 WHERE (dest="SEA" AND year=2013)')
 ```  
 
-```
+```{r}
 dbGetQuery(con, '
   SELECT COUNT (distinct carrier) AS "Number of unique airlines"
 FROM flights
@@ -95,7 +95,7 @@ WHERE (dest="SEA" AND year=2013)')
 ```  
 
 
-```
+```{r}
 copy_to(con, nycflights13::flights, "flights",
         temporary = FALSE, 
         indexes = list(
@@ -108,14 +108,14 @@ copy_to(con, nycflights13::flights, "flights",
 
 
 
-```
+```{r}
 flights_db <- tbl(con, "flights")
 
 flights_db
 ```
 
 
-```
+```{r}
 tailnum_delay_db <- flights_db %>% 
   group_by(tailnum) %>%
   summarise(
@@ -129,20 +129,20 @@ tailnum_delay_db %>% show_query()
 ```
 
 
-```
+```{r}
 tailnum_delay <- tailnum_delay_db %>% collect()
 
 tailnum_delay
 ```
 
 
-```
+```{r}
 model <- lm(arr_delay ~ month + distance + air_time, data = flights)
 tidypredict_sql(model, dbplyr::simulate_mssql())
 ```
 
 
-```
+```{r}
 dbGetQuery(con, 'SELECT -1.17390925699898 + (month * -0.0414672658738873) + (distance * -0.0875558911189957) + (air_time * 0.664509571024122) AS estimated_Delay, arr_delay
            FROM flights') 
 ```
