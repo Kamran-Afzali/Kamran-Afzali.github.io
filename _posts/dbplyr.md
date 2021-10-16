@@ -114,6 +114,18 @@ flights_db <- tbl(con, "flights")
 flights_db
 ```
 
+Generating queries
+
+To interact with a database you usually use SQL, the Structured Query Language. SQL is over 40 years old, and is used by pretty much every database in existence. The goal of dbplyr is to automatically generate SQL for you so that you’re not forced to use it. However, SQL is a very large language and dbplyr doesn’t do everything. It focusses on SELECT statements, the SQL you write most often as an analyst.
+
+Most of the time you don’t need to know anything about SQL, and you can continue to use the dplyr verbs that you’re already familiar with. The most important difference between ordinary data frames and remote database queries is that your R code is translated into SQL and executed in the database on the remote server, not in R on your local machine. When working with databases, dplyr tries to be as lazy as possible:
+
+    It never pulls data into R unless you explicitly ask for it.
+
+    It delays doing any work until the last possible moment: it collects together everything you want to do and then sends it to the database in one step.
+Surprisingly, this sequence of operations never touches the database. It’s not until you ask for the data (e.g. by printing tailnum_delay) that dplyr generates the SQL and requests the results from the database. Even then it tries to do as little work as possible and only pulls down a few rows.
+
+Behind the scenes, dplyr is translating your R code into SQL. You can see the SQL it’s generating with show_query():
 
 ```{r}
 tailnum_delay_db <- flights_db %>% 
@@ -127,7 +139,11 @@ tailnum_delay_db <- flights_db %>%
 
 tailnum_delay_db %>% show_query()
 ```
+If you’re familiar with SQL, this probably isn’t exactly what you’d write by hand, but it does the job. You can learn more about the SQL translation in vignette("translation-verb") and vignette("translation-function").
 
+Typically, you’ll iterate a few times before you figure out what data you need from the database. Once you’ve figured it out, use collect() to pull all the data down into a local tibble:
+
+collect() requires that database does some work, so it may take a long time to complete. Otherwise, dplyr tries to prevent you from accidentally performing expensive query operations:
 
 ```{r}
 tailnum_delay <- tailnum_delay_db %>% collect()
@@ -135,12 +151,14 @@ tailnum_delay <- tailnum_delay_db %>% collect()
 tailnum_delay
 ```
 
+Run predictions inside the database. tidypredict parses a fitted R model object, and returns a formula in ‘Tidy Eval’ code that calculates the predictions.
+tidypredict is able to parse an R model object and then creates the SQL statement needed to calculate the fitted prediction:
 
 ```{r}
 model <- lm(arr_delay ~ month + distance + air_time, data = flights)
 tidypredict_sql(model, dbplyr::simulate_mssql())
 ```
-
+It returns a SQL query that contains the coefficients (model$coefficients) operated against the correct variable or categorical variable value. In most cases the resulting SQL is one short CASE WHEN statement per coefficient. It appends the offset field or value, if one is provided.
 
 ```{r}
 dbGetQuery(con, 'SELECT -1.17390925699898 + (month * -0.0414672658738873) + (distance * -0.0875558911189957) + (air_time * 0.664509571024122) AS estimated_Delay, arr_delay
