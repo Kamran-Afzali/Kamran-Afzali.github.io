@@ -76,7 +76,7 @@ ORDER BY fight.fight_pk
 ```
 
 ```{r}
-# df
+df
 ```
 
 
@@ -94,7 +94,7 @@ FROM flights
 WHERE (dest="SEA" AND year=2013)')
 ```  
 
-
+Our temporary database has no data in it, so we’ll start by copying over nycflights13::flights using the convenient copy_to() function. This is a quick and dirty way of getting data into a database and is useful primarily for demos and other small jobs.
 ```{r}
 copy_to(con, nycflights13::flights, "flights",
         temporary = FALSE, 
@@ -106,6 +106,9 @@ copy_to(con, nycflights13::flights, "flights",
         ))
 ```
 
+As you can see, the copy_to() operation has an additional argument that allows you to supply indexes for the table. Here we set up indexes that will allow us to quickly process the data by day, carrier, plane, and destination. Creating the right indices is key to good database performance, but is unfortunately beyond the scope of this article.
+
+Now that we’ve copied the data, we can use tbl() to take a reference to it:
 
 
 ```{r}
