@@ -174,9 +174,9 @@ dbGetQuery(con, 'SELECT -1.17390925699898 + (month * -0.0414672658738873) + (dis
 
 
 + [Efficient grid search via racing with ANOVA models](https://rdbsql.rsquaredacademy.com/dbi.html)
-+ [Create a Collection of tidymodels Workflows](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html)
-+ [Getting Started With stacks](https://github.com/andrew-couch/Tidy-Tuesday/blob/master/Season%201/Scripts/TidyTuesdayDatabase.Rmd)
++ [Introduction to dbplyr](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html)
++ [TidyTuesday Database](https://github.com/andrew-couch/Tidy-Tuesday/blob/master/Season%201/Scripts/TidyTuesdayDatabase.Rmd)
 + [NYC Queries](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
-+ [tidy_predict](https://tidypredict.netlify.app)
++ [Tidy Predict](https://tidypredict.netlify.app)
 
 
