@@ -178,5 +178,6 @@ dbGetQuery(con, 'SELECT -1.17390925699898 + (month * -0.0414672658738873) + (dis
 + [TidyTuesday Database](https://github.com/andrew-couch/Tidy-Tuesday/blob/master/Season%201/Scripts/TidyTuesdayDatabase.Rmd)
 + [NYC Queries](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
 + [Tidy Predict](https://tidypredict.netlify.app)
++ [Generating SQL with {dbplyr} and sqlfluff](https://emilyriederer.netlify.app/post/sql-generation/)
 
 
