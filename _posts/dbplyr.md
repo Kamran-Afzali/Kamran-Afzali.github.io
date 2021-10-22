@@ -18,6 +18,10 @@ You have so much data that it does not all fit into memory simultaneously and yo
 
 This vignette focuses on the first scenario because it’s the most common. If you’re using R to do data analysis inside a company, most of the data you need probably already lives in a database (it’s just a matter of figuring out which one!). However, you will learn how to load data in to a local database in order to demonstrate dplyr’s database tools. At the end, I’ll also give you a few pointers if you do need to set up your own database.
 
+First, we would connect to our database using the DBI package. For the sake of example, I simply connect to an “in-memory” database, but a wide range of database connectors are available depending on where your data lives.
+
+Again, for the sake of this tutorial only, I will write the palmerpenguins::penguins data to our database. Typically, data would already exist in the database of interest.
+
 
 
 ```{r}
@@ -130,6 +134,9 @@ Surprisingly, this sequence of operations never touches the database. It’s not
 
 Behind the scenes, dplyr is translating your R code into SQL. You can see the SQL it’s generating with show_query():
 
+However, since we are using a remote backend, the penguins_aggr object does not contain the resulting data that we see when it is printed (forcing its execution). Instead, it contains a reference to the database’s table and an accumulation of commands than need to be run on the table in the future. We can access this underlying SQL translation with the dbplyr::show_query() and use capture.output() to convert that query (otherwise printed to the R console) to a character vector.
+
+
 ```{r}
 tailnum_delay_db <- flights_db %>% 
   group_by(tailnum) %>%
@@ -141,6 +148,11 @@ tailnum_delay_db <- flights_db %>%
   filter(n > 100)
 
 tailnum_delay_db %>% show_query()
+
+
+penguins_query <- capture.output(show_query(penguins_aggr))
+penguins_query
+
 ```
 If you’re familiar with SQL, this probably isn’t exactly what you’d write by hand, but it does the job. You can learn more about the SQL translation in vignette("translation-verb") and vignette("translation-function").
 
