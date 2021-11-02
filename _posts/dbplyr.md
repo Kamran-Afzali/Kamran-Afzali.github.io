@@ -1,9 +1,10 @@
 ---
-title: "Tidy_Database"
-output:
-  html_document:
-    df_print: paged
-    keep_md: yes
+layout: post
+categories: posts
+title: Three Databases in R and Tidyverse   
+featured-image: /images/dbplyr.png
+tags: [SQL, Dbplyr, Tidypredict]
+date-string: September 2021
 ---
 
 # Databases in R and Tidyverse
