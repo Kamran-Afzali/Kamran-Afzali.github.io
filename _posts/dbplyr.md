@@ -6,14 +6,11 @@ output:
     keep_md: yes
 ---
 
-# Databases in R and Tidyverse 
+# Databases in R and Tidyverse
 
+If you're using R to do data analysis, most of the data you need probably already lives in a relational database. This blog post discusses how to use R to load data in to a local DataBase, interact with the DB from *Rstudio* IDE, and to capitalize on *dplyr's* database tools. This tutorial will use the nycflights13::planes and nycflights13::flights data to feed our database. Typically, data would already exist in the database of interest.
 
-(If your data fits in memory there is no advantage to putting it in a database: it will only be slower and more frustrating.)
-
-If you’re using R to do data analysis, most of the data you need probably already lives in a relational database. However, you will learn how to load data in to a local database in order to demonstrate dplyr’s database tools. For the this tutorial, I will write the nycflights13::planes and nycflights13::flights data to our database. Typically, data would already exist in the database of interest.
-
-
+First you have to install and load the following packages:
 
 
 ```r
@@ -56,16 +53,16 @@ library(kableExtra)
 ##     group_rows
 ```
 
-First, we would connect to our database using the DBI package. For the sake of example, I simply connect to an “in-memory” database, but a wide range of database connectors are available depending on where your data lives. It is noteworthy that: As well as working with local in-memory data stored in data frames, dplyr also works with remote on-disk data stored in databases. This is particularly useful in scenarios where data is already in a database, or data exceeda local memory and you need to use some external storage engine.
+### DBI
 
+Thereafter, we would connect to our database using the DBI package. For the sake of example, I simply connect to an "in-memory" database, but a wide range of database connectors are available depending on where your data lives. It is noteworthy that just like working with local in-memory data stored in data frames, *dplyr* also works with remote on-disk data stored in databases. This is particularly useful in scenarios where data is already in a database, or data exceeds local memory and you need to use some external storage engine.
 
 
 ```r
 con <- dbConnect(SQLite(), ":memory:")
 ```
 
-
-The copy_to() function is used to get data to DB, this function has an additional argument that allows you to supply indexes for the table. Here we set up indexes that will allow us to quickly process the data by day, carrier, plane, and destination. Creating the right indices is key to good database performance, but is unfortunately beyond the scope of this article.
+The copy_to() function is used to get data to DB, this function has an additional argument that allows you to supply indexes for the table. Here we set up indexes that will allow us to quickly process the data by day, carrier, plane, and destination. Creating the right indexes is key to good database performance, but is unfortunately beyond the scope of this article.
 
 
 ```r
@@ -78,13 +75,15 @@ copy_to(con, nycflights13::flights, "flights",
           "dest"
         ))
 ```
- it also possible to copy to a DB without indexing
+
+It also possible to copy to a DB without indexing
+
 
 ```r
 copy_to(con, nycflights13::planes, "planes")
 ```
 
-To access the DB it is either possible to run quries either on a connection using *dbGetQuery*
+To access the DB it is either possible to run queries either on a connection using *dbGetQuery*
 
 
 ```r
@@ -149,7 +148,6 @@ limit 10')%>%kable()
 </table>
 
 this can be done with different types of queries as follows
-
 
 
 ```r
@@ -325,28 +323,22 @@ df%>%kable()
 </tbody>
 </table>
 
-To interact with a database you usually use SQL, the Structured Query Language. SQL is over 40 years old, and is used by pretty much every database in existence. The goal of dbplyr is to automatically generate SQL for you so that you’re not forced to use it. However, SQL is a very large language and dbplyr doesn’t do everything. It focusses on SELECT statements, the SQL you write most often as an analyst.
+### dbplyr
 
-Most of the time you don’t need to know anything about SQL, and you can continue to use the dplyr verbs that you’re already familiar with. The most important difference between ordinary data frames and remote database queries is that your R code is translated into SQL and executed in the database on the remote server, not in R on your local machine. When working with databases, dplyr tries to be as lazy as possible:
+As you can see above the Structured Query Language *SQL* is usually used to interact with a database. The *dbplyr* package in R aims to automatically generate SQL queries for R users. However, SQL is a very large language and dbplyr doesn't do everything therefore it focusses exclusively on SELECT statements, which is the the SQL you write most often as an analyst.
 
-    It never pulls data into R unless you explicitly ask for it.
+Most of the time you don't need to know anything about SQL, and you can continue to use the dplyr verbs that you're already familiar with. The most important difference between ordinary data frames and remote database queries is that your R code is translated into SQL and executed in the database on the remote server, not in R on your local machine. When working with databases, dplyr tries to be as lazy as possible: It never pulls data into R unless you explicitly ask for it. It delays doing any work until the last possible moment: it collects together everything you want to do and then sends it to the database in one step.
 
-    It delays doing any work until the last possible moment: it collects together everything you want to do and then sends it to the database in one step.
-Surprisingly, this sequence of operations never touches the database. It’s not until you ask for the data (e.g. by printing tailnum_delay) that dplyr generates the SQL and requests the results from the database. Even then it tries to do as little work as possible and only pulls down a few rows.
+Surprisingly, this sequence of operations never touches the database. It's not until you ask for the data (e.g. by printing tailnum_delay) that dplyr generates the SQL and requests the results from the database. Even then it tries to do as little work as possible and only pulls down a few rows.
 
- we can use tbl() to take a reference to it:
-
+we can use tbl() to take a reference to it:
 
 
 ```r
 flights_db <- tbl(con, "flights")
 ```
 
-
-Behind the scenes, dplyr is translating your R code into SQL. You can see the SQL it’s generating with show_query():
-
-However, since we are using a remote backend, the penguins_aggr object does not contain the resulting data that we see when it is printed (forcing its execution). Instead, it contains a reference to the database’s table and an accumulation of commands than need to be run on the table in the future. We can access this underlying SQL translation with the dbplyr::show_query() and use capture.output() to convert that query (otherwise printed to the R console) to a character vector.
-
+Behind the scenes, dplyr is translating your R code into SQL. You can see the SQL it's generating with show_query(), also it is possible use capture.output() to convert that query (otherwise printed to the R console) to a character vector.
 
 
 ```r
@@ -392,12 +384,9 @@ tailnum_query <- capture.output(show_query(tailnum_delay_db))
 ## ℹ Do you need to move arrange() later in the pipeline or use window_order() instead?
 ```
 
+If you're familiar with SQL, this probably isn't exactly the query you'd write but it is a very close approximate. You can learn more about the SQL translation in vignette("translation-verb") and vignette("translation-function") from the *dbplyr* package.
 
-If you’re familiar with SQL, this probably isn’t exactly what you’d write by hand, but it does the job. You can learn more about the SQL translation in vignette("translation-verb") and vignette("translation-function").
-
-Typically, you’ll iterate a few times before you figure out what data you need from the database. Once you’ve figured it out, use collect() to pull all the data down into a local tibble:
-
-collect() requires that database does some work, so it may take a long time to complete. Otherwise, dplyr tries to prevent you from accidentally performing expensive query operations:
+Typically, you'll iterate a few times before you figure out what data you need from the database. Once you've figured it out, use collect() to pull all the data down into a local tibble. The collect() function requires that database does some work, so it may take a long time to complete. Otherwise, dplyr tries to prevent you from accidentally performing expensive query operations.
 
 
 ```r
@@ -409,8 +398,9 @@ tailnum_delay <- tailnum_delay_db %>% collect()%>%kable()
 ## ℹ Do you need to move arrange() later in the pipeline or use window_order() instead?
 ```
 
-Run predictions inside the database. tidypredict parses a fitted R model object, and returns a formula in ‘Tidy Eval’ code that calculates the predictions.
-tidypredict is able to parse an R model object and then creates the SQL statement needed to calculate the fitted prediction:
+### tidypredict
+
+It is also possible to run prediction models inside the databases using R. The *tidypredict* package parses a R model object and then creates the SQL statement needed to calculate the fitted prediction. In other words, it takes a fitted R model object and returns a formula in *'Tidy Eval'* code that calculates the predictions.
 
 
 ```r
@@ -421,7 +411,8 @@ tidypredict_sql(model, dbplyr::simulate_mssql())
 ```
 ## <SQL> -1.17390925699898 + (`month` * -0.0414672658738873) + (`distance` * -0.0875558911189957) + (`air_time` * 0.664509571024122)
 ```
-It returns a SQL query that contains the coefficients (model$coefficients) operated against the correct variable or categorical variable value. In most cases the resulting SQL is one short CASE WHEN statement per coefficient. It appends the offset field or value, if one is provided.
+
+The tidypredict_sql() function returns a SQL query that contains the coefficients (model\$coefficients) operated against the correct variable or categorical variable value. In most cases the resulting SQL is one short CASE WHEN statement per coefficient. It appends the offset field or value, if one is provided.
 
 
 ```r
@@ -481,15 +472,11 @@ dbGetQuery(con, 'SELECT -1.17390925699898 + (month * -0.0414672658738873) + (dis
 </tbody>
 </table>
 
-
-
 ## References
 
-
-+ [RDB SQL](https://rdbsql.rsquaredacademy.com/dbi.html)
-+ [Introduction to dbplyr](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html)
-+ [NYC Queries](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
-+ [Tidy Predict](https://tidypredict.netlify.app)
-+ [Generating SQL with {dbplyr} and sqlfluff](https://emilyriederer.netlify.app/post/sql-generation/)
-
+-   [RDB SQL](https://rdbsql.rsquaredacademy.com/dbi.html)
+-   [Introduction to dbplyr](https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html)
+-   [NYC Queries](https://github.com/thakremanas/SQL-Queries-on-NYC-Fights-weather-data/blob/master/SQL%20Queries%20on%20NYC%20Flight%20and%20Weather%20dataset.sql)
+-   [Tidy Predict](https://tidypredict.netlify.app)
+-   [Generating SQL with {dbplyr} and sqlfluff](https://emilyriederer.netlify.app/post/sql-generation/)
 
