@@ -896,7 +896,7 @@ p <- min_var %>%
 p
 ```
 
-![](/images/portop1-1.png)<!-- -->
+![](/images/portop1-1.png)
 
 Tangency portfolio weights with the highest sharp ratio visualization is
 presented here
@@ -916,7 +916,7 @@ p <- max_sr %>%
 p
 ```
 
-![](/images/portop2-1.png)<!-- -->
+![](/images/portop2-1.png)
 
 and the risk/performance axis for all weights is presented here
 
@@ -938,7 +938,7 @@ p <- portfolio_values %>%
 p
 ```
 
-![](/images/portop3-1.png)<!-- -->
+![](/images/portop3-1.png)
 
 ## References
 
