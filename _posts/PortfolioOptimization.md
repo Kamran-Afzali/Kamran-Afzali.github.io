@@ -1,15 +1,13 @@
 ---
-title: "Portfolio Optimization"
-output:
-  html_document:
-    df_print: paged
-    keep_md: yes
-editor_options: 
-  markdown: 
-    wrap: 72
+layout: post
+categories: posts
+title: Portfolio Optimization with R  
+featured-image: /images/st.jpg
+tags: [Finance, Stocks, Quant]
+date-string: November 2020
 ---
 
-# Portfolio Optimization
+# Portfolio Optimization with R  
 According to the Modern portfolio theory (MPT) for any given level of risk it is possible to maximize the return of a portfolio, which is in practice called portfolio optimization. To do this oone would need the historical prices of the assets that will be used to compute mean returns for the time period, as well as the covariance matrix between the assets for the same period, and finally random weights assigned to each asset and to maximize the return to risk ratio.
 
 First you have to install and load the following packages:
@@ -898,7 +896,7 @@ p <- min_var %>%
 p
 ```
 
-![](PortfolioOptimization_files/figure-html/portop1-1.png)<!-- -->
+![](/images/portop1-1.png)<!-- -->
 
 Tangency portfolio weights with the highest sharp ratio visualization is
 presented here
@@ -918,7 +916,7 @@ p <- max_sr %>%
 p
 ```
 
-![](PortfolioOptimization_files/figure-html/portop2-1.png)<!-- -->
+![](/images/portop2-1.png)<!-- -->
 
 and the risk/performance axis for all weights is presented here
 
@@ -940,7 +938,7 @@ p <- portfolio_values %>%
 p
 ```
 
-![](PortfolioOptimization_files/figure-html/portop3-1.png)<!-- -->
+![](/images/portop3-1.png)<!-- -->
 
 ## References
 
