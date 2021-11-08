@@ -4,7 +4,7 @@ categories: posts
 title: Portfolio Optimization with R  
 featured-image: /images/st.jpg
 tags: [Finance, Stocks, Quant]
-date-string: November 2020
+date-string: September 2021
 ---
 
 # Portfolio Optimization with R  
