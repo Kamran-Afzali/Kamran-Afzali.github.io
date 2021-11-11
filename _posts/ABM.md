@@ -30,6 +30,17 @@ A typical agent-based model has three elements:
 - Agent relationships and methods of interaction. An underlying topology of connectedness defines how and with whom agents interact.
 - Agents’ environment. Agents live in and interact with their environment, in addition to other agents.
 
+### Agents
+There is not universal agreement on the precise definition of the term agent in the context of ABS. It is the subject of much discussion and occasional debate. The issue is more than an academic one, as it often surfaces when one makes a claim that their model is agent-based or when one is trying to discern whether such claims made by others are valid. There are important implications of the term agent-based when used to describe a model in terms of the model’s capabilities or potential capabilities that could be attained through relatively minor modification. In the literature, descriptions of the term agent tend to agree on more points than they disagree. Some modelers consider any type of independent component, whether it be a software component or a model to be an agent (Bonabeau 2001). Some authors insist that a component’s behavior must also be adaptive in order for it to be considered an agent. Casti (1997) argues that agents should contain both base-level rules for behavior as well as a higher-level set of “rules to change the rules.” The base-level rules provide responses to the environment, while the rules-to- change-the-rules provide adaptation. Jennings’ (2000) computer science-based view of agent emphasizes the essential agent characteristic of autonomous behavior.
+For practical modeling purposes, we consider agents to have certain properties and attributes, as follows (Figure 1):
+
+- Autonomy. An agent is autonomous and self-directed. An agent can function independently in its environment and in its interactions with other agents, generally from a limited range of situations that are of interest and that arise in the model. When we refer to an agent’s behavior, we refer to a general process that links the information the agent senses from its environment and interactions to its decisions and actions.
+
+- Modularity. Agents are modular or self-contained. An agent is an identifiable, discrete entity with a set of characteristics or attributes, behaviors, and decision-making capability. The modularity requirement implies that an agent has a boundary, and one can easily determine whether something (that is, an element of the model’s state) is part of an agent or is not part of an agent, or is a characteristic shared among agents.
+
+- Sociality. An agent is social, interacting with other agents. Common agent interaction protocols include contention for space and collision avoidance, agent recognition, communication and information exchange, influence, and other domain-or application-specific mechanisms.
+
+- Conditionality. An agent has a state that varies over time. Just as a system has a state consisting of the collection of its state variables, an agent also has a state that represents its condition, defined by the essential variables associated with its current situation. An agent’s state consists of a set or subset of its attributes and its behaviors. The state of an agent-based model is the collective states of all the agents along with the state of the environment. An agent’s behaviors are conditioned on its state. As such, the richer the set of an agent’s possible states, the richer the set of behaviors that an agent can have.
 
 ## References
 
