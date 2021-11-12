@@ -29,6 +29,8 @@ These collective investigations into complex systems sought to identify universa
 
 One of the motivations for agent-based modeling is its ability to capture emergence. Even simple agent- based models in which agents are completely described by simple, deterministic rules and use only local information can self-organize and sustain themselves in ways that have not been explicitly programmed into the models. Emergence can be illustrated by simple agent-based models such as Life and Boids. More complex models of the kind that people are likely to build to represent real-world phenomenon can also exhibit emergent behavior resulting from agent interactions. Agent-based modeling algorithms based on emergence have led to specialized optimization techniques, such as ant colony optimization and particle swarm optimization, that have been used to solve practical problems (Bonabeau, Dorigo, and Theraulaz 1999; Barbati, Bruno, and Genovese 2011).
 
+Emergent phenomena result from the interactions of individual entities. By definition, they cannot be reduced to the system’s parts: the whole is more than the sum of its parts because of the interactions between the parts. An emergent phenomenon can have properties that are decoupled from the properties of the part. For example, a traffic jam, which results from the behavior of and interactions between individual vehicle drivers, may be moving in the direction opposite that of the cars that cause it. This characteristic of emergent phenomena makes them difficult to understand and predict: emergent phenomena can be counterintuitive. Numerous examples of counterintuitive emer- gent phenomena will be described in the following sections. ABM is, by its very nature, the canonical approach to modeling emergent phenomena: in ABM, one models and simulates the behavior of the system’s constituent units (the agents) and their interactions, cap- turing emergence from the bottom up when the simulation is run.
+
 ## Structure of an agent-based model
 A typical agent-based model has three elements:
 
@@ -69,7 +71,28 @@ From a practical modelling standpoint, based on how and why agent-models are act
 
 Agents interact with their environment and with other agents. The environment may simply be used to provide information on the spatial location of an agent relative to other agents or it may provide a rich set of geographic information, as in a GIS. An agent's location, included as a dynamic attribute, is sometimes needed to track agents as they move across a landscape, contend for space, acquire resources, and encounter other situations. Complex environmental models can be used to model the agents’ environment. For example, hydrology or atmospheric dispersion models can provide point location-specific data on groundwater levels or atmospheric pollutants, respectively, which are accessible by agents. The environment may thus constrain agent actions. For example, the environment in an agent-based transportation model would include the infrastructure and capacities of the nodes and links of the road network. These capacities would create congestion effects (reduced travel speeds) and limit the number of agents moving through the transportation network at any given time.
 
+## When to do ABS
+We conclude by offering some ideas on the situations for which agent-based modeling can offer distinct advantages to conventional simulation approaches such as discrete event simulation (Law 2007), system dynamics (Sterman 2000) and other quantitative modeling techniques. Axtell (2000) discusses several reasons for agent-based modeling especially compared to traditional approaches to modeling economic systems. The benefits of ABM over other modeling techniques can be captured in three statements: (i) ABM captures emergent phenomena; (ii) ABM provides a natural description of a system; and (iii) ABM is flexible. It is clear, however, that the ability of ABM to deal with emergent phenomena is what drives the other benefits.
+
+
+When is it beneficial to think in terms of agents? When any of the following criteria are satisfied:
+- When the problem has a natural representation as being comprised of agents
+- When there are decisions and behaviors that can be well-defined
+- When it is important that agents have behaviors that reflect how individuals actually behave (if known)
+- When it is important that agents adapt and change their behaviors
+- When it is important that agents learn and engage in dynamic strategic interactions
+- When it is important that agents have dynamic relationships with other agents, and agent relationships form, change, and decay
+- When it is important to model the processes by which agents form organizations, and adaptation and learning are important at the organization level
+- When it is important that agents have a spatial component to their behaviors and interactions
+- When the structure of the system does not depend entirely on the past, and new dynamic mechanisms may be invoked or emerge that govern how the system will evolve in the future.
+- When arbitrarily large numbers of agents, agent interactions and agent states is important
+- When process structural change needs to be an endogenous result of the model, rather than an input to the model
+
 ## ABS Software and Toolkits
+
+Agent-based modeling can be done using general, all-purpose software or programming languages, or can be done using specially designed software and toolkits that address the specific requirements for modeling agents. Agent modeling can be done in the small, on the desktop, or in the large, using large-scale computing clusters, or it can be done at any scale in-between. Projects often begin small, using one of the desktop ABS tools, or whatever tool or programming language the developers are familiar with. The initial prototype then grows in stages into a larger-scale agent-based model, often using dedicated ABS toolkits. Often one begins developing their first agent model using the approach that one is most familiar with, or the approach that one finds easiest to learn given their background and experience.
+
+Over the years, numerous agent-based modelling and simulation tools have been developed each with a somewhat unique motive for its presence. Every strategy marks a specific programming syntax and semantics for the agents and has a differing base concerning the generality, usability, modifiability, scalability and performance.
 
 ## References
 
@@ -82,3 +105,5 @@ Agents interact with their environment and with other agents. The environment ma
 - [The Missing Data of Theory and Metaphor-driven Agent-based Evolutionary Social Simulation](https://www.carsonhlbao.com/post/filling-in-the-missing-data-of-theory-driven-agent-based-simulation-in-social-sciences/)
 
 - [Robust coordination in adversarial social networks: From human behavior to agent-based modeling](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C7D1EBF1898FB098EFCD1E4944600BF9/S2050124221000059a.pdf/robust_coordination_in_adversarial_social_networks_from_human_behavior_to_agentbased_modeling.pdf)
+
+- [Agent Based Modelling and Simulation tools: A review of the state-of-art software](https://www.sciencedirect.com/science/article/pii/S1574013716301198?casa_token=_zSawSxRC1AAAAAA:UxWt1a36Wrh8q3liF5KyIj7FqjtZUoDnM9eCBeS3iTyfUpWF01inDSHGUzAZ70uYBsZ1dDTuVx8a)
