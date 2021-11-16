@@ -33,6 +33,14 @@ One of the motivations for agent-based modeling is its ability to capture emerge
 
 Emergent phenomena result from the interactions of individual entities. By definition, they cannot be reduced to the system’s parts: the whole is more than the sum of its parts because of the interactions between the parts. An emergent phenomenon can have properties that are decoupled from the properties of the part. For example, a traffic jam, which results from the behavior of and interactions between individual vehicle drivers, may be moving in the direction opposite that of the cars that cause it. This characteristic of emergent phenomena makes them difficult to understand and predict: emergent phenomena can be counterintuitive. Numerous examples of counterintuitive emer- gent phenomena will be described in the following sections. ABM is, by its very nature, the canonical approach to modeling emergent phenomena: in ABM, one models and simulates the behavior of the system’s constituent units (the agents) and their interactions, cap- turing emergence from the bottom up when the simulation is run.
 
+An agent-based simulation is a powerful technique if serving as an aid to human intuition and an option in the theoretical interpretation toolbox for the analysis of unprecedented scenarios (e.g., counterfactuals), as the following insights of Doran, Gilbert, and Hales.
+
+> We can therefor hope to develop an abstract theory of multiple agent systems and then to transfer its insights to human social systems, without a priori commitment to existing particular social theory. (Doran 1998).
+
+> Our stress… is on a new experimental methodology consisting of observing theoretical models performing on some testbed. Such a new methodology could be defined as ‘exploratory simulation’ … (Gilbert 1995).
+
+> Artificial societies do not aim to model real societies in any direct sense. They can be seen as an aid to intuition in which the researcher formalizes abstract and logical relationships between entities. (Hales 1998).
+
 ## Structure of an agent-based model
 A typical agent-based model has three elements:
 
