@@ -33,14 +33,15 @@ Agent based approach can be a basis for research addressing characteristics of c
 
 
 ## Structure of an agent-based model
-A typical agent-based model has three elements:
-
-- Agents, their attributes and behaviors.
-- Agent relationships and methods of interaction. An underlying topology of connectedness defines how and with whom agents interact.
-- Agents’ environment. Agents live in and interact with their environment, in addition to other agents.
+A typical agent-based model has two elements:
+•	Agents, with their attributes and behaviors.
+•	Environment. Agents live in and interact according to the affordance their environment.
+These elements define the quality of quantity of interaction between agents as well as topology of connectedness that outlines how and with whom agents interact.
 
 ### Agents
-There is not universal agreement on the precise definition of the term agent in the context of ABS. It is the subject of much discussion and occasional debate. The issue is more than an academic one, as it often surfaces when one makes a claim that their model is agent-based or when one is trying to discern whether such claims made by others are valid. There are important implications of the term agent-based when used to describe a model in terms of the model’s capabilities or potential capabilities that could be attained through relatively minor modification. In the literature, descriptions of the term agent tend to agree on more points than they disagree. Some modelers consider any type of independent component, whether it be a software component or a model to be an agent (Bonabeau 2001). Some authors insist that a component’s behavior must also be adaptive in order for it to be considered an agent. Casti (1997) argues that agents should contain both base-level rules for behavior as well as a higher-level set of “rules to change the rules.” The base-level rules provide responses to the environment, while the rules-to- change-the-rules provide adaptation. Jennings’ (2000) computer science-based view of agent emphasizes the essential agent characteristic of autonomous behavior.
+With the context of ABS the precise definition of the term agent is the subject of much discussion as there is no universal agreement how to define the base unit. Some authors insist that agents’ behavior must be adaptive for it to be considered as an agent. That is agents’ attributes should include both base-level rules of behavior as well as a higher-level set of “rules to change the rules.” The base-level rules provide responses to the environment, while the rules-to- change-the-rules provide adaptation. Along these lines, there are important implications of describing a model in terms of agents as major effects can emerge through relatively minor modification in agents’ attributes.
+
+
 For practical modeling purposes, we consider agents to have certain properties and attributes, as follows (Figure 1):
 
 - Autonomy. An agent is autonomous and self-directed. An agent can function independently in its environment and in its interactions with other agents, generally from a limited range of situations that are of interest and that arise in the model. When we refer to an agent’s behavior, we refer to a general process that links the information the agent senses from its environment and interactions to its decisions and actions.
