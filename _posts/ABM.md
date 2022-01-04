@@ -73,21 +73,7 @@ From a practical modelling standpoint, based on how and why agent-models are act
 The environment provides information on the spatial location of an agent relative to other agents and hence if it is possible for a given agent to interact with other agents. An agent's location, is a dynamic attribute that is required to track agents as they change their location across a landscape, interact with other agents, acquire resources, and encounter new situations. Other information can be included to build complex environmental schemas to model the agents’ surroundings. For instance, the environment may provide a rich set of geographic information about the affordance of the surrounding circumstances of an agent and hence their interaction with the environment. Along these lines, the environment in an agent-based disease model would include the focal points (e.g. city centers) and capacities of the cities and links of the road network. These capacities would create dispersion effects (reduced/increased infection speeds) and set limit the number of agents moving through a given city network at any given time. 
 
 ## When to do ABS
-We conclude by offering some ideas on the situations for which agent-based modeling can offer distinct advantages to conventional simulation approaches such as discrete event simulation (Law 2007), system dynamics (Sterman 2000) and other quantitative modeling techniques. Axtell (2000) discusses several reasons for agent-based modeling especially compared to traditional approaches to modeling economic systems. The benefits of ABM over other modeling techniques can be captured in three statements: (i) ABM captures emergent phenomena; (ii) ABM provides a natural description of a system; and (iii) ABM is flexible. It is clear, however, that the ability of ABM to deal with emergent phenomena is what drives the other benefits.
-
-
-When is it beneficial to think in terms of agents? When any of the following criteria are satisfied:
-- When the problem has a natural representation as being comprised of agents
-- When there are decisions and behaviors that can be well-defined
-- When it is important that agents have behaviors that reflect how individuals actually behave (if known)
-- When it is important that agents adapt and change their behaviors
-- When it is important that agents learn and engage in dynamic strategic interactions
-- When it is important that agents have dynamic relationships with other agents, and agent relationships form, change, and decay
-- When it is important to model the processes by which agents form organizations, and adaptation and learning are important at the organization level
-- When it is important that agents have a spatial component to their behaviors and interactions
-- When the structure of the system does not depend entirely on the past, and new dynamic mechanisms may be invoked or emerge that govern how the system will evolve in the future.
-- When arbitrarily large numbers of agents, agent interactions and agent states is important
-- When process structural change needs to be an endogenous result of the model, rather than an input to the model
+As a conclusion we put forward some insights on distinct advantages of ABM conventional simulation approaches. Several reasons have been highlighted as advantages of agent-based modeling compared to traditional approaches to modeling dynamic systems, including the capacity to captures emergent phenomena, providing a naturalistic description of a system and the inherent flexibility of ABM. More specifically, ABS relevant when a problem has a natural representation as being comprised of agents, with behaviors that can be well-defined, where agents adapt/change their behaviors and engage in dynamic strategic interactions such as dynamic relationships with other agents.
 
 ## ABS Software and Toolkits
 
