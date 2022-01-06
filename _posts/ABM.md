@@ -34,30 +34,19 @@ Agent based approach can be a basis for research addressing characteristics of c
 
 ## Structure of an agent-based model
 A typical agent-based model has two elements:
-•	Agents, with their attributes and behaviors.
-•	Environment. Agents live in and interact according to the affordance their environment.
+
++	Agents, with their attributes and behaviors.
+
++	Environment. Agents live in and interact according to the affordance their environment.
+
 These elements define the quality of quantity of interaction between agents as well as topology of connectedness that outlines how and with whom agents interact.
 
 ### Agents
-With the context of ABS the precise definition of the term agent is the subject of much discussion as there is no universal agreement how to define the base unit. Some authors insist that agents’ behavior must be adaptive for it to be considered as an agent. That is agents’ attributes should include both base-level rules of behavior as well as a higher-level set of “rules to change the rules.” The base-level rules provide responses to the environment, while the rules-to- change-the-rules provide adaptation. Along these lines, there are important implications of describing a model in terms of agents as major effects can emerge through relatively minor modification in agents’ attributes.
-
-
-For practical modeling purposes, we consider agents to have certain properties and attributes, as follows (Figure 1):
-
-- Autonomy. An agent is autonomous and self-directed. An agent can function independently in its environment and in its interactions with other agents, generally from a limited range of situations that are of interest and that arise in the model. When we refer to an agent’s behavior, we refer to a general process that links the information the agent senses from its environment and interactions to its decisions and actions.
-
-- Modularity. Agents are modular or self-contained. An agent is an identifiable, discrete entity with a set of characteristics or attributes, behaviors, and decision-making capability. The modularity requirement implies that an agent has a boundary, and one can easily determine whether something (that is, an element of the model’s state) is part of an agent or is not part of an agent, or is a characteristic shared among agents.
-
-- Sociality. An agent is social, interacting with other agents. Common agent interaction protocols include contention for space and collision avoidance, agent recognition, communication and information exchange, influence, and other domain-or application-specific mechanisms.
-
-- Conditionality. An agent has a state that varies over time. Just as a system has a state consisting of the collection of its state variables, an agent also has a state that represents its condition, defined by the essential variables associated with its current situation. An agent’s state consists of a set or subset of its attributes and its behaviors. The state of an agent-based model is the collective states of all the agents along with the state of the environment. An agent’s behaviors are conditioned on its state. As such, the richer the set of an agent’s possible states, the richer the set of behaviors that an agent can have.
-
-
 Based on why and how ABS models are built and for practical modeling purposes, agents are built to have certain properties and attributes as their essential characteristics:
 
 - Autonomy: An agent is autonomous and self-directed. An agent can function independently in its environment and in its interactions with other agents over a limited range of situations that are of interest in the model, generally from a limited range of situations that are of interest and that arise in the model. When we refer to an agent’s behavior, we refer to a general process that links the information the agent senses from its environment and interactions to its decisions and actions. In other words, an agent's behaviour can be specified by anything from simple rules to abstract models, such as neural networks or genetic programs that relate agent inputs to outputs through adaptive mechanisms.
 
-- Modularity: Agents are modular or self-contained. Agents have attributes that allow the agents to be distinguished from and recognized by other agents.The modularity requirement implies that an agent has a boundary. One can easily determine whether something is part of an agent, is not part of an agent, or is a shared attribute.
+- Modularity: Agents are modular or self-contained. Agents have attributes that allow the agents to be distinguished from and recognized by other agents. The modularity requirement implies that an agent has a boundary. One can easily determine whether something is part of an agent, is not part of an agent, or is a shared attribute.
 An agent is an identifiable, discrete entity with a set of characteristics or attributes, behaviors, and decision-making capability. 
 
 - Sociality: An agent is social having dynamic interactions with other agents that influence its behaviour.  Common agent interaction protocols include communication/ agent recognition, movement and contention for space and collision avoidance, the capability to respond to the environment.
@@ -65,11 +54,12 @@ An agent is an identifiable, discrete entity with a set of characteristics or at
 
 - Conditionality: An agent has a state that varies over time. Just as a system has a state consisting of the collection of its state variables, an agent also has a state that represents the essential variables associated with its current situation. An agent's state consists of a set or subset of its attributes. The state of an agent-based model is the collective states of all the agents along with the state of the environment. An agent's behaviours are conditioned on its state. As such, the richer the set of an agent's possible states, the richer the set of behaviours that an agent can have. In an agent-based simulation, the state at any time is all the information needed to move the system from that point forward.
 
-- An agent may be adaptive, for example, by having rules or more abstract mechanisms that modify its behaviours. An agent may have the ability to learn and adapt its behaviours based on its accumulated experiences. Learning requires some form of memory. In addition to adaptation at the individual level, populations of agents may be adaptive through the process of selection, as individuals better suited to the environment proportionately increase in numbers.
+- Adaptivity: Agents have rules or more abstract mechanisms that modify their behaviours this can be achieved through the ability to learn and adapt its behaviours based on its accumulated experiences, which requires some form of memory. In the same vein populations of agents may be adaptive through the process of selection, as individuals better suited to the environment proportionately increase in numbers.
 
-- An agent may be goal-directed, having goals to achieve (not necessarily objectives to maximize) with respect to its behaviours. This allows an agent to compare the outcome of its behaviours relative to its goals and adjust its responses and behaviours in future interactions.
+- Goal-directed: An agent may be goal-directed, having goals to achieve (not necessarily objectives to maximize) with respect to its behaviours. This allows an agent to compare the outcome of its behaviours relative to its goals and adjust its responses and behaviours in future interactions.
 
-- Agents may be heterogeneous. Unlike particle simulation that considers relatively homogeneous particles, such as idealized gas particles, or molecular dynamics simulations that model individual molecules and their interactions, agent simulations often consider the full range of agent diversity across a population. Agent characteristics and behaviours may vary in their extent and sophistication, how much information is considered in the agent's decisions, the agent's internal models of the external world, the agent's view of the possible reactions of other agents in response to its actions, and the extent of memory of past events the agent retains and uses in making its decisions. Agents may also be endowed with different amounts of resources or accumulate different levels of resources as a result of agent interactions, further differentiating agents.
+- Heterogeneous: Agents may also be endowed with different amounts of resources or accumulate different levels of resources as well as their behaviours, how much information is considered in the agent's decisions, the agent's internal models of the external world, the agent's view of the possible reactions of other agents in response to its actions, and the extent of memory of past events the agent retains and uses in making its decisions. 
+
 
 ### Environment 
 
