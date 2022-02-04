@@ -1,0 +1,187 @@
+---
+layout: post
+categories: posts
+title:  Generative aRt  
+featured-image: /images/tidyverse2-1.png
+tags: [Generative art, creative coding, Data visualization]
+date-string: December 2021
+---
+
+
+## Introduction
+
+This article points aims to explore and provide some "hands-on" experience with generative art in R, introducing recent tools and packages in the domain.
+Generative Art is a process of algorithmically producing new sensory patterns such as sounds, shapes, or forms.
+First, you create algorithmic rules that provide limits and structure to the creation process.
+Then a computer follows those rules to produce new works on your behalf.
+In other words, generative art is the involvement of human-independent systems in a creative process.
+This contrasts with traditional artistic generation where the majority of creative time is spent exploring one idea, generative code artists use computers to generate thousands of ideas in a short amount of time.
+Generative artists leverage modern processing power to invent new aesthetics -- instructing programs to run within a set of artistic constraints, and guiding the process to a desired result.
+
+Outside of data visualization, more abstract pieces are created.
+I'd say data is still important, but the information is more hidden or being described in a dimension that isn't easily understood.
+So even though this tool has always been more about data processing than creating; I think there are a few interesting arguments that using R might be another great tool for generative art.
+
+## General-purpose packages
+
+In many instances, generative art algorithms are built on widely used R packages such as magritr, ggplot, dplyr, or purr.
+In case you want to have coding experience in R you may write your generative algorithm straight away.
+Artistic expression through your own code allows for more flexibility and creative freedom.
+
+
+```r
+library(tidyverse)
+```
+
+
+
+```r
+library(tidyverse)
+seq(from=0, to=10, by = 0.01) %>%
+  expand.grid(x=., y=.) %>%
+  ggplot(aes(x=(x+pi*sin(y)), y=(y+pi*sin(x)))) +
+  geom_point(alpha=.05, shape=20, size=0, colour = "white")+
+  theme_void()+coord_fixed()+ theme(panel.background = element_rect(fill = 'black', colour = 'black'))
+```
+
+![](/images/tidyverse2-1.png)
+
+## generativeart
+
+There are also some "ready-to-use" packages that facilitate making generative art.
+Beginners can start experimenting with pieces of generative art by using one of the existing algorithms.
+The first package we are going to present is generativeart.
+That facilitates the way how the output files are organized.
+In order to get the output files, you have to specify the location where they will be stored.
+Also, the package iterates on the provided formula that doesn't need to be supported with a seed.
+
+
+```r
+library(generativeart)
+library(ambient)
+library(dplyr)
+
+
+# set the paths
+IMG_DIR <- "img/"
+IMG_SUBDIR <- "everything/"
+IMG_SUBDIR2 <- "handpicked/"
+IMG_PATH <- paste0(IMG_DIR, 
+                   IMG_SUBDIR)
+LOGFILE_DIR <- "img/logfile/"
+LOGFILE <- "logfile.csv"
+LOGFILE_PATH <- paste0(LOGFILE_DIR, 
+                       LOGFILE)
+# create the directory structure
+generativeart::setup_directories(IMG_DIR, 
+                                 IMG_SUBDIR, 
+                                 IMG_SUBDIR2, 
+                                 LOGFILE_DIR)
+# include a specific formula, for example:
+my_formula <- list(
+  x = quote(runif(1, -1, 10) * x_i^2 - sin(y_i^2)),
+  y = quote(runif(1, -1, 10) * y_i^3 - cos(x_i^2) * y_i^4)
+)
+
+
+
+# call the main function to create five images with a polar coordinate system
+generativeart::generate_img(formula = my_formula, 
+                            nr_of_img = 5, # set the number of iterations
+                            polar = TRUE, 
+                            filetype = "png", 
+                            color = "#c1a06e", 
+                            background_color = "#1a3657")
+```
+
+the package also creates data based on your formulas!
+
+
+```r
+my_formula2 <- list(
+  x = quote(x_i+pi*sin(-y_i)),
+  y = quote(y_i+pi*sin(x_i))
+)
+
+
+df2=generate_data(my_formula2)
+
+
+df%>%
+  ggplot(aes(x=x, y=y)) +
+  geom_point(alpha=.1, shape=20, size=0, colour = "white") + 
+  theme_void()+coord_fixed()+ theme(panel.background = element_rect(fill = 'black', colour = 'black'))
+
+generativeart::generate_img(formula = my_formula2, 
+                            nr_of_img = 5, # set the number of iterations
+                            polar = F, 
+                            filetype = "png", 
+                            color = "white", 
+                            background_color = "black")
+```
+
+## aRtsy
+
+The aRtsy package has very simple and intuitive functions that aims to make generative art accessible to the non-coding public in a straightforward and standardized manner.
+Each algorithm is implemented in a separate function with its own set of parameters that can be tweaked.
+Algorithms integrated in the packages incorporate randomness that depends on the set seed.
+
+
+```r
+library(aRtsy)
+set.seed(1)
+canvas_collatz(colors = colorPalette("tuscany1"))
+```
+
+![](/images/aRtsy-1.png)
+
+
+```r
+set.seed(1)
+canvas_nebula(colors = colorPalette("tuscany3"))
+```
+
+![](/images/aRtsy2-1.png)
+
+## jasmines
+
+Danielle Navarro, the author of the Learning Statistics with R handbook released the jasmines package, a tool allowing for creating a generative art in R.
+Similar to aRtsy, this package gives you an opportunity to play with shapes (e.g. circles or discs), simulation parameters (e.g. grain or interaction), their unfolding, styles and colors.
+
+
+```r
+library(jasmines)
+p3 <- use_seed(100) %>% # Set the seed of R‘s random number generator, which is useful for creating simulations or random objects that can be reproduced.
+  scene_bubbles(
+    n = 4, 
+    grain = 500
+  ) %>%
+  unfold_warp(
+    iterations = 10,
+    scale = .5, 
+    output = "layer" 
+  ) %>%
+  unfold_tempest(
+    iterations = 5,
+    scale = .01
+  )%>%
+  style_pop(
+    palette = "acton",
+    background = "warhol"
+  )
+p3
+```
+
+![](/images/jasmines-1.png)
+
+## References
+
+[generative-art-design](https://aiartists.org/generative-art-design)
+
+[getting-started-with-generative-art-in-r](https://towardsdatascience.com/getting-started-with-generative-art-in-r-3bc50067d34b)
+
+[generative-art-and-r](https://generative.substack.com/p/generative-art-and-r)
+
+[aRtsy](https://github.com/koenderks/aRtsy)
+
+[generative-art-in-r](https://blog.djnavarro.net/posts/2021-07-08_generative-art-in-r/)
