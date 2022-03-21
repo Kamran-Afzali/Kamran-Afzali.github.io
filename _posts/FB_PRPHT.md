@@ -4,7 +4,7 @@ categories: posts
 title: Forecsting with FB prophet
 featured-image: /images/ABS.png
 tags: [Forecasting, R, Prophet]
-date-string: February 2022
+date-string: March 2022
 ---
 
 ## Introduction
