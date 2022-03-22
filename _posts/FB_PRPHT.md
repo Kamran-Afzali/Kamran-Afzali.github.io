@@ -9,34 +9,20 @@ date-string: March 2022
 
 ## Introduction
 
-Understanding time based patterns is critical for any business. Questions like how much inventory to maintain, how much footfall do you expect in your store to how many people will travel by an airline – all of these are important time series problems to solve.
-
-This is why time series forecasting is one of the must-know techniques for any data scientist. From predicting the weather to the sales of a product, it is integrated into the data science ecosystem and that makes it a mandatory addition to a data scientist’s skillset.
-
-If you are a beginner, time series also provides a good way to start working on real life projects. You can relate to time series very easily and they help you enter the larger world of machine learning.
-
-Prophet is an open source library published by Facebook that is based on decomposable (trend+seasonality+holidays) models. It provides us with the ability to make time series predictions with good accuracy using simple intuitive parameters and has support for including impact of custom seasonality and holidays!
-
-In this article, we shall cover some background on how Prophet fills the existing gaps in generating fast reliable forecasts followed by a demonstration using Python. The final results will surprise you!
+Any organisation must be able to recognise time-based patterns. Questions such as how much resources to keep on hand and how much traffic to expect are  crucial time series problems to address.  This is why time series forecasting is incorporated into the data science ecosystem, from weather prediction to product sales, making it a technique that every data scientist should be familiar with. It. If you're a beginner, time series is a great method to get started on real-world tasks. Time series are very easy to understand and relate to, and they assist you in entering the bigger world. Prophet is a Facebook-developed open source library based on decomposable (trend+seasonality+holidays) models. It allows us to construct accurate time series projections using simple understandable parameters, and it even allows us to factor in the influence of custom seasonality and holidays!  In this post, we'll go over some background on Prophet and how it fills in the gaps in making fast, credible forecasts, followed by a R example. 
 
 ## What is Prophet?
 
-When a forecasting model doesn’t run as planned, we want to be able to tune the parameters of the method with regards to the specific problem at hand. Tuning these methods requires a thorough understanding of how the underlying time series models work. The first input parameters to automated ARIMA, for instance, are the maximum orders of the differencing, the auto-regressive components, and the moving average components. A typical analyst will not know how to adjust these orders to avoid the behaviour and this is the type of expertise that is hard to acquire and scale.
+When a forecasting model fails to perform as expected, we want to be able to fine-tune the method's parameters to fit the unique scenario at hand. Tuning these strategies necessitates a detailed understanding of the time series models that underpin them. The maximum orders of the differencing, the auto-regressive components, and the moving average components, for example, are the first input parameters to automated ARIMA. A typical analyst would have no idea how to change these instructions to avoid the behaviour, and this is the kind of knowledge that is difficult to acquire and scale. 
 
-The Prophet package provides intuitive parameters which are easy to tune. Even someone who lacks expertise in forecasting models can use this to make meaningful predictions for a variety of problems in a business scenario.
+The Prophet programme has intuitive parameters that are simple to tweak in order to create relevant predictions for a variety of business challenges.
+Here you'll learn the fundamentals of using Facebook's sophisticated forecasting tool to develop your first model and then dive further into it. 
+Prophet is a process for forecasting time series data using an additive model, with support for trends, seasonality, and holidays. It works best with time series with substantial seasonal influences and historical data from multiple seasons. Prophet is forgiving of missing data and trend shifts, and it usually handles outliers well. 
 
+It appeals to novice users because of its ease of use and ability to identify an appropriate set of hyperparameters for the model automatically. As a result, even individuals with no prior knowledge or expertise forecasting time series data may use it and receive pretty decent results that are often on par with, if not better than, those provided by professionals.
 
-In this third tutorial about time series we explore the Facebook Prophet forecasting algorithm. Similarly to the previous tutorial about SARIMAX models we do so in a way that you can start applying it and go further exploring it with different use cases.
+Facebook Prophet is an open-source toolkit containing R and Python APIs developed by Facebook's Core Data Science team.
 
-In this section we introduce Facebook Prophet. Here you get the basics for building your first model with Facebook’s advanced forecasting tool and go further exploring it.
-
-To illustrate how Prophet works we apply it to forecast sales using the same dataset used in the tutorial where we introduced SARIMAX models.
-
-Facebook Prophet  is open-source library released by Facebook’s Core Data Science team. It is available in R and Python.
-
-Prophet is a procedure for univariate (one variable) time series forecasting data based on an additive model, and the implementation supports trends, seasonality, and holidays. It works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is robust to missing data and shifts in the trend, and typically handles outliers well.
-
-It is specially interesting for new users because of its easy use and capacity of find automatically a good set of hyperparameters for  the model. Therefore, it allows users without prior knowledge or experience of forecasting time series data start using it and get reasonably good results that are often equal or sometimes even better than the ones produced by the experts.
 
 #############################################
 
@@ -146,18 +132,6 @@ How this model is performing?
 
 The forecast dataframe includes predictions made on the training data dates. Therefore, we can use this in-sample fit to evaluate our model.
 
-
-#############################################
-
-
-Almost every company wishes to answer where they will be one week/month/year from now.
-The answers to those questions can be valuable when planning the company’s infrastructure, KPIs (key performance indicators) and worker goals.
-Hence, using data forecasting tools are one of the common tasks data professionals are being asked to take on.
-One tool which was recently released as an open source is Facebook’s time series forecasting package Prophet. Available both for R and Python, this is a relatively easy to implement model with some much needed customization options. 
-In this post I’ll review Prophet and follow it by a simple R code example. This code flow is heavily inspired from the official package users guide.
-We will use an open data set extracted from wikishark holding daily data entrances to LeBron James Wikipedia article page. Next, we will build daily predictions based on historical data.
-* wikishark was closed after the release of the article. you can use another useful site to get the data.
-Phase 1 — Install and import prophet
 
 
 
