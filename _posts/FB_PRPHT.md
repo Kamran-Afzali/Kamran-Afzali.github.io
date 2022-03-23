@@ -28,45 +28,47 @@ Facebook Prophet is an open-source toolkit containing R and Python APIs develope
 
 
 ## The Prophet Forecasting Model
-We use a decomposable time series model with three main model components: trend, seasonality, and holidays. They are combined in the following equation:
+Prophet employs a three-part decomposable time series model: trend, seasonality, and holidays. 
 
-g(t): piecewise linear or logistic growth curve for modelling non-periodic changes in time series
-s(t): periodic changes (e.g. weekly/yearly seasonality)
-h(t): effects of holidays (user provided) with irregular schedules
-εt: error term accounts for any unusual changes not accommodated by the model
-Using time as a regressor, Prophet is trying to fit several linear and non linear functions of time as components. Modeling seasonality as an additive component is the same approach taken by exponential smoothing in Holt-Winters technique . We are, in effect, framing the forecasting problem as a curve-fitting exercise rather than looking explicitly at the time based dependence of each observation within a time series.
++ g(t): non-periodic changes in time series are modelled using a piecewise linear or logistic growth curve. 
+
++ s(t): regular changes (weekly/yearly seasonality, for example). 
+
++ h(t): the effects of holidays (given by the user) on irregular schedules. 
+
++ (t): error term accounts for any unexpected changes that the model does not account for.
+
+Prophet is trying to fit numerous linear and non linear time functions as components using time as a regressor. Seasonality is modelled as an additive component in the same way that exponential smoothing is used in the Holt-Winters technique. Instead of directly looking at the time based dependence of each observation inside a time series, we are effectively framing the forecasting problem as a curve-fitting exercise.
 
 ### Trend
-Trend is modelled by fitting a piece wise linear curve over the trend or the non-periodic part of the time series. The linear fitting exercise ensures that it is least affected by spikes/missing data.
+
+A piecewise linear curve is fitted over the trend or non-periodic section of the time series to model the trend. The linear fitting procedure ensures that spikes and missing data are minimised. 
+
 
 ### Saturating growth
 
-An important question to ask here is – Do we expect the target to keep growing/falling for the entire forecast interval?
-
-More often than not, there are cases with non-linear growth with a running maximum capacity. I will illustrate this with an example below.
-
-Let’s say we are trying to forecast number of downloads of an app in a region for the next 12 months. The maximum downloads is always capped by the total number of smartphone users in the region. The number of smartphone users will also, however, increase with time.
-
-With domain knowledge at his/her disposal, an analyst can then define a varying capacity C(t) for the time series forecasts he/she is trying to make.
+Is it reasonable to expect the target to continue growing/falling throughout the duration of the prediction interval? There are frequently situations of non-linear development with a running maximum capacity.  An analyst can then define a variable capacity C(t) for the time series forecasts he or she is seeking to create using domain knowledge.
 
 ### Changepoints
 
-Another question to answer is whether my time series encounters any underlying changes in the phenomena e.g. a new product launch, unforeseen calamity etc.  At such points, the growth rate is allowed to change. These changepoints are automatically selected. However, a user can also feed the changepoints manually if it is required. In the below plot, the dotted lines represent the changepoints for the given time series.
+Another point to address is whether my time series encounters any underlying changes in the phenomena, such as a new product launch, a natural disaster, or other unforeseen events. The growth rate is allowed to fluctuate at such times. These changepoints are chosen at random. However, if necessary, a user can manually feed the changepoints. The dotted lines in the plot below reflect the changepoints for the provided time series. 
 
-As the number of changepoints allowed is increased the fit becomes more flexible. There are basically 2 problems an analyst might face while working with the trend component:
+The fit becomes more adjustable as the number of changepoints allowed increases. When working with the trend component, an analyst may encounter one of two issues.
 
  
 ### Seasonality
-To fit and forecast the effects of seasonality, prophet relies on fourier series to provide a flexible model. Seasonal effects s(t) are approximated by the following function:
-P is the period (365.25 for yearly data and 7 for weekly data)
 
-The fourier order N that defines whether high frequency changes are allowed to be modelled is an important parameter to set here. For a time series, if the user believes the high frequency components are just noise and should not be considered for modelling, he/she could set the values of N from to a lower value. If not, N can be tuned to a higher value and set using the forecast accuracy.
+Prophet uses fourier series to fit and forecast the impacts of seasonality and give a flexible model. The following function approximates seasonal impacts s(t): 
+
+The letter P stands for period (365.25 for yearly data and 7 for weekly data) 
+
+An important parameter to choose here is the fourier order N, which determines whether high frequency variations can be represented. If the user considers the high frequency components in a time series are just noise and should not be included for modelling, he or she can reduce the amount of N. If not, N can be raised to a greater amount and the forecast accuracy used to set it.
 
  
 ### Holidays and events
-Holidays and events incur predictable shocks to a time series. For instance, Diwali in India occurs on a different day each year and a large portion of the population buy a lot of new items during this period.
+Holidays and events cause predictable peaks and valleys in a time series. Diwali, for example, is celebrated on a different day each year in India, and a huge section of the population buys a lot of new products during this time. 
 
-Prophet allows the analyst to provide a custom list of  past and future events. A window around such days are considered separately and additional parameters are fitted to model the effect of holidays and events.
+The analyst can create a custom list of past and future occurrences using Prophet. Additional parameters are fitted to model the effect of vacations and events in a window surrounding such days.
 
 
 ## Data 
