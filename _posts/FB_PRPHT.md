@@ -55,7 +55,6 @@ Another point to address is whether my time series encounters any underlying cha
 
 The fit becomes more adjustable as the number of changepoints allowed increases. When working with the trend component, an analyst may encounter one of two issues.
 
- 
 ### Seasonality
 
 Prophet uses fourier series to fit and forecast the impacts of seasonality and give a flexible model. The following function approximates seasonal impacts s(t): 
