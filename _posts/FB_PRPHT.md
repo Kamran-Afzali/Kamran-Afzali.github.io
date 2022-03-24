@@ -19,15 +19,11 @@ The Prophet programme has intuitive parameters that are simple to tweak in order
 Here you'll learn the fundamentals of using Facebook's sophisticated forecasting tool to develop your first model and then dive further into it. 
 Prophet is a process for forecasting time series data using an additive model, with support for trends, seasonality, and holidays. It works best with time series with substantial seasonal influences and historical data from multiple seasons. Prophet is forgiving of missing data and trend shifts, and it usually handles outliers well. 
 
-It appeals to novice users because of its ease of use and ability to identify an appropriate set of hyperparameters for the model automatically. As a result, even individuals with no prior knowledge or expertise forecasting time series data may use it and receive pretty decent results that are often on par with, if not better than, those provided by professionals.
-
-Facebook Prophet is an open-source toolkit containing R and Python APIs developed by Facebook's Core Data Science team.
-
-
-#############################################
+Facebook Prophet is an open-source toolkit containing R and Python APIs developed by Facebook's Core Data Science team. It appeals to novice users because of its ease of use and ability to identify an appropriate set of hyperparameters for the model automatically. As a result, even individuals with no prior knowledge or expertise forecasting time series data may use it and receive pretty decent results that are often on par with, if not better than, those provided by professionals.
 
 
 ## The Prophet Forecasting Model
+
 Prophet employs a three-part decomposable time series model: trend, seasonality, and holidays. 
 
 + g(t): non-periodic changes in time series are modelled using a piecewise linear or logistic growth curve. 
@@ -51,9 +47,7 @@ Is it reasonable to expect the target to continue growing/falling throughout the
 
 ### Changepoints
 
-Another point to address is whether my time series encounters any underlying changes in the phenomena, such as a new product launch, a natural disaster, or other unforeseen events. The growth rate is allowed to fluctuate at such times. These changepoints are chosen at random. However, if necessary, a user can manually feed the changepoints. The dotted lines in the plot below reflect the changepoints for the provided time series. 
-
-The fit becomes more adjustable as the number of changepoints allowed increases. When working with the trend component, an analyst may encounter one of two issues.
+Another point to address is whether my time series encounters any underlying changes in the phenomena, such as a new product launch, a natural disaster, or other unforeseen events. The growth rate is allowed to fluctuate at such times. These changepoints are chosen at random. However, if necessary, a user can manually feed the changepoints. The dotted lines in the plot below reflect the changepoints for the provided time series. The fit becomes more adjustable as the number of changepoints allowed increases. When working with the trend component, an analyst may encounter one of two issues.
 
 ### Seasonality
 
@@ -65,6 +59,7 @@ An important parameter to choose here is the fourier order N, which determines w
 
  
 ### Holidays and events
+
 Holidays and events cause predictable peaks and valleys in a time series. Diwali, for example, is celebrated on a different day each year in India, and a huge section of the population buys a lot of new products during this time. 
 
 The analyst can create a custom list of past and future occurrences using Prophet. Additional parameters are fitted to model the effect of vacations and events in a window surrounding such days.
