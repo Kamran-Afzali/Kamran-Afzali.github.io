@@ -67,66 +67,56 @@ The analyst can create a custom list of past and future occurrences using Prophe
 
 ## Data 
 
-Prophet requires as input a dataframe with two columns:
+Prophet requires a dataframe with two columns as input: 
 
-ds: datetime column.
-y: numeric column which represents the measurement we wish to forecast.
-Our data is almost ready. We just need to rename columns date and sales, respectively, as ds and y.
++ datetime column (ds) 
++ y: The forecasted measurement is represented by a number column. 
+Our data is nearly complete. All we have to do now is rename the columns date and sales to ds and y, respectively. 
 
 ## Fit
-To train a model in Prophet, first we create an instance of the model class and then we call the fit method.
 
-In principle, you don’t need to specify any hyparameters. One important exception is seasonality_mode. It is important to set this parameter to multiplicative if your model is multiplicative since Prophet is based on an additive model. As we saw previously, the seasonality in our model follows an additive behavior. Therefore, there is no need to set seasonality_mode as multiplicative.
+In Prophet, we build an instance of the model class and then call the fit method to train a model. 
 
-Although Prophet is able to find automatically a good set of hyperparameters, we will see later that some fine tuning can improve performance. Specially, applying your knowledge of the business case might make a huge difference even if Prophet has the power of handling many things by itself.
+You don't need to specify any hyparameters in theory. Seasonality mode is an important exception. Because Prophet is based on an additive model, it's critical to adjust this value to multiplicative if your model is multiplicative. Seasonality in our model follows an additive pattern, as we previously witnessed. As a result, setting seasonality mode to multiplicative is unnecessary. 
+Although Prophet can select a suitable set of hyperparameters automatically, we shall see later how careful adjustment can increase performance. Even while Prophet has the ability to handle many things on its own, using your expertise of the business case could make a big difference. 
 
-Just to exemplify, I’ll include the parameter interval_width that sets the confidence interval.
+To forecast, we must first establish a dataframe in which we will record our forecasts. The method make future dataframe creates a dataframe that extends a specified number of days into the future. We can observe that the model fits because the dataframe provided by default includes the dates from the history. 
 
-In order to forecast we first need to create a dataframe that will save our predictions. Method make_future_dataframe builds a dataframe that extends into the future a specified number of days. In our case, we will predict 90 days into the future.
-
-By default the dataframe created includes the dates from the history, so we see the model fit as well.
-
-To make predictions we apply method predict on the future dataframe that we have just generated.
+To make predictions, we use the procedure predict on the newly created future dataframe.
 
 ## Forecast Dataframe
 
-The forecast dataframe contains Prophet’s prediction for sales. Because we’ve also passed historical dates, it provides an in-sample fit that we can use to evaluate our model.
+Prophet's sales projection is contained in the forecast dataframe. We have an in-sample fit that we can use to evaluate our model because we've also passed historical dates. 
 
-As you can see, forecast includes a column yhat with the forecast, as well as columns for components and uncertainty intervals.
+Forecast includes a column for the forecast, as well as columns for components and uncertainty intervals, as you can see. 
 
 ## Forecast Plot
 
-To plot the forecast you just need to call method .plot() on your forecast dataframe.
+You only need to call method to plot the forecast. On your predicted dataframe, use plot(). 
 
-In the forecast plot above, deep blue line is forecast sales forecast[‘y_hat’], black dots are actual sales forecast[‘y’]. The light blue shade is 95% confidence interval around the forecast. The uncertainty interval in this region is bounded by forecast[‘yhat_lower’] and forecast[‘yhat_upper’] values.
+The deep blue line in the forecast plot above represents the forecast sales forecast['y hat'], while the black dots represent the actual sales forecast['y']. Around the forecast, the light blue hue represents the 95 percent confidence interval. Forecast['yhat lower'] and forecast['yhat upper'] values define the uncertainty interval in this location.
 
 ## Trend Changepoints
 
-Real life time series such as this one, frequently have abrupt changes in their trajectories. These changepoints sign abrupt changes in the time series caused, for instances, by new product launch, unforeseen calamity. Prophet will automatically detect these changepoints and will allow the trend to adapt appropriately. At these points, the growth rate is allowed to change making the model more flexible. This may cause overfitting or underfitting.
+The paths of real-life time series, such as this one, commonly have abrupt alterations. These changepoints indicate abrupt changes in the time series, such as new product launches or natural disasters. The growth rate is allowed to fluctuate at these points, making the model more flexible. This may result in over- or under-fitting. 
 
-A parameter called changepoint_prior_scale could be used to adjust the trend flexibility and tackle overfitting and underfitting. Higher value fits a more flexible curve to the time series.
+Changepoint prior scale is a parameter that can be used to adjust trend flexibility and combat overfitting and underfitting. A higher number gives the time series a more flexible curve. 
 
-By default changepoints are only inferred for the first 80% of the time series, but you can change it by making use of the changepoint_range argument of the model.
+Changepoints are only inferred for the first 80% of the time series by default, but you may adjust this using the model's changepoint range option. 
 
-It is also possible to add your own changepoints manually, using the changepoints argument.
-
-
-In the plot below, the dotted lines represent the changepoints for the given time series.
-
-We can observe the following on the forecast components plotted above:
+You can also use the changepoints option to manually add your own changepoints. 
 
 ## Seasonality
 
-Weekly seasonality component: The weekly seasonality shows that people buy more on weekends. In particular, we observe a drop on sales from Sunday to Monday. This might point to a holiday effect.
+The weekly seasonality component demonstrates that people buy more on weekends. We saw a reduction in sales from Sunday to Monday in particular. This could indicate a seasonal influence. 
 
-Yearly seasonality component: As observed previously the volume of sales is higher in July and lower in January. This peak in sales in July might mean seasonal sales with high discount prices.
+Yearly seasonality: As previously mentioned, sales volume is higher in July and lower in January. This July sales boom could indicate seasonal bargains with steep discounts. 
 
-Holidays, special events, as well as seasonality can be explored to improve your model. For more information on how to use this information check Prophet’s documentation section Seasonality, Holiday Effects, And Regressors.
+To improve your model, look at holidays, special events, and seasonality. Check to Prophet's documentation section Seasonality, Holiday Effects, and Regressors for further information on how to use this data.
 
 ## Evaluate model
 How this model is performing?
-
-The forecast dataframe includes predictions made on the training data dates. Therefore, we can use this in-sample fit to evaluate our model.
+Predictions made on the training data dates are included in the forecast dataframe. As a result, we may evaluate our model using this in-sample fit.
 
 
 
