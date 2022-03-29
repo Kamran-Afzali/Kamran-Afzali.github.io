@@ -65,7 +65,7 @@ Holidays and events cause predictable peaks and valleys in a time series. Diwali
 The analyst can create a custom list of past and future occurrences using Prophet. Additional parameters are fitted to model the effect of vacations and events in a window surrounding such days.
 
 
-## Data 
+### Data 
 
 Prophet requires a dataframe with two columns as input: 
 
@@ -73,7 +73,7 @@ Prophet requires a dataframe with two columns as input:
 + y: The forecasted measurement is represented by a number column. 
 Our data is nearly complete. All we have to do now is rename the columns date and sales to ds and y, respectively. 
 
-## Fit
+### Fit
 
 In Prophet, we build an instance of the model class and then call the fit method to train a model. 
 
@@ -84,13 +84,13 @@ To forecast, we must first establish a dataframe in which we will record our for
 
 To make predictions, we use the procedure predict on the newly created future dataframe.
 
-## Forecast Dataframe
+### Forecast Dataframe
 
 Prophet's sales projection is contained in the forecast dataframe. We have an in-sample fit that we can use to evaluate our model because we've also passed historical dates. 
 
 Forecast includes a column for the forecast, as well as columns for components and uncertainty intervals, as you can see. 
 
-## Forecast Plot
+### Forecast Plot
 
 You only need to call method to plot the forecast. On your predicted dataframe, use plot(). 
 
@@ -106,7 +106,7 @@ Changepoints are only inferred for the first 80% of the time series by default, 
 
 You can also use the changepoints option to manually add your own changepoints. 
 
-## Seasonality
+### Seasonality
 
 The weekly seasonality component demonstrates that people buy more on weekends. We saw a reduction in sales from Sunday to Monday in particular. This could indicate a seasonal influence. 
 
@@ -114,7 +114,7 @@ Yearly seasonality: As previously mentioned, sales volume is higher in July and 
 
 To improve your model, look at holidays, special events, and seasonality. Check to Prophet's documentation section Seasonality, Holiday Effects, and Regressors for further information on how to use this data.
 
-## Evaluate model
+### Evaluate model
 How this model is performing?
 Predictions made on the training data dates are included in the forecast dataframe. As a result, we may evaluate our model using this in-sample fit.
 
