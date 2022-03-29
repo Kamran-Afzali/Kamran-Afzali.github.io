@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Forecsting with FB prophet
-featured-image: /images/ABS.png
+featured-image: /images/FPR.png
 tags: [Forecasting, R, Prophet]
 date-string: March 2022
 ---
