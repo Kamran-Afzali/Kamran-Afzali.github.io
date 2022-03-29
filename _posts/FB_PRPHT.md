@@ -96,7 +96,7 @@ You only need to call method to plot the forecast. On your predicted dataframe, 
 
 The deep blue line in the forecast plot above represents the forecast sales forecast['y hat'], while the black dots represent the actual sales forecast['y']. Around the forecast, the light blue hue represents the 95 percent confidence interval. Forecast['yhat lower'] and forecast['yhat upper'] values define the uncertainty interval in this location.
 
-## Trend Changepoints
+### Trend Changepoints
 
 The paths of real-life time series, such as this one, commonly have abrupt alterations. These changepoints indicate abrupt changes in the time series, such as new product launches or natural disasters. The growth rate is allowed to fluctuate at these points, making the model more flexible. This may result in over- or under-fitting. 
 
