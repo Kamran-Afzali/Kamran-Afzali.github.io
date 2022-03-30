@@ -67,34 +67,326 @@ The analyst can create a custom list of past and future occurrences using Prophe
 
 ### Data 
 
+
+Here we use daily shelter demande data ,dates should be formated and time series specified.
+
 Prophet requires a dataframe with two columns as input: 
 
 + datetime column (ds) 
 + y: The forecasted measurement is represented by a number column. 
 Our data is nearly complete. All we have to do now is rename the columns date and sales to ds and y, respectively. 
 
+
+
+
+
+```r
+data <- read.csv("https://raw.githubusercontent.com/Kamran-Afzali/Statistical-Supplementary-Materials/master/DHS_Daily_Report.csv")
+
+data$Date = strptime(data$Date, "%m/%d/%Y")
+data$Date = as.Date(data$Date)
+library(dplyr)
+```
+
+
+```r
+data = data %>% select("Date",
+                       "Total.Individuals.in.Shelter",
+                       "Easter",
+                       "Thanksgiving",
+                       "Christmas")
+colnames(data)[2] = "y"
+dataset <- subset(data, data$Date <= '2020-11-11')
+library(lubridate)
+```
+
+
+```r
+dataset$y <- ts(dataset$y, 
+                frequency = 365,
+                start =c(2013, yday(head(dataset$Date, 1))))
+head(dataset)%>%kableExtra::kable()
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Date </th>
+   <th style="text-align:right;"> y </th>
+   <th style="text-align:right;"> Easter </th>
+   <th style="text-align:right;"> Thanksgiving </th>
+   <th style="text-align:right;"> Christmas </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 2013-08-21 </td>
+   <td style="text-align:right;"> 49673 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-22 </td>
+   <td style="text-align:right;"> 49690 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-23 </td>
+   <td style="text-align:right;"> 49548 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-24 </td>
+   <td style="text-align:right;"> 49617 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-25 </td>
+   <td style="text-align:right;"> 49858 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-26 </td>
+   <td style="text-align:right;"> 49877 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+then we split training and test sets.
+
+
+```r
+training_set = subset(dataset, dataset$Date <= '2020-09-30')
+test_set = subset(dataset, dataset$Date > '2020-09-30')
+training_set$y <- ts(training_set$y, 
+                     frequency = 365,
+                     start = c(2013, yday(head(training_set$Date, 1))))
+test_set$y <- ts(test_set$y, 
+                 frequency = 365,
+                 start = c(2020, yday(head(test_set$Date, 1))))
+```
+
+
+and creat the dynamic table for holidays
+
+
+```r
+library(dplyr)
+easter_dates = subset(data, data$Easter == 1)
+easter_dates = easter_dates$Date
+easter <- tibble(holiday = 'Easter',
+                 ds = as.Date(easter_dates),
+                 lower_window = -3, upper_window = 1)
+
+#Thanksgiving
+thanksgiving_dates = subset(data, data$Thanksgiving == 1)
+thanksgiving_dates = thanksgiving_dates$Date
+thanksgiving <- tibble(holiday = 'Thanksgiving',
+                 ds = as.Date(thanksgiving_dates),
+                 lower_window = -7, upper_window = 4)
+
+#Christmas
+christmas_dates = subset(data, data$Christmas == 1)
+christmas_dates = christmas_dates$Date
+christmas <- tibble(holiday = 'Xmas',
+                 ds = as.Date(christmas_dates),
+                 lower_window = -4, upper_window = 3)
+
+#Merging all holidays
+holidays <- bind_rows(easter, thanksgiving, christmas)
+
+head(holidays)%>%kableExtra::kable()
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> holiday </th>
+   <th style="text-align:left;"> ds </th>
+   <th style="text-align:right;"> lower_window </th>
+   <th style="text-align:right;"> upper_window </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Easter </td>
+   <td style="text-align:left;"> 2014-04-20 </td>
+   <td style="text-align:right;"> -3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Easter </td>
+   <td style="text-align:left;"> 2015-04-05 </td>
+   <td style="text-align:right;"> -3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Easter </td>
+   <td style="text-align:left;"> 2016-03-27 </td>
+   <td style="text-align:right;"> -3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Easter </td>
+   <td style="text-align:left;"> 2017-04-16 </td>
+   <td style="text-align:right;"> -3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Easter </td>
+   <td style="text-align:left;"> 2018-04-01 </td>
+   <td style="text-align:right;"> -3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Easter </td>
+   <td style="text-align:left;"> 2019-04-21 </td>
+   <td style="text-align:right;"> -3 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
 ### Fit
 
 In Prophet, we build an instance of the model class and then call the fit method to train a model. 
 
-You don't need to specify any hyparameters in theory. Seasonality mode is an important exception. Because Prophet is based on an additive model, it's critical to adjust this value to multiplicative if your model is multiplicative. Seasonality in our model follows an additive pattern, as we previously witnessed. As a result, setting seasonality mode to multiplicative is unnecessary. 
-Although Prophet can select a suitable set of hyperparameters automatically, we shall see later how careful adjustment can increase performance. Even while Prophet has the ability to handle many things on its own, using your expertise of the business case could make a big difference. 
+You don't need to specify any hyparameters in theory. Seasonality mode is an important exception. Because Prophet is based on an additive model, it's critical to adjust this value to multiplicative if your model is multiplicative. Seasonality in our model follows an additive pattern, as we previously witnessed. As a result, setting seasonality mode to multiplicative is unnecessary.  Although Prophet can select a suitable set of hyperparameters automatically, we shall see later how careful adjustment can increase performance. Even while Prophet has the ability to handle many things on its own, using your expertise of the business case could make a big difference. 
+
+
+```r
+library(prophet)
+```
+
+```
+## Loading required package: Rcpp
+```
+
+```
+## Loading required package: rlang
+```
+
+```r
+m <- prophet(growth = "linear",
+             holidays = holidays, 
+             yearly.seasonality = TRUE, 
+             weekly.seasonality = FALSE, 
+             daily.seasonality = FALSE, 
+             seasonality.prior.scale = 0.001, 
+             changepoint.prior.scale = 0.01,
+             holidays.prior.scale = 1)
+```
+
+here we fit the model
+
+
+```r
+df = training_set %>% select(Date, y)
+colnames(df)[1] <- "ds"
+m = fit.prophet(m, df)
+```
+
+
+### Forecast Dataframe
+
 
 To forecast, we must first establish a dataframe in which we will record our forecasts. The method make future dataframe creates a dataframe that extends a specified number of days into the future. We can observe that the model fits because the dataframe provided by default includes the dates from the history. 
 
 To make predictions, we use the procedure predict on the newly created future dataframe.
 
-### Forecast Dataframe
 
-Prophet's sales projection is contained in the forecast dataframe. We have an in-sample fit that we can use to evaluate our model because we've also passed historical dates. 
 
+
+```r
+test_period <- make_future_dataframe(m, periods = nrow(test_set))
+tail(test_period)%>%kableExtra::kable()
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:left;"> ds </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 2635 </td>
+   <td style="text-align:left;"> 2020-11-06 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2636 </td>
+   <td style="text-align:left;"> 2020-11-07 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2637 </td>
+   <td style="text-align:left;"> 2020-11-08 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2638 </td>
+   <td style="text-align:left;"> 2020-11-09 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2639 </td>
+   <td style="text-align:left;"> 2020-11-10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2640 </td>
+   <td style="text-align:left;"> 2020-11-11 </td>
+  </tr>
+</tbody>
+</table>
+
+Prophet's predications are contained in the forecast dataframe. We have an in-sample fit that we can use to evaluate our model because we've also passed historical dates. 
 Forecast includes a column for the forecast, as well as columns for components and uncertainty intervals, as you can see. 
+
+
+
+```r
+prophet_forecast <- predict(m, test_period)
+```
 
 ### Forecast Plot
 
 You only need to call method to plot the forecast. On your predicted dataframe, use plot(). 
 
 The deep blue line in the forecast plot above represents the forecast sales forecast['y hat'], while the black dots represent the actual sales forecast['y']. Around the forecast, the light blue hue represents the 95 percent confidence interval. Forecast['yhat lower'] and forecast['yhat upper'] values define the uncertainty interval in this location.
+
+
+
+```r
+plot(m, prophet_forecast)
+```
+
+![](/images/Prophet-7-1.png)
+
+
+### Seasonality
+
+The weekly seasonality component demonstrates patterns related to weekdays, and yearly seasonality demonstrates patterns related to different times of the year.
+To improve your model, look at holidays, special events, and seasonality. Check to Prophet's documentation section Seasonality, Holiday Effects, and Regressors for further information on how to use this data.
+
+
+
+
+```r
+prophet_plot_components(m, prophet_forecast)
+```
+
+![](/images/Prophet-8-1.png)
+
 
 ### Trend Changepoints
 
@@ -106,17 +398,52 @@ Changepoints are only inferred for the first 80% of the time series by default, 
 
 You can also use the changepoints option to manually add your own changepoints. 
 
-### Seasonality
 
-The weekly seasonality component demonstrates that people buy more on weekends. We saw a reduction in sales from Sunday to Monday in particular. This could indicate a seasonal influence. 
 
-Yearly seasonality: As previously mentioned, sales volume is higher in July and lower in January. This July sales boom could indicate seasonal bargains with steep discounts. 
+```r
+plot(m, prophet_forecast) + add_changepoints_to_plot(m)
+```
 
-To improve your model, look at holidays, special events, and seasonality. Check to Prophet's documentation section Seasonality, Holiday Effects, and Regressors for further information on how to use this data.
+![](/images/Prophet-9-1.png)
 
 ### Evaluate model
 How this model is performing?
 Predictions made on the training data dates are included in the forecast dataframe. As a result, we may evaluate our model using this in-sample fit.
+
+
+```r
+predictions_prophet <- tail(prophet_forecast$yhat, nrow(test_set))
+forecast::accuracy(predictions_prophet, test_set$y)%>%kableExtra::kable()
+```
+
+
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:right;"> ME </th>
+   <th style="text-align:right;"> RMSE </th>
+   <th style="text-align:right;"> MAE </th>
+   <th style="text-align:right;"> MPE </th>
+   <th style="text-align:right;"> MAPE </th>
+   <th style="text-align:right;"> ACF1 </th>
+   <th style="text-align:right;"> Theil's U </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Test set </td>
+   <td style="text-align:right;"> -2346.33 </td>
+   <td style="text-align:right;"> 2350.77 </td>
+   <td style="text-align:right;"> 2346.33 </td>
+   <td style="text-align:right;"> -4.3367 </td>
+   <td style="text-align:right;"> 4.3367 </td>
+   <td style="text-align:right;"> 0.778984 </td>
+   <td style="text-align:right;"> 28.29322 </td>
+  </tr>
+</tbody>
+</table>
 
 
 
