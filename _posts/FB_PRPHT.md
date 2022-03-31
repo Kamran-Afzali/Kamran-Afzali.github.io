@@ -68,7 +68,7 @@ The analyst can create a custom list of past and future occurrences using Prophe
 ### Data 
 
 
-Here we use daily shelter demande data ,dates should be formated and time series specified.
+Here we use daily shelter demande data, dates should be formated and time series specified.
 
 Prophet requires a dataframe with two columns as input: 
 
@@ -307,8 +307,6 @@ To forecast, we must first establish a dataframe in which we will record our for
 To make predictions, we use the procedure predict on the newly created future dataframe.
 
 
-
-
 ```r
 test_period <- make_future_dataframe(m, periods = nrow(test_set))
 tail(test_period)%>%kableExtra::kable()
@@ -349,10 +347,7 @@ tail(test_period)%>%kableExtra::kable()
 </tbody>
 </table>
 
-Prophet's predications are contained in the forecast dataframe. We have an in-sample fit that we can use to evaluate our model because we've also passed historical dates. 
-Forecast includes a column for the forecast, as well as columns for components and uncertainty intervals, as you can see. 
-
-
+Prophet's predications are contained in the forecast dataframe. Forecast dataframe includes a column for the forecast, as well as columns for components and uncertainty intervals. 
 
 ```r
 prophet_forecast <- predict(m, test_period)
@@ -375,10 +370,7 @@ plot(m, prophet_forecast)
 
 ### Seasonality
 
-The weekly seasonality component demonstrates patterns related to weekdays, and yearly seasonality demonstrates patterns related to different times of the year.
-To improve your model, look at holidays, special events, and seasonality. Check to Prophet's documentation section Seasonality, Holiday Effects, and Regressors for further information on how to use this data.
-
-
+The weekly seasonality component demonstrates patterns related to weekdays, and yearly seasonality demonstrates patterns related to different times of the year. To improve your model, look at holidays, special events, and seasonality. Check to Prophet's documentation section Seasonality, Holiday Effects, and Regressors for further information on how to use this data.
 
 
 ```r
@@ -390,15 +382,7 @@ prophet_plot_components(m, prophet_forecast)
 
 ### Trend Changepoints
 
-The paths of real-life time series, such as this one, commonly have abrupt alterations. These changepoints indicate abrupt changes in the time series, such as new product launches or natural disasters. The growth rate is allowed to fluctuate at these points, making the model more flexible. This may result in over- or under-fitting. 
-
-Changepoint prior scale is a parameter that can be used to adjust trend flexibility and combat overfitting and underfitting. A higher number gives the time series a more flexible curve. 
-
-Changepoints are only inferred for the first 80% of the time series by default, but you may adjust this using the model's changepoint range option. 
-
-You can also use the changepoints option to manually add your own changepoints. 
-
-
+The paths of real-life time series, such as this one, commonly have abrupt alterations. These changepoints indicate abrupt changes in the time series, such as new product launches or natural disasters. The growth rate is allowed to fluctuate at these points, making the model more flexible. This may result in over- or under-fitting.  Changepoint prior scale is a parameter that can be used to adjust trend flexibility and combat overfitting and underfitting. A higher number gives the time series a more flexible curve. Changepoints are only inferred for the first 80% of the time series by default, but you may adjust this using the model's changepoint range option. You can also use the changepoints option to manually add your own changepoints. 
 
 ```r
 plot(m, prophet_forecast) + add_changepoints_to_plot(m)
