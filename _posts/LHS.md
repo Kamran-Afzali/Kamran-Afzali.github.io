@@ -16,6 +16,8 @@ date-string: March 2022
 
 + [Simple Linear Regression](https://agabrioblog.onrender.com/tutorial/simple-linear-regression-stan/simple-linear-regression-stan/)
 
++ [Introduction to STAN](https://agabrioblog.onrender.com/stan/page/2/)
+
 + [Multiple linear regression in Stant](http://webpages.math.luc.edu/~ebalderama/bayes_resources/code/mlr_stan.html)
 
 + [Hernan Book Liner Regression in Stan](https://rpubs.com/kaz_yos/stan-lm1)
