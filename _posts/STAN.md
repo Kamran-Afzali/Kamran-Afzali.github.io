@@ -7,13 +7,13 @@ tags: [Forecasting, R, Prophet]
 date-string: March 2022
 ---
 
+### Prerequisites
+
 The focus of this simple tutorial is to provide a brief introduction and overview about how to fit Bayesian models using STAN via R.
 
-Prerequisites:
 The latest version of R, which can be downloaded and installed for Windows, Mac or Linux OS from the CRAN website I also strongly recommend to download and install Rstudio, an integrated development environment which provides an “user-friendly” interaction with R (e.g. many drop-down menus, tabs, customisation options)
 
-Preliminaries
-What is STAN?
+### What is STAN?
 
 Stan provides full Bayesian inference for continuous-variable models through Markov Chain Monte Carlo methods such as the No-U-Turn sampler, an adaptive form of Hamiltonian Monte Carlo sampling
 
@@ -31,7 +31,7 @@ Simulate data
 For an example dataset, I simulate my own data in R. I create a continuous outcome variable y
 as a function of one predictor x and a disturbance term ϵ. I simulate a dataset with 100 observations. Create the error term, the predictor and the outcome using a linear form with an intercept β0 and slope β1 coefficients, i.e.
 
-Model file
+### Model file
 
 Now, I write the model for STAN and save it as a stan file named "basic.mod.stan" in the current working directory
 
@@ -46,11 +46,35 @@ enerated quantities (optional). The generated quantities block allows for postpr
 
 For this introduction I consider a very simple model which only requires the specification of four blocks in the STAN model. In the data block, I first define the size of the sample n_sim as a positive integer number using the expression int<lower=0> n_sim; then I declare the two variables y and x as reals (or vectors) with length equal to N. In the parameters block, I define the coefficients for the linear regression beta0 and beta1 (as two real numbers) and the standard deviation parameter sigma (as a positive real number). In the transformed parameters block, I define the conditional mean mu (a real vector of length N) as a linear function of the intercept beta0, the slope beta1, and the covariate x. Finally, in the model block, I assign weakly informative priors to the regression coefficients and the standard deviation parameters, and I model the outcome data y using a normal distribution indexed by the conditional mean mu and the standard deviation sigma parameters. In many cases, STAN uses sampling statements which can be vectorised, i.e. you do not need to use for loop statements.
 
-Fit the model
+### Fit the model
 
 Now, we can fit the model in STAN using the stan function in the rstan package and save it in the object basic.mod
 
-Conclusions
+
+### MCMC diagnostics
+
+In addition to the regular model diagnostic checks (such as residual plots), for Bayesian analyses, it is necessary to explore the characteristics of the MCMC chains and the sampler in general. Recall that the purpose of MCMC sampling is to replicate the posterior distribution of the model likelihood and priors by drawing a known number of samples from this posterior (thereby formulating a probability distribution). This is only reliable if the MCMC samples accurately reflect the posterior. Unfortunately, since we only know the posterior in the most trivial of circumstances, it is necessary to rely on indirect measures of how accurately the MCMC samples are likely to reflect the likelihood. I will briefly outline the most important diagnostics.
+
+    Traceplots for each parameter illustrate the MCMC sample values after each successive iteration along the chain. Bad chain mixing (characterised by any sort of pattern) suggests that the MCMC sampling chains may not have completely traversed all features of the posterior distribution and that more iterations are required to ensure the distribution has been accurately represented.
+
+    Autocorrelation plot for each parameter illustrate the degree of correlation between MCMC samples separated by different lags. For example, a lag of 
+
+represents the degree of correlation between each MCMC sample and itself (obviously this will be a correlation of ). A lag of
+
+represents the degree of correlation between each MCMC sample and the next sample along the chain and so on. In order to be able to generate unbiased estimates of parameters, the MCMC samples should be independent (uncorrelated).
+
+Potential scale reduction factor (Rhat) statistic for each parameter provides a measure of sampling efficiency/effectiveness. Ideally, all values should be less than
+. If there are values of
+
+    or greater it suggests that the sampler was not very efficient or effective. Not only does this mean that the sampler was potentially slower than it could have been but, more importantly, it could indicate that the sampler spent time sampling in a region of the likelihood that is less informative. Such a situation can arise from either a misspecified model or overly vague priors that permit sampling in otherwise nonscence parameter space.
+
+Prior to examining the summaries, we should have explored the convergence diagnostics. We use the package mcmcplots to obtain density and trace plots for the effects model as an example.
+
+
+
+### Conclusions Summary
+
+In this post we saw how to fit normal regression using STAN and how to get a set of important summaries from the models. The STAN model presented here should be rather flexible and could be fitted to dataset of varying sizes. Remember that the explanatory variables should be standardized before fitting the models. This is just a first glimpse into the many models that can fitted using STAN, in a later posts we will look at generalized linear models, extending to non-normal models with various link functions and also to hierarchical models.
 
 This tutorial was simply a brief introduction on how simple linear regression models can be fitted using the Bayesian software STAN via the rstan package. Although this may seem a complex procedure compared with simply fitting a linear model under the frequentist framework, however, the real advantages of Bayesian methods become evident when the complexity of the analysis is increased (which is often the case in real applications). Indeed, the flexibility in Bayesian modelling allows to account for increasingly complex models in a relatively easy way. In addition, Bayesian methods are ideal when the interest is in taking into account the potential impact that different sources of uncertainty may have on the final results, as they allow the natural propagation of uncertainty throughout each quantity in the model.
 
