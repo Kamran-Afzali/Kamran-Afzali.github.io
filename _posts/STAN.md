@@ -65,7 +65,9 @@ Potential scale reduction factor (Rhat) statistic for each parameter provides a 
 
 Prior to examining the summaries, we should have explored the convergence diagnostics. We use the package mcmcplots to obtain density and trace plots for the effects model as an example.
 
+### Parting thoughts
 
+In this post we saw how to adapt our models to non-normal data that are pretty common out there. STAN is very flexible and allow many different parametrization for many different distributions (see the reference guide), the possibilities are only limited by your hypothesis (and maybe a bit your mathematical skills …). At this point I’d like you to note that the rstanarm package allows you to fit STAN model without you having to write down the model. Instead using the typical R syntax one would use in, for example, a glm call (see this post). So why bothering learning all this STAN stuff? It depends: if you are only fitting “classical” models to your data with little fanciness then just use rstanarm this will save you some time to do your science and the models in this package are certainly better parametrized (ie faster) than the one I presented here. On the other hand if you feel that one day you will have to fit your own customized models then learning STAN is a good way to tap into a highly flexible and powerful language that will keep growing.
 
 ### Conclusions Summary
 
