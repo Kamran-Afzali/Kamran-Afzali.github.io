@@ -15,7 +15,10 @@ The latest version of R, which can be downloaded and installed for Windows, Mac 
 
 ### What is STAN?
 
-Stan provides full Bayesian inference for continuous-variable models through Markov Chain Monte Carlo methods such as the No-U-Turn sampler, an adaptive form of Hamiltonian Monte Carlo sampling
+Stan provides full Bayesian inference for continuous-variable models through Markov Chain Monte Carlo methods such as the No-U-Turn sampler, an adaptive form of Hamiltonian Monte Carlo sampling.
+
+
+Stan is a programming language for specifying statistical models. It is most used as a MCMC sampler for Bayesian analyses. Markov chain Monte Carlo (MCMC) is a sampling method that allows you to estimate a probability distribution without knowing all of the distribution’s mathematical properties. It is particularly useful in Bayesian inference because posterior distributions often cannot be written as a closed-form expression. To use Stan, the user writes a Stan program that represents their statistical model. This program specifies the parameters in the model along with the target posterior density. The Stan code is compiled and run along with the data and outputs a set of posterior simulations of the parameters. Stan interfaces with the most popular data analysis languages, such as R, Python, shell, MATLAB, Julia and Stata. We will focus on using Stan from within R, using the rstan and rstanarm packages.
 
 STAN is a program for analysis of Bayesian models using Markov Chain Monte Carlo (MCMC) methods (Gelman, Lee, and Guo (2015)). STAN is a free software and a probabilistic programming language for specifying statistical models using a specific class of MCMC algorithms known as Hamiltonian Monte Carlo methods (HMC). The latest version of STAN can be dowloaded from the web repository and is available for different OS. There are different R packages which function as frontends for STAN. These packages make it easy to process the output of Bayesian models and present it in publication-ready form. In this brief introduction, I will specifically focus on the rstan package (Stan Development Team (2018)) and show how to fit STAN models using this package.
 Installing STAN and rstan
@@ -65,9 +68,22 @@ Potential scale reduction factor (Rhat) statistic for each parameter provides a 
 
 Prior to examining the summaries, we should have explored the convergence diagnostics. We use the package mcmcplots to obtain density and trace plots for the effects model as an example.
 
+
+When fitting a model using MCMC, it is important to check if the chains have converged. We recommend the bayesplot package to visually examine MCMC diagnostics. The bayesplot package supports model objects from both rstan and rstanarm and provides easy to use functions to display MCMC diagnostics. We will demonstrate the mcmc_trace() function to create a trace plot and the mcmc_rhat() function to create a plot of the Rhat values.
+
+First, let us create trace plots using mcmc_trace(). A trace plot shows the sampled values of the parameters over the MCMC iterations. If the model has converged, then the trace plot should look like a random scatter around a mean value. If the chains are snaking around the parameter space or if the chains converge to different values, then that is evidence of a problem. We demonstrate the function using our model fits from both rstanarm and rstan.
+
 ### Parting thoughts
 
 In this post we saw how to adapt our models to non-normal data that are pretty common out there. STAN is very flexible and allow many different parametrization for many different distributions (see the reference guide), the possibilities are only limited by your hypothesis (and maybe a bit your mathematical skills …). At this point I’d like you to note that the rstanarm package allows you to fit STAN model without you having to write down the model. Instead using the typical R syntax one would use in, for example, a glm call (see this post). So why bothering learning all this STAN stuff? It depends: if you are only fitting “classical” models to your data with little fanciness then just use rstanarm this will save you some time to do your science and the models in this package are certainly better parametrized (ie faster) than the one I presented here. On the other hand if you feel that one day you will have to fit your own customized models then learning STAN is a good way to tap into a highly flexible and powerful language that will keep growing.
+
+rstanarm is a package that works as a front-end user interface for Stan. It allows R users to implement Bayesian models without having to learn how to write Stan code. You can fit a model in rstanarm using the familiar formula and data.frame syntax (like that of lm()). rstanarm achieves this simpler syntax by providing pre-compiled Stan code for commonly used model types. It is convenient to use but is limited to the specific “common” model types. If you need to fit a different model type, then you need to code it yourself with rstan.
+
+The model fitting functions begin with the prefix stan_ and end with the the model type. Some examples include stan_glm() and stan_glmer(). See here for a full list of rstanarm functions. The modeling functions have two required arguments:
+- formula: A formula that specifies the dependent and independent variables (y ~ x1 + x2).
+- data: A data-frame containing the variables in the formula.
+
+Additionally, there is an optional prior argument, which allows you to change the default prior distributions.
 
 ### Conclusions Summary
 
@@ -92,3 +108,4 @@ This tutorial was simply a brief introduction on how simple linear regression mo
 
 + [Bayesian Varying Effects Models in R and Stan](https://willhipson.netlify.app/post/stan-random-slopes/varying_effects_stan/)
 
++ [Introduction to rstan and rstanarm](https://blog.methodsconsultants.com/posts/introduction-to-stan-in-r/)
