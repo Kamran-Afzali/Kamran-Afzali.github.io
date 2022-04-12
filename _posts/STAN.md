@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Bayesian Modelin in R and Stan
-featured-image: /images/FPR.png
+featured-image: /images/stan.png
 tags: [STAN, R, Bayes]
 date-string: March 2022
 ---
@@ -131,3 +131,5 @@ This tutorial was simply a brief introduction on how simple linear regression mo
 + [Bayesian Varying Effects Models in R and Stan](https://willhipson.netlify.app/post/stan-random-slopes/varying_effects_stan/)
 
 + [Introduction to rstan and rstanarm](https://blog.methodsconsultants.com/posts/introduction-to-stan-in-r/)
+
++ [Stan (+R) Workshop](https://rpruim.github.io/StanWorkshop/)
