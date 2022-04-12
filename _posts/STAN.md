@@ -3,7 +3,7 @@ layout: post
 categories: posts
 title: Forecsting with FB prophet
 featured-image: /images/FPR.png
-tags: [Forecasting, R, Prophet]
+tags: [STAN, R, Bayes]
 date-string: March 2022
 ---
 
