@@ -4,7 +4,7 @@ categories: posts
 title: Bayesian Modelin in R and Stan
 featured-image: /images/stan.png
 tags: [STAN, R, Bayes]
-date-string: March 2022
+date-string: April 2022
 ---
 
 
