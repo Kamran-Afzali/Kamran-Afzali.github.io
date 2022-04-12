@@ -1,11 +1,14 @@
 ---
 layout: post
 categories: posts
-title: Forecsting with FB prophet
+title: Bayesian Modelin in R and Stan
 featured-image: /images/FPR.png
 tags: [STAN, R, Bayes]
 date-string: March 2022
 ---
+
+
+## Bayesian Modelin in R and Stan
 
 ### Prerequisites
 
@@ -42,14 +45,31 @@ STAN models are written using an imperative programming language, which means th
 
 A Stan model is defined by six program blocks:
 Data (required). The data block reads external information – e.g. data vectors, matrices, integers, etc.
+The data block is where we define our observed variables. We also need to define lengths/dimensions of stuff, which can seem strange if you’re used to R or Python. We first declare an integer variable N to be the number of observations: int N; (note the use of semicolon to denote the end of a line). I’m also declaring an integer K, which is the number of predictors in our model. Note that I’m including the intercept in this count, so we end up with 2 predictors (2 columns in the model matrix). Now we supply actual data. We write matrix[N, K] to tell Stan that x is a N×K matrix. y is easier - just a vector of length N.
+
+
+
 Transformed data (optional). The transformed data block allows for preprocessing of the data – e.g. transformation or rescaling of the data.
+
+
 Parameters (required). The parameters block defines the sampling space – e.g. parameters to which prior distributions must be assigned.
+Now we tell Stan the parameters in our model. These are the unobserved variables that we want to estimate. In this example, we have 3 parameters: β0, β1 and σ. Like before, we first tell Stan the type of data this parameter will contain - in this case, β0 and β1 are contained in a vector of length K that we will sensibly call beta. σ will just be a single real value (“real” means that the number can have a decimal point). We use <lower=0> to constrain it to be positive because it is impossible to have negative standard deviation.
+
 Transformed parameters (optional). The transformed parameters block allows for parameter processing before the posterior is computed – e.g. tranformation or rescaling of the parameters.Model (required). In the model block we define our posterior distributions – e.g. choice of distributions for all variables.
 enerated quantities (optional). The generated quantities block allows for postprocessing – e.g. backtranformation of the parameters using the posterior samples.
 
 For this introduction I consider a very simple model which only requires the specification of four blocks in the STAN model. In the data block, I first define the size of the sample n_sim as a positive integer number using the expression int<lower=0> n_sim; then I declare the two variables y and x as reals (or vectors) with length equal to N. In the parameters block, I define the coefficients for the linear regression beta0 and beta1 (as two real numbers) and the standard deviation parameter sigma (as a positive real number). In the transformed parameters block, I define the conditional mean mu (a real vector of length N) as a linear function of the intercept beta0, the slope beta1, and the covariate x. Finally, in the model block, I assign weakly informative priors to the regression coefficients and the standard deviation parameters, and I model the outcome data y using a normal distribution indexed by the conditional mean mu and the standard deviation sigma parameters. In many cases, STAN uses sampling statements which can be vectorised, i.e. you do not need to use for loop statements.
 
+
+It’s been said that linear regression is the ‘Hello World’ of statistics. To see the Bayesian workflow in action and get comfortable, we’ll start with a simple (albeit inappropriate) model for this data - one in which we completely ignore the grouping of the data within participants and instead treat each observation as completely independent from the others. This is not the way to analyze this data, but I use it as a simple demonstration of how to construct Stan code.
+
+I give full credit to McElreath’s brilliant Statistical Rethinking (2020) for introducing me to this way of writing out models. It’s a bit jarring at first; myself having become accustomed to model formulas as one-liners. But once you understand it it’s a really elegant way of expressing the model.
+
+We then assign priors to the parameters. Priors encode our knowledge and uncertainty about the data before we run the model. We don’t use priors to get a desired result, we use priors because it makes sense. Without priors, our model initially ‘thinks’ that the data is just as likely to come from a normal distribution with a mean of 0 and sigma of 1 as it is to come from a distribution with a mean of 1,000 and a sigma of 400. True, the likelihood function (i.e., the probability of the data given the model) will sort things out when we have sufficient data, but we’ll see that priors play a particularly important role when we move on to varying effects models.
+
 ### Fit the model
+
+We need to put the data in a list for Stan. Everything that we declared in the data block of our Stan code should be entered into this list. We’ll also standardize the variables, so that they match up with our priors. Finally, we use the function stan to run the model. We set chains and cores to 4, which will allow us to run 4 Markov chains in parallel.
 
 Now, we can fit the model in STAN using the stan function in the rstan package and save it in the object basic.mod
 
@@ -72,6 +92,8 @@ Prior to examining the summaries, we should have explored the convergence diagno
 When fitting a model using MCMC, it is important to check if the chains have converged. We recommend the bayesplot package to visually examine MCMC diagnostics. The bayesplot package supports model objects from both rstan and rstanarm and provides easy to use functions to display MCMC diagnostics. We will demonstrate the mcmc_trace() function to create a trace plot and the mcmc_rhat() function to create a plot of the Rhat values.
 
 First, let us create trace plots using mcmc_trace(). A trace plot shows the sampled values of the parameters over the MCMC iterations. If the model has converged, then the trace plot should look like a random scatter around a mean value. If the chains are snaking around the parameter space or if the chains converge to different values, then that is evidence of a problem. We demonstrate the function using our model fits from both rstanarm and rstan.
+
+We can take a look at the parameters in the console by printing the model fit. We get posterior means, standard errors, and quantiles for each parameter. We also get things called n_eff and Rhat. These are indicators of how well Stan’s engine explored the parameter space (if this is cryptic, that’s ok), It’s enough for now to know that when Rhat is 1, things are good.
 
 ### Parting thoughts
 
