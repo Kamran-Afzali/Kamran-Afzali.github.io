@@ -116,6 +116,10 @@ This tutorial was simply a brief introduction on how simple linear regression mo
 
 ## References
 
++ [Stan Functions Reference](https://mc-stan.org/docs/2_18/functions-reference/)
+
++ [Some things i've learned about stan](https://www.alexpghayes.com/blog/some-things-ive-learned-about-stan/)
+
 + [Introduction to STAN](https://agabrioblog.onrender.com/stan/page/2/)
 
 + [Simple Linear Regression in STAN](https://agabrioblog.onrender.com/tutorial/simple-linear-regression-stan/simple-linear-regression-stan/)
