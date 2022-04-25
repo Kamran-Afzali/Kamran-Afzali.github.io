@@ -12,26 +12,16 @@ date-string: April 2022
 
 ### Prerequisites
 
-The focus of this simple tutorial is to provide a brief introduction and overview about how to fit Bayesian models using STAN via R.
+The goal of this easy lesson is to provide a quick overview and introduction to fitting Bayesian models using STAN via R. 
 
-The latest version of R, which can be downloaded and installed for Windows, Mac or Linux OS from the CRAN website I also strongly recommend to download and install Rstudio, an integrated development environment which provides an “user-friendly” interaction with R (e.g. many drop-down menus, tabs, customisation options)
+I also strongly recommend downloading and installing Rstudio, an integrated development environment that allows a "user-friendly" interaction with R, which can be downloaded and installed for Windows, Mac, or Linux OS from the CRAN website (e.g. many drop-down menus, tabs, customisation options).
 
 ### What is STAN?
 
-Stan provides full Bayesian inference for continuous-variable models through Markov Chain Monte Carlo methods such as the No-U-Turn sampler, an adaptive form of Hamiltonian Monte Carlo sampling.
+Stan uses Markov Chain Monte Carlo methods like the No-U-Turn sampler, an adaptive variant of Hamiltonian Monte Carlo sampling, to enable full Bayesian inference for continuous-variable models. 
+STAN (Gelman, Lee, and Guo (2015)) is a tool for analysing Bayesian models using Markov Chain Monte Carlo (MCMC) methods. STAN is a probabilistic programming language and free software for specifying statistical models utilising Hamiltonian Monte Carlo methods, a type of MCMC algorithm (HMC). In this quick overview, I'll focus on the rstan package (Stan Development Team (2018)) and demonstrate how to fit STAN models with it. 
+Stan is a computer language that allows you to create statistical models. It's most commonly employed as a Bayesian MCMC sampler. MCMC is a sampling method for estimating a probability distribution without knowing all of the features of the distribution. Because posterior distributions are frequently not represented as closed-form expressions, it is very useful in Bayesian inference. The user creates a Stan programme that depicts their statistical model in order to use Stan. The Stan code is compiled and run with the data, producing a collection of parameter posterior simulations. Stan works with the most widely used data analysis languages, including R and Python. The rstan and rstanarm packages will be used to demonstrate how to use Stan from within R.
 
-
-Stan is a programming language for specifying statistical models. It is most used as a MCMC sampler for Bayesian analyses. Markov chain Monte Carlo (MCMC) is a sampling method that allows you to estimate a probability distribution without knowing all of the distribution’s mathematical properties. It is particularly useful in Bayesian inference because posterior distributions often cannot be written as a closed-form expression. To use Stan, the user writes a Stan program that represents their statistical model. This program specifies the parameters in the model along with the target posterior density. The Stan code is compiled and run along with the data and outputs a set of posterior simulations of the parameters. Stan interfaces with the most popular data analysis languages, such as R, Python, shell, MATLAB, Julia and Stata. We will focus on using Stan from within R, using the rstan and rstanarm packages.
-
-STAN is a program for analysis of Bayesian models using Markov Chain Monte Carlo (MCMC) methods (Gelman, Lee, and Guo (2015)). STAN is a free software and a probabilistic programming language for specifying statistical models using a specific class of MCMC algorithms known as Hamiltonian Monte Carlo methods (HMC). The latest version of STAN can be dowloaded from the web repository and is available for different OS. There are different R packages which function as frontends for STAN. These packages make it easy to process the output of Bayesian models and present it in publication-ready form. In this brief introduction, I will specifically focus on the rstan package (Stan Development Team (2018)) and show how to fit STAN models using this package.
-Installing STAN and rstan
-
-Unlike other Bayesian software, such as JAGS or OpenBUGS, it is not required to separately install the program and the corresponding frontend R package. Indeed, installing the R package rstan will automatically install STAN on your machine. However, you will also need to make sure to having installed on your pc a C++ compiler which is used by rstan to fit the models. Under a Windows OS, for example, this can be done by installing Rtools, a collection of resources for building packages for R, which is freely available from the web repository.
-
-Next, install the package rstan from within R or Rstudio, via the package installer or by typing in the command line
-
-The dependencies = TRUE option will automatically install all the packages on which the functions in the rstan package rely.
-Basic model
 Simulate data
 
 For an example dataset, I simulate my own data in R. I create a continuous outcome variable y
