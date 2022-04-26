@@ -29,39 +29,64 @@ as a function of one predictor x and a disturbance term ϵ. I simulate a dataset
 
 ### Model file
 
-Now, I write the model for STAN and save it as a stan file named "basic.mod.stan" in the current working directory
-
-STAN models are written using an imperative programming language, which means that the order in which you write the elements in your model file matters, i.e. you first need to define your variables (e.g. integers, vectors, matrices, etc.), the constraints which define the range of values your variable can take (e.g. only positive values for standard deviations), and finally define the relationship among the variables (e.g. one is a liner function of another).
+STAN models are written in an imperative programming language, which means the order in which you write the elements in your model file matters, i.e. you must first define your variables (e.g. integers, vectors, matrices, etc. ), then the constraints that define the range of values your variable can take (e.g. only positive values for standard deviations), and finally the relationship between the variables (e.g. one is a liner function of another). 
 
 A Stan model is defined by six program blocks:
-Data (required). The data block reads external information – e.g. data vectors, matrices, integers, etc.
-The data block is where we define our observed variables. We also need to define lengths/dimensions of stuff, which can seem strange if you’re used to R or Python. We first declare an integer variable N to be the number of observations: int N; (note the use of semicolon to denote the end of a line). I’m also declaring an integer K, which is the number of predictors in our model. Note that I’m including the intercept in this count, so we end up with 2 predictors (2 columns in the model matrix). Now we supply actual data. We write matrix[N, K] to tell Stan that x is a N×K matrix. y is easier - just a vector of length N.
+Data (required). The data block reads information from the outside world, such as data vectors, matrices, integers, and so on.
+We also need to define the lengths and dimensions of objects, which may appear unusual to those who are used to R or Python.
+The number of observations is first declared as an integer variable N: int N; (note the use of semicolon to denote the end of a line).
+I'm also announcing the number of predictors in our model, which is K.
+The intercept is included in this count, so we end up with two predictors (2 columns in the model matrix).
+We are now providing accurate data.
+To notify Stan that x is an NK matrix, we write matrix[N, K].
+y is simpler: it's merely an N-dimensional vector.
 
 
 
-Transformed data (optional). The transformed data block allows for preprocessing of the data – e.g. transformation or rescaling of the data.
+Data that has been transformed (optional).
+The converted data block enables data preprocessing, such as data transformation or rescaling.
+
+Variables (required).
+The parameters block specifies the parameters that must be assigned to earlier distributions.
+These are the unobserved variables we're trying to figure out.
+We have three parameters in this example: 0, 1, and 2.
+We inform Stan the type of data this parameter will hold, just like we did before - in this example, 0 and 1 are included in a vector of length K that we'll call beta.
+There will only be one real value (the term "real" refers to the fact that the integer can have a decimal point).
+Because it is impossible to have a negative standard deviation, we used to confine it to be positive. 
+
+Transformed parameters (optional).
+Before computing the posterior, the changed parameters block provides for parameter processing, such as tranformation or rescaling of the parameters.
 
 
-Parameters (required). The parameters block defines the sampling space – e.g. parameters to which prior distributions must be assigned.
-Now we tell Stan the parameters in our model. These are the unobserved variables that we want to estimate. In this example, we have 3 parameters: β0, β1 and σ. Like before, we first tell Stan the type of data this parameter will contain - in this case, β0 and β1 are contained in a vector of length K that we will sensibly call beta. σ will just be a single real value (“real” means that the number can have a decimal point). We use <lower=0> to constrain it to be positive because it is impossible to have negative standard deviation.
+For this introduction, I'll use a very simple model in the STAN model that only involves the specification of four blocks.
+In the data block, I declare the two variables y and x as reals (or vectors) with length equal to N and declare the sample size n sim as a positive integer number using the phrase int n sim.
+I define the coefficients for the linear regression beta0 and beta1 (as two real values) and the standard deviation parameter sigma in the parameters block (as a positive real number).
+I define the conditional mean mu (a real vector of length N) as a linear function of the intercept beta0, the slope beta1, and the covariate x in the converted parameters block.
+Finally, in the model block, I give the regression coefficients and standard deviation parameters weakly informative priors, and I use a normal distribution indexed by the conditional mean mu and standard deviation sigma parameters to model the outcome data y.
+STAN frequently employs sampling statements that can be vectorized, obviating the requirement for for loop expressions. 
 
-Transformed parameters (optional). The transformed parameters block allows for parameter processing before the posterior is computed – e.g. tranformation or rescaling of the parameters.Model (required). In the model block we define our posterior distributions – e.g. choice of distributions for all variables.
-enerated quantities (optional). The generated quantities block allows for postprocessing – e.g. backtranformation of the parameters using the posterior samples.
-
-For this introduction I consider a very simple model which only requires the specification of four blocks in the STAN model. In the data block, I first define the size of the sample n_sim as a positive integer number using the expression int<lower=0> n_sim; then I declare the two variables y and x as reals (or vectors) with length equal to N. In the parameters block, I define the coefficients for the linear regression beta0 and beta1 (as two real numbers) and the standard deviation parameter sigma (as a positive real number). In the transformed parameters block, I define the conditional mean mu (a real vector of length N) as a linear function of the intercept beta0, the slope beta1, and the covariate x. Finally, in the model block, I assign weakly informative priors to the regression coefficients and the standard deviation parameters, and I model the outcome data y using a normal distribution indexed by the conditional mean mu and the standard deviation sigma parameters. In many cases, STAN uses sampling statements which can be vectorised, i.e. you do not need to use for loop statements.
 
 
-It’s been said that linear regression is the ‘Hello World’ of statistics. To see the Bayesian workflow in action and get comfortable, we’ll start with a simple (albeit inappropriate) model for this data - one in which we completely ignore the grouping of the data within participants and instead treat each observation as completely independent from the others. This is not the way to analyze this data, but I use it as a simple demonstration of how to construct Stan code.
+For exposing me to this technique of writing statistical models, I give full thanks to McElreath's outstanding Statistical Rethinking (2020).
+It's strange at first; I've become accustomed to model formulas being one-liners.
+But if you get the hang of it, it's a really nice method to describe the model.
 
-I give full credit to McElreath’s brilliant Statistical Rethinking (2020) for introducing me to this way of writing out models. It’s a bit jarring at first; myself having become accustomed to model formulas as one-liners. But once you understand it it’s a really elegant way of expressing the model.
 
-We then assign priors to the parameters. Priors encode our knowledge and uncertainty about the data before we run the model. We don’t use priors to get a desired result, we use priors because it makes sense. Without priors, our model initially ‘thinks’ that the data is just as likely to come from a normal distribution with a mean of 0 and sigma of 1 as it is to come from a distribution with a mean of 1,000 and a sigma of 400. True, the likelihood function (i.e., the probability of the data given the model) will sort things out when we have sufficient data, but we’ll see that priors play a particularly important role when we move on to varying effects models.
+The parameters are then given priors.
+Before we run the model, we use priors to represent our knowledge and uncertainty about the data.
+We don't employ priors to achieve a specific goal; we use them because they make sense. Without priors, our model assumes that the data came from a normal distribution with a mean of 0 and sigma of 1 as it does from a distribution with a mean of 1 and sigma of 0. 
 
 ### Fit the model
 
-We need to put the data in a list for Stan. Everything that we declared in the data block of our Stan code should be entered into this list. We’ll also standardize the variables, so that they match up with our priors. Finally, we use the function stan to run the model. We set chains and cores to 4, which will allow us to run 4 Markov chains in parallel.
+We'll need to organise the information into a list for Stan.
+This list should contain everything we defined in the data block of our Stan code.
+We'll additionally normalise the variables to make sure they match our priors.
+Finally, we run the model with the stan function.
+We set chains and cores to four, allowing us to run four Markov chains simultaneously.
 
-Now, we can fit the model in STAN using the stan function in the rstan package and save it in the object basic.mod
+
+Now we can use the stan function in the rstan package to fit the model in STAN and save it in the object.
+
 
 
 ### MCMC diagnostics
@@ -99,9 +124,15 @@ Additionally, there is an optional prior argument, which allows you to change th
 
 ### Conclusions Summary
 
-In this post we saw how to fit normal regression using STAN and how to get a set of important summaries from the models. The STAN model presented here should be rather flexible and could be fitted to dataset of varying sizes. Remember that the explanatory variables should be standardized before fitting the models. This is just a first glimpse into the many models that can fitted using STAN, in a later posts we will look at generalized linear models, extending to non-normal models with various link functions and also to hierarchical models.
+We learned how to fit normal regression using STAN and how to get a collection of useful summaries from the models in this post.
+The STAN model provided here should be quite adaptable, and it should be able to accommodate datasets of various sizes.
+Before fitting the models, remember to normalise the explanatory variables.
+This is just a taste of the many models that STAN can fit; in future postings, we'll look at generalised linear models, as well as non-normal models with various link functions and hierarchical models.
 
-This tutorial was simply a brief introduction on how simple linear regression models can be fitted using the Bayesian software STAN via the rstan package. Although this may seem a complex procedure compared with simply fitting a linear model under the frequentist framework, however, the real advantages of Bayesian methods become evident when the complexity of the analysis is increased (which is often the case in real applications). Indeed, the flexibility in Bayesian modelling allows to account for increasingly complex models in a relatively easy way. In addition, Bayesian methods are ideal when the interest is in taking into account the potential impact that different sources of uncertainty may have on the final results, as they allow the natural propagation of uncertainty throughout each quantity in the model.
+This tutorial provided only a quick overview of how to fit simple linear regression models with the Bayesian software STAN and the rstan library.
+Although this may appear to be a more difficult technique than just fitting a linear model in a frequentist framework, the real benefits of Bayesian methods become apparent as the analysis becomes more sophisticated (which is often the case in real applications).
+Indeed, the flexibility of Bayesian modelling makes it very simple to account for increasingly complicated models.
+Furthermore, Bayesian approaches are suitable for taking into consideration the potential impact of many sources of uncertainty on the final conclusions, as they allow for natural uncertainty propagation throughout each paramether. 
 
 
 ## References
