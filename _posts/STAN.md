@@ -10,26 +10,17 @@ date-string: April 2022
 
 ## Bayesian Modelin in R and Stan
 
-### Prerequisites
-
-The goal of this easy lesson is to provide a quick overview and introduction to fitting Bayesian models using STAN via R. 
-
-I also strongly recommend downloading and installing Rstudio, an integrated development environment that allows a "user-friendly" interaction with R, which can be downloaded and installed for Windows, Mac, or Linux OS from the CRAN website (e.g. many drop-down menus, tabs, customisation options).
+The goal of this lesson is to provide a quick overview and introduction to fitting Bayesian models using STAN and R.  I also strongly recommend downloading and installing Rstudio, an integrated development environment that allows a "user-friendly" interaction with R.
 
 ### What is STAN?
 
-Stan uses Markov Chain Monte Carlo methods like the No-U-Turn sampler, an adaptive variant of Hamiltonian Monte Carlo sampling, to enable full Bayesian inference for continuous-variable models. 
-STAN (Gelman, Lee, and Guo (2015)) is a tool for analysing Bayesian models using Markov Chain Monte Carlo (MCMC) methods. STAN is a probabilistic programming language and free software for specifying statistical models utilising Hamiltonian Monte Carlo methods, a type of MCMC algorithm (HMC). In this quick overview, I'll focus on the rstan package (Stan Development Team (2018)) and demonstrate how to fit STAN models with it. 
-Stan is a computer language that allows you to create statistical models. It's most commonly employed as a Bayesian MCMC sampler. MCMC is a sampling method for estimating a probability distribution without knowing all of the features of the distribution. Because posterior distributions are frequently not represented as closed-form expressions, it is very useful in Bayesian inference. The user creates a Stan programme that depicts their statistical model in order to use Stan. The Stan code is compiled and run with the data, producing a collection of parameter posterior simulations. Stan works with the most widely used data analysis languages, including R and Python. The rstan and rstanarm packages will be used to demonstrate how to use Stan from within R.
+STAN is a tool for analysing Bayesian models using Markov Chain Monte Carlo (MCMC) methods. MCMC is a sampling method for estimating a probability distribution without knowing all of the features of the distribution. STAN is a probabilistic programming language and free software for specifying statistical models utilising Hamiltonian Monte Carlo methods, a type of MCMC algorithm (HMC). Stan works with the most widely used data analysis languages, including R and Python. The rstan and rstanarm packages will be used to demonstrate how to use Stan from within R. In this quick overview, we'll focus on the rstan package and demonstrate how to fit STAN models with it. 
 
-Simulate data
-
-For an example dataset, I simulate my own data in R. I create a continuous outcome variable y
-as a function of one predictor x and a disturbance term ϵ. I simulate a dataset with 100 observations. Create the error term, the predictor and the outcome using a linear form with an intercept β0 and slope β1 coefficients, i.e.
+For an example dataset, here we simulate our own data in R. We firsty create a continuous outcome variable y as a function of one predictor x and a disturbance term ϵ. I simulate a dataset with 100 observations. Create the error term, the predictor and the outcome using a linear form with an intercept β0, slope β1, etc. coefficients.
 
 ### Model file
 
-STAN models are written in an imperative programming language, which means the order in which you write the elements in your model file matters, i.e. you must first define your variables (e.g. integers, vectors, matrices, etc. ), then the constraints that define the range of values your variable can take (e.g. only positive values for standard deviations), and finally the relationship between the variables (e.g. one is a liner function of another). 
+STAN models are written in an imperative programming language, which means the order in which you write the elements in your model file matters, i.e. you must first define your variables (e.g. integers, vectors, matrices, etc. ), then the constraints that define the range of values your variable can take (e.g. only positive values for standard deviations), and finally the relationship between the variables. 
 
 A Stan model is defined by six program blocks:
 Data (required). The data block reads information from the outside world, such as data vectors, matrices, integers, and so on.
