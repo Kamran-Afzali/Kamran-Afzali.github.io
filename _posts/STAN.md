@@ -29,6 +29,35 @@ A Stan model is defined by different blocks including:
 -	Variables (required). The parameters block specifies the parameters that must be assigned to prior distributions.
 -	Transformed parameters (optional). Before computing the posterior, the changed parameters block provides for parameter processing, such as transformation or rescaling of the parameters.
 
+```{r}
+   
+    modelString = "
+   data {
+   int<lower=0> n;
+   vector [n] y;
+   vector [n] x;
+   }
+   parameters {
+   real beta0;
+   real beta;
+   real<lower=0> sigma;
+   }
+   model {
+   vector [n] mu;
+   #Priors
+   beta0 ~ normal(0,10000);
+   beta ~ normal(0,10000);
+   sigma ~ cauchy(0,5);
+  
+   mu = beta0+beta*x;
+   
+   #Likelihood
+   y~normal(mu,sigma);
+   }
+   
+   "
+   cat(model_stan)
+```
 
 For this introduction, I'll use a very simple model in the STAN model that only involves the specification of four blocks. In the data block, I declare the variables y and x as reals (or vectors) with length equal to N and declare the sample size n sim as a positive integer number using the phrase int n sim. I define the coefficients for the linear regression beta0 and beta1 (as two real values) and the standard deviation parameter sigma in the parameters block (as a positive real number). I define the conditional mean mu (a real vector of length N) as a linear function of the intercept beta0, the slope beta1, and the covariate x in the converted parameters block.
 Finally, in the model block, I give the regression coefficients and standard deviation parameters weakly informative priors, and I use a normal distribution indexed by the conditional mean mu and standard deviation sigma parameters to model the outcome data y. I give full recognition to McElreath's outstanding Statistical Rethinking (2020) book for this section.
