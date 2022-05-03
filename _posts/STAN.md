@@ -18,6 +18,109 @@ STAN is a tool for analysing Bayesian models using Markov Chain Monte Carlo (MCM
 
 For an example dataset, here we simulate our own data in R. We firsty create a continuous outcome variable y as a function of one predictor x and a disturbance term ϵ. I simulate a dataset with 100 observations. Create the error term, the predictor and the outcome using a linear form with an intercept β0, slope β1, etc. coefficients.
 
+```r
+set.seed(123)
+ n <- 100
+ a <- 40  #intercept
+ b <- -2  #slope
+ sigma2 <- 25  #residual variance (sd=5)
+ x <- 1:n  #values of the year covariate
+ eps <- rnorm(n, mean = 0, sd = sqrt(sigma2))  #residuals
+ y <- a + b * x + eps  #response variable
+data <- data.frame(y, x)  #dataset
+head(data)%>%kable()  #print out the first six rows of the data set
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> y </th>
+   <th style="text-align:right;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 35.19762 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 34.84911 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 41.79354 </td>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 32.35254 </td>
+   <td style="text-align:right;"> 4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 30.64644 </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 36.57532 </td>
+   <td style="text-align:right;"> 6 </td>
+  </tr>
+</tbody>
+</table>
+
+```r
+data$cx = as.numeric(scale(data$x, scale = T))
+head(data)%>%kable() 
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> y </th>
+   <th style="text-align:right;"> x </th>
+   <th style="text-align:right;"> cx </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 35.19762 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> -1.706220 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 34.84911 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> -1.671751 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 41.79354 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> -1.637282 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 32.35254 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> -1.602813 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 30.64644 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> -1.568344 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 36.57532 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> -1.533875 </td>
+  </tr>
+</tbody>
+</table>
+
+```r
+plot(y ~ x, data)
+```
+
+
+
+
+
 ### Model file
 
 STAN models are written in an imperative programming language, which means the order in which you write the elements in your model file matters, i.e. you must first define your variables (e.g. integers, vectors, matrices, etc.), then the constraints that define the range of values your variable can take (e.g. only positive values for standard deviations), and finally the relationship between the variables. 
