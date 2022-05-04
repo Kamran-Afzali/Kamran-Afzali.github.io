@@ -20,102 +20,81 @@ For an example dataset, here we simulate our own data in R. We firsty create a c
 
 ```r
 set.seed(123)
- n <- 100
- a <- 40  #intercept
- b <- -2  #slope
- sigma2 <- 25  #residual variance (sd=5)
- x <- 1:n  #values of the year covariate
- eps <- rnorm(n, mean = 0, sd = sqrt(sigma2))  #residuals
- y <- a + b * x + eps  #response variable
+n <- 1000
+a <- 40  #intercept
+b <- c(-2, 3, 4, 1 , 0.25) #slopes
+sigma2 <- 25  #residual variance (sd=5)
+x <- matrix(rnorm(5000),1000,5)
+eps <- rnorm(n, mean = 0, sd = sqrt(sigma2))  #residuals
+y <- a +x%*%b+ eps  #response variable
 data <- data.frame(y, x)  #dataset
-head(data)%>%kable()  #print out the first six rows of the data set
+head(data)%>%kableExtra::kable()
 ```
 
 <table>
  <thead>
   <tr>
    <th style="text-align:right;"> y </th>
-   <th style="text-align:right;"> x </th>
+   <th style="text-align:right;"> X1 </th>
+   <th style="text-align:right;"> X2 </th>
+   <th style="text-align:right;"> X3 </th>
+   <th style="text-align:right;"> X4 </th>
+   <th style="text-align:right;"> X5 </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:right;"> 35.19762 </td>
-   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 33.51510 </td>
+   <td style="text-align:right;"> -0.5604756 </td>
+   <td style="text-align:right;"> -0.9957987 </td>
+   <td style="text-align:right;"> -0.5116037 </td>
+   <td style="text-align:right;"> -0.1503075 </td>
+   <td style="text-align:right;"> 0.1965498 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 34.84911 </td>
-   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 43.76098 </td>
+   <td style="text-align:right;"> -0.2301775 </td>
+   <td style="text-align:right;"> -1.0399550 </td>
+   <td style="text-align:right;"> 0.2369379 </td>
+   <td style="text-align:right;"> -0.3277571 </td>
+   <td style="text-align:right;"> 0.6501132 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 41.79354 </td>
-   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 27.64712 </td>
+   <td style="text-align:right;"> 1.5587083 </td>
+   <td style="text-align:right;"> -0.0179802 </td>
+   <td style="text-align:right;"> -0.5415892 </td>
+   <td style="text-align:right;"> -1.4481653 </td>
+   <td style="text-align:right;"> 0.6710042 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 32.35254 </td>
-   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 50.72614 </td>
+   <td style="text-align:right;"> 0.0705084 </td>
+   <td style="text-align:right;"> -0.1321751 </td>
+   <td style="text-align:right;"> 1.2192276 </td>
+   <td style="text-align:right;"> -0.6972846 </td>
+   <td style="text-align:right;"> -1.2841578 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 30.64644 </td>
-   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 39.46286 </td>
+   <td style="text-align:right;"> 0.1292877 </td>
+   <td style="text-align:right;"> -2.5493428 </td>
+   <td style="text-align:right;"> 0.1741359 </td>
+   <td style="text-align:right;"> 2.5984902 </td>
+   <td style="text-align:right;"> -2.0261096 </td>
   </tr>
   <tr>
-   <td style="text-align:right;"> 36.57532 </td>
-   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 39.42009 </td>
+   <td style="text-align:right;"> 1.7150650 </td>
+   <td style="text-align:right;"> 1.0405735 </td>
+   <td style="text-align:right;"> -0.6152683 </td>
+   <td style="text-align:right;"> -0.0374150 </td>
+   <td style="text-align:right;"> 2.2053261 </td>
   </tr>
 </tbody>
 </table>
 
-```r
-data$cx = as.numeric(scale(data$x, scale = T))
-head(data)%>%kable() 
-```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> y </th>
-   <th style="text-align:right;"> x </th>
-   <th style="text-align:right;"> cx </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 35.19762 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> -1.706220 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 34.84911 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> -1.671751 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 41.79354 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> -1.637282 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 32.35254 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> -1.602813 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 30.64644 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> -1.568344 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 36.57532 </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:right;"> -1.533875 </td>
-  </tr>
-</tbody>
-</table>
-
-```r
-plot(y ~ x, data)
-```
 
 
 
@@ -162,16 +141,112 @@ A Stan model is defined by different blocks including:
 For this introduction, I'll use a very simple model in the STAN model that only involves the specification of four blocks. In the data block, I declare the variables y and x as reals (or vectors) with length equal to N and declare the sample size n sim as a positive integer number using the phrase int n sim. I define the coefficients for the linear regression beta0 and beta1 (as two real values) and the standard deviation parameter sigma in the parameters block (as a positive real number). I define the conditional mean mu (a real vector of length N) as a linear function of the intercept beta0, the slope beta1, and the covariate x in the converted parameters block.
 Finally, in the model block, I give the regression coefficients and standard deviation parameters weakly informative priors, and I use a normal distribution indexed by the conditional mean mu and standard deviation sigma parameters to model the outcome data y. I give full recognition to McElreath's outstanding Statistical Rethinking (2020) book for this section.
 
+```r
+stan_mod = "data {
+  int<lower=0> N;   // number of observations
+  int<lower=0> K;   // number of predictors
+  matrix[N, K] X;   // predictor matrix
+  vector[N] y;      // outcome vector
+}
+parameters {
+  real alpha;           // intercept
+  vector[K] beta;       // coefficients for predictors
+  real<lower=0> sigma;  // error scale
+}
+model {
+  y ~ normal(alpha + X * beta, sigma);  // target density
+}"
+
+writeLines(stan_mod, con = "stan_mod.stan")
+
+cat(stan_mod)
+```
+
 
 ### Fit the model
 
 We'll need to organise the information into a list for Stan. This list should contain everything we defined in the data block of our Stan code.
 We'll additionally normalise the variables to make sure they match our priors. Finally, we run the model with the stan function.
 
+```r
+library(tidyverse)
+predictors <- data %>%
+  select(-y)
+
+stan_data <- list(
+  N = 1000,
+  K = 5,
+  X = predictors,
+  y = data$y
+)
+
+fit_rstan <- rstan::stan(
+  file = "stan_mod.stan",
+  data = stan_data
+)
+```
+```r
+fit_rstan
+```
+
+```
+## Inference for Stan model: anon_model.
+## 4 chains, each with iter=2000; warmup=1000; thin=1; 
+## post-warmup draws per chain=1000, total post-warmup draws=4000.
+## 
+##             mean se_mean   sd     2.5%      25%      50%      75%    97.5%
+## alpha      40.19    0.00 0.15    39.89    40.08    40.19    40.29    40.48
+## beta[1]    -2.07    0.00 0.16    -2.39    -2.18    -2.07    -1.97    -1.76
+## beta[2]     2.73    0.00 0.16     2.42     2.62     2.73     2.84     3.04
+## beta[3]     3.83    0.00 0.16     3.51     3.72     3.83     3.93     4.13
+## beta[4]     1.23    0.00 0.16     0.92     1.11     1.23     1.34     1.54
+## beta[5]     0.34    0.00 0.16     0.04     0.23     0.34     0.45     0.65
+## sigma       4.96    0.00 0.11     4.74     4.88     4.95     5.03     5.17
+## lp__    -2098.32    0.04 1.88 -2102.75 -2099.39 -2097.99 -2096.92 -2095.67
+##         n_eff Rhat
+## alpha    5280    1
+## beta[1]  5552    1
+## beta[2]  6251    1
+## beta[3]  5988    1
+## beta[4]  6172    1
+## beta[5]  6343    1
+## sigma    5687    1
+## lp__     1916    1
+## 
+## Samples were drawn using NUTS(diag_e) at Wed May  4 13:23:35 2022.
+## For each parameter, n_eff is a crude measure of effective sample size,
+## and Rhat is the potential scale reduction factor on split chains (at 
+## convergence, Rhat=1).
+```
+
+
 
 ### MCMC diagnostics
 
 For Bayesian analysis, it is required to investigate the properties of the MCMC chains and the sampler in general, in addition to the standard model diagnostic checks (such as residual plots). Remember that the goal of MCMC sampling is to reproduce the posterior distribution of the model likelihood and priors by formulating a probability distribution. This method reliable, only if the MCMC samples accurately reflect the posterior. For each parameter, traceplots show the MCMC sample values after each iteration along the chain. Bad chain mixing (any pattern) indicates that the MCMC sample chains may not have spanned all aspects of the posterior distribution and that further iterations are needed to ensure that the distribution is accurately represented. Each parameter's autocorrelation graphic shows the degree of correlation between MCMC samples separated by different lags. The degree of correlation between each MCMC sample and itself, for example, is represented by a lag of (obviously this will be a correlation of ). The MCMC samples should be independent in order to obtain unbiased parameter estimations (uncorrelated). For each parameter, the potential scale reduction factor (Rhat) statistic offers a measure of sampling efficiency/effectiveness. All values should, in theory, be less than 1, if the sampler has values of or greater than 1, it is likely that it was not particularly efficient or effective. A misspecified model or extremely unclear priors that lead to misspecified parameter space might lead to this. We should have looked at the convergence diagnostics before looking at the summaries. For the effects model, we utilise the package mcmcplots to generate density and trace graphs. It's crucial to evaluate if the chains have converged when using MCMC to fit a model. To visually inspect MCMC diagnostics, we propose the bayesplot software. The bayesplot package includes routines for displaying MCMC diagnostics and supports model objects from both rstan and rstanarm. We'll show how to make a trace plot with the mcmc trace() function and a plot of Rhat values with the mcmc rhat() function. By printing the model fit, we can examine the parameters in the console. For each parameter, we derive posterior means, standard errors, and quantiles. n eff and Rhat are two other terms we use. These are the results of Stan's engine's exploration of the parameter space. For the time being, it's enough to know that when Rhat is 1, everything is well.
+
+
+```r
+fit_rstan %>%
+  mcmc_trace()
+```
+
+![](/images/bayesplots-1.png)
+
+
+
+
+```r
+fit_rstan %>%
+  rhat() %>%
+  mcmc_rhat() +
+  yaxis_text()
+```
+
+![](/images/rhat-1.png)
+
+
+
 
 ### Parting thoughts
 
