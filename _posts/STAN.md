@@ -267,6 +267,7 @@ This tutorial provided only a quick overview of how to fit simple linear regress
 
 + [Some things i've learned about stan](https://www.alexpghayes.com/blog/some-things-ive-learned-about-stan/)
 
+<!--
 + [Introduction to STAN](https://agabrioblog.onrender.com/stan/page/2/)
 
 + [Simple Linear Regression in STAN](https://agabrioblog.onrender.com/tutorial/simple-linear-regression-stan/simple-linear-regression-stan/)
@@ -282,5 +283,7 @@ This tutorial provided only a quick overview of how to fit simple linear regress
 + [Bayesian Varying Effects Models in R and Stan](https://willhipson.netlify.app/post/stan-random-slopes/varying_effects_stan/)
 
 + [Introduction to rstan and rstanarm](https://blog.methodsconsultants.com/posts/introduction-to-stan-in-r/)
+
+ -->
 
 + [Stan (+R) Workshop](https://rpruim.github.io/StanWorkshop/)
