@@ -21,6 +21,25 @@ State-of-art algorithms: Efficiently search large spaces and prune unpromising t
 Easy parallelization: Parallelize hyperparameter searches over multiple threads or processes without modifying code.
 
 
+Basic Prophet model
+Now we can run Prophet on our data. First, we need to make sure that our date is in the datetime format by running pd.to_datetime. Second, we need to rename the columns to ds and y , which are the required names by Prophet.
+Then, we can instantiating a Prophet object m, fit the our data into the model, make future predictions, plot the prediction, and run cross validation to inspect the model fit.
+
+
+Hyperparameter tuning
+The previous model did not specify any parameters in the model and uses all the default parameters. If you would like to know what are the default parameters in Prophet, check out my previous article.
+Here we define a param_grid of all the parameters and values we want to loop through, and then calculated the mean value of the performance matrix, and get the best parameter combination in terms of MAPE. The syntax below is based on this notebook with few revisions.
+
+
+Parallel computing
+Cross-validation
+The cross validation process can use dask in the backend to do parralell computing. Here are some examples: example 1, example 2. Basically, we just need to add parallel="dask" when we call the cross_validation function.
+
+Hyperparameter tuning
+The grid search process can take a long time to run. We can also use dask to distribute the task to multiple workers and speed up the process. Here is a notebook showing how to do the hyperparameter tuning in task.
+
+
+
 ## References
 
 + [Implementing Facebook Prophet efficiently](https://towardsdatascience.com/implementing-facebook-prophet-efficiently-c241305405a3)
