@@ -76,6 +76,35 @@ The other parameter you can tweak using this technique is the number of Fourier 
 
 As you can see the curve outline stays the same in both trends, but there are more bumps in the trend with 20 components. These bumps could either be picking up noise or can be more accurate values. It should come down to your own interpretation and the input of a domain expert. I have found that higher values do give better results and I highly recommend investigating the effect of using higher values. You can try values that range from 10 to 25.
 
+### Hyperparameter Tuning end-to-end process
+
+
+
+The end-to-end process is as follows:
+
++ Get the resamples. Here we will perform a k-fold cross-validation and obtain a cross-validation plan that we can plot to see “inside the folds”.
+
++ Prepare for parallel process: register to future and get the number of vCores.
+
++ Define the tunable model specification: explicitly indicate the tunable parameters.
+
++ Define a tunable workflow into which we add the tunable model specification and the existing recipe; update the recipe if necessary.
+
++ Verify that the system has all tunable parameters’ range, some parameter such as mtry
+    do not have its values range correctly initialized.
++ Define the search grid specification: you must provide type of grid (random or latin hypercube sampling) and its size.
+
++ Toggle on the parallel processing
+
++ Run the hyperparameter tuning by provding the tunable workflow, the resamples, and the grid specification.
+
++ Run several tuning rouds if you can e.g., if you have the time and resources and/or you are able to fix some parameter ranges.
+
++ After several tuning rounds, select the best model: with the lowest RMSE or with the higest R-squared, it may be same model or they can be different models.
+  
++ Refit the best model(s) with the training data by provding the tuned workflow.
+
+
 ## References
 
 + [Implementing Facebook Prophet efficiently](https://towardsdatascience.com/implementing-facebook-prophet-efficiently-c241305405a3)
@@ -83,3 +112,4 @@ As you can see the curve outline stays the same in both trends, but there are mo
 + [Time series analysis using Prophet in Python — Part 2: Hyperparameter Tuning and Cross Validation](https://medium.com/analytics-vidhya/time-series-analysis-using-prophet-in-python-part-2-hyperparameter-tuning-and-cross-validation-88e7d831a067)
 
 + [Time series parameters finding using Prophet and Optuna bayesian optimization](https://medium.com/spikelab/time-series-parameters-finding-using-prophet-and-optuna-bayesian-optimization-e618614bd8b7)
++ [Time Series Forecasting Lab – Hyperparameter Tuning](https://www.r-bloggers.com/2022/01/time-series-forecasting-lab-part-4-hyperparameter-tuning/)
