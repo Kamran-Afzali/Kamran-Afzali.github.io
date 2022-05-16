@@ -104,6 +104,18 @@ The end-to-end process is as follows:
   
 + Refit the best model(s) with the training data by provding the tuned workflow.
 
+### Cross-validation plan
+
+A k-fold cross-validation will randomly split the training data into k groups of roughly equal size (called “folds”). A resample of the analysis data consisted of k-1 of the folds while the assessment set contains the final fold. In basic k-fold cross-validation (i.e. no repeats), the number of resamples is equal to k.
+
+
+### Grid search specification
+
+Thanks to the dials package it is possible to define specifications for either Random Grid or Latin Hypercube Sampling (LHS).
+
+We define a grid of size 20 e.g. 20 random values combinations of the 7 tunable parameters. Remember to set the seed to fix the grid since it uses a random process, you may have different values.
+
+Since we have defined a 10-fold cross-validation there will be 20 predictions per fold and the mean of the performance metric (RMSE, R-squared, ...) will be calculated.
 
 ## References
 
