@@ -117,6 +117,35 @@ We define a grid of size 20 e.g. 20 random values combinations of the 7 tunable 
 
 Since we have defined a 10-fold cross-validation there will be 20 predictions per fold and the mean of the performance metric (RMSE, R-squared, ...) will be calculated.
 
+### Select and fit the best model(s)
+
+Please recall that we deal with workflows (not models directly) which incoporate a a model and a preprocessing recipe.
+
+### Conclusion
+
+In this article you have learned how to perform hyperparameter tuning for 4 machine learning (non-sequentual) models: Random Forest, XGBoost, Prophet and Prohet Boost. A step-by-step detailed process was provided for Prophet Boost.
+
+You have learned
+
++ how to define tunable specifications for each machine learning algorithm.
+
++ how to set up parallel processing with a cluster of vCores.
+
++ how to verify parameter values range prior tuning.
+
++ how to define a grid search specification for each algorithm
+
++ how to perform hyperparameter tuning and anlyse results with the plot against RMSE.
+
++ how to adjust a specific parameter and retune, performing several hyperparameter tuning rounds.
+
++ how to select the model and retrain the model.
+
++ how to add all tuned and non-tuned models into a modeltime and calibration table.
+
++ how to display all models accuracy results and plot forecast against the test dataset.
+
+
 ## References
 
 + [Implementing Facebook Prophet efficiently](https://towardsdatascience.com/implementing-facebook-prophet-efficiently-c241305405a3)
