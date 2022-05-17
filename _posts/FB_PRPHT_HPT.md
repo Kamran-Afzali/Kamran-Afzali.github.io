@@ -9,21 +9,19 @@ date-string: February 2022
 
 ## Introduction
 
+Time series is a huge topic in machine learning, and it appears in almost every industry. It is, without a doubt, a problem that every data scientist will face at some point in their career. Aside from the fundamentals of the work, there are other approaches and models for characterising the underlying dynamic of a time series. There are several traditional models, such as space state models (Arima, Armas, etc.) and the usage of tree-based algorithms, for example. In this article, we'll look at how to use one tool that's one of the simplest and most powerful ways to work with time series:Prophet is a Facebook library that is used to forecast time series data using an additive model that fits non-linear trends with yearly, monthly, and daily seasonality, as well as holiday effects. It works best with time series with substantial seasonal effects and historical data from multiple seasons. Prophet is forgiving of missing data and trend alterations, and it usually handles outliers well.
 
-Time series modeling
-Time series is a big topic in machine learning space and exists in practically all the industries, and, all hands down, is a problem that every data scientist will face on their career..
-Besides the basic of the task, there are a lot of ways of facing and finding models for describing the underlying dynamic of a time series. For example, there’s a lot of classical models, such as space state models (Arima, Armas, etc…), and the use of trees based algorithms as well. In this article, we are going to discuss the use of one tool which is one of the easiest and yet powerful ways of working with time series, prophet, a Facebook library which:
-Prophet is a procedure for forecasting time series data based on an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality, plus holiday effects. It works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is robust to missing data and shifts in the trend, and typically handles outliers well.
-For getting the best model that prophet can offer, we need to adjust the parameters of the model. The classic way of finding the best combination of parameters is doing a grid search(random search or a cartesian search), but this can be too time-expensive, specially when we are validating the models using a large number of folds during cross-validation.
-An excellent alternative for saving some time and doing a smarter search in the parameters space is doing a bayesian search, which will focus on the areas of parameter’s space that have a better value in our objective function. There are some libraries which can do the bayesian search, but we will focus in optuna, a really good and easy-to-use library. Among the key features of optuna, these are the main ones:
-Eager search space: Automated search for optimal hyperparameters using Python conditionals, loops, and syntax.
-State-of-art algorithms: Efficiently search large spaces and prune unpromising trials for faster results.
-Easy parallelization: Parallelize hyperparameter searches over multiple threads or processes without modifying code.
+
+We must tweak the model's parameters in order to acquire the greatest model Prophet has to offer. A grid search (random search or cartesian search) is the traditional approach of determining the optimal combination of parameters, although this can be time-consuming, especially when cross-validating models with a large number of folds. 
+A bayesian search, which focuses on the areas of parameter space that have a higher value in our objective function, is a great way to save time and execute a smarter search in the parameters space. There are a few libraries that can perform bayesian searches, but we'll focus on optuna, which is a fantastic and simple to use library. These are the most important characteristics of optuna: 
+Space for eager search: Python conditionals, loops, and syntax are used to automate the search for ideal hyperparameters. 
+Cutting-edge algorithms: For speedier results, efficiently explore wide areas and prune unpromising trials. 
+Parallelize hyperparameter searches across several threads or processes without changing the code.
 
 
 ### Basic Prophet model
-Now we can run Prophet on our data. First, we need to make sure that our date is in the datetime format by running pd.to_datetime. Second, we need to rename the columns to ds and y , which are the required names by Prophet.
-Then, we can instantiating a Prophet object m, fit the our data into the model, make future predictions, plot the prediction, and run cross validation to inspect the model fit.
+We can now use Prophet to analyse our data. To begin, we must use pd.to datetime to ensure that our date is in datetime format. Second, the columns must be renamed to ds and y, which are Prophet's needed names. 
+After that, we can create a Prophet object m, fit our data into the model, generate future predictions, plot the forecast, and conduct cross validation to see how well the model fits.
 
 
 ### Hyperparameter tuning
