@@ -20,18 +20,16 @@ Parallelize hyperparameter searches across several threads or processes without 
 
 
 ### Basic Prophet model
-We can now use Prophet to analyse our data. To begin, we must use pd.to datetime to ensure that our date is in datetime format. Second, the columns must be renamed to ds and y, which are Prophet's needed names. 
-After that, we can create a Prophet object m, fit our data into the model, generate future predictions, plot the forecast, and conduct cross validation to see how well the model fits.
-
+Prophet may now be used to analyse our data. To begin, we must guarantee that our date is in datetime format by using pd.to datetime. Second, the columns must be renamed to the Prophet-required names of ds and y. 
+We can then build a Prophet object m, fit our data into the model, generate future predictions, visualise the forecast, and perform cross validation to check how well the model fits.
 
 ### Hyperparameter tuning
-The previous model did not specify any parameters in the model and uses all the default parameters. If you would like to know what are the default parameters in Prophet, check out my previous article.
-Here we define a param_grid of all the parameters and values we want to loop through, and then calculated the mean value of the performance matrix, and get the best parameter combination in terms of MAPE. The syntax below is based on this notebook with few revisions.
+The previous model used all of the default parameters because no parameters were specified. Check out my earlier article to learn about Prophet's default parameters. 
+We create a param grid with all of the parameters and values we wish to cycle over, calculate the mean value of the performance matrix, and find the optimum parameter combination in terms of MAPE. The following syntax is based on this notebook, with minor changes.
 
 
 ### Parallel computing
-Cross-validation
-The cross validation process can use dask in the backend to do parralell computing. Here are some examples: example 1, example 2. Basically, we just need to add parallel="dask" when we call the cross_validation function.
+Dask can be used in the backend of the cross validation process to perform parallel computation. Following are some examples: 1st example, 2nd example When calling the cross validation method, we only need to include parallel="dask."
 
 ### Hyperparameter tuning
 The grid search process can take a long time to run. We can also use dask to distribute the task to multiple workers and speed up the process. Here is a notebook showing how to do the hyperparameter tuning in task.
@@ -77,72 +75,68 @@ As you can see the curve outline stays the same in both trends, but there are mo
 ### Hyperparameter Tuning end-to-end process
 
 
++ Download the resamples. We'll use k-fold cross-validation to generate a cross-validation plan that we can plot to view "within the folds." 
 
-The end-to-end process is as follows:
++ Get the number of vCores for the parallel process by registering to the future. 
 
-+ Get the resamples. Here we will perform a k-fold cross-validation and obtain a cross-validation plan that we can plot to see “inside the folds”.
++ Define the tunable model specification: specify the tunable parameters clearly. 
 
-+ Prepare for parallel process: register to future and get the number of vCores.
++ Create a tunable workflow in which we add the tunable model specification and the existing recipe; if necessary, alter the recipe. 
 
-+ Define the tunable model specification: explicitly indicate the tunable parameters.
++ Check that the system has all tunable parameters' ranges set correctly; some parameters, such as mtry, do not have their values ranges set correctly. 
++ Define the search grid: the type of grid (random or latin hypercube sampling) and its size must be specified. 
 
-+ Define a tunable workflow into which we add the tunable model specification and the existing recipe; update the recipe if necessary.
 
-+ Verify that the system has all tunable parameters’ range, some parameter such as mtry
-    do not have its values range correctly initialized.
-+ Define the search grid specification: you must provide type of grid (random or latin hypercube sampling) and its size.
++ Provide the adjustable procedure, resamples, and grid specification to do the hyperparameter tuning. 
 
-+ Toggle on the parallel processing
++ If you have the time and resources and/or are able to adjust some parameter ranges, run many tweaking routines. 
 
-+ Run the hyperparameter tuning by provding the tunable workflow, the resamples, and the grid specification.
++ After numerous tweaking cycles, choose the best model: the one with the lowest RMSE or the highest R-squared, which may or may not be the same model. 
 
-+ Run several tuning rouds if you can e.g., if you have the time and resources and/or you are able to fix some parameter ranges.
++ Provide the tuned methodology to refit the best model(s) using the training data. 
 
-+ After several tuning rounds, select the best model: with the lowest RMSE or with the higest R-squared, it may be same model or they can be different models.
-  
-+ Refit the best model(s) with the training data by provding the tuned workflow.
 
 ### Cross-validation plan
 
-A k-fold cross-validation will randomly split the training data into k groups of roughly equal size (called “folds”). A resample of the analysis data consisted of k-1 of the folds while the assessment set contains the final fold. In basic k-fold cross-validation (i.e. no repeats), the number of resamples is equal to k.
-
+A k-fold cross-validation divides the training data into k groups of roughly equal size (referred to as "folds"). The analytical data was resampled to include k-1 of the folds, while the assessment set included the final fold. The number of resamples in simple k-fold cross-validation (i.e. no repeats) is equal to k.
 
 ### Grid search specification
 
-Thanks to the dials package it is possible to define specifications for either Random Grid or Latin Hypercube Sampling (LHS).
+It is possible to establish specifications for either Random Grid or Latin Hypercube Sampling using the dials package (LHS). 
 
-We define a grid of size 20 e.g. 20 random values combinations of the 7 tunable parameters. Remember to set the seed to fix the grid since it uses a random process, you may have different values.
+We create a 20-by-20- Because it employs a random procedure, you may have different values. Remember to set the seed to fix the grid. 
 
-Since we have defined a 10-fold cross-validation there will be 20 predictions per fold and the mean of the performance metric (RMSE, R-squared, ...) will be calculated.
+There will be 20 predictions per fold due to the 10-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated. 
+
+
+
 
 ### Select and fit the best model(s)
 
-Please recall that we deal with workflows (not models directly) which incoporate a a model and a preprocessing recipe.
+Please keep in mind that we work with workflows (not models) that combine a model with a preprocessing recipe.
 
 ### Conclusion
 
-In this article you have learned how to perform hyperparameter tuning for 4 machine learning (non-sequentual) models: Random Forest, XGBoost, Prophet and Prohet Boost. A step-by-step detailed process was provided for Prophet Boost.
+You learnt how to do Prophet hyperparameter tuning in this post. 
+You have gained knowledge. 
 
-You have learned
++ for each machine learning algorithm, how to define customizable specifications 
 
-+ how to define tunable specifications for each machine learning algorithm.
++ how to build up parallel processing using a vCores cluster 
 
-+ how to set up parallel processing with a cluster of vCores.
++ way to check the range of parameter values before tuning 
 
-+ how to verify parameter values range prior tuning.
++ how to create each algorithm's grid search specification 
 
-+ how to define a grid search specification for each algorithm
++ how to use the plot versus RMSE to analyse the effects of hyperparameter tuning 
 
-+ how to perform hyperparameter tuning and anlyse results with the plot against RMSE.
++ how to fine-tune a specific parameter using many hyperparameter tuning rounds 
 
-+ how to adjust a specific parameter and retune, performing several hyperparameter tuning rounds.
++ how to choose a model and retrain a model 
 
-+ how to select the model and retrain the model.
++ how to combine all tuned and untuned models into a modeltime and calibration table 
 
-+ how to add all tuned and non-tuned models into a modeltime and calibration table.
-
-+ how to display all models accuracy results and plot forecast against the test dataset.
-
++ how to plot forecast against test dataset and present all model accuracy results
 
 ## References
 
