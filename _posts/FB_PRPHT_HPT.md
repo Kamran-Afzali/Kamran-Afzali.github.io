@@ -9,31 +9,34 @@ date-string: February 2022
 
 ## Introduction
 
-Time series is a huge topic in machine learning, and it appears in almost every industry. It is, without a doubt, a problem that every data scientist will face at some point in their career. Aside from the fundamentals of the work, there are other approaches and models for characterising the underlying dynamic of a time series. There are several traditional models, such as space state models (Arima, Armas, etc.) and the usage of tree-based algorithms, for example. In this article, we'll look at how to use one tool that's one of the simplest and most powerful ways to work with time series:Prophet is a Facebook library that is used to forecast time series data using an additive model that fits non-linear trends with yearly, monthly, and daily seasonality, as well as holiday effects. It works best with time series with substantial seasonal effects and historical data from multiple seasons. Prophet is forgiving of missing data and trend alterations, and it usually handles outliers well.
-
-
-We must tweak the model's parameters in order to acquire the greatest model Prophet has to offer. A grid search (random search or cartesian search) is the traditional approach of determining the optimal combination of parameters, although this can be time-consuming, especially when cross-validating models with a large number of folds. 
-A bayesian search, which focuses on the areas of parameter space that have a higher value in our objective function, is a great way to save time and execute a smarter search in the parameters space. There are a few libraries that can perform bayesian searches, but we'll focus on optuna, which is a fantastic and simple to use library. These are the most important characteristics of optuna: 
-Space for eager search: Python conditionals, loops, and syntax are used to automate the search for ideal hyperparameters. 
-Cutting-edge algorithms: For speedier results, efficiently explore wide areas and prune unpromising trials. 
-Parallelize hyperparameter searches across several threads or processes without changing the code.
+Time series is an important topic in machine learning, present in almost every industry and a problem that every data scientist will face at some point in their career. Aside from the fundamentals of the working with dates and plotting, there are other approaches and models for characterising the underlying dynamic of a time series such as space state models (Arima, Armas, etc.). This article builds on the previous post on Facebook Prophet library that is used to forecast time series data that fits non-linear trends with yearly, monthly, and daily seasonality, as well as holiday effects. It works best with time series with substantial seasonal effects and historical data from multiple seasons. Prophet is tolerant of missing data and trend alterations, and it usually handles outliers well. However, the model has several parameters to tweak to acquire the best fit. A grid search (random search or cartesian search) is the traditional approach of determining the optimal combination of parameters, although this can be time-consuming, especially when cross-validating models with many folds. 
 
 
 ### Basic Prophet model
-Prophet may now be used to analyse our data. To begin, we must guarantee that our date is in datetime format by using pd.to datetime. Second, the columns must be renamed to the Prophet-required names of ds and y. 
-We can then build a Prophet object m, fit our data into the model, generate future predictions, visualise the forecast, and perform cross validation to check how well the model fits.
-
-### Hyperparameter tuning
-The previous model used all of the default parameters because no parameters were specified. Check out my earlier article to learn about Prophet's default parameters. 
-We create a param grid with all of the parameters and values we wish to cycle over, calculate the mean value of the performance matrix, and find the optimum parameter combination in terms of MAPE. The following syntax is based on this notebook, with minor changes.
+Prophet may now be used to analyse our data. To begin, we must make sure that our date is in datetime format, and the columns must be renamed to the Prophet-required names of ds and y.  We can then build a Prophet object to fit our data into the model, generate future predictions, visualise the forecast, and perform cross validation to check how well the model fits.
 
 
-### Parallel computing
-Dask can be used in the backend of the cross validation process to perform parallel computation. Following are some examples: 1st example, 2nd example When calling the cross validation method, we only need to include parallel="dask."
-The grid search can take a long time to complete.
-Dask can also be used to distribute the task to numerous workers and accelerate the process.
-This notebook demonstrates how to perform hyperparameter tuning in task.
-### Hyperparameter tuning
+### Hyperparameter Tuning end-to-end process
+
+The barebone model used all the default parameters because no parameters were specified. Check out my earlier article to learn about Prophet's default parameters. 
+We create a param grid with all of the parameters and values we wish to cycle over, calculate the mean value of the performance matrix, and find the optimum parameter combination in terms of MAPE. 
+
+
++ We'll use k-fold cross-validation to generate a cross-validation plan.
+
++ Define the tunable model specification: specify the tunable parameters clearly. 
+
++ Create a param grid workflow in which we add model specification from the grid. 
+
++ Check that the grid has all selected tunable parameters and ranges set correctly. 
+
++ Define the search grid: the type of grid and its size must be specified. 
+
+
++ Choose the best model: the one with the lowest RMSE or the highest R-squared, which may or may not be the same model. 
+
++ Provide the tuned methodology to refit the best model(s) using the test data. 
+
 
 
 #### How can we measure the performance of our model?
