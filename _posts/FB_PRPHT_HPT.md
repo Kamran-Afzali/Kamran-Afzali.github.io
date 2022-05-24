@@ -38,31 +38,16 @@ We create a param grid with all of the parameters and values we wish to cycle ov
 + Provide the tuned methodology to refit the best model(s) using the test data. 
 
 
+### Cross-validation plan
 
-#### How can we measure the performance of our model?
-
-
-
-Prophet includes a built-in cross validation feature, which is one of the numerous hidden mysteries that is not immediately apparent when first using it.
-This function will take your data and train the model over the specified time period.
+A k-fold cross-validation divides the training data into k groups of roughly equal size (referred to as "folds") hence the number of resamples in simple k-fold cross-validation (i.e. no repeats) is equal to k. The training  data was resampled to include k-1 of the folds, while the assessment set included the final fold. Prophet includes a built-in cross validation feature this function will take your data and train the model over the specified time period.
 It will then forecast a time frame that you specify.
-Prophet will then train your data over a longer period of time, then predict, and so on until the end point is reached. 
-Let's use the data from the last example to fit the Prophet model out of the box.
-In the example, I wrote my own mean absolute percentage error (MAPE) function and used it on the test data to describe the model performance in a single value.
-
-We import the cross validation function from Prophet and apply it to our data, as you can see in the code above.
-This gives us a dataframe with the predicted and true values for all of our predicted points, which we can use to determine the error. 
-
-We receive a MAPE of 15.32 percent after running the code above.
-This means that we are 15.32 percent off from the true value on average across all forecasted points.
-For the rest of this article, I'll go over each hyper parameter and what you should consider while setting its value.
 
 
-#### Optimizing the model
+### Grid search specification
 
-The first rule of model optimization is to avoid changing values and creating large for loops, or putting your model into a gridsearch to optimise hyper parameters.
-Rather, bringing them into the proper zone will yield the greatest benefit.
-This is done by looking at the data and understanding what your model will do with it as each parameter is changed. 
+We use the expand grid function because it enables the employment a random procedure. Remember to set the seed to fix the grid.  There will be k predictions per fold due to the k-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated. 
+
 #### Growth
 This parameter is  easiest to understand and implement because you can know what the data should be just by plotting the data. If you are graphing your data and you see a tendency to continue to grow without real insight into saturation  (or if  domain experts say there is no saturation to worry about), then this parameter should be linear. Set. If you draw it and  see a curve that promises to saturate (or if you're working on a value that you know needs to be saturated, such as CPU utilization), set it to Logistics. The tricky part of this parameter happens when you decide to use logistic growth. Then specify the upper and lower bounds of the prediction (the maximum that the data can reach), the lower bound (the minimum that the data can reach), and the historical data. It is better to do it. These upper and lower limits can change over time or be fixed values that you always enter. This is one of the most useful cases when talking to a domain expert. You have a very good idea of what to expect a year ahead and what will be impossible in a given period of time. After talking to them, you can over time provide much more accurate upper and lower limits. However, without a domain expert, we found that 65% of the initial values worked well with the minimum values. You can then set the cap to a relatively high price, but it's still within common sense. Therefore, if you are predicting the number of visits to your website and are currently 100,000, do not set the limit to 200,000,000 as it is likely that you  will not reach the limit within the predicted time. Do something smarter like 500,000 and let the cap grow slowly over time.
 #### Holidays
@@ -72,71 +57,6 @@ A changing point is a point in the  data where a sudden and abrupt change in the
 #### Seasonalities
 It is these parameters that make the Prophet shine, as  changing  a few values ​​can make a big improvement and give great insights. The first major parameter is seasonity_mode. This parameter specifies how to integrate the seasonal component into the forecast. The default  here is addition, and productive is another option.  I struggled with this parameter at first, but after a bit of work it became meaningful to me. Use additives if you want the seasonal trend to be "constant" over the entire period. For example, if you want the growth of the annual trend  to have the same impact as in 2010 and 2018. This applies to data where the  change in tendency appears to be constant. B. The number of people living in a small town. I don't think growth will suddenly increase to millions because of the lack of infrastructure. On the other hand, if you want to predict the number of people living in a growing city, the numbers for recent annual trends can be much more important due to the well-developed infrastructure. In that case, population growth can  be much faster than  in the early days. In such cases, use product to increase the importance of seasonality over time.  As with everywhere, there is also a  parameter seasonity_prior_scale. You can use this parameter to make the seasonality more flexible. Here we find that values ​​between 10 and 25  work well, depending on the seasonality you notice in the component graph. The most effective trick  for me (and I can discuss this freely) is to set annual_seasonality, week_seasonality, daily_seasonality to all  false and then add your own seasonality as shown in the code snippet below. is. 
  This provides greater leverage and control over seasonality. You can specify the exact duration of each season. In other words, you can create a "new" season. For example,  you can set the time period to 93.3125 to add  quarterly seasonality to your model. Instead of everyone sharing one scale, you can also add previous scales for each season. Now I wish I could tell you what seasonalities to add and what period they should be, but each use case is completely different and a domain expert should be contacted to get recommendations and insights.  Just for clarity, if the period is set to 35 then you tell the model that what happened at a certain point is likely to happen again in 35 days.  The other parameter you can tweak using this technique is the number of Fourier components (fourier_order) each seasonality is composed of. Now for those that know a bit of mathematics, any signal can be represented by a sum of sine and cosine waves. This is inherently how Prophet generates its seasonality signals. This allows you to change the exact way to get started.As you can see, the contour of the curve remains the same for both trends, but the 20 component trend has more bumps. These bumps can pick up noise or give more accurate readings. It should come down to your own interpretation and  input from domain experts. We have found that higher values give better results, so it is highly recommended to investigate the impact of using higher values. You can try values ​​between 10 and 25.
-### Hyperparameter Tuning end-to-end process
-
-
-+ Download the resamples. We'll use k-fold cross-validation to generate a cross-validation plan that we can plot to view "within the folds." 
-
-+ Get the number of vCores for the parallel process by registering to the future. 
-
-+ Define the tunable model specification: specify the tunable parameters clearly. 
-
-+ Create a tunable workflow in which we add the tunable model specification and the existing recipe; if necessary, alter the recipe. 
-
-+ Check that the system has all tunable parameters' ranges set correctly; some parameters, such as mtry, do not have their values ranges set correctly. 
-+ Define the search grid: the type of grid (random or latin hypercube sampling) and its size must be specified. 
-
-
-+ Provide the adjustable procedure, resamples, and grid specification to do the hyperparameter tuning. 
-
-+ If you have the time and resources and/or are able to adjust some parameter ranges, run many tweaking routines. 
-
-+ After numerous tweaking cycles, choose the best model: the one with the lowest RMSE or the highest R-squared, which may or may not be the same model. 
-
-+ Provide the tuned methodology to refit the best model(s) using the training data. 
-
-
-### Cross-validation plan
-
-A k-fold cross-validation divides the training data into k groups of roughly equal size (referred to as "folds"). The analytical data was resampled to include k-1 of the folds, while the assessment set included the final fold. The number of resamples in simple k-fold cross-validation (i.e. no repeats) is equal to k.
-
-### Grid search specification
-
-It is possible to establish specifications for either Random Grid or Latin Hypercube Sampling using the dials package (LHS). 
-
-We create a 20-by-20- Because it employs a random procedure, you may have different values. Remember to set the seed to fix the grid. 
-
-There will be 20 predictions per fold due to the 10-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated. 
-
-
-
-
-### Select and fit the best model(s)
-
-Please keep in mind that we work with workflows (not models) that combine a model with a preprocessing recipe.
-
-### Conclusion
-
-You learnt how to do Prophet hyperparameter tuning in this post. 
-You have gained knowledge. 
-
-+ for each machine learning algorithm, how to define customizable specifications 
-
-+ how to build up parallel processing using a vCores cluster 
-
-+ way to check the range of parameter values before tuning 
-
-+ how to create each algorithm's grid search specification 
-
-+ how to use the plot versus RMSE to analyse the effects of hyperparameter tuning 
-
-+ how to fine-tune a specific parameter using many hyperparameter tuning rounds 
-
-+ how to choose a model and retrain a model 
-
-+ how to combine all tuned and untuned models into a modeltime and calibration table 
-
-+ how to plot forecast against test dataset and present all model accuracy results
 
 ## References
 
