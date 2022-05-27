@@ -20,6 +20,227 @@ Prophet is tolerant of missing data and trend alterations, and it usually handle
 However, the model has several parameters to tweak to acquire the best fit.
 A grid search (random search or Cartesian search) is the traditional approach of determining the optimal combination of parameters, although this can be time-consuming, especially when cross-validating models with many folds.
 
+
+```r
+df = read.csv("https://raw.githubusercontent.com/Kamran-Afzali/Statistical-Supplementary-Materials/master/DHS_Daily_Report.csv")
+
+#Transform the Date Variable
+df$Date = strptime(x = df$Date,
+                   format = "%m/%d/%Y")
+df$Date = as.Date(df$Date)
+df = df %>% select(Date,
+                   "Total.Individuals.in.Shelter",
+                   Easter,
+                   Thanksgiving,
+                   Christmas)
+
+
+#Change variable name
+colnames(df)[1] = "ds"
+colnames(df)[2] = "y"
+
+head(df)%>%kableExtra::kable()
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> ds </th>
+   <th style="text-align:right;"> y </th>
+   <th style="text-align:right;"> Easter </th>
+   <th style="text-align:right;"> Thanksgiving </th>
+   <th style="text-align:right;"> Christmas </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 2013-08-21 </td>
+   <td style="text-align:right;"> 49673 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-22 </td>
+   <td style="text-align:right;"> 49690 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-23 </td>
+   <td style="text-align:right;"> 49548 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-24 </td>
+   <td style="text-align:right;"> 49617 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-25 </td>
+   <td style="text-align:right;"> 49858 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2013-08-26 </td>
+   <td style="text-align:right;"> 49877 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+
+
+
+```r
+easter_dates = subset(df, df$Easter == 1)
+easter_dates = easter_dates$ds
+easter = tibble(holiday = 'easter',
+                ds = easter_dates,
+                lower_window = -4,
+                upper_window = +2)
+
+#thanksgiving
+thanksgiving_dates = subset(df, df$Thanksgiving == 1)
+thanksgiving_dates = thanksgiving_dates$ds
+thanksgiving = tibble(holiday = 'thanksgiving',
+                      ds = thanksgiving_dates,
+                      lower_window = -3,
+                      upper_window = 1)
+
+#merge holidays
+holidays = bind_rows(easter, thanksgiving)
+head(holidays)%>%kableExtra::kable()
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> holiday </th>
+   <th style="text-align:left;"> ds </th>
+   <th style="text-align:right;"> lower_window </th>
+   <th style="text-align:right;"> upper_window </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> easter </td>
+   <td style="text-align:left;"> 2014-04-20 </td>
+   <td style="text-align:right;"> -4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> easter </td>
+   <td style="text-align:left;"> 2015-04-05 </td>
+   <td style="text-align:right;"> -4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> easter </td>
+   <td style="text-align:left;"> 2016-03-27 </td>
+   <td style="text-align:right;"> -4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> easter </td>
+   <td style="text-align:left;"> 2017-04-16 </td>
+   <td style="text-align:right;"> -4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> easter </td>
+   <td style="text-align:left;"> 2018-04-01 </td>
+   <td style="text-align:right;"> -4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> easter </td>
+   <td style="text-align:left;"> 2019-04-21 </td>
+   <td style="text-align:right;"> -4 </td>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+</tbody>
+</table>
+
+
+
+
+```r
+prophetGrid = expand.grid(changepoint_prior_scale = c(0.05, 0.1),
+                          seasonality_prior_scale = c(5, 10, 15),
+                          holidays_prior_scale = c(5,10),
+                          seasonality.mode = c('multiplicative', 'additive'))
+
+
+head(prophetGrid)%>%kableExtra::kable()
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> changepoint_prior_scale </th>
+   <th style="text-align:right;"> seasonality_prior_scale </th>
+   <th style="text-align:right;"> holidays_prior_scale </th>
+   <th style="text-align:left;"> seasonality.mode </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+  </tr>
+</tbody>
+</table>
+
+
+```r
+results = vector(mode = 'numeric',
+                 length = nrow(prophetGrid))
+
+```
+
+
 ### Basic Prophet model
 
 Prophet may now be used to analyse our data.
