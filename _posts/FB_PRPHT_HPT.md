@@ -282,12 +282,102 @@ prophetGrid%>%kableExtra::kable()
 
 ```
 
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> changepoint_prior_scale </th>
+   <th style="text-align:right;"> seasonality_prior_scale </th>
+   <th style="text-align:right;"> holidays_prior_scale </th>
+   <th style="text-align:left;"> seasonality.mode </th>
+   <th style="text-align:right;"> results </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1551.764 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1554.646 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1553.507 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1557.264 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1551.514 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 15 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1556.042 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1550.701 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1557.542 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.05 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1552.467 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> multiplicative </td>
+   <td style="text-align:right;"> 1557.381 </td>
+  </tr>
+</tbody>
+</table>
+
+
 
 ```r
 best_params = prophetGrid[prophetGrid$results == min(results), ]
 best_params
 ```
 
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["changepoint_prior_scale"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["seasonality_prior_scale"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["holidays_prior_scale"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["seasonality.mode"],"name":[4],"type":["fct"],"align":["left"]},{"label":["results"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.05","2":"5","3":"10","4":"multiplicative","5":"1550.701","_rn_":"7"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 
 
 
