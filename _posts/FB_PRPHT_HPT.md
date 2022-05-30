@@ -241,6 +241,57 @@ results = vector(mode = 'numeric',
 ```
 
 
+```r
+#Parameter tuning
+for (i in 1:nrow(prophetGrid)) {
+  
+  #Fetch parameters
+  parameters = prophetGrid[i, ]
+  
+  #Build the model
+  m = prophet(yearly.seasonality = TRUE,
+              weekly.seasonality = TRUE,
+              daily.seasonality = FALSE,
+              holidays = holidays,
+              seasonality.mode = parameters$seasonality.mode,
+              seasonality.prior.scale = parameters$seasonality_prior_scale,
+              holidays.prior.scale =  parameters$holidays_prior_scale,
+              changepoint.prior.scale = parameters$changepoint_prior_scale)
+  m = add_regressor(m, 'Christmas')
+  m = fit.prophet(m, df)
+  
+  #Cross-validation
+  df.cv = cross_validation(model = m,
+                           horizon = 31,
+                           units = 'days',
+                           period = 14,
+                           initial = 2400)
+  
+  #store the results
+  results[i] = accuracy(df.cv$yhat, df.cv$y)[1, 2]
+  print(i)
+  
+  
+}
+```
+
+```r
+prophetGrid = cbind(prophetGrid, results)
+
+prophetGrid%>%kableExtra::kable()
+
+```
+
+
+```r
+best_params = prophetGrid[prophetGrid$results == min(results), ]
+best_params
+```
+
+
+
+
+
 ### Basic Prophet model
 
 Prophet may now be used to analyse our data.
