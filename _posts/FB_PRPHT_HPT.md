@@ -21,6 +21,13 @@ However, the model has several parameters to tweak to acquire the best fit.
 A grid search (random search or Cartesian search) is the traditional approach of determining the optimal combination of parameters, although this can be time-consuming, especially when cross-validating models with many folds.
 
 
+### Basic Prophet model
+
+Prophet may now be used to analyse our data.
+To begin, we must make sure that our date is in datetime format, and the columns must be renamed to the Prophet-required names of ds and y.
+We can then build a Prophet object to fit our data into the model, generate future predictions, visualize the forecast, and perform cross validation to check how well the model fits.
+
+
 ```r
 df = read.csv("https://raw.githubusercontent.com/Kamran-Afzali/Statistical-Supplementary-Materials/master/DHS_Daily_Report.csv")
 
@@ -174,6 +181,48 @@ head(holidays)%>%kableExtra::kable()
 
 
 
+
+
+### Cross-validation plan
+
+A k-fold cross-validation divides the training data into k groups of roughly equal size (referred to as "folds") hence the number of resamples in simple k-fold cross-validation (i.e. no repeats) is equal to k.
+The training data was resampled to include k-1 of the folds, while the assessment set included the final fold.
+Prophet includes a built-in cross validation feature this function will take your data and train the model over the specified time period.
+It will then forecast a time frame that you specify.
+
+
+### Grid search specification
+
+We use the expand grid function because it enables the employment a random procedure.
+Remember to set the seed to fix the grid.
+There will be k predictions per fold due to the k-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated.
+Here are some parameters that you can take into consideration.
+
+#### Growth
+
+This parameter is easiest to understand and implement, linear growth assumes no upbound where exponential growth slows down.
+The tricky part of this parameter is to specify the upper and lower bounds of the prediction when it comes to exponential growth, these upper and lower bounds can change over time or fixed values can be assigned.
+
+#### Holidays
+
+A holiday is a period during which the day has the same impact each year,the tricky part happens when you're not modeling daily data.
+For instance, it is a mistakes to enter the holidays as a daily parameter when trying to model an hourly time-stamp.
+Another parameter that handles holidays is holidays_prior_scale, this parameter determines how holidays affect forecasts.
+
+#### Changepoints
+
+A changing point is a point in the data where a sudden and abrupt change in the trend occurs, or the point of change is the time frame in which this major change occurred.
+There are four changepoint hyperparameters: changepoints, n_changepoints, changepoint_range, and changepoint_prior_scale.
+Changepoint parameters are used to specify the date of the changepoint rather than letting the Prophet determine the date of the changepoint.
+If you specify your own changes, Prophet will not estimate any further changes.
+
+#### Seasonalities
+
+It is these parameters that make the Prophet standout, as changing a few values can make a considerable improvement and give great insights.
+The first major parameter is seasonity_mode, which can be additive or multiplicative, there is also a parameter seasonity_prior_scale to make the seasonality more flexible.
+The other parameter you can tweak is the number of Fourier components (fourier_order) of each seasonality
+
+
 ```r
 prophetGrid = expand.grid(changepoint_prior_scale = c(0.05, 0.1),
                           seasonality_prior_scale = c(5, 10, 15),
@@ -239,6 +288,29 @@ results = vector(mode = 'numeric',
                  length = nrow(prophetGrid))
 
 ```
+
+
+### Hyperparameter Tuning end-to-end process
+
+The bare-bone model used all the default parameters because no parameters were specified.
+Check out my earlier article to learn about Prophet's default parameters.
+We create a parameter grid with all of the parameters and values we wish to cycle over, calculate the mean value of the performance matrix, and find the optimum parameter combination in terms of MAPE.
+
+-   We'll use k-fold cross-validation to generate a cross-validation plan.
+
+-   Define the tunable model specification: specify the tunable parameters clearly.
+
+-   Create a parameter grid workflow in which we add model specification from the grid.
+
+-   Check that the grid has all selected tunable parameters and ranges set correctly.
+
+-   Define the search grid: the type of grid and its size must be specified.
+
+-   Choose the best model: the one with the lowest RMSE or the highest R-squared, which may or may not be the same model.
+
+-   Provide the tuned methodology to refit the best model(s) using the test data.
+
+
 
 
 ```r
@@ -397,71 +469,6 @@ best_params
 
 
 
-
-
-### Basic Prophet model
-
-Prophet may now be used to analyse our data.
-To begin, we must make sure that our date is in datetime format, and the columns must be renamed to the Prophet-required names of ds and y.
-We can then build a Prophet object to fit our data into the model, generate future predictions, visualize the forecast, and perform cross validation to check how well the model fits.
-
-### Hyperparameter Tuning end-to-end process
-
-The bare-bone model used all the default parameters because no parameters were specified.
-Check out my earlier article to learn about Prophet's default parameters.
-We create a parameter grid with all of the parameters and values we wish to cycle over, calculate the mean value of the performance matrix, and find the optimum parameter combination in terms of MAPE.
-
--   We'll use k-fold cross-validation to generate a cross-validation plan.
-
--   Define the tunable model specification: specify the tunable parameters clearly.
-
--   Create a parameter grid workflow in which we add model specification from the grid.
-
--   Check that the grid has all selected tunable parameters and ranges set correctly.
-
--   Define the search grid: the type of grid and its size must be specified.
-
--   Choose the best model: the one with the lowest RMSE or the highest R-squared, which may or may not be the same model.
-
--   Provide the tuned methodology to refit the best model(s) using the test data.
-
-### Cross-validation plan
-
-A k-fold cross-validation divides the training data into k groups of roughly equal size (referred to as "folds") hence the number of resamples in simple k-fold cross-validation (i.e. no repeats) is equal to k.
-The training data was resampled to include k-1 of the folds, while the assessment set included the final fold.
-Prophet includes a built-in cross validation feature this function will take your data and train the model over the specified time period.
-It will then forecast a time frame that you specify.
-
-### Grid search specification
-
-We use the expand grid function because it enables the employment a random procedure.
-Remember to set the seed to fix the grid.
-There will be k predictions per fold due to the k-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated.
-Here are some parameters that you can take into consideration.
-
-#### Growth
-
-This parameter is easiest to understand and implement, linear growth assumes no upbound where exponential growth slows down.
-The tricky part of this parameter is to specify the upper and lower bounds of the prediction when it comes to exponential growth, these upper and lower bounds can change over time or fixed values can be assigned.
-
-#### Holidays
-
-A holiday is a period during which the day has the same impact each year,the tricky part happens when you're not modeling daily data.
-For instance, it is a mistakes to enter the holidays as a daily parameter when trying to model an hourly time-stamp.
-Another parameter that handles holidays is holidays_prior_scale, this parameter determines how holidays affect forecasts.
-
-#### Changepoints
-
-A changing point is a point in the data where a sudden and abrupt change in the trend occurs, or the point of change is the time frame in which this major change occurred.
-There are four changepoint hyperparameters: changepoints, n_changepoints, changepoint_range, and changepoint_prior_scale.
-Changepoint parameters are used to specify the date of the changepoint rather than letting the Prophet determine the date of the changepoint.
-If you specify your own changes, Prophet will not estimate any further changes.
-
-#### Seasonalities
-
-It is these parameters that make the Prophet standout, as changing a few values can make a considerable improvement and give great insights.
-The first major parameter is seasonity_mode, which can be additive or multiplicative, there is also a parameter seasonity_prior_scale to make the seasonality more flexible.
-The other parameter you can tweak is the number of Fourier components (fourier_order) of each seasonality
 
 ## References
 
