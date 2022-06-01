@@ -12,18 +12,13 @@ editor_options:
 
 ## Introduction
 
-Time series is an important topic in machine learning, present in almost every industry and a problem that every data scientist will face at some point in their career.
-Aside from the fundamentals of the working with dates and plotting, there are other approaches and models for characterising the underlying dynamic of a time series such as space state models (Arima, Armas, etc.).
-This article builds on the previous post on Facebook Prophet library that is used to forecast time series data that fits non-linear trends with yearly, monthly, and daily seasonality, as well as holiday effects.
-It works best with time series with substantial seasonal effects and historical data from multiple seasons.
-Prophet is tolerant of missing data and trend alterations, and it usually handles outliers well.
-However, the model has several parameters to tweak to acquire the best fit.
-A grid search (random search or Cartesian search) is the traditional approach of determining the optimal combination of parameters, although this can be time-consuming, especially when cross-validating models with many folds.
+Time series analysis is an important topic in machine learning that is present in almost every industry and a problem that every data scientist will face at some point in their career. Aside from the fundamentals of the working with dates and plotting, there are other approaches and models for characterising the underlying dynamic of a time series such as space state models (Arima, Armas, etc.).
+This article builds on the previous post on Facebook Prophet library, this latter is used to forecast time series data and fits non-linear trends with yearly, monthly, and daily seasonality, as well as holiday effects.
+It works best with time series with substantial seasonal effects and historical data from multiple seasons. Prophet is tolerant of missing data and trend alterations, and it usually handles outliers well. However, the model has several parameters to tweak to acquire the best fit. A grid search (random search or Cartesian search) is the traditional approach of determining the optimal combination of parameters, although this can be time-consuming, especially when cross-validating models with many folds.
 
 
 ### Basic Prophet model
 
-Prophet may now be used to analyse our data.
 To begin, we must make sure that our date is in datetime format, and the columns must be renamed to the Prophet-required names of ds and y.
 We can then build a Prophet object to fit our data into the model, generate future predictions, visualize the forecast, and perform cross validation to check how well the model fits.
 
@@ -193,10 +188,8 @@ It will then forecast a time frame that you specify.
 
 ### Grid search specification
 
-We use the expand grid function because it enables the employment a random procedure.
-Remember to set the seed to fix the grid.
-There will be k predictions per fold due to the k-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated.
-Here are some parameters that you can take into consideration.
+We use the expand grid function because it enables the employment a random procedure. It is important to set the seed to fix the grid.
+There will be k predictions per fold due to the k-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated. Here are some parameters that you can take into consideration.
 
 #### Growth
 
@@ -219,8 +212,7 @@ If you specify your own changes, Prophet will not estimate any further changes.
 #### Seasonalities
 
 It is these parameters that make the Prophet standout, as changing a few values can make a considerable improvement and give great insights.
-The first major parameter is seasonity_mode, which can be additive or multiplicative, there is also a parameter seasonity_prior_scale to make the seasonality more flexible.
-The other parameter you can tweak is the number of Fourier components (fourier_order) of each seasonality
+The first major parameter is seasonity_mode, which can be additive or multiplicative, there is also a parameter seasonity_prior_scale to make the seasonality more flexible. The other parameter you can tweak is the number of Fourier components (fourier_order) of each seasonality
 
 
 ```r
