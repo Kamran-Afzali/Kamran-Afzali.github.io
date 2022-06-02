@@ -1,16 +1,15 @@
 ---
 layout: post
 categories: posts
-title: Forecsting with FB prophet
+title: Forecsting Optimization and FB prophet Hyperparameter Tuning
 featured-image: /images/ABS.png
 tags: [Forecasting, R, Prophet]
 date-string: May 2022
-editor_options: 
-  markdown: 
-    wrap: sentence
 ---
 
-## Introduction
+## Forecsting Optimization and FB prophet Hyperparameter Tuning
+
+### Introduction
 
 Time series analysis is an important topic in machine learning that is present in almost every industry and a problem that every data scientist will face at some point in their career. Aside from the fundamentals of the working with dates and plotting, there are other approaches and models for characterising the underlying dynamic of a time series such as space state models (Arima, Armas, etc.).
 This article builds on the previous post on Facebook Prophet library, this latter is used to forecast time series data and fits non-linear trends with yearly, monthly, and daily seasonality, as well as holiday effects.
