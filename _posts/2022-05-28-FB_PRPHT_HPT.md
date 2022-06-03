@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Forecsting Optimization and FB prophet Hyperparameter Tuning
-featured-image: /images/ABS.png
+featured-image: /images/FPR.png
 tags: [Forecasting, R, Prophet]
 date-string: May 2022
 ---
