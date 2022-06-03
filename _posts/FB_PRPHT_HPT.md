@@ -179,32 +179,30 @@ head(holidays)%>%kableExtra::kable()
 
 ### Cross-validation plan
 
-A k-fold cross-validation divides the training data into k groups of roughly equal size (referred to as "folds") hence the number of resamples in simple k-fold cross-validation (i.e. no repeats) is equal to k.
-The training data was resampled to include k-1 of the folds, while the assessment set included the final fold.
+A k-fold cross-validation divides the training data into k groups of roughly equal size (referred to as "folds") hence the number of resamples in simple k-fold cross-validation is equal to k.
+The training data was resampled to include k-1 of the folds, while the test set included the last (k-th) fold.
 Prophet includes a built-in cross validation feature this function will take your data and train the model over the specified time period.
 It will then forecast a time frame that you specify.
 
 
 ### Grid search specification
 
-We use the expand grid function because it enables the employment a random procedure. It is important to set the seed to fix the grid.
-There will be k predictions per fold due to the k-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated. Here are some parameters that you can take into consideration.
+We use the expand grid function because it enables the use of a random yet systematic procedure, therefore, it is important to set the seed to fix the grid order. There will be k predictions per fold due to the k-fold cross-validation, and the mean of the performance metric (RMSE, R-squared, etc.) will be calculated. Here are some parameters that you can take into consideration.
 
 #### Growth
 
-This parameter is easiest to understand and implement, linear growth assumes no upbound where exponential growth slows down.
+This parameter is easiest to understand and implement, linear growth assumes no upbound where exponential growth slows down (or accelerates).
 The tricky part of this parameter is to specify the upper and lower bounds of the prediction when it comes to exponential growth, these upper and lower bounds can change over time or fixed values can be assigned.
 
 #### Holidays
 
 A holiday is a period during which the day has the same impact each year,the tricky part happens when you're not modeling daily data.
 For instance, it is a mistakes to enter the holidays as a daily parameter when trying to model an hourly time-stamp.
-Another parameter that handles holidays is holidays_prior_scale, this parameter determines how holidays affect forecasts.
+Another parameter that handles holidays is holidays_prior_scale that determines the magnitude of the holidays effect on the forecasts.
 
 #### Changepoints
 
-A changing point is a point in the data where a sudden and abrupt change in the trend occurs, or the point of change is the time frame in which this major change occurred.
-There are four changepoint hyperparameters: changepoints, n_changepoints, changepoint_range, and changepoint_prior_scale.
+A changing point is a point in the data where a sudden and abrupt change in the trend occurs, or the point of change is the time frame in which this major change occurred. There are four changepoint hyperparameters: changepoints, n_changepoints, changepoint_range, and changepoint_prior_scale.
 Changepoint parameters are used to specify the date of the changepoint rather than letting the Prophet determine the date of the changepoint.
 If you specify your own changes, Prophet will not estimate any further changes.
 
@@ -284,7 +282,7 @@ results = vector(mode = 'numeric',
 ### Hyperparameter Tuning end-to-end process
 
 The bare-bone model used all the default parameters because no parameters were specified.
-Check out my earlier article to learn about Prophet's default parameters.
+Check out my earlier post to learn about Prophet's default parameters.
 We create a parameter grid with all of the parameters and values we wish to cycle over, calculate the mean value of the performance matrix, and find the optimum parameter combination in terms of MAPE.
 
 -   We'll use k-fold cross-validation to generate a cross-validation plan.
