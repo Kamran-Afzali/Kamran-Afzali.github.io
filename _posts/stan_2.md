@@ -30,23 +30,10 @@ Logistic regression is a Bernoulli-Logit GLM.
 
 
 
-For binary outcomes, either of the closely related logistic or probit regression models may be used. These generalized linear models vary only in the link function they use to map linear predictions in  
-(
-−
-∞
-,
-∞
-)
-  to probability values in  
-(
-0
-,
-1
-)
- . Their respective link functions, the logistic function and the standard normal cumulative distribution function, are both sigmoid functions (i.e., they are both S-shaped).
-
+For binary outcomes, either of the closely related logistic or probit regression models may be used. These generalized linear models vary only in the l
 A logistic regression model with one predictor and an intercept is coded as follows.
-'''
+
+```
 data {
   int<lower=0> N;
   vector[N] x;
@@ -59,7 +46,9 @@ parameters {
 model {
   y ~ bernoulli_logit(alpha + beta * x);
 }
-'''
+```
+
+
 The noise parameter is built into the Bernoulli formulation here rather than specified directly.
 
 Logistic regression is a kind of generalized linear model with binary outcomes and the log odds (logit) link function, defined by
