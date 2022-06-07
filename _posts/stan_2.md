@@ -5,6 +5,11 @@ output:
     df_print: paged
     keep_md: yes
 ---
+
+In a previous post we saw how to perform bayesian regression in R using STAN for normally distributed data. In this post we will look at how to fit non-normal model in STAN using three example distributions commonly found in empirical data: negative-binomial (overdispersed poisson data), gamma (right-skewed continuous data) and beta-binomial (overdispersed binomial data).
+
+The STAN code for the different models is at the end of this posts together with some explanations.
+
 Logistic regression is a popular machine learning model. One application of it in an engineering context is quantifying the effectiveness of inspection technologies at detecting damage. This post describes the additional information provided by a Bayesian application of logistic regression (and how it can be implemented using the Stan probabilistic programming language). Finally, I’ve also included some recommendations for making sense of priors.
 
 Introductions
@@ -52,3 +57,8 @@ model {
 The noise parameter is built into the Bernoulli formulation here rather than specified directly.
 
 Logistic regression is a kind of generalized linear model with binary outcomes and the log odds (logit) link function, defined by
+
+
+
+http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html
+https://datascienceplus.com/bayesian-regression-with-stan-beyond-normality/
