@@ -60,5 +60,43 @@ Logistic regression is a kind of generalized linear model with binary outcomes a
 
 
 
+
+
+
+The Poisson distribution is a common choice to model count data, it assumes that the variance is equal to the mean. When the variance is larger than the mean, the data are said to be overdispersed and the Negative Binomial distribution can be used. Say we have measured a response variable y that follow a negative binomial distribution and depends on a set of k explanatory variables X, in equation this gives us:
+
+The negative binomial distribution has two parameters: 
+is the expected value that need to be positive, therefore a log link function can be used to map the linear predictor (the explanatory variables times the regression parameters) to μ (see the 4th equation); and ϕ is the overdispersion parameter, a small value means a large deviation from a Poisson distribution, while as ϕ gets larger the negative binomial looks more and more like a Poisson distribution.
+
+Let’s simulate some data and fit a STAN model to them:
+
+```
+#load the libraries
+library(arm) #for the invlogit function
+library(emdbook) #for the rbetabinom function
+library(rstan)
+library(rstanarm) #for the launch_shinystan function
+
+#simulate some negative binomial data
+#the explanatory variables
+N<-100 #sample size
+dat<-data.frame(x1=runif(N,-2,2),x2=runif(N,-2,2))
+#the model
+X<-model.matrix(~x1*x2,dat)
+K<-dim(X)[2] #number of regression params
+#the regression slopes
+betas<-runif(K,-1,1)
+#the overdispersion for the simulated data
+phi<-5
+#simulate the response
+y_nb<-rnbinom(100,size=phi,mu=exp(X%*%betas))
+
+#fit the model
+m_nb<-stan(file = "neg_bin.stan",data = list(N=N,K=K,X=X,y=y_nb),pars=c("beta","phi","y_rep"))
+
+#diagnose and explore the model using shinystan
+launch_shinystan(m_nb)
+```
+
 http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html
 https://datascienceplus.com/bayesian-regression-with-stan-beyond-normality/
