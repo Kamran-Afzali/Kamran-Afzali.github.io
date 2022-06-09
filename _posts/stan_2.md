@@ -63,7 +63,9 @@ Logistic regression is a kind of generalized linear model with binary outcomes a
 
 
 
-The Poisson distribution is a common choice to model count data, it assumes that the variance is equal to the mean. When the variance is larger than the mean, the data are said to be overdispersed and the Negative Binomial distribution can be used. Say we have measured a response variable y that follow a negative binomial distribution and depends on a set of k explanatory variables X, in equation this gives us:
+The Poisson distribution is a common choice to model count data, it assumes that the variance is equal to the mean. When the variance is larger than the mean, the data are said to be overdispersed and the Negative Binomial distribution can be used. Say we have measured a response variable y that follow a negative binomial distribution and depends on a set of k explanatory variables X, in equation this gives us.
+
+The negative binomial distribution is a probability distribution that is used with discrete random variables. This type of distribution concerns the number of trials that must occur in order to have a predetermined number of successes.  As we will see, the negative binomial distribution is related to the binomial distribution.  In addition, this distribution generalizes the geometric distribution.
 
 The negative binomial distribution has two parameters: 
 is the expected value that need to be positive, therefore a log link function can be used to map the linear predictor (the explanatory variables times the regression parameters) to μ (see the 4th equation); and ϕ is the overdispersion parameter, a small value means a large deviation from a Poisson distribution, while as ϕ gets larger the negative binomial looks more and more like a Poisson distribution.
@@ -100,3 +102,4 @@ launch_shinystan(m_nb)
 
 http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html
 https://datascienceplus.com/bayesian-regression-with-stan-beyond-normality/
+https://jrnold.github.io/bugs-examples-in-stan/judges.html
