@@ -38,6 +38,16 @@ Logistic regression is a Bernoulli-Logit GLM.
 For binary outcomes, either of the closely related logistic or probit regression models may be used. These generalized linear models vary only in the l
 A logistic regression model with one predictor and an intercept is coded as follows.
 
+
+```
+#load the libraries
+library(arm) #for the invlogit function
+library(emdbook) #for the rbetabinom function
+library(rstan)
+library(rstanarm) #for the launch_shinystan function
+
+```
+
 ```
 data {
   int<lower=0> N;
@@ -73,12 +83,6 @@ is the expected value that need to be positive, therefore a log link function ca
 Let’s simulate some data and fit a STAN model to them:
 
 ```
-#load the libraries
-library(arm) #for the invlogit function
-library(emdbook) #for the rbetabinom function
-library(rstan)
-library(rstanarm) #for the launch_shinystan function
-
 #simulate some negative binomial data
 #the explanatory variables
 N<-100 #sample size
@@ -100,6 +104,41 @@ m_nb<-stan(file = "neg_bin.stan",data = list(N=N,K=K,X=X,y=y_nb),pars=c("beta","
 launch_shinystan(m_nb)
 ```
 
-http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html
-https://datascienceplus.com/bayesian-regression-with-stan-beyond-normality/
-https://jrnold.github.io/bugs-examples-in-stan/judges.html
+
+
+```
+data {
+  int N; //the number of observations
+  int K; //the number of columns in the model matrix
+  int y[N]; //the response
+  matrix[N,K] X; //the model matrix
+}
+parameters {
+  vector[K] beta; //the regression parameters
+  real phi; //the overdispersion parameters
+}
+transformed parameters {
+  vector[N] mu;//the linear predictor
+  mu <- exp(X*beta); //using the log link 
+}
+model {  
+  beta[1] ~ cauchy(0,10); //prior for the intercept following Gelman 2008
+
+  for(i in 2:K)
+   beta[i] ~ cauchy(0,2.5);//prior for the slopes following Gelman 2008
+  
+  y ~ neg_binomial_2(mu,phi);
+}
+generated quantities {
+ vector[N] y_rep;
+ for(n in 1:N){
+  y_rep[n] <- neg_binomial_2_rng(mu[n],phi); //posterior draws to get posterior predictive checks
+ }
+}
+
+```
+
+
++ http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html
++ https://datascienceplus.com/bayesian-regression-with-stan-beyond-normality/
++ https://jrnold.github.io/bugs-examples-in-stan/judges.html
