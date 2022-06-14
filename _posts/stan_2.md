@@ -6,6 +6,10 @@ output:
     keep_md: yes
 ---
 
+
+### Bayesian Regression Models for Non-Normal Data
+
+
 In a previous post we saw how to perform bayesian regression in R using STAN for normally distributed data. In this post we will look at how to fit non-normal model in STAN using three example distributions commonly found in empirical data, namely binomial and negative-binomial (overdispersed poisson data). At a very high level, Bayesian models quantify (aleatory and epistemic) uncertainty, so that our predictions and decisions take into account the ways in which our knowledge is limited or imperfect. We specify a statistical model, and identify probabilistic estimates for the parameters using a family of sampling algorithms known as Markov Chain Monte Carlo (MCMC). My preferred software for writing a fitting Bayesian models is Stan. If you are not yet familiar with Bayesian statistics, then I imagine you won’t be fully satisfied with that 3 sentence summary, so I will put together a separate post on the merits and challenges of applied Bayesian inference.
 
 
