@@ -126,11 +126,6 @@ phi<-5
 #simulate the response
 y_nb<-rnbinom(100,size=phi,mu=exp(X%*%betas))
 
-#fit the model
-m_nb<-stan(file = "neg_bin.stan",data = list(N=N,K=K,X=X,y=y_nb),pars=c("beta","phi","y_rep"))
-
-#diagnose and explore the model using shinystan
-launch_shinystan(m_nb)
 ```
 
 
@@ -168,6 +163,6 @@ generated quantities {
 ```
 
 
-+ http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html
++ (R Stan: First Examples)[http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html]
 + https://datascienceplus.com/bayesian-regression-with-stan-beyond-normality/
-+ https://jrnold.github.io/bugs-examples-in-stan/judges.html
++ (Simon Jackman’s Bayesian Model Examples in Stan)[https://jrnold.github.io/bugs-examples-in-stan/judges.html]
