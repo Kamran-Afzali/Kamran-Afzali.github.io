@@ -178,7 +178,7 @@ generated quantities {
 
 ### Conclusion
 
-This tutorial provided only a quick overview of how to fit simple linear regression models with the Bayesian software STAN and the rstan library and how to get a collection of useful summaries from the models. This is just a taste of the many models that STAN can fit; in future postings, we'll look at generalised linear models, as well as non-normal models with various link functions and hierarchical models.
+This tutorial provided only a quick overview of how to fit logistic and negative binomial regression models with the Bayesian software STAN using the rstan library/API and to extract a collection of useful summaries from the models. Future postings will address the question of outliers and the use of robust linear models.
 
 
 ## References
