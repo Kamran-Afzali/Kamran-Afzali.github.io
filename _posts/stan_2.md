@@ -17,13 +17,9 @@ In a previous post we saw how to perform bayesian regression in R using STAN for
 
 Logistic regression is used to estimate the probability of a binary outcome, such as Pass or Fail (though it can be extended for > 2 outcomes). This is achieved by transforming a standard regression using the logit function, shown below. The term in the brackets may be familiar to gamblers as it is how odds are calculated from probabilities. You may see logit and log-odds used exchangeably for this reason. Since the logit function transformed data from a probability scale, the inverse logit function transforms data to a probability scale. Therefore, it’s values range from 0 to 1, and this feature is very useful when we are interested the probability of Pass/Fail type outcomes.
 
-Before moving on, some terminology that you may find when reading about logistic regression elsewhere:
-
 When a linear regression is combined with a re-scaling function such as this, it is known as a Generalised Linear Model (GLM).
 The re-scaling (in this case, the logit) function is known as a link function in this context.
-Logistic regression is a Bernoulli-Logit GLM.
-
-For binary outcomes, either of the closely related logistic or probit regression models may be used. 
+Logistic regression is a Bernoulli-Logit GLM. For binary outcomes, either of the closely related logistic or probit regression models may be used. 
 A logistic regression model with one predictor and an intercept is coded as follows.
 
 
