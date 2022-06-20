@@ -1,26 +1,25 @@
 ---
-title: "R Notebook"
-output:
-  html_document:
-    df_print: paged
-    keep_md: yes
+layout: post
+categories: posts
+title: Bayesian Regression Models for Non-Normal Data
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: June 2022
 ---
+
 
 
 ### Bayesian Regression Models for Non-Normal Data
 
 
-In a previous post we saw how to perform bayesian regression in R using STAN for normally distributed data. In this post we will look at how to fit non-normal model in STAN using three example distributions commonly found in empirical data, namely binomial and negative-binomial (overdispersed poisson data). At a very high level, Bayesian models quantify (aleatory and epistemic) uncertainty, so that our predictions and decisions take into account the ways in which our knowledge is limited or imperfect. We specify a statistical model, and identify probabilistic estimates for the parameters using a family of sampling algorithms known as Markov Chain Monte Carlo (MCMC). My preferred software for writing a fitting Bayesian models is Stan. If you are not yet familiar with Bayesian statistics, then I imagine you won’t be fully satisfied with that 3 sentence summary, so I will put together a separate post on the merits and challenges of applied Bayesian inference.
+We covered how to do normally distributed data bayesian regression in R using STAN in a previous post. In this post, we'll examine at how to fit a non-normal model in STAN using three common distributions seen in empirical data: binomial, negative-binomial, and log-normal (overdispersed poisson data). Bayesian models quantify (aleatory and epistemic) uncertainty at a high level, allowing us to account for the ways in which our knowledge is limited or faulty in our predictions and decisions. Using a set of sampling methods known as Markov Chain Monte Carlo, we define a statistical model and find probabilistic estimates for the parameters (MCMC). Stan is my go-to tool for creating Bayesian models that fit. If you are unfamiliar with Bayesian statistics, I expect that a three-sentence summary will not suffice, so I will write a separate essay about the benefits and challenges of applied Bayesian inference.
 
 
 ### Logistic Regression
 
-Logistic regression is used to estimate the probability of a binary outcome, such as Pass or Fail (though it can be extended for > 2 outcomes). This is achieved by transforming a standard regression using the logit function, shown below. The term in the brackets may be familiar to gamblers as it is how odds are calculated from probabilities. You may see logit and log-odds used exchangeably for this reason. Since the logit function transformed data from a probability scale, the inverse logit function transforms data to a probability scale. Therefore, it’s values range from 0 to 1, and this feature is very useful when we are interested the probability of Pass/Fail type outcomes.
+The likelihood of a binary outcome, such as Pass or Fail, is estimated using logistic regression (but it can be extended to include more than two possibilities). This is accomplished by using the logit function to convert a standard regression, as demonstrated below. Gamblers may be familiar with the term in brackets, as it describes how odds are derived from probabilities. For this reason, logit and log-odds are frequently interchanged. The inverse logit function transfers data from a probability scale to a probability scale, as the logit function did. As a result, its values vary from 0 to 1, and this characteristic is particularly important when considering the likelihood of Pass/Fail results.
 
-When a linear regression is combined with a re-scaling function such as this, it is known as a Generalised Linear Model (GLM).
-The re-scaling (in this case, the logit) function is known as a link function in this context.
-Logistic regression is a Bernoulli-Logit GLM. For binary outcomes, either of the closely related logistic or probit regression models may be used. 
-A logistic regression model with one predictor and an intercept is coded as follows.
+A Generalised Linear Model is created when a linear regression is supplemented with a re-scaling function like this (GLM). In this context, the re-scaling (in this case, the logit) function is referred to as a link function. A Bernoulli-Logit GLM is used to model logistic regression. For binary outcomes, either the logistic or probit regression models, which are closely related, might be utilised.  The following is the code for a logistic regression model with one predictor and an intercept.
 
 
 ```
@@ -112,12 +111,12 @@ generated quantities {
 
 
 
-The Poisson distribution is a common choice to model count data, it assumes that the variance is equal to the mean. When the variance is larger than the mean, the data are said to be overdispersed and the Negative Binomial distribution can be used. Say we have measured a response variable y that follow a negative binomial distribution and depends on a set of k explanatory variables X, in equation this gives us.
+The Poisson distribution, which posits that the variance is equal to the mean, is a popular choice for modelling count data. The data are said to be overdispersed when the variance exceeds the mean, and the Negative Binomial distribution can be utilised. Let's say we have a response variable y that has a negative binomial distribution and is influenced by a collection of k explanatory variables X, as shown in equation.
 
-The negative binomial distribution is a probability distribution that is used with discrete random variables. This type of distribution concerns the number of trials that must occur in order to have a predetermined number of successes.  As we will see, the negative binomial distribution is related to the binomial distribution.  In addition, this distribution generalizes the geometric distribution.
+With discrete random variables, the negative binomial distribution is a probability distribution. This sort of distribution refers to the number of trials required to achieve a specific number of successes. The negative binomial distribution is related to the binomial distribution, as we will demonstrate. Furthermore, the geometric distribution is generalised by this distribution.
 
 The negative binomial distribution has two parameters: 
-is the expected value that need to be positive, therefore a log link function can be used to map the linear predictor (the explanatory variables times the regression parameters) to μ (see the 4th equation); and ϕ is the overdispersion parameter, a small value means a large deviation from a Poisson distribution, while as ϕ gets larger the negative binomial looks more and more like a Poisson distribution.
+The expected value that need to be positive, therefore a log link function can be used to map the linear predictor (the explanatory variables times the regression parameters) to μ and ϕ is the overdispersion parameter, a small value means a large deviation from a Poisson distribution, while as ϕ gets larger the negative binomial looks more and more like a Poisson distribution.
 
 Let’s simulate some data and fit a STAN model to them:
 
