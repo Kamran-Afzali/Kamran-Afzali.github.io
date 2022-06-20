@@ -187,6 +187,6 @@ This tutorial provided only a quick overview of how to fit logistic and negative
 + [Stan (+R) Workshop](https://rpruim.github.io/StanWorkshop/)
 
 
-+ (R Stan: First Examples)[http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html]
++ [R Stan: First Examples](http://blackwell.math.yorku.ca/MATH6635/files/Stan_first_examples.html)
 + https://datascienceplus.com/bayesian-regression-with-stan-beyond-normality/
-+ (Simon Jackman’s Bayesian Model Examples in Stan)[https://jrnold.github.io/bugs-examples-in-stan/judges.html]
++ [Simon Jackman’s Bayesian Model Examples in Stan](https://jrnold.github.io/bugs-examples-in-stan/judges.html)
