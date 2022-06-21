@@ -460,7 +460,7 @@ y_nb<-rnbinom(N,size=phi,mu=exp(X%*%betas))
 hist(y_nb)
 ```
 
-![](stan_files/figure-html/stan2_hist-1.png)<!-- -->
+![](/images/stan2_hist-1.png)
 
 
 ```r
