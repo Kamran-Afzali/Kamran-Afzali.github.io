@@ -190,23 +190,27 @@ The expected value that need to be positive, therefore a log link function can b
 
 Let’s simulate some data and fit a STAN model to them:
 
-```
-#simulate some negative binomial data
-#the explanatory variables
-N<-100 #sample size
-dat<-data.frame(x1=runif(N,-2,2),x2=runif(N,-2,2))
+
+```{r}
+
+N<-100000
+df3 <-data.frame(x1=runif(N,-2,2),x2=runif(N,-2,2))
 #the model
-X<-model.matrix(~x1*x2,dat)
+X<-model.matrix(~x1*x2,df3)
 K<-dim(X)[2] #number of regression params
 #the regression slopes
 betas<-runif(K,-1,1)
 #the overdispersion for the simulated data
 phi<-5
 #simulate the response
-y_nb<-rnbinom(100,size=phi,mu=exp(X%*%betas))
-
+y_nb<-rnbinom(N,size=phi,mu=exp(X%*%betas))
+hist(y_nb)
 ```
 
+```{r}
+MASS::glm.nb(y_nb ~ X[,2:K])%>%summary()%>%pluck(coefficients)%>%kableExtra::kable()
+
+```
 
 
 ```
@@ -240,6 +244,62 @@ generated quantities {
 }
 
 ```
+
+```{r}
+stan_mod = "data {
+  int N; //the number of observations
+  int K; //the number of columns in the model matrix
+  int y[N]; //the response
+  matrix[N,K] X; //the model matrix
+}
+parameters {
+  vector[K] beta; //the regression parameters
+  real phi; //the overdispersion parameters
+}
+transformed parameters {
+  vector[N] mu;//the linear predictor
+  mu <- exp(X*beta); //using the log link 
+}
+model {  
+  beta[1] ~ cauchy(0,10); //prior for the intercept following Gelman 2008
+
+  for(i in 2:K)
+   beta[i] ~ cauchy(0,2.5);//prior for the slopes following Gelman 2008
+  
+  y ~ neg_binomial_2(mu,phi);
+}
+"
+writeLines(stan_mod, con = "stan_mod.stan")
+
+cat(stan_mod)
+```
+
+```{r}
+
+stan_data3 <- list(
+  N = N,
+  K = K,
+  X = X,
+  y = y_nb
+)
+
+
+```
+
+```{r}
+
+
+fit_rstan3 <- rstan::stan(
+  file = "stan_mod.stan",
+  data = stan_data3
+)
+
+```
+```{r}
+fit_rstan3%>%summary()
+```
+
+
 
 ### Conclusion
 
