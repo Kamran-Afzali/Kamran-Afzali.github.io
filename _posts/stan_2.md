@@ -22,31 +22,42 @@ The likelihood of a binary outcome, such as Pass or Fail, is estimated using log
 A Generalised Linear Model is created when a linear regression is supplemented with a re-scaling function like this (GLM). In this context, the re-scaling (in this case, the logit) function is referred to as a link function. A Bernoulli-Logit GLM is used to model logistic regression. For binary outcomes, either the logistic or probit regression models, which are closely related, might be utilised.  The following is the code for a logistic regression model with one predictor and an intercept.
 
 
-```
-#load the libraries
-library(arm) #for the invlogit function
-library(emdbook) #for the rbetabinom function
+```{r}
+library(tidyverse)
+library(kableExtra)
+library(arm) 
+library(emdbook) 
 library(rstan)
-library(rstanarm) #for the launch_shinystan function
+library(rstanarm) 
 
+set.seed(1234)
+ x1 = rnorm(10000)           
+
+ z = 1 + 2*x1       
+ pr = 1/(1+exp(-z))         
+ y = rbinom(10000,1,pr)     
+
+ df = data.frame(y=y,x1=x1)
+ 
+
+ 
+head(df)%>%kableExtra::kable()
+
+   
 ```
 
-```
- set.seed(1234)
- x1 = rnorm(1000)           # some continuous variables 
- x2 = rnorm(1000)
- x3 = rnorm(1000)
- z = 1 + 2*x1 + 3*x2        # linear combination with a bias
- pr = 1/(1+exp(-z))         # pass through an inv-logit function
- y = rbinom(1000,1,pr)      # bernoulli response variable
 
- df = data.frame(y=y,x1=x1,x2=x2)
- glm( y~x1+x2,data=df,family="binomial")
+```{r}
+ glm( y~x1,data=df,family="binomial")%>%summary()%>%pluck(coefficients)%>%kableExtra::kable()
 ```
 
 
-```
-data {
+
+
+
+```{r}
+   model_stan = "
+   data {
   int<lower=0> N;
   vector[N] x;
   int<lower=0,upper=1> y[N];
@@ -58,51 +69,110 @@ parameters {
 model {
   y ~ bernoulli_logit(alpha + beta * x);
 }
+   "
+writeLines(model_stan, con = "model_stan.stan")
+   cat(model_stan)
+```
+
+```{r}
+
+
+stan_data <- list(
+  N = 10000,
+  x = df$x1,
+  y = df$y
+)
+
+fit_rstan <- rstan::stan(
+  file = "model_stan.stan",
+  data = stan_data
+)
+```
+
+
+```{r}
+fit_rstan
 ```
 
 This also can be expanded to several predictors. Below you can find the code as well as some recommendations for making sense of priors.
 
 
+
+```{r}
+
+set.seed(1234)
+ x1 = rnorm(10000)           
+ x2 = rnorm(10000)
+ x3 = rnorm(10000)
+ z = 1 + 2*x1 + 3*x2 - 1*x3       
+ pr = 1/(1+exp(-z))         
+ y = rbinom(10000,1,pr)     
+
+ df2 = data.frame(y=y,x1=x1,x2=x2,x3=x3)
+ 
+
+ 
+head(df2)%>%kableExtra::kable()
+
+   
 ```
- data {
-  // response
-  int N;
-  int y[N];
-  // covariates
-  int K;
-  matrix[N, K] X;
-  // priors
-  real alpha_loc;
-  real alpha_scale;
-  vector[K] beta_loc;
-  vector[K] beta_scale;
+
+
+
+```{r}
+ glm( y~x1+x2+x3,data=df2,family="binomial")%>%summary()%>%pluck(coefficients)%>%kableExtra::kable()
+```
+
+
+
+```{r}
+model_stan2 ="
+
+
+data {
+  int<lower=0> N;   // number of observations
+  int<lower=0> K;   // number of predictors
+  matrix[N, K] X;   // predictor matrix
+  int<lower=0,upper=1> y[N];      // outcome vector
 }
 parameters {
-  real alpha;
-  vector[K] beta;
-}
-transformed parameters {
-  // linear predictor
-  vector[N] eta;
-  eta = alpha + X * beta;
+  real alpha;           // intercept
+  vector[K] beta;       // coefficients for predictors
 }
 model {
-  alpha ~ normal(alpha_loc, alpha_scale);
-  beta ~ normal(beta_loc, beta_scale);
-  // y ~ bernoulli(inv_logit(eta));
-  // this is faster and more numerically stable
-  y ~ bernoulli_logit(eta);
+  y ~ bernoulli_logit(alpha + X * beta); 
 }
-generated quantities {
-  // log-likelihood of each obs
-  vector[N] log_lik;
-  // probability
-  vector[N] mu;
-  for (i in 1:N) {
-    mu[i] = inv_logit(eta[i]);
-    log_lik[i] = bernoulli_logit_lpmf(y[i] | eta[i]);
-  }
-}
+
+"
+
+writeLines(model_stan2, con = "model_stan2.stan")
+cat(model_stan2)
+```
+
+
+
+```{r}
+
+predictors <- df2[,2:4]
+
+stan_data2 <- list(
+  N = 10000,
+  K = 3,
+  X = predictors,
+  y = df2$y
+)
+
+
+fit_rstan2 <- rstan::stan(
+  file = "model_stan2.stan",
+  data = stan_data2
+)
+
+```
+
+
+```{r}
+fit_rstan2
 ```
 
 
