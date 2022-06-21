@@ -191,7 +191,7 @@ The expected value that need to be positive, therefore a log link function can b
 Let’s simulate some data and fit a STAN model to them:
 
 
-```{r}
+```{r stan2_hist}
 
 N<-100000
 df3 <-data.frame(x1=runif(N,-2,2),x2=runif(N,-2,2))
