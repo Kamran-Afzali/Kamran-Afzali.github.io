@@ -10,14 +10,12 @@ date-string: June 2022
 ### Bayesian Regression Models for Non-Normal Data
 
 
-We covered how to do normally distributed data bayesian regression in R using STAN in a previous post. In this post, we'll examine at how to fit a non-normal model in STAN using three common distributions seen in empirical data: binomial, negative-binomial, and log-normal (overdispersed poisson data). Bayesian models quantify (aleatory and epistemic) uncertainty at a high level, allowing us to account for the ways in which our knowledge is limited or faulty in our predictions and decisions. Using a set of sampling methods known as Markov Chain Monte Carlo, we define a statistical model and find probabilistic estimates for the parameters (MCMC). Stan is my go-to tool for creating Bayesian models that fit. If you are unfamiliar with Bayesian statistics, I expect that a three-sentence summary will not suffice, so I will write a separate essay about the benefits and challenges of applied Bayesian inference.
+Our last post covered how to do bayesian regression for normally distributed data in R using STAN. In this post, we'll take look at how to fit a regression model adapted to non-normal model in STAN using two common distributions seen in empirical data: binomial and negative-binomial. As mentioned before in Bayesian modelling we use a set of sampling methods known as Markov Chain Monte Carlo, we define a statistical model and find probabilistic estimates for the parameters (MCMC). Stan is my go-to tool for creating Bayesian models that account for the ways in which our knowledge is limited. 
 
 
 ### Logistic Regression
 
-The likelihood of a binary outcome, such as Pass or Fail, is estimated using logistic regression (but it can be extended to include more than two possibilities). This is accomplished by using the logit function to convert a standard regression, as demonstrated below. Gamblers may be familiar with the term in brackets, as it describes how odds are derived from probabilities. For this reason, logit and log-odds are frequently interchanged. The inverse logit function transfers data from a probability scale to a probability scale, as the logit function did. As a result, its values vary from 0 to 1, and this characteristic is particularly important when considering the likelihood of Pass/Fail results.
-
-A Generalised Linear Model is created when a linear regression is supplemented with a re-scaling function like this (GLM). In this context, the re-scaling (in this case, the logit) function is referred to as a link function. A Bernoulli-Logit GLM is used to model logistic regression. For binary outcomes, either the logistic or probit regression models, which are closely related, might be utilised.  The following is the code for a logistic regression model with one predictor and an intercept.
+The likelihood of a binary outcome, such as pass or fail, is estimated using logistic models (but it can be extended to include more than two outcomes). This is accomplished by using the logit function to convert a standard regression. The main parameter that we focus on here describes odds of the outcome derived from probabilities and transformed using a logit function.  The following is the code for a logistic regression model with one predictor and an intercept.
 
 
 
@@ -28,25 +26,11 @@ library(tidyverse)
 
 ```r
 library(kableExtra)
-```
-
-
-```r
 library(arm) 
-```
-
-
-```r
 library(emdbook) 
 library(rstan)
-```
-
-```r
 library(rstanarm) 
-```
 
-
-```r
 set.seed(1234)
  x1 = rnorm(10000)           
 
