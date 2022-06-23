@@ -418,12 +418,10 @@ fit_rstan2
 
 
 
-The Poisson distribution, which posits that the variance is equal to the mean, is a popular choice for modelling count data. The data are said to be overdispersed when the variance exceeds the mean, and the Negative Binomial distribution can be utilised. Let's say we have a response variable y that has a negative binomial distribution and is influenced by a collection of k explanatory variables X, as shown in equation.
-
-With discrete random variables, the negative binomial distribution is a probability distribution. This sort of distribution refers to the number of trials required to achieve a specific number of successes. The negative binomial distribution is related to the binomial distribution, as we will demonstrate. Furthermore, the geometric distribution is generalised by this distribution.
-
-The negative binomial distribution has two parameters: 
-The expected value that need to be positive, therefore a log link function can be used to map the linear predictor (the explanatory variables times the regression parameters) to μ and ϕ is the overdispersion parameter, a small value means a large deviation from a Poisson distribution, while as ϕ gets larger the negative binomial looks more and more like a Poisson distribution.
+The Poisson distribution, which assumes that the variance is equal to the mean, is a popular choice for modelling count data. The data are said to be overdispersed when the variance exceeds the mean, the Negative Binomial distribution can be utilised in this case. Note that the negative binomial distribution is a probability distribution with discrete random variables. 
+ 
+Let's say we have a response variable y that has a negative binomial distribution and is influenced by a collection of k explanatory variables X, as shown in equation. The negative binomial distribution to model this data has two parameters: 
+The μ or the expected value that need to be positive so a log link function can be used to map the linear predictor (the explanatory variables times the regression parameters) and ϕ which is the overdispersion parameter, where a small value means a large deviation from a Poisson distribution, as ϕ gets larger the negative binomial looks more and more like a Poisson distribution.
 
 Let’s simulate some data and fit a STAN model to them:
 
