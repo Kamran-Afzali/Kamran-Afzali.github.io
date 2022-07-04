@@ -10,12 +10,12 @@ date-string: June 2022
 ### Bayesian Regression Models for Non-Normal Data
 
 
-Our last post covered how to do bayesian regression for normally distributed data in R using STAN. In this post, we'll take look at how to fit a regression model adapted to non-normal model in STAN using two common distributions seen in empirical data: binomial and negative-binomial. As mentioned before in Bayesian modelling we use a set of sampling methods known as Markov Chain Monte Carlo, we define a statistical model and find probabilistic estimates for the parameters (MCMC). Stan is my go-to tool for creating Bayesian models that account for the ways in which our knowledge is limited. 
+Our last post covered how to do bayesian regression for normally distributed data in R using STAN. In this post, we'll take a look at how to fit a regression model adapted to non-normal model in STAN using two common distributions seen in empirical data, namely, binomial and negative-binomial. As mentioned before in Bayesian modelling we use a set of sampling methods known as Markov Chain Monte Carlo (MCMC), we define a statistical model and find probabilistic estimates for the parameters. 
 
 
 ### Logistic Regression
 
-The likelihood of a binary outcome, such as pass or fail, is estimated using logistic models (but it can be extended to include more than two outcomes). This is accomplished by using the logit function to convert a standard regression. The main parameter that we focus on here describes odds of the outcome derived from probabilities and transformed using a logit function.  The following is the code for a logistic regression model with one predictor and an intercept.
+The likelihood of a binary outcome, such as pass or fail, is estimated using logistic models (but this model can be extended to include more than two outcomes). This is accomplished by using the logit function to convert a standard regression. The main parameter that we focus on here describes odds of the outcome derived from probabilities and transformed using a logit function.  The following is the code for a logistic regression model with one predictor and an intercept.
 
 
 
@@ -418,9 +418,9 @@ fit_rstan2
 
 
 
-The Poisson distribution, which assumes that the variance is equal to the mean, is a popular choice for modelling count data. The data are said to be overdispersed when the variance exceeds the mean, the Negative Binomial distribution can be utilised in this case. Note that the negative binomial distribution is a probability distribution with discrete random variables. 
+The Poisson distribution, which assumes that the variance is equal to the mean, is a popular choice for modelling count data. The data are said to be overdispersed when the variance exceeds the mean, the Negative Binomial distribution can be used in this case. Note that the negative binomial distribution is a probability distribution of discrete random variables. 
  
-Let's say we have a response variable y that has a negative binomial distribution and is influenced by a collection of k explanatory variables X, as shown in equation. The negative binomial distribution to model this data has two parameters: 
+Let's say we have a response variable y that has a negative binomial distribution and is influenced by a collection of k explanatory variables X. The negative binomial distribution to model this data has two parameters: 
 The μ or the expected value that need to be positive so a log link function can be used to map the linear predictor (the explanatory variables times the regression parameters) and ϕ which is the overdispersion parameter, where a small value means a large deviation from a Poisson distribution, as ϕ gets larger the negative binomial looks more and more like a Poisson distribution.
 
 Let’s simulate some data and fit a STAN model to them:
