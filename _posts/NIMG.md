@@ -62,16 +62,18 @@ Share your own BIDS-app(s): It is not uncommon for researchers to develop a nove
 
 [BIDS 2](https://bids.neuroimaging.io/governance.html)
 
+[ggseg](https://journals.sagepub.com/doi/10.1177/2515245920928009)
+
 [ggseg 1](https://cran.r-project.org/web/packages/ggseg/vignettes/ggseg.html)
 
 [ggseg 2](https://github.com/ggseg/ggseg)
 
 [ggseg3d](https://www.researchgate.net/publication/347761880_Visualization_of_Brain_Statistics_With_R_Packages_ggseg_and_ggseg3d)
 
-[towardsdatascience](https://towardsdatascience.com/visualizing-brains-using-r-606fa0fb9fdf)
+[Visualizing-brains-using-r](https://towardsdatascience.com/visualizing-brains-using-r-606fa0fb9fdf)
 
 [fsbrain](https://cran.r-project.org/web/packages/fsbrain/vignettes/fsbrain.html)
 
-[link](https://journals.sagepub.com/doi/10.1177/2515245920928009)
 
-[link](https://journals.sagepub.com/doi/10.1177/2515245920928009)
+
+
