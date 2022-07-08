@@ -35,7 +35,7 @@ Databases such as OpenNeuro.org accept datasets organised according to BIDS. If 
 Validation tools such as the BIDS Validator can check your dataset integrity and help you easily spot missing values. BIDS was heavily inspired by the format used internally by the OpenfMRI repository that is now known as OpenNeuro.org, and has been supported by the International Neuroinformatics Coordinating Facility (INCF) and the INCF Neuroimaging Data Sharing (NIDASH) Task Force. While working on BIDS we consulted many neuroscientists to make sure it covers most common experiments, but at the same time is intuitive and easy to adopt. The specification is intentionally based on simple file formats and folder structures to reflect current lab practices and make it accessible to a wide range of scientists coming from different backgrounds.
 
 
-
+4. Tools
 
 # FMRIprep
 
