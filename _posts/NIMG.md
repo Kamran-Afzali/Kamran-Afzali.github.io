@@ -37,6 +37,11 @@ Validation tools such as the BIDS Validator can check your dataset integrity and
 
 4. Tools
 
++ BidsConvertR Package
+
+
+
+
 # FMRIprep
 
 # Visualization
