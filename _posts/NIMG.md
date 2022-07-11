@@ -57,6 +57,8 @@ Validation tools such as the BIDS Validator can check your dataset integrity and
 
 [BIDS 2](https://bids.neuroimaging.io/governance.html)
 
+[BidsConvertR Package](https://github.com/wulms/bidsconvertr)
+
 [ggseg](https://journals.sagepub.com/doi/10.1177/2515245920928009)
 
 [ggseg 1](https://cran.r-project.org/web/packages/ggseg/vignettes/ggseg.html)
