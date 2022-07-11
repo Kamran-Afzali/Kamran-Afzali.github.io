@@ -37,6 +37,23 @@ Validation tools such as the BIDS Validator can check your dataset integrity and
 
 4. Tools
 
++ Dcm2Bids
+
+ 1013  conda install -c conda-forge dcm2niix \n
+ 1005  conda install -c conda-forge dcm2bids
+ 1002  mkdir dcm2bids-tutorial\n
+ 1003  cd dcm2bids-tutorial\n
+ 1006  dcm2bids_scaffold -o bids_project
+ 1007  cd bids_project
+ 1008  wget -O dcm_qa_nih-master.zip https://github.com/neurolabusc/dcm_qa_nih/archive/refs/heads/master.zip
+ 1009  mv sourcedata/dcm_qa_nih-master sourcedata/dcm_qa_nih
+ 1010  ls sourcedata/dcm_qa_nih
+ 1011  dcm2bids_helper --help
+ 1014  dcm2bids_helper -d sourcedata/dcm_qa_nih/In/
+ 1015  ls tmp_dcm2bids/helper
+ 1016  nano code/dcm2bids_config.json
+ 1017  dcm2bids -d sourcedata/dcm_qa_nih/In/ -p ID01 -c code/dcm2bids_config.json
+
 + BidsConvertR Package
 
 
@@ -63,6 +80,8 @@ Validation tools such as the BIDS Validator can check your dataset integrity and
 [BIDS 2](https://bids.neuroimaging.io/governance.html)
 
 [BIDSConvertR Package](https://github.com/wulms/bidsconvertr)
+
+[Dcm2Bids](https://unfmontreal.github.io/Dcm2Bids/docs/tutorial/first-steps/)
 
 [ggseg](https://journals.sagepub.com/doi/10.1177/2515245920928009)
 
