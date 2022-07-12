@@ -37,7 +37,7 @@ Validation tools such as the BIDS Validator can check your dataset integrity and
 
 4. Tools
 
-+ Dcm2Bids
+Dcm2Bids
 
  -  conda install -c conda-forge dcm2niix \n
  -  conda install -c conda-forge dcm2bids
@@ -45,7 +45,7 @@ Validation tools such as the BIDS Validator can check your dataset integrity and
  -  cd dcm2bids-tutorial\n
  -  dcm2bids_scaffold -o bids_project
  -  cd bids_project
- -  wget -O dcm_qa_nih-master.zip https://github.com/neurolabusc/dcm_qa_nih/archive/refs/heads/master.zip
+ -  wget -O dcm_qa_[nih-master.zip](https://github.com/neurolabusc/dcm_qa_nih/archive/refs/heads/master.zip)
  -  mv sourcedata/dcm_qa_nih-master sourcedata/dcm_qa_nih
  -  ls sourcedata/dcm_qa_nih
  -  dcm2bids_helper --help
