@@ -37,8 +37,12 @@ Validation tools such as the BIDS Validator can check your dataset integrity and
 
 4. Tools
 
-Dcm2Bids
+[Dcm2Bids](https://unfmontreal.github.io/Dcm2Bids/) is a package for reorganising NIfTI files from dcm2niix into the BIDS format.
 
+here is an outline of the code used for a basic [tutorial](https://unfmontreal.github.io/Dcm2Bids/docs/tutorial/first-steps/) of the package
+
+
+```{bash}
  -  conda install -c conda-forge dcm2niix \n
  -  conda install -c conda-forge dcm2bids
  -  mkdir dcm2bids-tutorial\n
@@ -53,9 +57,10 @@ Dcm2Bids
  -  ls tmp_dcm2bids/helper
  -  nano code/dcm2bids_config.json
  -  dcm2bids -d sourcedata/dcm_qa_nih/In/ -p ID01 -c code/dcm2bids_config.json
+```
 
 
-
+for details on how to setup your config file check [here](https://unfmontreal.github.io/Dcm2Bids/docs/how-to/create-config-file/) and [here](https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html?highlight=bids#understanding-dcm2bidss-configuration-file)
 
 
 # FMRIprep
