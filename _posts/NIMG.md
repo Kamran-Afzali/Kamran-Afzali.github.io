@@ -1,7 +1,7 @@
 
 # BIDS
 
-1. Introduction
+## Introduction
 
 This post intends to describe the Brain Imaging Data Structure (BIDS) format for neuro imaging data its principles and its scope. BIDS is a community-built and maintained standarized format for the organization and description of neuroimaging and corresponding behavioral data, which has been largely lacking within the neuroimaging community. More specifically, data that come off the scanner are converted to NIFTI and JSON files, organized into a specific directory schema, and labeled following a precise naming convention. The result is an organized dataset that can be easily shared and understood by other researchers. More specifically it is a standard specifying the description of neuroimaging data in a filesystem hierarchy and of the metadata associated with the imaging data. The current edition of the standard is available in HTML with all the previous editions available since October 2018 on the BIDS website. 
 
@@ -10,7 +10,7 @@ The project is a community-driven effort. BIDS, originally OBIDS, was initiated 
 A key component of the BIDS initiative is the collection of associated software tools and platforms that facilitate the validation and ease the use of BIDS-formatted datasets. BIDS converters (e.g., DCM2BIDS) enable the streamlined conversion of raw imaging files into a BIDS dataset, the BIDS validator allows users to confirm that a given dataset complies with the current edition of the standard.
 
 
-2. Benefits of BIDS
+## Benefits of BIDS
 
 As mentioned above, complex data from neuroimaging research can be structured in a variety of ways. There is currently no agreement on how to distribute and organise the data gathered from neuroimaging studies. It is possible for two researchers working in the same lab to choose to organise their data differently. Lack of agreement (or a standard) causes misunderstandings, which wastes time rearranging data or rewriting scripts that were written with a specific structure in mind. Here, we outline a straightforward and practical method for organising behavioural and neuroimaging data. You will gain by applying this standard in the following ways:
 
@@ -29,7 +29,7 @@ Datasets organised using BIDS are accepted by databases like OpenNeuro.org. By u
 You may quickly identify missing values by using validation tools like the BIDS Validator to evaluate the consistency of your dataset. The International Neuroinformatics Coordinating Facility (INCF) and the INCF Neuroimaging Data Sharing (NIDASH) Task Force have supported BIDS, which was largely influenced by the internal format used by the OpenfMRI repository that is now known as OpenNeuro.org. In order to ensure that BIDS covers the majority of frequent experiments while still being understandable and simple to use, we consulted numerous neuroscientists while developing it. To reflect current lab procedures and make it accessible to a wide range of scientists with diverse backgrounds, the standard is purposefully built on the foundation of straightforward file formats and folder structures.
 
 
-4. Tools
+## Tools
 
 [Dcm2Bids](https://unfmontreal.github.io/Dcm2Bids/) is a package for reorganising NIfTI files from dcm2niix into the BIDS format.
 
@@ -57,7 +57,7 @@ here is an outline of the code used for a basic [tutorial](https://unfmontreal.g
 for details on how to setup your config file check [here](https://unfmontreal.github.io/Dcm2Bids/docs/how-to/create-config-file/) and [here](https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html?highlight=bids#understanding-dcm2bidss-configuration-file)
 
 
-# References
+## References
 
 
 [BIDS 1](https://bids-specification.readthedocs.io/en/latest/)
