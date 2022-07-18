@@ -57,42 +57,14 @@ here is an outline of the code used for a basic [tutorial](https://unfmontreal.g
 for details on how to setup your config file check [here](https://unfmontreal.github.io/Dcm2Bids/docs/how-to/create-config-file/) and [here](https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html?highlight=bids#understanding-dcm2bidss-configuration-file)
 
 
-# FMRIprep
-
-# Visualization
-
-## R Visualization
-
-## Python Visualization
-
 # References
 
-[AFNI](https://www.youtube.com/watch?v=Pegz6kKiw6E&list=PL_CD549H9kgq-_HSwvH5KhFl8A15u6d71)
-
-[FSL](https://www.youtube.com/watch?v=3ExL6J4BIeo&list=PLvgasosJnUVl_bt8VbERUyCLU93OG31h_)
-
-[Andy's Brain Book](https://andysbrainbook.readthedocs.io/en/latest/)
 
 [BIDS 1](https://bids-specification.readthedocs.io/en/latest/)
 
 [BIDS 2](https://bids.neuroimaging.io/governance.html)
 
-[BIDSConvertR Package](https://github.com/wulms/bidsconvertr)
-
 [Dcm2Bids](https://unfmontreal.github.io/Dcm2Bids/docs/tutorial/first-steps/)
-
-[ggseg](https://journals.sagepub.com/doi/10.1177/2515245920928009)
-
-[ggseg 1](https://cran.r-project.org/web/packages/ggseg/vignettes/ggseg.html)
-
-[ggseg 2](https://github.com/ggseg/ggseg)
-
-[ggseg3d](https://www.researchgate.net/publication/347761880_Visualization_of_Brain_Statistics_With_R_Packages_ggseg_and_ggseg3d)
-
-[Visualizing-brains-using-r](https://towardsdatascience.com/visualizing-brains-using-r-606fa0fb9fdf)
-
-[fsbrain](https://cran.r-project.org/web/packages/fsbrain/vignettes/fsbrain.html)
-
 
 
 
