@@ -1,5 +1,14 @@
+---
+layout: post
+categories: posts
+title: Brain Imaging Data Structure (BIDS)
+featured-image: /images/BIDS.png
+tags: [BIDS, NeuroImaging, Interoperability]
+date-string: July 2022
+---
 
-# BIDS
+
+# Brain Imaging Data Structure (BIDS)
 
 ## Introduction
 
