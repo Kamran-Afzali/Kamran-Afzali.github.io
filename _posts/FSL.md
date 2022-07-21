@@ -11,7 +11,7 @@ We present the package fslr, a set of R functions that interface with FSL (FMRIB
 
 # References
 
-[FSL](https://www.youtube.com/watch?v=3ExL6J4BIeo&list=PLvgasosJnUVl_bt8VbERUyCLU93OG31h_)
+[FSL Course Video Lectures 2021](https://www.youtube.com/watch?v=3ExL6J4BIeo&list=PLvgasosJnUVl_bt8VbERUyCLU93OG31h_)
 
 [FSL](https://open.win.ox.ac.uk/pages/fslcourse/website/online_materials.html)
 
