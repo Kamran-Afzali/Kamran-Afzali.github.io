@@ -13,7 +13,34 @@ Some of these tools have existed for a long time (e.g., FEAT, BET, FLIRT) while 
 
 ### BET		[Brain extraction](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET)
 
+Several automated brain volume change measuring techniques are available. Many have as a common first step the “brain extraction”, which refers to the separation of brain and non-brain tissue. The automated brain extraction tool (BET) (Smith, 2002a) provided as part of the FSL software package is frequently used to this effect. It is an integrated part of the whole-brain volume change measurement techniques SIENA and SIENAX as well as several functional MRI processing packages. BET uses a tessellated mesh to model the brain surface, which is allowed to deform according to various dynamic controlling terms until it reaches the brain edge. Several options and parameters are available for optimizing BET performance.
+
+Bet uses several options and some are mutually exclusive forinstance :
+
+1. “f”: “fractional intensity threshold” sets the brain/non-brain intensity threshold. It ranges between 0 and 1, and 0.5 is the default value. Lower values than default give larger brain outlines; higher values lead to smaller brain outlines. 
+2. “B”: bias field correction and neck removal. This consists of various stages involving FSL-FAST (FMRIB's Automated Segmentation Tool) bias field removal and standard-space masking.
+3. “R”: uses an iterative procedure to estimate the brain center more accurately, especially in images with a lot of non-brain tissue.
+4. “S”: cleans up residual eye and optic nerve voxels using standard-space masking, morphological operations and thresholding (Battaglini et al., 2008).
+
+BET only allows one of last three options to be selected in any single run.
+
+
 ### FAST		[Tissue segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST)
+
+FAST, FMRIB's Automated Segmentation Tool, is a module for segmenting the brain into different tissue types while correcting the bias field. Also, in FAST's advanced options, the input image is first registered to standard space and then standard tissue probability maps (from the MNI152 dataset) are used to estimate the initial parameters of tissue classes. The segmentation routine used in this tool works based on a Hidden Markov Random Field (HMRF) model optimized by Expectation- Maximization algorithm [8]. The fully automated segmentation process bring about a bias field- corrected version of input image and a probabilistic and/or partial volume tissue segmentation.
+
+
+So goes the story of the creation of FAST. The tool is straightforward: Provide a skullstripped brain, decide how many tissue classes you wish to segment, and the rest of the defaults are usually fine. Often a researcher will want three tissue classes: White matter, grey matter, and cerebrospinal fluid (CSF). However, if you are dealing with a subject that presents with a brain abnormality, such as a lesion, you may want to increase the number of classes to four in order to segment the lesion into its own class.
+
+FAST outputs a dataset for each tissue type. For example, if three tissue types have been segmented, there will be three output datasets, one corresponding to each tissue class; each dataset is a mask for each tissue type, and contains a fraction estimate at each voxel. The picture below shows a grey matter mask segmented with FAST. The intensity at the voxel centered at the crosshairs is 0.42, meaning that 42% of that voxel is estimated to be grey matter; presumably, the other 58% is white matter, as the voxel lies at the boundary between the head of the caudate nucleus (a grey matter structure), and the internal capsule (which is composed of white matter).
+
+MAIN OPTIONS
+
+Now set the Image type. This aids the segmentation in identifying which classes are which tissue type. Note that this option is not used for multi-channel segmentation.
+
+Now select the Output image(s) basename. Output images will have filenames derived from this basename. For example, the main ouput, the Binary segmentation: All classes in one image will have filename <basename>_seg. If multi-channel segmentation is carried out, some of the optional outputs will have basenames derived instead from the input names (but into the directory of the outputbasename). For example, the main segmentation output will be as described above, but the restored images (one for each input image) will be named according to the input images.
+
+Now choose the Number of classes to be segmented. Normally you will want 3 (Grey Matter, White Matter and CSF). However, if there is very poor grey/white contrast you may want to reduce this to 2; alternatively, if there are strong lesions showing up as a fourth class, you may want to increase this. Also, if you are segmenting T2-weighted images, you may need to select 4 classes so that dark non-brain matter is processed correctly (this is not a problem with T1-weighted as CSF and dark non-brain matter look similar).
 
 ### FIRST		[Subcortical segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FIRST)
 
