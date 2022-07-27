@@ -57,14 +57,16 @@ FIRST is a model-based segmentation/registration tool. The shape/appearance mode
 
 ### FLIRT		[Linear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT)
 
-### FNIRT		[Nonlinear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FNIRT)
+[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT/UserGuide)  
+  
+  
+### MCFLIRT		[Nonlinear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT)
+  
+[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT/UserGuide)
 
-### FUGUE		[EPI distortion correction](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FUGUE)
+### FEAT		[EPI distortion correction](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT)
 
-### SIENA		[Atrophy analysis](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/SIENA)
-
-### FSL-VBM		[Grey matter density](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSLVBM)
-
+[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide)
 
 ## FSLr
 
