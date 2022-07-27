@@ -24,6 +24,7 @@ Bet uses several options and some are mutually exclusive forinstance :
 
 BET only allows one of last three options to be selected in any single run.
 
+[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET/UserGuide)
 
 ### FAST		[Tissue segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST)
 
@@ -41,8 +42,18 @@ Now set the Image type. This aids the segmentation in identifying which classes 
 Now select the Output image(s) basename. Output images will have filenames derived from this basename. For example, the main ouput, the Binary segmentation: All classes in one image will have filename <basename>_seg. If multi-channel segmentation is carried out, some of the optional outputs will have basenames derived instead from the input names (but into the directory of the outputbasename). For example, the main segmentation output will be as described above, but the restored images (one for each input image) will be named according to the input images.
 
 Now choose the Number of classes to be segmented. Normally you will want 3 (Grey Matter, White Matter and CSF). However, if there is very poor grey/white contrast you may want to reduce this to 2; alternatively, if there are strong lesions showing up as a fourth class, you may want to increase this. Also, if you are segmenting T2-weighted images, you may need to select 4 classes so that dark non-brain matter is processed correctly (this is not a problem with T1-weighted as CSF and dark non-brain matter look similar).
+  
+[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST/UserGuide)
 
 ### FIRST		[Subcortical segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FIRST)
+  
+Automatic segmentation of subcortical structures in human brain MR images is an important but difficult task due to poor and variable intensity contrast. Clear, well-defined intensity features are absent in many places along typical structure boundaries and so extra information is required to achieve successful segmentation. 
+  
+Achieving this in the subcortical areas of the brain, given the typical low contrast-to-noise, is a great challenge for automated methods. When trained human specialists perform manual segmentations they draw on prior knowledge of shape, image intensities and shape-to-shape relationships. We present here a formulation of a computationally efficient shape and appearance model based on a Bayesian framework that incorporates both intra-and inter-structure variability information, while also taking account of the limited size of the training set with respect to the dimensionality of the data. The method is capable of performing segmentations of individual or multiple subcortical structures as well as analysing differences in shape between different groups, showing the location of changes in these structures, rather than just changes in the overall volume.
+
+FIRST is a model-based segmentation/registration tool. The shape/appearance models used in FIRST are constructed from manually segmented images provided by the Center for Morphometric Analysis (CMA), MGH, Boston. The manual labels are parameterized as surface meshes and modelled as a point distribution model. Deformable surfaces are used to automatically parameterize the volumetric labels in terms of meshes; the deformable surfaces are constrained to preserve vertex correspondence across the training data. Furthermore, normalized intensities along the surface normals are sampled and modelled. The shape and appearance model is based on multivariate Gaussian assumptions. Shape is then expressed as a mean with modes of variation (principal components). Based on our learned models, FIRST searches through linear combinations of shape modes of variation for the most probable shape instance given the observed intensities in a T1-weighted image.
+  
+[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FIRST/UserGuide)
 
 ### FLIRT		[Linear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT)
 
