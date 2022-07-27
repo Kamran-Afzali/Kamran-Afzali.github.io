@@ -60,13 +60,17 @@ FIRST is a model-based segmentation/registration tool. The shape/appearance mode
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT/UserGuide)  
   
   
-### MCFLIRT		[Nonlinear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT)
+### MCFLIRT		[Intra-modal motion correction tool](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT)
   
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT/UserGuide)
 
-### FEAT		[EPI distortion correction](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT)
+### FEAT		[Functional preprocessing and analysis](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT)
 
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide)
+  
+### MELODIC		[Multivariate Exploratory Linear Optimized Decomposition into Independent Components](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MELODIC)
+
+[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MELODIC/UserGuide)
 
 ## FSLr
 
