@@ -28,6 +28,16 @@ BET only allows one of last three options to be selected in any single run.
 
 ### FAST		[Tissue segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST)
 
+Following brain–nonbrain segmentation, tissue-type segmentation can be performed, that is, classification of each voxel into grey-matter, white-matter, or cerebrospinal fluid (CSF), and possibly pathology (e.g., lesion). It is common to segment purely using voxel intensity, once intensity thresholds have been found to optimally distinguish between the different tissue classes. This can be considered as an analysis of the image histogram, where the different classes appear (ideally) as separate peaks, which have a spread caused by factors such as image noise, motion artefacts, partial-volume effect, bias field (intensity fluctuations across the image caused by inhomogeneities in the radio frequency field), and true within-class variation. This spread can cause serious mislabeling of voxels, particularly if the bias field is strong.
+
+A central problem is that robust and accurate estimation of the bias field ideally requires perfect knowledge of the segmentation, while obtaining a perfect segmentation requires that the bias field be known and corrected. This circularity of dependence means that a sensible approach to both problems is to solve the two problems together, in practice iterating between estimating the segmentation and the bias field, until convergence. This is the approach taken in FMRIB's Automated Segmentation Tool (FAST) (Zhang et al., 2001). The histogram is modeled as a mixture of Gaussians (one for each class), giving each class's mean (and variance) intensity. Each voxel is then labeled by taking into account not only its intensity with respect to the estimated class means, but also the labeling of its local neighbors—a Markov random field (MRF) is placed on the labeling, causing spatial regularization (i.e., smoothness of segmentation). This greatly reduces the effect of noise on the segmentation. The segmentation allows an idealized reconstruction of the image; subtracting this from the real image (and smoothing) gives an estimate of the bias field. This whole process is then iterated several times.
+
+If required, FAST also models the partial volume effect (PVE) at each voxel. The voxel's intensity with respect to the global class (tissue-type) means and variances is used to estimate the PVE, and this is augmented with an MRF on the PVE to spatially regularize with local voxels.
+
+The above approach easily generalizes to “multichannel segmentation”, that is, if more than one input modality (image type) is available. For example, if both T1-weighted and proton density images are available, the input can be thought of as a vector image instead of just a scalar. FAST allows for two or more input images, which can give improved results, for example, in the deep grey structures where T1-only segmentation often has problems due to the intermediate (between white and cortical grey) intensities of some subcortical “grey” matter.
+
+FAST does not use segmentation priors (images in standard space of the expected distribution of the tissue types, averaged over many subjects) by default, as the prior segmentation images tend to be very blurred, and therefore not very informative. However, this option can be turned on, for example, to aid the initial segmentation in the case of very bad bias field.
+
 FAST, FMRIB's Automated Segmentation Tool, is a module for segmenting the brain into different tissue types while correcting the bias field. Also, in FAST's advanced options, the input image is first registered to standard space and then standard tissue probability maps (from the MNI152 dataset) are used to estimate the initial parameters of tissue classes. The segmentation routine used in this tool works based on a Hidden Markov Random Field (HMRF) model optimized by Expectation- Maximization algorithm [8]. The fully automated segmentation process bring about a bias field- corrected version of input image and a probabilistic and/or partial volume tissue segmentation.
 
 
@@ -45,6 +55,7 @@ Now choose the Number of classes to be segmented. Normally you will want 3 (Grey
   
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST/UserGuide)
 
+
 ### FIRST		[Subcortical segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FIRST)
   
 Automatic segmentation of subcortical structures in human brain MR images is an important but difficult task due to poor and variable intensity contrast. Clear, well-defined intensity features are absent in many places along typical structure boundaries and so extra information is required to achieve successful segmentation. 
@@ -57,10 +68,34 @@ FIRST is a model-based segmentation/registration tool. The shape/appearance mode
 
 ### FLIRT		[Linear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT)
 
+FLIRT—affine intermodal image registration
+Robust automated intensity-based image registration is a core capability needed for most brain image analysis applications. Ideally, it provides a fast, accurate, robust, and objective way to align images of the same or different MR modalities, crucial for many applications such as localizing functional activations within a subject's own neuroanatomy and for allowing group comparisons via the registration to a standard image. However, a common problem is that registration methods sometimes fail to produce “sensible” results, with gross misalignment clearly visible. These failures often occur when the images being registered are initially in different orientations. For automated analysis methods that rely on registration (e.g., FMRI analysis and atrophy analysis), such failures are very problematic.
+
+The standard framework for intensity-based registration involves the minimization of a cost function (which quantitates how well aligned two images are) as the registration parameters (such as rotation and translation) are varied. Consequently, the cause of misregistrations arises from either nonideal cost functions (which return minimum values for poor alignments) or from nonideal optimization methods that fail to find the (global) minimum value of the cost function. Much work has gone into proposing suitable cost functions for image registration, for example, using information theory (Viola and Wells, 1997). However, little work has been done on improving optimization methods for image registration, even though “getting stuck” in a local minimum is the main cause of failure for many registration methods.
+  
+We will first co-register the images within each separate visit to the T1 image from that visit. This operation overlays the images on one another and allows us to investigate joint distributions of voxel intensities from different image modalities. This is performed using FMRIB's Linear Image Registration Tool (FLIRT; Jenkinson and Smith 2001; Jenkinson et al. 2002). As the images are from the same individual, we may assume that the overall shape of the brain has not changed, but each scan may have undergone a translation and/or rotation in space. Therefore, we will use a rigid-body transformation, with 6 degrees of freedom (dof).
+  
+My FLIRT registration doesn't work well - what can I do?
+
+There are many reasons why a registration may not work well. Here is a general checklist of things to test and try in order to improve the registration results (please do not post a query to the FSL email list about registration results until you have gone through this list):
+
+Check that the input image looks fine and that the voxel size is correct by (a) looking at the images with slices (none of the views should look squashed or stretched) and (b) checking the voxel dimensions (pixdim) with `fslhd (Note: voxel size can be fixed using fslchpixdim)
+Remove non-brain structures with BET from both images (Note that small errors in the BET results will only have a very small impact on the registration quality)
+Use the image with the best contrast and resolution as the reference image. If this gives you the registration in the opposite direction than you wanted then the result can be easily inverted using InvertXFM or convert_xfm.
+For 2D images (single slices) you must use one of the valid 2D degrees of freedom options (or -2D and appropriate schedules from the command line - see below)
+If there is large bias field (slow intensity variation - especially near the end slices) then try using fast to create a restored image (one with no bias field) and then register using the restored image.
+If there are relatively small errors in some crucial region of interest (e.g. ventricles) then the registration may benefit from using cost function weighting to enhance the importance of this region. To do this a weighting image must be made which has the value of 1.0 everywhere except in the region of interest where a higher weight (e.g. 10.0) should be used. Using this weighting volume in either the GUI or command line registration calls should improve the fit in this region.
+
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT/UserGuide)  
   
   
 ### MCFLIRT		[Intra-modal motion correction tool](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT)
+  
+Motion correction is an important issue in FMRI analysis as even the slightest patient motion can induce significant motion artefacts (potentially of greater magnitude than the BOLD effect itself), particularly at tissue boundaries, at the edge of the brain or near major vessels. A rigid-body motion correction tool was developed based on the affine registration tool in FSL (FLIRT, see above). This method (MCFLIRT) applies the same cost function regularization techniques as FLIRT but does not need the multistart optimization techniques because movement from one volume to another within an FMRI sequence is small, giving good initialization. Instead, the tool was specifically customized to be highly accurate for typical FMRI data (Jenkinson et al., 2002a).
+
+Motion correction, however, is an inherently nonrigid problem because the volume is not acquired at a single instant, but each slice is acquired at a different time. Consequently, when the head is moving, each slice is transformed by a slightly different rigid-body transformation, making whole-volume rigid-body correction oversimplistic. Furthermore, the fact that each slice has slightly shifted timing with respect to each other is incompatible with the assumptions of subsequent temporal analysis. This is often dealt with by applying a slice-timing correction (interpolation within each voxel's time series) either before or after rigid-body motion correction. Applying rigid-body motion correction and slice-timing corrections separately (in either order) is imperfect, as the two problems arise simultaneously and therefore need to be solved in a single integrated approach.
+
+To this end, we have developed a limited degree of freedom (DOF) model of the slice transformation process, assuming smooth motion within each TR. (This model is an approximation to the real situation where any sudden small motion could occur during a TR; using a more general model would be problematic as it introduces extra degrees of freedom, requiring rigid-body registration of a single slice to a reference volume, which is nonrobust and inaccurate.) Cost functions are generalized from the 3D case to include the entire 4D data set because it is unlikely that any single volume can be relied upon to provide a sufficiently accurate (motion-free) reference volume. Initial results using this approach (called FORCE–FMRIB's Optimized Retrospective Correction Environment) indicate that it is possible to reduce final motion-related error in comparison with separated rigid-body correction and slice-timing correction (Bannister et al., 2002).
   
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT/UserGuide)
 
