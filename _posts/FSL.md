@@ -9,9 +9,17 @@ As mentioned above, the GUIs provide a simple interface and pipe- line for the v
 
 Some of these tools have existed for a long time (e.g., FEAT, BET, FLIRT) while others are relatively new (e.g., FABBER, TBSS, FSLVBM). At times there have been “delays” before including certain functional- ity that might arguably have appeared earlier, for example nonlinear registration and VBM-like functionality; we now describe a little of the relevant history.
 
-## Outile of some useful commands 
+## Outline of some useful commands 
+
+### Structural MRI analysis
 
 ### BET		[Brain extraction](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET)
+
+There are many applications related to brain imaging that either require or benefit from the ability to accurately segment brain from
+nonbrain tissue. For example, in the registration of functional images to high-resolution MR images, both FMRI and PET functional images often contain little nonbrain tissue because of the nature of the imaging, whereas the high-resolution MR image will probably contain a considerable amount—eyes, skin, fat, muscle, etc.— and thus registration robustness is improved if these nonbrain parts of the image can be automatically removed before
+registration. Also, many tissue-type segmentation approaches (such as FAST, see below) require brain–nonbrain segmentation to have been carried out before they can function well. We have developed a tool for fully automated brain extraction that runs robustly on a variety of MR modalities (tested on T1-weighted, T2-weighted, proton density, EPI, etc.) called Brain Extraction Tool (BET) (Smith, 2002). At the core of the algorithm, a triangular tessellation of a spherical surface is initialized inside the brain, and allowed to slowly deform, one vertex at a time, following
+forces that keep the surface well spaced and smooth, while attempting to move toward the brain’s edge (defined in terms of the local intensity structure to reduce the effects of image bias field).
+If a suitably clean solution is not arrived at then the whole process is rerun with a higher smoothness constraint. Finally, if required, the outer surface of the skull can be estimated. See Fig. 8 for example BET output.
 
 Several automated brain volume change measuring techniques are available. Many have as a common first step the “brain extraction”, which refers to the separation of brain and non-brain tissue. The automated brain extraction tool (BET) (Smith, 2002a) provided as part of the FSL software package is frequently used to this effect. It is an integrated part of the whole-brain volume change measurement techniques SIENA and SIENAX as well as several functional MRI processing packages. BET uses a tessellated mesh to model the brain surface, which is allowed to deform according to various dynamic controlling terms until it reaches the brain edge. Several options and parameters are available for optimizing BET performance.
 
@@ -69,6 +77,7 @@ FIRST is a model-based segmentation/registration tool. The shape/appearance mode
 ### FLIRT		[Linear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT)
 
 FLIRT—affine intermodal image registration
+  
 Robust automated intensity-based image registration is a core capability needed for most brain image analysis applications. Ideally, it provides a fast, accurate, robust, and objective way to align images of the same or different MR modalities, crucial for many applications such as localizing functional activations within a subject's own neuroanatomy and for allowing group comparisons via the registration to a standard image. However, a common problem is that registration methods sometimes fail to produce “sensible” results, with gross misalignment clearly visible. These failures often occur when the images being registered are initially in different orientations. For automated analysis methods that rely on registration (e.g., FMRI analysis and atrophy analysis), such failures are very problematic.
 
 The standard framework for intensity-based registration involves the minimization of a cost function (which quantitates how well aligned two images are) as the registration parameters (such as rotation and translation) are varied. Consequently, the cause of misregistrations arises from either nonideal cost functions (which return minimum values for poor alignments) or from nonideal optimization methods that fail to find the (global) minimum value of the cost function. Much work has gone into proposing suitable cost functions for image registration, for example, using information theory (Viola and Wells, 1997). However, little work has been done on improving optimization methods for image registration, even though “getting stuck” in a local minimum is the main cause of failure for many registration methods.
@@ -101,12 +110,15 @@ Motion correction is an important issue in FMRI analysis as even the slightest p
 Motion correction, however, is an inherently nonrigid problem because the volume is not acquired at a single instant, but each slice is acquired at a different time. Consequently, when the head is moving, each slice is transformed by a slightly different rigid-body transformation, making whole-volume rigid-body correction oversimplistic. Furthermore, the fact that each slice has slightly shifted timing with respect to each other is incompatible with the assumptions of subsequent temporal analysis. This is often dealt with by applying a slice-timing correction (interpolation within each voxel's time series) either before or after rigid-body motion correction. Applying rigid-body motion correction and slice-timing corrections separately (in either order) is imperfect, as the two problems arise simultaneously and therefore need to be solved in a single integrated approach.
 
 To this end, we have developed a limited degree of freedom (DOF) model of the slice transformation process, assuming smooth motion within each TR. (This model is an approximation to the real situation where any sudden small motion could occur during a TR; using a more general model would be problematic as it introduces extra degrees of freedom, requiring rigid-body registration of a single slice to a reference volume, which is nonrobust and inaccurate.) Cost functions are generalized from the 3D case to include the entire 4D data set because it is unlikely that any single volume can be relied upon to provide a sufficiently accurate (motion-free) reference volume. Initial results using this approach (called FORCE–FMRIB's Optimized Retrospective Correction Environment) indicate that it is possible to reduce final motion-related error in comparison with separated rigid-body correction and slice-timing correction (Bannister et al., 2002).
+
+
   
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT/UserGuide)
 
-### FEAT		[Functional preprocessing and analysis](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT)
+### Functional MRI analysis
+  
+  
 
-[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide)
   
 ### MELODIC		[Multivariate Exploratory Linear Optimized Decomposition into Independent Components](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MELODIC)
   
@@ -121,6 +133,23 @@ When using separate analyses, MELODIC will attempt to find components which are 
  
 
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MELODIC/UserGuide)
+  
+  
+### FEAT		[Functional preprocessing and analysis](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT)
+
+FEAT is a software tool for high quality model-based FMRI data analysis, with an easy-to-use graphical user interface (GUI). FEAT is part of FSL (FMRIB's Software Library). FEAT automates as many of the analysis decisions as possible, and allows easy (though still robust, efficient and valid) analysis of simple experiments whilst giving enough flexibility to also allow sophisticated analysis of the most complex experiments.
+
+Analysis for a simple experiment can be set up in less than 1 minute, whilst a highly complex experiment need take no longer than 5 minutes to set up. The FEAT programs then typically take 5-20 minutes to run (per first-level session), producing a web page analysis report, including colour activation images and time-course plots of data vs model.
+
+The data modelling which FEAT uses is based on general linear modelling (GLM), otherwise known as multiple regression. It allows you to describe the experimental design; then a model is created that should fit the data, telling you where the brain has activated in response to the stimuli. In FEAT, the GLM method used on first-level (time-series) data is known as FILM (FMRIB's Improved Linear Model). FILM uses a robust and accurate nonparametric estimation of time series autocorrelation to prewhiten each voxel's time series; this gives improved estimation efficiency compared with methods that do not pre-whiten.
+
+FEAT saves many images to file - various filtered data, statistical output and colour rendered output images - into a separate FEAT output directory for each session. If you want to re-run the statistical stage of analysis, you can do so without re-running any of the pre-processing, by telling FEAT to look in a FEAT directory for the processed functional data it needs to do this.
+
+FEAT can also carry out the registration of the low resolution functional images to a high resolution scan, and registration of the high resolution scan to a standard (e.g. MNI152) image. Registration is carried out using FLIRT.
+
+For higher-level analysis (e.g. analysis across sessions or across subjects) FEAT uses FLAME (FMRIB's Local Analysis of Mixed Effects). FLAME uses very sophisticated methods for modelling and estimating the random-effects component of the measured inter-session mixed-effects variance, using MCMC sampling to get an accurate estimation of the true random-effects variance and degrees of freedom at each voxel.
+
+[UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide)
 
 ## FSLr
 
