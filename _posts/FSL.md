@@ -1,11 +1,7 @@
 
 
 ## FSL
-FSL (the FMRIB Software Library) is a comprehensive library of analysis tools for functional, structural and diffusion MRI brain imaging data, written mainly by members of the Analysis Group, FMRIB, Oxford. For this NeuroImage special issue on “20 years of fMRI” we have been asked to write about the history, developments and current status of FSL. We also include some descriptions of parts of FSL that are not well covered in the existing literature. We hope that some of this content might be of interest to users of FSL, and also maybe to new research groups considering creating, releasing and supporting new software packages for brain image analysis.
-
-FSL divides into three main areas, related to functional, diffusion and structural image analysis. There are over 230 individual com- mand line tools (approximately 140 scripts and 90 compiled C++ programs — including 50 small/flexible tools in the “fslutils” set) plus 23 GUIs, making it very flexible but rather formidable to the first-time user. However, there are only a handful of major tools that most people use directly, as shown in Table 1, which gives a rough idea of the current scope of FSL.
-
-As mentioned above, the GUIs provide a simple interface and pipe- line for the various underlying command-line tools. It is always pos- sible to replicate an analysis that was done with a GUI using only command-line tools, and this is made easier by the existence of a command log file that is output by the GUI. This makes custom-scripting relatively easy, including parallelising tasks on a computing cluster, although distributing jobs over a cluster is already automatically handled by some of the “larger” FSL GUIs (e.g., FEAT, FDT).
+Developed primarily by members of the Analysis Group of FMRIB at Oxford, the FSL (the FMRIB Software Library) is a comprehensive library of analysis tools for different modilities of brain imaging data.  With over two hundred individual command line tools (approximately 140 scripts and 90 compiled C++ programs — including 50 small/flexible tools in the “fslutils” set) FSL divides into three main areas, related to functional, diffusion and structural image analysis. Also GUIs, making FSL very flexible but rather formidable to the first-time user. GUIs provide a simple interface and pipe- line for the various underlying command-line tools. It is always possible to replicate an analysis that was done with a GUI using only command-line tools, and this is made easier by the existence of a command log file that is output by the GUI. This makes custom-scripting relatively easy, including parallelising tasks on a computing cluster, although distributing jobs over a cluster is already automatically handled by some of the “larger” FSL GUIs.
 
 Some of these tools have existed for a long time (e.g., FEAT, BET, FLIRT) while others are relatively new (e.g., FABBER, TBSS, FSLVBM). At times there have been “delays” before including certain functional- ity that might arguably have appeared earlier, for example nonlinear registration and VBM-like functionality; we now describe a little of the relevant history.
 
@@ -150,6 +146,22 @@ FEAT can also carry out the registration of the low resolution functional images
 For higher-level analysis (e.g. analysis across sessions or across subjects) FEAT uses FLAME (FMRIB's Local Analysis of Mixed Effects). FLAME uses very sophisticated methods for modelling and estimating the random-effects component of the measured inter-session mixed-effects variance, using MCMC sampling to get an accurate estimation of the true random-effects variance and degrees of freedom at each voxel.
 
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide)
+  
+## Nipype  
+  
+Current neuroimaging software offer users an incredible opportunity to analyze their data in different ways, with different underlying assumptions. Several sophisticated software packages (e.g., AFNI, BrainVoyager, FSL, FreeSurfer, Nipy, R, SPM) are used to process and analyze large and often diverse (highly multi-dimensional) data. However, this heterogeneous collection of specialized applications creates several issues that hinder replicable, efficient, and optimal use of neuroimaging analysis approaches: (1) No uniform access to neuroimaging analysis software and usage information; (2) No framework for comparative algorithm development and dissemination; (3) Personnel turnover in laboratories often limits methodological continuity and training new personnel takes time; (4) Neuroimaging software packages do not address computational efficiency; and (5) Methods sections in journal articles are inadequate for reproducing results. 
+  
+  
+Nipype provides a uniform interface to existing neuroimaging software and facilitates interaction between these packages within a single workflow.
+Nipype, an open-source, community-developed initiative under the umbrella of NiPy, is a Python project that provides a uniform interface to existing neuroimaging software and facilitates interaction between these packages within a single workflow. Nipype provides an environment that encourages interactive exploration of algorithms from different packages (e.g., ANTS, SPM, FSL, FreeSurfer, Camino, MRtrix, MNE, AFNI, Slicer), eases the design of workflows within and between packages, and reduces the learning curve necessary to use different packages. Nipype is creating a collaborative platform for neuroimaging software development in a high-level language and addressing limitations of existing pipeline systems.
+
+Nipype allows you to:
+Easily interact with tools from different software packages.
+Combine processing steps from different software packages.
+Develop new workflows faster by reusing common steps from old ones.
+Process data faster by running it in parallel on many cores/machines.
+Make your research easily reproducible.
+Share your processing workflows with the community.  
 
 ## FSLr
 
