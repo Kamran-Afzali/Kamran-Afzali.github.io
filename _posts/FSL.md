@@ -4,18 +4,18 @@
 
 Developed primarily by members of the Analysis Group of FMRIB at Oxford, the FSL (the FMRIB Software Library) is a comprehensive library of analysis tools for different modilities of brain imaging data.  With over two hundred individual command line tools (approximately 140 scripts and 90 compiled C++ programs — including 50 small/flexible tools in the “fslutils” set) FSL divides into three main areas, related to functional, diffusion and structural image analysis. Additionally, GUIs make FSL incredibly flexible but quite difficult for a beginner to utilise. The different underlying command-line utilities are provided with a straightforward interface and pipe-line by GUIs. The existence of a command log file that is output by the GUI makes it simpler to reproduce an analysis that was performed using a GUI using solely command-line tools. Although some of the "bigger" FSL GUIs already take care of automatically spreading jobs over a cluster, this makes custom scripting reasonably simple, including parallelizing work on a computing cluster. We'll go over some of the frequently used FSL tools (in the context of structural and functional MRI) in the sections below.
 
-## Outline of some useful commands 
+### Outline of some useful commands for structural and functional MRI
 
 ### Structural MRI analysis
 
-#### BET		[Brain extraction](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET)
+#### BET [Brain extraction](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET)
 
 The capacity to precisely separate brain from non-brain tissue is important for a wide variety of applications in brain imaging. Because of the nature of the imaging, FMRI and PET functional images frequently contain little non-brain tissue, whereas high-resolution MR images are likely to contain a significant amount—eyes, skin, fat, muscle, etc.—and registration robustness is improved if these non-brain parts of the image can be automatically removed before registration. Additionally, for many tissue-type segmentation methods to work effectively, brain-nonbrain segmentation must have been completed first. The Brain Extraction Tool is a fully automated brain extraction that functions dependably on a number of MR modalities. A triangular tessellation of a spherical surface is initially initiated inside the brain and then allowed to expand, one vertex at a time, while being propelled toward the edge of the brain by forces that keep the surface evenly spaced and smooth. If a clean enough solution cannot be found, the entire procedure is repeated with a tighter smoothness restriction. The outside surface of the skull can also be estimated, if necessary. BET is a component of numerous functional MRI processing packages as well as the whole-brain volume change measuring methods SIENA and SIENAX. The brain surface is modelled by BET using a tessellated mesh, which is then allowed to deform in accordance with various dynamic regulating parameters until it reaches the brain edge. The performance of BET can be optimised using a variety of variables and factors.
 
 
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET/UserGuide)
 
-#### FAST		[Tissue segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST)
+#### FAST [Tissue segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST)
 
 The FAST module divides the brain into various tissue types while adjusting for bias field. The tool is simple to use: Provide a brain that has been stripped of its skull, then pick how many tissue classes to section (e.g. three tissue classes: White matter, grey matter, and cerebrospinal-fluid). However, you might wish to raise the number of classes to four in order to separate the lesion into its own class if you are working with a person that has a brain abnormality (lesion). Each tissue type's dataset is produced using FAST. One output dataset will correspond to each tissue class, for instance, if three different tissue types were segmented. Each dataset is a mask for each tissue type and comprises a fraction estimate at each voxel.
 
@@ -29,13 +29,13 @@ FAST models the partial volume effect at each voxel if necessary. Regarding the 
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST/UserGuide)
 
 
-#### FIRST		[Subcortical segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FIRST)
+#### FIRST [Subcortical segmentation](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FIRST)
   
 Due to the weak and fluctuating intensity contrast, automatic segmentation of subcortical regions in human brain MR images is a crucial yet challenging endeavour. In many instances, well-defined intensity features and typical structural boundaries are absent, necessitating the addition of additional data to successfully segment the data. For automated approaches, achieving this in the subcortical regions of the brain is quite difficult. FIRST is a Bayesian framework-based shape and appearance model that is computationally effective and integrates information about both intra- and inter-structure variability. It also accounts for the small size of the training set in relation to the dimensionality of the data. It is on par with skilled human specialists who manually segment images using their prior understanding of shape, picture intensities, and correlations between shapes. FIRST is able to segment subcortical structures, analyse shape variations between groups, and highlight where alterations to these structures and changes to the overall volume have occurred. FIRST is a segmentation and registration technique based on models. FIRST's shape/appearance models are built using manually segmented photos that are parameterized as surface meshes and modelled as point distribution models. The multivariate Gaussian presumptions provide the foundation of the shape and appearance model. Principal components are then used to depict shape as a mean with modes of variation. FIRST looks through linear combinations of shape modes of variation based on our learnt models to find the shape instance that matches the measured intensities in a T1-weighted image the most closely.
   
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FIRST/UserGuide)
 
-#### FLIRT		[Linear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT)
+#### FLIRT [Linear registration](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT)
 
 FLIRT—affine intermodal image registration
   
@@ -56,7 +56,7 @@ The registration may benefit from employing cost function weighting to increase 
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FLIRT/UserGuide)  
   
   
-#### MCFLIRT		[Intra-modal motion correction tool](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT)
+#### MCFLIRT [Intra-modal motion correction tool](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MCFLIRT)
   
 The photographs will appear hazy if the subject is moving during the imaging session. Additionally, there is a chance of measuring a signal from a voxel from a different location or tissue type if the individual moves around a lot. For instance, If the subject moves every time in response to a stimulus - for example, if he jerks his head every time he feels an electrical shock - then it can become impossible to determine whether the signal we are measuring is in response to the stimulus, or because movement. The patient movement can cause considerable motion artefacts in FMRI analysis. This is especially true at tissue boundaries, the edge of the brain, or next to major blood arteries. Based on the affine registration tool in FSL, a rigid-body motion correction tool was created. Since there is little movement from one volume to the next during a FMRI sequence, this method (MCFLIRT) utilises the same cost function regularisation techniques as FLIRT but does not require multistart optimization techniques. Instead, the instrument was specially tailored to be extremely accurate for common FMRI data.
 
@@ -71,7 +71,7 @@ In order to achieve this, we created a model of the slice transformation process
   
 
   
-#### MELODIC		[Multivariate Exploratory Linear Optimized Decomposition into Independent Components](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MELODIC)
+#### MELODIC [Multivariate Exploratory Linear Optimized Decomposition into Independent Components](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MELODIC)
   
 A common exploratory technique for evaluating complex data, such as that from FMRI research, is independent component analysis (ICA). In order to depict various artefacts or activation patterns, ICA seeks to divide the data into (statistically) separate spatial maps. This approach, does not require a (temporal) model because it analyses the entire 4D data set at once. However, the use of such a model-free approaches has been constrained both by the view that results may be difficult to interpret and by the incapacity to calculate statistical significance for estimated spatial maps.
 
@@ -83,7 +83,7 @@ MELODIC's single-session ICA processes each of the input files using a typical 2
 [UserGuide](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/MELODIC/UserGuide)
   
   
-#### FEAT		[Functional preprocessing and analysis](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT)
+#### FEAT [Functional preprocessing and analysis](http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT)
 
 FEAT automates as many analysis decisions as it can, making it feasible to analyse simple experiments in a straightforward manner that is nonetheless effective, fast, and valid while still allowing for sophisticated analysis of even the most challenging trials. A highly complex experiment only needs to take few minutes to set up, whereas analysis for a basic experiment can be set up in less than five minute. The FEAT programmes then typically take 5 to 20 minutes to run (per first-level session), providing an analysis report of a web page that includes colour activation images and time-course charts of data versus model. The data modelling which FEAT uses is based on general linear modelling (GLM), otherwise known as multiple regression. FEAT enables you to explain the experimental setup, after which a model is built to fit the data and reveal the brain regions that responded to the stimuli. The GLM technique used in FEAT is referred to as FILM (FMRIB's Improved Linear Model), and it is utilised on first-level (time-series) data. In contrast to approaches that do not pre-whiten, FILM uses a robust and accurate nonparametric estimation of time series autocorrelation to pre-whiten the time series of each voxel.
 
