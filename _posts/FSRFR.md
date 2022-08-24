@@ -46,6 +46,17 @@ One way to reduce the amount of time it takes to analyze so many subjects is to 
 
 Let’s assume that each meal takes one hour to make. Instead of each man waiting his turn for the same kitchen every hour, everybody makes their meals simultaneously. What would otherwise take eight hours - that is, for all of the men to make their meal in the same kitchen - now takes one hour. If we could do something similar with our data analysis, we could finish processing the anatomical images in a more reasonable amount of time.
 
+## Viewing Your Data
+
+Each neuroimaging software package has a data viewer, or an application that allows you to look at your data. AFNI, SPM, and FSL all have data viewers which basically do the same thing: the user loads imaging data, usually anatomical or functional images, and can view them in three dimensions. Most viewers are able to load NIFTI files that contains any kind of imaging data.
+
+FreeSurfer has its own viewer called Freeview, which can by launched from the Terminal by typing freeview and pressing enter. It can load NIFTI images just like the other packages, and in addition it can load FreeSurfer-specific formats, such as data with .mgz and .inflated extensions. The image can be viewed in all three dimensions in the Viewing Panel, or you can change the layout so that only one viewing dimension is displayed.
+
+Freeview can load both volumes and surfaces at the same time. To load a surface, click File -> Load Surface, and select an image in the surf directory, such as lh.pial. This will overlay a 3D representation of the surface in the three-dimensional box of the View window, and will trace the outline of the surface in the orthogonal boxes (i.e., the sagittal, axial, and coronal views). The color of the surface in the orthogonal views can be changed by selecting a new Edge color.
+
+## VBM in FreeSurfer
+
+
 # References
 
 [FSL](https://www.youtube.com/watch?v=3ExL6J4BIeo&list=PLvgasosJnUVl_bt8VbERUyCLU93OG31h_)
