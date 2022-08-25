@@ -56,6 +56,44 @@ Freeview can load both volumes and surfaces at the same time. To load a surface,
 
 ## VBM in FreeSurfer
 
+So far we have reviewed the basic commands of FreeSurfer: recon-all and freeview. Recon-all creates a series of volumes and surfaces from a T1-weighted anatomical image, and quantifies the amount of grey matter thickness and volume in different regions of the brain. The cortical regions are called parcellations, and the sub-cortical regions are called segmentations. For example, the left superior frontal gyrus is a parcellation delineated by the Desikan-Killiany atlas, and structural measurements are calculated in that region for each subject. The right amygdala, on the other hand, is a segmentation; because the sub-cortical regions are not inflated into a surface, they only contain measurements of grey matter volume, not thickness.
+
+At this point, you may be thinking about how to compare structural measurements between groups and how to represent those differences on the surface of the brain. The procedure is similar to fMRI analysis: Just as we compare voxels in fMRI, we compare vertices in FreeSurfer. If the vertices are in a common space such as MNI, we can calculate differences in grey matter thickness at a particular vertex and test whether that difference is significant. This generates statistical maps that we can overlay on a template brain as a surface map.
+
+
+The Cannabis dataset comes with a file called participants.tsv that contains labels and covariates for each subject: Group, gender, age, onset of cannabis use, and so on. To create a FreeSurfer Group Descriptor (FSGD) file, we will extract those covariates or group labels that we are interested in and format them in a way that FreeSurfer understands. The FSGD file will both contain the covariates that we want to contrast, and a separate contrast file will indicate which covariates to contrast and which weights to assign to them.
+
+
+To keep our files organized, copy the participants.tsv file into the FSGD directory, and rename it CannabisStudy.tsv:
+
+Now, open the file CannabisStudy.tsv in Excel. We will reformat it into an FSGD file, which is organized in such a way that can be understood by the group analysis commands we will run later. In the first column, type the following four lines:
+
+These lines are called header lines, since they are needed at the top, or head, of the document and indicate the format of the FSGD file. The first line, GroupDescriptorFile 1, indicates that the file is in FSGD format; you will need this first line in any FSGD file that you create. The second line, Title CannabisStudy, will prepend the string “CannabisStudy” to the directories which store the results of your analyses. The next two lines, Class HC and Class CB, indicate that the subject name next to a column containing the string HC belongs to the HC group, and that the subject name next to a column containing the string CB belongs to the CB group. For example, after our header lines, we may see something like this:
+
+Our next step is to create a contrast file that specifies the contrast weights for each regressor in our model. The “Class” variables that we specified in the FSGD file are group regressors: One for the Cannabis group, and one for the Control group. Since we have only two regressors, we only need to specify two contrast weights.
+
+
+The previous tutorials have focused on preparing the data for a group analysis: First, the data was preprocessed using recon-all, with different structural measurements calculated at each vertex; and second, we created an FSGD file and a contrast file indicating which groups we want to compare against each other.
+
+If you recall from a previous tutorial, I recommended using the qcache option when running recon-all. This will generate thickness, volume, and curvature maps at several different smoothing sizes, such as 0mm, 10mm, and 25mm full-width half-maximum kernels. One of the benefits of surface-based analysis is that you can use much larger smoothing kernels than you can in volumetric-based analyses, because there is no risk of smoothing across gyri. When you run the group analysis you can choose among any of the following smoothing sizes.
+
+In order to run a group analysis, we will need to combine all of our individual structural maps into a single dataset. This is similar to the idea of combining consecutive volumes of an fMRI run into a one dataset - as though the volumes are daisy-chained together and laid end to end. (Or, to think of it another way, the structural images are stacked on top of each other, like pancakes; or layered like nachos. Use whatever food analogy is most helpful to remember this important point.)
+
+The data are also resampled to the fsaverage template, which is in MNI space. Whenever we do any kind of group analysis - comparing groups, region of interest analysis, and so on - each subject’s data must have the same dimensions and voxel resolution. Forgetting to resample usually leads to errors during this step. (All of this applies to fMRI analysis as well.)
+
+
+Now that all of the subjects are concatenated into a single dataset, we can fit a general linear model with FreeSurfer’s mri_glmfit command. In this example we will use the following inputs:
+
+The concatenated dataset containing all of the subjects’ structural maps (--y);
+The FSGD file (--fsgd);
+A list of contrasts (each contrast specified by a different line containing --C);
+The hemisphere of the template to analyze (--surf);
+A mask to restrict our analysis only to the cortex (--cortex);
+An output label for the directory containing the results (--glmdir).
+As above, we will use nested for loops to analyze the hemispheres, smoothing kernels, and structural measurements of our choosing. In this example we will analyze both the left and right hemispheres at a smoothing kernel of 10mm, and we will analyze the strucutral maps of volume and thickness:
+
+
+## Region of Interest Analysis
 
 # References
 
