@@ -39,7 +39,7 @@ Cluster analysis is the process of categorising items into sets that are related
 
 ### R packages
 
-To the best of my knowledge, **dtw** and **dtwclust** are the two main packages that perform time series clustering. These packages are incredibly straightforward yet effective time series analysis tools. Although the **dtw** package provides a substantial amount of DTW functionality, it does not contain other methods that are extremely beneficial for time-series clustering. The implementation of new clustering algorithms like k-Shape and TADPole are in MATLAB, which makes it difficult to combine them with existing R programmes. The **dtwclust** package was created in order to connect with both established and emerging clustering methods while taking into account the uniqueness of time-series data. In this post we are going through the code for creating distance matrices, clustering, and visualizing the results using R.
+To the best of my knowledge, **TSclust** and **dtwclust** are the two main packages that perform time series clustering. These packages are incredibly straightforward yet effective time series analysis tools. Although the **dtw** package provides a substantial amount of DTW functionality, it does not contain other methods that are extremely beneficial for time-series clustering. The implementation of new clustering algorithms like k-Shape and TADPole are in MATLAB, which makes it difficult to combine them with existing R programmes. The **dtwclust** package was created in order to connect with both established and emerging clustering methods while taking into account the uniqueness of time-series data. In this post we are going through the code for creating distance matrices, clustering, and visualizing the results using R.
 
 First we load necessary packages and use the example example.database2.
 
@@ -156,3 +156,12 @@ p1
 ```
 
 ![](/images/dtw-1.png)
+
+
+
+## References
+
+
+[Package ‘TSclust’](https://cran.r-project.org/web/packages/TSclust/TSclust.pdf)
+
+[Package ‘dtwclust’](https://cran.r-project.org/web/packages/dtwclust/dtwclust.pdf)
