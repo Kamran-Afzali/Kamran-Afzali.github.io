@@ -121,4 +121,4 @@ The output from these commands are tab-delimited text files that can be read int
 
 # References
 
-[FSL](https://www.youtube.com/watch?v=3ExL6J4BIeo&list=PLvgasosJnUVl_bt8VbERUyCLU93OG31h_)
+[FreeSurfer](https://www.youtube.com/watch?v=3ExL6J4BIeo&list=PLvgasosJnUVl_bt8VbERUyCLU93OG31h_)
