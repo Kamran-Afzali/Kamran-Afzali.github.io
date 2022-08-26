@@ -165,3 +165,5 @@ p1
 [Package ‘TSclust’](https://cran.r-project.org/web/packages/TSclust/TSclust.pdf)
 
 [Package ‘dtwclust’](https://cran.r-project.org/web/packages/dtwclust/dtwclust.pdf)
+
+[An introduction to Dynamic Time Warping](https://rtavenar.github.io/blog/dtw.html)
