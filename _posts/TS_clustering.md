@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Time series clustering
-featured-image: /images/FPR.png
+featured-image: /images/dtw.png
 tags: [Time series, DTW, R]
 date-string: August 2022
 ---
