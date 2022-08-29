@@ -22,6 +22,20 @@ FreeSurfer uses the reconstructed surface, along with prior knowledge about the 
 
 ## Reconstructing the Cortical Surface : Recon-all
 
+
+The Freesurfer pipeline and analysis workflow for neuroanatomical images is designed to work with T1-weighted structural MRI of the brain. The full pipeline is implemented in the Freesurfer recon-all function, where the “recon” stands for reconstruction (https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all). 
+
+
+The recon-all function is the main workhorse of Freesurfer and is the most commonly used. Using the -all flag in the the recon-all function performs over 30 different steps and takes 20–40 hours to fully process a subject (https://surfer.nmr. mgh.harvard.edu/fswiki/recon-all). This process is the recommended way of fully processing a T1-weighted image in Freesurfer, and is implemented in the recon_all freesurfer function.
+
+
+In the recon_all function, users must specify the input file (a T1-weighted image), the output directory (if different than SUBJECTS_DIR), and the subject identifier. The results will be written in the individual subject directory, a sub-directory of SUBJECTS_DIR. The syntax is:
+recon_all(infile, outdir, subjid).
+
+
+If there are problems with the result of this processing, there are multiple steps where users can edit certain parts of the processing, such as brain extraction, where non-brain tissues are removed from the image. The remain- der of the pipeline can be run after these steps are corrected. The full pipeline is broken down into 3 separate sets of steps, referred to as autorecon1, autorecon2, and autorecon3, which correspond to the same-named flags in recon-all used to initiate these steps. We have written wrapper functions autorecon1, autorecon2, and autorecon3, respectively, so users can run pieces of the pipeline if desired or restart a failed process after correction to the data.
+
+
 FreeSurfer contains a large suite of programs which can take several hours to process a single subject, and days to process an entire dataset. Fortunately, the processing itself is very simple to do - FreeSurfer has a single command that, when executed, does virtually all of the most tedious parts of preprocessing a single subject. This command, recon-all, is easy to use and requires only a few arguments in order to run. Later on, you will learn how to execute multiple recon-all commands simultaneously, which will save you a considerable amount of time.
 
 Recon-all stands for reconstruction, as in reconstructing a two-dimensional cortical surface from a three-dimensional volume. The images we collect from an MRI scanner are three-dimensional blocks, and these images are transformed by recon-all into a smooth, continuous, two-dimensional surface - similar to taking a paper lunch bag crumpled into the size of a pellet, and then blowing into it to expand it like a balloon.
@@ -117,6 +131,18 @@ The command aparcstats2table requires similar arguments. Here is a typical comma
 In this command you can specify the hemisphere to analyze (--hemi), the measurement to extract (--meas, with the options of “thickness”, “volume”, “area”, and “meancurv”), and which atlas to use for parcellation (--parc; you can specify either “aparc”, the Desikan-Killinay atlas, or “aparc.a2009s”, the Destrieux atlas). The label for the output file is specified with the --tablefile option. Include as many subjects as you like in your analysis.
 
 The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R. You would perform the statistical tests just like you would any other t-test: Select the structural measurements from the groups you wish to compare, and then contrast the two groups against each other.
+
+
+## freesurfer and Python 
+
+Nipype interfaces were created for the tools used in the recon-all workflow. These interfaces allow developers to recreate in a Nipype workflow the exact same commands used in the FreeSurfer's tcsh script. The Nipype version of the recon-all workflow was then created by using the Nipype interfaces to connect the FreeSurfer commands in the order necessary. To verify that the new Nipype workflow is equivalent to FreeSurfer's recon-all workflow, both workflows were run on the same set of MRI images on multiple platforms (CentOS 6.4 and Mac OS X) and in a high-performance computing environment. Output surface files were converted to VTK file format, and the output image files were converted to NIFTI file format. The images and surfaces output from FreeSurfer's recon-all workflow were compared to the outputs from Nipype recon-all workflow.
+
+
+## freesurfer and R
+
+The freesurfer package relies on the oro.nifti14 package implementation of images (referred to as nifti objects) that are in the Neuroimaging Informatics Technology Initiative (NIfTI) format. For Freesurfer functions that require an image, the R freesurfer functions that call those Freesurfer functions will take in a file name or a nifti object. The R code will convert the nifti to the corresponding input required for Freesurfer. From the user’s perspective, the input/output process is all within R, with one object format (nifti). The advantage of this approach is that the user can read in an image, do manipulations of the nifti object using standard syntax for arrays, and pass this object into the freesurfer R function. Thus, users can use R functionality to manipulate objects while seamlessly passing these object to Freesurfer through freesurfer.
+Other Freesurfer functions require imaging formats other than NIfTI, such as the Medical Imaging NetCDF (MINC) format. The Freesurfer installation provides functions to convert from MINC to NIfTI formats and these are implemented in functions such as nii2mnc and mnc2nii in R. Moreover, the mri_convert Freesurfer function has been interfaced in freesurfer (same function name), which allows for a more general conversion tool of imaging types for R users than currently implemented in native R. Thus, many formats can be converted to NIfTI and then read into R using the readNIfTI function from oro.nifti.
+
 
 
 # References
