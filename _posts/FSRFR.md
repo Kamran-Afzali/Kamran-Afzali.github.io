@@ -137,13 +137,16 @@ The output from these commands are tab-delimited text files that can be read int
 
 Nipype interfaces were created for the tools used in the recon-all workflow. These interfaces allow developers to recreate in a Nipype workflow the exact same commands used in the FreeSurfer's tcsh script. The Nipype version of the recon-all workflow was then created by using the Nipype interfaces to connect the FreeSurfer commands in the order necessary. To verify that the new Nipype workflow is equivalent to FreeSurfer's recon-all workflow, both workflows were run on the same set of MRI images on multiple platforms (CentOS 6.4 and Mac OS X) and in a high-performance computing environment. Output surface files were converted to VTK file format, and the output image files were converted to NIFTI file format. The images and surfaces output from FreeSurfer's recon-all workflow were compared to the outputs from Nipype recon-all workflow.
 
+https://academic.oup.com/gigascience/article/5/suppl_1/s13742-016-0147-0-o/2965220?login=false
+
+
 
 ## freesurfer and R
 
 The freesurfer package relies on the oro.nifti14 package implementation of images (referred to as nifti objects) that are in the Neuroimaging Informatics Technology Initiative (NIfTI) format. For Freesurfer functions that require an image, the R freesurfer functions that call those Freesurfer functions will take in a file name or a nifti object. The R code will convert the nifti to the corresponding input required for Freesurfer. From the user’s perspective, the input/output process is all within R, with one object format (nifti). The advantage of this approach is that the user can read in an image, do manipulations of the nifti object using standard syntax for arrays, and pass this object into the freesurfer R function. Thus, users can use R functionality to manipulate objects while seamlessly passing these object to Freesurfer through freesurfer.
 Other Freesurfer functions require imaging formats other than NIfTI, such as the Medical Imaging NetCDF (MINC) format. The Freesurfer installation provides functions to convert from MINC to NIfTI formats and these are implemented in functions such as nii2mnc and mnc2nii in R. Moreover, the mri_convert Freesurfer function has been interfaced in freesurfer (same function name), which allows for a more general conversion tool of imaging types for R users than currently implemented in native R. Thus, many formats can be converted to NIfTI and then read into R using the readNIfTI function from oro.nifti.
 
-
+https://web.archive.org/web/20200228181635id_/https://f1000researchdata.s3.amazonaws.com/manuscripts/15624/d5fd45a2-e2a4-42ce-8bea-4503cbb00ec4_14361_-_john_muschelli.pdf?doi=10.12688/f1000research.14361.1&numberOfBrowsableCollections=20&numberOfBrowsableInstitutionalCollections=5&numberOfBrowsableGateways=22
 
 # References
 
