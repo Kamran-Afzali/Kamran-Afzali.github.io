@@ -9,6 +9,25 @@ date-string: August 2022
 
 
 ## ROBUST T-REGRESSION
+
+
+
+Simple linear regression is a very popular technique for estimating the linear relationship between two variables based on matched pairs of observations, as well as for predicting the probable value of one variable (the response variable) according to the value of the other (the explanatory variable). When plotting the results of linear regression graphically, the explanatory variable is normally plotted on the x-axis, and the response variable on the y-axis.
+
+The standard approach to linear regression is defining the equation for a straight line that represents the relationship between the variables as accurately as possible. The equation for the line defines y (the response variable) as a linear function of x (the explanatory variable):
+
+𝑦 = 𝛼 + 𝛽𝑥 + 𝜀
+In this equation, ε represents the error in the linear relationship: if no noise were allowed, then the paired x- and y-values would need to be arranged in a perfect straight line (for example, as in y = 2x + 1). Because we assume that the relationship between x and y is truly linear, any variation observed around the regression line must be random noise, and therefore normally distributed. From a probabilistic standpoint, such relationship between the variables could be formalised as
+
+𝑦 ~ 𝓝(𝛼 + 𝛽𝑥, 𝜎)
+That is, the response variable follows a normal distribution with mean equal to the regression line, and some standard deviation σ. Such a probability distribution of the regression line is illustrated in the figure below.
+
+This formulation inherently captures the random error around the regression line — as long as this error is normally distributed. Just as with Pearson’s correlation coefficient, the normality assumption adopted by classical regression methods makes them very sensitive to noisy or non-normal data. This frequently results in an underestimation of the relationship between the variables, as the normal distribution needs to shift its location in the parameter space in order to accommodate the outliers in the data as well as possible. In a frequentist paradigm, implementing a linear regression model that is robust to outliers entails quite convoluted statistical approaches; but in Bayesian statistics, when we need robustness, we just reach for the t-distribution. This probability distribution has a parameter ν, known as the degrees of freedom, which dictates how close to normality the distribution is: large values of ν (roughly ν > 30) result in a distribution that is very similar to the normal distribution, whereas low small values of ν produce a distribution with heavier tails (that is, a larger spread around the mean) than the normal distribution. Thus, by replacing the normal distribution above by a t-distribution, and incorporating ν as an extra parameter in the model, we can allow the distribution of the regression line to be as normal or non-normal as the data imply, while still capturing the underlying relationship between the variables.
+
+The formulation of the robust simple linear regression Bayesian model is given below. We define a t likelihood for the response variable, y, and suitable vague priors on all the model parameters: normal for α and β, half-normal for σ and gamma for ν.
+
+
+
 I’ve been experimenting with techniques for robust regression, and I thought that it would be a fun excercise to implement a robust variant of the simple linear regression model based on the t-distribution.
 
 Motivation
@@ -41,3 +60,6 @@ https://jrnold.github.io/bugs-examples-in-stan/resistant.html
 https://rpubs.com/jpn3to/outliers
 
 
+https://baezortega.github.io/2018/08/06/robust_regression/
+
+https://jrnold.github.io/bugs-examples-in-stan/resistant.html
