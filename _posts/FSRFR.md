@@ -18,7 +18,7 @@ Once you’ve reconstructed the surface you can resample your fMRI statistical m
 
 FreeSurfer uses the reconstructed surface, along with prior knowledge about the topology of a typical human brain, to label the cortical and subcortical structures. The labeling of the cortex is called Parcellation, and the labeling of the subcortical structures is called Segmentation. These labelings are based on the two atlases that come with FreeSurfer: The Desikan-Killiany atlas and the Destrieux atlas, with the Destrieux atlas containing finer-grained parcellations. Structural measurements are then averaged within each parcellation. These measures can be compared across groups, or correlated with some individual difference measure, such as age, IQ, or sex.
 
-
+FreeSurfer has been developed by the Martino Center for Biomedical Imaging with the purpose to be robust, accurate and easy to use (Fischl et al., 2002, 2004). The software tool has an automatic reconstruction pipeline for the processing of anatomical brain images, which involves several processing steps. The first step is skull stripping, motion artifact correction, and B1 bias field correction. The second step is gray-white matter segmentation based on a deformable surface template defined in MNI305 space. As an alternative, a template can be created from one’s study sample (i.e., the average subject will form the template) with the advantage of the optimal formation of white and pial surfaces. The third step is region labeling on the cortical surface that is performed by non-linear registration of the cortical surface of the subject with the Desikan-Killiany/Destrieux atlas
 
 ## Reconstructing the Cortical Surface : Recon-all
 
@@ -108,6 +108,10 @@ As above, we will use nested for loops to analyze the hemispheres, smoothing ker
 
 
 ## Region of Interest Analysis
+
+
+Regions of interest (ROIs) are groups of voxels that parameter estimates (or other data) are extracted from. With volumetric data, you specify the x-, y-, and z-coordinates of the origin for your ROI, and then build a sphere around it. (Spheres aren't the only method, but they are common.) You can do this with, for example: AFNI's 3dUndump; SPM's Marsbar toolbox; FSL's fslmaths.
+
 
 In addition to creating a cortical surface and calculating structural measurements at each vertex, FreeSurfer parcellates and segments the brain - the parcellations outlining anatomically distinct regions of the cortex, and the segmentations dividing the sub-cortical nuclei into distinct structures. These parcellations are created along the lines of two atlases that come with FreeSurfer: The Destrieux atlas, and the Desikan-Killiany atlas.
 
