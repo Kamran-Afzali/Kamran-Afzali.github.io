@@ -1,14 +1,14 @@
 ---
 layout: post
 categories: posts
-title: Time series clustering
-featured-image: /images/FPR.png
-tags: [Time series, DTW, R]
-date-string: August 2022
+title: Bayesian Regression Models for Non-Normal Data
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: September 2022
 ---
 
 
-## ROBUST T-REGRESSION
+## Robust t-regression 
 
 
 
