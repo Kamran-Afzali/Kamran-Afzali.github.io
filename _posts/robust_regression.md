@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: posts
-title: Bayesian Regression Models for Non-Normal Data
+title: Bayesian Robust t-regression for Non-Normal residuals
 featured-image: /images/stan.png
 tags: [STAN, R, Bayes]
 date-string: September 2022
