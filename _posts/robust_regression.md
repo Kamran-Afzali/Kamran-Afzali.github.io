@@ -10,6 +10,14 @@ date-string: September 2022
 
 ## Robust t-regression 
 
+The term “outlier” is used very loosely by most people. Usually, a field has a set of popular statistical models (e.g. I have two continuous variables, so I “do regression”), and these models make some kind normality assumption that has to be reluctantly glanced at before the model can be published. Invariably, the data don’t look quite normal, and one of two things tends to happen:
+
+We trust in the central limit theorem to somehow “take care of it”.
+We start prunning outliers.
+Number two is problematic for several reasons: The first is that it’s usually done haphazardly, either by eyeballing it (the intra-ocular trauma test) or by using some cutoff that is, itself, not robust to outliers (e.g. “more than 3 standard deviation from the mean”). Second, it assumes that the extreme values are erroneous, and are not legitimate measurements. This is especially bad when it comes to response time data, which are never normal, even in theory, and yet people will still cut off the upper tail of the RT distribution and call it data cleanup.
+
+In general, if you have a major problem with outliers that isn’t due to measurement error, you’re probably not defining “outlier” properly. Outliers are only outliers under some particular model (e.g. if you’re modelling the data as being normal, you’ll tend to interpret extreme values as being outliers, but those values might not be “extreme” under some other distribution). A better way to deal with outliers is to use a model that accomodates them. 
+
 
 Simple linear regression is a very popular technique for estimating the linear relationship between two variables based on matched pairs of observations, as well as for predicting the probable value of one variable (the response variable) according to the value of the other (the explanatory variable). When plotting the results of linear regression graphically, the explanatory variable is normally plotted on the x-axis, and the response variable on the y-axis.
 
@@ -25,18 +33,10 @@ This formulation inherently captures the random error around the regression line
 
 The formulation of the robust simple linear regression Bayesian model is given below. We define a t likelihood for the response variable, y, and suitable vague priors on all the model parameters: normal for α and β, half-normal for σ and gamma for ν.
 
-
-
 I’ve been experimenting with techniques for robust regression, and I thought that it would be a fun excercise to implement a robust variant of the simple linear regression model based on the t-distribution.
 
 Motivation
-The term “outlier” is used very loosely by most people. Usually, a field has a set of popular statistical models (e.g. I have two continuous variables, so I “do regression”), and these models make some kind normality assumption that has to be reluctantly glanced at before the model can be published. Invariably, the data don’t look quite normal, and one of two things tends to happen:
 
-We trust in the central limit theorem to somehow “take care of it”.
-We start prunning outliers.
-Number two is problematic for several reasons: The first is that it’s usually done haphazardly, either by eyeballing it (the intra-ocular trauma test) or by using some cutoff that is, itself, not robust to outliers (e.g. “more than 3 standard deviation from the mean”). Second, it assumes that the extreme values are erroneous, and are not legitimate measurements. This is especially bad when it comes to response time data, which are never normal, even in theory, and yet people will still cut off the upper tail of the RT distribution and call it data cleanup.
-
-In general, if you have a major problem with outliers that isn’t due to measurement error, you’re probably not defining “outlier” properly. Outliers are only outliers under some particular model (e.g. if you’re modelling the data as being normal, you’ll tend to interpret extreme values as being outliers, but those values might not be “extreme” under some other distribution). A better way to deal with outliers is to use a model that accomodates them. Example:
 
 
 
