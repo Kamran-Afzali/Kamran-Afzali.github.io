@@ -20,7 +20,7 @@ FreeSurfer uses the reconstructed surface, along with prior knowledge about the 
 
 FreeSurfer has been developed by the Martino Center for Biomedical Imaging with the purpose to be robust, accurate and easy to use (Fischl et al., 2002, 2004). The software tool has an automatic reconstruction pipeline for the processing of anatomical brain images, which involves several processing steps. The first step is skull stripping, motion artifact correction, and B1 bias field correction. The second step is gray-white matter segmentation based on a deformable surface template defined in MNI305 space. As an alternative, a template can be created from one’s study sample (i.e., the average subject will form the template) with the advantage of the optimal formation of white and pial surfaces. The third step is region labeling on the cortical surface that is performed by non-linear registration of the cortical surface of the subject with the Desikan-Killiany/Destrieux atlas
 
-## Reconstructing the Cortical Surface : Recon-all
+## Reconstructing the Cortical Surface and subcortical volumes with [Recon-all](https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all)
 
 
 The Freesurfer pipeline and analysis workflow for neuroanatomical images is designed to work with T1-weighted structural MRI of the brain. The full pipeline is implemented in the Freesurfer recon-all function, where the “recon” stands for reconstruction (https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all). 
@@ -60,7 +60,7 @@ One way to reduce the amount of time it takes to analyze so many subjects is to 
 
 Let’s assume that each meal takes one hour to make. Instead of each man waiting his turn for the same kitchen every hour, everybody makes their meals simultaneously. What would otherwise take eight hours - that is, for all of the men to make their meal in the same kitchen - now takes one hour. If we could do something similar with our data analysis, we could finish processing the anatomical images in a more reasonable amount of time.
 
-## Viewing Your Data
+## Viewing Your Data with [Freeview](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeviewGuide)
 
 Each neuroimaging software package has a data viewer, or an application that allows you to look at your data. AFNI, SPM, and FSL all have data viewers which basically do the same thing: the user loads imaging data, usually anatomical or functional images, and can view them in three dimensions. Most viewers are able to load NIFTI files that contains any kind of imaging data.
 
