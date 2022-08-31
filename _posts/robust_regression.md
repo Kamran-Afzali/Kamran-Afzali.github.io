@@ -11,7 +11,6 @@ date-string: September 2022
 ## Robust t-regression 
 
 
-
 Simple linear regression is a very popular technique for estimating the linear relationship between two variables based on matched pairs of observations, as well as for predicting the probable value of one variable (the response variable) according to the value of the other (the explanatory variable). When plotting the results of linear regression graphically, the explanatory variable is normally plotted on the x-axis, and the response variable on the y-axis.
 
 The standard approach to linear regression is defining the equation for a straight line that represents the relationship between the variables as accurately as possible. The equation for the line defines y (the response variable) as a linear function of x (the explanatory variable):
@@ -52,6 +51,11 @@ t errors (Geweke 1993; A. Gelman, Carlin, et al. 2013, Ch. 17)  f you prefer dis
 
 Outlying data points can distort estimates of location, such as means or regression coefficients.9 Location estimates obtained via maximizing a iid normal likelihood over heavy tailed data will be sensitive to data in the tails (outliers). A popular alternative to normal errors in regression analyses is the Student’s \(t\) density, with an unknown degrees of freedom parameter. For low degrees of freedom, the Student’s \(t\) distribution has heavier tails than the normal, but tends to the normal as the degrees of freedom parameter increases. Treating the degrees of freedom parameter as an unknown parameter to be estimated thus provides a check on the appropriateness of the normal. By embedding a model with location parameters in the Student’s \(t\) density, we obtain outlier-resistant estimates of location parameters.
 
+### Conclusion
+
+This tutorial provided only a quick overview of how to fit logistic and negative binomial regression models with the Bayesian software STAN using the rstan library/API and to extract a collection of useful summaries from the models. Future postings will address the question of outliers and the use of robust linear models.
+
+## References
 
 
 https://jrnold.github.io/bugs-examples-in-stan/resistant.html
