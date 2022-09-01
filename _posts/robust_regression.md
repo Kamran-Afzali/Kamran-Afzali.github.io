@@ -53,17 +53,15 @@ Outlying data points can distort estimates of location, such as means or regress
 
 ### Conclusion
 
-This tutorial provided only a quick overview of how to fit logistic and negative binomial regression models with the Bayesian software STAN using the rstan library/API and to extract a collection of useful summaries from the models. Future postings will address the question of outliers and the use of robust linear models.
+In this paper, we have provided a simple Bayesian approach to robustly es- timate both parameters β and σ of a simple linear regression through the origin, in which the variance of the error term can depend on the explana- tory variable. It leads to robust estimators of finite population means and ratios. The approach is to replace the traditional normal assumption on the error term by a super heavy-tailed distribution assumption.
 
 ## References
 
 
-https://jrnold.github.io/bugs-examples-in-stan/resistant.html
++ https://jrnold.github.io/bugs-examples-in-stan/resistant.html
 
++ https://rpubs.com/jpn3to/outliers
 
-https://rpubs.com/jpn3to/outliers
++ https://baezortega.github.io/2018/08/06/robust_regression/
 
-
-https://baezortega.github.io/2018/08/06/robust_regression/
-
-https://jrnold.github.io/bugs-examples-in-stan/resistant.html
++ https://arxiv.org/pdf/1612.05307.pdf
