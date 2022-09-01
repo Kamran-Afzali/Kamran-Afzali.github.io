@@ -68,7 +68,7 @@ FreeSurfer has its own viewer called Freeview, which can by launched from the Te
 
 Freeview can load both volumes and surfaces at the same time. To load a surface, click File -> Load Surface, and select an image in the surf directory, such as lh.pial. This will overlay a 3D representation of the surface in the three-dimensional box of the View window, and will trace the outline of the surface in the orthogonal boxes (i.e., the sagittal, axial, and coronal views). The color of the surface in the orthogonal views can be changed by selecting a new Edge color.
 
-## VBM in FreeSurfer
+## FreeSurfer [Group Analysis](https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/GroupAnalysisV6.0)
 
 So far we have reviewed the basic commands of FreeSurfer: recon-all and freeview. Recon-all creates a series of volumes and surfaces from a T1-weighted anatomical image, and quantifies the amount of grey matter thickness and volume in different regions of the brain. The cortical regions are called parcellations, and the sub-cortical regions are called segmentations. For example, the left superior frontal gyrus is a parcellation delineated by the Desikan-Killiany atlas, and structural measurements are calculated in that region for each subject. The right amygdala, on the other hand, is a segmentation; because the sub-cortical regions are not inflated into a surface, they only contain measurements of grey matter volume, not thickness.
 
@@ -107,7 +107,7 @@ An output label for the directory containing the results (--glmdir).
 As above, we will use nested for loops to analyze the hemispheres, smoothing kernels, and structural measurements of our choosing. In this example we will analyze both the left and right hemispheres at a smoothing kernel of 10mm, and we will analyze the strucutral maps of volume and thickness:
 
 
-## Region of Interest Analysis
+## FreeSurfer [Region of Interest Analysis](https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/AnatomicalROI)
 
 
 Regions of interest (ROIs) are groups of voxels that parameter estimates (or other data) are extracted from. With volumetric data, you specify the x-, y-, and z-coordinates of the origin for your ROI, and then build a sphere around it. (Spheres aren't the only method, but they are common.) You can do this with, for example: AFNI's 3dUndump; SPM's Marsbar toolbox; FSL's fslmaths.
@@ -137,21 +137,21 @@ In this command you can specify the hemisphere to analyze (--hemi), the measurem
 The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R. You would perform the statistical tests just like you would any other t-test: Select the structural measurements from the groups you wish to compare, and then contrast the two groups against each other.
 
 
-## freesurfer and Python 
+## [FreeSurfer and Python](https://academic.oup.com/gigascience/article/5/suppl_1/s13742-016-0147-0-o/2965220?login=false) 
 
 Nipype interfaces were created for the tools used in the recon-all workflow. These interfaces allow developers to recreate in a Nipype workflow the exact same commands used in the FreeSurfer's tcsh script. The Nipype version of the recon-all workflow was then created by using the Nipype interfaces to connect the FreeSurfer commands in the order necessary. To verify that the new Nipype workflow is equivalent to FreeSurfer's recon-all workflow, both workflows were run on the same set of MRI images on multiple platforms (CentOS 6.4 and Mac OS X) and in a high-performance computing environment. Output surface files were converted to VTK file format, and the output image files were converted to NIFTI file format. The images and surfaces output from FreeSurfer's recon-all workflow were compared to the outputs from Nipype recon-all workflow.
 
-https://academic.oup.com/gigascience/article/5/suppl_1/s13742-016-0147-0-o/2965220?login=false
 
 
 
-## freesurfer and R
+
+## [FreeSurfer and R](https://web.archive.org/web/20200228181635id_/https://f1000researchdata.s3.amazonaws.com/manuscripts/15624/d5fd45a2-e2a4-42ce-8bea-4503cbb00ec4_14361_-_john_muschelli.pdf?doi=10.12688/f1000research.14361.1&numberOfBrowsableCollections=20&numberOfBrowsableInstitutionalCollections=5&numberOfBrowsableGateways=22
+)
 
 The freesurfer package relies on the oro.nifti14 package implementation of images (referred to as nifti objects) that are in the Neuroimaging Informatics Technology Initiative (NIfTI) format. For Freesurfer functions that require an image, the R freesurfer functions that call those Freesurfer functions will take in a file name or a nifti object. The R code will convert the nifti to the corresponding input required for Freesurfer. From the user’s perspective, the input/output process is all within R, with one object format (nifti). The advantage of this approach is that the user can read in an image, do manipulations of the nifti object using standard syntax for arrays, and pass this object into the freesurfer R function. Thus, users can use R functionality to manipulate objects while seamlessly passing these object to Freesurfer through freesurfer.
 Other Freesurfer functions require imaging formats other than NIfTI, such as the Medical Imaging NetCDF (MINC) format. The Freesurfer installation provides functions to convert from MINC to NIfTI formats and these are implemented in functions such as nii2mnc and mnc2nii in R. Moreover, the mri_convert Freesurfer function has been interfaced in freesurfer (same function name), which allows for a more general conversion tool of imaging types for R users than currently implemented in native R. Thus, many formats can be converted to NIfTI and then read into R using the readNIfTI function from oro.nifti.
 
-https://web.archive.org/web/20200228181635id_/https://f1000researchdata.s3.amazonaws.com/manuscripts/15624/d5fd45a2-e2a4-42ce-8bea-4503cbb00ec4_14361_-_john_muschelli.pdf?doi=10.12688/f1000research.14361.1&numberOfBrowsableCollections=20&numberOfBrowsableInstitutionalCollections=5&numberOfBrowsableGateways=22
 
 # References
 
-[FreeSurfer](https://www.youtube.com/watch?v=3ExL6J4BIeo&list=PLvgasosJnUVl_bt8VbERUyCLU93OG31h_)
+[FreeSurfer](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferWiki)
