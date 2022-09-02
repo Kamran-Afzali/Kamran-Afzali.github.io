@@ -35,6 +35,15 @@ The formulation of the robust simple linear regression Bayesian model is given b
 
 I’ve been experimenting with techniques for robust regression, and I thought that it would be a fun excercise to implement a robust variant of the simple linear regression model based on the t-distribution.
 
+
+Protection against outliers always comes at a price: a loss of efficiency when the observations are normally distributed. The best robust alternatives manages
+to offer a large protection at a low premium. This is especially true for the estimation of β. In this regard, a new method can hardly do better; in fact
+matching their performance is quite an achievement. However, the performance of the existing robust approaches with respect to σ is far less optimal.
+
+The most popular Bayesian solution is modelling using the Student, a consequence of the simplicity of the strategy, the rationale behind it (giving higher
+probabilities to extreme values), and the required computations. The latter follows from the scale mixture representation of the Student that leads to a normal
+conditional distribution for Y given β, σ and a latent variable, which in turn allows a straightforward implementation of the Gibbs sampler 
+
 Motivation
 
 
@@ -58,10 +67,12 @@ In this paper, we have provided a simple Bayesian approach to robustly es- timat
 ## References
 
 
-+ https://jrnold.github.io/bugs-examples-in-stan/resistant.html
++ [] https://jrnold.github.io/bugs-examples-in-stan/resistant.html
 
-+ https://rpubs.com/jpn3to/outliers
++ [] https://rpubs.com/jpn3to/outliers
 
-+ https://baezortega.github.io/2018/08/06/robust_regression/
++ [] https://baezortega.github.io/2018/08/06/robust_regression/
 
-+ https://arxiv.org/pdf/1612.05307.pdf
++ [] https://arxiv.org/pdf/1612.05307.pdf
+
++ [] https://dms.umontreal.ca/~bedard/Robustness.pdf
