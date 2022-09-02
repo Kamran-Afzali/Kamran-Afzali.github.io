@@ -1,9 +1,7 @@
 
 ## FreeSurfer Overview: 
 
-FreeSurfer is a software package that enables you to analyze structural MRI images - in other words, you can use FreeSurfer to quantify the amount of grey matter and white matter in specific regions of the brain. You will also be able to calculate measurements such as the thickness, curvature, and volume of the different tissue types, and be able to correlate these with covariates; or, you can contrast these structural measurements between groups.
-
-Virtually all neuroimaging studies acquire a T1-weighted anatomical scan: A high-resolution image with high contrast between the white matter and the grey matter. In these images white matter is lighter, grey matter is darker, and cerebrospinal fluid is black. These are the images that will be used by FreeSurfer to partition the cortical surface and the subcortical structures into distinct areas.
+Virtually all neuroimaging studies acquire a T1-weighted anatomical scan: A high-resolution image with high contrast between the white matter and the grey matter. In these images white matter is lighter, grey matter is darker, and cerebrospinal fluid is black. These are the images that will be used by FreeSurfer to partition the cortical surface and the subcortical structures into distinct areas. FreeSurfer is a software package that enables you to analyze structural MRI images. FreeSurfer allows you to quantify the amount of grey matter and white matter in specific regions of the brain and to estiamte measurements such as the thickness, curvature, and volume of the different tissue types. In terms of modelling, these measurements can be used covariates or to be compared between groups.
 
 Instead of analyzing the brain as a 3D volume, however, FreeSurfer transforms the cortex into a 2D surface. Why a 2D surface? Picture a voxel that straddles both edges of a sulcus. The voxel contains a mixture of signals from both regions, and it is impossible to determine which region contributed to the signal - a problem known as the partial voluming effect.
 
