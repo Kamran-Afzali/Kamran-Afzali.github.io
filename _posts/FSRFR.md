@@ -151,4 +151,4 @@ Other Freesurfer functions require imaging formats other than NIfTI, such as the
 
 # References
 
-[FreeSurfer](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferWiki)
+[FreeSurferWiki](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferWiki)
