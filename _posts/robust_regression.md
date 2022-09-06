@@ -64,6 +64,104 @@ Outlying data points can distort estimates of location, such as means or regress
 
 In this paper, we have provided a simple Bayesian approach to robustly es- timate both parameters β and σ of a simple linear regression through the origin, in which the variance of the error term can depend on the explana- tory variable. It leads to robust estimators of finite population means and ratios. The approach is to replace the traditional normal assumption on the error term by a super heavy-tailed distribution assumption.
 
+
+```r
+ data {
+  int N;
+  vector[N] y;
+  int K;
+  matrix[N, K] X;
+  int Y;
+  int year[N];
+  // priors
+  real sigma_scale;
+  vector[K] beta_loc;
+  vector[K] beta_scale;
+  real alpha_loc;
+  real alpha_scale;
+}
+parameters {
+  vector[Y] alpha;
+  vector[K] beta;
+  real nu;
+  real sigma;
+  real tau;
+}
+transformed parameters {
+  vector[N] mu;
+  for (i in 1:N) {
+    mu[i] = alpha[year[i]] + X[i] * beta;
+  }
+}
+model{
+  // priors for error variance
+  sigma ~ cauchy(0., sigma_scale);
+  // priors for year intercepts
+  alpha ~ normal(alpha_loc, alpha_scale);
+    // priors for the regression coefficients
+    beta ~ normal(beta_loc, beta_scale);
+    // degrees of freedom
+    nu ~ gamma(2, 0.1);
+    // likelihood
+    y ~ student_t(nu, mu, sigma);
+}
+generated quantities {
+  real delta;
+  delta = beta[3] + beta[4];
+}
+```
+
+
+
+```r
+  data {
+  int N;
+  vector[N] y;
+  int K;
+  matrix[N, K] X;
+  int Y;
+  int year[N];
+  // priors
+  real sigma_scale;
+  vector[K] beta_loc;
+  vector[K] beta_scale;
+  real alpha_loc;
+  real alpha_scale;
+}
+parameters {
+  vector[Y] alpha;
+  vector[K] beta;
+  real nu;
+  real sigma_raw;
+  real tau;
+}
+transformed parameters {
+  vector[N] mu;
+  real sigma;
+  for (i in 1:N) {
+    mu[i] = alpha[year[i]] + X[i] * beta;
+  }
+  // paramterization so sigma and
+  sigma = sigma_raw * sqrt((nu - 2) / nu);
+}
+model{
+  // priors for the standard deviation
+  sigma_raw ~ cauchy(0., sigma_scale);
+  // priors for year intercepts
+  alpha ~ normal(alpha_loc, alpha_scale);
+    // priors for the regression coefficients
+    beta ~ normal(beta_loc, beta_scale);
+    // degrees of freedom
+    nu ~ gamma(2, 0.1);
+    // likelihood
+    y ~ student_t(nu, mu, sigma);
+}
+generated quantities {
+  real delta;
+  delta = beta[3] + beta[4];
+}
+```
+
 ## References
 
 
@@ -75,4 +173,4 @@ In this paper, we have provided a simple Bayesian approach to robustly es- timat
 
 + [] https://arxiv.org/pdf/1612.05307.pdf
 
-+ [] https://dms.umontreal.ca/~bedard/Robustness.pdf
++ [A New Bayesian Approach to Robustness Against Outliers in Linear Regression] https://dms.umontreal.ca/~bedard/Robustness.pdf
