@@ -151,6 +151,6 @@ Other Freesurfer functions require imaging formats other than NIfTI, such as the
 
 + [FreeSurferWiki](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferWiki)
 
-+ [Nipype]([https://www.rdocumentation.org/packages/freesurfer/versions/1.6.8)](https://nipype.readthedocs.io/en/latest/)
++ [Nipype](https://nipype.readthedocs.io/en/latest/)
 
 + [FreeSurfer package R](https://www.rdocumentation.org/packages/freesurfer/versions/1.6.8)
