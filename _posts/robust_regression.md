@@ -173,4 +173,4 @@ generated quantities {
 
 + [] https://arxiv.org/pdf/1612.05307.pdf
 
-+ [A New Bayesian Approach to Robustness Against Outliers in Linear Regression] (https://dms.umontreal.ca/~bedard/Robustness.pdf)
++ [A New Bayesian Approach to Robustness Against Outliers in Linear Regression](https://dms.umontreal.ca/~bedard/Robustness.pdf)
