@@ -158,6 +158,6 @@ generated quantities {
 
 + [] https://baezortega.github.io/2018/08/06/robust_regression/
 
-+ [Bayesian Robustness to Outliers in Linear Regression] https://arxiv.org/pdf/1612.05307.pdf
++ [Bayesian Robustness to Outliers in Linear Regression](https://arxiv.org/pdf/1612.05307.pdf)
 
 + [A New Bayesian Approach to Robustness Against Outliers in Linear Regression](https://dms.umontreal.ca/~bedard/Robustness.pdf)
