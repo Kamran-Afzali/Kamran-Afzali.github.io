@@ -21,19 +21,10 @@ FreeSurfer labels the cortical and subcortical structures based on the reconstru
 
 ## Reconstructing the Cortical Surface and subcortical volumes with [Recon-all](https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all)
 
-
-The Freesurfer pipeline and analysis workflow for neuroanatomical images is designed to work with T1-weighted structural MRI of the brain. The full pipeline is implemented in the Freesurfer recon-all function, where the “recon” stands for reconstruction (https://surfer.nmr.mgh.harvard.edu/fswiki/recon-all). 
-
-
-The recon-all function is the main workhorse of Freesurfer and is the most commonly used. Using the -all flag in the the recon-all function performs over 30 different steps and takes 20–40 hours to fully process a subject (https://surfer.nmr. mgh.harvard.edu/fswiki/recon-all). This process is the recommended way of fully processing a T1-weighted image in Freesurfer, and is implemented in the recon_all freesurfer function.
+The Freesurfer pipeline and analytic procedure for neuroanatomical images is intended to function based on T1-weighted structural MRI of the brain. The Freesurfer recon-all function, where "recon" stands for reconstruction, implements the entire pipeline. The recon-all function conducts around 30 different processes when the -all flag is used, and it takes 20 to 40 hours to process a subject completely. The recon all freesurfer function implements the suggested procedure for fully processing a T1-weighted image in Freesurfer. Users must enter a T1-weighted image, the output directory, and the subject identifier in the recon all function. The outcomes will be recorded in the relevant subject directory.
 
 
-In the recon_all function, users must specify the input file (a T1-weighted image), the output directory (if different than SUBJECTS_DIR), and the subject identifier. The results will be written in the individual subject directory, a sub-directory of SUBJECTS_DIR. The syntax is:
-recon_all(infile, outdir, subjid).
-
-
-If there are problems with the result of this processing, there are multiple steps where users can edit certain parts of the processing, such as brain extraction, where non-brain tissues are removed from the image. The remain- der of the pipeline can be run after these steps are corrected. The full pipeline is broken down into 3 separate sets of steps, referred to as autorecon1, autorecon2, and autorecon3, which correspond to the same-named flags in recon-all used to initiate these steps. We have written wrapper functions autorecon1, autorecon2, and autorecon3, respectively, so users can run pieces of the pipeline if desired or restart a failed process after correction to the data.
-
+There are several processes where users can change specific processing steps if there are problems with the results. Once these steps have been rectified, the pipeline can continue to operate. The entire pipeline is divided into three distinct sets of stages known as autorecon1, autorecon2, and autorecon3, which are associated with the same-named flags in recon-all that are used to start these procedures. In order to allow users to conduct certain pipeline steps or continue a failed operation following data rectification, we created wrapper functions called autorecon1, autorecon2, and autorecon3.
 
 FreeSurfer contains a large suite of programs which can take several hours to process a single subject, and days to process an entire dataset. Fortunately, the processing itself is very simple to do - FreeSurfer has a single command that, when executed, does virtually all of the most tedious parts of preprocessing a single subject. This command, recon-all, is easy to use and requires only a few arguments in order to run. Later on, you will learn how to execute multiple recon-all commands simultaneously, which will save you a considerable amount of time.
 
