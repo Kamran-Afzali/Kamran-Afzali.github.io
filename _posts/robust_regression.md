@@ -202,3 +202,5 @@ generated quantities {
 + [Bayesian Robustness to Outliers in Linear Regression](https://arxiv.org/pdf/1612.05307.pdf)
 
 + [A New Bayesian Approach to Robustness Against Outliers in Linear Regression](https://dms.umontreal.ca/~bedard/Robustness.pdf)
+
++ [Robust Noise Models from stan manual](https://mc-stan.org/docs/2_18/stan-users-guide/robust-noise-models.html)
