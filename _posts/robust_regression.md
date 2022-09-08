@@ -149,6 +149,47 @@ generated quantities {
 }
 ```
 
+```
+data {
+    int<lower=1> N;    
+    int<lower=0> M;    
+    int<lower=0> P;    
+    vector[N] x;       
+    vector[N] y;       
+    vector[M] x_cred;  
+    vector[P] x_pred;  
+}
+
+parameters {
+    real alpha;           
+    real beta;            
+    real<lower=0> sigma;  
+    real<lower=1> nu;     
+}
+
+transformed parameters {
+    vector[N] mu = alpha + beta * x;            
+    vector[M] mu_cred = alpha + beta * x_cred;  
+    vector[P] mu_pred = alpha + beta * x_pred;  
+}
+
+model {
+    y ~ student_t(nu, mu, sigma);
+    alpha ~ normal(0, 1000);
+    beta ~ normal(0, 1000);
+    sigma ~ normal(0, 1000);
+    nu ~ gamma(2, 0.1);
+}
+
+generated quantities {
+    real y_pred[P];
+    for (p in 1:P) {
+        y_pred[p] = student_t_rng(nu, mu_pred[p], sigma);
+    }
+}
+```
+
+
 ## References
 
 
