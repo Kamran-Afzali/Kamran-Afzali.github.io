@@ -190,6 +190,54 @@ generated quantities {
 ```
 
 
+```
+b0 <- 
+  brm(data = d, 
+      family = gaussian,
+      y ~ 1 + x,
+      prior = c(prior(normal(0, 10), class = Intercept),
+                prior(normal(0, 10), class = b),
+                prior(cauchy(0, 1),  class = sigma)),
+      seed = 1)
+```
+
+```     
+b1 <- 
+  update(b0, 
+         newdata = o,
+         seed = 1)
+```
+```
+b2 <- 
+  brm(data = o, family = student,
+      y ~ 1 + x,
+      prior = c(prior(normal(0, 10), class = Intercept),
+                prior(normal(0, 10), class = b),
+                prior(gamma(2, 0.1), class = nu),
+                prior(cauchy(0, 1),  class = sigma)),
+      seed = 1)
+```
+
+```
+b3 <- 
+  update(b2,
+         prior = c(prior(normal(0, 10), class = Intercept),
+                   prior(normal(0, 10), class = b),
+                   prior(gamma(4, 1),   class = nu),
+                   prior(cauchy(0, 1),  class = sigma)),
+         seed = 1)
+```
+
+```
+b4 <-
+  brm(data = o, family = student,
+      bf(y ~ 1 + x, nu = 4),
+      prior = c(prior(normal(0, 100), class = Intercept),
+                prior(normal(0, 10),  class = b),
+                prior(cauchy(0, 1),   class = sigma)),
+         seed = 1)
+```         
+
 ## References
 
 
