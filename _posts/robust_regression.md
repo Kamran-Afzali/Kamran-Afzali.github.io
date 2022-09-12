@@ -64,6 +64,61 @@ conditional distribution for Y given β, σ and a latent variable, which in turn
 
 In this paper, we have provided a simple Bayesian approach to robustly es- timate both parameters β and σ of a simple linear regression through the origin, in which the variance of the error term can depend on the explana- tory variable. It leads to robust estimators of finite population means and ratios. The approach is to replace the traditional normal assumption on the error term by a super heavy-tailed distribution assumption.
 
+```r
+s <- matrix(c(1, .6, 
+              .6, 1), 
+             nrow = 2, ncol = 2)
+m <- c(0, 0)
+set.seed(3)
+
+d <- MASS::mvrnorm(n = 100, mu = m, Sigma = s) %>%
+  as_tibble() %>%
+  rename(y = V1, x = V2)
+d <-
+  d %>%
+  arrange(x)
+
+head(d)
+
+o <- d
+o[c(1:2), 1] <- c(5, 4.5)
+
+head(o)
+
+
+ols0 <- lm(data = d, y ~ 1 + x)
+ols1 <- lm(data = o, y ~ 1 + x)
+
+
+p1 <-
+  ggplot(data = d, aes(x = x, y = y)) +
+  stat_smooth(method = "lm", color = "grey92", fill = "grey67", alpha = 1, fullrange = T) +
+  geom_point(size = 1, alpha = 3/4) +
+  scale_x_continuous(limits = c(-4, 4)) +
+  coord_cartesian(xlim = c(-3, 3), 
+                  ylim = c(-3, 5)) +
+  labs(title = "No Outliers") +
+  theme(panel.grid = element_blank())
+
+# the data with two outliers
+p2 <-
+  ggplot(data = o, aes(x = x, y = y, color = y > 3)) +
+  stat_smooth(method = "lm", color = "grey92", fill = "grey67", alpha = 1, fullrange = T) +
+  geom_point(size = 1, alpha = 3/4) +
+  scale_color_viridis_d(option = "A", end = 4/7) +
+  scale_x_continuous(limits = c(-4, 4)) +
+  coord_cartesian(xlim = c(-3, 3), 
+                  ylim = c(-3, 5)) +
+  labs(title = "Two Outliers") +
+  theme(panel.grid = element_blank(),
+        legend.position = "none")
+
+# combine the ggplots with patchwork syntax
+library(patchwork)
+
+p1 + p2
+```
+
 
 ```r
  data {
