@@ -62,7 +62,7 @@ conditional distribution for Y given β, σ and a latent variable, which in turn
 
 ### Conclusion
 
-In this paper, we have provided a simple Bayesian approach to robustly es- timate both parameters β and σ of a simple linear regression through the origin, in which the variance of the error term can depend on the explana- tory variable. It leads to robust estimators of finite population means and ratios. The approach is to replace the traditional normal assumption on the error term by a super heavy-tailed distribution assumption.
+In this post, we have provided a simple Bayesian approach to robustly estimate both parameters β and σ of a simple linear regression through the origin, in which the variance of the error term can depend on the explanatory variable. It leads to robust estimators of finite population means and ratios. The approach is to replace the traditional normal assumption on the error term by a super heavy-tailed distribution assumption.
 
 ```r
 s <- matrix(c(1, .6, 
