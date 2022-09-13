@@ -23,27 +23,20 @@ FreeSurfer labels the cortical and subcortical structures based on the reconstru
 
 The Freesurfer pipeline and analytic procedure for neuroanatomical images is intended to function based on T1-weighted structural MRI of the brain. The Freesurfer recon-all function, where "recon" stands for reconstruction, implements the entire pipeline. The recon-all function conducts around 30 different processes when the -all flag is used, and it takes 20 to 40 hours to process a subject completely. The recon all freesurfer function implements the suggested procedure for fully processing a T1-weighted image in Freesurfer. Users must enter a T1-weighted image, the output directory, and the subject identifier in the recon all function. The outcomes will be recorded in the relevant subject directory.
 
-
 There are several processes where users can change specific processing steps if there are problems with the results. Once these steps have been rectified, the pipeline can continue to operate. The entire pipeline is divided into three distinct sets of stages known as autorecon1, autorecon2, and autorecon3, which are associated with the same-named flags in recon-all that are used to start these procedures. In order to allow users to conduct certain pipeline steps or continue a failed operation following data rectification, we created wrapper functions called autorecon1, autorecon2, and autorecon3.
-
 
 On a normal PC, FreeSurfer processes a single subject in between sixteen and twenty-four hours, with minor variance depending on the input data's quality. This may be an impossibly long period of time for some researchers, especially if the study involves dozens or even hundreds of participants. Running the studies in parallel computing and HPCs is one technique to shorten the time it takes to examine so many different topics.
 
 The anatomical image is initially stripped of the skull by Recon-all to create the brainmask dataset. mgz (zipped Massachusetts General Hospital file, an extension specific to FreeSurfer) A folder called MRI is where all files that are output as three-dimensional volumes are kept. The location of the white matter/gray matter interface is then estimated using Recon-all for both hemispheres, and these surface estimates are saved in files with the names lh.orig and rh.orig. This rough estimate is saved as files with the names lh.white and rh.white after being refined. Then, from this border, recon-all extends feelers in order to look for the margin of the grey matter. Once this edge is reached, the datasets lh.pial and rh.pial are produced as a third pair. The pial surface, which resembles a plastic film wrapped around the edge of the grey matter, is represented by these datasets. 
 
-
 One benefit of using these surfaces is the ability to visualise metrics like variations in cortical thickness or the BOLD signal within the sulci. The surface datasets can be further inflated to produce the datasets lh.inflated and rh.inflated, which make it easier to see where the activation maps are located along the banks of the sulci and the ridges of the gyri. Additionally, Recon-all will divide each subject's brain into portions based on the Desikan-Killiany atlas and the Destrieux atlas. The number of parcellations in the Destrieux atlas is greater; whatever one you pick for your study will depend on how in-depth you want it to be.
-
-
-
 
 ## Viewing Your Data with [Freeview](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeviewGuide)
 
-Each neuroimaging software package has a data viewer, or an application that allows you to look at your data. AFNI, SPM, and FSL all have data viewers which basically do the same thing: the user loads imaging data, usually anatomical or functional images, and can view them in three dimensions. Most viewers are able to load NIFTI files that contains any kind of imaging data.
+There is a data viewer, or a programme that lets you view your data, in every neuroimaging software package.
+Data viewers from AFNI, SPM, and FSL all essentially accomplish the same task: the user enters imaging data, typically anatomical or functional images, and is able to see them in three dimensions. The majority of viewers can open NIFTI files containing any form of image data. Freeview, a viewer provided by FreeSurfer, can be started from the Terminal by entering the command freeview. In addition to supporting NIFTI pictures like the other packages, it also supports FreeSurfer-specific file types like.mgz and.inflated data. The Viewing Panel allows you to view the image in all three dimensions, or you can rearrange the arrangement to only show one. 
 
-FreeSurfer has its own viewer called Freeview, which can by launched from the Terminal by typing freeview and pressing enter. It can load NIFTI images just like the other packages, and in addition it can load FreeSurfer-specific formats, such as data with .mgz and .inflated extensions. The image can be viewed in all three dimensions in the Viewing Panel, or you can change the layout so that only one viewing dimension is displayed.
-
-Freeview can load both volumes and surfaces at the same time. To load a surface, click File -> Load Surface, and select an image in the surf directory, such as lh.pial. This will overlay a 3D representation of the surface in the three-dimensional box of the View window, and will trace the outline of the surface in the orthogonal boxes (i.e., the sagittal, axial, and coronal views). The color of the surface in the orthogonal views can be changed by selecting a new Edge color.
+Both volumes and surfaces can be loaded simultaneously by Freeview. Select an image from the surf directory, such as lh.pial, to load a surface. This will trace the surface's outline in the orthogonal boxes and overlay a three-dimensional representation of the surface in the View window's three-dimensional box (i.e., the sagittal, axial, and coronal views). By choosing a new Edge colour, the surface's colour in the orthogonal views can be altered. 
 
 ## FreeSurfer [Group Analysis](https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/GroupAnalysisV6.0)
 
