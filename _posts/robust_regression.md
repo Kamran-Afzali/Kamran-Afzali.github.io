@@ -109,7 +109,7 @@ p1 + p2
 ```
 
 
-```r
+```stan
  data {
   int N;
   vector[N] y;
@@ -151,7 +151,7 @@ generated quantities {
 
 
 
-```r
+```stan
   data {
   int N;
   vector[N] y;
@@ -193,7 +193,7 @@ generated quantities {
 }
 ```
 
-```
+```stan
 data {
     int<lower=1> N;    
     int<lower=0> M;    
@@ -234,7 +234,7 @@ generated quantities {
 ```
 
 
-```
+```r
 b0 <- 
   brm(data = d, 
       family = gaussian,
@@ -245,13 +245,13 @@ b0 <-
       seed = 1)
 ```
 
-```     
+```r    
 b1 <- 
   update(b0, 
          newdata = o,
          seed = 1)
 ```
-```
+```r
 b2 <- 
   brm(data = o, family = student,
       y ~ 1 + x,
@@ -262,7 +262,7 @@ b2 <-
       seed = 1)
 ```
 
-```
+```r
 b3 <- 
   update(b2,
          prior = c(prior(normal(0, 10), class = Intercept),
@@ -272,7 +272,7 @@ b3 <-
          seed = 1)
 ```
 
-```
+```r
 b4 <-
   brm(data = o, family = student,
       bf(y ~ 1 + x, nu = 4),
