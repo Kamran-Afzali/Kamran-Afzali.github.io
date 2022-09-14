@@ -80,14 +80,10 @@ As above, we will use nested for loops to analyze the hemispheres, smoothing ker
 ## FreeSurfer [Region of Interest Analysis](https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/AnatomicalROI)
 
 
-Regions of interest (ROIs) are groups of voxels that parameter estimates (or other data) are extracted from. With volumetric data, you specify the x-, y-, and z-coordinates of the origin for your ROI, and then build a sphere around it. (Spheres aren't the only method, but they are common.) You can do this with, for example: AFNI's 3dUndump; SPM's Marsbar toolbox; FSL's fslmaths.
+Groups of voxels known as regions of interest (ROIs) correspond to certain anatomical substrates. The x, y, and z coordinates of the origin should be specified for a ROI before a sphere is constructed around it. Tools like AFNI's 3dUndump, SPM's Marsbar toolbox, and FSL's fslmaths can be used for this. Accordingly, FreeSurfer parcellates and segments the brain, with the parcellations delineating physically separate parts of the cortex and the segmentations separating the sub-cortical nuclei into different structures. These parcellations were made using the Destrieux atlas and the Desikan-Killiany atlas, two atlases that come with FreeSurfer.
 
+There is a table that corresponds to the parcellations for each atlas in the statistics directory for each subject. For instance, the findings for the parcellation of the left hemisphere can be found in the files lh.aparc.annot and lh.aparc.a2009s.annot for the Desikan-Killiany and Destrieux atlases, respectively. The Destrieux atlas contains more parcellations, which can be utilised for finer-grained studies, which is the fundamental distinction between the two. On the other hand, the segmentations are contained in a single file called aseg.stats. For each atlas, there are no unique segmentation files.
 
-In addition to creating a cortical surface and calculating structural measurements at each vertex, FreeSurfer parcellates and segments the brain - the parcellations outlining anatomically distinct regions of the cortex, and the segmentations dividing the sub-cortical nuclei into distinct structures. These parcellations are created along the lines of two atlases that come with FreeSurfer: The Destrieux atlas, and the Desikan-Killiany atlas.
-
-Within each subject’s stats directory, there is a table corresponding to the parcellations for each atlas. For example, the results for the parcellation of the left hemisphere are located in the file lh.aparc.annot for the Desikan-Killiany atlas, and in the file lh.aparc.a2009s.annot for the Destrieux atlas. The main difference between the two is that the Destrieux atlas contains more parcellations which can be used for finer-grained analyses.
-
-The segmentations, on the other hand, are contained within one file called aseg.stats. There are no separate segmentation files for each atlas.
 
 Extracting data with asegstats2table and aparcstats2table
 
