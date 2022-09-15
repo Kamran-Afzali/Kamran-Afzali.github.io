@@ -85,22 +85,18 @@ Groups of voxels known as regions of interest (ROIs) correspond to certain anato
 There is a table that corresponds to the parcellations for each atlas in the statistics directory for each subject. For instance, the findings for the parcellation of the left hemisphere can be found in the files lh.aparc.annot and lh.aparc.a2009s.annot for the Desikan-Killiany and Destrieux atlases, respectively. The Destrieux atlas contains more parcellations, which can be utilised for finer-grained studies, which is the fundamental distinction between the two. On the other hand, the segmentations are contained in a single file called aseg.stats. For each atlas, there are no unique segmentation files.
 
 
-Extracting data with asegstats2table and aparcstats2table
+It is possible to extracte ROI data with asegstats2table and aparcstats2table commands. Both these commands require a list of subjects and the structural measurement you wish to extract from the table.
 
-Both the command asegstats2table and aparcstats2table require a list of subjects and the structural measurement you wish to extract from the table.
+A typical command includes following flags
 
-Let’s begin with asegstats2table. A typical command would look like this:
-
-The --subjects option specifies a list of subject names;
---common-segs signalizes to output segmentations common to all of the subjects - in other words, if one subject’s number of segmentations is different from the others, do not exit the command with errors;
+--subjects option specifies a list of subject names;
+--common-segs signalizes to output segmentations common to all of the subjects;
 --meas indicates which structural measurement to extract from the table (“volume” is the default; alternatives are “mean” and “std”);
---stats points to the stats file that the segmentation data will be extracted from; and
---table writes the extracted measurement to a text file, organized by subject name.
-The command aparcstats2table requires similar arguments. Here is a typical command:
+--stats points to the stats file that the segmentation data will be extracted from;
+--table writes the extracted measurement to a text file, organized by subject name;
+--tablefile label for the output file is specified with the  option;
 
-In this command you can specify the hemisphere to analyze (--hemi), the measurement to extract (--meas, with the options of “thickness”, “volume”, “area”, and “meancurv”), and which atlas to use for parcellation (--parc; you can specify either “aparc”, the Desikan-Killinay atlas, or “aparc.a2009s”, the Destrieux atlas). The label for the output file is specified with the --tablefile option. Include as many subjects as you like in your analysis.
-
-The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R. You would perform the statistical tests just like you would any other t-test: Select the structural measurements from the groups you wish to compare, and then contrast the two groups against each other.
+The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R. 
 
 
 ## [FreeSurfer and Python](https://academic.oup.com/gigascience/article/5/suppl_1/s13742-016-0147-0-o/2965220?login=false) 
