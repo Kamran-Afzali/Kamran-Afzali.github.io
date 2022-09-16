@@ -38,6 +38,8 @@ In general, if you have a major problem with outliers that isn’t due to measur
 
 Simple linear regression is a very popular technique for estimating the linear relationship between two variables based on matched pairs of observations, as well as for predicting the probable value of one variable (the response variable) according to the value of the other (the explanatory variable). When plotting the results of linear regression graphically, the explanatory variable is normally plotted on the x-axis, and the response variable on the y-axis.
 
+### Concepts and code
+
 The standard approach to linear regression is defining the equation for a straight line that represents the relationship between the variables as accurately as possible. The equation for the line defines y (the response variable) as a linear function of x (the explanatory variable):
 
 𝑦 = 𝛼 + 𝛽𝑥 + 𝜀
@@ -50,17 +52,11 @@ That is, the response variable follows a normal distribution with mean equal to 
 
 The formulation of the robust simple linear regression Bayesian model is given below. We define a t likelihood for the response variable, y, and suitable vague priors on all the model parameters: normal for α and β, half-normal for σ and gamma for ν.
 
-I’ve been experimenting with techniques for robust regression, and I thought that it would be a fun excercise to implement a robust variant of the simple linear regression model based on the t-distribution.
-
-
-Protection against outliers always comes at a price: a loss of efficiency when the observations are normally distributed. The best robust alternatives manages to offer a large protection at a low premium. This is especially true for the estimation of β. In this regard, a new method can hardly do better; in fact matching their performance is quite an achievement. However, the performance of the existing robust approaches with respect to σ is far less optimal.
-
-The most popular Bayesian solution is modelling using the Student, a consequence of the simplicity of the strategy, the rationale behind it (giving higher probabilities to extreme values), and the required computations. The latter follows from the scale mixture representation of the Student that leads to a normal conditional distribution for Y given β, σ and a latent variable, which in turn allows a straightforward implementation of the Gibbs sampler.  
 
 
 ### Conclusion
 
-In this post, we have provided a simple Bayesian approach to robustly estimate both parameters β and σ of a simple linear regression where the estiamtes are robust to the variance of the error term. The specificity of this approach is to replace the traditional normal assumption on the dependant variable by a heavy-tailed t-distribution assumption.
+In this post, we have provided a simple Bayesian approach to robustly estimate both parameters β and σ of a simple linear regression where the estiamtes are robust to the variance of the error term. The specificity of this approach is to replace the traditional normal assumption on the dependant variable by a heavy-tailed t-distribution assumption. Robusness against outliers comes at a price of a loss of efficiency, especially when the observations are normally distributed. This is a low premium that comes with the robust alternatives that offers a large protection against over-fiting. 
 
 ```r
 s <- matrix(c(1, .6, 
