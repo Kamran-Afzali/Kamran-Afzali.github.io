@@ -37,21 +37,30 @@ In general, if you have a major problem with outliers that isn’t due to measur
 
 The standard approach to linear regression is defining the equation for a straight line that represents the relationship between the variables as accurately as possible. The equation for the line defines y (the response variable) as a linear function of x (the explanatory variable):
 
-𝑦 = 𝛼 + 𝛽𝑥 + 𝜀
+- 𝑦 = 𝛼 + 𝛽𝑥 + 𝜀
+
 In this equation, ε represents the error in the linear relationship: if no noise were allowed, then the paired x- and y-values would need to be arranged in a perfect straight line (for example, as in y = 2x + 1). Because we assume that the relationship between x and y is truly linear, any variation observed around the regression line must be random noise, and therefore normally distributed. From a probabilistic standpoint, such relationship between the variables could be formalised as
 
-𝑦 ~ 𝓝(𝛼 + 𝛽𝑥, 𝜎)
+- 𝑦 ~ 𝓝(𝛼 + 𝛽𝑥, 𝜎)
+
 That is, the response variable follows a normal distribution with mean equal to the regression line, and some standard deviation σ. Such a probability distribution of the regression line is illustrated in the figure below.
 
 
 
 The formulation of the robust simple linear regression Bayesian model is given below. We define a t likelihood for the response variable, y, and suitable vague priors on all the model parameters: normal for α and β, half-normal for σ and gamma for ν.
 
-𝑦 ~ 𝓣(𝛼 + 𝛽𝑥, 𝜎, 𝜈)
-𝛼, 𝛽 ~ 𝓝(0, 1000)
-𝜎 ~ 𝓗𝓝(0, 1000)
-𝜈 ~ 𝚪(2, 0.1)
 
+$$
+\begin{centered}
+- 𝑦 ~ 𝓣(𝛼 + 𝛽𝑥, 𝜎, 𝜈)
+
+- 𝛼, 𝛽 ~ 𝓝(0, 1000)
+
+- 𝜎 ~ 𝓗𝓝(0, 1000)
+
+- 𝜈 ~ 𝚪(2, 0.1)
+\end{centered}
+$$
 
 ### Conclusion
 
