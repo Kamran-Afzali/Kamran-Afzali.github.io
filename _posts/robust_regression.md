@@ -50,9 +50,9 @@ That is, the response variable follows a normal distribution with mean equal to 
 The formulation of the robust simple linear regression Bayesian model is given below. We define a t likelihood for the response variable, y, and suitable vague priors on all the model parameters: normal for α and β, half-normal for σ and gamma for ν.
 
 
-$$
-\begin{centered}
 
+<center> 
+  
 - 𝑦 ~ 𝓣(𝛼 + 𝛽𝑥, 𝜎, 𝜈)
 
 - 𝛼, 𝛽 ~ 𝓝(0, 1000)
@@ -60,9 +60,9 @@ $$
 - 𝜎 ~ 𝓗𝓝(0, 1000)
 
 - 𝜈 ~ 𝚪(2, 0.1)
+  
+</center>
 
-\end{centered}
-$$
 
 ### Conclusion
 
