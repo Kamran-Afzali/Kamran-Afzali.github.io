@@ -53,13 +53,13 @@ The formulation of the robust simple linear regression Bayesian model is given b
 
 <center> 
   
-- 𝑦 ~ 𝓣(𝛼 + 𝛽𝑥, 𝜎, 𝜈)
+ 𝑦 ~ 𝓣(𝛼 + 𝛽𝑥, 𝜎, 𝜈)
 
-- 𝛼, 𝛽 ~ 𝓝(0, 1000)
+  𝛼, 𝛽 ~ 𝓝(0, 1000)
 
-- 𝜎 ~ 𝓗𝓝(0, 1000)
+ 𝜎 ~ 𝓗𝓝(0, 1000)
 
-- 𝜈 ~ 𝚪(2, 0.1)
+ 𝜈 ~ 𝚪(2, 0.1)
   
 </center>
 
