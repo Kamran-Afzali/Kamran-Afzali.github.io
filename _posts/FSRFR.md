@@ -60,7 +60,7 @@ To keep our files organized, copy the participants.tsv file into the FSGD direct
 - The “Class” variables that we specified in the FSGD file are group regressors.
 
 
-The previous tutorials have focused on preparing the data for a group analysis: First, the data was preprocessed using recon-all, with different structural measurements calculated at each vertex; and second, we created an FSGD file and a contrast file indicating which groups we want to compare against each other. The data are also resampled to the fsaverage template, which is in MNI space. Whenever we do any kind of group analysis - comparing groups, region of interest analysis, and so on - each subject’s data must have the same dimensions and voxel resolution. Forgetting to resample usually leads to errors during this step. (All of this applies to fMRI analysis as well.)
+It is noteworthy that, whenever we do any kind of group analysis - comparing groups, region of interest analysis, and so on - each subject’s data must have the same dimensions and voxel resolution. Forgetting to resample usually leads to errors during this step. (All of this applies to fMRI analysis as well.)
 
 
 Now that all of the subjects are concatenated into a single dataset, we can fit a general linear model with FreeSurfer’s mri_glmfit command. 
