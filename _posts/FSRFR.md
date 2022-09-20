@@ -47,7 +47,17 @@ You might be considering how to compare structural measurements between groups a
 We will extract the group labels we are interested in and structure them in a way that FreeSurfer can understand to build a FreeSurfer Group Descriptor (FSGD) file. The covariates that we want to contrast will both be present in the FSGD file, and a second contrast file will specify which covariates to contrast and what weights to give them.
 
 
-To keep our files organized, copy the participants.tsv file into the FSGD directory. In the first column, type the following lines as follows. These lines are called header lines, since they are needed at the top, or head, of the document and indicate the format of the FSGD file. The first line, GroupDescriptorFile 1, indicates that the file is in FSGD format; you will need this first line in any FSGD file that you create. The second line, Title CannabisStudy, will prepend the string “CannabisStudy” to the directories which store the results of your analyses. The next two lines, Class HC and Class CB, indicate that the subject name next to a column containing the string HC belongs to the HC group, and that the subject name next to a column containing the string CB belongs to the CB group.  Our next step is to create a contrast file that specifies the contrast weights for each regressor in our model. The “Class” variables that we specified in the FSGD file are group regressors: One for the Cannabis group, and one for the Control group. Since we have only two regressors, we only need to specify two contrast weights.
+To keep our files organized, copy the participants.tsv file into the FSGD directory. In the first column, type the following lines (header lines--since they are needed at the top, or head, of the document and indicate the format of the FSGD file) as follows: 
+
+- The first line, GroupDescriptorFile 1, indicates that the file is in FSGD format; you will need this first line in any FSGD file that you create. 
+
+- The second line, Title , will append the string “StudyTitle” to the directories which store the results of your analyses. 
+
+- Next two lines, Class A and Class B, indicate that the subject name next to which group. 
+
+- Next step is to create a contrast file that specifies the contrast weights for each regressor in our model. 
+
+- The “Class” variables that we specified in the FSGD file are group regressors.
 
 
 The previous tutorials have focused on preparing the data for a group analysis: First, the data was preprocessed using recon-all, with different structural measurements calculated at each vertex; and second, we created an FSGD file and a contrast file indicating which groups we want to compare against each other. The data are also resampled to the fsaverage template, which is in MNI space. Whenever we do any kind of group analysis - comparing groups, region of interest analysis, and so on - each subject’s data must have the same dimensions and voxel resolution. Forgetting to resample usually leads to errors during this step. (All of this applies to fMRI analysis as well.)
