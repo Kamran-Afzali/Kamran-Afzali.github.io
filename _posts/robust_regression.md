@@ -15,16 +15,12 @@ date-string: September 2022
 
 ### Motivation
 
-Simple linear regression is a widely used method for estimating the linear relation between two variables and for forecasting the likely value of one variable (the response variable) based on the value of the other (the explanatory variable). The explanatory variable is typically represented on the x-axis and the response variable on the y-axis for visualising the results of linear regression.
+Simple linear regression is a widely used method for estimating the linear relation between two (or more) variables and for predicting the value of one variable (the response variable) based on the value of the other (the explanatory variable). The explanatory variable is typically represented on the x-axis and the response variable on the y-axis for visualising the results of linear regression.
 
-The means or regression coefficients can be distorted by outlying data points. Utilizing Student's t density with an unidentified degrees of freedom parameter is a well-liked substitution for normal errors in regression investigations. The Student's t distribution has heavier tails than the normal for low degrees of freedom, but it leans toward the normal as the degrees of freedom parameter rises. A check on the suitability of the normal is thus made possible by treating the degrees of freedom parameter as an unknown quantity that must be approximated.Below you can find R and Stan code for a simple Bayesian t-regression model with nu unknown (Stan’s sampler has no problem estimating nu along with everything else).
-
-
-Robust regression refers to regression methods which are less sensitive to outliers. Bayesian robust regression uses distributions with wider tails than the normal instead of the normal.This means that outliers will have less of an affect on the models and the regression line would need to move less incorporate those observations since the error distribution will not consider them as unusual.
+The regression coefficients can be distorted by outlying data points. Due to the normality assumption used by traditional regression techniques, noisy or outlier data can greatly affect their accuracy. Since the normal distribution must move to a new place in the parameter space to best accommodate the outliers in the data, this frequently leads to an underestimate of the relationship between the variables. In a frequentist framework, creating a linear regression model that is resistant to outliers necessitates the use of very complex statistical techniques; however, in a Bayesian framework, we can achieve robustness by simply using the t-distribution. in this context, **Robust Regression** refers to regression methods which are less sensitive to outliers. Bayesian robust regression uses distributions with wider tails than the normal. This means that outliers will have less of an affect on the models and the regression line would need to move less incorporate those observations since the error distribution will not consider them as unusual.
 
 
-
-Due to the normality assumption used by traditional regression techniques, noisy or outlier data can greatly affect their accuracy. Since the normal distribution must move to a new place in the parameter space to best accommodate the outliers in the data, this frequently leads to an underestimate of the relationship between the variables. In a frequentist framework, creating a linear regression model that is resistant to outliers necessitates the use of very complex statistical techniques; however, in a Bayesian framework, we can achieve robustness by simply using the t-distribution. The degrees of freedom, or parameter ν, of this probability distribution determines how close to normal the distribution is: Low small values of produce a distribution with thicker tails (that is, a greater spread around the mean) than the normal distribution, but big values of (approximately > 30) give a distribution that is quite similar to the normal distribution. As a result, we can allow the distribution of the regression line to be as normal or non-normal as the data imply while still capturing the underlying relationship between the variables by substituting the normal distribution above with a t-distribution and adding as an extra parameter to the model.
+Utilizing Student's t density with an unidentified degrees of freedom parameter is a well-liked substitution for normal errors in regression investigations. The Student's t distribution has heavier tails than the normal for low degrees of freedom, but it leans toward the normal as the degrees of freedom parameter rises. A check on the suitability of the normal is thus made possible by treating the degrees of freedom parameter as an unknown quantity that must be approximated. The degrees of freedom, or parameter ν, of this probability distribution determines how close to normal the distribution is: Low small values of produce a distribution with thicker tails (that is, a greater spread around the mean) than the normal distribution, but big values of (approximately > 30) give a distribution that is quite similar to the normal distribution. As a result, we can allow the distribution of the regression line to be as normal or non-normal as the data imply while still capturing the underlying relationship between the variables by substituting the normal distribution above with a t-distribution and adding as an extra parameter to the model.
 
 
 ### Concepts and code
@@ -39,17 +35,14 @@ In this equation, ε represents the error in the linear relationship: if no nois
 
 That is, the response variable follows a normal distribution with mean equal to the regression line, and some standard deviation σ. Such a probability distribution of the regression line is illustrated in the figure below.
 
-
-
 The formulation of the robust simple linear regression Bayesian model is given below. We define a t likelihood for the response variable, y, and suitable vague priors on all the model parameters: normal for α and β, half-normal for σ and gamma for ν.
-
-
 
 <p align="center"> 𝑦 ~ 𝓣(𝛼 + 𝛽𝑥, 𝜎, 𝜈) </p> 
 <p align="center"> 𝛼, 𝛽 ~ 𝓝(0, 1000) </p> 
 <p align="center"> 𝜎 ~ 𝓗𝓝(0, 1000) </p> 
 <p align="center"> 𝜈 ~ 𝚪(2, 0.1) </p>
 
+Below you can find R and Stan code for a simple Bayesian t-regression model with nu unknown.
 
 ### Conclusion
 
