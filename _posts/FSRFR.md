@@ -49,19 +49,13 @@ We will extract the group labels we are interested in and structure them in a wa
 
 To keep our files organized, copy the participants.tsv file into the FSGD directory. In the first column, type the following lines (header lines--since they are needed at the top, or head, of the document and indicate the format of the FSGD file) as follows: 
 
-- The first line, GroupDescriptorFile 1, indicates that the file is in FSGD format; you will need this first line in any FSGD file that you create. 
-
-- The second line, Title , will append the string “StudyTitle” to the directories which store the results of your analyses. 
-
-- Next two lines, Class A and Class B, indicate that the subject name next to which group. 
-
-- Next step is to create a contrast file that specifies the contrast weights for each regressor in our model. 
-
-- The “Class” variables that we specified in the FSGD file are group regressors.
-
++ The first line, GroupDescriptorFile 1, indicates that the file is in FSGD format; you will need this first line in any FSGD file that you create. 
++ The second line, Title , will append the string “StudyTitle” to the directories which store the results of your analyses. 
++ Next two lines, Class A and Class B, indicate that the subject name next to each group. 
++ Next step is to create a contrast file that specifies the contrast weights for each regressor in our model. 
++ The “Class” variables that we specified in the FSGD file are group regressors.
 
 It is noteworthy that, whenever we do any kind of group analysis - comparing groups, region of interest analysis, and so on - each subject’s data must have the same dimensions and voxel resolution. Forgetting to resample usually leads to errors during this step. (All of this applies to fMRI analysis as well.)
-
 
 Now that all of the subjects are concatenated into a single dataset, we can fit a general linear model with FreeSurfer’s mri_glmfit command. 
 
@@ -71,7 +65,7 @@ Now that all of the subjects are concatenated into a single dataset, we can fit 
 + The hemisphere of the template to analyze (--surf);
 + A mask to restrict our analysis only to the cortex (--cortex);
 + An output label for the directory containing the results (--glmdir).
-+ As above, we will use nested for loops to analyze the hemispheres, smoothing kernels, and structural measurements of our choosing. 
++ As above, we will use nested for loops to analyze the hemispheres, smoothing kernels, and structural measurements of our choosing; 
 
 ## FreeSurfer [Region of Interest Analysis](https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/AnatomicalROI)
 
@@ -79,7 +73,6 @@ Now that all of the subjects are concatenated into a single dataset, we can fit 
 Groups of voxels known as regions of interest (ROIs) correspond to certain anatomical substrates. The x, y, and z coordinates of the origin should be specified for a ROI before a sphere is constructed around it. Tools like AFNI's 3dUndump, SPM's Marsbar toolbox, and FSL's fslmaths can be used for this. Accordingly, FreeSurfer parcellates and segments the brain, with the parcellations delineating physically separate parts of the cortex and the segmentations separating the sub-cortical nuclei into different structures. These parcellations were made using the Destrieux atlas and the Desikan-Killiany atlas, two atlases that come with FreeSurfer.
 
 There is a table that corresponds to the parcellations for each atlas in the statistics directory for each subject. For instance, the findings for the parcellation of the left hemisphere can be found in the files lh.aparc.annot and lh.aparc.a2009s.annot for the Desikan-Killiany and Destrieux atlases, respectively. The Destrieux atlas contains more parcellations, which can be utilised for finer-grained studies, which is the fundamental distinction between the two. On the other hand, the segmentations are contained in a single file called aseg.stats. For each atlas, there are no unique segmentation files.
-
 
 It is possible to extracte ROI data with asegstats2table and aparcstats2table commands. Both these commands require a list of subjects and the structural measurement you wish to extract from the table.
 
@@ -98,10 +91,6 @@ The output from these commands are tab-delimited text files that can be read int
 ## [FreeSurfer and Python](https://academic.oup.com/gigascience/article/5/suppl_1/s13742-016-0147-0-o/2965220?login=false) 
 
 In order to interact with the recon-all workflow and duplicate the exact same commands used in the FreeSurfer's script, interfaces were established in the Nipype package. Then, in order to confirm that Nipype is equivalent to FreeSurfer recon-all, the workflows were put to the test. The same set of MRI images were run through both workflows on different operating systems (CentOS 6.4 and Mac OS X), in a high-performance computing environment. Both the output image files and the output surface files were converted to the NIFTI file format. The results from the Nipype recon-all workflow and the photos and surfaces produced by FreeSurfer's recon-all workflow were compared. 
-
-
-
-
 
 ## [FreeSurfer and R](https://web.archive.org/web/20200228181635id_/https://f1000researchdata.s3.amazonaws.com/manuscripts/15624/d5fd45a2-e2a4-42ce-8bea-4503cbb00ec4_14361_-_john_muschelli.pdf?doi=10.12688/f1000research.14361.1&numberOfBrowsableCollections=20&numberOfBrowsableInstitutionalCollections=5&numberOfBrowsableGateways=22)
 
