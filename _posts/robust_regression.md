@@ -44,64 +44,68 @@ The formulation of the robust simple linear regression Bayesian model is given b
 
 Below you can find R and Stan code for a simple Bayesian t-regression model with nu unknown.
 
-### Conclusion
-
-In this post, we have provided a simple Bayesian approach to robustly estimate both parameters β and σ of a simple linear regression where the estiamtes are robust to the variance of the error term. The specificity of this approach is to replace the traditional normal assumption on the dependant variable by a heavy-tailed t-distribution assumption. Robusness against outliers comes at a price of a loss of efficiency, especially when the observations are normally distributed. This is a low premium that comes with the robust alternatives that offers a large protection against over-fiting. 
+First let's create data with and without ourliers
 
 ```r
-s <- matrix(c(1, .6, 
-              .6, 1), 
-             nrow = 2, ncol = 2)
-m <- c(0, 0)
-set.seed(3)
+library(readr)
+library(tidyverse)
+library(gridExtra)
+s <- matrix(c(1, .8, 
+              .8, 1), 
+            nrow = 2, ncol = 2)
+m <- c(3, 3)
+set.seed(1234)
 
-d <- MASS::mvrnorm(n = 100, mu = m, Sigma = s) %>%
+data_n <- MASS::mvrnorm(n = 100, mu = m, Sigma = s) %>%
   as_tibble() %>%
   rename(y = V1, x = V2)
-d <-
-  d %>%
+data_n <-
+  data_n %>%
   arrange(x)
 
-head(d)
+head(data_n)
 
-o <- d
-o[c(1:2), 1] <- c(5, 4.5)
+data_o <- data_n
+data_o[c(1:2), 1] <- c(7.5, 8.5)
 
-head(o)
+head(data_o)
 
 
-ols0 <- lm(data = d, y ~ 1 + x)
-ols1 <- lm(data = o, y ~ 1 + x)
+ols_n <- lm(data = data_n, y ~ 1 + x)
+ols_o <- lm(data = data_o, y ~ 1 + x)
 
 
 p1 <-
-  ggplot(data = d, aes(x = x, y = y)) +
+  ggplot(data = data_n, aes(x = x, y = y)) +
   stat_smooth(method = "lm", color = "grey92", fill = "grey67", alpha = 1, fullrange = T) +
   geom_point(size = 1, alpha = 3/4) +
-  scale_x_continuous(limits = c(-4, 4)) +
-  coord_cartesian(xlim = c(-3, 3), 
-                  ylim = c(-3, 5)) +
+  scale_x_continuous(limits = c(0, 9)) +
+  coord_cartesian(xlim = c(0, 9), 
+                  ylim = c(0, 9)) +
   labs(title = "No Outliers") +
   theme(panel.grid = element_blank())
 
 # the data with two outliers
 p2 <-
-  ggplot(data = o, aes(x = x, y = y, color = y > 3)) +
+  ggplot(data = data_o, aes(x = x, y = y, color = y > 7)) +
   stat_smooth(method = "lm", color = "grey92", fill = "grey67", alpha = 1, fullrange = T) +
   geom_point(size = 1, alpha = 3/4) +
   scale_color_viridis_d(option = "A", end = 4/7) +
-  scale_x_continuous(limits = c(-4, 4)) +
-  coord_cartesian(xlim = c(-3, 3), 
-                  ylim = c(-3, 5)) +
+  scale_x_continuous(limits = c(0, 9)) +
+  coord_cartesian(xlim = c(0, 9), 
+                  ylim = c(0, 9)) +
   labs(title = "Two Outliers") +
   theme(panel.grid = element_blank(),
         legend.position = "none")
-
-# combine the ggplots with patchwork syntax
-library(patchwork)
-
-p1 + p2
+grid.arrange(p1 ,p2)
 ```
+
+
+### Conclusion
+
+In this post, we have provided a simple Bayesian approach to robustly estimate both parameters β and σ of a simple linear regression where the estiamtes are robust to the variance of the error term. The specificity of this approach is to replace the traditional normal assumption on the dependant variable by a heavy-tailed t-distribution assumption. Robusness against outliers comes at a price of a loss of efficiency, especially when the observations are normally distributed. This is a low premium that comes with the robust alternatives that offers a large protection against over-fiting. 
+
+
 
 
 ```stan
