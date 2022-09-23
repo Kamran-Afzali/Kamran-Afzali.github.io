@@ -63,12 +63,14 @@ data_n <-
   data_n %>%
   arrange(x)
 
-head(data_n)
+head(data_n)%>%kableExtra::kable()
+
 
 data_o <- data_n
 data_o[c(1:2), 1] <- c(7.5, 8.5)
 
-head(data_o)
+head(data_o)%>%kableExtra::kable()
+
 
 
 ols_n <- lm(data = data_n, y ~ 1 + x)
@@ -98,6 +100,45 @@ p2 <-
   theme(panel.grid = element_blank(),
         legend.position = "none")
 grid.arrange(p1 ,p2)
+```
+```r
+library(tidyverse)
+library(kableExtra)
+library(arm) 
+library(emdbook) 
+library(rstan)
+library(rstanarm) 
+
+model_stan = "
+   data {
+  int<lower=0> N;
+  vector[N] x;
+  int<lower=0,upper=1> y[N];
+}
+parameters {
+  real alpha;
+  real beta;
+}
+model {
+  y ~ bernoulli_logit(alpha + beta * x);
+}
+   "
+writeLines(model_stan, con = "model_stan.stan")
+   cat(model_stan)
+```
+
+
+```r
+stan_data <- list(
+  N = 10000,
+  x = df$x1,
+  y = df$y
+)
+
+fit_rstan <- rstan::stan(
+  file = "model_stan.stan",
+  data = stan_data
+)
 ```
 
 
