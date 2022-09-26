@@ -50,24 +50,17 @@ Now that all of the subjects are concatenated into a single dataset, we can fit 
 
 ## FreeSurfer [Region of Interest Analysis](https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/AnatomicalROI)
 
-
-Groups of voxels known as regions of interest (ROIs) correspond to certain anatomical substrates. The x, y, and z coordinates of the origin should be specified for a ROI before a sphere is constructed around it. Tools like AFNI's 3dUndump, SPM's Marsbar toolbox, and FSL's fslmaths can be used for this. Accordingly, FreeSurfer parcellates and segments the brain, with the parcellations delineating physically separate parts of the cortex and the segmentations separating the sub-cortical nuclei into different structures. These parcellations were made using the Destrieux atlas and the Desikan-Killiany atlas, two atlases that come with FreeSurfer.
-
-There is a table that corresponds to the parcellations for each atlas in the statistics directory for each subject. For instance, the findings for the parcellation of the left hemisphere can be found in the files lh.aparc.annot and lh.aparc.a2009s.annot for the Desikan-Killiany and Destrieux atlases, respectively. The Destrieux atlas contains more parcellations, which can be utilised for finer-grained studies, which is the fundamental distinction between the two. On the other hand, the segmentations are contained in a single file called aseg.stats. For each atlas, there are no unique segmentation files.
-
+Groups of voxels known as regions of interest (ROIs) correspond to anatomical substrates identified for further analysis. The x, y, and z coordinates of the origin should be specified for a given ROI before a sphere is constructed around it. Tools like AFNI's 3dUndump, SPM's Marsbar toolbox, and FSL's fslmaths can be used for this aim. Accordingly, FreeSurfer parcellates and segments the brain, with the parcellations delimiting physically separate parts of the cortex and the segmentations separating the sub-cortical nuclei into different structures. These parcellations are made using the Destrieux atlas and the Desikan-Killiany atlas, integrated in FreeSurfer.
+There is a table that corresponds to the parcellations for each atlas in the statistics directory for each subject. For instance, the findings for the parcellation of the left hemisphere can be found in the files lh.aparc.annot and lh.aparc.a2009s.annot for the Desikan-Killiany and Destrieux atlases, respectively. The Destrieux atlas contains more parcellations, which can be utilised for finer-grained studies. On the other hand, the segmentations are contained in a single file called aseg.stats. For each atlas, there are no unique segmentation files.
 It is possible to extracte ROI data with asegstats2table and aparcstats2table commands. Both these commands require a list of subjects and the structural measurement you wish to extract from the table.
-
 A typical command includes following flags
-
-+ --subjects option specifies a list of subject names;
-+ --common-segs signalizes to output segmentations common to all of the subjects;
-+ --meas indicates which structural measurement to extract from the table (“volume” is the default; alternatives are “mean” and “std”);
-+ --stats points to the stats file that the segmentation data will be extracted from;
-+ --table writes the extracted measurement to a text file, organized by subject name;
-+ --tablefile label for the output file is specified with the  option;
-
-The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R. 
-
+•	--subjects option specifies a list of subject names;
+•	--common-segs signalizes to output segmentations common to all of the subjects;
+•	--meas indicates which structural measurement to extract from the table (“volume” is the default; alternatives are “mean” and “std”);
+•	--stats points to the stats file that the segmentation data will be extracted from;
+•	--table writes the extracted measurement to a text file, organized by subject name;
+•	--tablefile label for the output file is specified with the option;
+The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R.
 
 ## [FreeSurfer and Python](https://academic.oup.com/gigascience/article/5/suppl_1/s13742-016-0147-0-o/2965220?login=false) 
 
