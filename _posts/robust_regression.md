@@ -154,16 +154,29 @@ writeLines(model_stan, con = "model_stan.stan")
 
 
 ```r
-stan_data <- list(
-  N = 10000,
-  x = df$x1,
-  y = df$y
-)
+stan_data <- list(x=data_o$x,
+     y=data_o$y,
+     N=length(data_o$y),
+     M=0, P=0, x_cred=numeric(0), x_pred=numeric(0))
+
+
 
 fit_rstan <- rstan::stan(
   file = "model_stan.stan",
   data = stan_data
 )
+```
+
+```r
+stan_trace(fit_rstan, pars=c("alpha", "beta", "sigma", "nu"))
+```
+
+```r
+stan_dens(fit_rstan, pars=c("alpha", "beta", "sigma", "nu"))
+```
+
+```r
+stan_plot(fit_rstan, pars=c("alpha", "beta", "sigma", "nu"))
 ```
 
 
