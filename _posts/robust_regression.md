@@ -50,6 +50,14 @@ First let's create data with and without ourliers
 library(readr)
 library(tidyverse)
 library(gridExtra)
+library(kableExtra)
+library(arm) 
+library(emdbook) 
+library(rstan)
+library(rstanarm) 
+
+
+
 s <- matrix(c(1, .8, 
               .8, 1), 
             nrow = 2, ncol = 2)
@@ -102,12 +110,7 @@ p2 <-
 grid.arrange(p1 ,p2)
 ```
 ```r
-library(tidyverse)
-library(kableExtra)
-library(arm) 
-library(emdbook) 
-library(rstan)
-library(rstanarm) 
+
 
 model_stan = "
    data {
@@ -212,11 +215,11 @@ fit_rstan2 <- rstan::stan(
 ```
 
 ```r
-summary(extract(fit_rstan2, "mu_cred")[[1]])
+summary(extract(fit_rstan2, "mu_cred")[[1]])%>%kableExtra::kable()
 ```
 
 ```r
-summary(extract(fit_rstan2, "y_pred")[[1]])
+summary(extract(fit_rstan2, "y_pred")[[1]])%>%kableExtra::kable()
 ```
 
 
