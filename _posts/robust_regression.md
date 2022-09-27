@@ -179,6 +179,48 @@ stan_dens(fit_rstan, pars=c("alpha", "beta", "sigma", "nu"))
 stan_plot(fit_rstan, pars=c("alpha", "beta", "sigma", "nu"))
 ```
 
+Just as conventional regression models, our Bayesian model can be used to estimate credible (or highest posterior density) intervals for the mean response (that is, intervals summarising the distribution of the regression line), and prediction intervals, by using the model’s predictive posterior distributions. More specifically, the credible intervals are obtained by drawing MCMC samples of the mean response (mu_cred = alpha + beta * x_cred) at regularly spaced points along the x-axis (x_cred), while the prediction intervals are obtained by first drawing samples of the mean response (mu_pred) at particular x-values of interest (x_pred), and then, for each of these samples, drawing a random y-value (y_pred) from a t-distribution with location mu_pred (see the model code above). The credible and prediction intervals reflect the distributions of mu_cred and y_pred, respectively.
+
+That said, the truth is that getting prediction intervals from our model is as simple as using x_cred to specify a sequence of values spanning the range of the x-values in the data. We’ll also take the opportunity to obtain prediction intervals for a couple of arbitrary x-values.
+
+Each column of mu.cred contains the MCMC samples of the mu_cred parameter (the posterior mean response) for each of the 20 x-values in x.cred. Similarly, the columns of y.pred contain the MCMC samples of the randomly drawn y_pred values (posterior predicted response values) for the x-values in x.pred. What we need are the HPD intervals derived from each column, which will give us the higher and lower ends of the interval to plot at each point. We will also calculate the column medians of y.pred, which serve as posterior point estimates of the predicted response for the values in x.pred (such estimates should lie on the estimated regression line, as this represents the predicted mean response).
+
+```r
+x.cred = seq(from=min(data_o$x),
+             to=max(data_o$x),
+             length.out=50)
+
+
+x.pred = c(0, 8)
+```
+
+```r
+stan_data2 <- list(x=data_o$x,
+                  y=data_o$y,
+                  N=length(data_o$y),
+                  x_cred=x.cred,
+                  x_pred=x.pred,
+                  M=length(x.cred),
+                  P=length(x.pred))
+```
+
+```r
+fit_rstan2 <- rstan::stan(
+  file = "model_stan.stan",
+  data = stan_data2
+)
+```
+
+```r
+summary(extract(fit_rstan2, "mu_cred")[[1]])
+```
+
+```r
+summary(extract(fit_rstan2, "y_pred")[[1]])
+```
+
+
+
 
 ### Conclusion
 
