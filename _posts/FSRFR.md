@@ -21,14 +21,14 @@ Both volumes and surfaces can be loaded simultaneously by Freeview. Select an im
 
 ## FreeSurfer [Group Analysis](https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/GroupAnalysisV6.0)
 
-We have already gone over the fundamental FreeSurfer commands: freeview and recon-all. Recon-all measures the thickness and volume of grey matter in various brain regions by generating a variety of volumes and surfaces from a T1-weighted anatomical picture. Regions in the cortex are referred to as parcellations, while those in the subcortex are known as segmentations. For instance, the Desikan-Killiany atlas defines the left superior frontal gyrus as a parcellation, and structural metrics are computed in this region for each participant. The subcortical regions of the right amygdala, on the other hand, are segmented and only assess grey matter volume, not thickness, as they are not surface inflated.
+We have already gone over the fundamental FreeSurfer commands: freeview and recon-all. Recon-all measures the thickness and volume of gray matter in various brain regions by generating a variety of volumes and surfaces from a T1-weighted anatomical picture. Regions in the cortex are referred to as parcellations, while the subcortical regions are known as segmentations. For instance, the Desikan-Killiany atlas defines the left superior frontal gyrus as a parcellation, and structural metrics are computed in this region for each participant. The subcortical regions of the right amygdala, on the other hand, are segmented and only assess gray matter volume, not thickness, as they are not surface inflated.
 
-You might be considering how to compare structural measurements between groups and how to depict those variations on the surface of the brain at this stage. The method is comparable to fMRI analysis: We compare vertices in FreeSurfer in the same way that we compare voxels in fMRI. We can determine variations in grey matter thickness at a certain vertex and determine whether they are statistically significant if the vertices are in a shared region, such as MNI. This produces statistical maps that we may overlay as a surface map on a model brain.
+You might be considering how to compare structural measurements between groups and how to depict those variations on the surface of the brain at this stage. The method is comparable to fMRI analysis: We compare vertices in FreeSurfer in the same way that we compare voxels in fMRI. We can determine variations in gray matter thickness at a certain vertex and determine whether they are statistically significant if the vertices are in a shared region, such as MNI. This produces statistical maps that we may overlay as a surface map on a model brain.
 
 We will extract the group labels we are interested in and structure them in a way that FreeSurfer can understand to build a FreeSurfer Group Descriptor (FSGD) file. The covariates that we want to contrast will both be present in the FSGD file, and a second contrast file will specify which covariates to contrast and what weights to give them.
 
 
-To keep our files organized, copy the participants.tsv file into the FSGD directory. In the first column, type the following lines (header lines--since they are needed at the top, or head, of the document and indicate the format of the FSGD file) as follows: 
+To keep our files organized, copy the *"*".tsv* file into the FSGD directory. In the first column, type the following lines (header lines--since they are needed at the top, or head, of the document and indicate the format of the FSGD file) as follows: 
 
 + The first line, GroupDescriptorFile 1, indicates that the file is in FSGD format; you will need this first line in any FSGD file that you create. 
 + The second line, Title , will append the string “StudyTitle” to the directories which store the results of your analyses. 
@@ -36,7 +36,7 @@ To keep our files organized, copy the participants.tsv file into the FSGD direct
 + Next step is to create a contrast file that specifies the contrast weights for each regressor in our model. 
 + The “Class” variables that we specified in the FSGD file are group regressors.
 
-It is noteworthy that, whenever we do any kind of group analysis - comparing groups, region of interest analysis, and so on - each subject’s data must have the same dimensions and voxel resolution. Forgetting to resample usually leads to errors during this step. (All of this applies to fMRI analysis as well.)
+It is noteworthy that, whenever we do any kind of group analysis - comparing groups, region of interest analysis, and so on - each subject’s data must have the same dimensions and voxel resolution. Forgetting to resample usually leads to errors during this step (this applies to fMRI analysis as well).
 
 Now that all of the subjects are concatenated into a single dataset, we can fit a general linear model with FreeSurfer’s mri_glmfit command. 
 
@@ -54,12 +54,12 @@ Groups of voxels known as regions of interest (ROIs) correspond to anatomical su
 There is a table that corresponds to the parcellations for each atlas in the statistics directory for each subject. For instance, the findings for the parcellation of the left hemisphere can be found in the files lh.aparc.annot and lh.aparc.a2009s.annot for the Desikan-Killiany and Destrieux atlases, respectively. The Destrieux atlas contains more parcellations, which can be utilised for finer-grained studies. On the other hand, the segmentations are contained in a single file called aseg.stats. For each atlas, there are no unique segmentation files.
 It is possible to extracte ROI data with asegstats2table and aparcstats2table commands. Both these commands require a list of subjects and the structural measurement you wish to extract from the table.
 A typical command includes following flags
-•	--subjects option specifies a list of subject names;
-•	--common-segs signalizes to output segmentations common to all of the subjects;
-•	--meas indicates which structural measurement to extract from the table (“volume” is the default; alternatives are “mean” and “std”);
-•	--stats points to the stats file that the segmentation data will be extracted from;
-•	--table writes the extracted measurement to a text file, organized by subject name;
-•	--tablefile label for the output file is specified with the option;
++ --subjects option specifies a list of subject names;
++ --common-segs signalizes to output segmentations common to all of the subjects;
++ --meas indicates which structural measurement to extract from the table (“volume” is the default; alternatives are “mean” and “std”);
++ --stats points to the stats file that the segmentation data will be extracted from;
++ --table writes the extracted measurement to a text file, organized by subject name;
++ --tablefile label for the output file is specified with the option;
 The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R.
 
 ## [FreeSurfer and Python](https://academic.oup.com/gigascience/article/5/suppl_1/s13742-016-0147-0-o/2965220?login=false) 
