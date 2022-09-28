@@ -222,6 +222,43 @@ summary(extract(fit_rstan2, "mu_cred")[[1]])%>%kableExtra::kable()
 summary(extract(fit_rstan2, "y_pred")[[1]])%>%kableExtra::kable()
 ```
 
+These models can be also etimated through *brms* package's API for Stan as follows
+
+```r
+M_gaussian <- 
+  brm(data = data_o, 
+      family = gaussian,
+      y ~ 1 + x,
+      prior = c(prior(normal(0, 10), class = Intercept),
+                prior(normal(0, 10), class = b),
+                prior(cauchy(0, 1),  class = sigma)),
+      seed = 1)
+```
+
+
+
+```r
+summary(M_gaussian)
+```
+
+
+
+```r
+M_student <- 
+  brm(data = data_o, family = student,
+      y ~ 1 + x,
+      prior = c(prior(normal(0, 10), class = Intercept),
+                prior(normal(0, 10), class = b),
+                prior(gamma(4, 1), class = nu),
+                prior(cauchy(0, 1),  class = sigma)),
+      seed = 1)
+```
+
+
+
+```r
+summary(M_student)
+```
 
 
 
