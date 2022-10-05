@@ -167,3 +167,7 @@ As with the uber_subject.py script, there are buttons at the top of the GUI for 
 When it has finished, go back to your Terminal and type ls. You will see a new directory called group_results, and within that a folder called test.001.3dttest++. Navigate into that folder, which contains the script that was used to generate the results (“Flanker_Inc-Con_ttest”), and another folder called test.results, which contains the group-level output “Flanker_Inc-Con_ttest+tlrc”. Load this in the afni viewer, and overlay it on top of the MNI152 template. Threshold the images to an uncorrected p-value of 0.001 (by right-clicking on the “p=” underneath the slider bar) and clusterize the data to only show clusters with an extent of 40 voxels or more; this will create an image like the one below. Does the location of the activation make sense, given the task and the paper this experiment was based on?
 
 ## ROI Analysis
+
+https://andysbrainbook.readthedocs.io/en/latest/AFNI/AFNI_Short_Course/AFNI_08_ROIAnalysis.html
+
+
