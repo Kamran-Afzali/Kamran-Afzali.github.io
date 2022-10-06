@@ -9,8 +9,18 @@ No matter what approach is taken, AutoML can be a powerful tool for making machi
 
 This post aims to introduce you to some of the top AutoML Tools and Platforms. These tools/platforms may serve as your most satisfactory source for the AutoML functions. Please note this is not a ranking article
 
-Here are some of the important and most used AutoML Tools for 2022:
+Pro’s
 
+- Time saving: It’s a quick and dirty prototyping tool. If you are not working on critical task, you could use AutoML to do the job for you while you focus on more critical tasks.
+
+- Benchmarking: Building an ML/DL model is fun. But, how do you know the model you have is the best? You either have to spend a lot of time in building iterative models or ask your colleague to build one and compare it. The other option is to use AutoML to benchmark yours.
+
+
+Con’s
+
+- Most AI models that we come across are black box. Similar is the case with these AutoML frameworks. If you don’t understand what you are doing, it could be catastrophic.
+
+- Based on my previous point, AutoML is being marketed as a tool for non-data scientists. This is a bad move. Without understanding how a model works and blindly using it for making decisions could be disastrous.
 
 
 H2OAutoML
