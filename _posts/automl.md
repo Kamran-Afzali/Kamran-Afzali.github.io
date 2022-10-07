@@ -106,16 +106,16 @@ Due to how h2o is set up, I’ll need to specific the name of the dependent vari
 ## References
 
 
-https://datascienceplus.com/real-plug-and-play-supervised-learning-automl-using-r-and-lares/
++ []https://datascienceplus.com/real-plug-and-play-supervised-learning-automl-using-r-and-lares/
 
-https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html
++ []https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html
 
-https://www.r-bloggers.com/2020/04/automl-frameworks-in-r-python/
++ []https://www.r-bloggers.com/2020/04/automl-frameworks-in-r-python/
 
-https://rdrr.io/github/MrDomani/autofeat/man/SAFE.html
++ []https://rdrr.io/github/MrDomani/autofeat/man/SAFE.html
 
-https://jlaw.netlify.app/2022/05/03/ml-for-the-lazy-can-automl-beat-my-model/
++ []https://jlaw.netlify.app/2022/05/03/ml-for-the-lazy-can-automl-beat-my-model/
 
-https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/reference/h2o.automl.html
++ []https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/reference/h2o.automl.html
 
-https://www.datacamp.com/tutorial/h2o-automl
++ []https://www.datacamp.com/tutorial/h2o-automl
