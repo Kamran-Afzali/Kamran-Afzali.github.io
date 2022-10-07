@@ -4,26 +4,26 @@ AFNI is an environment for processing and displaying functional MRI data. It was
 
 AFNI refers both to the interactive program of that name, and to the entire software package. The basic unit of data storage is the "3D dataset", which consists of one or more 3D arrays of voxel values (bytes, shorts, floats, or complex numbers), plus some control information stored in a header file.
 
-AFNI Built-in Functions
+### AFNI Built-in Functions
+
+
 Just the most obvious ones (much of the "fun" of AFNI comes from finding the unobvious functions):
 
-Switch viewing/analysis between many different datasets.
-Image display in axial, sagittal, and/or coronal views (including multi-image montages).
-Display of graphs (line and surface) of data extracted from image viewers.
-Time series graphing of square regions from image viewers.
-Linked image/graph viewing of multiple 3D datasets (e.g., linked scrolling through multiple brains).
-Transformation to Talairach coordinates (12 sub-volume piecewise linear method).
-Computation of activation maps using the "correlation method".
-Color overlay of activation maps onto higher-resolution anatomical images (resampling of lower-resolution functionals is handled on the fly).
-Interactive thresholding of functional overlays.
++ Switch viewing/analysis between many different datasets.
++ Image display in axial, sagittal, and/or coronal views (including multi-image montages).
++ Display of graphs (line and surface) of data extracted from image viewers.
++ Time series graphing of square regions from image viewers.
++ Linked image/graph viewing of multiple 3D datasets (e.g., linked scrolling through multiple brains).
++ Transformation to Talairach coordinates (12 sub-volume piecewise linear method).
++ Computation of activation maps using the "correlation method".
++ Color overlay of activation maps onto higher-resolution anatomical images (resampling of lower-resolution functionals is handled on the fly).
++ Interactive thresholding of functional overlays.
 
 Among all of the fMRI analysis packages, AFNI has the reputation of being the most difficult to learn. Although this may have been true in the past, the AFNI developers have worked hard over the last few years to make their software easier to learn and easier to use: in addition to the viewer, recent versions of AFNI contain other graphical user interfaces that can be accessed through the commands uber_subject.py and uber_ttest.py. These GUIs are used to create scripts which automate both the preprocessing and model setup for each subject.
 
 Before we discuss those commands, however, we will review the basics of a typical AFNI command. The “uber” scripts, after all, simply compile large numbers of commands together in an order that processes the data. You will also be using individual AFNI commands to perform more advanced analyses, such as region of interest analysis.
 
-
 The documentation and help files are some of AFNI’s greatest strengths. The usage of each command is clearly outlined, and the reasons for using different options are explained in detail. Sample commands are given to cover different scenarios - for example, if the skull-strip leaves too much skull in the output image, you are encouraged to use an option such as “-push_to_edge”.
-
 
 ## skull-stripping
 
