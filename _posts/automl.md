@@ -65,10 +65,7 @@ ignored_columns: Only in python, it is converse of x.
 
 + when all three frames are passed - No splits.
 
-## H2OAutoML
-
 By creating user-friendly machine learning software, H2OAutoML meets the demand for machine learning specialists. This AutoML tool aims to provide straightforward and consistent user interfaces for various machine learning algorithms while streamlining machine learning. Machine learning models are automatically trained and tuned within a user-specified time frame.
-
 
 The lares package has multiple families of functions to help the analyst or data scientist achieve quality robust analysis without the need of much coding. One of the most complex but valuable functions we have is h2o_automl, which semi-automatically runs the whole pipeline of a Machine Learning model given a dataset and some customizable parameters. AutoML enables you to train high-quality models specific to your needs and accelerate the research and development process.
 
