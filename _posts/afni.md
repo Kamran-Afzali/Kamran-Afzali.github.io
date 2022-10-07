@@ -1,5 +1,21 @@
 ## AFNI Commands and Preprocessing
 
+AFNI is an environment for processing and displaying functional MRI data. It was designed and written at MCW, largely by RW Cox, starting in 1994. AFNI runs under Unix+X11+Motif systems, including SGI and Linux. It now comprises over 100,000 lines of C source code, and its capabilities are continually being extended. In addition, a skilled C programmer can add interactive and batch functions to AFNI with relative ease.
+
+AFNI refers both to the interactive program of that name, and to the entire software package. The basic unit of data storage is the "3D dataset", which consists of one or more 3D arrays of voxel values (bytes, shorts, floats, or complex numbers), plus some control information stored in a header file.
+
+AFNI Built-in Functions
+Just the most obvious ones (much of the "fun" of AFNI comes from finding the unobvious functions):
+
+Switch viewing/analysis between many different datasets.
+Image display in axial, sagittal, and/or coronal views (including multi-image montages).
+Display of graphs (line and surface) of data extracted from image viewers.
+Time series graphing of square regions from image viewers.
+Linked image/graph viewing of multiple 3D datasets (e.g., linked scrolling through multiple brains).
+Transformation to Talairach coordinates (12 sub-volume piecewise linear method).
+Computation of activation maps using the "correlation method".
+Color overlay of activation maps onto higher-resolution anatomical images (resampling of lower-resolution functionals is handled on the fly).
+Interactive thresholding of functional overlays.
 
 Among all of the fMRI analysis packages, AFNI has the reputation of being the most difficult to learn. Although this may have been true in the past, the AFNI developers have worked hard over the last few years to make their software easier to learn and easier to use: in addition to the viewer, recent versions of AFNI contain other graphical user interfaces that can be accessed through the commands uber_subject.py and uber_ttest.py. These GUIs are used to create scripts which automate both the preprocessing and model setup for each subject.
 
@@ -203,4 +219,6 @@ Extract the individual beta weights for Incongruent and Congruent separately, an
 As we will see, option #2 allows you to determine what is driving the effect; in other words, whether a significant effect is due to both beta weights being positive but the Incongruent beta weights being more positive, both weights being negative but the Congruent betas more negative, or a combination of the two. It is only by extracting both sets of beta weights that we can determine this.
 
 ## References
+
+https://afni.nimh.nih.gov/
 
