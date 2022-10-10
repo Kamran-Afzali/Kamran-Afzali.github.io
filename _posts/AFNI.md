@@ -25,7 +25,7 @@ Before we discuss those commands, however, we will review the basics of a typica
 
 The documentation and help files are some of AFNI’s greatest strengths. The usage of each command is clearly outlined, and the reasons for using different options are explained in detail. Sample commands are given to cover different scenarios - for example, if the skull-strip leaves too much skull in the output image, you are encouraged to use an option such as “-push_to_edge”.
 
-## skull-stripping
+## Skull-Stripping
 
 The most basic usage of 3dSkullStrip is to use an “-input” flag to specify the anatomical dataset that will be stripped. For example,
 
@@ -36,7 +36,7 @@ After about a minute, a new file called skull_strip_out+orig will be generated. 
 
 Although the skull-stripping worked reasonably well, and is probably fine for most purposes, let’s see if we can improve it by using any of the options specified in the help file. If you read it closely, you will notice an option, -push_to_edge, which helps avoid removing any parts of the cortex. In general, it is better to err on the side of including small bits of dura mater and other non-brain matter, as opposed to removing any parts of the cortex. It is also useful to add a -prefix option to label the output as something intelligible.
 
-## slice-timing correction 
+## Slice-Timing Correction 
 
 Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in slices. Each of these slices takes time to acquire - from tens to hundreds of milliseconds.
 
