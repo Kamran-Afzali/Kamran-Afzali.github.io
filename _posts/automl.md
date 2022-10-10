@@ -65,11 +65,11 @@ ignored_columns: Only in python, it is converse of x.
 
 + when all three frames are passed - No splits.
 
-By creating user-friendly machine learning software, H2OAutoML meets the demand for machine learning specialists. This AutoML tool aims to provide straightforward and consistent user interfaces for various machine learning algorithms while streamlining machine learning. Machine learning models are automatically trained and tuned within a user-specified time frame.
+By creating user-friendly machine learning software, H2O AutoML meets the demand for machine learning specialists. This AutoML tool aims to provide straightforward and consistent user interfaces for various machine learning algorithms while streamlining machine learning. Machine learning models are automatically trained and tuned within a user-specified time frame.
 
 The lares package has multiple families of functions to help the analyst or data scientist achieve quality robust analysis without the need of much coding. One of the most complex but valuable functions we have is h2o_automl, which semi-automatically runs the whole pipeline of a Machine Learning model given a dataset and some customizable parameters. AutoML enables you to train high-quality models specific to your needs and accelerate the research and development process.
 
-HELP: Before getting to the code, I recommend checking h2o_automl's full documentation here or within your R session by running ?lares::h2o_automl. In it you'll find a brief description of all the parameters you can set into the function to get exactly what you need and control how it behaves.
+HELP: Before getting to the code, I recommend checking h2o_automl's full documentation [here](https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/reference/h2o.automl.html) or within your R session by running ?lares::h2o_automl. In it you'll find a brief description of all the parameters you can set into the function to get exactly what you need and control how it behaves.
 
 Model #2 - h2o AutoML
 The next candidate will be h2o’s AutoML function. h2O is an open-source machine learning platform that runs in java and has interfaces with R amongst others. The AutoML feature will auto-magically try different models and eventually construct a leaderboard of the best models. For this section, the blog post from Riley King was an inspiration as AutoML was used to compare against data from the Sliced data science competition.
@@ -81,8 +81,7 @@ h2O also has its own data format which must used. Fortunately its easy to conver
 Due to how h2o is set up, I’ll need to specific the name of the dependent variable (y) as a string and provide the list of predictors as a vector of strings (x). This is most easily done prior to the function call using setdiff() to remove the dependent from the other variables.
 
 
-
-## Mapping h2o_automl
+## Mapping H2O AutoML Functionalities
 
 + Input a dataframe df and choose which one is the independent variable (y) you’d like to predict. You may set/change the seed argument to guarantee reproducibility of your results.
 
@@ -99,7 +98,6 @@ Due to how h2o is set up, I’ll need to specific the name of the dependent vari
 + Performance metrics and plots will be calculated and rendered given the test predictions and test actual values (which were NOT passed to the models as inputs to be trained with). That way, your model’s performance metrics shouldn’t be biased. You can replicate these calculations with the model_metrics() function.
 
 + A list with all the inputs, leaderboard results, best selected model, performance metrics, and plots. You can either (play) see the results on console or export them using the export_results() function.
-
 
 
 
