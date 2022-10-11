@@ -25,18 +25,25 @@ Before we discuss those commands, however, we will review the basics of a typica
 
 The documentation and help files are some of AFNI’s greatest strengths. The usage of each command is clearly outlined, and the reasons for using different options are explained in detail. Sample commands are given to cover different scenarios - for example, if the skull-strip leaves too much skull in the output image, you are encouraged to use an option such as “-push_to_edge”.
 
-## Skull-Stripping
+## [Skull-Stripping](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dSkullStrip.html)
+
+A program to extract the brain from surrounding.tissue from MRI T1-weighted images. 
+
 
 The most basic usage of 3dSkullStrip is to use an “-input” flag to specify the anatomical dataset that will be stripped. For example,
-
+  The simplest command would be:
+  
+        3dSkullStrip <-input DSET>
 3dSkullStrip -input sub-08_T1w.nii.gz
 
+
+Also consider the script @SSwarper, which combines the use of 3dSkullStrip and nonlinear warping to an MNI template to produce a skull-stripped dataset in MNI space, plus the nonlinear warp that can used to transform other datasets from the same subject (e.g., EPI) to MNI space. (This script only applies to human brain images.) 
 
 After about a minute, a new file called skull_strip_out+orig will be generated. This is the skull-stripped anatomical image, which you can view by opening up the AFNI viewer. Look in all three viewing panes to see how well the skull-stripping worked; you will probably notice a few voxels of cortex being removed in the frontal lobes and some bits of dura mater left around the top and the back of the skull, but overall the skull-stripping did very well.
 
 Although the skull-stripping worked reasonably well, and is probably fine for most purposes, let’s see if we can improve it by using any of the options specified in the help file. If you read it closely, you will notice an option, -push_to_edge, which helps avoid removing any parts of the cortex. In general, it is better to err on the side of including small bits of dura mater and other non-brain matter, as opposed to removing any parts of the cortex. It is also useful to add a -prefix option to label the output as something intelligible.
 
-## Slice-Timing Correction 
+## [Slice-Timing Correction](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTshift.html)
 
 Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in slices. Each of these slices takes time to acquire - from tens to hundreds of milliseconds.
 
@@ -50,12 +57,16 @@ Although slice-timing correction seems reasonable, there are some objections:
 In general, it is best to not interpolate (i.e., edit) the data unless you need to;
 For short TRs (e.g., around 1 second or less), slice-timing correction doesn’t appear to lead to any significant gains in statistical power; and
 Many of the problems addressed by slice-timing correction can be resolved by using a temporal derivative in the statistical model (discussed later in the chapter on model fitting).
+
+
+
 For now, we will do slice-timing correction, using the first slice as the reference. (This is specified by the -tzero 0 option of the 3dTshift command.) The code for running slice-timing correction will be found in lines 97-100 of your proc script:
 
+ 3dTshift 
 
+Shifts voxel time series from the input dataset so that the separate slices are aligned to the same temporal origin.  By default, uses the slicewise shifting information in the dataset header (from the 'tpattern'input to program to3d).
 
-  3dTshift -tzero 0 -quintic -prefix pb01.$subj.r$run.tshift \pb00.$subj.r$run.tcat+orig
-
+3dTshift -tzero 0 -quintic -prefix pb01.$subj.r$run.tshift \pb00.$subj.r$run.tcat+orig
 
 This will slice-time correct each run with the first slice as a reference. (Keep in mind that in AFNI, everything is indexed starting at 0 - i.e., in this case 0 represents the first slice of the volume). The command also uses an option called -quintic, which resamples each slice using a 5th-degree polynomial. In other words, since we need to replace the values of the voxels within a slice, we can make it more accurate by using information from a larger number of other slices. This does introduce some degree of correlation between the slices, which we will attempt to correct for later by using 3dREMLfit to pre-whiten (i.e., de-correlate) the data.
 
