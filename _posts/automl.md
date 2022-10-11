@@ -106,7 +106,7 @@ Due to how h2o is set up, I’ll need to specific the name of the dependent vari
 
 + []https://datascienceplus.com/real-plug-and-play-supervised-learning-automl-using-r-and-lares/
 
-+ []https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html
++ [h2o_automl's full documentation]https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html
 
 + []https://www.r-bloggers.com/2020/04/automl-frameworks-in-r-python/
 
