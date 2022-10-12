@@ -71,7 +71,7 @@ Shifts voxel time series from the input dataset so that the separate slices are 
 This will slice-time correct each run with the first slice as a reference. (Keep in mind that in AFNI, everything is indexed starting at 0 - i.e., in this case 0 represents the first slice of the volume). The command also uses an option called -quintic, which resamples each slice using a 5th-degree polynomial. In other words, since we need to replace the values of the voxels within a slice, we can make it more accurate by using information from a larger number of other slices. This does introduce some degree of correlation between the slices, which we will attempt to correct for later by using 3dREMLfit to pre-whiten (i.e., de-correlate) the data.
 
 
-## Registration and Normalization
+## [Registration](https://afni.nimh.nih.gov/pub/dist/doc/program_help/README.registration.html) and [Normalization](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTnorm.html)
 
 Although most people’s brains are similar - everyone has a cingulate gyrus and a corpus callosum, for instance - there are also differences in brain size and shape. As a consequence, if we want to do a group analysis we need to ensure that each voxel for each subject corresponds to the same part of the brain. If we are measuring a voxel in the visual cortex, for example, we would want to make sure that every subject’s visual cortex is in alignment with each other.
 
@@ -97,14 +97,29 @@ Once the best match has been found, then the same transformations that were used
 
 Registration with AFNI’s align_epi_anat.py
 
+Two basic methods are supplied.  The first does 2D (in-plane) alignment on each slice separately.  There is no attempt to correct for out-of-slice
+movements.  The second does 3D (volumetric) alignment on each 3D sub-brick in a dataset.  Both methods compute the alignment parameters by an iterative
+weighted least squares fit to a base image or volume (which can be selected from another dataset).  The AFNI package registration programs are designed
+to find movements that are small -- 1-2 voxels and 1-2 degrees, at most. They may not work well at realigning datasets with larger motion (as would occur between imaging sessions) -- however, this issue is discussed later.
+
+2D registration is implemented in programs
+ + imreg:      operates on slice data files, outside of the AFNI framework
+ + 2dImReg:    same as imreg, but takes data from an AFNI dataset
+ + plug_imreg: same as 2dImReg, but interactively within AFNI
+
+3D registration is implemented in programs
+ + 3dvolreg:    operates on 3D+time datasets
+ + plug_volreg: same as 3dvolreg, but interactively within AFNI
+
 The command align_epi_anat.py can do several preprocessing steps at once - registration, aligning the volumes of the functional images together, and slice-timing correction. In this example, however, we will just use it for registration. 
 
 Normalization with AFNI’s @auto_tlrc
-
+Usage 1: A script to transform an antomical dataset to align with
+         some standard space template.
 Once we have aligned the anatomical and functional images, we will first normalize the anatomical image to a template. These warps, as you will see in the next chapter, will be applied to the functional images as well. To normalize the anatomical image, we will use the @auto_tlrc command;
 
 
-## Alignment and Motion Correction
+## [Alignment and Motion Correction](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dvolreg.html)
 
 The concept is the same when we take three-dimensional pictures of the brain. If the subject is moving, the images will look blurry; if the subject is still, the images will look less blurry and more defined. But that’s not all: If the subject moves a lot, we also risk measuring signal from a voxel that moves. We are then in danger of measuring signal from the voxel for part of the experiment and, after the subject moves, from a different region or tissue type.
 
@@ -232,4 +247,8 @@ As we will see, option #2 allows you to determine what is driving the effect; in
 ## References
 
 https://afni.nimh.nih.gov/
+
+https://afni.nimh.nih.gov/pub/dist/HOWTO/howto/
+
+
 
