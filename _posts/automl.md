@@ -4,6 +4,11 @@ AutoML or Automated Machine Learning is a machine learning method that automates
 
 AutoML is an important tool for making machine learning accessible to non-experts, as it can automate the process of training and deploying machine learning models. This can save time and resources and accelerate research on machine learning.
 
+The core innovation utilized in AutoML is hyperparameters search, utilized for preprocessing components and model type selection, and for optimizing their hyperparameters. There are numerous sorts of optimization algorithms going from random and grid search to genetics algorithms and Bayesian.
+Current autoML frameworks additionally utilize their experience to improve their performance.
+AutoML can not supplant the data scientist's expertise and undertaking definition however encourages him to maintain a strategic distance from the technical work-related to the model development.
+
+
 There are a number of different ways to approach AutoML, depending on the specific problem that needs to be solved. For example, some methods focus on optimizing a model for a given dataset, while others focus on finding the best model for a given task.
 
 No matter what approach is taken, AutoML can be a powerful tool for making machine learning more accessible and efficient. In the future, we can expect to see more and more use of AutoML in both industry and research.
