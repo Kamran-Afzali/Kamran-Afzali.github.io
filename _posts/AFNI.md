@@ -119,7 +119,7 @@ Usage 1: A script to transform an antomical dataset to align with
 Once we have aligned the anatomical and functional images, we will first normalize the anatomical image to a template. These warps, as you will see in the next chapter, will be applied to the functional images as well. To normalize the anatomical image, we will use the @auto_tlrc command;
 
 
-## [Alignment and Motion Correction](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dvolreg.html)
+## [Motion Correction](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dvolreg.html)
 
 The concept is the same when we take three-dimensional pictures of the brain. If the subject is moving, the images will look blurry; if the subject is still, the images will look less blurry and more defined. But that’s not all: If the subject moves a lot, we also risk measuring signal from a voxel that moves. We are then in danger of measuring signal from the voxel for part of the experiment and, after the subject moves, from a different region or tissue type.
 
