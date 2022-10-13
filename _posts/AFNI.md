@@ -139,9 +139,14 @@ Motion correction in AFNI is done using the command 3dvolreg. In a typical analy
 
 You will see several options used with this command. The -base option is the reference volume; in this case, the reference image is the volume that has the lowest amount of outliers in its voxels, as determined by an earlier command, 3dToutcount. The -1Dfile command writes the motion parameters into a text file with a “1D” appended to it, and -1Dmatrix_save saves an affine matrix which indicates how much each TR would need to be “unwarped” along each of the affine dimensions in order to match the reference image.
 
-## Smoothing
+## [Smoothing](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dBlurToFWHM.html)
 
 Why Smooth?
+
+Smoothing, the process of introducing spatial correlation into your data by averaging across nearby data points (in fMRI datasets, nearby voxels) is an essential step in any preprocessing stream. Traditionally, smoothing applies a Gaussian filter to average signal over nearby voxels in order to summate any signal that is present, while attenuating and cancelling out noise. This step also has the advantage of spreading signal over brain areas that have some variation across subjects, leading to increased signal-to-noise ratio over larger cortical areas at the loss of some spatial specificity. Lastly, smoothing mitigates the fiendish multiple comparisons problem, since voxels are not truly independent in the first place (neither are timepoints, but more on this at a later time).
+
+
+Blurs a 'master' dataset until it reaches a specified FWHM smoothness (approximately).  The same blurring schedule is applied to the input dataset to produce the output.  The goal is to make the output dataset have the given smoothness, no matter what smoothness it had on input (however, the program cannot 'unsmooth' a dataset!).
 
 It is common to smooth the functional data, or replace the signal at each voxel with a weighted average of that voxel’s neighbors. This may seem strange at first - why would we want to make the images blurrier than they already are?
 
@@ -153,7 +158,7 @@ The -1blur_fwhm option specifies the amount to smooth the image, in millimeters 
 
 The last preprocessing steps will take these smoothed images and then scale them to have a mean signal intensity of 100 - so that deviations from the mean can be measured in percent signal change. Any non-brain voxels will then be removed by a mask, and these images will be ready for statistical analysis. To see how these last two preprocessing steps are done in AFNI, click the Next button.
 
-## Masking and Scaling
+## [Masking](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dAutomask.html) and [Scaling](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTstat.html)
 
 Masking
 
@@ -161,8 +166,7 @@ As you saw in previous tutorials, a volume of fMRI data includes both the brain 
 
 To reduce the size of our datasets and consequently speed up our analyses, we can apply a mask to our data. A mask simply indicates which voxels are to be analyzed - any voxels within the mask retain their original values (or can be assigne a value of 1), whereas any voxels outside mask are assigned a value of zero. It is analogous to tracing an outline of a drawing with tracing paper, and then cutting along the lines and keeping whatever falls inside the lines, discarding the rest. Applied to fMRI data, anything outside the mask we assume to be noise or something of no interest.
 
-Masks are created with AFNI’s 3dAutomask command, which only requires arguments for input and output datasets (lines 223-260 of the proc_Flanker script).
-The rest of the code within the “mask” block creates a union of masks that represents the extent of all of the individual fMRI datasets in the experiment.
+Masks are created with AFNI’s 3dAutomask command, which only requires arguments for input and output datasets (lines 223-260 of the proc_Flanker script). The rest of the code within the “mask” block creates a union of masks that represents the extent of all of the individual fMRI datasets in the experiment.
 
 Scaling
 
@@ -176,7 +180,7 @@ These changes will be reflected in the time-series; the first image below repres
 
 https://andysbrainbook.readthedocs.io/en/latest/AFNI/AFNI_Short_Course/AFNI_Statistics/AFNI_06_Stats_Running_1stLevel_Analysis.html
 
-## Group Analysis
+## [Group Analysis](https://afni.nimh.nih.gov/pub/dist/ASTON/afni_groupanalysis.pdf)
 
 Our goal in analyzing this dataset is to generalize the results to the population that the sample was drawn from. In other words, if we see changes in brain activity in our sample, can we say that these changes would likely be seen in the population as well?
 
@@ -208,7 +212,7 @@ As with the uber_subject.py script, there are buttons at the top of the GUI for 
 
 When it has finished, go back to your Terminal and type ls. You will see a new directory called group_results, and within that a folder called test.001.3dttest++. Navigate into that folder, which contains the script that was used to generate the results (“Flanker_Inc-Con_ttest”), and another folder called test.results, which contains the group-level output “Flanker_Inc-Con_ttest+tlrc”. Load this in the afni viewer, and overlay it on top of the MNI152 template. Threshold the images to an uncorrected p-value of 0.001 (by right-clicking on the “p=” underneath the slider bar) and clusterize the data to only show clusters with an extent of 40 voxels or more; this will create an image like the one below. Does the location of the activation make sense, given the task and the paper this experiment was based on?
 
-## ROI Analysis
+## [ROI Analysis](https://afni.nimh.nih.gov/pub/dist/edu/latest/afni_handouts/afni11_roi.pdf)
 
 Overview
 
