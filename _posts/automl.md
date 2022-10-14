@@ -1,4 +1,13 @@
-## Introduction 
+---
+layout: post
+categories: posts
+title: H2O AutoML   
+featured-image: /images/dbplyr.png
+tags: [AutoML, H2O, Machine Learning]
+date-string: Octobre 2022
+---
+
+## Introduction: AutoML 
 
 The demand for machine learning systems has soared over the past few years. This is majorly due to the success of Machine Learning techniques in a wide range of applications. AutoML is fundamentally changing the face of ML-based solutions today by enabling people from diverse backgrounds to use machine learning models to address complex scenarios. However, even with a clear indication that machine learning can provide a boost to certain businesses, a lot of companies today struggle to deploy ML models.
 
@@ -57,23 +66,6 @@ Now talking about AutoML part of H2O, AutoML helps in automatic training and tun
 + A list with all the inputs, leaderboard results, best selected model, performance metrics, and plots. You can either (play) see the results on console or export them using the export_results() function.
 
 
-
-By creating user-friendly machine learning software, H2O AutoML meets the demand for machine learning specialists. This AutoML tool aims to provide straightforward and consistent user interfaces for various machine learning algorithms while streamlining machine learning. Machine learning models are automatically trained and tuned within a user-specified time frame.
-
-The lares package has multiple families of functions to help the analyst or data scientist achieve quality robust analysis without the need of much coding. One of the most complex but valuable functions we have is h2o_automl, which semi-automatically runs the whole pipeline of a Machine Learning model given a dataset and some customizable parameters. AutoML enables you to train high-quality models specific to your needs and accelerate the research and development process.
-
-HELP: Before getting to the code, I recommend checking h2o_automl's full documentation [here](https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/reference/h2o.automl.html) or within your R session by running ?lares::h2o_automl. In it you'll find a brief description of all the parameters you can set into the function to get exactly what you need and control how it behaves.
-
-Model #2 - h2o AutoML
-The next candidate will be h2o’s AutoML function. h2O is an open-source machine learning platform that runs in java and has interfaces with R amongst others. The AutoML feature will auto-magically try different models and eventually construct a leaderboard of the best models. For this section, the blog post from Riley King was an inspiration as AutoML was used to compare against data from the Sliced data science competition.
-
-In order to start using h2o I must first initialize the engine:
-
-h2O also has its own data format which must used. Fortunately its easy to convert between the tibbles and this format with as.h2o:
-
-Due to how h2o is set up, I’ll need to specific the name of the dependent variable (y) as a string and provide the list of predictors as a vector of strings (x). This is most easily done prior to the function call using setdiff() to remove the dependent from the other variables.
-
-
 ## Mapping H2O AutoML Functionalities
 
 
@@ -109,6 +101,10 @@ ignored_columns: Only in python, it is converse of x.
 + When training and validation frame is passed - The validation_frame data is split into 50-50 validation and leaderboard. 
 
 + when all three frames are passed - No splits.
+
+By creating user-friendly machine learning software, H2O AutoML meets the demand for machine learning specialists. This AutoML tool aims to provide straightforward and consistent user interfaces for various machine learning algorithms while streamlining machine learning. Machine learning models are automatically trained and tuned within a user-specified time frame. The lares package has multiple families of functions to help the analyst or data scientist achieve quality robust analysis without the need of much coding. One of the most complex but valuable functions we have is h2o_automl, which semi-automatically runs the whole pipeline of a Machine Learning model given a dataset and some customizable parameters. AutoML enables you to train high-quality models specific to your needs and accelerate the research and development process.
+
+Before getting to the code, I recommend checking h2o_automl's full documentation [here](https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/reference/h2o.automl.html) or within your R session by running ?lares::h2o_automl. In it you'll find a brief description of all the parameters you can set into the function to get exactly what you need and control how it behaves.
 
 
 ## References
