@@ -71,7 +71,7 @@ Shifts voxel time series from the input dataset so that the separate slices are 
 This will slice-time correct each run with the first slice as a reference. (Keep in mind that in AFNI, everything is indexed starting at 0 - i.e., in this case 0 represents the first slice of the volume). The command also uses an option called -quintic, which resamples each slice using a 5th-degree polynomial. In other words, since we need to replace the values of the voxels within a slice, we can make it more accurate by using information from a larger number of other slices. This does introduce some degree of correlation between the slices, which we will attempt to correct for later by using 3dREMLfit to pre-whiten (i.e., de-correlate) the data.
 
 
-## [Registration](https://afni.nimh.nih.gov/pub/dist/doc/program_help/README.registration.html) and [Normalization](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTnorm.html)
+## [Registration](https://afni.nimh.nih.gov/pub/dist/doc/program_help/README.registration.html) and [Normalization](https://afni.nimh.nih.gov/pub/dist/doc/program_help/@auto_tlrc.html)
 
 Although most people’s brains are similar - everyone has a cingulate gyrus and a corpus callosum, for instance - there are also differences in brain size and shape. As a consequence, if we want to do a group analysis we need to ensure that each voxel for each subject corresponds to the same part of the brain. If we are measuring a voxel in the visual cortex, for example, we would want to make sure that every subject’s visual cortex is in alignment with each other.
 
@@ -114,9 +114,16 @@ to find movements that are small -- 1-2 voxels and 1-2 degrees, at most. They ma
 The command align_epi_anat.py can do several preprocessing steps at once - registration, aligning the volumes of the functional images together, and slice-timing correction. In this example, however, we will just use it for registration. 
 
 Normalization with AFNI’s @auto_tlrc
+
+
 Usage 1: A script to transform an antomical dataset to align with
          some standard space template.
-Once we have aligned the anatomical and functional images, we will first normalize the anatomical image to a template. These warps, as you will see in the next chapter, will be applied to the functional images as well. To normalize the anatomical image, we will use the @auto_tlrc command;
+Once we have aligned the anatomical and functional images, we will first normalize the anatomical image to a template. These warps, as you will see in the next chapter, will be applied to the functional images as well. To normalize the anatomical image, we will use the @auto_tlrc command; this and a following command, cat_matvec, are found in lines 118-122 of your proc script:
+
+ 
+The first command indicates to use the image MNI_avg152T1 as a template, and the skull-stripped anatomical image as a source image, or the image to be moved around to best match the base, or reference, image. The -no_ss option indicates that the anatomical image has already been skull-stripped.
+
+In order to align the template and the anatomical image, the anatomical image needs to be moved and transformed using the transformations described above. This creates a series of numbers organized in an affine transformation matrix which is stored in the header of the anatomical image. The second command, cat_matvec, extracts this matrix and copies it into a file called warp.anat.Xat.1D. How this matrix is used to bring the functional images to the same normalized space will be seen in the next chapter.
 
 
 ## [Motion Correction](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dvolreg.html)
