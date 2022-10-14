@@ -183,7 +183,7 @@ In order to make the comparison of signal intensity meaningful between studies a
 
 These changes will be reflected in the time-series; the first image below represents the time-series before scaling, and the next image shows the time-series after scaling. Note that the values in the first image are relatively high - in the 800s - and that they are arbitrary; they could just as easily be around 500 or 900 in another subject. By scaling each subject’s data to the same mean, as in the second image, we can place each run of each subject’s data on the same scale.
 
-## First-Level Analysis
+## [First-Level Analysis](https://afni.nimh.nih.gov/pub/dist/edu/data/CD.expanded/afni_handouts/afni22_indiana.pdf)
 
 https://andysbrainbook.readthedocs.io/en/latest/AFNI/AFNI_Short_Course/AFNI_Statistics/AFNI_06_Stats_Running_1stLevel_Analysis.html
 
