@@ -180,3 +180,5 @@ plot(r)
 + []https://jlaw.netlify.app/2022/05/03/ml-for-the-lazy-can-automl-beat-my-model/
 
 + []https://www.datacamp.com/tutorial/h2o-automl
+
++ []https://rstudio-pubs-static.s3.amazonaws.com/577204_d3775b5bd4da4b1fba57cd8b0105db03.html
