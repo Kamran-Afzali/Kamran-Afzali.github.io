@@ -1,13 +1,10 @@
 ## AFNI Commands and Preprocessing
 
-AFNI is an environment for processing and displaying functional MRI data. It was designed and written at MCW, largely by RW Cox, starting in 1994. AFNI runs under Unix+X11+Motif systems, including SGI and Linux. It now comprises over 100,000 lines of C source code, and its capabilities are continually being extended. In addition, a skilled C programmer can add interactive and batch functions to AFNI with relative ease.
-
-AFNI refers both to the interactive program of that name, and to the entire software package. The basic unit of data storage is the "3D dataset", which consists of one or more 3D arrays of voxel values (bytes, shorts, floats, or complex numbers), plus some control information stored in a header file.
+The AFNI is a software suit to processe and analyze structural and functional MRI data. Over 100,000 lines of C source code make up its current size, and its functionalities are constantly being increased. Additionally, interactive and batch functions can be added to AFNI with reasonable ease by a proficient C programmer. The "3D dataset," which is made up of one or more 3D arrays of voxel values (bytes, shorts, floats, or complex numbers), along with certain control data contained in a header file, is the fundamental unit of data storage.
 
 ### AFNI Built-in Functions
 
-
-Just the most obvious ones (much of the "fun" of AFNI comes from finding the unobvious functions):
+Here are some of the 
 
 + Switch viewing/analysis between many different datasets.
 + Image display in axial, sagittal, and/or coronal views (including multi-image montages).
@@ -19,23 +16,18 @@ Just the most obvious ones (much of the "fun" of AFNI comes from finding the uno
 + Color overlay of activation maps onto higher-resolution anatomical images (resampling of lower-resolution functionals is handled on the fly).
 + Interactive thresholding of functional overlays.
 
-Among all of the fMRI analysis packages, AFNI has the reputation of being the most difficult to learn. Although this may have been true in the past, the AFNI developers have worked hard over the last few years to make their software easier to learn and easier to use: in addition to the viewer, recent versions of AFNI contain other graphical user interfaces that can be accessed through the commands uber_subject.py and uber_ttest.py. These GUIs are used to create scripts which automate both the preprocessing and model setup for each subject.
+The most challenging fMRI analysis programme to learn is known as AFNI. This may have been the case in the past, but the AFNI developers have worked hard in recent years to make their software simpler to learn and use. In addition to the viewer, more recent versions of AFNI contain other graphical user interfaces used to create scripts that automate both the preprocessing and the model setup. 
 
-Before we discuss those commands, however, we will review the basics of a typical AFNI command. The “uber” scripts, after all, simply compile large numbers of commands together in an order that processes the data. You will also be using individual AFNI commands to perform more advanced analyses, such as region of interest analysis.
-
-The documentation and help files are some of AFNI’s greatest strengths. The usage of each command is clearly outlined, and the reasons for using different options are explained in detail. Sample commands are given to cover different scenarios - for example, if the skull-strip leaves too much skull in the output image, you are encouraged to use an option such as “-push_to_edge”.
+We will go over the fundamentals of a normal AFNI command first, though, before we talk about those commands. After all, the "uber" scripts only combine numerous commands in a specific order to handle the data. Additionally, you will use specific AFNI commands to carry out more complex analyses like region of interest analysis. The documentation and help files are some of AFNI’s greatest strengths. The usage of each command is clearly outlined, and the reasons for using different options are explained in detail. 
 
 ## [Skull-Stripping](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dSkullStrip.html)
 
 A program to extract the brain from surrounding.tissue from MRI T1-weighted images. 
 
-
 The most basic usage of 3dSkullStrip is to use an “-input” flag to specify the anatomical dataset that will be stripped. For example,
   The simplest command would be:
   
         3dSkullStrip <-input DSET>
-3dSkullStrip -input sub-08_T1w.nii.gz
-
 
 Also consider the script @SSwarper, which combines the use of 3dSkullStrip and nonlinear warping to an MNI template to produce a skull-stripped dataset in MNI space, plus the nonlinear warp that can used to transform other datasets from the same subject (e.g., EPI) to MNI space. (This script only applies to human brain images.) 
 
@@ -58,15 +50,13 @@ In general, it is best to not interpolate (i.e., edit) the data unless you need 
 For short TRs (e.g., around 1 second or less), slice-timing correction doesn’t appear to lead to any significant gains in statistical power; and
 Many of the problems addressed by slice-timing correction can be resolved by using a temporal derivative in the statistical model (discussed later in the chapter on model fitting).
 
-
-
 For now, we will do slice-timing correction, using the first slice as the reference. (This is specified by the -tzero 0 option of the 3dTshift command.) The code for running slice-timing correction will be found in lines 97-100 of your proc script:
 
  3dTshift 
 
 Shifts voxel time series from the input dataset so that the separate slices are aligned to the same temporal origin.  By default, uses the slicewise shifting information in the dataset header (from the 'tpattern'input to program to3d).
 
-3dTshift -tzero 0 -quintic -prefix pb01.$subj.r$run.tshift \pb00.$subj.r$run.tcat+orig
+  3dTshift -tzero 0 -quintic -prefix pb01.$subj.r$run.tshift \pb00.$subj.r$run.tcat+orig
 
 This will slice-time correct each run with the first slice as a reference. (Keep in mind that in AFNI, everything is indexed starting at 0 - i.e., in this case 0 represents the first slice of the volume). The command also uses an option called -quintic, which resamples each slice using a 5th-degree polynomial. In other words, since we need to replace the values of the voxels within a slice, we can make it more accurate by using information from a larger number of other slices. This does introduce some degree of correlation between the slices, which we will attempt to correct for later by using 3dREMLfit to pre-whiten (i.e., de-correlate) the data.
 
@@ -114,7 +104,6 @@ to find movements that are small -- 1-2 voxels and 1-2 degrees, at most. They ma
 The command align_epi_anat.py can do several preprocessing steps at once - registration, aligning the volumes of the functional images together, and slice-timing correction. In this example, however, we will just use it for registration. 
 
 Normalization with AFNI’s @auto_tlrc
-
 
 Usage 1: A script to transform an antomical dataset to align with
          some standard space template.
@@ -260,6 +249,4 @@ As we will see, option #2 allows you to determine what is driving the effect; in
 https://afni.nimh.nih.gov/
 
 https://afni.nimh.nih.gov/pub/dist/HOWTO/howto/
-
-
 
