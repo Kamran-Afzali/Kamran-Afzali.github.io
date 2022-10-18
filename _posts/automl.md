@@ -9,25 +9,23 @@ date-string: Octobre 2022
 
 ## Introduction: AutoML 
 
-The demand for machine learning systems has soared over the past few years. This is majorly due to the success of Machine Learning techniques in a wide range of applications. AutoML is fundamentally changing the face of ML-based solutions today by enabling people from diverse backgrounds to use machine learning models to address complex scenarios. However, even with a clear indication that machine learning can provide a boost to certain businesses, a lot of companies today struggle to deploy ML models.
+Over the past few years, demand for machine learning systems has skyrocketed. This is mostly because machine learning techniques have been effective in a variety of applications. By enabling users from a variety of backgrounds to apply machine learning models to address complicated scenarios, AutoML is fundamentally altering the face of ML-based solutions today. Nevertheless, despite abundant evidence that machine learning can benefit several industries, many firms today still find it difficult to implement ML models.
 
-This is because there is a shortage of experienced and seasoned data scientists in the industry. In a way, the demand for machine learning experts has outpaced the supply. Secondly, a lot of machine learning steps require more experience than knowledge, especially when deciding which models to train and how to evaluate them. Such gaps are pretty apparent today, and a lot of efforts are being taken to address these issues. Automated Machine learning may be an answer to such impediments, and in this article, we shall understand in-depth how that can be achieved.
+This is due to a lack of seasoned and competent data scientists in the field. The demand for machine learning specialists has, in some ways, exceeded the supply. Second, many machine learning procedures call for more experience than knowledge, particularly when determining which models to train and how to evaluate them. Today, there are many efforts being made to close these gaps, which are rather obvious. We will examine in-depth how automated machine learning can be accomplished in this post in order to see if it can be a solution to these obstacles. 
 
-Automated machine learning (AutoML) is the process of automating the end-to-end process of applying machine learning to real-world problems. AutoML tends to automate the maximum number of steps in an ML pipeline — with a minimum amount of human effort — without compromising the model’s performance.
+Automated machine learning (AutoML) is the process of fully automating the machine learning application to practical issues. With the least amount of human effort, autoML aims to automate as many processes as possible in an ML pipeline without sacrificing the model's performance. 
 
-AutoML or Automated Machine Learning is a machine learning method that automates the training, tuning, and deploying machine learning models. AutoML can be used to automatically discover the best model for a given dataset and task without any human intervention.
+The training, fine-tuning, and deployment of machine learning models are all automated using the automated machine learning technique known as AutoML. Without the need for human participation, AutoML can be used to automatically find the optimal model for a particular dataset and task.
 
-AutoML is an important tool for making machine learning accessible to non-experts, as it can automate the process of training and deploying machine learning models. This can save time and resources and accelerate research on machine learning.
+Because it can automate the process of developing and deploying machine learning models, AutoML is a crucial tool for making machine learning approachable to non-experts. This can expedite machine learning research and save time and resources. The key innovation in AutoML is the hyperparameters search technique, which is used for preprocessing elements, choosing model types, and improving their hyperparameters. There are many different types of optimization algorithms, ranging from Bayesian and evolutionary algorithms to random and grid search.
 
-The core innovation utilized in AutoML is hyperparameters search, utilized for preprocessing components and model type selection, and for optimizing their hyperparameters. There are numerous sorts of optimization algorithms going from random and grid search to genetics algorithms and Bayesian.
-Current autoML frameworks additionally utilize their experience to improve their performance.
-AutoML can not supplant the data scientist's expertise and undertaking definition however encourages him to maintain a strategic distance from the technical work-related to the model development.
+The performance of current autoML frameworks is enhanced by experience as well. AutoML encourages the data scientist to keep a strategic distance from the technical labour involved in the model building but cannot replace the data scientist's knowledge and understanding of the project. 
 
-There are a number of different ways to approach AutoML, depending on the specific problem that needs to be solved. For example, some methods focus on optimizing a model for a given dataset, while others focus on finding the best model for a given task.
+Various strategies can be used to approach AutoML, depending on the precise issue that has to be resolved. For instance, some approaches concentrate on identifying the best model for a particular job, while others concentrate on optimising a model for a specific dataset. 
 
-No matter what approach is taken, AutoML can be a powerful tool for making machine learning more accessible and efficient. In the future, we can expect to see more and more use of AutoML in both industry and research.
+Whatever the strategy, AutoML can be a potent tool for improving the usability and effectiveness of machine learning. AutoML will likely be used more and more in the future in both business and academia.
 
-This post aims to introduce you to some of the top AutoML Tools and Platforms. These tools/platforms may serve as your most satisfactory source for the AutoML functions. Please note this is not a ranking article
+This post aims to introduce you to H2O as one of the top AutoML Tools and Platforms. 
 
 Pro’s
 
