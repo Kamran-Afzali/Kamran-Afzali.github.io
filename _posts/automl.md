@@ -56,7 +56,7 @@ The data-related arguments x, y, training frame, and validation frame are used i
 
 + Before moving on, you could also scale and centre your numerical data, use the no outliers function to remove some outliers, and/or use MICE to impute missing values. The function can balance (under-sample) your training data if the model is a classification model. This behaviour is manageable using the balance argument. Up until this point, the model preprocess() function can be used to duplicate the entire procedure. 
 
-Runs h2o::h2o.automl(...) to train several models and provide a leaderboard of the best (max models or max time) trained models, ranked by effectiveness. You can also modify certain extra arguments you want to provide to the mother function, such as nfolds for k-fold cross-validations, exclude algos and include algos to exclude or include particular algorithms, and any other extra argument you want.
++ Runs h2o::h2o.automl(...) to train several models and provide a leaderboard of the best (max models or max time) trained models, ranked by effectiveness. You can also modify certain extra arguments you want to provide to the mother function, such as nfolds for k-fold cross-validations, exclude algos and include algos to exclude or include particular algorithms, and any other extra argument you want.
 
 + The best model, given the default performance metric (which can be modified with the stopping metric option), will be chosen to proceed after being cross-validated and evaluated using nfolds. A different model can be chosen using the h2o selectmodel() method, and all calculations and plots can then be redone using this new model. 
 
