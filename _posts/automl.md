@@ -60,7 +60,7 @@ The data-related arguments x, y, training frame, and validation frame are used i
 
 + The best model, given the default performance metric (which can be modified with the stopping metric option), will be chosen to proceed after being cross-validated and evaluated using nfolds. A different model can be chosen using the h2o selectmodel() method, and all calculations and plots can then be redone using this new model. 
 
-The test predictions and test actual values will be used to create and render performance metrics and charts (which were NOT passed to the models as inputs to be trained with). Your model's performance metrics shouldn't be skewed in this way. The model metrics() method lets you repeat these calculations. 
++ The test predictions and test actual values will be used to create and render performance metrics and charts (which were NOT passed to the models as inputs to be trained with). Your model's performance metrics shouldn't be skewed in this way. The model metrics() method lets you repeat these calculations. 
 
 + A list containing all the inputs, performance metrics, graphs, the top-ranked model, and leaderboard results. The results can be exported by using the export results() function, or you can (play) see them on the console.
 
