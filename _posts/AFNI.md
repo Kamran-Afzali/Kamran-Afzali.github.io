@@ -16,24 +16,20 @@ Here are some of the
 + Color overlay of activation maps onto higher-resolution anatomical images (resampling of lower-resolution functionals is handled on the fly).
 + Interactive thresholding of functional overlays.
 
-The most challenging fMRI analysis programme to learn is known as AFNI. This may have been the case in the past, but the AFNI developers have worked hard in recent years to make their software simpler to learn and use. In addition to the viewer, more recent versions of AFNI contain other graphical user interfaces used to create scripts that automate both the preprocessing and the model setup. 
+AFNI was known to be the most challenging fMRI analysis programme to learn, but the AFNI developers have worked hard in recent years to make their software simpler to learn and use. In addition to the viewer, more recent versions of AFNI contain other graphical user interfaces used to create scripts that automate both the preprocessing and the model setup. 
 
 We will go over the fundamentals of a normal AFNI command first, though, before we talk about those commands. After all, the "uber" scripts only combine numerous commands in a specific order to handle the data. Additionally, you will use specific AFNI commands to carry out more complex analyses like region of interest analysis. The documentation and help files are some of AFNI’s greatest strengths. The usage of each command is clearly outlined, and the reasons for using different options are explained in detail. 
 
 ## [Skull-Stripping](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dSkullStrip.html)
 
-A program to extract the brain from surrounding.tissue from MRI T1-weighted images. 
+A function to extract the brain from surrounding.tissue from MRI T1-weighted images. 
 
-The most basic usage of 3dSkullStrip is to use an “-input” flag to specify the anatomical dataset that will be stripped. For example,
+The most basic usage of *3dSkullStrip* is to use an “-input” flag to specify the anatomical dataset that will be stripped. For example,
   The simplest command would be:
   
         3dSkullStrip <-input DSET>
 
-Also consider the script @SSwarper, which combines the use of 3dSkullStrip and nonlinear warping to an MNI template to produce a skull-stripped dataset in MNI space, plus the nonlinear warp that can used to transform other datasets from the same subject (e.g., EPI) to MNI space. (This script only applies to human brain images.) 
-
-After about a minute, a new file called skull_strip_out+orig will be generated. This is the skull-stripped anatomical image, which you can view by opening up the AFNI viewer. Look in all three viewing panes to see how well the skull-stripping worked; you will probably notice a few voxels of cortex being removed in the frontal lobes and some bits of dura mater left around the top and the back of the skull, but overall the skull-stripping did very well.
-
-Although the skull-stripping worked reasonably well, and is probably fine for most purposes, let’s see if we can improve it by using any of the options specified in the help file. If you read it closely, you will notice an option, -push_to_edge, which helps avoid removing any parts of the cortex. In general, it is better to err on the side of including small bits of dura mater and other non-brain matter, as opposed to removing any parts of the cortex. It is also useful to add a -prefix option to label the output as something intelligible.
+You can also consider the function *SSwarper*, which combines the use of 3dSkullStrip and nonlinear warping to an MNI template to produce a skull-stripped dataset in MNI space, plus the nonlinear warp that can used to transform other datasets from the same subject (e.g., EPI) to MNI space. As the output, a new file called skull_strip_out+orig will be generated. This is the skull-stripped anatomical image, which you can view by opening up the AFNI viewer.  The option, *-push_to_edge*, helps avoid removing any parts of the cortex. In general, it is better to err on the side of including small bits of dura mater and other non-brain matter, as opposed to removing any parts of the cortex. It is also useful to add a -prefix option to label the output as something intelligible.
 
 ## [Slice-Timing Correction](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTshift.html)
 
