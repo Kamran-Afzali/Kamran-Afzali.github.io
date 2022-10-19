@@ -33,28 +33,26 @@ You can also consider the function *SSwarper*, which combines the use of 3dSkull
 
 ## [Slice-Timing Correction](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTshift.html)
 
-Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in slices. Each of these slices takes time to acquire - from tens to hundreds of milliseconds.
+An fMRI volume is obtained in slices, unlike a snapshot, which is recorded as a whole in a single shot. It takes tens to hundreds of milliseconds to acquire each of fMRI slices. 
 
-The two most commonly used methods for creating volumes are sequential and interleaved slice acquisition. Sequential slice acquisition acquires each adjacent slice consecutively, either bottom-to-top or top-to-bottom. Interleaved slice acquisition acquires every other slice, and then fills in the gaps on the second pass. Both of these methods are illustrated in the video below.
+Sequential and interleaved slice capture are the two most popular techniques for building volumes. When acquiring slices sequentially, they are either acquired from bottom to top or top to bottom. Every other slice is acquired using an interleaved slice acquisition technique, and any gaps are filled in on the following pass. The videos below below demonstrate both of these techniques.
 
-
-As you’ll see later on, when we model the data at each voxel we assume that all of the slices were acquired simultaneously. To make this assumption valid, the time-series for each slice needs to be shifted back in time by the duration it took to acquire that slice. Sladky et al. (2011) also demonstrated that slice-timing correction can lead to significant increases in statistical power for studies with longer TRs (e.g., 2s or longer), and especially in the dorsal regions of the brain.
+As you'll see later, we make the assumption that all of the slices were acquired concurrently when modelling the data at each voxel. The time-series for each slice must be pushed back in time by the amount of time it took to acquire that slice in order for this assumption to be true. Additionally, Sladky et al. (2011) showed that slice-timing adjustment can significantly boost statistical power for studies with longer TRs (e.g., 2s or longer), particularly in the dorsal areas of the brain.
 
 Although slice-timing correction seems reasonable, there are some objections:
 
-In general, it is best to not interpolate (i.e., edit) the data unless you need to;
-For short TRs (e.g., around 1 second or less), slice-timing correction doesn’t appear to lead to any significant gains in statistical power; and
-Many of the problems addressed by slice-timing correction can be resolved by using a temporal derivative in the statistical model (discussed later in the chapter on model fitting).
+Generally speaking, it is desirable to not alter (i.e., interpolate) the data unless absolutely necessary; 
+Slice-timing correction doesn't seem to significantly increase statistical power for short TRs (i.e., around 1 second or less), and many of the issues it attempts to address can be remedied by utilising a temporal derivative in the statistical model (discussed later in the chapter on model fitting). 
 
-For now, we will do slice-timing correction, using the first slice as the reference. (This is specified by the -tzero 0 option of the 3dTshift command.) The code for running slice-timing correction will be found in lines 97-100 of your proc script:
+Using the initial slice as a reference, we shall perform slice-timing correction for the time being. 
 
- 3dTshift 
+      3dTshift 
 
-Shifts voxel time series from the input dataset so that the separate slices are aligned to the same temporal origin.  By default, uses the slicewise shifting information in the dataset header (from the 'tpattern'input to program to3d).
+reorders the input dataset's voxel time series so that all of the different slices have the same temporal origin. uses the slicewise shifting data from the dataset header by default (from the 'tpattern' input to the to3d programme).
 
-  3dTshift -tzero 0 -quintic -prefix pb01.$subj.r$run.tshift \pb00.$subj.r$run.tcat+orig
+      3dTshift -tzero 0 -quintic -prefix 
 
-This will slice-time correct each run with the first slice as a reference. (Keep in mind that in AFNI, everything is indexed starting at 0 - i.e., in this case 0 represents the first slice of the volume). The command also uses an option called -quintic, which resamples each slice using a 5th-degree polynomial. In other words, since we need to replace the values of the voxels within a slice, we can make it more accurate by using information from a larger number of other slices. This does introduce some degree of correlation between the slices, which we will attempt to correct for later by using 3dREMLfit to pre-whiten (i.e., de-correlate) the data.
+By using the first slice as a reference, this will slice-time correct each run. (Remember that everything in AFNI is indexed starting at 0, therefore in this instance 0 represents the first slice of the volume.) Additionally, the command employs the -quintic option, which resamples each slice using a polynomial of fifth degree. To put it another way, if we have to change the values of the voxels inside a slice, we can improve its accuracy by incorporating data from more slices. There is some correlation between the slices as a result, which we will try to eliminate later by pre-whitening (i.e., de-correlating) the data using 3dREMLfit.
 
 
 ## [Registration](https://afni.nimh.nih.gov/pub/dist/doc/program_help/README.registration.html) and [Normalization](https://afni.nimh.nih.gov/pub/dist/doc/program_help/@auto_tlrc.html)
