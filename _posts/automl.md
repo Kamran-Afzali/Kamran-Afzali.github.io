@@ -68,38 +68,31 @@ The data-related arguments x, y, training frame, and validation frame are used i
 ## Mapping H2O AutoML Functionalities
 
 
-+ validation_frame: This parameter is used for early stopping of individual models in the automl. It is a dataframe that you pass for validation of a model or can be a part of training data if not passed by you.
++ Validation_frame: This parameter is used for early stopping of individual models in the automl. It is a dataframe that you pass for validation of a model or can be a part of training data if not passed by you.
 
 
 + leaderboard_frame: If passed the models will be scored according to the values instead of using cross-validation metrics. Again the values are a part of training data if not passed by you.
 
 
 + nfolds: K-fold cross-validation by default 5, can be used to decrease the model performance.
-fold_columns: Specifies the index for cross-validation.
 
++ fold_columns: Specifies the index for cross-validation.
 
-+ weights_column: If you want to provide weights to specific columns you can use this parameter, assigning weight 0 means you are excluding the column.
+  - when all three frames are passed - No splits. When we are not using cross-validation which will affect the leaderboard frame a lot(nfolds = 0): 
+
+  - Only training frame is passed - The data is split into 80/10/10 training, validation, and leaderboard. 
+
+  - Training and leaderboard frame is passed - Data split into 80-20 of training and validation frames. 
+
++ Weights_column: If you want to provide weights to specific columns you can use this parameter, assigning weight 0 means you are excluding the column.
 ignored_columns: Only in python, it is converse of x.
 
++ Stopping_metric: Specifies a metric for early stopping of the grid searches and models default value is logloss for classification and deviation for regression.
 
-+ stopping_metric: Specifies a metric for early stopping of the grid searches and models default value is logloss for classification and deviation for regression.
++ Sort_metric: The parameter to sort the leaderboard models at the end. This defaults to AUC for binary classification, mean_per_class_error for multinomial classification, and deviance for regression.
 
-+ sort_metric: The parameter to sort the leaderboard models at the end. This defaults to AUC for binary classification, mean_per_class_error for multinomial classification, and deviance for regression.
++ The validation_frame and leaderboard_frame depend on the cross-validation parameter that is nfolds. 
 
-+ The validation_frame and leaderboard_frame depend on the cross-validation parameter that is nfolds. The following scenarios can generate in two cases: when we are using cross-validation in the automl: * Only training frame is passed - Then data will split into 80-20 of training and validation frame.
-
-
-+ training and leaderboard frame is passed - No change in the 80-20 split of data in training and validation frame. * When training and validation frame is passed - No split. 
-
-+ when all three frames are passed - No splits. When we are not using cross-validation which will affect the leaderboard frame a lot(nfolds = 0): 
-
-+ Only training frame is passed - The data is split into 80/10/10 training, validation, and leaderboard. 
-
-+ training and leaderboard frame is passed - Data split into 80-20 of training and validation frames. 
-
-+ When training and validation frame is passed - The validation_frame data is split into 50-50 validation and leaderboard. 
-
-+ when all three frames are passed - No splits.
 
 H2O AutoML satisfies the need for machine learning experts by developing intuitive machine learning software. This AutoML application seeks to streamline machine learning by offering clear and uniform user interfaces for different machine learning methods. Within a user-specified time range, machine learning models are automatically developed and fine-tuned. The lares package contains several families of functions that enable data scientists and analysts to perform high-quality, reliable analyses without having to write a lot of code. H2O automl, which semi-automatically executes the entire pipeline of a Machine Learning model given a dataset and some adjustable parameters, is one of our more intricate yet valuable functions. You can speed up research and development by using AutoML to train high-quality models that are tailored to your needs.
 
