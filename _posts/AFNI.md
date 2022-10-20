@@ -132,20 +132,14 @@ You will see several options used with this command. The -base option is the ref
 
 Why Smooth?
 
-Smoothing, the process of introducing spatial correlation into your data by averaging across nearby data points (in fMRI datasets, nearby voxels) is an essential step in any preprocessing stream. Traditionally, smoothing applies a Gaussian filter to average signal over nearby voxels in order to summate any signal that is present, while attenuating and cancelling out noise. This step also has the advantage of spreading signal over brain areas that have some variation across subjects, leading to increased signal-to-noise ratio over larger cortical areas at the loss of some spatial specificity. Lastly, smoothing mitigates the fiendish multiple comparisons problem, since voxels are not truly independent in the first place (neither are timepoints, but more on this at a later time).
+Smoothing is a crucial step in any preprocessing stream because it introduces spatial correlation into your data by averaging close data points (in fMRI datasets, nearby voxels). Traditionally, smoothing uses a Gaussian filter to average the signal over neighbouring voxels in order to total up any signals that may be present while reducing and cancelling out noise. Additionally, by dispersing the signal over brain regions that differ slightly between people, this step has the advantage of improving the signal-to-noise ratio over wider cortical areas at the expense of some spatial specificity. Last but not least, smoothing solves the tricky multiple comparisons problem because voxels aren't really independent to begin with (neither are timepoints, but more on this at a later time).
 
 
-Blurs a 'master' dataset until it reaches a specified FWHM smoothness (approximately).  The same blurring schedule is applied to the input dataset to produce the output.  The goal is to make the output dataset have the given smoothness, no matter what smoothness it had on input (however, the program cannot 'unsmooth' a dataset!).
+A "master" dataset is blurred by smoothing until it meets the desired FWHM smoothness. No matter what smoothness the input dataset has, the objective is to make the output dataset have the specified smoothness (although, the software cannot "unsmooth" a dataset!). The functional data is frequently smoothed, or the signal at each voxel is replaced with a weighted average of its neighbours. Your functional data's spatial resolution will be reduced by smoothing, but there are other advantages to smoothing that may exceed the disadvantages. For instance, we are aware that fMRI data usually include more noise than signal and that this noise is very prevalent. We can reduce noise and improve the signal by averaging neighbouring voxels.
 
-It is common to smooth the functional data, or replace the signal at each voxel with a weighted average of that voxel’s neighbors. This may seem strange at first - why would we want to make the images blurrier than they already are?
+      3dmerge <-input DSET> 
 
-It is true that smoothing does decrease the spatial resolution of your functional data, and we don’t want less resolution. But there are benefits to smoothing as well, and these benefits can outweigh the drawbacks. For example, we know that fMRI data contain a lot of noise, and that the noise is frequently greater than the signal. By averaging over nearby voxels we can cancel out the noise and enhance the signal.
-
-Smoothing is done with AFNI’s 3dmerge command, which you will find under the “blur” header of the proc_Flanker script (lines 216-221). 
-
-The -1blur_fwhm option specifies the amount to smooth the image, in millimeters - in this case, 4mm. -doall applies this smoothing kernel to each volume in the image, and the -prefix option, as always, specifies the name of the output dataset.
-
-The last preprocessing steps will take these smoothed images and then scale them to have a mean signal intensity of 100 - so that deviations from the mean can be measured in percent signal change. Any non-brain voxels will then be removed by a mask, and these images will be ready for statistical analysis. To see how these last two preprocessing steps are done in AFNI, click the Next button.
+The -1blur_fwhm option specifies the amount to smooth the image, in millimeters - in this case, 4mm. -doall applies this smoothing kernel to each volume in the image, and the -prefix option, as always, specifies the name of the output dataset. The last preprocessing steps will take these smoothed images and then scale them to have a mean signal intensity of 100 - so that deviations from the mean can be measured in percent signal change. Any non-brain voxels will then be removed by a mask, and these images will be ready for statistical analysis. 
 
 ## [Masking](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dAutomask.html) and [Scaling](https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dTstat.html)
 
