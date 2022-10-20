@@ -27,14 +27,14 @@ Whatever the strategy, AutoML can be a potent tool for improving the usability a
 
 This post aims to introduce you to H2O as one of the top AutoML Tools and Platforms. 
 
-Pro’s
+**Pro’s**
 
 - Time saving: It’s a quick and dirty prototyping tool. If you are not working on critical task, you could use AutoML to do the job for you while you focus on more critical tasks.
 
 - Benchmarking: Building an ML/DL model is fun. But, how do you know the model you have is the best? You either have to spend a lot of time in building iterative models or ask your colleague to build one and compare it. The other option is to use AutoML to benchmark yours.
 
 
-Con’s
+**Con’s**
 
 + Most AI models that we come across are black box. Similar is the case with these AutoML frameworks. If you don’t understand what you are doing, it could be catastrophic.
 
@@ -70,9 +70,7 @@ The data-related arguments x, y, training frame, and validation frame are used i
 
 + Validation_frame: This parameter is used for early stopping of individual models in the automl. It is a dataframe that you pass for validation of a model or can be a part of training data if not passed by you.
 
-
 + leaderboard_frame: If passed the models will be scored according to the values instead of using cross-validation metrics. Again the values are a part of training data if not passed by you.
-
 
 + nfolds: K-fold cross-validation by default 5, can be used to decrease the model performance.
 
@@ -93,11 +91,9 @@ ignored_columns: Only in python, it is converse of x.
 
 + The validation_frame and leaderboard_frame depend on the cross-validation parameter that is nfolds. 
 
-
 H2O AutoML satisfies the need for machine learning experts by developing intuitive machine learning software. This AutoML application seeks to streamline machine learning by offering clear and uniform user interfaces for different machine learning methods. Within a user-specified time range, machine learning models are automatically developed and fine-tuned. The lares package contains several families of functions that enable data scientists and analysts to perform high-quality, reliable analyses without having to write a lot of code. H2O automl, which semi-automatically executes the entire pipeline of a Machine Learning model given a dataset and some adjustable parameters, is one of our more intricate yet valuable functions. You can speed up research and development by using AutoML to train high-quality models that are tailored to your needs.
 
 Before getting to the code, I recommend checking h2o_automl's full documentation [here](https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/reference/h2o.automl.html) or within your R session by running ?lares::h2o_automl if you use the lares version. Documentation contains a brief explanation of each parameter that can be entered into the function to acquire the results you need and regulate how it operates.
-
 
 ```
 h2o.init()
@@ -166,6 +162,8 @@ plot(r)
 + []https://datascienceplus.com/real-plug-and-play-supervised-learning-automl-using-r-and-lares/
 
 + [H2O AutoML Documentation](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html)
+
++ [lares AutoML Documentation](https://rdrr.io/github/laresbernardo/lares/man/h2o_automl.html)
 
 + []https://www.r-bloggers.com/2020/04/automl-frameworks-in-r-python/
 
