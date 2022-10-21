@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: H2O AutoML   
-featured-image: /images/dbplyr.png
+featured-image: /images/P1.jpg
 tags: [AutoML, H2O, Machine Learning]
 date-string: Octobre 2022
 ---
