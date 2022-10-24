@@ -135,19 +135,15 @@ The -1blur_fwhm option specifies the amount to smooth the image, in millimeters 
 
 Masking
 
-As you saw in previous tutorials, a volume of fMRI data includes both the brain and the surrounding skull and neck - regions that we are not interested in analyzing with AFNI, even though they do contain voxels with time-series data just as the brain voxels do. And, although it may not be obvious at first glance, we have large numbers of voxels that comprise the air outside the head.
+A given volume of fMRI data includes both signal i.e. the brain and noise i.e. the surrounding skull and neck regions that we are not interested in. Both sources contain voxels with time-series data and although it may not be obvious at first glance, we have large numbers of voxels that comprise the air outside the head. To reduce the size of our datasets and consequently speed up our analyses, we can apply a mask to our data. A mask simply indicates which voxels are to be analyzed - any voxels within the mask retain their original values whereas any voxels outside mask are assigned a value of zero. It is analogous to tracing an outline of a drawing with tracing paper, and then cutting along the lines and keeping whatever falls inside the lines, discarding the rest. Applied to fMRI data, anything outside the mask we assume to be noise or something of no interest. Masks are created with AFNI’s 3dAutomask command, which only requires arguments for input and output datasets. 
 
-To reduce the size of our datasets and consequently speed up our analyses, we can apply a mask to our data. A mask simply indicates which voxels are to be analyzed - any voxels within the mask retain their original values (or can be assigne a value of 1), whereas any voxels outside mask are assigned a value of zero. It is analogous to tracing an outline of a drawing with tracing paper, and then cutting along the lines and keeping whatever falls inside the lines, discarding the rest. Applied to fMRI data, anything outside the mask we assume to be noise or something of no interest.
-
-Masks are created with AFNI’s 3dAutomask command, which only requires arguments for input and output datasets (lines 223-260 of the proc_Flanker script). The rest of the code within the “mask” block creates a union of masks that represents the extent of all of the individual fMRI datasets in the experiment.
+      3dAutomask <-input DSET> 
 
 Scaling
 
-One problem with fMRI data is that we collect data with units that are arbitrary, and of themselves meaningless. The intensity of the signal that we collect can vary from run to run, and from subject to subject. The only way to create a useful comparison within or between subjects is to take the contrast of the signal intensity between conditions, as represented by a beta weight (which will be discussed later in the chapter on statistics).
+One problem with fMRI data is that we collect data with units that are arbitrary and meaningless. The intensity of the signal that we collect can vary from run to run, and from subject to subject. The only way to create a useful comparison within or between subjects is to take the contrast of the signal intensity between conditions as represented by a beta weight. In order to make the comparison of signal intensity meaningful between studies as well, AFNI scales the timeseries in each voxel individually to a mean of 100. These changes will be reflected in the time-series; the first image below represents the time-series before scaling, and the next image shows the time-series after scaling. By scaling each subject’s data to the same mean, as in the second image, we can place each run of each subject’s data on the same scale.
 
-In order to make the comparison of signal intensity meaningful between studies as well, AFNI scales the timeseries in each voxel individually to a mean of 100.
-
-These changes will be reflected in the time-series; the first image below represents the time-series before scaling, and the next image shows the time-series after scaling. Note that the values in the first image are relatively high - in the 800s - and that they are arbitrary; they could just as easily be around 500 or 900 in another subject. By scaling each subject’s data to the same mean, as in the second image, we can place each run of each subject’s data on the same scale.
+      3dTstat <-input DSET> 
 
 ## [First-Level Analysis](https://afni.nimh.nih.gov/pub/dist/edu/data/CD.expanded/afni_handouts/afni22_indiana.pdf)
 
