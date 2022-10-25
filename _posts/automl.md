@@ -92,12 +92,29 @@ H2O AutoML satisfies the need for machine learning experts by developing intuiti
 Before getting to the code, I recommend checking h2o_automl's full documentation [here](https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/reference/h2o.automl.html) or within your R session by running ?lares::h2o_automl if you use the lares version. Documentation contains a brief explanation of each parameter that can be entered into the function to acquire the results you need and regulate how it operates.
 
 ```
+library(readr)
+library(tidyverse)
+library(tidymodels)
+library(h2o)
+library(gridExtra)
+library(kableExtra)
+
+data(pima, package = "pdp")
+out="diabetes"
+preds=colnames(pima)[-c(9)]
+df=pima%>%
+  drop_na()
+
+df_split <- initial_split(df)
+train_data <- training(df_split)
+test_data <- testing(df_split)
+
 h2o.init()
-train_data <- as.h2o(ice_train)
+train_data <- as.h2o(train_data)
 
 h2oAML <- h2o.automl(
-  y = y,
-  x = x,
+  y = out,
+  x = preds,
   training_frame = train_data,
   project_name = "ice_the_kicker_bakeoff",
   balance_classes = T,
@@ -116,40 +133,41 @@ top_model <- h2o.getModel(model_names[1])
 
 top_model@model$model_summary %>%pivot_longer(cols = everything(),names_to = "Parameter", values_to = "Value") %>%kable(align = 'c')
 
-h2o_predictions <- h2o.predict(top_model, newdata = as.h2o(ice_test)) %>%
+h2o_predictions <- h2o.predict(top_model, newdata = as.h2o(test_data)) %>%
   as_tibble() %>%
-  bind_cols(ice_test)
+  bind_cols(test_data)
 
 h2o_metrics <- bind_rows(
   #Calculate Performance Metrics
-  yardstick::f_meas(h2o_predictions, is_iced, predict),
-  yardstick::precision(h2o_predictions, is_iced, predict),
-  yardstick::recall(h2o_predictions, is_iced, predict)
+  yardstick::f_meas(h2o_predictions, diabetes, predict),
+  yardstick::precision(h2o_predictions, diabetes, predict),
+  yardstick::recall(h2o_predictions, diabetes, predict)
 ) %>%
   mutate(label = "h2o", .before = 1) %>% 
-  rename_with(~str_remove(.x, '\\.')) %>%
-  select(-estimator)
-
+  rename_with(~str_remove(.x, '\\.')) 
 kable(h2o_metrics)
 
 h2o_cf <- h2o_predictions %>% 
-  count(is_iced, pred= predict) %>% 
+  count(diabetes, pred= predict) %>% 
   mutate(label = "h2o", .before = 1)
 
+kable(h2o_cf)
 ```
 
 
 ```
 library(lares)
 
-r <- h2o_automl(df, y = Survived, max_models = 1, impute = FALSE, target = "TRUE")
-r$plots$metrics
-head(r$importance)
-r$metrics
+r <- h2o_automl( train_data, y = diabetes, max_models = 10, impute = FALSE, target = 'pos')
 
-r <- h2o_automl(df, y = "Fare", ignore = "Pclass", exclude_algos = NULL, quiet = TRUE)
-print(r)
+head(r$importance)%>% kable()
+
+r$metrics %>% kable()
+
 plot(r)
+
+r$plots$metrics
+
 ```
 
 
