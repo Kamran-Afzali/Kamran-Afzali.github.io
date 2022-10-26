@@ -160,37 +160,11 @@ Using the AFNI GUI the first field *program* allows you to choose between *3dtte
 
 Overview
 
-You’ve just completed a group-level analysis, and identified which regions of the brain show a significant difference between the Incongruent and Congruent conditions of the experiment. For some researchers, this may be all that they want to do.
+When researchers don’t have a hypothesis about where the difference may be located  analysis they use a whole-brain or exploratory analysis for the result to be used as the basis for future research. When a large number of studies have been run about a specific topic, however, we can begin to make more specific hypotheses about where we should find our results in the brain images. This is known as a region of interest (ROI) analysis. A general name for an analysis in which you choose to analyze a region selected before you look at whole-brain results is called a confirmatory analysis. Whole-brain maps can hide important details about the effects that we’re studying. We may find a significant effect of incongruent-congruent, but the reason the effect is significant could be because incongruent is greater than congruent, or because congruent is much more negative than congruent, or some combination of the two. The only way to determine what is driving the effect is with ROI analysis, and this is especially important when dealing with interactions and more sophisticated designs.
 
-This kind of analysis is called a whole-brain or exploratory analysis. These types of analyses are useful when the experimenter doesn’t have a hypothesis about where the difference may be located; the result will be used as the basis for future research.
+One way to create a region for our ROI analysis is to use an atlas, or a map that partitions the brain into anatomically distinct regions. AFNI comes with several atlases in both Talairach and MNI space. Images will be in MNI space and will have the same dimensions and voxel resolution. The purpose of making a copy of that dataset is to create a “clean” dataset with the same dimensions as the other images, but which we can write on by marking whichever voxels we want to belong to our ROI. Once you have done that, you have several different atlases to select from and different regions to choose from, and the voxels represented by each label  are grouped together. This will create a new file that contains values of “1” in the voxels that belong to the region, and zeros everywhere else; this is also known as a mask. When you are finished, click Done.
 
-When a large number of studies have been run about a specific topic, however, we can begin to make more specific hypotheses about where we should find our results in the brain images. For example, cognitive control has been studied for many years, and many fMRI studies have been published about it using different paradigms that compare more cognitively demanding tasks to less cognitively demanding tasks. Often, significant increases in the BOLD signal during cognitively demanding conditions are seen in a region of the brain known as the dorsal medial prefrontal cortex, or dmPFC for short. For the Flanker study, then, we could restrict our analysis to this region and only extract data from voxels within that region. This is known as a region of interest (ROI) analysis. A general name for an analysis in which you choose to analyze a region selected before you look at whole-brain results is called a confirmatory analysis.
-
-Whole-brain maps can hide important details about the effects that we’re studying. We may find a significant effect of incongruent-congruent, but the reason the effect is significant could be because incongruent is greater than congruent, or because congruent is much more negative than congruent, or some combination of the two. The only way to determine what is driving the effect is with ROI analysis, and this is especially important when dealing with interactions and more sophisticated designs.
-
-Using Atlases
-
-One way to create a region for our ROI analysis is to use an atlas, or a map that partitions the brain into anatomically distinct regions.
-
-AFNI comes with several atlases in both Talairach and MNI space, which can be accessed through the AFNI GUI. Finding the atlases can be difficult - you must first click on Define Datamode, and then click on Plugins, and from the dropdown menu select Draw Dataset. The figure below shows the Draw Dataset window.
-
-Once you have opened the Draw Dataset window, you will first need to click on the button Choose dataset for copying. Since all of our data has been normalized to the MNI_avg152T1 template, we have two options:
-
-Select the MNI_avg152T1+tlrc template from the abin directory; or
-Select one of the normalized anatomical images from the Flanker dataset.
-In both cases, the images will be in MNI space and will have the same dimensions and voxel resolution. The purpose of making a copy of that dataset is to create a “clean” dataset with the same dimensions as the other images, but which we can write on by marking whichever voxels we want to belong to our ROI. In this case, navigate to the sub-01/sub-01.results directory, open the AFNI GUI, and open the Draw Dataset window. For the image to copy, select the file anat_file.sub-01.
-
-Once you have done that, you have several different atlases to select from. For the current tutorial, select the atlas DD_Desai_MPM, and then click on the dropdown menu below it. You have many different regions to choose from, and the voxels represented by each label can be guessed at by the name; for example, ctx_lh_G_and_S_frontomargin probably refers to the cortical voxels of the gyrus and sulcus of the frontomarginal region of the left hemisphere.
-
-Select ctx_lh_G_and_S_cingul_-Mid_Ant, and then click on the button Load: InFill. This will highlight in red all of the voxels belonging to that region of the atlas. You can undo this by clicking on the Undo button, which keeps several steps in memory. Now right-click the area to the left of the label dropdown menu to open a more compact view of the atlas regions, and select ctx_rh_G_and_S_cingul-Mid-Ant. Click on Load: InFill to add that region to the current mask, and then click SaveAs. Call the output midACC. This will create a new file that contains values of “1” in the voxels that belong to the region, and zeros everywhere else; this is also known as a mask. When you are finished, click Done.
-
-Extracting Data from the Anatomical Mask
-
-Once you’ve created the mask, you can then extract each subject’s contrast estimates from it. There are two ways that we could extract our contrast of interest Incongruent-Congurent:
-
-Extract the contrast estimate Incongruent-Congruent from our stats file; or
-Extract the individual beta weights for Incongruent and Congruent separately, and then take the difference between the two.
-As we will see, option #2 allows you to determine what is driving the effect; in other words, whether a significant effect is due to both beta weights being positive but the Incongruent beta weights being more positive, both weights being negative but the Congruent betas more negative, or a combination of the two. It is only by extracting both sets of beta weights that we can determine this.
+The next step is to extract data from the anatomical mask. There are two ways that we could extract our contrast of interest Extract the contrast estimate Incongruent-Congruent from our stats file; or to extract the individual beta weights for Incongruent and Congruent separately, and then take the difference between the two. Latter option allows you to determine what is driving the effect; in other words, whether a significant effect is due to both beta weights being positive but the Incongruent beta weights being more positive, both weights being negative but the Congruent betas more negative, or a combination of the two. It is only by extracting both sets of beta weights that we can determine this.
 
 ## References
 
