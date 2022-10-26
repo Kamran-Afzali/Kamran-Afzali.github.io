@@ -91,14 +91,19 @@ H2O AutoML satisfies the need for machine learning experts by developing intuiti
 
 Before getting to the code, I recommend checking h2o_automl's full documentation [here](https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/reference/h2o.automl.html) or within your R session by running ?lares::h2o_automl if you use the lares version. Documentation contains a brief explanation of each parameter that can be entered into the function to acquire the results you need and regulate how it operates.
 
-```
+first we load the necessay packages
+```{r}
 library(readr)
 library(tidyverse)
 library(tidymodels)
 library(h2o)
 library(gridExtra)
 library(kableExtra)
+```
 
+
+we use the diabetes data from *pdp* package
+```{r}
 data(pima, package = "pdp")
 out="diabetes"
 preds=colnames(pima)[-c(9)]
@@ -108,7 +113,11 @@ df=pima%>%
 df_split <- initial_split(df)
 train_data <- training(df_split)
 test_data <- testing(df_split)
+```
 
+here we train the model
+
+```{r}
 h2o.init()
 train_data <- as.h2o(train_data)
 
@@ -118,21 +127,32 @@ h2oAML <- h2o.automl(
   training_frame = train_data,
   project_name = "ice_the_kicker_bakeoff",
   balance_classes = T,
-  max_runtime_secs = 600,
-  seed = 20220425
+  max_runtime_secs = 100,
+  seed = 1234
 )
+```
 
+a summary can be found in the *leaderboard_tbl* object
 
+```{r}
 leaderboard_tbl <- h2oAML@leaderboard %>% as_tibble()
 
 leaderboard_tbl %>% head() %>% kable()
+```
 
+the *leaderboard_tbl* object also alows us to identify the best fitting model
+
+```{r}
 model_names <- leaderboard_tbl$model_id
 
 top_model <- h2o.getModel(model_names[1])
 
-top_model@model$model_summary %>%pivot_longer(cols = everything(),names_to = "Parameter", values_to = "Value") %>%kable(align = 'c')
+top_model@model$model_summary %>%pivot_longer(cols = everything(),names_to = "Parameter", values_to = "Value") %>%kable()
+```
 
+then we can measure the performance on the test data
+
+```{r}
 h2o_predictions <- h2o.predict(top_model, newdata = as.h2o(test_data)) %>%
   as_tibble() %>%
   bind_cols(test_data)
@@ -144,27 +164,57 @@ h2o_metrics <- bind_rows(
   yardstick::recall(h2o_predictions, diabetes, predict)
 ) %>%
   mutate(label = "h2o", .before = 1) %>% 
-  rename_with(~str_remove(.x, '\\.')) 
-kable(h2o_metrics)
+  rename_with(~str_remove(.x, '\\.'))  %>% kable()
+```
 
+here is the code to make the confusion matrix on the test data
+
+```{r}
 h2o_cf <- h2o_predictions %>% 
   count(diabetes, pred= predict) %>% 
-  mutate(label = "h2o", .before = 1)
-
-kable(h2o_cf)
-```
-
+  mutate(label = "h2o", .before = 1)%>% kable()
 
 ```
+
+
+Lares package provides an elegant wrapper for H2O AutoML functions
+
+
+```{r}
 library(lares)
 
 r <- h2o_automl( train_data, y = diabetes, max_models = 10, impute = FALSE, target = 'pos')
+```
+
+
+you can extract feature importance
+
+```{r}
 
 head(r$importance)%>% kable()
+```
+
+
+metrics for the perforamnce 
+
+```{r}
 
 r$metrics %>% kable()
+```
+
+
+A general plot of the performance as follows :
+
+```{r AutoML4}
 
 plot(r)
+
+```
+
+
+as well as specific plots.
+
+```{r AutoML5}
 
 r$plots$metrics
 
