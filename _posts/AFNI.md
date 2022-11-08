@@ -124,6 +124,32 @@ One problem with fMRI data is that we collect data with units that are arbitrary
 
 ## [First-Level Analysis](https://afni.nimh.nih.gov/pub/dist/edu/data/CD.expanded/afni_handouts/afni22_indiana.pdf)
 
+While you’re waiting for the analysis to finish, let’s take a look at how the model we just created relates to the GLM. Remember that each voxel has a BOLD time-series (our outcome measure), which we represent with Y. We also have our two regressors, which we will represent with x1 and x2. These regressors constitute our design matrix, which we represent with a large X.
+
+So far, all of these variables are known - Y is measured from the data, and x1 and x2 are made by convolving the HRF and the timing onsets. Since matrix algebra is used to set up the design matrix and estimate the beta weights, the orientations are turned ninety degrees: Normally we think of the time axis as going from left to right, but instead it is depicted as going from top to bottom. In other words, the onset of the run begins at the top of the timecourse.
+
+The next part of the GLM equation is the beta weights, which we represent with B1 and B2. These represent our estimate of the amount the HRF needs to be scaled for each regressor to best match the original data in Y - hence the name “beta weights”. The last term in this equation is E, which represents the residuals, or the difference between our ideal time series model and the data after estimating the beta weights. If the model is a good fit, the residuals will decrease, and one or more of the beta weights are more likely to be statistically significant.
+
+      3dDeconvolve <-input DSET> 
+
+Program to calculate the deconvolution of a measurement 3D+time dataset 
+with a specified input stimulus time series.  This program can also     
+perform multiple linear regression using multiple input stimulus time   
+series. Output consists of an AFNI 'bucket' type dataset containing     
+(for each voxel)                                                        
+ * the least squares estimates of the linear regression coefficients    
+ * t-statistics for significance of the coefficients                    
+ * partial F-statistics for significance of individual input stimuli    
+ * the F-statistic for significance of the overall regression model     
+The program can optionally output extra datasets containing             
+ * the estimated impulse response function                              
+ * the fitted model and error (residual) time series       
+
+
+This may look overwhelming at first; but although the AFNI viewer can seem to have too many options, once you become more familiar with them you will be able to customize how you view your results. If this is your first time viewing statistics in AFNI, the most noticeable features of the “Define Overlay” panel will appear to be the slider bar (allowing you to threshold the images to only see values above a certain number), and the “ULay”, “OLay”, and “Thr” menus, corresponding to the Underlay, Overlay, and Threshold sub-briks.
+
+Let’s begin with the slider bar. If you move it up and down, you will see voxels either disappear or re-appear. That is because we are thresholding, or removing, voxels that fall below the Threshold number to the left of the bar. This number will be based on the sub-brik that is selected in the “Thr” menu; in this case, the sub-brik that was selected for us when we opened the viewer was volume #2, the T-statistic map of the beta weights for the Congruent condition. As you move the slider to a value of, say, 1.9753, you will also notice that the number below the slider bar, p=, changes as well, to a value of 0.493. This represents the uncorrected p-value threshold for the currently selected Threshold map; in other words, any colored voxels pass an individual p-value threshold of 0.493.
+
 https://andysbrainbook.readthedocs.io/en/latest/AFNI/AFNI_Short_Course/AFNI_Statistics/AFNI_06_Stats_Running_1stLevel_Analysis.html
 
 ## [Group Analysis](https://afni.nimh.nih.gov/pub/dist/ASTON/afni_groupanalysis.pdf)
