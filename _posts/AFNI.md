@@ -128,9 +128,8 @@ Each voxel has a BOLD time-series (our outcome measure), which we represent with
 
       3dDeconvolve <-input DSET> 
 
-Is the function to calculate the deconvolution of a measurement 3D+time dataset  with a specified input stimulus time series.  This program can also     
-perform multiple linear regression using multiple input stimulus time    series. Output consists of an AFNI 'bucket' type dataset containing     
-(for each voxel)                                                        
+Is the function to calculate the deconvolution of a measurement 3D+time dataset  with a specified input stimulus time series. This program can also     
+perform multiple linear regression using multiple input stimulus time series. Output consists of an AFNI 'bucket' type dataset containing (for each voxel)                                                        
  * the least squares estimates of the linear regression coefficients    
  * t-statistics for significance of the coefficients                    
  * partial F-statistics for significance of individual input stimuli    
