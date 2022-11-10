@@ -31,6 +31,19 @@ Here we will touch on the concepts of automated feature engineering with feature
 Feature engineering means building additional features out of existing data which is often spread across multiple related tables. Feature engineering requires extracting the relevant information from the data and getting it into a single table which can then be used to train a machine learning model.
 The process of constructing features is very time-consuming because each new feature usually requires several steps to build, especially when using information from more than one table. We can group the operations of feature creation into two categories: transformations and aggregations. Let’s look at a few examples to see these concepts in action.
 
+## Feature Tools
+
+Featuretools is an open source library for performing automated feature engineering. It is a fantastic tool made to expedite the feature creation process so that more time can be spent on other parts of creating machine learning models. In other words, it makes your data machine learning ready.
+We need to be aware of the following three main parts of the package:
+
++ Entities
++ Deep Feature Synthesis (DFS)
++ Feature primitives
+
+A Pandas DataFrame can be thought of as being represented by an Entity. An EntitySet is a group of various entities.
+The core of Featuretools is Deep Feature Synthesis (DFS), which is actually a Feature Engineering method. It makes it possible to build new features out of both single and multiple DataFrames.
+By using Feature primitives on the Entity-relationships in an EntitySet, DFS creates features. These primitives are frequently used to manually generate features. The original “mean” function, for instance, would determine the mean of a variable at the aggregate level.
+Example reproduced from Official [Feature Tools Quick Start](https://featuretools.alteryx.com/en/stable/).
 
 ## Conclusions
 Like many topics in machine learning, automated feature engineering with featuretools is a complicated concept built on simple ideas. Using concepts of entitysets, entities, and relationships, featuretools can perform deep feature synthesis to create new features. Deep feature synthesis in turn stacks feature primitives — aggregations, which act across a one-to-many relationship between tables, and transformations, functions applied to one or more columns in a single table — to build new features from multiple tables.
@@ -49,3 +62,5 @@ Like many topics in machine learning, automated feature engineering with feature
 + [link](https://moez-62905.medium.com/top-automated-feature-engineering-frameworks-in-python-in-2022-9899d7b18f7e)
 
 + [link](https://towardsdatascience.com/automated-feature-engineering-in-python-99baf11cc219)
+
++ [Feature Tools Quick Start](https://featuretools.alteryx.com/en/stable/)
