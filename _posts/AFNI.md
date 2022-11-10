@@ -128,22 +128,14 @@ Each voxel has a BOLD time-series (our outcome measure), which we represent with
 
       3dDeconvolve <-input DSET> 
 
-Is the function to calculate the deconvolution of a measurement 3D+time dataset  with a specified input stimulus time series. This program can also     
-perform multiple linear regression using multiple input stimulus time series. Output consists of an AFNI 'bucket' type dataset containing (for each voxel)                                                        
+Is the function to calculate the deconvolution of a 3D time dataset  with a specified input stimulus time series as well as multiple linear regression using multiple input stimulus time series. Output consists of:
+
  * the least squares estimates of the linear regression coefficients    
  * t-statistics for significance of the coefficients                    
- * partial F-statistics for significance of individual input stimuli    
- * the F-statistic for significance of the overall regression model     
- * The program can optionally output extra datasets containing             
- * the estimated impulse response function                              
+ * F-statistics for significance of individual input stimuli    
+ * F-statistic for significance of the overall regression model                             
  * the fitted model and error (residual) time series       
 
-
-This may look overwhelming at first; but although the AFNI viewer can seem to have too many options, once you become more familiar with them you will be able to customize how you view your results. If this is your first time viewing statistics in AFNI, the most noticeable features of the “Define Overlay” panel will appear to be the slider bar (allowing you to threshold the images to only see values above a certain number), and the “ULay”, “OLay”, and “Thr” menus, corresponding to the Underlay, Overlay, and Threshold sub-briks.
-
-Let’s begin with the slider bar. If you move it up and down, you will see voxels either disappear or re-appear. That is because we are thresholding, or removing, voxels that fall below the Threshold number to the left of the bar. This number will be based on the sub-brik that is selected in the “Thr” menu; in this case, the sub-brik that was selected for us when we opened the viewer was volume #2, the T-statistic map of the beta weights for the Congruent condition. As you move the slider to a value of, say, 1.9753, you will also notice that the number below the slider bar, p=, changes as well, to a value of 0.493. This represents the uncorrected p-value threshold for the currently selected Threshold map; in other words, any colored voxels pass an individual p-value threshold of 0.493.
-
-https://andysbrainbook.readthedocs.io/en/latest/AFNI/AFNI_Short_Course/AFNI_Statistics/AFNI_06_Stats_Running_1stLevel_Analysis.html
 
 ## [Group Analysis](https://afni.nimh.nih.gov/pub/dist/ASTON/afni_groupanalysis.pdf)
 
