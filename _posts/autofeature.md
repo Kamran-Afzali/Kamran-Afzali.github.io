@@ -32,6 +32,7 @@ Feature engineering means building additional features out of existing data whic
 The process of constructing features is very time-consuming because each new feature usually requires several steps to build, especially when using information from more than one table. We can group the operations of feature creation into two categories: transformations and aggregations. Let’s look at a few examples to see these concepts in action.
 
 ## Feature Tools
+Fortunately, featuretools is exactly the solution we are looking for. This open-source Python library will automatically create many features from a set of related tables. Featuretools is based on a method known as “Deep Feature Synthesis”, which sounds a lot more imposing than it actually is (the name comes from stacking multiple features not because it uses deep learning!). Deep feature synthesis stacks multiple transformation and aggregation operations (which are called feature primitives in the vocab of featuretools) to create features from data spread across many tables. Like most ideas in machine learning, it’s a complex method built on a foundation of simple concepts. By learning one building block at a time, we can form a good understanding of this powerful method.
 
 Featuretools is an open source library for performing automated feature engineering. It is a fantastic tool made to expedite the feature creation process so that more time can be spent on other parts of creating machine learning models. In other words, it makes your data machine learning ready.
 We need to be aware of the following three main parts of the package:
@@ -48,8 +49,11 @@ Example reproduced from Official [Feature Tools Quick Start](https://featuretool
 ## Conclusions
 Like many topics in machine learning, automated feature engineering with featuretools is a complicated concept built on simple ideas. Using concepts of entitysets, entities, and relationships, featuretools can perform deep feature synthesis to create new features. Deep feature synthesis in turn stacks feature primitives — aggregations, which act across a one-to-many relationship between tables, and transformations, functions applied to one or more columns in a single table — to build new features from multiple tables.
 
+the features created by Featuretools are not just random features, they are valuable and useful. Most importantly, the amount of time it saves in feature engineering is incredible.
+Making our data science solutions interpretable is a very important aspect of performing machine learning.. The featuretools package is truly a game-changer in machine learning. While it’s applications are understandably still limited in industry use cases
 
 
+## References
 
 + [link](https://www.r-bloggers.com/2021/04/simplify-your-model-supervised-assisted-feature-extraction-for-machine-learning/)
 
