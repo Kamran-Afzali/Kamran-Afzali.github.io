@@ -28,8 +28,15 @@ Here we will touch on the concepts of automated feature engineering with feature
 
 
 ## Feature Engineering Basics
+
 Feature engineering means building additional features out of existing data which is often spread across multiple related tables. Feature engineering requires extracting the relevant information from the data and getting it into a single table which can then be used to train a machine learning model.
 The process of constructing features is very time-consuming because each new feature usually requires several steps to build, especially when using information from more than one table. We can group the operations of feature creation into two categories: transformations and aggregations. Let’s look at a few examples to see these concepts in action.
+
+The objective of feature engineering is to create new features (alos called explantory variables or predictors) to represent as much information from an entire dataset in one table. Typically, this process is done by hand using pandas operations such as groupby, agg, or merge and can be very tedious. Moreover, manual feature engineering is limited both by human time constraints and imagination: we simply cannot conceive of every possible feature that will be useful. (For an example of using manual feature engineering, check out part one and part two applied to this competition). The importance of creating the proper features cannot be overstated because a machine learning model can only learn from the data we give to it. Extracting as much information as possible from the available datasets is crucial to creating an effective solution.
+
+Automated feature engineering aims to help the data scientist with the problem of feature creation by automatically building hundreds or thousands of new features from a dataset. Featuretools - the only library for automated feature engineering at the moment - will not replace the data scientist, but it will allow her to focus on more valuable parts of the machine learning pipeline, such as delivering robust models into production.
+
+Here we will touch on the concepts of automated feature engineering with featuretools and show how to implement it for the Home Credit Default Risk competition. We will stick to the basics so we can get the ideas down and then build upon this foundation in later work when we customize featuretools. We will work with a subset of the data because this is a computationally intensive job that is outside the capabilities of the Kaggle kernels. I took the work done in this notebook and ran the methods on the entire dataset with the results available here. At the end of this notebook, we'll look at the features themselves, as well as the results of modeling with different combinations of hand designed and automatically built features.
 
 ## Feature Tools
 Fortunately, featuretools is exactly the solution we are looking for. This open-source Python library will automatically create many features from a set of related tables. Featuretools is based on a method known as “Deep Feature Synthesis”, which sounds a lot more imposing than it actually is (the name comes from stacking multiple features not because it uses deep learning!). Deep feature synthesis stacks multiple transformation and aggregation operations (which are called feature primitives in the vocab of featuretools) to create features from data spread across many tables. Like most ideas in machine learning, it’s a complex method built on a foundation of simple concepts. By learning one building block at a time, we can form a good understanding of this powerful method.
@@ -50,7 +57,13 @@ Example reproduced from Official [Feature Tools Quick Start](https://featuretool
 Like many topics in machine learning, automated feature engineering with featuretools is a complicated concept built on simple ideas. Using concepts of entitysets, entities, and relationships, featuretools can perform deep feature synthesis to create new features. Deep feature synthesis in turn stacks feature primitives — aggregations, which act across a one-to-many relationship between tables, and transformations, functions applied to one or more columns in a single table — to build new features from multiple tables.
 
 the features created by Featuretools are not just random features, they are valuable and useful. Most importantly, the amount of time it saves in feature engineering is incredible.
-Making our data science solutions interpretable is a very important aspect of performing machine learning.. The featuretools package is truly a game-changer in machine learning. While it’s applications are understandably still limited in industry use cases
+Making our data science solutions interpretable is a very important aspect of performing machine learning.. The featuretools package is truly a game-changer in machine learning. While it’s applications are understandably still limited in industry use cases.
+
+In this notebook we went through a basic implementation of using automated feature engineering with featuretools for the Home Credit Default Risk dataset. Although we did not use the advanced functionality of featuretools, we still were able to create useful features that improved the model's performance in cross validation and on the test set. Moreover, automated feature engineering took a fraction of the time spent manual feature engineering while delivering comparable results.
+
+Even the default set of features in featuretools was able to achieve similar performance to hand-engineered features in less than 10% of the time. Featuretools demonstrably adds value when included in a data scientist's toolbox.
+
+The next steps are to take advantage of the advanced functionality in featuretools combined with domain knowledge to create a more useful set of features. We will look explore tuning featuretools in an upcoming notebook!
 
 
 ## References
@@ -61,7 +74,7 @@ Making our data science solutions interpretable is a very important aspect of pe
 
 + [link](https://www.geeksforgeeks.org/feature-engineering-in-r-programming/)
 
-+ [link](https://www.kaggle.com/code/willkoehrsen/automated-feature-engineering-basics/notebook)
++ [Automated Feature Engineering Basics](https://www.kaggle.com/code/willkoehrsen/automated-feature-engineering-basics/notebook)
 
 + [link](https://moez-62905.medium.com/top-automated-feature-engineering-frameworks-in-python-in-2022-9899d7b18f7e)
 
