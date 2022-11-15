@@ -48,6 +48,23 @@ We need to be aware of the following three main parts of the package:
 + Deep Feature Synthesis (DFS)
 + Feature primitives
 
+### Entities and Entitysets
+An entity is simply a table or in Pandas, a dataframe. The observations are in the rows and the features in the columns. An entity in featuretools must have a unique index where none of the elements are duplicated. Currently, only app, bureau, and previous have unique indices (SK_ID_CURR, SK_ID_BUREAU, and SK_ID_PREV respectively). For the other dataframes, we must pass in make_index = True and then specify the name of the index. Entities can also have time indices where each entry is identified by a unique time. (There are not datetimes in any of the data, but there are relative times, given in months or days, that we could consider treating as time variables).
+
+An EntitySet is a collection of tables and the relationships between them. This can be thought of a data structute with its own methods and attributes. Using an EntitySet allows us to group together multiple tables and manipulate them much quicker than individual tables.
+
+### Deep Feature Synthesis
+Deep Feature Synthesis (DFS) is the process featuretools uses to make new features. DFS stacks feature primitives to form features with a "depth" equal to the number of primitives. For example, if we take the maximum value of a client's previous loans (say MAX(previous.loan_amount)), that is a "deep feature" with a depth of 1. To create a feature with a depth of two, we could stack primitives by taking the maximum value of a client's average montly payments per previous loan (such as MAX(previous(MEAN(installments.payment)))). The original paper on automated feature engineering using deep feature synthesis is worth a read.
+
+To perform DFS in featuretools, we use the dfs function passing it an entityset, the target_entity (where we want to make the features), the agg_primitives to use, the trans_primitives to use and the max_depth of the features. Here we will use the default aggregation and transformation primitives, a max depth of 2, and calculate primitives for the app entity. Because this process is computationally expensive, we can run the function using features_only = True to return only a list of the features and not calculate the features themselves. This can be useful to look at the resulting features before starting an extended computation.
+
+### Feature Primitives¶
+A feature primitive is an operation applied to a table or a set of tables to create a feature. These represent simple calculations, many of which we already use in manual feature engineering, that can be stacked on top of each other to create complex features. Feature primitives fall into two categories:
+
+Aggregation: function that groups together child datapoints for each parent and then calculates a statistic such as mean, min, max, or standard deviation. An example is calculating the maximum previous loan amount for each client. An aggregation works across multiple tables using relationships between tables.
+Transformation: an operation applied to one or more columns in a single table. An example would be taking the absolute value of a column, or finding the difference between two columns in one table.
+
+
 A Pandas DataFrame can be thought of as being represented by an Entity. An EntitySet is a group of various entities.
 The core of Featuretools is Deep Feature Synthesis (DFS), which is actually a Feature Engineering method. It makes it possible to build new features out of both single and multiple DataFrames.
 By using Feature primitives on the Entity-relationships in an EntitySet, DFS creates features. These primitives are frequently used to manually generate features. The original “mean” function, for instance, would determine the mean of a variable at the aggregate level.
