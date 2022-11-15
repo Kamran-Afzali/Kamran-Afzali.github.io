@@ -11,6 +11,19 @@ matrix, with a deformable mapping or with a center of mass alignment. See the sc
 The antsApplyTransforms program applies ANTs mappings to images including scalars, tensors, timeseries and vector images. It also composes transforms together and is able to compute inverses of lowdimensional (affine, rigid) maps. antsApplyTransformsToPoints similarly works on point sets. One may apply an arbitrarily long series of transformations through these programs. Thus, they enable one to compose a series of affine and deformable mappings
 and/or their inverses. One may therefore avoid repeated interpolations of a single image. Several different interpolation options are available and multiple image types may be transformed including: tensors, vectors, timeseries and d-dimensional scalar images where d = 2;3; 4.
 
+## The antsMotionCorr executable
+Performs motion correction of time-series data. Control parameters are similar to antsRegistration. See the example http://stnava.github.io/fMRIANTs/. This example also shows how to run basic CompCor on fmri data. Our minimal fMRI pipeline involves running antsMotionCorr and CompCorr to factor out
+nuisance variables. More complex approaches require ANTsR.
+
+## More ANTs examples
+The paper http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract shows or links to several
+more examples. Some of these include morphometry. Many other examples are available in the literature
+Google Scholar Search.
+
 ## References
 
 [ANTs](http://stnava.github.io/ANTs/)
+
+http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract 
+
+https://scholar.google.com/citations?user=ox-mhOkAAAAJ&hl=en
