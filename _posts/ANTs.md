@@ -20,6 +20,28 @@ The paper http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstra
 more examples. Some of these include morphometry. Many other examples are available in the literature
 Google Scholar Search.
 
+## Data visualization with ANTs
+Data visualization is important for producing figures for manuscripts, qualitative inspection of results, facilitating
+collaborations, and gaining insight into data and data transformations. ANTs provides three flexible
+programs to help with such tasks which we describe below.
+4.1 Creating faux-colormapped images with ConvertScalarImageToRGB
+For layering image data, it is often useful to map the grayscale image intensity values to distinct colormaps.
+We introduced such a processing framework into ITK described in [34]. The ANTs program
+ConvertScalarImageToRGB interfaces this framework and permits conversion of grayscale intensity
+scalar images to RGB colormapped images which can be viewed in programs such as ITKSNAP.
+Converting scalar images to RGB intensities is also a preprocessing step for the next two
+programs described: CreateTiledMosaic and antsSurf. In addition to the built-in colormaps
+which are currently part of ITK, we also have several custom colormaps located in the directory
+${ANTSPATH}/Examples/CustomColormaps/. Additionally, these custom colormaps can be used as examples
+to build one’s own set of colormaps for use with ConvertScalarImageToRGB. In Listing 1 we
+give three code examples of converting grayscale intensity images to different colormaps with and without
+masks.
+
+## Statistics with ANTs and R: ANTsR
+R is an open-source, cutting-edge statistical package used by statisticians world-wide. ANTs is designed to
+interface with R via the ANTsR package. Google this and learn more. Most statistical requirements may be
+met with this setup.
+
 ## References
 
 [ANTs](http://stnava.github.io/ANTs/)
