@@ -10,11 +10,7 @@ Data scientists can benefit from feature engineering since it can speed up the t
 Automated Feature Engineering
 Feature engineering is almost always carried out manually, with a reliance on prior domain knowledge, intuitive judgement, and the manipulation of data. This procedure can be quite time-consuming, and the end result will have traits that are constrained by human subjectivity as well as the passage of time. The objective of automated feature engineering is to assist the data scientist by automatically generating a large number of candidate features from a dataset. The most useful of these features can then be chosen for further training.
 Automated Feature Engineering is a technique that pulls out useful and meaningful features using a framework that can be applied to any problem. Automated feature engineering enables data scientists to be more productive by allowing them to spend more time on other components of machine learning. This technique also allows citizen data scientists to do feature engineering using a framework-based approach.
-In this article we will review the most popular Automated Feature Engineering frameworks in Python that data scientists must know about in 2022.
-Feature Tools
-TSFresh
-Featurewiz
-PyCaret
+
 
 
 
@@ -28,6 +24,13 @@ Here we will touch on the concepts of automated feature engineering with feature
 
 
 ## Feature Engineering Basics
+
+Feature engineering is the most important technique used in creating machine learning models. Feature Engineering is a basic term used to cover many operations that are performed on the variables(features)to fit them into the algorithm. It helps in increasing the accuracy of the model thereby enhances the results of the predictions. Feature Engineered machine learning models perform better on data than basic machine learning models. The following aspects of feature engineering are as follows:
+
+ Feature Scaling: It is done to get the features on the same scale( for eg. Euclidean distance).
+ Feature Transformation: It is done to normalize the data(feature) by a function.
+ Feature Construction: It is done to create new features based on original descriptors to improve the accuracy of the predictive model.
+ Feature Reduction. : It is done to improve the statistical distribution and accuracy of the predictive model.
 
 Feature engineering means building additional features out of existing data which is often spread across multiple related tables. Feature engineering requires extracting the relevant information from the data and getting it into a single table which can then be used to train a machine learning model.
 The process of constructing features is very time-consuming because each new feature usually requires several steps to build, especially when using information from more than one table. We can group the operations of feature creation into two categories: transformations and aggregations. Let’s look at a few examples to see these concepts in action.
@@ -89,12 +92,6 @@ The next steps are to take advantage of the advanced functionality in featuretoo
 
 + [link](https://rdrr.io/github/MrDomani/autofeat/man/SAFE.html)
 
-+ [link](https://www.geeksforgeeks.org/feature-engineering-in-r-programming/)
-
 + [Automated Feature Engineering Basics](https://www.kaggle.com/code/willkoehrsen/automated-feature-engineering-basics/notebook)
-
-+ [link](https://moez-62905.medium.com/top-automated-feature-engineering-frameworks-in-python-in-2022-9899d7b18f7e)
-
-+ [link](https://towardsdatascience.com/automated-feature-engineering-in-python-99baf11cc219)
 
 + [Feature Tools Quick Start](https://featuretools.alteryx.com/en/stable/)
