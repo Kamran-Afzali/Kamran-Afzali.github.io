@@ -15,11 +15,6 @@ and/or their inverses. One may therefore avoid repeated interpolations of a sing
 Performs motion correction of time-series data. Control parameters are similar to antsRegistration. See the example http://stnava.github.io/fMRIANTs/. This example also shows how to run basic CompCor on fmri data. Our minimal fMRI pipeline involves running antsMotionCorr and CompCorr to factor out
 nuisance variables. More complex approaches require ANTsR.
 
-## More ANTs examples
-The paper http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract shows or links to several
-more examples. Some of these include morphometry. Many other examples are available in the literature
-Google Scholar Search.
-
 ## Data visualization with ANTs
 Data visualization is important for producing figures for manuscripts, qualitative inspection of results, facilitating
 collaborations, and gaining insight into data and data transformations. ANTs provides three flexible
@@ -42,10 +37,13 @@ R is an open-source, cutting-edge statistical package used by statisticians worl
 interface with R via the ANTsR package. Google this and learn more. Most statistical requirements may be
 met with this setup.
 
+## More ANTs examples
+The [paper](http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract shows or links to several)more examples. Some of these include morphometry. Many other examples are available in the literature Google Scholar Search.
+
 ## References
 
-[ANTs](http://stnava.github.io/ANTs/)
++ [ANTs Documentation](http://stnava.github.io/ANTs/)
 
-http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract 
++ [ANTs paper](http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract) 
 
-https://scholar.google.com/citations?user=ox-mhOkAAAAJ&hl=en
++ [ATNs on Scholar](https://scholar.google.com/citations?user=ox-mhOkAAAAJ&hl=en)
