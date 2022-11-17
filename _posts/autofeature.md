@@ -41,6 +41,11 @@ Automated feature engineering aims to help the data scientist with the problem o
 
 Here we will touch on the concepts of automated feature engineering with featuretools and show how to implement it for the Home Credit Default Risk competition. We will stick to the basics so we can get the ideas down and then build upon this foundation in later work when we customize featuretools. We will work with a subset of the data because this is a computationally intensive job that is outside the capabilities of the Kaggle kernels. I took the work done in this notebook and ran the methods on the entire dataset with the results available here. At the end of this notebook, we'll look at the features themselves, as well as the results of modeling with different combinations of hand designed and automatically built features.
 
+## SAFE
+
+Scalable Automatic Feature Engineering with autofeat 
+
+
 ## Feature Tools
 Fortunately, featuretools is exactly the solution we are looking for. This open-source Python library will automatically create many features from a set of related tables. Featuretools is based on a method known as “Deep Feature Synthesis”, which sounds a lot more imposing than it actually is (the name comes from stacking multiple features not because it uses deep learning!). Deep feature synthesis stacks multiple transformation and aggregation operations (which are called feature primitives in the vocab of featuretools) to create features from data spread across many tables. Like most ideas in machine learning, it’s a complex method built on a foundation of simple concepts. By learning one building block at a time, we can form a good understanding of this powerful method.
 
@@ -88,9 +93,9 @@ The next steps are to take advantage of the advanced functionality in featuretoo
 
 ## References
 
-+ [link](https://www.r-bloggers.com/2021/04/simplify-your-model-supervised-assisted-feature-extraction-for-machine-learning/)
++ [SAFE EXAMPLE](https://www.r-bloggers.com/2021/04/simplify-your-model-supervised-assisted-feature-extraction-for-machine-learning/)
 
-+ [link](https://rdrr.io/github/MrDomani/autofeat/man/SAFE.html)
++ [SAFE: Scalable Automatic Feature Engineering](https://rdrr.io/github/MrDomani/autofeat/man/SAFE.html)
 
 + [Automated Feature Engineering Basics](https://www.kaggle.com/code/willkoehrsen/automated-feature-engineering-basics/notebook)
 
