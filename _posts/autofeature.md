@@ -79,6 +79,19 @@ Example reproduced from Official [Feature Tools Quick Start](https://featuretool
 ## SAFE
 
 Scalable Automatic Feature Engineering with autofeat is an alternative available in R echosystem.
+The method can be described in 6 steps:
++ Step 1 Provide a raw tabular data set.
+
++ Step 2 Train a supervisor complex machine learning model on a provided data. This model does not need to be interpretable and is treated as a black box.
+
++ Step 3 Use SAFE to find variable transformations. (A) For continuous variables use the Partial Dependence Profiles to find changepoints that allow the best binning for the variable of interest. (B) For categorical variables, use clustering to merge some of the levels.
+
++ Step 4 Optionally, perform a feature selection on the new set of features that includes original variables from the raw data and variables transformed with the SAFE method.
+
++ Step 5 Fit a fully interpretable model on selected features. Models that can be used are, for example, logistic regression for classification problems or linear models for regression problems.
+
+
+
 
 
 ## Conclusions
