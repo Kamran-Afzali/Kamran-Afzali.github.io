@@ -1,5 +1,11 @@
-
-
+---
+layout: post
+categories: posts
+title: Automatic Feature Engineering 
+featured-image: /images/XAI2.png
+tags: [Machine Learning, Interpretability, DigitalHealth]
+date-string: 
+---
 
 
 
@@ -11,10 +17,6 @@ Automated Feature Engineering
 Feature engineering is almost always carried out manually, with a reliance on prior domain knowledge, intuitive judgement, and the manipulation of data. This procedure can be quite time-consuming, and the end result will have traits that are constrained by human subjectivity as well as the passage of time. The objective of automated feature engineering is to assist the data scientist by automatically generating a large number of candidate features from a dataset. The most useful of these features can then be chosen for further training.
 Automated Feature Engineering is a technique that pulls out useful and meaningful features using a framework that can be applied to any problem. Automated feature engineering enables data scientists to be more productive by allowing them to spend more time on other components of machine learning. This technique also allows citizen data scientists to do feature engineering using a framework-based approach.
 
-
-
-
-In this post, we present a framework for Surrogate Assisted Feature Extraction for Model Learning (SAFE ML). SAFE ML uses the elastic black box as a supervisor model to create an interpretable, yet still accurate glass box model. The main idea is to train a new interpretable model on newly engineered features extracted from the supervisor model.
 
 The objective of feature engineering is to create new features (alos called explantory variables or predictors) to represent as much information from an entire dataset in one table. Typically, this process is done by hand using pandas operations such as groupby, agg, or merge and can be very tedious. Moreover, manual feature engineering is limited both by human time constraints and imagination: we simply cannot conceive of every possible feature that will be useful. (For an example of using manual feature engineering, check out part one and part two applied to this competition). The importance of creating the proper features cannot be overstated because a machine learning model can only learn from the data we give to it. Extracting as much information as possible from the available datasets is crucial to creating an effective solution.
 
@@ -62,12 +64,11 @@ Deep Feature Synthesis (DFS) is the process featuretools uses to make new featur
 
 To perform DFS in featuretools, we use the dfs function passing it an entityset, the target_entity (where we want to make the features), the agg_primitives to use, the trans_primitives to use and the max_depth of the features. Here we will use the default aggregation and transformation primitives, a max depth of 2, and calculate primitives for the app entity. Because this process is computationally expensive, we can run the function using features_only = True to return only a list of the features and not calculate the features themselves. This can be useful to look at the resulting features before starting an extended computation.
 
-### Feature Primitives¶
+### Feature Primitives
 A feature primitive is an operation applied to a table or a set of tables to create a feature. These represent simple calculations, many of which we already use in manual feature engineering, that can be stacked on top of each other to create complex features. Feature primitives fall into two categories:
 
 Aggregation: function that groups together child datapoints for each parent and then calculates a statistic such as mean, min, max, or standard deviation. An example is calculating the maximum previous loan amount for each client. An aggregation works across multiple tables using relationships between tables.
 Transformation: an operation applied to one or more columns in a single table. An example would be taking the absolute value of a column, or finding the difference between two columns in one table.
-
 
 A Pandas DataFrame can be thought of as being represented by an Entity. An EntitySet is a group of various entities.
 The core of Featuretools is Deep Feature Synthesis (DFS), which is actually a Feature Engineering method. It makes it possible to build new features out of both single and multiple DataFrames.
@@ -78,19 +79,19 @@ Example reproduced from Official [Feature Tools Quick Start](https://featuretool
 
 ## SAFE
 
-Scalable Automatic Feature Engineering with autofeat is an alternative available in R echosystem.
-The method can be described in 6 steps:
-+ Step 1 Provide a raw tabular data set.
 
-+ Step 2 Train a supervisor complex machine learning model on a provided data. This model does not need to be interpretable and is treated as a black box.
+Surrogate Assisted Feature Extraction for Model Learning (SAFE ML) uses the elastic black box as a supervisor model to create an interpretable, yet still accurate glass box model. The main idea is to train a new interpretable model on newly engineered features extracted from the supervisor model. Scalable Automatic Feature Engineering with autofeat is an alternative available in R echosystem.
+The method can be described in 5 steps:
 
-+ Step 3 Use SAFE to find variable transformations. (A) For continuous variables use the Partial Dependence Profiles to find changepoints that allow the best binning for the variable of interest. (B) For categorical variables, use clustering to merge some of the levels.
++ Step 1: Provide a raw tabular data set.
 
-+ Step 4 Optionally, perform a feature selection on the new set of features that includes original variables from the raw data and variables transformed with the SAFE method.
++ Step 2: Train a supervisor complex machine learning model on a provided data. This model does not need to be interpretable and is treated as a black box.
 
-+ Step 5 Fit a fully interpretable model on selected features. Models that can be used are, for example, logistic regression for classification problems or linear models for regression problems.
++ Step 3: Use SAFE to find variable transformations. (A) For continuous variables use the Partial Dependence Profiles to find changepoints that allow the best binning for the variable of interest. (B) For categorical variables, use clustering to merge some of the levels.
 
++ Step 4: Optionally, perform a feature selection on the new set of features that includes original variables from the raw data and variables transformed with the SAFE method.
 
++ Step 5: Fit a fully interpretable model on selected features. Models that can be used are, for example, logistic regression for classification problems or linear models for regression problems.
 
 
 
