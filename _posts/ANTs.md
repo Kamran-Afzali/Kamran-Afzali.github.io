@@ -3,14 +3,13 @@
 The ANTs framework, originally, provided a set of open-source functionas for image registration with different levels of deformations with specific utility in neurodegenerative neuroimaging data where large deformation is required. ANTs has since grown to include bias correction, additional evaluation of multiple modalities and organ systems, univariate or multivariate image segmentation, tighter integration with the Insight ToolKit, a well-evaluated cortical thickness pipeline and, more recently, visualization tools and integration with R. It enables diffeomorphic normalization with a variety of transformation models, optimal template construction, multiple types of diffeomorphisms, multivariate similarity metrics, diffusion tensor processing and warping, image segmentation with and with out priors and measurement of cortical thickness from probabilistic segmentations. The normalization tools, alone, provide a near limitless range of functionality and allow the user to develop customized objective functions. ANTs serves as both a core library for further algorithm development and also as a command-line application-oriented toolkit with a permissive software license that allows it to be employed freely by industry.  
 
 ## antsRegistration 
-The antsRegistration program itself is the central program encapsulating normalization/registration functionality. Its main output is an affine transform file and a deformation field, potentially with inverse. Options allow the user to navigate the similarity and transformations that are available. antsRegistration allows multiple similarity and optimization criteria as options. 
+The *antsRegistration* function is the central functionality encapsulating normalization/registration tasks. Its main output is an affine transform file and a deformation field, potentially with inverse. Options allow the user to navigate the similarity and transformations that are available. *antsRegistration* allows multiple similarity and optimization criteria as options. 
 
   
-        antsRegistration <-input DSET>
+        antsRegistrationSyN <-input DSET>
 
 
-The program is wrapped in antsRegistrationSyN.sh for normalization with “out of the box” parameters and in antsMultivariateTemplateConstruction2.sh for computationally distributed optimal (multivariate) template construction. Initializing antsRegistration. You can use the -r option in antsRegistration to initialize a registration with an ITK .mat format transformation
-matrix, with a deformable mapping or with a center of mass alignment. See the scripts for examples. The output transformation will include the initial transformation.
+The program is wrapped in *antsRegistrationSyN.sh* for normalization with default parameters and in *antsMultivariateTemplateConstruction2.sh* for computationally distributed optimal (multivariate) template construction. Initializing antsRegistration. YIt is also possbile to use the -r option in antsRegistration to initialize a registration with an ITK format transformation matrix, with a deformable mapping or with a center of mass alignment. 
 
 ##  antsApplyTransforms 
 The antsApplyTransforms program applies ANTs mappings to images including scalars, tensors, timeseries and vector images. It also composes transforms together and is able to compute inverses of lowdimensional (affine, rigid) maps. antsApplyTransformsToPoints similarly works on point sets. One may apply an arbitrarily long series of transformations through these programs.
@@ -24,7 +23,7 @@ and/or their inverses. One may therefore avoid repeated interpolations of a sing
 
 ##  antsMotionCorr 
 
-Performs motion correction of time-series data. Control parameters are similar to antsRegistration. See the [example](http://stnava.github.io/fMRIANTs/) that demonstrates how to run basic CompCor on fmri data. Our minimal fMRI pipeline involves running antsMotionCorr and CompCorr to factor out nuisance variables. More complex approaches require ANTsR.
+Performs motion correction of time-series data. Control parameters are similar to antsRegistration. See the [example](http://stnava.github.io/fMRIANTs/) showing how to run basic *CompCor* on fmri data. Our minimal fMRI pipeline involves running *antsMotionCorr* and *CompCorr* to factor out nuisance variables.
   
         antsMotionCorr <-input DSET>
 
