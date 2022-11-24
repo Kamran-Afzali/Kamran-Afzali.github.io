@@ -9,17 +9,17 @@ The *antsRegistration* function is the central functionality encapsulating norma
         antsRegistrationSyN <-input DSET>
 
 
-The program is wrapped in *antsRegistrationSyN.sh* for normalization with default parameters and in *antsMultivariateTemplateConstruction2.sh* for computationally distributed optimal (multivariate) template construction. Initializing antsRegistration. YIt is also possbile to use the -r option in antsRegistration to initialize a registration with an ITK format transformation matrix, with a deformable mapping or with a center of mass alignment. 
+The program is wrapped in *antsRegistrationSyN.sh* for normalization with default parameters and in *antsMultivariateTemplateConstruction2.sh* for computationally distributed optimal (multivariate) template construction. Initializing antsRegistration. It is also possbile to use the -r option in antsRegistration to initialize a registration with an ITK format transformation matrix, with a deformable mapping or with a center of mass alignment. 
 
 ##  antsApplyTransforms 
-The antsApplyTransforms program applies ANTs mappings to images including scalars, tensors, timeseries and vector images. It also composes transforms together and is able to compute inverses of lowdimensional (affine, rigid) maps. antsApplyTransformsToPoints similarly works on point sets. One may apply an arbitrarily long series of transformations through these programs.
+
+The *antsApplyTransforms* functionality applies ANTs mappings to images with different dimensionality. Several different interpolation options are available and multiple image types may be transformed including: tensors, vectors, timeseries and d-dimensional scalar images where d = 2;3; 4. It also composes transforms together and is able to compute inverses of lowdimensional (affine, rigid) maps. The sub function *antsApplyTransformsToPoints* similarly works on point sets.
 
   
         antsApplyTransforms <-input DSET>
 
 
-Thus, they enable one to compose a series of affine and deformable mappings
-and/or their inverses. One may therefore avoid repeated interpolations of a single image. Several different interpolation options are available and multiple image types may be transformed including: tensors, vectors, timeseries and d-dimensional scalar images where d = 2;3; 4.
+*antsApplyTransforms* composes a series of affine and deformable mappings and/or their inverses, hence it avoids repeated interpolations of a single image. 
 
 ##  antsMotionCorr 
 
@@ -36,7 +36,7 @@ Data visualization is important for producing figures for manuscripts, qualitati
 R is an open-source, cutting-edge statistical package used by statisticians world-wide. ANTs is designed to interface with R via the ANTsR package. Google this and learn more. Most statistical requirements may be met with this setup.
 
 ## More ANTs examples
-The [paper](http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract) shows or links to several more examples. Some of these include morphometry. Many other examples are available in the literature Google Scholar Search.
+The ANTs [paper](http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract) iincludes links to several more examples for above-mentioned functionalities and more such as morphometry. Many other examples are available in the literature on [ATNs on Scholar](https://scholar.google.com/citations?user=ox-mhOkAAAAJ&hl=en).
 
 ## References
 
