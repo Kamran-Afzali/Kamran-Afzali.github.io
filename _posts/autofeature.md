@@ -35,8 +35,8 @@ Featuretools is an open source library for performing automated feature engineer
 We need to be aware of the following three main parts of the package:
 
 + Entities
-+ Deep Feature Synthesis (DFS)
 + Feature primitives
++ Deep Feature Synthesis (DFS)
 
 ### Entities and Entitysets
 An entity is simply a table or in Pandas, a dataframe. The observations are in the rows and the features in the columns. An entity in featuretools must have a unique index where none of the elements are duplicated. Currently, only app, bureau, and previous have unique indices (SK_ID_CURR, SK_ID_BUREAU, and SK_ID_PREV respectively). For the other dataframes, we must pass in make_index = True and then specify the name of the index. Entities can also have time indices where each entry is identified by a unique time. (There are not datetimes in any of the data, but there are relative times, given in months or days, that we could consider treating as time variables).
@@ -61,35 +61,29 @@ Example reproduced from Official [Feature Tools Quick Start](https://featuretool
 
 
 
-## SAFE
+## SAFE an alternative in R
 
 
-Surrogate Assisted Feature Extraction for Model Learning (SAFE ML) uses the elastic black box as a supervisor model to create an interpretable, yet still accurate glass box model. The main idea is to train a new interpretable model on newly engineered features extracted from the supervisor model. Scalable Automatic Feature Engineering with autofeat is an alternative available in R echosystem.
+Surrogate Assisted Feature Extraction for Model Learning (SAFE ML) uses a supervisor model to create an interpretable set of newly engineered features extracted from the data. This is an alternative available in R echosystem.
+
 The method can be described in 5 steps:
 
 + Step 1: Provide a raw tabular data set.
 
-+ Step 2: Train a supervisor complex machine learning model on a provided data. This model does not need to be interpretable and is treated as a black box.
++ Step 2: Train a supervisor machine learning model on a provided data. This model does not need to be interpretable and is treated as a black box.
 
-+ Step 3: Use SAFE to find variable transformations. (A) For continuous variables use the Partial Dependence Profiles to find changepoints that allow the best binning for the variable of interest. (B) For categorical variables, use clustering to merge some of the levels.
++ Step 3: Use SAFE to find variable transformations. 
+     + (A) For continuous variables use the Partial Dependence Profiles to find changepoints that allow the best binning for the variable of interest. 
+     + (B) For categorical variables, use clustering to merge some of the levels.
 
 + Step 4: Optionally, perform a feature selection on the new set of features that includes original variables from the raw data and variables transformed with the SAFE method.
 
 + Step 5: Fit a fully interpretable model on selected features. Models that can be used are, for example, logistic regression for classification problems or linear models for regression problems.
 
 
-
 ## Conclusions
-Like many topics in machine learning, automated feature engineering with featuretools is a complicated concept built on simple ideas. Using concepts of entitysets, entities, and relationships, featuretools can perform deep feature synthesis to create new features. Deep feature synthesis in turn stacks feature primitives — aggregations, which act across a one-to-many relationship between tables, and transformations, functions applied to one or more columns in a single table — to build new features from multiple tables.
 
-the features created by Featuretools are not just random features, they are valuable and useful. Most importantly, the amount of time it saves in feature engineering is incredible.
-Making our data science solutions interpretable is a very important aspect of performing machine learning.. The featuretools package is truly a game-changer in machine learning. While it’s applications are understandably still limited in industry use cases.
-
-In this notebook we went through a basic implementation of using automated feature engineering with featuretools for the Home Credit Default Risk dataset. Although we did not use the advanced functionality of featuretools, we still were able to create useful features that improved the model's performance in cross validation and on the test set. Moreover, automated feature engineering took a fraction of the time spent manual feature engineering while delivering comparable results.
-
-Even the default set of features in featuretools was able to achieve similar performance to hand-engineered features in less than 10% of the time. Featuretools demonstrably adds value when included in a data scientist's toolbox.
-
-The next steps are to take advantage of the advanced functionality in featuretools combined with domain knowledge to create a more useful set of features. We will look explore tuning featuretools in an upcoming notebook!
+Like many topics in machine learning, automated feature engineering is a complicated concept built on simple ideas. Using simple concepts of entities and relationships, featuretools can perform deep feature synthesis to create new features. The features created by Featuretools are not just random features, they are valuable considering the interpretable nature of this solution. Moreover, automated feature engineering takes a fraction of the time spent manual feature engineering while delivering comparable results. Which makes Featuretools an added value included in a data scientist's toolbox. The next steps are to take advantage of the advanced functionality in featuretools combined with domain knowledge to create a more useful set of features. 
 
 
 ## References
