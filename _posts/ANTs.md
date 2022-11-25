@@ -32,8 +32,14 @@ Performs motion correction of time-series data. Control parameters are similar t
 
 Data visualization is important for producing figures for manuscripts, qualitative inspection of results, facilitating collaborations, and gaining insight into data and data transformations. ANTs provides three flexible programs to help with such tasks which we describe below. For layering image data, it is often useful to map the grayscale image intensity values to distinct colormaps. We introduced such a processing framework into ITK described in. The ANTs program ConvertScalarImageToRGB interfaces this framework and permits conversion of grayscale intensity scalar images to RGB colormapped images which can be viewed in programs such as ITKSNAP. Converting scalar images to RGB intensities is also a preprocessing step for the next two programs described: CreateTiledMosaic and antsSurf. In addition to the built-in colormaps which are currently part of ITK, we also have several custom colormaps. Additionally, these custom colormaps can be used as examples to build one’s own set of colormaps for use with ConvertScalarImageToRGB.
 
++ Creating faux-colormapped images with ConvertScalarImageToRGB
+
++ Figure production and large-scale data inspection using CreateTiledMosaic
+
++ Volumetric visualizations with antsSurf
+
 ## Statistics with ANTs and R: ANTsR
-R is an open-source, cutting-edge statistical package used by statisticians world-wide. ANTs is designed to interface with R via the ANTsR package. Google this and learn more. Most statistical requirements may be met with this setup.
+R is an open-source statistical echosystem used by statisticians world-wide. ANTs is designed to interface with R via the [ANTsR](https://github.com/ANTsX/ANTsR) package. 
 
 ## More ANTs examples
 The ANTs [paper](http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract) iincludes links to several more examples for above-mentioned functionalities and more such as morphometry. Many other examples are available in the literature on [ATNs on Scholar](https://scholar.google.com/citations?user=ox-mhOkAAAAJ&hl=en).
