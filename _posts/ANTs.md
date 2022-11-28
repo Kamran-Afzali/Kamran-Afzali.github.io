@@ -48,7 +48,7 @@ The program CreateTiledMosaic in conjunction with ConvertScalarImageToRGB provid
 
 ### Volumetric visualizations with antsSurf
 
-Our third program, antsSurf, is used to produce volumetric surface renderings from binary images with optional functional overlays. Again, the antsSurf help menu provides a more comprehensive description of functionality but some available options include:
+*antsSurf* is used to produce volumetric surface renderings from binary images with optional functional overlays with a comprehensive description of functionality but some available options include:
 
 + Specification of more than one functional overlay
 + Painting of functional overlays based on order on the command line
