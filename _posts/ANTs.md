@@ -30,16 +30,44 @@ Performs motion correction of time-series data. Control parameters are similar t
 
 ## Data visualization with ANTs
 
-Data visualization is important for producing figures for manuscripts, qualitative inspection of results, facilitating collaborations, and gaining insight into data and data transformations. ANTs provides three flexible programs to help with such tasks which we describe below. For layering image data, it is often useful to map the grayscale image intensity values to distinct colormaps. We introduced such a processing framework into ITK described in. The ANTs program ConvertScalarImageToRGB interfaces this framework and permits conversion of grayscale intensity scalar images to RGB colormapped images which can be viewed in programs such as ITKSNAP. Converting scalar images to RGB intensities is also a preprocessing step for the next two programs described: CreateTiledMosaic and antsSurf. In addition to the built-in colormaps which are currently part of ITK, we also have several custom colormaps. Additionally, these custom colormaps can be used as examples to build one’s own set of colormaps for use with ConvertScalarImageToRGB.
+Data visualization is important for producing figures for manuscripts, qualitative inspection of results, facilitating collaborations, and gaining insight into data and data transformations. ANTs provides three flexible programs to help with such tasks which we describe below. For layering image data, it is often useful to map the grayscale image intensity values to distinct colormaps.
 
-+ Creating faux-colormapped images with ConvertScalarImageToRGB
+### Creating faux-colormapped images with ConvertScalarImageToRGB
 
-+ Figure production and large-scale data inspection using CreateTiledMosaic
+We introduced such a processing framework into ITK described in. The ANTs program ConvertScalarImageToRGB interfaces this framework and permits conversion of grayscale intensity scalar images to RGB colormapped images which can be viewed in programs such as ITKSNAP. Converting scalar images to RGB intensities is also a preprocessing step for the next two programs described: CreateTiledMosaic and antsSurf. In addition to the built-in colormaps which are currently part of ITK, we also have several custom colormaps. Additionally, these custom colormaps can be used as examples to build one’s own set of colormaps for use with ConvertScalarImageToRGB.
 
-+ Volumetric visualizations with antsSurf
+### Figure production and large-scale data inspection using CreateTiledMosaic
+
+The program CreateTiledMosaic in conjunction with ConvertScalarImageToRGB provides useful functionality for common image analysis tasks. The basic usage of CreateTiledMosaic is to tile a 3-D image volume slice-wise into a 2-D image. The help menu CreateTiledMosaic --help provides more in-depth coverage of options but some of the functionality includes:
++ padding or cropping each tile element,
++ alpha channel for translucent overlaid rob maps,
++ flipping or permuting of each tile element,
++ comprehensive slice selection, and
++ tiling pattern (i.e. custom number of rows and/or columns).
+
+### Volumetric visualizations with antsSurf
+
+Our third program, antsSurf, is used to produce volumetric surface renderings from binary images with optional functional overlays. Again, the antsSurf help menu provides a more comprehensive description of functionality but some available options include:
++ specification of more than one functional overlay,
++ painting of functional overlays based on order on the command line,
++ localization of the functional overlay within a specified masked region,
++ manual reorientation,
++ manual adjustment of solid background and surface colors 
++ simple estimation of binary image given a mesh.
 
 ## Statistics with ANTs and R: ANTsR
 R is an open-source statistical echosystem used by statisticians world-wide. ANTs is designed to interface with R via the [ANTsR](https://github.com/ANTsX/ANTsR) package. 
+
+Some of the ANTsR functionallies adapted for neuro-imaging research are as follows:
+
++ Inter-modality inference
++ Eigenanatomy for multiple modality population studies function sparseDecom
++ Tumor segmentation function mrvnrfs 
++ Multiple modality pediatric template 
++ Structural networks from subject-level data 
++ Sparse regression with manifold smoothness constraints 
++ Prior-based eigenanatomy function sparseDecom
+
 
 ## More ANTs examples
 The ANTs [paper](http://journal.frontiersin.org/Journal/10.3389/fninf.2014.00044/abstract) iincludes links to several more examples for above-mentioned functionalities and more such as morphometry. Many other examples are available in the literature on [ATNs on Scholar](https://scholar.google.com/citations?user=ox-mhOkAAAAJ&hl=en).
