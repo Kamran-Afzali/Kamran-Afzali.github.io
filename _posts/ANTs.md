@@ -34,26 +34,28 @@ Data visualization is important for producing figures for manuscripts, qualitati
 
 ### Creating faux-colormapped images with ConvertScalarImageToRGB
 
-We introduced such a processing framework into ITK described in. The ANTs program ConvertScalarImageToRGB interfaces this framework and permits conversion of grayscale intensity scalar images to RGB colormapped images which can be viewed in programs such as ITKSNAP. Converting scalar images to RGB intensities is also a preprocessing step for the next two programs described: CreateTiledMosaic and antsSurf. In addition to the built-in colormaps which are currently part of ITK, we also have several custom colormaps. Additionally, these custom colormaps can be used as examples to build one’s own set of colormaps for use with ConvertScalarImageToRGB.
+*ConvertScalarImageToRGB* interfaces permits conversion of grayscale intensity scalar images to RGB colormapped images. Additionally, these custom colormaps can be used as examples to build one’s own set of colormaps for use with *ConvertScalarImageToRGB*. Converting scalar images to RGB intensities is also a preprocessing step for the next two programs described: *CreateTiledMosaic* and *antsSurf*.
 
 ### Figure production and large-scale data inspection using CreateTiledMosaic
 
 The program CreateTiledMosaic in conjunction with ConvertScalarImageToRGB provides useful functionality for common image analysis tasks. The basic usage of CreateTiledMosaic is to tile a 3-D image volume slice-wise into a 2-D image. The help menu CreateTiledMosaic --help provides more in-depth coverage of options but some of the functionality includes:
-+ padding or cropping each tile element,
-+ alpha channel for translucent overlaid rob maps,
-+ flipping or permuting of each tile element,
-+ comprehensive slice selection, and
-+ tiling pattern (i.e. custom number of rows and/or columns).
+
++ Padding or cropping each tile element
++ Alpha channel for translucent overlaid rob maps
++ Flipping or permuting of each tile element
++ Comprehensive slice selection
++ Tiling pattern (i.e. custom number of rows and/or columns)
 
 ### Volumetric visualizations with antsSurf
 
 Our third program, antsSurf, is used to produce volumetric surface renderings from binary images with optional functional overlays. Again, the antsSurf help menu provides a more comprehensive description of functionality but some available options include:
-+ specification of more than one functional overlay,
-+ painting of functional overlays based on order on the command line,
-+ localization of the functional overlay within a specified masked region,
-+ manual reorientation,
-+ manual adjustment of solid background and surface colors 
-+ simple estimation of binary image given a mesh.
+
++ Specification of more than one functional overlay
++ Painting of functional overlays based on order on the command line
++ Localization of the functional overlay within a specified masked region
++ Manual reorientation
++ Manual adjustment of solid background and surface colors 
++ Simple estimation of binary image given a mesh
 
 ## Statistics with ANTs and R: ANTsR
 R is an open-source statistical echosystem used by statisticians world-wide. ANTs is designed to interface with R via the [ANTsR](https://github.com/ANTsX/ANTsR) package. 
