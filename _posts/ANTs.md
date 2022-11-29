@@ -38,7 +38,7 @@ Data visualization is important for producing figures for manuscripts, qualitati
 
 ### Figure production and large-scale data inspection using CreateTiledMosaic
 
-The program CreateTiledMosaic in conjunction with ConvertScalarImageToRGB provides useful functionality for common image analysis tasks. The basic usage of CreateTiledMosaic is to tile a 3-D image volume slice-wise into a 2-D image. The help menu CreateTiledMosaic --help provides more in-depth coverage of options but some of the functionality includes:
+*CreateTiledMosaic* in conjunction with *ConvertScalarImageToRGB* provides utility for common image analysis tasks. The basic usage of *CreateTiledMosaic* is to tile a 3-D image volume slice-wise into a 2-D image. Some of the functionality includes:
 
 + Padding or cropping each tile element
 + Alpha channel for translucent overlaid rob maps
