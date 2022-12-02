@@ -1,5 +1,14 @@
+---
+layout: post
+categories: posts
+title: Bayesian Regression Models for Non-Normal Data
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: June 2022
+---
 
-Introduction
+
+## Introduction
 In this post, we will explore frequentist and Bayesian analogues of regularized/penalized linear regression models (e.g., LASSO [L1 penalty], Ridge regression [L2 penalty]), which are an extention of traditional linear regression models of the form:
 
  
@@ -13,4 +22,8 @@ Unlike these traditional linear regression models, regularized linear regression
 
 ## References
 
-http://haines-lab.com/post/2019-05-06-on-the-equivalency-between-the-lasso-ridge-regression-and-specific-bayesian-priors/on-the-equivalency-between-the-lasso-ridge-regression-and-specific-bayesian-priors/
+[Ref1](http://haines-lab.com/post/2019-05-06-on-the-equivalency-between-the-lasso-ridge-regression-and-specific-bayesian-priors/on-the-equivalency-between-the-lasso-ridge-regression-and-specific-bayesian-priors/)
+
+https://jrnold.github.io/bayesian_notes/shrinkage-and-regularized-regression.html
+
+http://ccgilroy.com/csss564-labs-2019/08-regularization/08-regularization.html
