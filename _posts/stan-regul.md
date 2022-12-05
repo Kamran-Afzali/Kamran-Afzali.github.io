@@ -34,7 +34,10 @@ From a Bayesian perspective, this turns out to be the same as putting a prior th
 Because Bayesians care about posterior distributions, models that are mathematically the same don’t always have the same consequences (see the lasso section below). Remember that MLE values correspond to posterior modes, aka MAP estimates.
 
 
+### Bayesian Ridge Regression
+Bayesian Ridge regression differs from the frequentist variant in only one way, and it is with how we think of the  penalty term. In the frequentist perspective, we showed that  effectively tells our model how much it is allowed to learn from the data. In the Bayesian world, we can capture such an effect in the form of a prior distribution over our  weights. To reveal the extraordinary power hiding behind this simple idea, let’s first discuss Bayesian linear regression.
 
+Bayesian models view estimation as a problem of integrating prior information with information gained from data, which we formalize using probability distributions. This differs from the frequntist view, which treats regression as an opimization problem that results in a point estimate (e.g., minimizing squared error). Importantly, Bayesian models require us to specify a prior distribution for each parameter we seek to estimate. Therefore, we need to specify a prior on the intercept (), slopes (), and error variance () in equation 5. Since we are standardizing all of our predictors and outcome variable(s), we will ignore the intercept term. Then, we are left with  and . Crucially, our choice of prior distribution on  is what determines how much information we learn from the data, analagous to the penalty term  used for frequentist regularization.
 
 
 
