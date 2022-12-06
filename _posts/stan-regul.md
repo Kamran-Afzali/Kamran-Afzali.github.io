@@ -35,10 +35,24 @@ Because Bayesians care about posterior distributions, models that are mathematic
 
 
 ### Bayesian Ridge Regression
+
+The extention from traditional to ridge regression is actually very straightforward! Specifically, we modify the loss function (equation 3) to include a penalty term for model complexity, where model complexity is operationalized as the sum of squared  weights.
+
 Bayesian Ridge regression differs from the frequentist variant in only one way, and it is with how we think of the  penalty term. In the frequentist perspective, we showed that  effectively tells our model how much it is allowed to learn from the data. In the Bayesian world, we can capture such an effect in the form of a prior distribution over our  weights. To reveal the extraordinary power hiding behind this simple idea, let’s first discuss Bayesian linear regression.
 
 Bayesian models view estimation as a problem of integrating prior information with information gained from data, which we formalize using probability distributions. This differs from the frequntist view, which treats regression as an opimization problem that results in a point estimate (e.g., minimizing squared error). Importantly, Bayesian models require us to specify a prior distribution for each parameter we seek to estimate. Therefore, we need to specify a prior on the intercept (), slopes (), and error variance () in equation 5. Since we are standardizing all of our predictors and outcome variable(s), we will ignore the intercept term. Then, we are left with  and . Crucially, our choice of prior distribution on  is what determines how much information we learn from the data, analagous to the penalty term  used for frequentist regularization.
 
+Bayesian LASSO Regression
+
+Now that we have covered ridge regression, LASSO regression only involves a minor revision to the loss function. Specifically, as opposed to penalizing the model based on the sum of squared  weights, we will penalize the model by the sum of the absolute value of  weights. 
+Recall that for Bayesian ridge regression, we only needed to specifiy a normal prior distribution to the  weights that we were aiming to regularize. For Bayesian LASSO regression, the only difference is in the form of the prior distribution. Specifically, setting a Laplace (i.e. double-exponential) prior on the  weights is mathematically equivalent in expectation to the frequentist LASSO penalty.
+
+Compared to the ridge prior, which is a normal distribution, it is clear that the Laplace distribiution places much more probability mass directly on 0, which produces the variable selection effect specific to LASSO regression. Note also that such peakedness explains why there are sharp corners in the frequentist penalty function (see the LASSO contour plot above).
+
+Below is the Stan code that specifies this Bayesian variant of LASSO regression.
+
+
+### Comparing the Models
 
 
 ## References
