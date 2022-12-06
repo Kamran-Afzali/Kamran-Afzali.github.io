@@ -7,6 +7,40 @@ The fMRIPrep workflow takes as principal input the path of the dataset that is t
 
 The exact command to run fMRIPRep depends on the Installation method. The common parts of the command follow the BIDS-Apps definition. 
 
+Workflows for preprocessing of fMRI data produce two broad classes of outputs. First, preprocessed time series are derived from the original data after the application of retrospective signal corrections, spatiotemporal filtering, and resampling onto a target space
+appropriate for analysis (e.g., a standardized anatomical reference).
+Second, experimental confounds are additional time series such as physiological recordings and estimated noise sources that are useful
+for analysis (e.g., to be modeled as nuisance regressors). Some commonly used confounds include motion parameters, framewise displacement9,
+spatial s.d. of the data after temporal differencing8, and global signals, among others. Preprocessing may include further steps for denoising and estimation of confounds, such as dimensionalityreduction methods based on principal component analysis or independent component analysis. Two corresponding instances of these techniques are component-based noise correction (CompCor10) and automatic removal of motion artifacts (AROMA11).
+The neuroimaging community is well equipped with tools that implement the majority of the individual steps of preprocessing
+described so far (Table 1). These tools are readily available in software packages such as AFNI12, ANTs13, FreeSurfer14, FSL15, Nilearn16, and SPM17. Despite the wealth of accessible software and multiple attempts to outline best practices for preprocessing2,5,7,18, the large
+variety of data-acquisition protocols has led to the use of ad hoc pipelines customized for nearly every study19. In practice, the neuroimaging community lacks a preprocessing workflow that reliably provides high-quality and consistent results from diverse datasets.
+
+
+
++ Anatomical T1-weighted brain extraction 
+  - antsBrainExtraction.sh (ANTs) 
++ Anatomical surface reconstruction 
+  - recon-all (FreeSurfer) 
++ Head-motion estimation (and correction)
+  - MCFLIRT (FSL) 
++ Susceptibility-derived distortion estimation (and unwarping)
+  - 3dqwarp (AFNI) 
++ Slice-timing correction 
+  - 3dTshift (AFNI)
++ Intrasubject registration 
+  - bbregister (FreeSurfer), FLIRT (FSL) 
++ Spatial normalization (intersubject co-registration) 
+  - antsRegistration (ANTs) 
++ Surface sampling 
+  - mri_vol2surf (FreeSurfer) 
++ Subspace projection denoising
+  - MELODIC (FSL) 
++ Confounds 
+  - In-house implementation fsl_motion_outliers (FSL), TAPAS PhysIO (SPM plug-in)
++ Detection of non-steady states 
+  - In-house implementation Ad hoc implementations, manual setting
+
 ### Running fMRIPrep 
 Timing 2–15 h of computing time per subject, depending on the number and resolution of BOLD runs, T1w reference quality, data acquisition parameters (e.g., longer for multiband fMRI data) and the workflow configuration 10 Run fMRIPrep. Figure 2 describes an example of batch prescription file $STUDY/fmriprep. sbatch and the elements that may be customized for the particular execution environment.
 
@@ -21,8 +55,12 @@ Timing 5–20 min 14 Visualize results with Nilearn’s plotting functions. Here
 
 ## References
 
-https://fmriprep.org/en/stable/usage.html
-https://github.com/poldracklab/ds003-post-fMRIPrep-analysis
-https://github.com/nipreps/fmriprep
-Analysis of task-based functional MRI data preprocessed with fMRIPrep
-fMRIPrep: a robust preprocessing pipeline for functional MRI
++ https://fmriprep.org/en/stable/usage.html
+
++ https://github.com/poldracklab/ds003-post-fMRIPrep-analysis
+
++ https://github.com/nipreps/fmriprep
+
++ Analysis of task-based functional MRI data preprocessed with fMRIPrep
+
++ fMRIPrep: a robust preprocessing pipeline for functional MRI
