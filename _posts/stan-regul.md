@@ -9,6 +9,8 @@ date-string: June 2022
 
 
 ## Introduction
+
+
 In this post, we will explore frequentist and Bayesian analogues of regularized/penalized linear regression models (e.g., LASSO [L1 penalty], Ridge regression [L2 penalty]), which are an extention of traditional linear regression models of the form.
 In this chapter, we will discuss shrinkage and regularization in regression problems. These methods are useful for improving prediction, estimating regression models with many variables, and as an alternative to model selection methods.
 
@@ -33,6 +35,10 @@ From a Bayesian perspective, this turns out to be the same as putting a prior th
 
 Because Bayesians care about posterior distributions, models that are mathematically the same don’t always have the same consequences (see the lasso section below). Remember that MLE values correspond to posterior modes, aka MAP estimates.
 
+Goals
+Understand shrinkage/regularization of coefficients as an alternative/complement to variable selection
+Use three specific approaches to regularization—ridge, lasso, hierarchical shrinkage—which regularize through different priors, with different consequences for sparsity
+Recognize connections between Bayesian regularized regression and regularized regression in a machine learning / penalized MLE framework
 
 ### Bayesian Ridge Regression
 
@@ -42,7 +48,7 @@ Bayesian Ridge regression differs from the frequentist variant in only one way, 
 
 Bayesian models view estimation as a problem of integrating prior information with information gained from data, which we formalize using probability distributions. This differs from the frequntist view, which treats regression as an opimization problem that results in a point estimate (e.g., minimizing squared error). Importantly, Bayesian models require us to specify a prior distribution for each parameter we seek to estimate. Therefore, we need to specify a prior on the intercept (), slopes (), and error variance () in equation 5. Since we are standardizing all of our predictors and outcome variable(s), we will ignore the intercept term. Then, we are left with  and . Crucially, our choice of prior distribution on  is what determines how much information we learn from the data, analagous to the penalty term  used for frequentist regularization.
 
-Bayesian LASSO Regression
+### Bayesian LASSO Regression
 
 Now that we have covered ridge regression, LASSO regression only involves a minor revision to the loss function. Specifically, as opposed to penalizing the model based on the sum of squared  weights, we will penalize the model by the sum of the absolute value of  weights. 
 Recall that for Bayesian ridge regression, we only needed to specifiy a normal prior distribution to the  weights that we were aiming to regularize. For Bayesian LASSO regression, the only difference is in the form of the prior distribution. Specifically, setting a Laplace (i.e. double-exponential) prior on the  weights is mathematically equivalent in expectation to the frequentist LASSO penalty.
@@ -52,8 +58,24 @@ Compared to the ridge prior, which is a normal distribution, it is clear that th
 Below is the Stan code that specifies this Bayesian variant of LASSO regression.
 
 
-### Comparing the Models
+### Hierarchical shrinkage
+The Bayesian lasso doesn’t get us sparsity, but can we get there? What kinds of prior shapes would encourage sparsity? (That is, a few relatively large coefficients, and many coefficients very close to zero.)
 
+We can use different global-local scale mixtures of normal distributions as our priors to encourage more sparsity. (You’ve seen the Student-T distribution is one of these scale mixtures, and the lasso is actually one of them too.)
+
+We combine the global scale for the coefficient priors, tau, with a local scale lambda. (Sorry, there aren’t enough Greek letters to go around…)
+
+
+
+## Comparing the Models
+Comparing the Models
+So far, we have described and fit both the frequentist and Bayesian versions of ridge and LASSO regression to our training data, and we have shown that we can make pretty outstanding predictions on our held-out test set! However, we have not explored the parameters that each model has estimated. Here, we will begin to probe our models.
+
+
+### Discussion
+In this post, we learned about the benefits of using regularized/penalized regression models over traditional regression. We determined that in low and/or noisy data settings, the so-called unbiased estimates given by traditional regression modeling actually lead to worse-off model performance. Importantly, we learned that this occurs because being ubiased allows a model to learn a lot from the data, including learning patterns of noise. Then, we learned that biased methods such as ridge and LASSO regression restrict the amount of learning that we get from data, which leads to better estimates in low and/or noisy data settings.
+
+Finally, we saw that hierarchical Bayesian models actually contain frequentist ridge and LASSO regression as a special case—namely, we can choose a prior distribution across the  weights that gives us a solution that is equivalent to that of the frequentist ridge or LASSO methods! Not only that, but Bayesian regression gives us a full posterior distribution for each parameter, thus circumventing problems with frequentist regularization that require the use of bootstrapping to estimate confidence intervals.
 
 ## References
 
@@ -62,3 +84,7 @@ Below is the Stan code that specifies this Bayesian variant of LASSO regression.
 https://jrnold.github.io/bayesian_notes/shrinkage-and-regularized-regression.html
 
 http://ccgilroy.com/csss564-labs-2019/08-regularization/08-regularization.html
+
+https://github.com/ccgilroy/csss564-labs-2019
+
+
