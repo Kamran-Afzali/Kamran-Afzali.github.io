@@ -17,7 +17,6 @@ described so far (Table 1). These tools are readily available in software packag
 variety of data-acquisition protocols has led to the use of ad hoc pipelines customized for nearly every study19. In practice, the neuroimaging community lacks a preprocessing workflow that reliably provides high-quality and consistent results from diverse datasets.
 
 
-
 + Anatomical T1-weighted brain extraction 
   - antsBrainExtraction.sh (ANTs) 
 + Anatomical surface reconstruction 
@@ -40,6 +39,32 @@ variety of data-acquisition protocols has led to the use of ad hoc pipelines cus
   - In-house implementation fsl_motion_outliers (FSL), TAPAS PhysIO (SPM plug-in)
 + Detection of non-steady states 
   - In-house implementation Ad hoc implementations, manual setting
+
+
+### Brain extraction, brain tissue segmentation and spatial normalization
+Then, the T1w reference is skull-stripped using a Nipype implementation of the antsBrainExtraction.sh tool (ANTs), which is an atlas-based brain extraction workflow. Finally, spatial normalization to standard spaces is performed using ANTs’ antsRegistration in a multiscale, mutual-information based, nonlinear registration scheme. See Defining standard and nonstandard spaces where data will be resampled for information about how standard and nonstandard spaces can be set to resample the preprocessed data onto the final output spaces.
+
+## Preprocessing of structural MRI 
+
+### Cost function masking during spatial normalization
+When processing images from patients with focal brain lesions (e.g., stroke, tumor resection), it is possible to provide a lesion mask to be used during spatial normalization to standard space [Brett2001]. ANTs will use this mask to minimize warping of healthy tissue into damaged areas (or vice-versa). Lesion masks should be binary NIfTI images (damaged areas = 1, everywhere else = 0) in the same space and resolution as the T1 image, and follow the naming convention specified in BIDS Extension Proposal 3: Common Derivatives (e.g., sub-001_T1w_label-lesion_roi.nii.gz). This file should be placed in the sub-*/anat directory of the BIDS dataset to be run through fMRIPrep. Because lesion masks are not currently part of the BIDS specification, it is also necessary to include a .bidsignore file in the root of your dataset directory.
+
+### Surface preprocessing
+fMRIPrep uses FreeSurfer to reconstruct surfaces from T1w/T2w structural images. If enabled, several steps in the fMRIPrep pipeline are added or replaced. All surface preprocessing may be disabled with the --fs-no-reconall flag. Surface reconstruction is performed in three phases. The first phase initializes the subject with T1w and T2w (if available) structural images and performs basic reconstruction (autorecon1) with the exception of skull-stripping. Skull-stripping is skipped since the brain mask calculated previously is injected into the appropriate location for FreeSurfer. 
+
+### Refinement of the brain mask
+Typically, the original brain mask calculated with antsBrainExtraction.sh will contain some innaccuracies including small amounts of MR signal from outside the brain. Based on the tissue segmentation of FreeSurfer (located in mri/aseg.mgz) and only when the Surface Processing step has been executed, fMRIPrep replaces the brain mask with a refined one that derives from the aseg.mgz file as described in RefineBrainMask.
+
+
+## BOLD preprocessing 
+
+###  fMRIPrep
+
+
+
+
+
+## Technical points
 
 ### Running fMRIPrep 
 Timing 2–15 h of computing time per subject, depending on the number and resolution of BOLD runs, T1w reference quality, data acquisition parameters (e.g., longer for multiband fMRI data) and the workflow configuration 10 Run fMRIPrep. Figure 2 describes an example of batch prescription file $STUDY/fmriprep. sbatch and the elements that may be customized for the particular execution environment.
@@ -64,3 +89,4 @@ Timing 5–20 min 14 Visualize results with Nilearn’s plotting functions. Here
 + Analysis of task-based functional MRI data preprocessed with fMRIPrep
 
 + fMRIPrep: a robust preprocessing pipeline for functional MRI
++ https://github.com/nipreps/fmriprep
