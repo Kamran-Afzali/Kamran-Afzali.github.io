@@ -58,11 +58,35 @@ Typically, the original brain mask calculated with antsBrainExtraction.sh will c
 
 ## BOLD preprocessing 
 
-###  fMRIPrep
+BOLD reference image estimation workflow estimates a reference image for a BOLD series. If a single-band reference (“sbref”) image associated with the BOLD series is available, then it is used directly. If not, a reference image is estimated from the BOLD series as follows: When T1-saturation effects (“dummy scans” or non-steady state volumes) are detected, they are averaged and used as reference due to their superior tissue contrast. Otherwise, a median of motion corrected subset of volumes is used.
+
+###  Head-motion estimation
+
+Using the previously estimated reference scan, FSL mcflirt is used to estimate head-motion. As a result, one rigid-body transform with respect to the reference image is written for each BOLD time-step. Additionally, a list of 6-parameters (three rotations, three translations) per time-step is written and fed to the confounds workflow. For a more accurate estimation of head-motion, we calculate its parameters before any time-domain filtering (i.e., slice-timing correction), as recommended in [Power2017].
+
+###  Slice time correction
+
+If the SliceTiming field is available within the input dataset metadata, this workflow performs slice time correction prior to other signal resampling processes. Slice time correction is performed using AFNI 3dTShift. All slices are realigned in time to the middle of each TR.
+
+Slice time correction can be disabled with the --ignore slicetiming command line argument. If a BOLD series has fewer than 5 usable (steady-state) volumes, slice time correction will be disabled for that run.
+
+###  Resampling BOLD runs onto standard spaces
 
 
+###  EPI to T1w registration
 
 
+###  EPI sampled to FreeSurfer surfaces
+
+
+###  Confounds estimation
+
+
+###  ICA-AROMA
+
+ICA-AROMA denoising is performed in MNI152NLin6Asym space, which is automatically added to the list of --output-spaces if it was not already requested by the user. The number of ICA-AROMA components depends on a dimensionality estimate made by FSL MELODIC. For datasets with a very short TR and a large number of timepoints, this may result in an unusually high number of components. By default, dimensionality is limited to a maximum of 200 components. To override this upper limit one may specify the number of components to be extracted with --aroma-melodic-dimensionality. Further details on the implementation are given within the workflow generation function (init_ica_aroma_wf()).
+
+Note: non-aggressive AROMA denoising is a fundamentally different procedure from its “aggressive” counterpart and cannot be performed only by using a set of noise regressors (a separate GLM with both noise and signal regressors needs to be used). Therefore instead of regressors, fMRIPrep produces non-aggressive denoised 4D NIFTI files in the MNI space
 
 ## Technical points
 
