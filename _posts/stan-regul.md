@@ -40,6 +40,12 @@ Understand shrinkage/regularization of coefficients as an alternative/complement
 Use three specific approaches to regularization—ridge, lasso, hierarchical shrinkage—which regularize through different priors, with different consequences for sparsity
 Recognize connections between Bayesian regularized regression and regularized regression in a machine learning / penalized MLE framework
 
+
+
+## Regularized Regression
+As described above, regularized linear regression models aim to estimate more conservative values for the  weights in a model, and this is true for both frequentist and Bayesian versions of regularization. While there are many methods that can be used to regularize your estimation procedure, we will focus specifically on two popular forms—namely, ridge and LASSO regression. We start below by describing each regression generally, and then proceed to implement both the frequentist and Bayesian versions.
+
+
 ### Bayesian Ridge Regression
 
 The extention from traditional to ridge regression is actually very straightforward! Specifically, we modify the loss function (equation 3) to include a penalty term for model complexity, where model complexity is operationalized as the sum of squared  weights.
@@ -65,14 +71,12 @@ We can use different global-local scale mixtures of normal distributions as our 
 
 We combine the global scale for the coefficient priors, tau, with a local scale lambda. (Sorry, there aren’t enough Greek letters to go around…)
 
-
-
-## Comparing the Models
+### Comparing the Models
 Comparing the Models
 So far, we have described and fit both the frequentist and Bayesian versions of ridge and LASSO regression to our training data, and we have shown that we can make pretty outstanding predictions on our held-out test set! However, we have not explored the parameters that each model has estimated. Here, we will begin to probe our models.
 
 
-### Discussion
+## Conclusion 
 In this post, we learned about the benefits of using regularized/penalized regression models over traditional regression. We determined that in low and/or noisy data settings, the so-called unbiased estimates given by traditional regression modeling actually lead to worse-off model performance. Importantly, we learned that this occurs because being ubiased allows a model to learn a lot from the data, including learning patterns of noise. Then, we learned that biased methods such as ridge and LASSO regression restrict the amount of learning that we get from data, which leads to better estimates in low and/or noisy data settings.
 
 Finally, we saw that hierarchical Bayesian models actually contain frequentist ridge and LASSO regression as a special case—namely, we can choose a prior distribution across the  weights that gives us a solution that is equivalent to that of the frequentist ridge or LASSO methods! Not only that, but Bayesian regression gives us a full posterior distribution for each parameter, thus circumventing problems with frequentist regularization that require the use of bootstrapping to estimate confidence intervals.
