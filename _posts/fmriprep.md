@@ -72,15 +72,36 @@ Slice time correction can be disabled with the --ignore slicetiming command line
 
 ###  Resampling BOLD runs onto standard spaces
 
+init_bold_std_trans_wf()
+
+This sub-workflow concatenates the transforms calculated upstream (see Head-motion estimation, Susceptibility Distortion Correction (SDC) –if fieldmaps are available–, EPI to T1w registration, and an anatomical-to-standard transform from Preprocessing of structural MRI) to map the EPI image to the standard spaces given by the --output-spaces argument (see Defining standard and nonstandard spaces where data will be resampled). It also maps the T1w-based mask to each of those standard spaces.
+
+Transforms are concatenated and applied all at once, with one interpolation (Lanczos) step, so as little information is lost as possible.
+
+The output space grid can be specified using modifiers to the --output-spaces argument.
 
 ###  EPI to T1w registration
 
+init_bold_reg_wf()
+
+The alignment between the reference EPI image of each run and the reconstructed subject using the gray/white matter boundary (FreeSurfer’s ?h.white surfaces) is calculated by the bbregister routine. If FreeSurfer processing is disabled, FSL flirt is run with the BBR cost function, using the fast segmentation to establish the gray/white matter boundary. After BBR is run, the resulting affine transform will be compared to the initial transform found by FLIRT. Excessive deviation will result in rejecting the BBR refinement and accepting the original, affine registration.
 
 ###  EPI sampled to FreeSurfer surfaces
 
+init_bold_surf_wf()
+
+
+If FreeSurfer processing is enabled, the motion-corrected functional series (after single shot resampling to T1w space) is sampled to the surface by averaging across the cortical ribbon. Specifically, at each vertex, the segment normal to the white-matter surface, extending to the pial surface, is sampled at 6 intervals and averaged.
+
+Surfaces are generated for the “subject native” surface, as well as transformed to the fsaverage template space. All surface outputs are in GIFTI format.
 
 ###  Confounds estimation
 
+init_bold_confs_wf()
+
+Given a motion-corrected fMRI, a brain mask, mcflirt movement parameters and a segmentation, the discover_wf sub-workflow calculates potential confounds per volume.
+
+Calculated confounds include the mean global signal, mean tissue class signal, tCompCor, aCompCor, Frame-wise Displacement, 6 motion parameters, DVARS, spike regressors, and, if the --use-aroma flag is enabled, the noise components identified by ICA-AROMA (those to be removed by the “aggressive” denoising strategy). Particular details about ICA-AROMA are given below.
 
 ###  ICA-AROMA
 
