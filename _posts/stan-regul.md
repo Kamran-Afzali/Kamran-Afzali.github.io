@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: posts
-title: Bayesian Regression Models for Non-Normal Data
+title: Bayesian Regularized Linear Regression
 featured-image: /images/stan.png
 tags: [STAN, R, Bayes]
 date-string: June 2022
@@ -11,11 +11,8 @@ date-string: June 2022
 ## Introduction
 
 
-In this post, we will explore frequentist and Bayesian analogues of regularized/penalized linear regression models (e.g., LASSO [L1 penalty], Ridge regression [L2 penalty]), which are an extention of traditional linear regression models of the form.
-In this chapter, we will discuss shrinkage and regularization in regression problems. These methods are useful for improving prediction, estimating regression models with many variables, and as an alternative to model selection methods.
-
- 
-Unlike these traditional linear regression models, regularized linear regression models produce biased estimates for the  weights. Specifically, both frequentist and Bayesian regularized linear regression models pool information across  weights, resulting in regression toward a common mean. When the common mean is centered at 0, this pooling of information produces more conservative estimates for each  weight (they are biased toward 0). In contrast, traditional linear regression models assume that  weights share no group-level information (i.e. they are independent), which leads to so-called unbiased estimates.
+In this post, we will explore Bayesian analogues of regularized/penalized linear regression models (e.g., LASSO, Ridge regression), which are an extention of traditional linear regression models of the form. First we will discuss shrinkage and regularization in regression problems. These methods are useful for improving prediction, estimating regression models with many variables, and as an alternative to model selection methods. Our goal is to
+understand shrinkage/regularization of coefficients as an alternative/complement to variable selection. Use three specific approaches to regularization—ridge, lasso, hierarchical shrinkage—which regularize through different priors, with different consequences for sparsity, and to recognize connections between Bayesian regularized regression and regularized regression in a machine learning/penalized MLE framework. Traditional linear regression models assume that  weights share no group-level information (i.e. they are independent), which leads to so-called unbiased estimates. Unlike traditional linear regression models, regularized linear regression models produce biased estimates for the  weights. Specifically, Bayesian regularized linear regression models pool information across weights, resulting in regression toward a common mean. When the common mean is centered at 0, this pooling of information produces more conservative estimates for each  weight (they are biased toward 0). 
 
 
 Shrinkage estimation deliberately increases the bias of the model in order to reduce variance and improve overall model performance, often at the cost of individual estimates (Efron and Hastie 2016, 91). Maximum likelihood estimation will produce asymptotically unbiased (consistent) estimates, given certain regularity conditions. However, the bias-variance tradeoff implies that generalization error can be decreased with a non-zero amount of bias. By adding bias to the model, shrinkage estimators provide a means to adjust the bias-variance in the model in order to achieve lower generalization error.
@@ -35,10 +32,6 @@ From a Bayesian perspective, this turns out to be the same as putting a prior th
 
 Because Bayesians care about posterior distributions, models that are mathematically the same don’t always have the same consequences (see the lasso section below). Remember that MLE values correspond to posterior modes, aka MAP estimates.
 
-Goals
-Understand shrinkage/regularization of coefficients as an alternative/complement to variable selection
-Use three specific approaches to regularization—ridge, lasso, hierarchical shrinkage—which regularize through different priors, with different consequences for sparsity
-Recognize connections between Bayesian regularized regression and regularized regression in a machine learning / penalized MLE framework
 
 
 
@@ -85,9 +78,9 @@ Finally, we saw that hierarchical Bayesian models actually contain frequentist r
 
 [Ref1](http://haines-lab.com/post/2019-05-06-on-the-equivalency-between-the-lasso-ridge-regression-and-specific-bayesian-priors/on-the-equivalency-between-the-lasso-ridge-regression-and-specific-bayesian-priors/)
 
-https://jrnold.github.io/bayesian_notes/shrinkage-and-regularized-regression.html
+[Ref2](https://jrnold.github.io/bayesian_notes/shrinkage-and-regularized-regression.html)
 
-http://ccgilroy.com/csss564-labs-2019/08-regularization/08-regularization.html
+[Ref3](http://ccgilroy.com/csss564-labs-2019/08-regularization/08-regularization.html)
 
 https://github.com/ccgilroy/csss564-labs-2019
 
