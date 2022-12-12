@@ -12,26 +12,7 @@ date-string: June 2022
 
 
 In this post, we will explore Bayesian analogues of regularized/penalized linear regression models (e.g., LASSO, Ridge regression), which are an extention of traditional linear regression models of the form. First we will discuss shrinkage and regularization in regression problems. These methods are useful for improving prediction, estimating regression models with many variables, and as an alternative to model selection methods. Our goal is to
-understand shrinkage/regularization of coefficients as an alternative/complement to variable selection. Use three specific approaches to regularization—ridge, lasso, hierarchical shrinkage—which regularize through different priors, with different consequences for sparsity, and to recognize connections between Bayesian regularized regression and regularized regression in a machine learning/penalized MLE framework. Traditional linear regression models assume that  weights share no group-level information (i.e. they are independent), which leads to so-called unbiased estimates. Unlike traditional linear regression models, regularized linear regression models produce biased estimates for the  weights. Specifically, Bayesian regularized linear regression models pool information across weights, resulting in regression toward a common mean. When the common mean is centered at 0, this pooling of information produces more conservative estimates for each  weight (they are biased toward 0). 
-
-
-Shrinkage estimation deliberately increases the bias of the model in order to reduce variance and improve overall model performance, often at the cost of individual estimates (Efron and Hastie 2016, 91). Maximum likelihood estimation will produce asymptotically unbiased (consistent) estimates, given certain regularity conditions. However, the bias-variance tradeoff implies that generalization error can be decreased with a non-zero amount of bias. By adding bias to the model, shrinkage estimators provide a means to adjust the bias-variance in the model in order to achieve lower generalization error.
-
-In the Bayesian estimation, shrinkage occurs as a result of hierarchical models. When parameters are modeled as exchangeable and given a proper prior, it induces some amount of shrinkage. Likewise, Bayesian models with non- or weakly-informative priors will produce similar to the MLE. But stronger priors can produce estimate much different estimtes than MLE.
-
-Regularization describes any method that reduces variability in high dimensional estimation or prediction problems to allow estimation of unidentified or ill-posed questions or decrease overfitting or generalization error (Efron and Hastie 2016). Regularization can be thought of as the why and what of these methods, and shrinkage can be thought of as the how.
-
-
-What do you do when you have a bunch of potential predictor variables or covariates? Do you experiment with different combinations, or throw them all into the same model?
-
-If you do the latter, but impose some skepticism (i.e. regularization), you can wind up with better predictive models. One way of thinking about this is that you’re deliberately adding bias in order to reduce variance. Regularization helps avoid overfitting to your data, even as you include many variables.
-
-You can think about regularized models from a penalized MLE approach or a Bayesian approach. The first perspective is common in machine learning. Instead of picking the coefficient values that minimize the residual sum of squares (RSS), you add a penalty for large coefficients:
-
-From a Bayesian perspective, this turns out to be the same as putting a prior that encourages coefficients to shrink toward zero:
-
-Because Bayesians care about posterior distributions, models that are mathematically the same don’t always have the same consequences (see the lasso section below). Remember that MLE values correspond to posterior modes, aka MAP estimates.
-
+understand shrinkage/regularization of coefficients as an alternative/complement to variable selection. Use three specific approaches to regularization—ridge, lasso, hierarchical shrinkage—which regularize through different priors, with different consequences for sparsity, and to recognize connections between Bayesian regularized regression and regularized regression in a machine learning/penalized MLE framework. Traditional linear regression models assume that  weights share no group-level information (i.e. they are independent), which leads to so-called unbiased estimates. Unlike traditional linear regression models, regularized linear regression models produce biased estimates for the  weights. Specifically, Bayesian regularized linear regression models pool information across weights, resulting in regression toward a common mean. When the common mean is centered at 0, this pooling of information produces more conservative estimates for each  weight (they are biased toward 0). Shrinkage estimation deliberately increases the bias of the model in order to reduce variance and improve overall model performance, often at the cost of individual estimates. In other words, by adding bias to the model, shrinkage estimators provide a means to adjust the bias-variance in the model in order to achieve lower generalization error. Bayesian models with non-informative priors will produce similar to the MLE. However, parameters are modeled as exchangeable and given a proper prior, it induces some amount of shrinkage. But stronger priors can produce estimate much different estimtes than MLE.
 
 
 
@@ -58,21 +39,15 @@ Below is the Stan code that specifies this Bayesian variant of LASSO regression.
 
 
 ### Hierarchical shrinkage
-The Bayesian lasso doesn’t get us sparsity, but can we get there? What kinds of prior shapes would encourage sparsity? (That is, a few relatively large coefficients, and many coefficients very close to zero.)
-
-We can use different global-local scale mixtures of normal distributions as our priors to encourage more sparsity. (You’ve seen the Student-T distribution is one of these scale mixtures, and the lasso is actually one of them too.)
-
-We combine the global scale for the coefficient priors, tau, with a local scale lambda. (Sorry, there aren’t enough Greek letters to go around…)
+The Bayesian lasso doesn’t get us sparsity, but can we get there? What kinds of prior shapes would encourage sparsity? (That is, a few relatively large coefficients, and many coefficients very close to zero.) We can use different global-local scale mixtures of normal distributions as our priors to encourage more sparsity. (You’ve seen the Student-T distribution is one of these scale mixtures, and the lasso is actually one of them too.) We combine the global scale for the coefficient priors, tau, with a local scale lambda. (Sorry, there aren’t enough Greek letters to go around…)
 
 ### Comparing the Models
-Comparing the Models
+
 So far, we have described and fit both the frequentist and Bayesian versions of ridge and LASSO regression to our training data, and we have shown that we can make pretty outstanding predictions on our held-out test set! However, we have not explored the parameters that each model has estimated. Here, we will begin to probe our models.
 
 
 ## Conclusion 
-In this post, we learned about the benefits of using regularized/penalized regression models over traditional regression. We determined that in low and/or noisy data settings, the so-called unbiased estimates given by traditional regression modeling actually lead to worse-off model performance. Importantly, we learned that this occurs because being ubiased allows a model to learn a lot from the data, including learning patterns of noise. Then, we learned that biased methods such as ridge and LASSO regression restrict the amount of learning that we get from data, which leads to better estimates in low and/or noisy data settings.
-
-Finally, we saw that hierarchical Bayesian models actually contain frequentist ridge and LASSO regression as a special case—namely, we can choose a prior distribution across the  weights that gives us a solution that is equivalent to that of the frequentist ridge or LASSO methods! Not only that, but Bayesian regression gives us a full posterior distribution for each parameter, thus circumventing problems with frequentist regularization that require the use of bootstrapping to estimate confidence intervals.
+In this post, we learned about the benefits of using regularized/penalized regression models over traditional regression. We determined that in low and/or noisy data settings, the so-called unbiased estimates given by non-regularized regression modeling actually lead to worse-off model performance. Importantly, we learned that this occurs because being ubiased allows a model to learn a lot from the data, including learning patterns of noise. Then, we learned that biased methods such as ridge and LASSO regression restrict the amount of learning that we get from data, which leads to better estimates in low and/or noisy data settings. Finally, hierarchical Bayesian models can choose a prior distribution across the  weights that gives us a solution that is equivalent to that of the frequentist ridge or LASSO methods, with a full posterior distribution for each parameter, thus circumventing problems with frequentist regularization that require the use of bootstrapping to estimate confidence intervals.
 
 ## References
 
