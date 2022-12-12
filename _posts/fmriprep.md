@@ -49,65 +49,94 @@ Then, the T1w reference is skull-stripped using a Nipype implementation of the a
 ### Cost function masking during spatial normalization
 When processing images from patients with focal brain lesions (e.g., stroke, tumor resection), it is possible to provide a lesion mask to be used during spatial normalization to standard space [Brett2001]. ANTs will use this mask to minimize warping of healthy tissue into damaged areas (or vice-versa). Lesion masks should be binary NIfTI images (damaged areas = 1, everywhere else = 0) in the same space and resolution as the T1 image, and follow the naming convention specified in BIDS Extension Proposal 3: Common Derivatives (e.g., sub-001_T1w_label-lesion_roi.nii.gz). This file should be placed in the sub-*/anat directory of the BIDS dataset to be run through fMRIPrep. Because lesion masks are not currently part of the BIDS specification, it is also necessary to include a .bidsignore file in the root of your dataset directory.
 
+  
+        init_bold_reg_wf() <-input DSET>
+
+
 ### Surface preprocessing
 fMRIPrep uses FreeSurfer to reconstruct surfaces from T1w/T2w structural images. If enabled, several steps in the fMRIPrep pipeline are added or replaced. All surface preprocessing may be disabled with the --fs-no-reconall flag. Surface reconstruction is performed in three phases. The first phase initializes the subject with T1w and T2w (if available) structural images and performs basic reconstruction (autorecon1) with the exception of skull-stripping. Skull-stripping is skipped since the brain mask calculated previously is injected into the appropriate location for FreeSurfer. 
 
+  
+        init_autorecon_resume_wf() <-input DSET>
+
+
+
 ### Refinement of the brain mask
 Typically, the original brain mask calculated with antsBrainExtraction.sh will contain some innaccuracies including small amounts of MR signal from outside the brain. Based on the tissue segmentation of FreeSurfer (located in mri/aseg.mgz) and only when the Surface Processing step has been executed, fMRIPrep replaces the brain mask with a refined one that derives from the aseg.mgz file as described in RefineBrainMask.
+  
+        init_bold_reg_wf() <-input DSET>
 
 
 ## BOLD preprocessing 
 
 BOLD reference image estimation workflow estimates a reference image for a BOLD series. If a single-band reference (“sbref”) image associated with the BOLD series is available, then it is used directly. If not, a reference image is estimated from the BOLD series as follows: When T1-saturation effects (“dummy scans” or non-steady state volumes) are detected, they are averaged and used as reference due to their superior tissue contrast. Otherwise, a median of motion corrected subset of volumes is used.
 
+  
+        init_bold_reference_wf() <-input DSET>
+
 ###  Head-motion estimation
 
-Using the previously estimated reference scan, FSL mcflirt is used to estimate head-motion. As a result, one rigid-body transform with respect to the reference image is written for each BOLD time-step. Additionally, a list of 6-parameters (three rotations, three translations) per time-step is written and fed to the confounds workflow. For a more accurate estimation of head-motion, we calculate its parameters before any time-domain filtering (i.e., slice-timing correction), as recommended in [Power2017].
+Using the previously estimated reference scan, FSL mcflirt is used to estimate head-motion. As a result, one rigid-body transform with respect to the reference image is written for each BOLD time-step. Additionally, a list of 6-parameters (three rotations, three translations) per time-step is written and fed to the confounds workflow. For a more accurate estimation of head-motion, we calculate its parameters before any time-domain filtering (i.e., slice-timing correction).
+
+  
+        init_bold_hmc_wf() <-input DSET>
+
 
 ###  Slice time correction
 
-If the SliceTiming field is available within the input dataset metadata, this workflow performs slice time correction prior to other signal resampling processes. Slice time correction is performed using AFNI 3dTShift. All slices are realigned in time to the middle of each TR.
+If the SliceTiming field is available within the input dataset metadata, this workflow performs slice time correction prior to other signal resampling processes. Slice time correction is performed using AFNI 3dTShift. All slices are realigned in time to the middle of each TR. Slice time correction can be disabled with the --ignore slicetiming command line argument. If a BOLD series has fewer than 5 usable (steady-state) volumes, slice time correction will be disabled for that run.
 
-Slice time correction can be disabled with the --ignore slicetiming command line argument. If a BOLD series has fewer than 5 usable (steady-state) volumes, slice time correction will be disabled for that run.
+  
+        init_bold_stc_wf() <-input DSET>
+
+
 
 ###  Resampling BOLD runs onto standard spaces
 
-init_bold_std_trans_wf()
 
-This sub-workflow concatenates the transforms calculated upstream (see Head-motion estimation, Susceptibility Distortion Correction (SDC) –if fieldmaps are available–, EPI to T1w registration, and an anatomical-to-standard transform from Preprocessing of structural MRI) to map the EPI image to the standard spaces given by the --output-spaces argument (see Defining standard and nonstandard spaces where data will be resampled). It also maps the T1w-based mask to each of those standard spaces.
+This sub-workflow concatenates the transforms calculated upstream (see Head-motion estimation, Susceptibility Distortion Correction (SDC) –if fieldmaps are available–, EPI to T1w registration, and an anatomical-to-standard transform from Preprocessing of structural MRI) to map the EPI image to the standard spaces given by the --output-spaces argument (see Defining standard and nonstandard spaces where data will be resampled). It also maps the T1w-based mask to each of those standard spaces.Transforms are concatenated and applied all at once, with one interpolation (Lanczos) step, so as little information is lost as possible. The output space grid can be specified using modifiers to the --output-spaces argument.
 
-Transforms are concatenated and applied all at once, with one interpolation (Lanczos) step, so as little information is lost as possible.
+ 
+        init_bold_std_trans_wf() <-input DSET>
 
-The output space grid can be specified using modifiers to the --output-spaces argument.
 
 ###  EPI to T1w registration
 
-init_bold_reg_wf()
+
 
 The alignment between the reference EPI image of each run and the reconstructed subject using the gray/white matter boundary (FreeSurfer’s ?h.white surfaces) is calculated by the bbregister routine. If FreeSurfer processing is disabled, FSL flirt is run with the BBR cost function, using the fast segmentation to establish the gray/white matter boundary. After BBR is run, the resulting affine transform will be compared to the initial transform found by FLIRT. Excessive deviation will result in rejecting the BBR refinement and accepting the original, affine registration.
 
+  
+        init_bold_reg_wf() <-input DSET>
+
+
 ###  EPI sampled to FreeSurfer surfaces
 
-init_bold_surf_wf()
+If FreeSurfer processing is enabled, the motion-corrected functional series (after single shot resampling to T1w space) is sampled to the surface by averaging across the cortical ribbon. Specifically, at each vertex, the segment normal to the white-matter surface, extending to the pial surface, is sampled at 6 intervals and averaged. Surfaces are generated for the “subject native” surface, as well as transformed to the fsaverage template space. All surface outputs are in GIFTI format.
 
+  
+        init_bold_surf_wf() <-input DSET>
 
-If FreeSurfer processing is enabled, the motion-corrected functional series (after single shot resampling to T1w space) is sampled to the surface by averaging across the cortical ribbon. Specifically, at each vertex, the segment normal to the white-matter surface, extending to the pial surface, is sampled at 6 intervals and averaged.
-
-Surfaces are generated for the “subject native” surface, as well as transformed to the fsaverage template space. All surface outputs are in GIFTI format.
 
 ###  Confounds estimation
 
-init_bold_confs_wf()
 
-Given a motion-corrected fMRI, a brain mask, mcflirt movement parameters and a segmentation, the discover_wf sub-workflow calculates potential confounds per volume.
+Given a motion-corrected fMRI, a brain mask, mcflirt movement parameters and a segmentation, the discover_wf sub-workflow calculates potential confounds per volume. Calculated confounds include the mean global signal, mean tissue class signal, tCompCor, aCompCor, Frame-wise Displacement, 6 motion parameters, DVARS, spike regressors, and, if the --use-aroma flag is enabled, the noise components identified by ICA-AROMA (those to be removed by the “aggressive” denoising strategy). Particular details about ICA-AROMA are given below.
 
-Calculated confounds include the mean global signal, mean tissue class signal, tCompCor, aCompCor, Frame-wise Displacement, 6 motion parameters, DVARS, spike regressors, and, if the --use-aroma flag is enabled, the noise components identified by ICA-AROMA (those to be removed by the “aggressive” denoising strategy). Particular details about ICA-AROMA are given below.
+
+  
+        init_bold_confs_wf() <-input DSET>
+
+
 
 ###  ICA-AROMA
 
-ICA-AROMA denoising is performed in MNI152NLin6Asym space, which is automatically added to the list of --output-spaces if it was not already requested by the user. The number of ICA-AROMA components depends on a dimensionality estimate made by FSL MELODIC. For datasets with a very short TR and a large number of timepoints, this may result in an unusually high number of components. By default, dimensionality is limited to a maximum of 200 components. To override this upper limit one may specify the number of components to be extracted with --aroma-melodic-dimensionality. Further details on the implementation are given within the workflow generation function (init_ica_aroma_wf()).
+ICA-AROMA denoising is performed in MNI152NLin6Asym space, which is automatically added to the list of --output-spaces if it was not already requested by the user. The number of ICA-AROMA components depends on a dimensionality estimate made by FSL MELODIC. For datasets with a very short TR and a large number of timepoints, this may result in an unusually high number of components. By default, dimensionality is limited to a maximum of 200 components. To override this upper limit one may specify the number of components to be extracted with --aroma-melodic-dimensionality. Further details on the implementation are given within the workflow generation function. Note: non-aggressive AROMA denoising is a fundamentally different procedure from its “aggressive” counterpart and cannot be performed only by using a set of noise regressors (a separate GLM with both noise and signal regressors needs to be used). Therefore instead of regressors, fMRIPrep produces non-aggressive denoised 4D NIFTI files in the MNI space.
 
-Note: non-aggressive AROMA denoising is a fundamentally different procedure from its “aggressive” counterpart and cannot be performed only by using a set of noise regressors (a separate GLM with both noise and signal regressors needs to be used). Therefore instead of regressors, fMRIPrep produces non-aggressive denoised 4D NIFTI files in the MNI space
+  
+        init_ica_aroma_wf() <-input DSET>
+
+
 
 ## Technical points
 
