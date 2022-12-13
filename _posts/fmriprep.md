@@ -140,6 +140,23 @@ ICA-AROMA denoising is performed in MNI152NLin6Asym space, which is automaticall
 
 ## Technical points
 
+
+###  MRI scanner
+If the study is acquiring new data, then a whole-head, BOLD-capable scanner is required. fMRIPrep has been tested on images acquired at 1–3 Tesla field strength. Recent multi-band echo-planar imaging sequences are supported, although all performance estimates given in this document derive from benchmarks on single-band datasets. fMRIPrep autonomously adapts the preprocessing workflow to the input data, affording researchers the possibility to fine-tune their MR protocols to their experimental needs and design.
+
+### Computing hardware
+
+fMRIPrep is amenable to execution on almost any platform with enough memory: PC, HPC or cloud. Some elements of the workflow will require a minimum of 8 GB RAM, although 32 GB is recommended. fMRIPrep is able to optimize the workflow execution via parallelization. The use of 8–16 CPUs is recommended for optimal performance. To store interim results, fMRIPrep requires ~450 MB of hard-disk space for the anatomical workflow and ~500 MB for each functional BOLD run per subject. Therefore, a dataset with an imaging matrix of 90 × 90 × 70 voxels and a total of 2,500 timepoints across all its BOLD runs will typically require ~3 GB of temporary storage. This storage can be volatile, e.g., ‘local’ scratch in HPC, which is a fast, local hard disk installed in the compute node that gets cleared after execution.
+
+### Visualization hardware
+
+The tools used in this protocol generate HTML reports to carry out visual quality control. These reports contain dynamic, rich visual elements to inspect the data and results from processing steps. Therefore, a high-resolution, high-static contrast and widescreen monitor (>30 inches) is recommended. Visual reports can be opened with Firefox or Chrome browsers, and graphics acceleration support is recommended.
+
+### Computing software
+
+fMRIPrep can be manually installed (‘bare-metal’ installation as per its documentation) on Linux and OSX systems or executed via containers (e.g., using Docker for Windows). When setting up manually, all software dependencies must also be correctly installed (e.g., Analysis of Functional NeuroImages (AFNI), Advanced Normalization Tools (ANTs), the FMRIB Software Library (FSL), FreeSurfer, Nilearn and Nipype). When using containers (which is
+recommended), a new Docker image is provided from the Docker Hub for each new release of fMRIPrep, and it includes all the dependencies pinned to specific versions to ensure the reproducibility of the computational framework. Containers encapsulate all necessary software required to run a particular data-processing pipeline akin to virtual machines. However, containers leverage some lightweight virtualization features of the Linux kernel without incurring much of the performance penalties of hardware-level virtualization. For these two reasons (ease and reproducibility), container execution is preferred. This protocol recommends running quality control on the original data before preprocessing, using MRIQC. MRIQC is a companion tool to fMRIPrep to perform a quality assessment of the anatomical and functional MRI scans, which account for the most relevant data within the typical fMRI protocol. The tool is distributed as a Docker image (recommended) and as a Python package.
+
 ### Running fMRIPrep 
 Timing 2–15 h of computing time per subject, depending on the number and resolution of BOLD runs, T1w reference quality, data acquisition parameters (e.g., longer for multiband fMRI data) and the workflow configuration 10 Run fMRIPrep. Figure 2 describes an example of batch prescription file $STUDY/fmriprep. sbatch and the elements that may be customized for the particular execution environment.
 
