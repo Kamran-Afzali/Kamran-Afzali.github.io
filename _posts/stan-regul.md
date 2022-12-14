@@ -26,18 +26,11 @@ The extention from traditional to ridge regression is actually very straightforw
 
 ### Bayesian LASSO Regression
 
-Now that we have covered ridge regression, LASSO regression only involves a minor revision to the loss function. Specifically, as opposed to penalizing the model based on the sum of squared  weights, we will penalize the model by the sum of the absolute value of  weights. 
-Recall that for Bayesian ridge regression, we only needed to specifiy a normal prior distribution to the  weights that we were aiming to regularize. For Bayesian LASSO regression, the only difference is in the form of the prior distribution. Specifically, setting a Laplace (i.e. double-exponential) prior on the  weights is mathematically equivalent in expectation to the frequentist LASSO penalty.
-
-Compared to the ridge prior, which is a normal distribution, it is clear that the Laplace distribiution places much more probability mass directly on 0, which produces the variable selection effect specific to LASSO regression. Note also that such peakedness explains why there are sharp corners in the frequentist penalty function (see the LASSO contour plot above).
-
-Below is the Stan code that specifies this Bayesian variant of LASSO regression.
-
+LASSO regression only involves a minor revision to the loss function compared to ridge regression. Specifically, as opposed to penalizing the model based on the sum of squared  weights, it will penalize the model by the sum of the absolute value of  weights. As for Bayesian ridge regression, we only needed to specifiy a normal prior distribution to the  weights that we were aiming to regularize, for Bayesian LASSO regression, the only difference is in the form of the prior distribution by setting it to a double-exponential prior on the  weights is mathematically equivalent in expectation to the frequentist LASSO penalty. Laplace distribiution places much more probability mass directly on 0, which produces the variable selection effect specific to LASSO regression. 
 
 ### Hierarchical shrinkage
-The Bayesian lasso doesn’t get us sparsity, but can we get there? What kinds of prior shapes would encourage sparsity? (That is, a few relatively large coefficients, and many coefficients very close to zero.) We can use different global-local scale mixtures of normal distributions as our priors to encourage more sparsity. (You’ve seen the Student-T distribution is one of these scale mixtures, and the lasso is actually one of them too.) We combine the global scale for the coefficient priors, tau, with a local scale lambda. (Sorry, there aren’t enough Greek letters to go around…)
 
-
+The Bayesian lasso doesn’t get us sparsity, but can we get there? What kinds of prior shapes would encourage sparsity? (That is, a few relatively large coefficients, and many coefficients very close to zero.) We can use different global-local scale mixtures of normal distributions as our priors to encourage more sparsity. In that case it is possible to combine the global scale for the coefficient priors, tau, with a local scale lambda. 
 
 ## Conclusion 
 In this post, we learned about the benefits of using regularized/penalized regression models over traditional regression. We determined that in low and/or noisy data settings, the so-called unbiased estimates given by non-regularized regression modeling actually lead to worse-off model performance. Importantly, we learned that this occurs because being ubiased allows a model to learn a lot from the data, including learning patterns of noise. Then, we learned that biased methods such as ridge and LASSO regression restrict the amount of learning that we get from data, which leads to better estimates in low and/or noisy data settings. Finally, hierarchical Bayesian models can choose a prior distribution across the  weights that gives us a solution that is equivalent to that of the frequentist ridge or LASSO methods, with a full posterior distribution for each parameter, thus circumventing problems with frequentist regularization that require the use of bootstrapping to estimate confidence intervals.
