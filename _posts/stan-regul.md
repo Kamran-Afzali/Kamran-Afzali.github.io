@@ -34,9 +34,9 @@ In this post, we learned about the benefits of using regularized/penalized regre
 
 [Blogpost on the equivalency between frequentist Ridge (and LASSO) regression and hierarchial Bayesian regression](http://haines-lab.com/post/2019-05-06-on-the-equivalency-between-the-lasso-ridge-regression-and-specific-bayesian-priors/on-the-equivalency-between-the-lasso-ridge-regression-and-specific-bayesian-priors/)
 
-[Blogpost on Bayesian regularization](https://jrnold.github.io/bayesian_notes/shrinkage-and-regularized-regression.html)
+[Blogpost on Bayesian regularization 1](https://jrnold.github.io/bayesian_notes/shrinkage-and-regularized-regression.html)
 
-[Blogpost on Bayesian regularization](http://ccgilroy.com/csss564-labs-2019/08-regularization/08-regularization.html)
+[Blogpost on Bayesian regularization 2](http://ccgilroy.com/csss564-labs-2019/08-regularization/08-regularization.html)
 
 [Github code examples](https://github.com/ccgilroy/csss564-labs-2019)
 
