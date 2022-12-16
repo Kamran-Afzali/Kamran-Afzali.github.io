@@ -144,5 +144,5 @@ Timing 5–20 min 14 Visualize results with Nilearn’s plotting functions. Here
 + [Documentation](https://fmriprep.org/en/stable/usage.html)
 + [Analysis of task-based functional MRI data preprocessed with fMRIPrep](https://www.nature.com/articles/s41596-020-0327-3)
 + [fMRIPrep: a robust preprocessing pipeline for functional MRI](https://www.nature.com/articles/s41592-018-0235-4)
-+ [fMRIPrep github](https://github.com/nipreps/fmriprep)
-+ [fMRIPrep github](https://github.com/poldracklab/ds003-post-fMRIPrep-analysis)
++ [fMRIPrep github 1](https://github.com/nipreps/fmriprep)
++ [fMRIPrep github 2](https://github.com/poldracklab/ds003-post-fMRIPrep-analysis)
