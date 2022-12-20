@@ -19,13 +19,144 @@ As described above, regularized linear regression models aim to estimate more co
 
 Ridge regression modifies the loss function to include a penalty term for model complexity, where model complexity is operationalized as the sum of squared  weights. Bayesian Ridge regression differs from the frequentist variant in only one way, and it is with how we think of the penalty term. In the frequentist perspective, we showed that effectively tells our model how much it is allowed to learn from the data. Bayesian models view estimation as a problem of integrating prior information with information gained from data, which we formalize using probability distributions. The Bayesian estimation captures this in the form of a prior distribution over our  weights the choice of prior distribution on is what determines how much information we learn from the data, analagous to the penalty term used for MLE regularization.
 
+```stan
+data{
+    int N_train;             // "# training observations"
+    int N_test;              // "# test observations"
+    int N_pred;              // "# predictor variables"
+    vector[N_train] y_train; // "training outcomes"
+    matrix[N_train, N_pred] X_train; // "training data"
+    matrix[N_test, N_pred] X_test;   // "testing data"
+}
+parameters{
+    real<lower=0> sigma;   // "error SD"
+    real<lower=0> sigma_B; // "hierarchical SD across betas"
+    vector[N_pred] beta;   // "regression beta weights"
+}
+model{
+  // "group-level (hierarchical) SD across betas"
+  sigma_B ~ cauchy(0, 1);
+  
+  // "model error SD"
+  sigma ~ normal(0, 1);
+  
+  // "beta prior (provides 'ridge' regularization)"
+  beta ~ normal(0, sigma_B);
+    
+  // "model likelihood"
+    y_train ~ normal(X_train*beta, sigma);
+}
+generated quantities{ 
+    real y_test[N_test]; // "test data predictions"
+    for(i in 1:N_test){
+        y_test[i] = normal_rng(X_test[i,] * beta, sigma);
+    }
+}
+```
+
 ### Bayesian LASSO Regression
 
 LASSO regression only involves a minor change to the loss function compared to ridge regression. Specifically, as opposed to penalizing the model based on the sum of squared  weights, it will penalize the model by the sum of the absolute value of  weights. As for Bayesian ridge regression, we only needed to specifiy a normal prior distribution to the weights that we were aiming to regularize, for Bayesian LASSO regression, the only difference is in the form of the prior distribution by setting it to a double-exponential prior on the  weights is mathematically equivalent in expectation to the frequentist LASSO penalty. Laplace distribiution places much more probability mass directly on 0, which produces the variable selection effect specific to LASSO regression. 
 
+```stan
+data{
+    int N_train;             // "# training observations"
+    int N_test;              // "# test observations"
+    int N_pred;              // "# predictor variables"
+    vector[N_train] y_train; // "training outcomes"
+    matrix[N_train, N_pred] X_train; // "training data"
+    matrix[N_test, N_pred] X_test;   // "testing data"
+}
+parameters{
+    real<lower=0> sigma;   // "error SD"
+    real<lower=0> sigma_B; // "(hierarchical) SD across betas"
+    vector[N_pred] beta;   // "regression beta weights"
+}
+model{
+  // "group-level (hierarchical) SD across betas"
+  sigma_B ~ cauchy(0, 1);
+  
+  // "Prior on SD"
+  sigma ~ normal(0, 1);
+  
+  // "beta prior (Note this is the only change!)"
+  beta ~ double_exponential(0, sigma_B); 
+    
+  // "model likelihood"
+    y_train ~ normal(X_train*beta, sigma);
+}
+generated quantities{ 
+    real y_test[N_test]; // "test data predictions"
+    for(i in 1:N_test){
+        y_test[i] = normal_rng(X_test[i,] * beta, sigma);
+    }
+}
+
+```
+
 ### Hierarchical shrinkage
 
 IF The Bayesian LASSO doesn’t get us sparsity with a few relatively large coefficients, and many coefficients very close to zero it is possible to use different global-local scale mixtures of normal distributions as our priors to encourage more sparsity. In that case it is possible to combine the global scale for all coefficient priors along with a local scale for each coefficient. 
+
+```stan
+data {
+  // number of observations
+  int N;
+  // response vector
+  vector[N] y;
+  // number of columns in the design matrix X
+  int K;
+  // design matrix X
+  matrix [N, K] X;
+  // global scale prior scale
+  real<lower = 0> tau;
+}
+transformed data {
+  real<lower = 0> y_sd;
+  real a_pr_scale;
+  real sigma_pr_scale;
+  y_sd = sd(y);
+  sigma_pr_scale = y_sd * 5;
+  a_pr_scale = 10;
+}
+parameters {
+  // regression coefficient vector
+  real a;
+  vector[K] b_raw;
+  // scale of the regression errors
+  real<lower = 0> sigma;
+  // local scales of coefficients
+  vector<lower = 0>[K] lambda;
+}
+transformed parameters {
+  // mu is the observation fitted/predicted value
+  // also called yhat
+  vector[N] mu;
+  vector[K] b;
+  b = b_raw * tau .* lambda;
+  mu = a + X * b;
+}
+model {
+  // priors
+  lambda ~ cauchy(0, 1);
+  a ~ normal(0, a_pr_scale);
+  b_raw ~ normal(0, 1);
+  sigma ~ cauchy(0, sigma_pr_scale);
+  // likelihood
+  y ~ normal(mu, sigma);
+}
+generated quantities {
+  // simulate data from the posterior
+  vector[N] y_rep;
+  // log-likelihood posterior
+  vector[N] log_lik;
+  for (n in 1:N) {
+    y_rep[n] = normal_rng(mu[n], sigma);
+    log_lik[n] = normal_lpdf(y[n] | mu[n], sigma);
+  }
+}
+
+```
 
 ## Conclusion 
 
