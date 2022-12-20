@@ -30,33 +30,22 @@ Preprocessing of functional magnetic resonance imaging (fMRI) involves numerous 
 ## Preprocessing of structural MRI 
 
 ### Brain extraction, brain tissue segmentation and spatial normalization
-Then, the T1w reference is skull-stripped using a Nipype implementation of the antsBrainExtraction.sh tool (ANTs), which is an atlas-based brain extraction workflow. Finally, spatial normalization to standard spaces is performed using ANTs’ antsRegistration in a multiscale, mutual-information based, nonlinear registration scheme. See Defining standard and nonstandard spaces where data will be resampled for information about how standard and nonstandard spaces can be set to resample the preprocessed data onto the final output spaces.
+The T1w is skull-stripped using a Nipype implementation of the *antsBrainExtraction.sh* tool (ANTs), which is an atlas-based brain extraction workflow. This is followed by a spatial normalization to standard spaces is performed using ANTs’ *antsRegistration* in a multiscale, mutual-information based, nonlinear registration scheme. 
 
 ### Cost function masking during spatial normalization
-When processing images from patients with focal brain lesions (e.g., stroke, tumor resection), it is possible to provide a lesion mask to be used during spatial normalization to standard space [Brett2001]. ANTs will use this mask to minimize warping of healthy tissue into damaged areas (or vice-versa). Lesion masks should be binary NIfTI images (damaged areas = 1, everywhere else = 0) in the same space and resolution as the T1 image, and follow the naming convention specified in BIDS Extension Proposal 3: Common Derivatives (e.g., sub-001_T1w_label-lesion_roi.nii.gz). This file should be placed in the sub-*/anat directory of the BIDS dataset to be run through fMRIPrep. Because lesion masks are not currently part of the BIDS specification, it is also necessary to include a .bidsignore file in the root of your dataset directory.
-
+When processing images from patients with focal brain lesions (e.g., stroke, tumor resection), it is possible to provide a lesion mask to be used during spatial normalization to standard space. ANTs will use this mask to minimize warping of healthy tissue into damaged areas (or vice-versa). Lesion masks should be binary NIfTI images (damaged areas = 1, everywhere else = 0) in the same space and resolution as the T1 image, and follow the naming convention specified in BIDS Extension. This file should be placed in the sub-*/anat directory of the BIDS dataset to be run through fMRIPrep. Because lesion masks are not currently part of the BIDS specification, it is also necessary to include a .bidsignore file in the root of your dataset directory.
   
-        init_bold_reg_wf() <-input DSET>
-
-
 ### Surface preprocessing
-fMRIPrep uses FreeSurfer to reconstruct surfaces from T1w/T2w structural images. If enabled, several steps in the fMRIPrep pipeline are added or replaced. All surface preprocessing may be disabled with the --fs-no-reconall flag. Surface reconstruction is performed in three phases. The first phase initializes the subject with T1w and T2w (if available) structural images and performs basic reconstruction (autorecon1) with the exception of skull-stripping. Skull-stripping is skipped since the brain mask calculated previously is injected into the appropriate location for FreeSurfer. 
-
+fMRIPrep uses FreeSurfer to reconstruct surfaces from T1w/T2w structural images. If enabled, several steps in the fMRIPrep pipeline are added or replaced. All surface preprocessing may be disabled with the *--fs-no-reconall* flag. Surface reconstruction is performed in three phases. The first phase initializes the subject with T1w and T2w (if available) structural images and performs basic reconstruction (autorecon1) with the exception of skull-stripping. Skull-stripping is skipped since the brain mask calculated previously is injected into the appropriate location for FreeSurfer. 
   
-        init_autorecon_resume_wf() <-input DSET>
-
-
 
 ### Refinement of the brain mask
-Typically, the original brain mask calculated with antsBrainExtraction.sh will contain some innaccuracies including small amounts of MR signal from outside the brain. Based on the tissue segmentation of FreeSurfer (located in mri/aseg.mgz) and only when the Surface Processing step has been executed, fMRIPrep replaces the brain mask with a refined one that derives from the aseg.mgz file as described in RefineBrainMask.
+Typically, the original brain mask calculated with *antsBrainExtraction.sh* will contain some innaccuracies including small amounts of MR signal from outside the brain. Based on the tissue segmentation of FreeSurfer (located in mri/aseg.mgz) and only when the Surface Processing step has been executed, fMRIPrep replaces the brain mask with a refined one that derives from the aseg.mgz file as described in RefineBrainMask.
   
-        init_bold_reg_wf() <-input DSET>
-
 
 ## BOLD preprocessing 
 
-BOLD reference image estimation workflow estimates a reference image for a BOLD series. If a single-band reference (“sbref”) image associated with the BOLD series is available, then it is used directly. If not, a reference image is estimated from the BOLD series as follows: When T1-saturation effects (“dummy scans” or non-steady state volumes) are detected, they are averaged and used as reference due to their superior tissue contrast. Otherwise, a median of motion corrected subset of volumes is used.
-
+BOLD reference image estimation workflow estimates a reference image for a BOLD series. If a single-band reference *sbref* image associated with the BOLD series is available, then it is used directly. If not, a reference image is estimated from the BOLD series as follows: When T1-saturation effects (“dummy scans” or non-steady state volumes) are detected, they are averaged and used as reference due to their superior tissue contrast. Otherwise, a median of motion corrected subset of volumes is used.
   
         init_bold_reference_wf() <-input DSET>
 
@@ -70,14 +59,11 @@ Using the previously estimated reference scan, FSL mcflirt is used to estimate h
 
 ###  Slice time correction
 
-If the SliceTiming field is available within the input dataset metadata, this workflow performs slice time correction prior to other signal resampling processes. Slice time correction is performed using AFNI 3dTShift. All slices are realigned in time to the middle of each TR. Slice time correction can be disabled with the --ignore slicetiming command line argument. If a BOLD series has fewer than 5 usable (steady-state) volumes, slice time correction will be disabled for that run.
-
+If the SliceTiming field is available within the input dataset metadata, this workflow performs slice time correction prior to other signal resampling processes. Slice time correction is performed using AFNI *3dTShift*. All slices are realigned in time to the middle of each TR. Slice time correction can be disabled with the --ignore slicetiming command line argument. If a BOLD series has fewer than 5 usable (steady-state) volumes, slice time correction will be disabled for that run.
   
         init_bold_stc_wf() <-input DSET>
 
-
 ###  Resampling BOLD runs onto standard spaces
-
 
 This sub-workflow concatenates the transforms calculated upstream (see Head-motion estimation, Susceptibility Distortion Correction (SDC) –if fieldmaps are available–, EPI to T1w registration, and an anatomical-to-standard transform from Preprocessing of structural MRI) to map the EPI image to the standard spaces given by the --output-spaces argument (see Defining standard and nonstandard spaces where data will be resampled). It also maps the T1w-based mask to each of those standard spaces.Transforms are concatenated and applied all at once, with one interpolation (Lanczos) step, so as little information is lost as possible. The output space grid can be specified using modifiers to the --output-spaces argument.
  
