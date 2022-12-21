@@ -65,13 +65,13 @@ If the SliceTiming field is available within the input dataset metadata, this wo
 
 ###  Resampling BOLD runs onto standard spaces
 
-This sub-workflow concatenates the transforms calculated upstream (see Head-motion estimation, Susceptibility Distortion Correction (SDC) –if fieldmaps are available–, EPI to T1w registration, and an anatomical-to-standard transform from Preprocessing of structural MRI) to map the EPI image to the standard spaces given by the --output-spaces argument (see Defining standard and nonstandard spaces where data will be resampled). It also maps the T1w-based mask to each of those standard spaces.Transforms are concatenated and applied all at once, with one interpolation (Lanczos) step, so as little information is lost as possible. The output space grid can be specified using modifiers to the --output-spaces argument.
+*bold_std_trans_wf* concatenates the transforms calculated upstream (e.g. Head-motion estimation) to map the EPI image to the standard spaces given by the --output-spaces argument. It also maps the T1w-based mask to each of those standard spaces.Transforms are concatenated and applied all at once, with one interpolation (Lanczos) step, so as little information is lost as possible. The output space grid can be specified using modifiers to the --output-spaces argument.
  
         init_bold_std_trans_wf() <-input DSET>
 
 ###  EPI to T1w registration
 
-The alignment between the reference EPI image of each run and the reconstructed subject using the gray/white matter boundary (FreeSurfer’s ?h.white surfaces) is calculated by the bbregister routine. If FreeSurfer processing is disabled, FSL flirt is run with the BBR cost function, using the fast segmentation to establish the gray/white matter boundary. After BBR is run, the resulting affine transform will be compared to the initial transform found by FLIRT. Excessive deviation will result in rejecting the BBR refinement and accepting the original, affine registration.
+The alignment between the reference EPI image of each run and the reconstructed subject using the gray/white matter boundary is calculated by the bbregister routine. If FreeSurfer processing is disabled, FSL flirt is run with the BBR cost function, using the fast segmentation to establish the gray/white matter boundary. After BBR is run, the resulting affine transform will be compared to the initial transform found by FLIRT. Excessive deviation will result in rejecting the BBR refinement and accepting the original, affine registration.
   
         init_bold_reg_wf() <-input DSET>
 
@@ -84,14 +84,13 @@ If FreeSurfer processing is enabled, the motion-corrected functional series (aft
 
 ###  Confounds estimation
 
-
-Given a motion-corrected fMRI, a brain mask, mcflirt movement parameters and a segmentation, the discover_wf sub-workflow calculates potential confounds per volume. Calculated confounds include the mean global signal, mean tissue class signal, tCompCor, aCompCor, Frame-wise Displacement, 6 motion parameters, DVARS, spike regressors, and, if the --use-aroma flag is enabled, the noise components identified by ICA-AROMA (those to be removed by the “aggressive” denoising strategy). Particular details about ICA-AROMA are given below.
+Given a motion-corrected fMRI, a brain mask, mcflirt movement parameters and a segmentation, the *discover_wf sub-workflow* calculates potential confounds per volume. Calculated confounds include the mean global signal, mean tissue class signal, tCompCor, aCompCor, Frame-wise Displacement, 6 motion parameters, DVARS, spike regressors, and, if the --use-aroma flag is enabled, the noise components identified by ICA-AROMA (those to be removed by the “aggressive” denoising strategy). Particular details about ICA-AROMA are given below.
   
         init_bold_confs_wf() <-input DSET>
 
 ###  ICA-AROMA
 
-ICA-AROMA denoising is performed in MNI152NLin6Asym space, which is automatically added to the list of --output-spaces if it was not already requested by the user. The number of ICA-AROMA components depends on a dimensionality estimate made by FSL MELODIC. For datasets with a very short TR and a large number of timepoints, this may result in an unusually high number of components. By default, dimensionality is limited to a maximum of 200 components. To override this upper limit one may specify the number of components to be extracted with --aroma-melodic-dimensionality. Further details on the implementation are given within the workflow generation function. Note: non-aggressive AROMA denoising is a fundamentally different procedure from its “aggressive” counterpart and cannot be performed only by using a set of noise regressors (a separate GLM with both noise and signal regressors needs to be used). Therefore instead of regressors, fMRIPrep produces non-aggressive denoised 4D NIFTI files in the MNI space.
+ICA-AROMA denoising is performed in MNI152 space, which is automatically added to the list of --output-spaces if it was not already requested by the user. The number of ICA-AROMA components depends on a dimensionality estimate made by *FSL MELODIC*. For datasets with a very short TR and a large number of timepoints, this may result in an unusually high number of components. By default, dimensionality is limited to a maximum of 200 components. To override this upper limit one may specify the number of components to be extracted with --aroma-melodic-dimensionality. 
   
         init_ica_aroma_wf() <-input DSET>
 
