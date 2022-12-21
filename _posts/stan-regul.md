@@ -129,19 +129,15 @@ transformed parameters {
   mu = a + X * b;
 }
 model {
-  // priors
-  lambda ~ cauchy(0, 1);
+  lambda ~ cauchy(0, 1);   // priors
   a ~ normal(0, a_pr_scale);
   b_raw ~ normal(0, 1);
   sigma ~ cauchy(0, sigma_pr_scale);
-  // likelihood
-  y ~ normal(mu, sigma);
+  y ~ normal(mu, sigma);   // likelihood
 }
 generated quantities {
-  // simulate data from the posterior
-  vector[N] y_rep;
-  // log-likelihood posterior
-  vector[N] log_lik;
+  vector[N] y_rep;   // simulate data from the posterior
+  vector[N] log_lik;   // log-likelihood posterior
   for (n in 1:N) {
     y_rep[n] = normal_rng(mu[n], sigma);
     log_lik[n] = normal_lpdf(y[n] | mu[n], sigma);
