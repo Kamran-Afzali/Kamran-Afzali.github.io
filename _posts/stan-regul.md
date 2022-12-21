@@ -100,16 +100,13 @@ IF The Bayesian LASSO doesn’t get us sparsity with a few relatively large coef
 
 ```stan
 data {
-  // number of observations
-  int N;
-  // response vector
-  vector[N] y;
-  // number of columns in the design matrix X
-  int K;
-  // design matrix X
-  matrix [N, K] X;
-  // global scale prior scale
-  real<lower = 0> tau;
+  
+  int N; //  observations
+  
+  vector[N] y; // outcome
+  int K;   // number of columns in the design matrix X
+  matrix [N, K] X;  // design matrix X
+  real<lower = 0> tau;   // global scale prior scale
 }
 transformed data {
   real<lower = 0> y_sd;
@@ -120,19 +117,14 @@ transformed data {
   a_pr_scale = 10;
 }
 parameters {
-  // regression coefficient vector
-  real a;
-  vector[K] b_raw;
-  // scale of the regression errors
-  real<lower = 0> sigma;
-  // local scales of coefficients
+  real a;   // regression coefficient vector
+  vector[K] b_raw;   // scale of the regression errors
+  real<lower = 0> sigma;   // local scales of coefficients
   vector<lower = 0>[K] lambda;
 }
 transformed parameters {
-  // mu is the observation fitted/predicted value
-  // also called yhat
-  vector[N] mu;
-  vector[K] b;
+  vector[N] mu;   // mu is the observation fitted/predicted value
+  vector[K] b;   // b is the transformed beta
   b = b_raw * tau .* lambda;
   mu = a + X * b;
 }
