@@ -70,6 +70,34 @@ The method can be described in 5 steps:
 
 Like many topics in machine learning, automated feature engineering is a complicated concept built on simple ideas. Using simple concepts of entities and relationships, featuretools can perform deep feature synthesis to create new features. The features created by Featuretools are not just random features, they are valuable considering the interpretable nature of this solution. Moreover, automated feature engineering takes a fraction of the time spent manual feature engineering while delivering comparable results. Which makes Featuretools an added value included in a data scientist's toolbox. The next steps are to take advantage of the advanced functionality in featuretools combined with domain knowledge to create a more useful set of features. 
 
+
+import featuretools as ft
+data = ft.demo.load_mock_customer()
+customers_df = data["customers"]
+transactions_df = data["transactions"]
+sessions_df = data["sessions"]
+dataframes = {
+    "customers": (customers_df, "customer_id"),
+    "sessions": (sessions_df, "session_id", "session_start"),
+    "transactions": (transactions_df, "transaction_id", "transaction_time"),
+}
+relationships = [
+    ("sessions", "session_id", "transactions", "session_id"),
+    ("customers", "customer_id", "sessions", "customer_id"),
+]
+feature_matrix_customers, features_defs = ft.dfs(
+    dataframes=dataframes,
+    relationships=relationships,
+    target_dataframe_name="customers",
+)
+feature_matrix_customers
+
+feature_matrix_sessions, features_defs = ft.dfs(
+    dataframes=dataframes, relationships=relationships, target_dataframe_name="sessions"
+)
+ft.graph_feature(feature)
+
+
 ## References
 
 + [SAFE EXAMPLE](https://www.r-bloggers.com/2021/04/simplify-your-model-supervised-assisted-feature-extraction-for-machine-learning/)
