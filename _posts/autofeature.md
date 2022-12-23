@@ -76,25 +76,42 @@ data = ft.demo.load_mock_customer()
 customers_df = data["customers"]
 transactions_df = data["transactions"]
 sessions_df = data["sessions"]
+```
+
+```
 dataframes = {
     "customers": (customers_df, "customer_id"),
     "sessions": (sessions_df, "session_id", "session_start"),
     "transactions": (transactions_df, "transaction_id", "transaction_time"),
 }
+```
+
+```
 relationships = [
     ("sessions", "session_id", "transactions", "session_id"),
     ("customers", "customer_id", "sessions", "customer_id"),
 ]
+```
+
+```
 feature_matrix_customers, features_defs = ft.dfs(
     dataframes=dataframes,
     relationships=relationships,
     target_dataframe_name="customers",
 )
-feature_matrix_customers
+```
 
+```
+feature_matrix_customers
+```
+
+```
 feature_matrix_sessions, features_defs = ft.dfs(
     dataframes=dataframes, relationships=relationships, target_dataframe_name="sessions"
 )
+```
+
+```
 ft.graph_feature(feature)
 ```
 
