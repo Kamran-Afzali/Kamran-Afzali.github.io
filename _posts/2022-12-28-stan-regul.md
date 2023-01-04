@@ -100,10 +100,6 @@ writeLines(stan_mod_ridge, con = "stan_mod_ridge.stan")
 
 cat(stan_mod_ridge)
 
-
-
-
-
 library(tidyverse)
 X_trt <- train_data %>%
   select(-y)
