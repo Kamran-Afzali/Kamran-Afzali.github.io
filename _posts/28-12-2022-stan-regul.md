@@ -4,7 +4,7 @@ categories: posts
 title: Bayesian Regularized Regression
 featured-image: /images/stan.png
 tags: [STAN, R, Bayes]
-date-string: June 2022
+date-string: December 2022
 ---
 
 ## Introduction
