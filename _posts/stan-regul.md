@@ -19,39 +19,112 @@ As described above, regularized linear regression models aim to estimate more co
 
 Ridge regression modifies the loss function to include a penalty term for model complexity, where model complexity is operationalized as the sum of squared  weights. Bayesian Ridge regression differs from the frequentist variant in only one way, and it is with how we think of the penalty term. In the frequentist perspective, we showed that effectively tells our model how much it is allowed to learn from the data. Bayesian models view estimation as a problem of integrating prior information with information gained from data, which we formalize using probability distributions. The Bayesian estimation captures this in the form of a prior distribution over our  weights the choice of prior distribution on is what determines how much information we learn from the data, analagous to the penalty term used for MLE regularization.
 
-```stan
-data{
-    int N_train;             // "# training observations"
-    int N_test;              // "# test observations"
-    int N_pred;              // "# predictor variables"
-    vector[N_train] y_train; // "training outcomes"
-    matrix[N_train, N_pred] X_train; // "training data"
-    matrix[N_test, N_pred] X_test;   // "testing data"
+```
+
+library(tidymodels)
+
+set.seed(123)
+n <- 1000
+ntr=700
+nts=300
+a <- 40  #intercept
+b <- c(-2, 3, 4, 1 , 0.25) #slopes
+sigma2 <- 25  #residual variance (sd=5)
+x <- matrix(rnorm(5000),1000,5)
+eps <- rnorm(n, mean = 0, sd = sqrt(sigma2))  #residuals
+y <- a +x%*%b+ eps  #response variable
+data <- data.frame(y, x)  #dataset
+head(data)
+
+set.seed(42)
+data_split <- initial_split(data, prop = 0.7)
+train_data <- training(data_split )
+test_data <- testing(data_split )
+
+stan_mod = "data {
+  int<lower=0> N;   // number of observations
+  int<lower=0> K;   // number of predictors
+  matrix[N, K] X;   // predictor matrix
+  vector[N] y;      // outcome vector
+}
+parameters {
+  real alpha;           // intercept
+  vector[K] beta;       // coefficients for predictors
+  real<lower=0> sigma;  // error scale
+}
+model {
+  y ~ normal(alpha + X * beta, sigma);  // target density
+}"
+
+writeLines(stan_mod, con = "stan_mod.stan")
+
+cat(stan_mod)
+
+
+
+stan_mod_ridge = "data{
+  int N_train;             //  training observations
+  int N_test;              // test observations
+  int N_pred;              //  predictor variables
+  vector[N_train] y_train; // training outcomes
+  matrix[N_train, N_pred] X_train; // training data
+  matrix[N_test, N_pred] X_test;   // testing data
 }
 parameters{
-    real<lower=0> sigma;   // "error SD"
-    real<lower=0> sigma_B; // "hierarchical SD across betas"
-    vector[N_pred] beta;   // "regression beta weights"
+  real alpha;           // intercept
+  real<lower=0> sigma;   // error SD
+  real<lower=0> sigma_B; // hierarchical SD across betas
+  vector[N_pred] beta;   // regression beta weights
 }
 model{
-  // "group-level (hierarchical) SD across betas"
+  // group-level (hierarchical) SD across betas
   sigma_B ~ cauchy(0, 1);
   
-  // "model error SD"
+  // model error SD
   sigma ~ normal(0, 1);
   
-  // "beta prior (provides 'ridge' regularization)"
+  // beta prior 
   beta ~ normal(0, sigma_B);
-    
-  // "model likelihood"
-    y_train ~ normal(X_train*beta, sigma);
+  
+  // model likelihood
+  y_train ~ normal(alpha+X_train*beta, sigma);
 }
 generated quantities{ 
-    real y_test[N_test]; // "test data predictions"
-    for(i in 1:N_test){
-        y_test[i] = normal_rng(X_test[i,] * beta, sigma);
-    }
-}
+  real y_test[N_test]; // test data predictions
+  for(i in 1:N_test){
+    y_test[i] = normal_rng(alpha+ X_test[i,] * beta, sigma);
+  }
+}"
+
+writeLines(stan_mod_ridge, con = "stan_mod_ridge.stan")
+
+cat(stan_mod_ridge)
+
+
+
+
+
+library(tidyverse)
+X_trt <- train_data %>%
+  select(-y)
+X_tst <- test_data %>%
+  select(-y)
+Y_trt <- train_data %>%
+  select(y)
+stan_data <- list(
+  N_train=ntr,             
+  N_test=nts,            
+  N_pred=5,             
+  y_train=Y_trt,
+  X_train=X_trt, 
+  X_test=X_tst  
+)
+
+fit_rstan <- rstan::stan(
+  file = "stan_mod_ridge.stan",
+  data = stan_data
+)
+
 ```
 
 ### Bayesian LASSO Regression
