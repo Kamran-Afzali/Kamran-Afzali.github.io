@@ -131,39 +131,72 @@ fit_rstan <- rstan::stan(
 
 LASSO regression only involves a minor change to the loss function compared to ridge regression. Specifically, as opposed to penalizing the model based on the sum of squared  weights, it will penalize the model by the sum of the absolute value of  weights. As for Bayesian ridge regression, we only needed to specifiy a normal prior distribution to the weights that we were aiming to regularize, for Bayesian LASSO regression, the only difference is in the form of the prior distribution by setting it to a double-exponential prior on the  weights is mathematically equivalent in expectation to the frequentist LASSO penalty. Laplace distribiution places much more probability mass directly on 0, which produces the variable selection effect specific to LASSO regression. 
 
-```stan
-data{
-    int N_train;             // "# training observations"
-    int N_test;              // "# test observations"
-    int N_pred;              // "# predictor variables"
-    vector[N_train] y_train; // "training outcomes"
-    matrix[N_train, N_pred] X_train; // "training data"
-    matrix[N_test, N_pred] X_test;   // "testing data"
+```
+
+
+stan_mod_lasso = "data{
+  int N_train;             //  training observations
+  int N_test;              // test observations
+  int N_pred;              //  predictor variables
+  vector[N_train] y_train; // training outcomes
+  matrix[N_train, N_pred] X_train; // training data
+  matrix[N_test, N_pred] X_test;   // testing data
 }
 parameters{
-    real<lower=0> sigma;   // "error SD"
-    real<lower=0> sigma_B; // "(hierarchical) SD across betas"
-    vector[N_pred] beta;   // "regression beta weights"
+  real alpha;           // intercept
+  real<lower=0> sigma;   // error SD
+  real<lower=0> sigma_B; // hierarchical SD across betas
+  vector[N_pred] beta;   // regression beta weights
 }
 model{
-  // "group-level (hierarchical) SD across betas"
+  // group-level (hierarchical) SD across betas
   sigma_B ~ cauchy(0, 1);
   
-  // "Prior on SD"
+  // model error SD
   sigma ~ normal(0, 1);
   
-  // "beta prior (Note this is the only change!)"
-  beta ~ double_exponential(0, sigma_B); 
-    
-  // "model likelihood"
-    y_train ~ normal(X_train*beta, sigma);
+  // beta prior 
+  beta ~ double_exponential(0, sigma_B);
+  
+  // model likelihood
+  y_train ~ normal(alpha + X_train*beta, sigma);
 }
 generated quantities{ 
-    real y_test[N_test]; // "test data predictions"
-    for(i in 1:N_test){
-        y_test[i] = normal_rng(X_test[i,] * beta, sigma);
-    }
-}
+  real y_test[N_test]; // test data predictions
+  for(i in 1:N_test){
+    y_test[i] = normal_rng(alpha + X_test[i,] * beta, sigma);
+  }
+}"
+
+writeLines(stan_mod_lasso, con = "stan_mod_lasso.stan")
+
+cat(stan_mod_lasso)
+
+
+
+
+
+library(tidyverse)
+X_trt <- train_data %>%
+  select(-y)
+X_tst <- test_data %>%
+  select(-y)
+Y_trt <- train_data$y
+stan_data <- list(
+  N_train=ntr,             
+  N_test=nts,            
+  N_pred=5,             
+  y_train=Y_trt,
+  X_train=X_trt, 
+  X_test=X_tst  
+)
+
+fit_rstan2 <- rstan::stan(
+  file = "stan_mod_lasso.stan",
+  data = stan_data
+)
+
+fit_rstan2
 
 ```
 
