@@ -106,9 +106,7 @@ feature_matrix_customers
 ```
 
 ```
-feature_matrix_sessions, features_defs = ft.dfs(
-    dataframes=dataframes, relationships=relationships, target_dataframe_name="sessions"
-)
+feature_matrix_sessions, features_defs = ft.dfs(dataframes=dataframes, relationships=relationships, target_dataframe_name="sessions")
 ```
 
 ```
