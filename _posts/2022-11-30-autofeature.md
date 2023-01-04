@@ -2,9 +2,9 @@
 layout: post
 categories: posts
 title: Automatic Feature Engineering 
-featured-image: /images/XAI2.png
+featured-image: /images/ft.png
 tags: [Feature Engineering, Interpretability, Machine Learning]
-date-string: 
+date-string: November 2022
 ---
 
 ## Introduction
