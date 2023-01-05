@@ -33,16 +33,15 @@ Preprocessing of functional magnetic resonance imaging (fMRI) involves numerous 
 The T1w is skull-stripped using a Nipype implementation of the *antsBrainExtraction.sh* tool (ANTs), which is an atlas-based brain extraction workflow. This is followed by a spatial normalization to standard spaces is performed using ANTs’ *antsRegistration* in a multiscale, mutual-information based, nonlinear registration scheme. 
 
 ### Cost function masking during spatial normalization
-When processing images from patients with focal brain lesions (e.g., stroke, tumor resection), it is possible to provide a lesion mask to be used during spatial normalization to standard space. ANTs will use this mask to minimize warping of healthy tissue into damaged areas (or vice-versa). Lesion masks should be binary NIfTI images (damaged areas = 1, everywhere else = 0) in the same space and resolution as the T1 image, and follow the naming convention specified in BIDS Extension. This file should be placed in the sub-*/anat directory of the BIDS dataset to be run through fMRIPrep. Because lesion masks are not currently part of the BIDS specification, it is also necessary to include a .bidsignore file in the root of your dataset directory.
-  
-### Surface preprocessing
-fMRIPrep uses FreeSurfer to reconstruct surfaces from T1w/T2w structural images. If enabled, several steps in the fMRIPrep pipeline are added or replaced. All surface preprocessing may be disabled with the *--fs-no-reconall* flag. Surface reconstruction is performed in three phases. The first phase initializes the subject with T1w and T2w (if available) structural images and performs basic reconstruction (autorecon1) with the exception of skull-stripping. Skull-stripping is skipped since the brain mask calculated previously is injected into the appropriate location for FreeSurfer. 
-  
+When processing images from patients with focal brain lesions (e.g., stroke, tumor resection), it is possible to provide a lesion mask to be used during spatial normalization to standard space. ANTs will use this mask to minimize warping of healthy tissue into damaged areas (or vice-versa). Lesion masks should be binary NIfTI images (damaged areas = 1, everywhere else = 0) in the same space and resolution as the T1 image, and follow the naming convention specified in BIDS Extension. 
 
+### Surface preprocessing
+fMRIPrep uses FreeSurfer to reconstruct surfaces from T1w/T2w structural images. If enabled, several steps in the fMRIPrep pipeline are added or replaced. All surface preprocessing may be disabled with the *--fs-no-reconall* flag. Surface reconstruction is performed in three phases. The first phase initializes the subject with T1w and T2w (if available) structural images and performs basic reconstruction with the exception of skull-stripping. Skull-stripping is skipped since the brain mask calculated previously is injected into the appropriate location for FreeSurfer. 
+  
 ### Refinement of the brain mask
+
 Typically, the original brain mask calculated with *antsBrainExtraction.sh* will contain some innaccuracies including small amounts of MR signal from outside the brain. Based on the tissue segmentation of FreeSurfer (located in mri/aseg.mgz) and only when the Surface Processing step has been executed, fMRIPrep replaces the brain mask with a refined one that derives from the aseg.mgz file as described in RefineBrainMask.
   
-
 ## BOLD preprocessing 
 
 BOLD reference image estimation workflow estimates a reference image for a BOLD series. If a single-band reference *sbref* image associated with the BOLD series is available, then it is used directly. If not, a reference image is estimated from the BOLD series as follows: When T1-saturation effects (“dummy scans” or non-steady state volumes) are detected, they are averaged and used as reference due to their superior tissue contrast. Otherwise, a median of motion corrected subset of volumes is used.
@@ -51,11 +50,9 @@ BOLD reference image estimation workflow estimates a reference image for a BOLD 
 
 ###  Head-motion estimation
 
-Using the previously estimated reference scan, FSL mcflirt is used to estimate head-motion. As a result, one rigid-body transform with respect to the reference image is written for each BOLD time-step. Additionally, a list of 6-parameters (three rotations, three translations) per time-step is written and fed to the confounds workflow. For a more accurate estimation of head-motion, we calculate its parameters before any time-domain filtering (i.e., slice-timing correction).
-
+Using the previously estimated reference scan, FSL *mcflirt* is used to estimate head-motion. As a result, one rigid-body transform with respect to the reference image is written for each BOLD time-step. Additionally, a list of 6-parameters (three rotations, three translations) per time-step is written and fed to the confounds workflow. For a more accurate estimation of head-motion, we calculate its parameters before any time-domain filtering (i.e., slice-timing correction).
   
         init_bold_hmc_wf() <-input DSET>
-
 
 ###  Slice time correction
 
@@ -71,7 +68,7 @@ If the SliceTiming field is available within the input dataset metadata, this wo
 
 ###  EPI to T1w registration
 
-The alignment between the reference EPI image of each run and the reconstructed subject using the gray/white matter boundary is calculated by the bbregister routine. If FreeSurfer processing is disabled, FSL flirt is run with the BBR cost function, using the fast segmentation to establish the gray/white matter boundary. After BBR is run, the resulting affine transform will be compared to the initial transform found by FLIRT. Excessive deviation will result in rejecting the BBR refinement and accepting the original, affine registration.
+The alignment between the reference EPI image of each run and the reconstructed subject using the gray/white matter boundary is calculated by the bbregister routine. If FreeSurfer processing is disabled, FSL flirt is run with the BBR cost function, using the fast segmentation to establish the gray/white matter boundary. After BBR is run, the resulting affine transform will be compared to the initial transform found by *FLIRT*. Excessive deviation will result in rejecting the BBR refinement and accepting the original, affine registration.
   
         init_bold_reg_wf() <-input DSET>
 
