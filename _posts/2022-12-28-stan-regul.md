@@ -200,11 +200,9 @@ fit_rstan2
 
 IF The Bayesian LASSO doesn’t get us sparsity with a few relatively large coefficients, and many coefficients very close to zero it is possible to use different global-local scale mixtures of normal distributions as our priors to encourage more sparsity. In that case it is possible to combine the global scale for all coefficient priors along with a local scale for each coefficient. 
 
-```stan
-data {
+```stan_mod_hr = "data {
   
   int N; //  observations
-  
   vector[N] y; // outcome
   int K;   // number of columns in the design matrix X
   matrix [N, K] X;  // design matrix X
@@ -244,8 +242,28 @@ generated quantities {
     y_rep[n] = normal_rng(mu[n], sigma);
     log_lik[n] = normal_lpdf(y[n] | mu[n], sigma);
   }
-}
+}"
 
+writeLines(stan_mod_hr, con = "stan_mod_hr.stan")
+
+cat(stan_mod_hr)
+
+
+
+stan_data <- list(
+  N=ntr,             
+  y=Y_trt,
+  K=5,     
+  X=X_trt, 
+  tau=1  
+)
+
+fit_rstan3 <- rstan::stan(
+  file = "stan_mod_hr.stan",
+  data = stan_data
+)
+
+fit_rstan3
 ```
 
 ## Conclusion 
