@@ -116,4 +116,6 @@ By integrating with R's functionality, fslr enables users to create image proces
 
 [FSL website](https://open.win.ox.ac.uk/pages/fslcourse/website/online_materials.html)
 
+[FSL code 1](https://nipype.readthedocs.io/en/latest/users/examples/fmri_fsl.html)
 
+[FSL code 2](https://wiki.biac.duke.edu/biac:fsl:guide)
