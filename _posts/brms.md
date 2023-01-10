@@ -1,3 +1,4 @@
+### Multilevel models (MLMs)
 
 Multilevel models (MLMs) offer great flexibility for researchers across sciences. They allow modeling of data measured on different levels at the same time – for instance data of students nested within classes and schools – thus taking complex dependency structures into account.
 It is not surprising that many packages for R (R Core Team 2015) have been developed to fit MLMs. Usually, however, the functionality of these implementations is limited insofar as it is only possible to predict the mean of the response distribution. Other parameters of the
@@ -26,6 +27,11 @@ The first model that we replicate is the intercept only model. If we look at the
 + since this is an intercept only model, we do not have any other independent variables here.
 + between brackets we have the random effects/slopes. Again the value 1 is to indicate the intercept and the variables right of the vertical “|” bar is used to indicate grouping variables. In this case the class ID. So the dependent variable ‘popular’ is predicted by an intercept and a random error term for the intercept.
 + Finally, we specify which dataset we want to use after the data= command.
+
+
+### Conclusion
+The present paper is meant to introduce users to the flexibility of the distributional regression approach and corresponding formula syntax as implemented in brms and fitted with Stan behind the scenes. Only a subset of modeling options were discussed in detail, which ensured the paper was not too broad. For some of the more basic models that brms can fit, see Burkner ¨ (in press). Many more examples can be found in the growing number of vignettes accompanying the package (see vignette(package = "brms") for an overview). To date, brms is already one of the most flexible R packages when it comes to regression modeling. However, for the future, there are quite a few more features that I am planning to implement (see https://github.com/paul-buerkner/brms/issues for the current list of issues). In addition to smaller, incremental updates, I have four specific features in mind: mixture models, extended multivariate models, extended autocorrelation structures, and missing value imputation (in order of current importance). I receive ideas and suggestions from users almost every day – for which I am always grateful – and so the list of features that will be implemented in the proceeding versions of brms will continue to grow.
+
 
 
 ```
@@ -65,6 +71,21 @@ model4 <- brm(popular ~ 1 + sex + extrav + texp + (1 + extrav | class),
               seed = 123) #to run the model              
               
 
+```
+### priors
+
+As stated in the BRMS manual: “Prior specifications are flexible and explicitly encourage users to apply prior distributions that actually reflect their beliefs.”
+We will set 4 types of extra priors here (in addition to the uninformative prior we have used thus far) 1. With an estimate far off the value we found in the data with uninformative priors with a wide variance 2. With an estimate close to the value we found in the data with uninformative priors with a small variance 3. With an estimate far off the value we found in the data with uninformative priors with a small variance (1). 4. With an estimate far off the value we found in the data with uninformative priors with a small variance (2).
+In this tutorial we will only focus on priors for the regression coefficients and not on the error and variance terms, since we are most likely to actually have information on the size and direction of a certain effect and less (but not completely) unlikely to have prior knowledge on the unexplained variances. You might have to play around a little bit with the controls of the brm() function and specifically the adapt_delta and max_treedepth. Thankfully BRMS will tell you when to do so.
+
+
+```
+get_prior(popular ~ 0 + intercept + sex + extrav + texp + extrav:texp + (1 + extrav | class), data = popular2data)
+prior1 <- c(set_prior("normal(-10,100)", class = "b", coef = "extrav"),
+            set_prior("normal(10,100)", class = "b", coef = "extrav:texp"),
+            set_prior("normal(-5,100)", class = "b", coef = "sex"),
+            set_prior("normal(-5,100)", class = "b", coef = "texp"),
+            set_prior("normal(10,100)", class = "b", coef = "intercept" ))
 ```
 
 
