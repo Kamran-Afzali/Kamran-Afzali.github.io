@@ -70,6 +70,7 @@ model4 <- brm(popular ~ 1 + sex + extrav + texp + (1 + extrav | class),
               cores = 2, chains = 2, 
               seed = 123) #to run the model              
               
+plot(hypothesis(model8, "sex = 0"))
 
 ```
 ### priors
@@ -88,6 +89,16 @@ prior1 <- c(set_prior("normal(-10,100)", class = "b", coef = "extrav"),
             set_prior("normal(10,100)", class = "b", coef = "intercept" ))
 ```
 
+
+### Does the trace-plot exhibit convergence?
+Before interpreting results, one should inspect the convergence of the chains that form the posterior distribution of the model parameters. A straightforward and common way to visualize convergence is the trace plot that illustrates the iterations of the chains from start to end.
+
+```
+modeltranformed <- ggs(model) # the ggs function transforms the BRMS output into a longformat tibble, that we can use to make different types of plots.
+stanplot(model, type = "trace")
+stanplot(model, type = "hist")
+
+```
 
 ## Refernces
 https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model
