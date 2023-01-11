@@ -42,7 +42,7 @@ Getting acquainted with nibabel and its operations will also allow us to work th
 ### Using nibabel to align different measurements neuroimaging-data-science.org/content/005-nipy/003-transforms.html
 
 
-References
+### References
 + https://dartbrains.org/content/Introduction_to_Neuroimaging_Data.html#
 + https://dartbrains.org/content/Signal_Processing.html
 + https://dartbrains.org/content/Preprocessing.html
