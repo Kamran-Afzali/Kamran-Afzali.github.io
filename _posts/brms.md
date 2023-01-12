@@ -29,8 +29,6 @@ The first model that we replicate is the intercept only model. If we look at the
 + Finally, we specify which dataset we want to use after the data= command.
 
 
-### Conclusion
-The present paper is meant to introduce users to the flexibility of the distributional regression approach and corresponding formula syntax as implemented in brms and fitted with Stan behind the scenes. Only a subset of modeling options were discussed in detail, which ensured the paper was not too broad. For some of the more basic models that brms can fit, see Burkner ¨ (in press). Many more examples can be found in the growing number of vignettes accompanying the package (see vignette(package = "brms") for an overview). To date, brms is already one of the most flexible R packages when it comes to regression modeling. However, for the future, there are quite a few more features that I am planning to implement (see https://github.com/paul-buerkner/brms/issues for the current list of issues). In addition to smaller, incremental updates, I have four specific features in mind: mixture models, extended multivariate models, extended autocorrelation structures, and missing value imputation (in order of current importance). I receive ideas and suggestions from users almost every day – for which I am always grateful – and so the list of features that will be implemented in the proceeding versions of brms will continue to grow.
 
 
 
@@ -100,12 +98,13 @@ stanplot(model, type = "hist")
 
 ```
 
+### Conclusion
+The present paper is meant to introduce users to the flexibility of the distributional regression approach and corresponding formula syntax as implemented in brms and fitted with Stan behind the scenes. Only a subset of modeling options were discussed in detail, which ensured the paper was not too broad. For some of the more basic models that brms can fit, see Burkner ¨ (in press). Many more examples can be found in the growing number of vignettes accompanying the package (see vignette(package = "brms") for an overview). To date, brms is already one of the most flexible R packages when it comes to regression modeling. However, for the future, there are quite a few more features that I am planning to implement (see https://github.com/paul-buerkner/brms/issues for the current list of issues). In addition to smaller, incremental updates, I have four specific features in mind: mixture models, extended multivariate models, extended autocorrelation structures, and missing value imputation (in order of current importance). I receive ideas and suggestions from users almost every day – for which I am always grateful – and so the list of features that will be implemented in the proceeding versions of brms will continue to grow.
+
 ## Refernces
-https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model
++ [Refernces 0](https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model)
 
-https://www.rensvandeschoot.com/tutorials/brms/
++ [Refernces 1](https://www.rensvandeschoot.com/tutorials/brms/)
 
-https://www.rensvandeschoot.com/tutorials/brms-started/
-
-https://mran.microsoft.com/snapshot/2017-05-14/web/packages/brms/vignettes/brms_multilevel.pdf
++ [Refernces 2](https://mran.microsoft.com/snapshot/2017-05-14/web/packages/brms/vignettes/brms_multilevel.pdf)
 
