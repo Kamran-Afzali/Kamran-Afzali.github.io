@@ -95,9 +95,40 @@ As you saw in the results of the affine registration, this kind of “global” 
 
 Diffeomorphic registration is an approach that balances this flexibility with constraints. In principle, every pixel/voxel in the moving image could be moved to overlap with any pixel/voxel in the static image, but neighboring pixels/voxels are constrained to move by a similar amount. That is, the mapping between the moving and the static image varies smoothly in space. To demonstrate this, we’ll use the DIPY implementation of an algorithm that learns this kind of transformation between two images, the Symmetric Normalization algorithm, or SyN [Avants et al., 2008]. The API for this algorithm is slightly different because you need to explicitly define the metric that the algorithm uses to figure out whether the images are similar enough to each other, as part of the optimization procedure. Here, we are going to use the cross-correlation between the images, using the CCMetric object to define this. This metric also has some other parameters that need to be defined, a smoothing kernel that is applied to the image and the size of a window of pixels over which the metric is calculated.
 
+### Preprocessing. https://dartbrains.org/content/Preprocessing.html
 
-### Using nibabel to align different measurements http://neuroimaging-data-science.org/content/005-nipy/003-transforms.html
+Being able to study brain activity associated with cognitive processes in humans is an amazing achievement. However, as we have noted throughout this course, there is an extraordinary amount of noise and a very low levels of signal, which makes it difficult to make inferences about the function of the brain using this BOLD imaging. A critical step before we can perform any analyses is to do our best to remove as much of the noise as possible. The series of steps to remove noise comprise our neuroimaging data preprocessing pipeline.
 
+We will cover:
+
+Image transformations
+
+Head motion correction
+
+Spatial Normalization
+
+Spatial Smoothing
+
+There are other preprocessing steps that are also common, but not necessarily performed by all labs such as slice timing and distortion correction. We will not be discussing these in depth outside of the videos.
+
+Image Transformations
+Ok, now let’s dive deeper into how we can transform images into different spaces using linear transformations.
+
+Recall from our introduction to neuroimaging data lab, that neuroimaging data is typically stored in a nifti container, which contains a 3D or 4D matrix of the voxel intensities and also an affine matrix, which provides instructions for how to transform the matrix into another space.
+
+Let’s create an interactive plot using ipywidgets so that we can get an intuition for how these affine matrices can be used to transform a 3D image.
+
+We can move the sliders to play with applying rigid body transforms to a 3D cube. A rigid body transformation has 6 parameters: translation in x,y, & z, and rotation around each of these axes. The key thing to remember is that a rigid body transform doesn’t allow the image to be fundamentally changed. A full 12 parameter affine transformation adds an additional 3 parameters each for scaling and shearing, which can change the shape of the cube.
+
+Try moving some of the sliders around. Note that the viewer is a little slow. Each time you move a slider it is applying an affine transformation to the matrix and re-plotting.
+
+Translation moves the cube in x, y, and z dimensions.
+
+We can also rotate the cube around the x, y, and z axes where the origin is the center point. Continuing to rotate around the point will definitely lead to the cube leaving the current field of view, but it will come back if you keep rotating it.
+
+You’ll notice that every time we change the slider and apply a new affine transformation that the cube gets a little distorted with aliasing. Often we need to interpolate the image after applying a transformation to fill in the gaps after applying a transformation. It is important to keep in mind that every time we apply an affine transformation to our images, it is actually not a perfect representation of the original data. Additional steps like reslicing, interpolation, and spatial smoothing can help with this.
+
+https://dartbrains.org/content/Preprocessing.html#cost-functions
 
 ### References
 + https://dartbrains.org/content/Introduction_to_Neuroimaging_Data.html#
