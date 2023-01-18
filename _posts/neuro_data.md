@@ -172,8 +172,11 @@ The last step we will cover in the preprocessing pipeline is spatial smoothing. 
 
 Why we would want to decrease our image resolution with spatial smoothing after we tried very hard to increase our resolution at the data acquisition stage? This is because this step may help increase the signal to noise ratio by reducing the impact of partial volume effects, residual anatomical differences following normalization, and other aliasing from applying spatial transformation.
 
+https://miykael.github.io/nipype-beginner-s-guide/neuroimaging.html
+
 ### References
 + https://dartbrains.org/content/Introduction_to_Neuroimaging_Data.html#
 + https://dartbrains.org/content/Signal_Processing.html
 + https://dartbrains.org/content/Preprocessing.html
 + http://neuroimaging-data-science.org/content/005-nipy/001-nipy.html
++ https://miykael.github.io/nipype-beginner-s-guide/neuroimaging.html
