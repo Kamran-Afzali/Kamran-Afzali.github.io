@@ -128,7 +128,49 @@ We can also rotate the cube around the x, y, and z axes where the origin is the 
 
 You’ll notice that every time we change the slider and apply a new affine transformation that the cube gets a little distorted with aliasing. Often we need to interpolate the image after applying a transformation to fill in the gaps after applying a transformation. It is important to keep in mind that every time we apply an affine transformation to our images, it is actually not a perfect representation of the original data. Additional steps like reslicing, interpolation, and spatial smoothing can help with this.
 
-https://dartbrains.org/content/Preprocessing.html#cost-functions
+
+### cost-functions
+
+Now that we have learned how affine transformations can be applied to transform images into different spaces, how can we use this to register one brain image to another image?
+
+The key is to identify a way to quantify how aligned the two images are to each other. Our visual systems are very good at identifying when two images are aligned, however, we need to create an alignment measure. These measures are often called cost functions.
+
+There are many different types of cost functions depending on the types of images that are being aligned. For example, a common cost function is called minimizing the sum of the squared differences and is similar to how regression lines are fit to minimize deviations from the observed data. This measure works best if the images are of the same type and have roughly equivalent signal intensities.
+
+Let’s create another interactive plot and find the optimal X & Y translation parameters that minimize the difference between a two-dimensional target image to a reference image.
+
+Now that we have learned how affine transformations can be applied to transform images into different spaces, how can we use this to register one brain image to another image?
+
+The key is to identify a way to quantify how aligned the two images are to each other. Our visual systems are very good at identifying when two images are aligned, however, we need to create an alignment measure. These measures are often called cost functions.
+
+There are many different types of cost functions depending on the types of images that are being aligned. For example, a common cost function is called minimizing the sum of the squared differences and is similar to how regression lines are fit to minimize deviations from the observed data. This measure works best if the images are of the same type and have roughly equivalent signal intensities.
+
+Let’s create another interactive plot and find the optimal X & Y translation parameters that minimize the difference between a two-dimensional target image to a reference image.
+
+
+
+### Realignment
+Now let’s put everything we learned together to understand how we can correct for head motion in functional images that occurred during a scanning session. It is extremely important to make sure that a specific voxel has the same 3D coordinate across all time points to be able to model neural processes. This of course is made difficult by the fact that participants move during a scanning session and also in between runs.
+
+Realignment is the preprocessing step in which a rigid body transformation is applied to each volume to align them to a common space. One typically needs to choose a reference volume, which might be the first, middle, or last volume, or the mean of all volumes.
+
+Let’s look at an example of the translation and rotation parameters after running realignment on our first subject.
+
+Don’t forget that even though we can approximately put each volume into a similar position with realignment that head motion always distorts the magnetic field and can lead to nonlinear changes in signal intensity that will not be addressed by this procedure. In the resting-state literature, where many analyses are based on functional connectivity, head motion can lead to spurious correlations. Some researchers choose to exclude any subject that moved more than certain amount. Other’s choose to remove the impact of these time points in their data through removing the volumes via scrubbing or modeling out the volume with a dummy code in the first level general linear models.
+
+### Spatial Normalization
+There are several other preprocessing steps that involve image registration. The main one is called spatial normalization, in which each subject’s brain data is warped into a common stereotactic space. Talaraich is an older space, that has been subsumed by various standards developed by the Montreal Neurological Institute.
+
+There are a variety of algorithms to warp subject data into stereotactic space. Linear 12 parameter affine transformation have been increasingly been replaced by more complicated nonlinear normalizations that have hundreds to thousands of parameters.
+
+One nonlinear algorithm that has performed very well across comparison studies is diffeomorphic registration, which can also be inverted so that subject space can be transformed into stereotactic space and back to subject space. This is the core of the ANTs algorithm that is implemented in fmriprep. See this overview for more details.
+
+Let’s watch another short video by Martin Lindquist and Tor Wager to learn more about the core preprocessing steps.
+
+### Spatial Smoothing
+The last step we will cover in the preprocessing pipeline is spatial smoothing. This step involves applying a filter to the image, which removes high frequency spatial information. This step is identical to convolving a kernel to a 1-D signal that we covered in the Signal Processing Basics lab, but the kernel here is a 3-D Gaussian kernel. The amount of smoothing is determined by specifying the width of the distribution (i.e., the standard deviation) using the Full Width at Half Maximum (FWHM) parameter.
+
+Why we would want to decrease our image resolution with spatial smoothing after we tried very hard to increase our resolution at the data acquisition stage? This is because this step may help increase the signal to noise ratio by reducing the impact of partial volume effects, residual anatomical differences following normalization, and other aliasing from applying spatial transformation.
 
 ### References
 + https://dartbrains.org/content/Introduction_to_Neuroimaging_Data.html#
