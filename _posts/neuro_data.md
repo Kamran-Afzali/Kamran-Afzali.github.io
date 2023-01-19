@@ -1,3 +1,60 @@
+The technology and physics behind an MRI scanner is quite astonishing. But I won’t go into the details of how it all works. You do need to know some terms, concepts, and parameters that are used to acquire MRI data in a scanning session and use that to construct useable images.
+
+The brain occupies space, so when we collect data on how it fills space, we call that volume data, and all the volume data needed to create the complete, 3D image of the brain, recorded at one single timepoint and as pictured on the left, is called a volume. The data is measured in voxels, which are like the pixels used to display images on your screen, only in 3D. Each voxel has a specific dimension, in this case it is 1mm x 1mm x 1mm: a cube, so it is the same dimension from all sides (isotropic). Each voxel contains one value which stands for the average signal measured at the given location.
+
+A standard anatomical volume, with an isotropic voxel resolution of 1mm contains almost 17 million voxels, which are arranged in a 3D matrix of 256 x 256 x 256 voxels. The following picture shows a slice – one layer of the big, 3D matrix – through a brain volume, and the superimposed grid shows the remaining two dimensions of the voxels.
+As the scanner can’t measure the whole volume at once it has to measure portions of the brain sequentially in time. This is done by measuring one plane of the brain (generally the horizontal one) after the other. Such a plane is also called a slice. The resolution of the measured volume data, therefore, depends on the in-plane resolution (the size of the squares in the above image), the number of slices and their thickness (how many layers), and any possible gaps between the layers.
+
+The quality of the measured data depends on the resolution and the following parameters:
+
+    repetition time (TR): time required to scan one volume
+
+    acquisition time (TA): time required to scan one slice. TA = TR - (TR/number of slices)
+
+    field of view (FOV): defines the extent of a slice, e.g. 256mm x 256mm
+
+#### Specifics of MRI Data
+
+MRI scanners output their neuroimaging data in a raw data format with which most analysis packages cannot work. DICOM is a common, standardized, raw medical image format, but the format of your raw data may be something else; e.g., PAR/REC format from Philips scanners. Raw data is saved in k-space format, and it needs to be converted into a format that the analysis packages can use. The most frequent format for newly generated data is called NIfTI. If you are working with older datasets, you may encounter data in Analyze format. MRI data formats will have an image and a header part. For NifTI format, they are in the same file (.nii-file), whereas in the older Analyze format, they are in separate files (.img and .hdr-file).
+
+    The image is the actual data and is represented by a 3D matrix that contains a value (e.g. gray value) for each voxel.
+
+    The header contains information about the data like voxel dimension, voxel extend in each dimension, number of measured time points, a transformation matrix that places the 3D matrix from the image part in a 3D coordinate system, etc.
+
+### Modalities of MRI Data
+
+There are many different kinds of acquisition techniques. But the most common ones are structural magnetic resonance imaging (sMRI), functional magnetic resonance imaging (fMRI) and diffusion tensor imaging (DTI).
+#### sMRI (structural MRI)
+
+Structural magnetic resonance imaging (sMRI) is a technique for measuring the anatomy of the brain. By measuring the amount of water at a given location, sMRI is capable of acquiring a detailed anatomical picture of our brain. This allows us to accurately distinguish between different types of tissue, such as gray and white matter. Structural images are high-resolution images of the brain that are used as reference images for multiple purposes, such as corregistration, normalization, segmentation, and surface reconstruction.
+
+As there is no time pressure during acquisition of anatomical images (the anatomy is not supposed to change while the person is in the scanner), a higher resolution can be used for recording anatomical images, with a voxel extent of 0.2 to 1.5mm, depending on the strength of the magnetic field in the scanner, e.g. 1.5T, 3T or 7T. Grey matter structures are seen in dark, and the white matter structures in bright colors.
+
+#### fMRI (functional MRI)
+
+Functional magnetic resonance imaging (fMRI) is a technique for measuring brain activity. It works by detecting the changes in blood oxygenation and blood flow that occur in response to neural activity. Our brain is capable of so many astonishing things. But as nothing comes from nothing, it needs a lot of energy to sustain its functionality, and increased activity at a location increases the local energy consumption in the form of oxygen (O2) which is carried by the blood. Therefore, increased function results in increased blood flow towards the energy consuming location.
+
+Immediately after neural activity the blood oxygen level decreases, known as the initial dip, because of the local energy consumption. This is followed by increased flow of new and oxygen-rich blood towards the energy consuming region. After 4-6 seconds a peak of blood oxygen level is reached. After no further neuronal activation takes place the signal decreases again and typically undershoots, before rising again to the baseline level.
+
+The blood oxygen level is exactly what we measure with fMRI. The MRI Scanner is able to measure the changes in the magnetic field caused by the difference in the magnetic susceptibility of oxygenated (diamagnetic) and deoxygenated (paramagnetic) blood. The signal is therefore called the Blood Oxygen Level Dependent (BOLD) response.
+
+Because the BOLD signal has to be measured quickly, the resolution of functional images is normally lower (2-4mm) than the resolution of structural images (0.5-1.5mm). But this depends strongly on the strength of the magnetic field in the scanner, e.g. 1.5T, 3T or 7T. In a functional image, the gray matter is seen as bright and the white matter as dark colors, which is the exact opposite to structural images.
+
+Depending on the paradigm, we talk about event-related, block or resting-state designs.
+
+    event-related design: Event-related means that stimuli are administered to the subjects in the scanner for a short period. The stimuli are only administered briefly and generally in random order. Stimuli are typically visual, but audible or or other sensible stimuli could also be used. This means that the BOLD response consists of short bursts of activity, which should manifest as peaks, and should look more or less like the line shown in the graph above.
+
+    block design: If multiple stimuli of a similar nature are shown in a block, or phase, of 10-30 seconds, that is a block design. Such a design has the advantages that the peak in the BOLD signal is not just attained for a short period but elevated for a longer time, creating a plateau in the graph. This makes it easier to detect an underlying activation increase.
+
+    resting-state design: Resting-state designs acquire data in the absence of stimulation. Subjects are asked to lay still and rest in the scanner without falling asleep. The goal of such a scan is to record brain activation in the absence of an external task. This is sometimes done to analyze the functional connectivity of the brain.
+
+#### dMRI (diffusion MRI)
+
+Diffusion imaging is done to obtain information about the brain’s white matter connections. There are multiple modalities to record diffusion images, such as diffusion tensor imaging (DTI), diffusion spectrum imaging (DSI), diffusion weighted imaging (DWI) and diffusion functional MRI (DfMRI). By recording the diffusion trajectory of the molecules (usually water) in a given voxel, one can make inferences about the underlying structure in the voxel. For example, if one voxel contains mostly horizontal fiber tracts, the water molecules in this region will mostly diffuse (move) in a horizontal manner, as they can’t move vertically because of this neural barrier. The diffusion itself is mostly a Brownian motion.
+
+There are many different diffusion measurements, such as mean diffusivity (MD), fractional anisotropy (FA) and Tractography. Each measurement gives different insights into the brain’s neural fiber tracts. An example of a reconstructed tractography can be seen in the image to the left.
+
+Diffusion MRI is a rather new field in MRI and still has some problems with its sensitivity to correctly detect fiber tracts and their underlying orientation. For example, the standard DTI method has almost no chance of reliably detecting kissing (touching) or crossing fiber tracts. To account for this disadvantage, newer methods such as High-angular-resolution diffusion imaging (HARDI) and Q-ball vector analysis were developed. For more about diffusion MRI see the Diffusion MRI Wikipedia page.
 
 ### Data science tools for neuroimaging
 In previous chapters, we saw that there is plenty of things that you can do with general-purpose software and data science tools. Many of the examples used data from neuroimaging experiments, but the ideas that we introduced – arrays and computing with arrays, tables and how to manipulate tabular data, scientific computing, and data visualization – were not specific to neuroimaging. In this chapter, we will discuss data science approaches that are specifically tailored to neuroimaging data. First (in Section 11.1), we will present a survey of neuroimaging-specific software implemented in Python. Next (in Section 11.2), we will discuss how to organize data from neuroscience experiments for data analysis that best takes advantage of these software tools. In the following chapters, we will dive into some of the applications of these data science tools to fundamental problems in neuroimaging data analysis.
