@@ -14,28 +14,22 @@ This tutorial will first build towards a full multilevel using uninformative pri
 Stan comes with its own programming language, allowing for great modeling flexibility. Many researchers may still be hesitent to use Stan directly, as every model has to be written, debugged and possibly also optimized. This may be a time-consuming and error-prone process even for researchers familiar with Bayesian inference. The brms package, presented in this paper, aims to remove these hurdles for a wide range of regression models by allowing the user to benefit from the merits of Stan by using extended lme4-like formula syntax, with which many R users are familiar with. It offers much more than writing efficient and human-readable Stan code: brms comes with many post-processing and visualization functions, for instance to perform posterior predictive checks, leave one-out cross-validation, visualization of estimated effects, and prediction of new data.
 
 
-
-
-
 Since the brms package (via STAN) makes use of a Hamiltonian Monte Carlo sampler algorithm (MCMC) to approximate the posterior (distribution), we need to specify a few more parameters than in a frequentist analysis (using lme4).
 
-+ First we need the specify how many iteration we want the MCMC to run.
-+ We need to specify how many chains we want to run.
-+ We need to specify how many iterations we want to discard per chain (warmup or burnin phase).
-+ We need to specify what our initial values are for the different chains for the parameters of interest. or we can just tell brms that we want random values as initial values.
++ First we need the specify the number of iterations.
++ We need to specify the number of chains.
++ We need to specify the number of iterations per chain (warmup or burnin phase).
++ We need to specify initial values are for the different chains for the parameters of interest.
 
 We need to specify all these values for replicability purposes. In addition, if the two chains would not converge we can specify more iterations, different starting values and a longer warmup period. Thankfully brms will tell us if the sampler is likely to be non-converged.
-The first model that we replicate is the intercept only model. If we look at the different inputs for the brm() function we:
 
-+  have “popular”, which indicates the dependent variable we want to predict.
-+ a “~”, that we use to indicate that we now give the other variables of interest.
+The brm() function requires:
+
++  the dependent variable we want to predict.
++  a “~”, that we use to indicate that we now give the other variables of interest.
 +  a “1” in the formula the function indicates the intercept.
-+ since this is an intercept only model, we do not have any other independent variables here.
-+ between brackets we have the random effects/slopes. Again the value 1 is to indicate the intercept and the variables right of the vertical “|” bar is used to indicate grouping variables. In this case the class ID. So the dependent variable ‘popular’ is predicted by an intercept and a random error term for the intercept.
-+ Finally, we specify which dataset we want to use after the data= command.
-
-
-
++ between brackets we have the random effects/slopes. Again the value 1 is to indicate the intercept and the variables right of the vertical “|” bar is used to indicate grouping variables.
++ Finally, we specify which  *dataset* we want to use after the data = *dataset*.
 
 
 ```
