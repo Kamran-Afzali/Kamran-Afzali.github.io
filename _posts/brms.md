@@ -31,6 +31,7 @@ The brm() function requires:
 + between brackets we have the random effects/slopes. Again the value 1 is to indicate the intercept and the variables right of the vertical “|” bar is used to indicate grouping variables.
 + Finally, we specify which  *dataset* we want to use after the data = *dataset*.
 
+Here is an example:
 
 ```
 interceptonlymodeltest <- brm(popular ~ 1 + (1 | class), 
@@ -71,7 +72,7 @@ model4 <- brm(popular ~ 1 + sex + extrav + texp + (1 + extrav | class),
 plot(hypothesis(model8, "sex = 0"))
 
 ```
-### priors
+### Priors
 
 As stated in the brms manual: “Prior specifications are flexible and explicitly encourage users to apply prior distributions that actually reflect their beliefs.” Here we will only focus on priors for the regression coefficients and not on the error and variance terms, since we are most likely to actually have information on the size and direction of a certain effect and less (but not completely) unlikely to have prior knowledge on the unexplained variances. 
 
@@ -85,7 +86,7 @@ prior1 <- c(set_prior("normal(-10,100)", class = "b", coef = "extrav"),
 ```
 
 
-### trace-plots and convergence dianostics
+### Trace-plots and convergence dianostics
 
 Before interpreting results, we should inspect the convergence of the chains that form the posterior distribution of the model parameters. A straightforward and common way to visualize convergence is the trace plot that illustrates the iterations of the chains from start to end.
 
@@ -98,6 +99,7 @@ stanplot(model, type = "hist")
 
 ### Conclusion
 This post is meant to introduce users to the flexibility of the distributional regression approach and corresponding formula syntax as implemented in brms and fitted with Stan behind the scenes. Only a subset of modeling options were discussed in detail. Many more examples can be found in the growing number of vignettes accompanying the package (see vignette(package = "brms") for an overview). To date, brms is already one of the most flexible R packages when it comes to regression modeling.
+
 
 ## Refernces
 + [Refernces 0](https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model)
