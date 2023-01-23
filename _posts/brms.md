@@ -6,7 +6,7 @@ featured-image: /images/stan.png
 tags: [STAN, R, Bayes]
 date-string: January 2022
 ---
-
+## Bayesian Multilevel models in *brms*
 
 ### Multilevel models (MLMs)
 
@@ -111,7 +111,7 @@ This post is meant to introduce users to the flexibility of the distributional r
 
 
 ## Refernces
-+ [[tutorials brms 1](https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model)
++ [tutorials brms 1](https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model)
 
 + [tutorials brms 2](https://www.rensvandeschoot.com/tutorials/brms/)
 
