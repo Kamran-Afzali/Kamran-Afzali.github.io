@@ -1,20 +1,26 @@
+---
+layout: post
+categories: posts
+title: Bayesian Multilevel models in brms
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: January 2022
+---
+
+
 ### Multilevel models (MLMs)
 
 Multilevel models (MLMs) offer great flexibility for researchers allow modeling of data measured on different levels (e.g. data of students nested within classes and schools) thus taking complex dependency structures into account. This is done by fitting models that include both constant and varying effects (sometimes referred to as fixed and random effects). Among other advantages, this makes it possible to generalise the results to unobserved levels of the groups existing in the data. The multilevel strategy can be especially useful when dealing with repeated measurements (e.g., when measurements are nested into participants) or with unequal sample sizes, and more generally, when handling complex dependency structures in the data. Such complexities are frequently found in the kind of experimental designs used in speech science studies, for which MLMs are therefore particularly well suited.
 
-Many packages for R have been developed to fit MLMs with their functionality of limited to the mean of the response distribution while other parameters of the response distribution, such as the residual standard deviation in linear models, are assumed constant across observations, which may be violated in many applications (e.g.  The lme4 package (Bates et al., 2015b). However, when one tries to include the maximal varying effect structure, this kind of model tends either not to converge, or to give aberrant estimations of the correlation between varying effects, however, the maximal varying effect structure can generally be fitted in a Bayesian framework. Another advantage of Bayesian statistical modelling is that it fits the way researchers intuitively understand statistical results. Widespread misinterpretations of frequentist statistics (like p-values and confidence intervals) are often attributable to the wrong interpretation of these statistics as resulting from a Bayesian analysis. The intuitive nature of the Bayesian approach might arguably be hidden by the predominance of frequentist teaching in undergraduate statistical courses. Moreover, the Bayesian approach offers a natural solution to the problem of multiple comparisons, when the situation is adequately modelled in a multilevel framework, and allows a priori knowledge to be incorporated in data analysis via the prior distribution. The latter feature is particularily relevant when dealing with contraint parameters or for the purpose of incorporating expert knowledge. In this post, we will briefly introduce the Bayesian approach to data analysis and the multilevel modelling strategy. Second, we will illustrate how Bayesian MLMs can be implemented in R by using the brms package (Bürkner, 2017b).
-
+Many R packages are developed to fit MLMs with their functionality of limited to the mean of the response distribution while other parameters of the response distribution, such as the residual standard deviation in linear models, are assumed constant across observations, which may be violated in many applications (e.g.  The lme4 package (Bates et al., 2015b). However, when one tries to include the maximal varying effect structure, this kind of model tends either not to converge, or to give aberrant estimations of the correlation between varying effects, however, the maximal varying effect structure can generally be fitted in a Bayesian framework. Another advantage of Bayesian statistical modelling is that it fits the way researchers intuitively understand statistical results. Widespread misinterpretations of frequentist statistics (like p-values and confidence intervals) are often attributable to the wrong interpretation of these statistics as resulting from a Bayesian analysis. The intuitive nature of the Bayesian approach might arguably be hidden by the predominance of frequentist teaching in undergraduate statistical courses. Moreover, the Bayesian approach offers a natural solution to the problem of multiple comparisons, when the situation is adequately modelled in a multilevel framework, and allows a priori knowledge to be incorporated in data analysis via the prior distribution. The latter feature is particularily relevant when dealing with contraint parameters or for the purpose of incorporating expert knowledge. In this post, we will briefly introduce the Bayesian approach to data analysis and the multilevel modelling strategy. Second, we will illustrate how Bayesian MLMs can be implemented in R by using the brms package.
 
 ### Bayesian Method
 
 The key difference between Bayesian statistical inference and frequentist statistical methods concerns the nature of the unknown parameters that you are trying to estimate. In the frequentist framework, a parameter of interest is assumed to be unknown, but fixed. That is, it is assumed that in the population there is only one true population parameter, for example, one true mean or one true regression coefficient. In the Bayesian view of subjective probability, all unknown parameters are treated as uncertain and therefore are be described by a probability distribution. Every parameter is unknown, and everything unknown receives a distribution.
 
-This tutorial will first build towards a full multilevel using uninformative priors and then will discuss the influence of using different (informative) priors on the final model. If you’re just starting out with Bayesian statistics in R and you have some familiarity with running Frequentist models using packages like lme4, nlme, or the base lm function, you may prefer starting out with more user-friendly packages that use Stan as a backend, but hide a lot of the complicated details. We make use of the brms package, because this package gives us the actual posterior samples, lets us specify a wide range of priors, and using the familiar input structure of the lme4 package. See here for a tutorial on how to use that package. Some time back I wrote up a demonstration using the brms package, which allows you to run Bayesian mixed models (and more) using familiar model syntax. I started with brms and am gradually building up competency in Stan. Stan is the way to go if you want more control and a deeper understanding of your models, but maybe brms is a better place to start. Regardless, I’ll try to give intuitive explanations behind the Stan code so that you can hopefully start writing it yourself someday. Don’t be discouraged if it doesn’t sink in right away.
+This post first build towards a full multilevel using uninformative priors and then will discuss the influence of using different (informative) priors on the final model. If you’re just starting out with Bayesian statistics in R and you have some familiarity with running Frequentist models using packages like lme4, nlme, or the base lm function, you may prefer starting out with more user-friendly packages that use Stan as a backend, but hide a lot of the complicated details. We make use of the brms package, because this package gives us the actual posterior samples, lets us specify a wide range of priors, and using the familiar input structure of the lme4 package. See here for a tutorial on how to use that package. Some time back I wrote up a demonstration using the brms package, which allows you to run Bayesian mixed models (and more) using familiar model syntax. I started with brms and am gradually building up competency in Stan. Stan is the way to go if you want more control and a deeper understanding of your models, but maybe brms is a better place to start. Regardless, I’ll try to give intuitive explanations behind the Stan code so that you can hopefully start writing it yourself someday. Don’t be discouraged if it doesn’t sink in right away.
 
-Stan comes with its own programming language, allowing for great modeling flexibility. Many researchers may still be hesitent to use Stan directly, as every model has to be written, debugged and possibly also optimized. This may be a time-consuming and error-prone process even for researchers familiar with Bayesian inference. The brms package, presented in this paper, aims to remove these hurdles for a wide range of regression models by allowing the user to benefit from the merits of Stan by using extended lme4-like formula syntax, with which many R users are familiar with. It offers much more than writing efficient and human-readable Stan code: brms comes with many post-processing and visualization functions, for instance to perform posterior predictive checks, leave one-out cross-validation, visualization of estimated effects, and prediction of new data.
-
-
-Since the brms package (via STAN) makes use of a Hamiltonian Monte Carlo sampler algorithm (MCMC) to approximate the posterior (distribution), we need to specify a few more parameters than in a frequentist analysis (using lme4).
+Stan comes with its own programming language, allowing for great modeling flexibility. Many researchers may still be hesitent to use Stan directly, as every model has to be written, debugged and possibly also optimized. This may be a time-consuming and error-prone process even for researchers familiar with Bayesian inference. The brms package, presented in this paper, aims to remove these hurdles for a wide range of regression models by allowing the user to benefit from the merits of Stan by using extended lme4-like formula syntax, with which many R users are familiar with. It offers much more than writing efficient and human-readable Stan code: brms comes with many post-processing and visualization functions, for instance to perform posterior predictive checks, leave one-out cross-validation, visualization of estimated effects, and prediction of new data. Since the brms package (via STAN) makes use of a Hamiltonian Monte Carlo sampler algorithm (MCMC) to approximate the posterior (distribution), we need to specify a few more parameters than in a frequentist analysis (using lme4).
 
 + First we need the specify the number of iterations.
 + We need to specify the number of chains.
@@ -68,7 +74,10 @@ model4 <- brm(popular ~ 1 + sex + extrav + texp + (1 + extrav | class),
               warmup = 1000, iter = 3000, 
               cores = 2, chains = 2, 
               seed = 123) #to run the model              
-              
+```
+
+
+```
 plot(hypothesis(model8, "sex = 0"))
 
 ```
@@ -102,9 +111,9 @@ This post is meant to introduce users to the flexibility of the distributional r
 
 
 ## Refernces
-+ [Refernces 0](https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model)
++ [[tutorials brms 1](https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model)
 
-+ [Refernces 1](https://www.rensvandeschoot.com/tutorials/brms/)
++ [tutorials brms 2](https://www.rensvandeschoot.com/tutorials/brms/)
 
-+ [Refernces 2](https://mran.microsoft.com/snapshot/2017-05-14/web/packages/brms/vignettes/brms_multilevel.pdf)
++ [vignettes brms](https://mran.microsoft.com/snapshot/2017-05-14/web/packages/brms/vignettes/brms_multilevel.pdf)
 
