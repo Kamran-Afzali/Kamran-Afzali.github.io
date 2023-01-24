@@ -1,25 +1,17 @@
 ### Introduction
 
-The technology and physics behind an MRI scanner is quite astonishing. But I won’t go into the details of how it all works. You do need to know some terms, concepts, and parameters that are used to acquire MRI data in a scanning session and use that to construct useable images.
+The brain occupies space, so it is possible to collect data on how it fills space, also called volume data. All the volume data needed to create the complete, 3D image of the brain, recorded at one single timepoint is called a *volume*. The data is measured in voxels, which are like the pixels used to display images on your screen, only in 3D. Each voxel has a specific dimension, with the same dimension from all sides (isotropic). Each voxel contains one value which stands for the average signal measured at the given location. A standard anatomical volume, with an isotropic voxel resolution of 1mm contains almost 17 million voxels, which are arranged in a 3D matrix of 256 x 256 x 256 voxels. 
+As the scanner can’t measure the whole volume at once it has to measure portions of the brain sequentially in time. This is done by measuring one plane of the brain (generally the horizontal one) after the other. The resolution of the measured volume data, therefore, depends on the in-plane resolution (the size of the squares in the above image), the number of slices and their thickness (how many layers), and any possible gaps between the layers. The quality of the measured data depends on the resolution and the following parameters:
 
-The brain occupies space, so when we collect data on how it fills space, we call that volume data, and all the volume data needed to create the complete, 3D image of the brain, recorded at one single timepoint and as pictured on the left, is called a volume. The data is measured in voxels, which are like the pixels used to display images on your screen, only in 3D. Each voxel has a specific dimension, in this case it is 1mm x 1mm x 1mm: a cube, so it is the same dimension from all sides (isotropic). Each voxel contains one value which stands for the average signal measured at the given location.
++ Repetition time (TR): time required to scan one volume
 
-A standard anatomical volume, with an isotropic voxel resolution of 1mm contains almost 17 million voxels, which are arranged in a 3D matrix of 256 x 256 x 256 voxels. The following picture shows a slice – one layer of the big, 3D matrix – through a brain volume, and the superimposed grid shows the remaining two dimensions of the voxels.
-As the scanner can’t measure the whole volume at once it has to measure portions of the brain sequentially in time. This is done by measuring one plane of the brain (generally the horizontal one) after the other. Such a plane is also called a slice. The resolution of the measured volume data, therefore, depends on the in-plane resolution (the size of the squares in the above image), the number of slices and their thickness (how many layers), and any possible gaps between the layers.
++ Acquisition time (TA): time required to scan one slice. TA = TR - (TR/number of slices)
 
-The quality of the measured data depends on the resolution and the following parameters:
++ field of view (FOV): defines the extent of a slice, e.g. 256mm x 256mm
 
-repetition time (TR): time required to scan one volume
+### Specifics of MRI Data
 
-acquisition time (TA): time required to scan one slice. TA = TR - (TR/number of slices)
-
-field of view (FOV): defines the extent of a slice, e.g. 256mm x 256mm
-
-#### Specifics of MRI Data
-
-MRI scanners output their neuroimaging data in a raw data format with which most analysis packages cannot work. DICOM is a common, standardized, raw medical image format, but the format of your raw data may be something else; e.g., PAR/REC format from Philips scanners. Raw data is saved in k-space format, and it needs to be converted into a format that the analysis packages can use. The most frequent format for newly generated data is called NIfTI. If you are working with older datasets, you may encounter data in Analyze format. MRI data formats will have an image and a header part. For NifTI format, they are in the same file (.nii-file), whereas in the older Analyze format, they are in separate files (.img and .hdr-file).
-
-The image is the actual data and is represented by a 3D matrix that contains a value (e.g. gray value) for each voxel.
+MRI scanners output their neuroimaging data in a raw data format with which most analysis packages cannot work. DICOM is a common, standardized, raw medical image format. Raw data is saved in k-space format, and it needs to be converted into a format that the analysis packages can use. The most frequent format for newly generated data is called NIfTI. MRI data formats will have an image and a header part. For NifTI format, they are in the same file (.nii-file), whereas in the older Analyze format, they are in separate files (.img and .hdr-file). The image is the actual data and is represented by a 3D matrix that contains a value (e.g. gray value) for each voxel.
 The header contains information about the data like voxel dimension, voxel extend in each dimension, number of measured time points, a transformation matrix that places the 3D matrix from the image part in a 3D coordinate system, etc.
 
 ### Modalities of MRI Data
@@ -65,7 +57,6 @@ In previous chapters, we saw that there is plenty of things that you can do with
 ### Neuroimaging in Python
 
 Within the broader ecosystem of Python tools for science, there is a family of tools specifically focused on neuroimaging (we will refer to them collectively as “NiPy”, which stands for “Neuroimaging in Python”). These software tools, developed by and for neuroimaging researchers, cover a wide range of data analysis tasks on a variety of different kinds of experimental data. In the next few sections, we will see in detail how some of these tools are used. But first, we will provide a broad survey of the different kinds of tools that currently exist. It is important to emphasize that this is a very dynamically evolving ecosystem, and some of these tools may evolve into other tools over time, or even disappear. New tools will inevitably also emerge. So, this survey will be, by necessity, a bit superficial and a bit dated. That said, we’ll try to give you a sense of how an ecosystem like this one emerges and evolves so that you can keep an eye on these trends as they play out in the future.
-
 
 
 ### Software Packages
