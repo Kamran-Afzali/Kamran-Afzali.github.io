@@ -34,22 +34,22 @@ The brm() function requires:
 Here is an example:
 
 ```
-interceptonlymodeltest <- brm(popular ~ 1 + (1 | class), 
-                              data   = popular2data, 
+interceptonlymodeltest <- brm(extro ~ 1 + (1 | school), 
+                              data   = lmm.data, 
                               warmup = 100, 
                               iter   = 200, 
                               chains = 2, 
                               inits  = "random",
-                              cores  = 2)  #the cores function tells STAN to make use of 2 CPU cores simultaneously instead of just 1.
-                              
-summary(interceptonlymodel)    
+                              cores  = 2) 
 
+summary(interceptonlymodeltest)
 
-model1 <- brm(popular ~ 1 + sex + extrav + (1|class),  
-              data = popular2data, 
+model1 <- brm(extro ~ open + agree + social + (1|school),  
+              data = lmm.data, 
               warmup = 1000, iter = 3000, 
               cores = 2, chains = 2, 
-              seed = 123)
+              seed = 123) #to run the model
+summary(model1)
               
 model2 <- brm(popular ~ 1 + sex + extrav + texp + (1|class),  
               data = popular2data, 
@@ -105,9 +105,9 @@ This post is meant to introduce users to the flexibility of the distributional r
 
 
 ## Refernces
-+ [tutorials brms 1](https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model)
++ [Tutorials brms 1](https://bookdown.org/content/ef0b28f7-8bdf-4ba7-ae2c-bc2b1f012283/modeling-discontinuous-and-nonlinear-change.html#bonus-the-logistic-growth-model)
 
-+ [tutorials brms 2](https://www.rensvandeschoot.com/tutorials/brms/)
++ [Tutorials brms 2](https://www.rensvandeschoot.com/tutorials/brms/)
 
-+ [vignettes brms](https://mran.microsoft.com/snapshot/2017-05-14/web/packages/brms/vignettes/brms_multilevel.pdf)
++ [Vignettes brms](https://mran.microsoft.com/snapshot/2017-05-14/web/packages/brms/vignettes/brms_multilevel.pdf)
 
