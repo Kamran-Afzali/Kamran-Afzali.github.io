@@ -34,47 +34,34 @@ The brm() function requires:
 Here is an example:
 
 ```
-interceptonlymodeltest <- brm(extro ~ 1 + (1 | school), 
-                              data   = lmm.data, 
-                              warmup = 100, 
-                              iter   = 200, 
-                              chains = 2, 
-                              inits  = "random",
-                              cores  = 2) 
-
-summary(interceptonlymodeltest)
-
 model1 <- brm(extro ~ open + agree + social + (1|school),  
               data = lmm.data, 
-              warmup = 1000, iter = 3000, 
-              cores = 2, chains = 2, 
+              warmup = 1000, iter = 5000, 
+              cores = 4, chains = 4, 
               seed = 123) #to run the model
 summary(model1)
-              
-model2 <- brm(popular ~ 1 + sex + extrav + texp + (1|class),  
-              data = popular2data, 
-              warmup = 1000, iter = 3000, 
-              cores = 2, chains = 2, 
-              seed = 123)      
-              
-model3 <- brm(popular ~ 1 + sex + extrav + (1 + sex + extrav | class),  
-              data = popular2data, 
-              warmup = 1000, iter = 3000, 
-              cores = 2, chains = 2, 
-              seed = 123)
-              
-model4 <- brm(popular ~ 1 + sex + extrav + texp + (1 + extrav | class),  
-              data = popular2data, 
-              warmup = 1000, iter = 3000, 
-              cores = 2, chains = 2, 
-              seed = 123) #to run the model              
+
+
+model2 <- brm(extro ~ open + agree + social + (1 + social |school),  
+              data = lmm.data, 
+              warmup = 1000, iter = 5000, 
+              cores = 4, chains = 4, 
+              seed = 123) #to run the model
+summary(model2)
+
+
+get_prior(extro ~ open + agree + social + (1 + social |school),  data = lmm.data)
+
+prior1 <- c(set_prior("normal(-10,100)", class = "b", coef = "extrav"),
+            set_prior("normal(10,100)", class = "b", coef = "extrav:texp"),
+            set_prior("normal(-5,100)", class = "b", coef = "sex"),
+            set_prior("normal(-5,100)", class = "b", coef = "texp"),
+            set_prior("normal(10,100)", class = "b", coef = "intercept" ))
+      
 ```
 
 
-```
-plot(hypothesis(model8, "sex = 0"))
 
-```
 ### Priors
 
 As stated in the brms manual: “Prior specifications are flexible and explicitly encourage users to apply prior distributions that actually reflect their beliefs.” Here we will only focus on priors for the regression coefficients and not on the error and variance terms, since we are most likely to actually have information on the size and direction of a certain effect and less (but not completely) unlikely to have prior knowledge on the unexplained variances. 
@@ -94,9 +81,11 @@ prior1 <- c(set_prior("normal(-10,100)", class = "b", coef = "extrav"),
 Before interpreting results, we should inspect the convergence of the chains that form the posterior distribution of the model parameters. A straightforward and common way to visualize convergence is the trace plot that illustrates the iterations of the chains from start to end.
 
 ```
-modeltranformed <- ggs(model) # the ggs function transforms the BRMS output into a longformat tibble, that we can use to make different types of plots.
-stanplot(model, type = "trace")
-stanplot(model, type = "hist")
+
+mcmc_plot(model1, type = "trace")
+mcmc_plot(model1, type = "hist")
+
+plot(hypothesis(model1, "open = 0"))
 
 ```
 
