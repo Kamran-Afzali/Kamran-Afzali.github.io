@@ -77,15 +77,6 @@ summary(modelp)
 
 
 
-<div data-pagedtable="false">
-  
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["prior"],"name":[1],"type":["chr"],"align":["left"]},{"label":["class"],"name":[2],"type":["chr"],"align":["left"]},{"label":["coef"],"name":[3],"type":["chr"],"align":["left"]},{"label":["group"],"name":[4],"type":["chr"],"align":["left"]},{"label":["resp"],"name":[5],"type":["chr"],"align":["left"]},{"label":["dpar"],"name":[6],"type":["chr"],"align":["left"]},{"label":["nlpar"],"name":[7],"type":["chr"],"align":["left"]},{"label":["lb"],"name":[8],"type":["chr"],"align":["left"]},{"label":["ub"],"name":[9],"type":["chr"],"align":["left"]},{"label":["source"],"name":[10],"type":["chr"],"align":["left"]}],"data":[{"1":"","2":"b","3":"","4":"","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"","2":"b","3":"agree","4":"","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"","2":"b","3":"open","4":"","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"","2":"b","3":"social","4":"","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"lkj(1)","2":"cor","3":"","4":"","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"","2":"cor","3":"","4":"school","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"student_t(3, 60.2, 9.2)","2":"Intercept","3":"","4":"","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"student_t(3, 0, 9.2)","2":"sd","3":"","4":"","5":"","6":"","7":"","8":"0","9":"","10":"default"},{"1":"","2":"sd","3":"","4":"school","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"","2":"sd","3":"Intercept","4":"school","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"","2":"sd","3":"social","4":"school","5":"","6":"","7":"","8":"","9":"","10":"default"},{"1":"student_t(3, 0, 9.2)","2":"sigma","3":"","4":"","5":"","6":"","7":"","8":"0","9":"","10":"default"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-  
-</div>
-
-
 
 ### Trace-plots and convergence dianostics
 
