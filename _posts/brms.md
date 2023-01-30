@@ -50,13 +50,6 @@ model2 <- brm(extro ~ open + agree + social + (1 + social |school),
 summary(model2)
 
 
-get_prior(extro ~ open + agree + social + (1 + social |school),  data = lmm.data)
-
-prior1 <- c(set_prior("normal(-10,100)", class = "b", coef = "extrav"),
-            set_prior("normal(10,100)", class = "b", coef = "extrav:texp"),
-            set_prior("normal(-5,100)", class = "b", coef = "sex"),
-            set_prior("normal(-5,100)", class = "b", coef = "texp"),
-            set_prior("normal(10,100)", class = "b", coef = "intercept" ))
       
 ```
 
@@ -67,12 +60,19 @@ prior1 <- c(set_prior("normal(-10,100)", class = "b", coef = "extrav"),
 As stated in the brms manual: “Prior specifications are flexible and explicitly encourage users to apply prior distributions that actually reflect their beliefs.” Here we will only focus on priors for the regression coefficients and not on the error and variance terms, since we are most likely to actually have information on the size and direction of a certain effect and less (but not completely) unlikely to have prior knowledge on the unexplained variances. 
 
 ```
-get_prior(popular ~ 0 + intercept + sex + extrav + texp + extrav:texp + (1 + extrav | class), data = popular2data)
-prior1 <- c(set_prior("normal(-10,100)", class = "b", coef = "extrav"),
-            set_prior("normal(10,100)", class = "b", coef = "extrav:texp"),
-            set_prior("normal(-5,100)", class = "b", coef = "sex"),
-            set_prior("normal(-5,100)", class = "b", coef = "texp"),
-            set_prior("normal(10,100)", class = "b", coef = "intercept" ))
+get_prior(extro ~ open + agree + social + (1 + social |school),  data = lmm.data)
+
+prior1 <- c(set_prior("normal(0,10)", class = "b", coef = "open"),
+            set_prior("normal(0,10)", class = "b", coef = "agree"),
+            set_prior("normal(0,10)", class = "b", coef = "social"))
+modelp <- brm(extro ~ open + agree + social + (1|school),  
+              data = lmm.data, 
+              prior = prior1,
+              warmup = 1000, iter = 5000, 
+              cores = 4, chains = 4, 
+              seed = 123) 
+summary(modelp)
+
 ```
 
 
