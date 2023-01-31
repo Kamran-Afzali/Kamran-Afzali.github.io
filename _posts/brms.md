@@ -33,25 +33,145 @@ The brm() function requires:
 
 Here is an example:
 
+```r
+lmm.data <- read.table("http://bayes.acs.unt.edu:8083/BayesContent/class/Jon/R_SC/Module9/lmm.data.txt",
+                       header=TRUE, sep=",", na.strings="NA", dec=".", strip.white=TRUE)
+#summary(lmm.data)
+head(lmm.data)
 ```
+
+
+```r
+model0 <- brm(extro ~ 1 + (1|school),  
+              data = lmm.data, 
+              warmup = 1000, iter = 5000, 
+              cores = 4, chains = 4, 
+              seed = 123) #to run the model
+```
+
+
+```r
+summary(model0)
+```
+
+
+
+```
+##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: extro ~ 1 + (1 | school) 
+##    Data: lmm.data (Number of observations: 1200) 
+##   Draws: 4 chains, each with iter = 5000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 16000
+## 
+## Group-Level Effects: 
+## ~school (Number of levels: 6) 
+##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sd(Intercept)    10.53      3.32     6.04    18.82 1.00     2921     3976
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    60.45      3.87    52.85    68.15 1.00     2498     3429
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     2.67      0.05     2.57     2.78 1.00     5357     6299
+## 
+## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).
+```
+
+```r
 model1 <- brm(extro ~ open + agree + social + (1|school),  
               data = lmm.data, 
               warmup = 1000, iter = 5000, 
               cores = 4, chains = 4, 
               seed = 123) #to run the model
+```
+
+```r
 summary(model1)
+```
 
+```
+##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: extro ~ open + agree + social + (1 | school) 
+##    Data: lmm.data (Number of observations: 1200) 
+##   Draws: 4 chains, each with iter = 5000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 16000
+## 
+## Group-Level Effects: 
+## ~school (Number of levels: 6) 
+##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sd(Intercept)    10.65      3.45     6.15    19.29 1.00     4871     6925
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    59.11      4.10    50.88    67.40 1.00     3389     5129
+## open          0.01      0.01    -0.02     0.04 1.00    15266     9414
+## agree         0.03      0.02    -0.00     0.06 1.00    15431     9360
+## social       -0.00      0.00    -0.01     0.01 1.00    18096     9605
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     2.67      0.05     2.57     2.78 1.00    15687     9773
+## 
+## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).
+```
 
+```r
 model2 <- brm(extro ~ open + agree + social + (1 + social |school),  
               data = lmm.data, 
               warmup = 1000, iter = 5000, 
               cores = 4, chains = 4, 
               seed = 123) #to run the model
-summary(model2)
-
-
-      
 ```
+
+
+```r
+summary(model2)
+```
+
+
+```
+##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: extro ~ open + agree + social + (1 + social | school) 
+##    Data: lmm.data (Number of observations: 1200) 
+##   Draws: 4 chains, each with iter = 5000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 16000
+## 
+## Group-Level Effects: 
+## ~school (Number of levels: 6) 
+##                       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+## sd(Intercept)            10.44      3.40     5.83    18.88 1.00     5639
+## sd(social)                0.01      0.01     0.00     0.04 1.00     4468
+## cor(Intercept,social)     0.33      0.46    -0.68     0.97 1.00    10247
+##                       Tail_ESS
+## sd(Intercept)             9050
+## sd(social)                5332
+## cor(Intercept,social)     8834
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    59.16      3.92    51.38    66.93 1.00     3440     5465
+## open          0.01      0.01    -0.02     0.04 1.00    23467    10482
+## agree         0.03      0.02    -0.00     0.06 1.00    23836    10931
+## social       -0.00      0.01    -0.02     0.02 1.00     8721     7519
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     2.67      0.05     2.57     2.78 1.00    23299    11201
+## 
+## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).
+```
+
 
 
 
@@ -59,9 +179,29 @@ summary(model2)
 
 As stated in the brms manual: “Prior specifications are flexible and explicitly encourage users to apply prior distributions that actually reflect their beliefs.” Here we will only focus on priors for the regression coefficients and not on the error and variance terms, since we are most likely to actually have information on the size and direction of a certain effect and less (but not completely) unlikely to have prior knowledge on the unexplained variances. 
 
-```
+```r
 get_prior(extro ~ open + agree + social + (1 + social |school),  data = lmm.data)
+```
 
+```
+
+                  prior     class      coef  group resp dpar nlpar lb ub       source
+                  (flat)         b                                             default
+                  (flat)         b     agree                              (vectorized)
+                  (flat)         b      open                              (vectorized)
+                  (flat)         b    social                              (vectorized)
+                  lkj(1)       cor                                             default
+                  lkj(1)       cor           school                       (vectorized)
+ student_t(3, 60.2, 9.2) Intercept                                             default
+    student_t(3, 0, 9.2)        sd                                   0         default
+    student_t(3, 0, 9.2)        sd           school                  0    (vectorized)
+    student_t(3, 0, 9.2)        sd Intercept school                  0    (vectorized)
+    student_t(3, 0, 9.2)        sd    social school                  0    (vectorized)
+    student_t(3, 0, 9.2)     sigma                                   0         default
+
+```
+
+```r
 prior1 <- c(set_prior("normal(0,10)", class = "b", coef = "open"),
             set_prior("normal(0,10)", class = "b", coef = "agree"),
             set_prior("normal(0,10)", class = "b", coef = "social"))
@@ -71,9 +211,46 @@ modelp <- brm(extro ~ open + agree + social + (1|school),
               warmup = 1000, iter = 5000, 
               cores = 4, chains = 4, 
               seed = 123) 
+```
+
+
+```r
 summary(modelp)
+```
+
+
+
 
 ```
+##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: extro ~ open + agree + social + (1 | school) 
+##    Data: lmm.data (Number of observations: 1200) 
+##   Draws: 4 chains, each with iter = 5000; warmup = 1000; thin = 1;
+##          total post-warmup draws = 16000
+## 
+## Group-Level Effects: 
+## ~school (Number of levels: 6) 
+##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sd(Intercept)    10.56      3.41     6.06    19.15 1.00     4393     7131
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## Intercept    59.05      3.95    51.30    67.00 1.00     3631     5299
+## open          0.01      0.01    -0.02     0.04 1.00    15390    10073
+## agree         0.03      0.02    -0.00     0.06 1.00    15738    10121
+## social       -0.00      0.00    -0.01     0.01 1.00    18386    10795
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+## sigma     2.67      0.05     2.57     2.78 1.00    13509     9902
+## 
+## Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+## and Tail_ESS are effective sample size measures, and Rhat is the potential
+## scale reduction factor on split chains (at convergence, Rhat = 1).
+```
+
+
 
 
 
@@ -82,14 +259,25 @@ summary(modelp)
 
 Before interpreting results, we should inspect the convergence of the chains that form the posterior distribution of the model parameters. A straightforward and common way to visualize convergence is the trace plot that illustrates the iterations of the chains from start to end.
 
-```
-
+```r
 mcmc_plot(model1, type = "trace")
-mcmc_plot(model1, type = "hist")
-
-plot(hypothesis(model1, "open = 0"))
-
 ```
+
+![](images/brms-1-1.png)
+
+```r
+mcmc_plot(model1, type = "hist")
+```
+
+
+![](images/brms-1-2.png)
+
+```r
+plot(hypothesis(model1, "open = 0"))
+```
+
+![](images/brms-1-3.png)
+
 
 ### Conclusion
 This post is meant to introduce users to the flexibility of the distributional regression approach and corresponding formula syntax as implemented in brms and fitted with Stan behind the scenes. Only a subset of modeling options were discussed in detail. Many more examples can be found in the growing number of vignettes accompanying the package (see vignette(package = "brms") for an overview). To date, brms is already one of the most flexible R packages when it comes to regression modeling.
