@@ -263,20 +263,20 @@ Before interpreting results, we should inspect the convergence of the chains tha
 mcmc_plot(model1, type = "trace")
 ```
 
-![](images/brms-1-1.png)
+![](/images/brms-1-1.png)
 
 ```r
 mcmc_plot(model1, type = "hist")
 ```
 
 
-![](images/brms-1-2.png)
+![](/images/brms-1-2.png)
 
 ```r
 plot(hypothesis(model1, "open = 0"))
 ```
 
-![](images/brms-1-3.png)
+![](/images/brms-1-3.png)
 
 
 ### Conclusion
