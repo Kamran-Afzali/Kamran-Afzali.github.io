@@ -89,7 +89,7 @@ Global registration approach does well in registering the overall structure of o
 
 ## Data science tools for neuroimaging
 
-In previous chapters, we saw that there is plenty of things that you can do with general-purpose software and data science tools. Many of the examples used data from neuroimaging experiments, but the ideas that we introduced – arrays and computing with arrays, tables and how to manipulate tabular data, scientific computing, and data visualization – were not specific to neuroimaging. In this chapter, we will discuss data science approaches that are specifically tailored to neuroimaging data. First (in Section 11.1), we will present a survey of neuroimaging-specific software implemented in Python. Next (in Section 11.2), we will discuss how to organize data from neuroscience experiments for data analysis that best takes advantage of these software tools. In the following chapters, we will dive into some of the applications of these data science tools to fundamental problems in neuroimaging data analysis.
+In previous posts, we discussed that data from neuroimaging experiments are arrays, computing with arrays tables and how to manipulate tabular data, scientific computing, and data visualization – were not specific to neuroimaging. Here, we will discuss data science approaches when they are tailored to neuroimaging data. First, we will present a survey of neuroimaging-specific software implemented in Python. Next, we will discuss some of the applications of these data science tools to fundamental problems in neuroimaging data analysis.
 
 ### Neuroimaging in Python
 
