@@ -3,7 +3,7 @@ layout: post
 categories: posts
 title: Three New Features In TidyModels   
 featured-image: /images/tidymodels.png
-tags: [Tuning, Machine-learning, TidyModels]
+tags: [Tuner, Machine-learning, TidyModels]
 date-string: August 2021
 ---
 
