@@ -1,5 +1,5 @@
 
-What Does Partially Observable Markov Decision Process (POMDP) Mean?
+## What Does Partially Observable Markov Decision Process (POMDP) Mean?
 
 A partially observable Markov decision process (POMDP) is a generalization of a Markov decision process (MDP). A POMDP models an agent decision process in which it is assumed that the system dynamics are determined by an MDP, but the agent cannot directly observe the underlying state. Instead, it must maintain a sensor model (the probability distribution of different observations given the underlying state) and the underlying MDP. Unlike the policy function in MDP which maps the underlying states to the actions, POMDP's policy is a mapping from the history of observations (or belief states) to the actions.
 
@@ -35,3 +35,4 @@ Instead, in this chapter we consider an extension of the (fully observable) MDP 
 + https://www.st.ewi.tudelft.nl/mtjspaan/pub/Spaan12pomdp.pdf
 + https://www.techopedia.com/definition/32824/partially-observable-markov-decision-process-pomdp
 + https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume23/roy05a-html/node2.html
++ https://wiki.ubc.ca/Course:CPSC522/Partially_Observable_Markov_Decision_Processes
