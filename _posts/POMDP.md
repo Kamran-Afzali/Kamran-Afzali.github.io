@@ -46,6 +46,47 @@ The agent can perform actions which affect the system (i.e., may cause the syste
 
 The POMDP framework is general enough to model a variety of real-world sequential decision-making problems. Applications include robot navigation problems, machine maintenance, and planning under uncertainty in general. The general framework of Markov decision processes with incomplete information was described by Karl Johan Åström (Åström 1965) in the case of a discrete state space, and it was further studied in the operations research community where the acronym POMDP was coined. It was later adapted for problems in artificial intelligence and automated planning by Leslie P. Kaelbling and Michael L. Littman (Kaelbling, Littman, and Cassandra 1998).
 
+
+## Package Functionality
+Solving a POMDP problem with the pomdp package consists of two steps:
+
+1. Define a POMDP problem using the function POMDP(), and
+2. solve the problem using solve_POMDP().
+### Defining a POMDP Problem
+The POMDP() function has the following arguments, each corresponds to one of the elements of a POMDP.
+
++ states defines the set of states S
+
++ actions defines the set of actions A
+
++ observations defines the set of observations Ω
+
++ transition_prob defines the conditional transition probabilities T(s′∣s,a)
+
++ observation_prob specifies the conditional observation probabilities O(o∣s′,a)
+
++ reward specifies the reward function R
+
++ discount is the discount factor γ in range [0,1]
+
++ horizon is the problem horizon as the number of periods to consider.
+
++ terminal_values is a vector of state utilities at the end of the horizon.
+
++ start is the initial probability distribution over the system states S
+
++ max indicates whether the problem is a maximization or a minimization, and
+
++ name used to give the POMDP problem a name.
+
+
+
+### Solving a POMDP
+POMDP problems are solved with the function solve_POMDP() with the following arguments.
+
+
+
+
 ## References
 + https://artint.info/
 + https://www.st.ewi.tudelft.nl/mtjspaan/pub/Spaan12pomdp.pdf
