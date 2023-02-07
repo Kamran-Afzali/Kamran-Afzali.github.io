@@ -85,9 +85,9 @@ The POMDP() function has the following arguments, each corresponds to one of the
 
 POMDP problems are solved with the function solve_POMDP(). The list of available parameters can be obtained using the function solve_POMDP_parameter(). Details on the other arguments can be found in the manual page for `solve_POMDP()`.
 
-  str(args(solve_POMDP))
-
-   function (model, horizon = NULL, discount = NULL, initial_belief = NULL, terminal_values = NULL, method = "grid", digits = 7, parameter, NULL, verbose = FALSE)
+      str(args(solve_POMDP))
+    
+      function (model, horizon = NULL, discount = NULL, initial_belief = NULL, terminal_values = NULL, method = "grid", digits = 7, parameter, NULL, verbose = FALSE)
    
 + The horizon argument specifies the finite time horizon (i.e, the number of time steps) considered in solving the problem. If the horizon is unspecified (i.e., NULL), then the algorithm continues running iterations till it converges to the infinite horizon solution. 
 
