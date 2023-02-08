@@ -14,12 +14,6 @@ The POMPD builds on that concept to show how a system can deal with the challeng
 The POMPD is useful in reinforcement learning where a system can go over the MPD or POMPD model utilizing what is known to build a clearer picture of probability outcomes.
 
 
-
-
-
-
-
-
 The Markov decision process model has proven very successful for learning how to act in stochastic environments. In this chapter, we explore methods for reinforcement learning by relaxing one of the limiting factors of the MDP model, namely the assumption that the agent knows with full certainty the state of the environment. Put otherwise, the agent’s sensors allow it to perfectly monitor the state at all times, where the state captures all aspects of the environment relevant for optimal decision making. Clearly, this is a strong assumption that can restrict the applicability of the MDP framework. For instance, when certain state features are hidden from
 
 the agent the state signal will no longer be Markovian, violating a key assumption of most reinforcement-learning techniques (Sutton and Barto, 1998).
@@ -50,10 +44,14 @@ The POMDP framework is general enough to model a variety of real-world sequentia
 ## Package Functionality
 Solving a POMDP problem with the pomdp package consists of two steps:
 
-1. Define a POMDP problem using the function POMDP(), and
-2. solve the problem using solve_POMDP().
+1. Define a POMDP problem using the function POMDP()
+2. solve the problem using solve_POMDP()
+
+
 ### Defining a POMDP Problem
 The POMDP() function has the following arguments, each corresponds to one of the elements of a POMDP.
+
+      str(args(POMDP))
 
 + states defines the set of states S
 
@@ -85,13 +83,75 @@ The POMDP() function has the following arguments, each corresponds to one of the
 
 POMDP problems are solved with the function solve_POMDP(). The list of available parameters can be obtained using the function solve_POMDP_parameter(). Details on the other arguments can be found in the manual page for `solve_POMDP()`.
 
-      str(args(solve_POMDP))
-    
-      function (model, horizon = NULL, discount = NULL, initial_belief = NULL, terminal_values = NULL, method = "grid", digits = 7, parameter, NULL, verbose = FALSE)
+      str(args(solve_POMDP))  
    
 + The horizon argument specifies the finite time horizon (i.e, the number of time steps) considered in solving the problem. If the horizon is unspecified (i.e., NULL), then the algorithm continues running iterations till it converges to the infinite horizon solution. 
 
 + The method argument specifies what algorithm the solver should use. Available methods including "grid", "enum", "twopass", "witness", and "incprune". Further solver parameters can be specified as a list in parameters.
+
+```
+# Below is the r code with explanation for simulations run in the healthy mood updating network
+
+library(pomdp)
+
+# a represents the transition probability matrix. The values chosen are arbitrary but designed to reflect the healthy agent's certainty that action will preserve current belief states. So, for example, if the agent amplifies stress signals then there is a 90% chance the event will be stressful. Intuitviely, waiting will necessarily preserve the current hidden states as they are.
+
+a = list("Wait"="identity",
+ "amplify-stress-signals"= matrix(c(0.9, 0.1, 0.6, 0.4), nrow=2, byrow=TRUE),
+ "attenuate-stress-signals"= matrix(c(0.4, 0.6, 0.25, 0.75), nrow=2, byrow=TRUE),
+ "amplify-pleasure-signals"= matrix(c(0.25, 0.75, 0.1, 0.9), nrow=2, byrow=TRUE),
+ "attenuate-pleasure-signals"= matrix(c(0.75, 0.25, 0.6, 0.4), nrow=2, byrow=TRUE))
+
+# b represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
+
+b = rbind(
+ O_("amplify-stress-signals", "Stressful", "Stress-Signals", 0.9),
+ O_("amplify-stress-signals", "Not-Stressful", "Stress-Signals", 0.3),
+ O_("amplify-stress-signals", "Stressful", "Pleasure-Signals", 0.1),
+ O_("amplify-stress-signals", "Not-Stressful", "Pleasure-Signals", 0.7),
+ O_("attenuate-stress-signals", "Stressful", "Stress-Signals", 0.6),
+ O_("attenuate-stress-signals", "Not-Stressful", "Stress-Signals", 0.1),
+ O_("attenuate-stress-signals", "Stressful", "Pleasure-Signals", 0.4),
+ O_("attenuate-stress-signals", "Not-Stressful", "Pleasure-Signals", 0.9),
+ O_("amplify-pleasure-signals", "Stressful", "Stress-Signals", 0.6),
+ O_("amplify-pleasure-signals", "Not-Stressful", "Stress-Signals", 0.1),
+ O_("amplify-pleasure-signals", "Stressful", "Pleasure-Signals", 0.4),
+ O_("amplify-pleasure-signals", "Not-Stressful", "Pleasure-Signals", 0.9),
+ O_("attenuate-pleasure-signals", "Stressful", "Stress-Signals", 0.9),
+ O_("attenuate-pleasure-signals", "Not-Stressful", "Stress-Signals", 0.4),
+ O_("attenuate-pleasure-signals", "Stressful", "Pleasure-Signals", 0.1),
+ O_("attenuate-pleasure-signals", "Not-Stressful", "Pleasure-Signals", 0.6),
+ O_("Wait", "Stressful", "Stress-Signals", 0.7),
+ O_("Wait", "Not-Stressful", "Stress-Signals", 0.3),
+ O_("Wait", "Stressful", "Pleasure-Signals", 0.3),
+ O_("Wait", "Not-Stressful", "Pleasure-Signals", 0.7))
+
+
+# c is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
+
+c = rbind(
+ R_("amplify-stress-signals", "Not-Stressful", "*", "*", -1.39),
+ R_("amplify-stress-signals", "Stressful", "*", "*", -0.29),
+ R_("attenuate-stress-signals", "Not-Stressful", "*", "*", -0.39),
+ R_("attenuate-stress-signals", "Stressful", "*", "*", -1.12),
+ R_("amplify-pleasure-signals", "Not-Stressful", "*", "*", -0.19),
+ R_("amplify-pleasure-signals", "Stressful", "*", "*", -1.74),
+ R_("attenuate-pleasure-signals", "Not-Stressful", "*", "*", -1.12),
+ R_("attenuate-pleasure-signals", "Stressful", "*", "*", -0.39),
+ R_("Wait", "*", "*", "*", -1))
+
+
+ HealthyMood <- POMDP(
+     name = "Healthy Mood",
+     discount = 0.5,
+     states = c("Stressful" , "Not-Stressful"),
+     actions = c("Wait", "amplify-stress-signals", "attenuate-stress-signals", "amplify-pleasure-signals", "attenuate-pleasure-signals"),
+     observations = c("Stress-Signals", "Pleasure-Signals"),
+     start = c(0.5, 0.5),
+     transition_prob = a, observation_prob = b, reward = c)
+```
+
+
 
 
 ## References
