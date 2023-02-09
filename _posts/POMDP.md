@@ -149,10 +149,17 @@ c = rbind(
      observations = c("Stress-Signals", "Pleasure-Signals"),
      start = c(0.5, 0.5),
      transition_prob = a, observation_prob = b, reward = c)
+     
+sol <- solve_POMDP(HealthyMood)
+sol     
 ```
 
+Visualization
+In this section, we will visualize the policy graph provided in the solution by the solve_POMDP() function.
 
-
+```
+plot_policy_graph(sol)
+```
 
 ## References
 + https://artint.info/
