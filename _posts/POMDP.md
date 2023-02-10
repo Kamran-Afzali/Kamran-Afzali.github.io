@@ -40,6 +40,8 @@ The agent can perform actions which affect the system (i.e., may cause the syste
 
 The POMDP framework is general enough to model a variety of real-world sequential decision-making problems. Applications include robot navigation problems, machine maintenance, and planning under uncertainty in general. The general framework of Markov decision processes with incomplete information was described by Karl Johan Åström (Åström 1965) in the case of a discrete state space, and it was further studied in the operations research community where the acronym POMDP was coined. It was later adapted for problems in artificial intelligence and automated planning by Leslie P. Kaelbling and Michael L. Littman (Kaelbling, Littman, and Cassandra 1998).
 
+**WIKI**POMDPs can be used to model many kinds of real-world problems. Notable applications include the use of a POMDP in management of patients with ischemic heart disease, assistive technology for persons with dementia, the conservation of the critically endangered and difficult to detect Sumatran tigers and aircraft collision avoidance.
+
 
 ## Package Functionality
 Solving a POMDP problem with the pomdp package consists of two steps:
