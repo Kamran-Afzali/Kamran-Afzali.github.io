@@ -93,7 +93,7 @@ POMDP problems are solved with the function solve_POMDP(). The list of available
 
 ### Example
 
-Below is the r code with explanation for simulations run in the healthy mood updating network from (Modelling mood updating: a proof of principle study)[https://pubmed.ncbi.nlm.nih.gov/36511113/].
+Below is the r code with explanation for simulations run in the healthy mood updating network from [Modelling mood updating: a proof of principle study](https://pubmed.ncbi.nlm.nih.gov/36511113/).
 
 ```
 
@@ -173,4 +173,4 @@ plot_policy_graph(sol)
 + https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume23/roy05a-html/node2.html
 + https://wiki.ubc.ca/Course:CPSC522/Partially_Observable_Markov_Decision_Processes
 + https://cran.r-project.org/web/packages/pomdp/vignettes/POMDP.html
-+ (Modelling mood updating: a proof of principle study)[https://pubmed.ncbi.nlm.nih.gov/36511113/]
++ [Modelling mood updating: a proof of principle study](https://pubmed.ncbi.nlm.nih.gov/36511113/)
