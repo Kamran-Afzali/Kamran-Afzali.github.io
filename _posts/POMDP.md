@@ -91,8 +91,11 @@ POMDP problems are solved with the function solve_POMDP(). The list of available
 
 + The method argument specifies what algorithm the solver should use. Available methods including "grid", "enum", "twopass", "witness", and "incprune". Further solver parameters can be specified as a list in parameters.
 
+### Example
+
+Below is the r code with explanation for simulations run in the healthy mood updating network
+
 ```
-# Below is the r code with explanation for simulations run in the healthy mood updating network
 
 library(pomdp)
 
