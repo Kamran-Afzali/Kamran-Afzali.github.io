@@ -64,19 +64,27 @@ POMDP problems are solved with the function solve_POMDP(). The list of available
 
 Below is the r code with explanation for simulations run in the healthy mood updating network from [Modelling mood updating: a proof of principle study](https://pubmed.ncbi.nlm.nih.gov/36511113/).
 
-```
 
+#### Transition probability matrix
+
+a represents the transition probability matrix. The values chosen are arbitrary but designed to reflect the healthy agent's certainty that action will preserve current belief states. So, for example, if the agent amplifies stress signals then there is a 90% chance the event will be stressful. Intuitviely, waiting will necessarily preserve the current hidden states as they are.
+
+```
 library(pomdp)
 
-# a represents the transition probability matrix. The values chosen are arbitrary but designed to reflect the healthy agent's certainty that action will preserve current belief states. So, for example, if the agent amplifies stress signals then there is a 90% chance the event will be stressful. Intuitviely, waiting will necessarily preserve the current hidden states as they are.
 
 a = list("Wait"="identity",
  "amplify-stress-signals"= matrix(c(0.9, 0.1, 0.6, 0.4), nrow=2, byrow=TRUE),
  "attenuate-stress-signals"= matrix(c(0.4, 0.6, 0.25, 0.75), nrow=2, byrow=TRUE),
  "amplify-pleasure-signals"= matrix(c(0.25, 0.75, 0.1, 0.9), nrow=2, byrow=TRUE),
  "attenuate-pleasure-signals"= matrix(c(0.75, 0.25, 0.6, 0.4), nrow=2, byrow=TRUE))
+```
+#### Observation probability matrix
 
-# b represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
+b represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
+
+```
+
 
 b = rbind(
  O_("amplify-stress-signals", "Stressful", "Stress-Signals", 0.9),
@@ -100,8 +108,11 @@ b = rbind(
  O_("Wait", "Stressful", "Pleasure-Signals", 0.3),
  O_("Wait", "Not-Stressful", "Pleasure-Signals", 0.7))
 
+```
+#### Reward matrix
+c is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
 
-# c is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
+```
 
 c = rbind(
  R_("amplify-stress-signals", "Not-Stressful", "*", "*", -1.39),
@@ -113,8 +124,12 @@ c = rbind(
  R_("attenuate-pleasure-signals", "Not-Stressful", "*", "*", -1.12),
  R_("attenuate-pleasure-signals", "Stressful", "*", "*", -0.39),
  R_("Wait", "*", "*", "*", -1))
+```
 
+#### Model
+Matrices above are used to compile the model
 
+```
  HealthyMood <- POMDP(
      name = "Healthy Mood",
      discount = 0.5,
@@ -123,13 +138,18 @@ c = rbind(
      observations = c("Stress-Signals", "Pleasure-Signals"),
      start = c(0.5, 0.5),
      transition_prob = a, observation_prob = b, reward = c)
-     
+```
+
+#### Solution 
+
+```     
 sol <- solve_POMDP(HealthyMood)
 sol     
 ```
 
-Visualization
-In this section, we will visualize the policy graph provided in the solution by the solve_POMDP() function.
+#### Visualization
+
+Here we will visualize the policy graph provided in the solution by the solve_POMDP() function.
 
 ```
 plot_policy_graph(sol)
