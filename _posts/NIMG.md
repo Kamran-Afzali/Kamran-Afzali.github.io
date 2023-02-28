@@ -82,5 +82,5 @@ Global registration approach does well in registering the overall structure of o
 
 
 ### References
-+ [dartbrains](https://dartbrains.org)
-+ [neuroimaging-data-science](http://neuroimaging-data-science.org)
++ [Dartbrains](https://dartbrains.org)
++ [Neuroimaging-data-science](http://neuroimaging-data-science.org)
