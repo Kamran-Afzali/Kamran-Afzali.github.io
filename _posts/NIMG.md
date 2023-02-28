@@ -82,8 +82,5 @@ Global registration approach does well in registering the overall structure of o
 
 
 ### References
-+ https://dartbrains.org/content/Introduction_to_Neuroimaging_Data.html#
-+ https://dartbrains.org/content/Signal_Processing.html
-+ https://dartbrains.org/content/Preprocessing.html
-+ http://neuroimaging-data-science.org/content/005-nipy/001-nipy.html
-+ https://miykael.github.io/nipype-beginner-s-guide/neuroimaging.html
++ [dartbrains](https://dartbrains.org)
++ [neuroimaging-data-science](http://neuroimaging-data-science.org)
