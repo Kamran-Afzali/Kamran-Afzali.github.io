@@ -139,6 +139,8 @@ Matrices above are used to compile the model
 
 #### Solution 
 
+Here we use the solve_POMDP function to find the optimal solution.
+
 ```     
 sol <- solve_POMDP(HealthyMood)
 sol     
@@ -153,10 +155,11 @@ plot_policy_graph(sol)
 ```
 
 ## References
-+ https://artint.info/
-+ https://www.st.ewi.tudelft.nl/mtjspaan/pub/Spaan12pomdp.pdf
-+ https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13692
-+ https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume23/roy05a-html/node2.html
-+ https://wiki.ubc.ca/Course:CPSC522/Partially_Observable_Markov_Decision_Processes
-+ https://cran.r-project.org/web/packages/pomdp/vignettes/POMDP.html
+
++ [Partially Observable Markov Decision Processes](https://wiki.ubc.ca/Course:CPSC522/Partially_Observable_Markov_Decision_Processes)
++ [POMDP on cran](https://cran.r-project.org/web/packages/pomdp/vignettes/POMDP.html)
 + [Modelling mood updating: a proof of principle study](https://pubmed.ncbi.nlm.nih.gov/36511113/)
++ [](https://artint.info/)
++ [](https://www.st.ewi.tudelft.nl/mtjspaan/pub/Spaan12pomdp.pdf)
++ [](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13692)
++ [](https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume23/roy05a-html/node2.html)
