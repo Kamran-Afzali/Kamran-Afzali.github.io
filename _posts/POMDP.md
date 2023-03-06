@@ -1,5 +1,5 @@
 
-## What Does Partially Observable Markov Decision Process (POMDP) Mean?
+## Partially Observable Markov Decision Process (POMDP)
 
 The Markov decision process (MDP) is a mathematical framework for modeling decisions showing a system with a series of states and providing actions to the decision maker based on those states. A partially observable Markov decision process (POMDP) is a generalization of a Markov decision process (MDP). A POMDP models an agent decision process in which it is assumed that the system dynamics are determined by an MDP, but the agent cannot directly observe the underlying state. Instead, it must maintain a sensor model (the probability distribution of different observations given the underlying state) and the underlying MDP. The policy function in POMDP maps from the history of observations (or belief states) to the actions, in contrast to the policy function in MDP which maps the underlying states to the actions. The POMDP framework is broad enough to describe a range of sequential decision-making processes that occur in the actual world. For each potential belief over the possible world states, an accurate solution to a POMDP produces the best course of action. Over a potentially infinite horizon, the best course of action maximizes predicted gain (or reduces cost) for the actor. The best course of action for an agent to take when interacting with its environment is referred to as the agent's optimal policy.
 
@@ -64,7 +64,7 @@ Below is the r code with explanation for simulations run in the healthy mood upd
 
 #### Transition probability matrix
 
-a represents the transition probability matrix. The values chosen are arbitrary but designed to reflect the healthy agent's certainty that action will preserve current belief states. So, for example, if the agent amplifies stress signals then there is a 90% chance the event will be stressful. Intuitviely, waiting will necessarily preserve the current hidden states as they are.
+*a* represents the transition probability matrix. The values chosen are arbitrary but designed to reflect the healthy agent's certainty that action will preserve current belief states. So, for example, if the agent amplifies stress signals then there is a 90% chance the event will be stressful. Intuitviely, waiting will necessarily preserve the current hidden states as they are.
 
 ```
 library(pomdp)
@@ -78,7 +78,7 @@ a = list("Wait"="identity",
 ```
 #### Observation probability matrix
 
-b represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
+*b* represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
 
 ```
 
@@ -107,7 +107,7 @@ b = rbind(
 
 ```
 #### Reward matrix
-c is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
+*c* is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
 
 ```
 
@@ -124,7 +124,8 @@ c = rbind(
 ```
 
 #### Model
-Matrices above are used to compile the model
+
+Matrices above are used to compile the model.
 
 ```
  HealthyMood <- POMDP(
@@ -139,7 +140,7 @@ Matrices above are used to compile the model
 
 #### Solution 
 
-Here we use the solve_POMDP function to find the optimal solution.
+Then we use the *solve_POMDP* function to find the optimal solution.
 
 ```     
 sol <- solve_POMDP(HealthyMood)
@@ -148,7 +149,7 @@ sol
 
 #### Visualization
 
-Here we will visualize the policy graph provided in the solution by the solve_POMDP() function.
+Here we will visualize the policy graph provided in the solution by the *solve_POMDP()* function.
 
 ```
 plot_policy_graph(sol)
