@@ -45,7 +45,7 @@ Images are the foundation of neuroimaging, and the majority of neuroimaging rese
 
 ### Images are arrays
 
-Numpy arrays can be used to represent neuroimaging objects. However, one feature that sets images apart from other types of data is the critical role that spatial relationships play in the understanding of images. This is so because adjacent areas of an image frequently depict objects that are situated close to one another in reality. These neighbourhood relationships should be used by image processing techniques. In contrast, there are times when these neighbourhood relationships impose limitations on the operations that can be performed on the images because we want to preserve these neighbourhood links despite subjecting the image to numerous transformations.
+Numpy arrays can be used to represent neuroimaging objects. However, one feature that sets images apart from other types of data is the critical role that spatial relationships play in the understanding of images. This is so because adjacent areas of an image frequently represent objects that are situated close to one another in reality. These neighbourhood relationships should be used by image processing techniques. In contrast, there are times when these neighbourhood relationships impose limitations on the operations that can be performed on the images because we want to preserve these neighbourhood links despite subjecting the image to numerous transformations.
 
 ### Images can have two dimensions or more
 
@@ -69,7 +69,7 @@ Threshold-based segmentation makes the assumption that various portions of the i
 
 ### Registration
 
-Another major topic is image registration of two images that contain parts that should overlap with each other, but do not. The key is to identify a way to quantify how aligned the two images are to each other. To measure if two images are aligned it is necessary to create an alignment measure. These measures are often called cost functions. Depending on the sorts of images being aligned, there are numerous distinct cost function types. Similar to how regression lines are fitted to minimise departures from the observed data, one frequent cost function is known as minimising the sum of squared differences. The photos should be of the same type and have about equal signal intensities for this measurement to be effective. In order to reduce the disparity between a two-dimensional target image and a reference image, let's generate another interactive plot and identify the best X and Y translation parameters.
+Another major topic is registration of two images that contain parts that should overlap with each other. The key is to identify a way to quantify how aligned the two images are to each other and how to imporove the alignment. To measure if two images are aligned it is necessary to create an alignment measure. These measures are often called cost functions. Depending on the sorts of images being aligned, there are numerous distinct cost function types. Similar to how regression lines are fitted to minimise departures from the observed data, one frequent cost function is known as minimising the sum of squared differences. The photos should be of the same type and have about equal signal intensities for this measurement to be effective.
 
 #### Affine registration
 
