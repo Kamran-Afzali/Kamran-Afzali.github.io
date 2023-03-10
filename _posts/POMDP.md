@@ -12,7 +12,7 @@ In summary POMDP combines a hidden Markov model that probabilistically links uno
 Solving a POMDP problem with the pomdp package consists of two steps:
 
 1. Define a POMDP problem using the function POMDP()
-2. solve the problem using solve_POMDP()
+2. Solve the problem using solve_POMDP()
 
 
 ### Defining a POMDP Problem
@@ -20,29 +20,29 @@ The POMDP() function has the following arguments, each corresponds to one of the
 
       str(args(POMDP))
 
-+ states defines the set of states S
++ States defines the set of states S
 
-+ actions defines the set of actions A
++ Actions defines the set of actions A
 
-+ observations defines the set of observations Ω
++ Observations defines the set of observations Ω
 
-+ transition_prob defines the conditional transition probabilities T(s′∣s,a)
++ Transition_prob defines the conditional transition probabilities T(s′∣s,a)
 
-+ observation_prob specifies the conditional observation probabilities O(o∣s′,a)
++ Observation_prob specifies the conditional observation probabilities O(o∣s′,a)
 
-+ reward specifies the reward function R
++ Reward specifies the reward function R
 
-+ discount is the discount factor γ in range [0,1]
++ Discount is the discount factor γ in range [0,1]
 
-+ horizon is the problem horizon as the number of periods to consider.
++ Horizon is the problem horizon as the number of periods to consider.
 
-+ terminal_values is a vector of state utilities at the end of the horizon.
++ Terminal_values is a vector of state utilities at the end of the horizon.
 
-+ start is the initial probability distribution over the system states S
++ Start is the initial probability distribution over the system states S
 
-+ max indicates whether the problem is a maximization or a minimization, and
++ Max indicates whether the problem is a maximization or a minimization
 
-+ name used to give the POMDP problem a name.
++ Name used to give the POMDP problem a name.
 
 
 
