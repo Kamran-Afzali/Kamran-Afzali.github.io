@@ -1,3 +1,11 @@
+---
+layout: post
+categories: posts
+title: Partially Observable Markov Decision Process (POMDP) in R 
+featured-image: /images/pomdp.png
+tags: [POMDP, MDP, R]
+date-string: March 2022
+---
 
 ## Partially Observable Markov Decision Process (POMDP) in R
 
