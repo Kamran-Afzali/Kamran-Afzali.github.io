@@ -88,8 +88,6 @@ a = list("Wait"="identity",
 *b* represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
 
 ```
-
-
 b = rbind(
  O_("amplify-stress-signals", "Stressful", "Stress-Signals", 0.9),
  O_("amplify-stress-signals", "Not-Stressful", "Stress-Signals", 0.3),
@@ -117,7 +115,6 @@ b = rbind(
 *c* is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
 
 ```
-
 c = rbind(
  R_("amplify-stress-signals", "Not-Stressful", "*", "*", -1.39),
  R_("amplify-stress-signals", "Stressful", "*", "*", -0.29),
@@ -160,6 +157,9 @@ Here we will visualize the policy graph provided in the solution by the *solve_P
 
 ```
 plot_policy_graph(sol)
+
+plot_value_function(sol, ylim = c(-2,1))
+
 ```
 
 ## References
