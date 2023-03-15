@@ -83,6 +83,95 @@ a = list("Wait"="identity",
  "amplify-pleasure-signals"= matrix(c(0.25, 0.75, 0.1, 0.9), nrow=2, byrow=TRUE),
  "attenuate-pleasure-signals"= matrix(c(0.75, 0.25, 0.6, 0.4), nrow=2, byrow=TRUE))
 ```
+
+<table class="kable_wrapper">
+<tbody>
+  <tr>
+   <td> 
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> identity </td>
+  </tr>
+</tbody>
+</table>
+
+ </td>
+   <td> 
+
+<table>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0.9 </td>
+   <td style="text-align:right;"> 0.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.6 </td>
+   <td style="text-align:right;"> 0.4 </td>
+  </tr>
+</tbody>
+</table>
+
+ </td>
+   <td> 
+
+<table>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0.40 </td>
+   <td style="text-align:right;"> 0.60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.75 </td>
+  </tr>
+</tbody>
+</table>
+
+ </td>
+   <td> 
+
+<table>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0.25 </td>
+   <td style="text-align:right;"> 0.75 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.10 </td>
+   <td style="text-align:right;"> 0.90 </td>
+  </tr>
+</tbody>
+</table>
+
+ </td>
+   <td> 
+
+<table>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 0.75 </td>
+   <td style="text-align:right;"> 0.25 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.60 </td>
+   <td style="text-align:right;"> 0.40 </td>
+  </tr>
+</tbody>
+</table>
+
+ </td>
+  </tr>
+</tbody>
+</table>
+
+
 #### Observation probability matrix
 
 *b* represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
