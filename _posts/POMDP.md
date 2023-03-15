@@ -200,6 +200,142 @@ b = rbind(
  O_("Wait", "Not-Stressful", "Pleasure-Signals", 0.7))
 
 ```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> action </th>
+   <th style="text-align:left;"> end.state </th>
+   <th style="text-align:left;"> observation </th>
+   <th style="text-align:right;"> probability </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> amplify-stress-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-stress-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-stress-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-stress-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-stress-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-stress-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-stress-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-stress-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-pleasure-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-pleasure-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-pleasure-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-pleasure-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-pleasure-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.9 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-pleasure-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.4 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-pleasure-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-pleasure-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.6 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wait </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.7 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wait </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Stress-Signals </td>
+   <td style="text-align:right;"> 0.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wait </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.3 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wait </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> Pleasure-Signals </td>
+   <td style="text-align:right;"> 0.7 </td>
+  </tr>
+</tbody>
+</table>
+
+
+
 #### Reward matrix
 *c* is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
 
@@ -215,6 +351,82 @@ c = rbind(
  R_("attenuate-pleasure-signals", "Stressful", "*", "*", -0.39),
  R_("Wait", "*", "*", "*", -1))
 ```
+table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> action </th>
+   <th style="text-align:left;"> start.state </th>
+   <th style="text-align:left;"> end.state </th>
+   <th style="text-align:left;"> observation </th>
+   <th style="text-align:right;"> value </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> amplify-stress-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -1.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-stress-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -0.29 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-stress-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -0.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-stress-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -1.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-pleasure-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -0.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> amplify-pleasure-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -1.74 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-pleasure-signals </td>
+   <td style="text-align:left;"> Not-Stressful </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -1.12 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> attenuate-pleasure-signals </td>
+   <td style="text-align:left;"> Stressful </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -0.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Wait </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:left;"> * </td>
+   <td style="text-align:right;"> -1.00 </td>
+  </tr>
+</tbody>
+</table>
 
 #### Model
 
