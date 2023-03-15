@@ -1,10 +1,17 @@
 ## Data science tools for neuroimaging
 
-In previous posts, we discussed that data from neuroimaging experiments are arrays, computing with arrays tables and how to manipulate tabular data, scientific computing, and data visualization – were not specific to neuroimaging. Here, we will discuss data science approaches when they are tailored to neuroimaging data. First, we will present a survey of neuroimaging-specific software implemented in Python. Next, we will discuss some of the applications of these data science tools to fundamental problems in neuroimaging data analysis.
+In previous posts, we discussed that data from neuroimaging experiments are arrays. And how computing with arrays tables and manipulating  tabular data, scientific computing, and data visualization were not specific to neuroimaging. Here, we will discuss data science approaches when they are tailored to neuroimaging data. First, we will present a survey of neuroimaging-specific software implemented in Python. Next, we will discuss some of the applications of these data science tools to fundamental problems in neuroimaging data analysis.
 
 ### Neuroimaging in Python
 
-Within the broader ecosystem of Python tools for science, there is a family of tools specifically focused on neuroimaging (we will refer to them collectively as “NiPy”, which stands for “Neuroimaging in Python”). These software tools, developed by and for neuroimaging researchers, cover a wide range of data analysis tasks on a variety of different kinds of experimental data. In the next few sections, we will see in detail how some of these tools are used. But first, we will provide a broad survey of the different kinds of tools that currently exist. It is important to emphasize that this is a very dynamically evolving ecosystem, and some of these tools may evolve into other tools over time, or even disappear. New tools will inevitably also emerge. So, this survey will be, by necessity, a bit superficial and a bit dated. That said, we’ll try to give you a sense of how an ecosystem like this one emerges and evolves so that you can keep an eye on these trends as they play out in the future.
+Within the broader ecosystem of Python tools for science, there is a family of tools specifically focused on neuroimaging (we will refer to them collectively as “NiPy”, which stands for “Neuroimaging in Python”). These software tools, developed by and for neuroimaging researchers, cover a wide range of data analysis tasks on a variety of different kinds of experimental data. According to their Github page. The aim of NiPy is to produce a platform-independent Python environment for the analysis of functional brain imaging data using an open development model.
+
++ Provide an open source, mixed language scientific programming environment suitable for rapid development.
++ Create software components in this environment to make it easy to develop tools for MRI, EEG, PET and other modalities.
++ Create and maintain a wide base of developers to contribute to this platform.
++ To maintain and develop this framework as a single, easily installable bundle.
+
+Here we will provide a broad survey of the different kinds of tools that currently exist. It is important to emphasize that this is a very dynamically evolving ecosystem, and some of these tools may evolve into other tools over time, or even disappear. New tools will inevitably also emerge. So, this survey will be, by necessity, a bit superficial and a bit dated. That said, we’ll try to give you a sense of how an ecosystem like this one emerges and evolves so that you can keep an eye on these trends as they play out in the future.
 
 
 ### Software Packages
