@@ -351,7 +351,7 @@ c = rbind(
  R_("attenuate-pleasure-signals", "Stressful", "*", "*", -0.39),
  R_("Wait", "*", "*", "*", -1))
 ```
-table>
+<table>
  <thead>
   <tr>
    <th style="text-align:left;"> action </th>
