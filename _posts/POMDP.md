@@ -441,6 +441,11 @@ Matrices above are used to compile the model.
      observations = c("Stress-Signals", "Pleasure-Signals"),
      start = c(0.5, 0.5),
      transition_prob = a, observation_prob = b, reward = c)
+     
+  POMDP, list - Healthy Mood
+  Discount factor: 0.5
+  Horizon: Inf epochs
+  List components: ‘name’, ‘discount’, ‘horizon’, ‘states’, ‘actions’, ‘observations’, ‘transition_prob’, ‘observation_prob’, ‘reward’, ‘start’, ‘terminal_values’
 ```
 
 #### Solution 
@@ -449,7 +454,14 @@ Then we use the *solve_POMDP* function to find the optimal solution.
 
 ```     
 sol <- solve_POMDP(HealthyMood)
-sol     
+sol 
+
+POMDP, list - Healthy Mood
+  Discount factor: 0.5
+  Horizon: Inf epochs
+  Solved. Solution converged: TRUE
+  Total expected reward (for start probabilities): -1.188912
+  List components: ‘name’, ‘discount’, ‘horizon’, ‘states’, ‘actions’, ‘observations’, ‘transition_prob’, ‘observation_prob’, ‘reward’, ‘start’, ‘solution’, ‘solver_output’
 ```
 
 #### Visualization
