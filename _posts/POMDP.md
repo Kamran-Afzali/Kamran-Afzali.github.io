@@ -466,11 +466,17 @@ POMDP, list - Healthy Mood
 
 #### Visualization
 
-Here we will visualize the policy graph provided in the solution by the *solve_POMDP()* function.
+Here we will visualize the policy graph provided in the solution by the *solve_POMDP()* function either with *plot_policy_graph*
+
 
 ```
 plot_policy_graph(sol)
 
+```
+
+or with *plot_policy_graph*
+
+```
 plot_value_function(sol, ylim = c(-2,1))
 
 ```
