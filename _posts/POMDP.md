@@ -474,12 +474,16 @@ plot_policy_graph(sol)
 
 ```
 
+
+![](/images/pomdp1.png)
+
 or with *plot_policy_graph*
 
 ```
 plot_value_function(sol, ylim = c(-2,1))
 
 ```
+![](/images/pomdp2.png)
 
 ## References
 
