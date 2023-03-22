@@ -28,7 +28,6 @@ One of the main challenges for anyone doing neuroimaging data analysis is that d
 
 ### References
 
-
-+ [link 1](https://nipy.org/nibabel/gettingstarted.html) 
-
-+ [link 2](https://nipy.org/)
++ [Nipy](https://nipy.org/)
++ [Nibabel](https://nipy.org/nibabel/gettingstarted.html) 
++ [Nipype](https://nipype.readthedocs.io/en/latest/)
