@@ -4,14 +4,14 @@ In previous post, we discussed that data from neuroimaging experiments are array
 
 ### Neuroimaging in Python
 
-Within the broader ecosystem of Python tools for data science, there is a family of tools specifically focused on neuroimaging (we will refer to them collectively as “NiPy”, which stands for “Neuroimaging in Python”). These software tools, developed by and for neuroimaging researchers, cover a wide range of data analysis tasks on a variety of different kinds of experimental data. According to their Github page. The aim of NiPy is to produce a platform-independent Python environment for the analysis of functional brain imaging data using an open development model.
+Within the broader ecosystem of Python tools for data science, there is a family of tools specifically focused on neuroimaging (we will refer to them collectively as “NiPy”, which stands for “Neuroimaging in Python”). These software tools, developed by and for neuroimaging researchers, cover a wide range of data analysis tasks on a variety of different kinds of experimental data. According to their Github page the aim of NiPy is to produce a platform-independent Python environment for the analysis of functional brain imaging data using an open development model.
 
 + Provide an open source, mixed language scientific programming environment suitable for rapid development.
 + Create software components in this environment to make it easy to develop tools for MRI, EEG, PET and other modalities.
 + Create and maintain a wide base of developers to contribute to this platform.
 + To maintain and develop this framework as a single, easily installable bundle.
 
-Here we will provide a broad survey of the different tools that currently exist. It is important to emphasize that this is a very dynamically evolving ecosystem, and some of these tools may evolve into other tools over time, or even disappear. New tools will inevitably also emerge. So, this survey will be, by necessity, a bit superficial and a bit dated. That said, we’ll try to give you a sense of how an ecosystem like this one emerges and evolves so that you can keep an eye on these trends as they play out in the future.
+Here, we'll give a thorough overview of the many tools that are available right now. This ecosystem is dynamically changing and that some of these technologies may eventually change or even vanish. Inevitably, new tools will also be developed. To help you keep an eye on these trends as they develop in the future, we'll try to give you a sense of how an ecosystem like this one forms and changes.
 
 
 ### Software Packages
