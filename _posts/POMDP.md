@@ -428,7 +428,7 @@ c = rbind(
 </tbody>
 </table>
 
-#### Model
+### Model
 
 Matrices above are used to compile the model.
 
@@ -448,7 +448,7 @@ Matrices above are used to compile the model.
   List components: ‘name’, ‘discount’, ‘horizon’, ‘states’, ‘actions’, ‘observations’, ‘transition_prob’, ‘observation_prob’, ‘reward’, ‘start’, ‘terminal_values’
 ```
 
-#### Solution 
+### Solution 
 
 Then we use the *solve_POMDP* function to find the optimal solution.
 
@@ -464,7 +464,7 @@ POMDP, list - Healthy Mood
   List components: ‘name’, ‘discount’, ‘horizon’, ‘states’, ‘actions’, ‘observations’, ‘transition_prob’, ‘observation_prob’, ‘reward’, ‘start’, ‘solution’, ‘solver_output’
 ```
 
-#### Visualization
+### Visualization
 
 Here we will visualize the policy graph provided in the solution by the *solve_POMDP()* function either with *plot_policy_graph*
 
@@ -487,8 +487,8 @@ plot_value_function(sol, ylim = c(-2,1))
 
 ## References
 
-+ [Partially Observable Markov Decision Processes](https://wiki.ubc.ca/Course:CPSC522/Partially_Observable_Markov_Decision_Processes)
 + [POMDP on cran](https://cran.r-project.org/web/packages/pomdp/vignettes/POMDP.html)
++ [Partially Observable Markov Decision Processes](https://wiki.ubc.ca/Course:CPSC522/Partially_Observable_Markov_Decision_Processes)
 + [Modelling mood updating: a proof of principle study](https://pubmed.ncbi.nlm.nih.gov/36511113/)
 + Kurniawati, Hanna, David Hsu, and Wee Sun Lee. 2008. “SARSOP: Efficient Point-Based Pomdp Planning by Approximating Optimally Reachable Belief Spaces.” In In Proc. Robotics: Science and Systems.
 + Littman, Michael L., Anthony R. Cassandra, and Leslie Pack Kaelbling. 1995. “Learning Policies for Partially Observable Environments: Scaling up.” In Proceedings of the Twelfth International Conference on International Conference on Machine Learning, 362–70. ICML’95. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc.
