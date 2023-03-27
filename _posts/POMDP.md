@@ -489,7 +489,7 @@ plot_value_function(sol, ylim = c(-2,1))
 
 + [POMDP on cran](https://cran.r-project.org/web/packages/pomdp/vignettes/POMDP.html)
 + [Partially Observable Markov Decision Processes](https://wiki.ubc.ca/Course:CPSC522/Partially_Observable_Markov_Decision_Processes)
-+ [Modelling mood updating: a proof of principle study](https://pubmed.ncbi.nlm.nih.gov/36511113/)
++ Clark JE, Watson S. Modelling mood updating: a proof of principle study. Br J Psychiatry. 2023 Mar;222(3):125-134. doi: 10.1192/bjp.2022.175. PMID: 36511113; PMCID: [PMC9929713.](https://pubmed.ncbi.nlm.nih.gov/36511113/)
 + Kurniawati, Hanna, David Hsu, and Wee Sun Lee. 2008. “SARSOP: Efficient Point-Based Pomdp Planning by Approximating Optimally Reachable Belief Spaces.” In In Proc. Robotics: Science and Systems.
 + Littman, Michael L., Anthony R. Cassandra, and Leslie Pack Kaelbling. 1995. “Learning Policies for Partially Observable Environments: Scaling up.” In Proceedings of the Twelfth International Conference on International Conference on Machine Learning, 362–70. ICML’95. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc.
 + Pineau, Joelle, Geoff Gordon, and Sebastian Thrun. 2003. “Point-Based Value Iteration: An Anytime Algorithm for Pomdps.” In Proceedings of the 18th International Joint Conference on Artificial Intelligence, 1025–30. IJCAI’03. San Francisco, CA, USA: Morgan Kaufmann Publishers Inc.
