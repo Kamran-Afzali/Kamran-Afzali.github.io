@@ -68,6 +68,16 @@ POMDP problems are solved with the function solve_POMDP(). The list of available
 
 Below is the r code with explanation for simulations run in the healthy mood updating network from [Modelling mood updating: a proof of principle study](https://pubmed.ncbi.nlm.nih.gov/36511113/).
 
+S is a set of hidden states. In this paper the states are “stressful” and “non-stressful”.
+A is a set of possible actions the agent might take. In this paper these are “amplify stress signals”, “attenuate stress signals”, “amplify pleasure signals”, “attenuate pleasure signals” and “wait”. 
+T is a transition matrix of prior probabilities in moving between states under a particular action. This varied by mood state (shown in supplemental material). Specific values were chosen in arbitrary way to highlight the principles of mood updating in each mood state.
+R specifies reward, which is a function of action and new state. In our model reward was specified by the surprisal (negative log probability) of each outcome given T. The result is that the agent, in each mood state, must infer the best policy to allow it to minimise surprisal of observations under prior beliefs about the consequences of action.
+Z is a set of possible observations. In this case: “stress signals” or “pleasure signals”.
+O is a probability matrix specifying prior beliefs about the probability of a particular observation given a specific action and resulting hidden state. Again, this changes with each modelled mood state.
+γ is a discount factor between 0 and 1 which determines whether the agent will behave in a short-sighted (maximise immediate expected rewards) or long-sighted (maximise long term expected rewards) way. Recent evidence suggests this have an important role in pathological mood states though, to maximise simplicity, it is set at 0.5 for each of the models in this paper. 
+![image](https://user-images.githubusercontent.com/36087887/229143211-ecfdec9a-cac5-4658-8d81-be9a97b6ad17.png)
+
+
 
 #### Transition probability matrix
 
