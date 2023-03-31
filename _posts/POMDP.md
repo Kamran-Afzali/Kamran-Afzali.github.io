@@ -75,8 +75,6 @@ R specifies reward, which is a function of action and new state. In our model re
 Z is a set of possible observations. In this case: “stress signals” or “pleasure signals”.
 O is a probability matrix specifying prior beliefs about the probability of a particular observation given a specific action and resulting hidden state. Again, this changes with each modelled mood state.
 γ is a discount factor between 0 and 1 which determines whether the agent will behave in a short-sighted (maximise immediate expected rewards) or long-sighted (maximise long term expected rewards) way. Recent evidence suggests this have an important role in pathological mood states though, to maximise simplicity, it is set at 0.5 for each of the models in this paper. 
-![image](https://user-images.githubusercontent.com/36087887/229143211-ecfdec9a-cac5-4658-8d81-be9a97b6ad17.png)
-
 
 
 #### Transition probability matrix
