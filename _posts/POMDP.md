@@ -68,6 +68,8 @@ POMDP problems are solved with the function solve_POMDP(). The list of available
 
 Below is the r code with explanation for simulations run in the healthy mood updating network from [Modelling mood updating: a proof of principle study](https://pubmed.ncbi.nlm.nih.gov/36511113/).
 
+The following is from the supplementary materials:
+
 + S is a set of hidden states. In this paper the states are “stressful” and “non-stressful”.
 + A is a set of possible actions the agent might take. In this paper these are “amplify stress signals”, “attenuate stress signals”, “amplify pleasure signals”, “attenuate pleasure signals” and “wait”. 
 + T is a transition matrix of prior probabilities in moving between states under a particular action. This varied by mood state (shown in supplemental material). Specific values were chosen in arbitrary way to highlight the principles of mood updating in each mood state.
@@ -79,7 +81,7 @@ Below is the r code with explanation for simulations run in the healthy mood upd
 
 #### Transition probability matrix
 
-*a* represents the transition probability matrix. The values chosen are arbitrary but designed to reflect the healthy agent's certainty that action will preserve current belief states. So, for example, if the agent amplifies stress signals then there is a 90% chance the event will be stressful. Intuitviely, waiting will necessarily preserve the current hidden states as they are.
+In the code *a* represents the transition probability matrix. The values chosen are arbitrary but designed to reflect the healthy agent's certainty that action will preserve current belief states. So, for example, if the agent amplifies stress signals then there is a 90% chance the event will be stressful. Intuitviely, waiting will necessarily preserve the current hidden states as they are.
 
 ```
 library(pomdp)
@@ -182,7 +184,7 @@ a = list("Wait"="identity",
 
 #### Observation probability matrix
 
-*b* represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
+In the code *b* represents the observation probability matrix. Again this reflects a very certain prior belief in the likely consequences of action matching observations to corresponding hidden states.
 
 ```
 b = rbind(
@@ -345,7 +347,7 @@ b = rbind(
 
 
 #### Reward matrix
-*c* is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
+In the code *c* is the reward matrix. Note that the rewards are framed in terms of the surprisal associated with an end state given a particular action. Thus if the agent amplifies stress signals and the event is non-stressful there is a relative penalty.
 
 ```
 c = rbind(
