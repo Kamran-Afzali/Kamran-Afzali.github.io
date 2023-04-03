@@ -36,3 +36,5 @@ One of the main challenges for anyone doing neuroimaging data analysis is that d
 + [Nibabel code examples](https://github.com/nipy/nibabel/blob/master/doc/source/old/examples.txt)
 
 + [Nipype](https://nipype.readthedocs.io/en/latest/)
+
++ [Nipype code examples](https://nipype.readthedocs.io/en/latest/examples.html)
