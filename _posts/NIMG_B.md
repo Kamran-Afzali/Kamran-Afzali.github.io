@@ -22,7 +22,7 @@ There are different software packages to preprocess and analyze neuroimaging dat
 
 Reading neuroimaging data from files is usually the first step in practically any analysis of neuroimaging data. The capacity to read neuroimaging data from widely used file formats into the computer's memory is a prerequisite for all NiPy programmes to some extent. The tool of choice for doing that is called Nibabel. The name hints at the plethora of different file formats that exist to represent and store neuroimaging data. Nibabel, which has been in continuous development since 2007, provides a relatively straightforward common route to read many of these formats. Neuroimaging data is stored in many different file formats, but the NIfTI format—the name stands for Neuroimaging Informatics Technology Initiative—has been increasingly popular in recent years. This is because it was first developed by a team at the US National Institutes of Health. Scans are often stored in the format of NIfTI files .nii which can also be compressed using gzip .nii.gz. These files have structured metadata in the image header and store both 3D and 4D data. For storing raw MRI data, it is the format specified by the BIDS standard, for instance. Nibabel objects can be initialized by simply pointing to a nifti file even if it is compressed through gzip. Nibabel operations allows us to work through some issues that arise when analyzing data from neuroimaging experiments. NiBabel supports an ever growing collection of neuroimaging file formats. To make the most of a file format, it is important to be aware of all of its unique characteristics. In order to achieve this, NiBabel provides high-level, format-independent access to neuroimages as well as an API with varying levels of format-specific access to all information that is accessible in a given file format. 
 
-https://github.com/nipy/nibabel/blob/master/doc/source/old/examples.txt
+
 
 ### Nipype, the Python tool to unify them all
 
@@ -32,5 +32,7 @@ One of the main challenges for anyone doing neuroimaging data analysis is that d
 + [Nipy](https://nipy.org/)
 
 + [Nibabel](https://nipy.org/nibabel/gettingstarted.html) 
+
++ [Nibabel code examples](https://github.com/nipy/nibabel/blob/master/doc/source/old/examples.txt)
 
 + [Nipype](https://nipype.readthedocs.io/en/latest/)
