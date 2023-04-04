@@ -1,4 +1,13 @@
-## Data science tools for neuroimaging
+---
+layout: post
+categories: posts
+title: Tools for Neuroimaging Data Processing
+featured-image: /images/machineLearning.png
+tags: [NiPy, NeuroImaging, Nifti]
+date-string: April 2022
+---
+
+## Tools for Neuroimaging Data Processing
 
 In previous post, we discussed that data from neuroimaging experiments are arrays and how scientific computing with arrays and data visualization were not specific to neuroimaging. Here, we will discuss data science tools tailored to neuroimaging data. First, we will present a survey of neuroimaging-specific software implemented in Python. Next, we will discuss some of the applications of these data science tools to fundamental problems in neuroimaging data analysis.
 
