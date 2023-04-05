@@ -7,11 +7,11 @@ tags: [Preprocessing, NeuroImaging, Nifti]
 date-string: April 2022
 ---
 
-## Preprocessing
+## Neuroimaging Data Preprocessing
 
-Preprocessing is the term used to for all the steps taken to improve our data and prepare it for statistical analysis. A critical step before we can perform any analyses is to do our best to remove as much of the noise as possible. The series of steps to remove noise comprise our neuroimaging data preprocessing pipeline. In the procedure may correct or adjust our data for a number of things inherent in the experimental situation: to take account of time differences between acquiring each image slice, to correct for head movement during scanning, to detect ‘artifacts’ – anomalous measurements – that should be excluded from subsequent analysis; to align the functional images with the reference structural image, and to normalize the data into a standard space so that data can be compared among several subjects; to apply filtering to the image to increase the signal-to-noise ratio; finally, if sMRI is intended, a segmentation step may be performed. We will now look at each of those steps in more detail. 
+The process of improving our data and getting it ready for statistical analysis is referred to as preprocessing. Doing our best to reduce the noise is a crucial step before we can carry out any studies. Our pipeline for preparing neuroimaging data consists of a series of stages to eliminate noise. The process may adjust or correct our data for a number of factors inherent in the experimental setting, including head movement during scanning, time differences between image acquisitions, "artifacts" (anomalous measurements) that should be excluded from further analysis, alignment of the functional images with the reference structural image, and normalisation of the data into a standard space so that the data can be compared. Now, let's take a closer look at each of those actions. 
 
-We will cover:
+This post will cover following subjects:
 
 + Segmentation
 + Motion correction
@@ -24,7 +24,7 @@ We will cover:
 
 #### Segmentation (sMRI)
 
-Segmentation is the process by which a brain is divided into neurological sections according to a given template specification. This can be rather general, for example, segmenting the brain into gray matter, white matter and cerebrospinal fluid, as is done with SPM’s Segmentation, or quite detailed, segmenting into specific functional regions and their subregions, as is done with FreeSurfer’s recon-all, and that is illustrated in the figure. Segmentation can be used for different things. You can use the segmentation to aid the normalization process or use it to aid further analysis by using a specific segmentation as a mask or as the definition of a specific region of interest (ROI).
+The process of segmentation involves dividing the brain into its many neurological regions in accordance with a predetermined template specification. This can be quite general, like when the brain is divided into the cerebrospinal fluid, white matter, and grey matter using SPM's Segmentation, or quite detailed, like when the brain is divided into specific functional regions and their subregions using FreeSurfer's recon-all, as shown in the figure. Different purposes can be served by segmentation. By employing a particular segmentation as a mask or as the definition of a particular region of interest, you can utilise the segmentation to help the normalisation process or use it to help with additional analysis. (ROI).
 
 #### Motion Correction or Realignment (fMRI)
 
