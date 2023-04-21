@@ -1,3 +1,15 @@
+---
+layout: post
+categories: posts
+title: Quantile regression
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: May 2023
+---
+## Quantile regression and its postential for health services
+
+### Introduction
+
 Health services and health economics research articles commonly use multivariate regression techniques to measure the relationship of health service utilization and health outcomes (the outcomes of interest) with clinical characteristics, sociodemographic factors, and policy changes (usually treated as explanatory variables). Common regression methods measure differences in outcome variables between populations at the mean (i.e., ordinary least squares regression), or a population average effect (i.e., logistic regression models), after adjustment for other explanatory variables of interest. These are often done assuming that the regression coefficients are constant across the population – in other words, the relationships between the outcomes of interest and the explanatory variables remain the same across different values of the variables. There are times, however, when researchers, policymakers, and clinicians may be interested in group differences across the distribution of a given dependent variable rather than only at the mean.
 
 Another example is that associations of interest explaining health care and health outcomes may be very different among the highest utilizers of health care, compared to individuals at the bottom or middle of the distribution of health care utilization. Health care expenditures are another area important to policy that is amenable to an analytical strategy that measures differences across the distribution. The average user of health care is obviously very different from the heavy user in terms of health status, but what about other factors such as race/ethnicity, gender, employment, insurance status and other factors of policy interest? Quantile regression allows for analysis of these other differences that exist among heavy health care users in a way that is not possible with commonly used regression methods.
