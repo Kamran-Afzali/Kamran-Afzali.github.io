@@ -4,7 +4,7 @@ categories: posts
 title: Neuroimaging Data Preprocessing
 featured-image: /images/machineLearning.png
 tags: [Preprocessing, NeuroImaging, Nifti]
-date-string: April 2022
+date-string: June 2022
 ---
 
 ## Neuroimaging Data Preprocessing
