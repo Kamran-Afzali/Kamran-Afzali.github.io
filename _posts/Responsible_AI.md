@@ -78,6 +78,24 @@ Sanctioned variables
 Established bias testing methodologies to help determine the validity of tests for AI systems
 Stability standards for active machine learning models to make sure AI programming works as intended
 
+### Chat gpt
+Fairness: AI systems should be designed and implemented to be fair to all individuals and groups, regardless of their race, gender, religion, or any other characteristic.
+
+Accountability: Those who design, develop, and deploy AI systems should be accountable for their actions and any negative consequences that may result from the use of the technology.
+
+Transparency: AI systems should be transparent, meaning that their decisions and reasoning should be understandable and easily explainable to users and stakeholders.
+
+Privacy: The use of AI should respect individuals' privacy and personal data. Data collection and processing should be done in a responsible and transparent manner.
+
+Safety: AI systems should be designed and implemented with safety in mind, ensuring that they do not pose a risk to individuals or society as a whole.
+
+Robustness: AI systems should be designed and implemented to be resilient to errors, biases, and adversarial attacks.
+
+Human control: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
+
+These are just a few principles of responsible AI. As AI technology continues to evolve, it's important that we continue to develop and refine principles that ensure its responsible use.
+
+
 ### References
 
 https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html
