@@ -104,6 +104,20 @@ Another aspect of the alignment problem is ensuring that AI systems respect ethi
 
 Ultimately, solving the alignment problem is critical to ensuring that AI systems are developed and deployed in ways that are responsible and aligned with the interests and values of society as a whole.
 
+Sure, here are some examples of how the alignment problem can arise in the development and deployment of AI systems:
+
+Bias in AI: AI systems can be biased due to biased data or biased algorithms. This can lead to discriminatory outcomes that are not aligned with ethical and legal principles of non-discrimination and fairness.
+
+Unintended consequences: AI systems can have unintended consequences that are not aligned with the values and objectives of their stakeholders. For example, an AI system designed to optimize traffic flow may end up creating new traffic bottlenecks or directing traffic through residential areas, which may not be desirable.
+
+Lack of transparency: AI systems can lack transparency, making it difficult for humans to understand their decision-making processes. This can make it difficult to identify and correct errors or biases in the system.
+
+Human oversight: AI systems may lack adequate human oversight, allowing them to make decisions that are not aligned with the interests and values of their stakeholders. This can be particularly problematic when the AI system is used in high-stakes applications, such as healthcare or criminal justice.
+
+Cybersecurity risks: AI systems can be vulnerable to cyber attacks or other security risks, which can compromise the integrity and reliability of the system. This can lead to outcomes that are not aligned with the interests and values of their stakeholders.
+
+These are just a few examples of how the alignment problem can manifest in AI systems. Addressing the alignment problem requires a holistic approach that takes into account technical, ethical, and social factors, as well as the interests and values of stakeholders.
+
 
 ### References
 
