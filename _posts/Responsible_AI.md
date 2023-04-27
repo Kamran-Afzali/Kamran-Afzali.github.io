@@ -1,5 +1,19 @@
+### Responsible use of artificial intelligence (AI) by Canadian Government
 
-Techniques Toward Alignment: RLHF 
+Artificial intelligence (AI) technologies offer promise for improving how the Government of Canada serves Canadians. As we explore the use of AI in government programs and services, we are ensuring it is governed by clear values, ethics, and laws.
+
+Our guiding principles
+To ensure the effective and ethical use of AI the government will:
+
+understand and measure the impact of using AI by developing and sharing tools and approaches
+be transparent about how and when we are using AI, starting with a clear user need and public benefit
+provide meaningful explanations about AI decision making, while also offering opportunities to review results and challenge these decisions
+be as open as we can by sharing source code, training data, and other relevant information, all while protecting personal information, system integration, and national security and defence
+provide sufficient training so that government employees developing and using AI solutions have the responsible design, function, and implementation skills needed to make AI-based public services better
+
+
+
+### Techniques Toward Alignment: RLHF 
 When it comes to language models like GPT-3, the technique of Reinforcement Learning with Human Feedback (RLHF) is used by OpenAI in ChatGPT. What if whatever candidate you chose in the above example could be trained based on your feedback or the feedback of other humans? This is exactly what happens in RLHF, but it runs the risk of being exceptionally Sycophantic. 
 
 At a high level, RLHF works by learning a reward model for a certain task based on human feedback and then training a policy to optimize the reward received. This means the model is rewarded when it provides a good answer and penalized when it provides a bad one, to improve its answers in use. In doing so, it learns to do good more often. For ChatGPT, the model was rewarded for helpful, harmless, and honest answers. 
@@ -18,7 +32,7 @@ Still, RLHF counts as progress. In Learning from Human Preferences, using RLHF, 
 
 However, there is a compendium of problems with RLHF.
 
-The Human Side of RLHF
+### The Human Side of RLHF
 On its surface RLHF appears to be a straightforward approach to outer alignment. However, a closer examination reveals several critical issues with this approach.
 
 There is an oversight problem. In cases where an unaided human doesn’t know whether the AI action is good or bad, they will not be able to provide effective feedback. In cases where the unaided human is actively wrong about whether the action is good or bad, their feedback will actively select for the AI to deceive the humans, to characterize bad as good, to be a Schemer or a Sycophant. 
@@ -29,11 +43,45 @@ As systems grow more advanced, much more effort may be needed to generate more c
 
 RLHF relies on human feedback as a proxy, which is less reliable than real-time human feedback. Humans are prone to making systematic errors, and the annotators are no exception. In addition, the process of providing feedback for RLHF may have negative impacts on human wellbeing. 
 
+
+###  Why responsible AI is important
+Responsible AI is an emerging area of AI governance and use of the word "responsible" is an umbrella term that covers both ethics and democratization.
+
+The heads of Microsoft and Google have publicly called for AI regulations, but as of this writing, there are no standards for accountability when AI programming creates unintended consequences. Often, bias can be introduced into AI by the data that's used to train machine learning models. When the training data is biased, it naturally follows that decisions made by the programming are also biased.
+
+Now that software programs with artificial intelligence (AI) features are becoming more common, it is increasingly apparent that there is a need for standards in AI beyond those established by Isaac Asimov in his "Three Laws of Robotics." The technology can be misused accidentally (or on purpose) for a number of reasons -- and much of the misuse is caused by a bias in the selection of data to train AI programming.
+
+### What are the principles of responsible AI?
+AI and the machine learning models that support it should be comprehensive, explainable, ethical and efficient.
+
+Comprehensiveness – comprehensive AI has clearly defined testing and governance criteria to prevent machine learning from being hacked easily.
+explainable AI is programmed to describe its purpose, rationale and decision-making process in a way that can be understood by the average end user.
+Ethical AI initiatives have processes in place to seek out and eliminate bias in machine learning models.
+Efficient AI is able to run continually and respond quickly to changes in the operational environment.
+### Why is responsible AI important?
+An important goal of responsible AI is to reduce the risk that a minor change in an input's weight will drastically change the output of a machine learning model.
+
+Within the context of conforming to the four tenets of corporate governance, responsible AI should be:
+
+Each step of the model development process should be recorded in a way that cannot be altered by humans or other programming.
+The data used to train machine models should not be biased.
+The analytic models that support an AI initiative can be adapted to changing environments without introducing bias.
+The organization deploying AI programming is sensitive to its potential impact -- both positive and negative.
+### How do you design responsible AI?
+Building a responsible AI governance framework can be a lot of work. Ongoing scrutiny is crucial to ensure an organization is committed to providing an unbiased, trustworthy AI. This is why it is crucial for an organization to have a maturity model or rubric to follow while designing and implementing an AI system.
+
+At a base level, to be considered responsible, AI must be built with resources and technology according to a company-wide development standard that mandates the use of:
+
+Shared code repositories
+Approved model architectures
+Sanctioned variables
+Established bias testing methodologies to help determine the validity of tests for AI systems
+Stability standards for active machine learning models to make sure AI programming works as intended
+
 ### References
 
 https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html
 
-https://github.com/Kamran-Afzali/Kamran-Afzali.github.io/edit/master/_posts/Responsible_AI.md
 
 https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5
 
