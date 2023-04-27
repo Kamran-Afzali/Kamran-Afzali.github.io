@@ -95,6 +95,15 @@ Human control: Humans should remain in control of AI systems, meaning that decis
 
 These are just a few principles of responsible AI. As AI technology continues to evolve, it's important that we continue to develop and refine principles that ensure its responsible use.
 
+### Responsible AI alignment problem 
+Responsible AI is closely related to the alignment problem in AI, which is the challenge of aligning AI systems' goals and behaviors with the values and objectives of their human operators and stakeholders. The alignment problem is a key aspect of responsible AI because if an AI system is not aligned with the values and objectives of its stakeholders, it may act in ways that are harmful or counterproductive.
+
+One aspect of the alignment problem is ensuring that AI systems behave in ways that are transparent, interpretable, and explainable, allowing humans to understand their reasoning and decision-making processes. This is important for ensuring that AI systems can be held accountable for their actions and for building trust with users and stakeholders.
+
+Another aspect of the alignment problem is ensuring that AI systems respect ethical and legal principles, such as fairness, privacy, and non-discrimination. These principles are central to responsible AI and must be considered when designing and implementing AI systems.
+
+Ultimately, solving the alignment problem is critical to ensuring that AI systems are developed and deployed in ways that are responsible and aligned with the interests and values of society as a whole.
+
 
 ### References
 
