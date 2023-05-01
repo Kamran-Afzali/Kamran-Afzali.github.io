@@ -39,16 +39,17 @@ Quantile regression has additional methodological advantages over other data seg
 
 ## Reference
 
-+ [Quantile regression in R](https://www.statology.org/quantile-regression-in-r/)
++ [Thinking beyond the mean: a practical guide for using quantile regression methods for health services research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4054530/)
 
-+ [Quantile regression on Cran](https://cran.r-project.org/web/packages/quantreg/vignettes/rq.pdf)
++ [Quantile regression in R](https://www.statology.org/quantile-regression-in-r/)
 
 + [Quantile regression in R 2](https://www.r-bloggers.com/2019/01/quantile-regression-in-r-2/)
 
++ [Quantile regression in R 3](https://www.geeksforgeeks.org/quantile-regression-in-r-programming/)
+
 + [Quantile regression on Rpubs](https://rpubs.com/ibn_abdullah/rquantile)
 
-+ [Quantile regression in R 3](https://www.geeksforgeeks.org/quantile-regression-in-r-programming/)
++ [Quantile regression on Cran](https://cran.r-project.org/web/packages/quantreg/vignettes/rq.pdf)
 
 + [Quantile regression on Cran 2](https://search.r-project.org/CRAN/refmans/lqr/html/loglqr.html)
 
-+ [Thinking beyond the mean: a practical guide for using quantile regression methods for health services research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4054530/)
