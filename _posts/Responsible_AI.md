@@ -100,6 +100,21 @@ Human control: Humans should remain in control of AI systems, meaning that decis
 
 These are just a few principles of responsible AI. As AI technology continues to evolve, it's important that we continue to develop and refine principles that ensure its responsible use.
 
+### Against Responsible AI
+
+There are several interest groups or lobbies that may have concerns about the advancement of responsible AI and may try to block its implementation. These include:
+
+Companies or industries that rely on opaque algorithms: Companies that rely on algorithms that are not transparent or explainable may resist the implementation of responsible AI, as it could impact their bottom line.
+
+Government agencies that rely on surveillance: Government agencies that rely on surveillance or monitoring may be hesitant to adopt responsible AI, as it could limit their ability to monitor individuals or groups.
+
+Labor unions that fear automation: Labor unions may resist the implementation of responsible AI, as they may fear that it could lead to job losses or wage stagnation.
+
+Politicians with close ties to the tech industry: Politicians who have close ties to the tech industry may be hesitant to regulate AI or implement responsible AI measures, as it could impact the interests of their donors or supporters.
+
+Advocates of data privacy: While data privacy advocates may be supportive of responsible AI, they may also be concerned that implementing it could lead to increased data collection and sharing.
+
+It is important to note that not all companies, government agencies, or individuals in these groups are necessarily opposed to responsible AI. However, these groups may have concerns or interests that could conflict with the advancement of responsible AI.
 
 ### References
 
