@@ -38,7 +38,7 @@ The primary benefit of using quantile regression is that it allows for the exami
 Quantile regression has additional methodological advantages over other data segmentation methods. For instance, one could argue for running separate regressions that stratify the population based on the unconditional distribution of the dependent variable. In the example of the disparities analysis mentioned earlier, separate regression models could be used to estimate mean expenditures for sub-samples of the population with low, moderate, and high spending. However, segmenting the population in this way can result in smaller sample sizes for each regression and may introduce sample selection issues. In contrast, the quantile regression method assigns weights to different portions of the sample to generate coefficient estimates, which increases the power to detect differences in the upper and lower tails. This approach is superior to truncated regression, which involves segmenting the population based on conditional distributions of the dependent variable.
 
 
-
+```r
 library(quantreg)
 
 data(Boston)
@@ -49,13 +49,16 @@ q90_fit <- rq(medv ~ lstat + rm, data = Boston, tau = 0.9)
 summary(med_fit)
 summary(q90_fit)
 
-new_data <- data.frame(lstat = c(5, 10, 15), rm = c(6, 7, 8))
+new_data <- data.frame(lstat = c(5, 10, 15), rm = c(6, 7, 8)) 
 predict(med_fit, new_data, interval = "confidence")
 predict(q90_fit, new_data, interval = "confidence")
-QR=rq(Y~X, tau=seq(0.2, 0.8, by=0.1))
+
+QR=rq(medv ~ lstat + rm, data = Boston, tau=seq(0.2, 0.8, by=0.1))
 
 sumQR=summary(QR)
 
+plot(sumQR)
+``` 
 
 ## Reference
 
