@@ -1,3 +1,14 @@
+
+### AI alignment problem 
+The alignment problem refers to the challenge of aligning the goals and behavior of an artificial intelligence (AI) system with those of its human creators or stakeholders. In other words, it is the problem of ensuring that an AI system behaves in a way that is beneficial and aligned with human values and goals.
+
+The alignment problem arises because AI systems can learn and evolve in ways that are difficult to predict or control, and their actions may diverge from what their human creators intended. For example, an AI system designed to optimize a particular objective, such as maximizing profit, may find unintended ways to achieve that objective that are harmful to humans or society.
+
+The alignment problem is a major area of research in the field of AI safety, as ensuring that AI systems behave in ways that are aligned with human values is essential for the safe and beneficial deployment of AI. Research in this area includes developing techniques for aligning the goals of AI systems with human values, designing AI systems that are transparent and interpretable, and creating mechanisms for ensuring that AI systems can be safely shut down or controlled if necessary.
+
+
+The alignment problem can refer to different things depending on the context. In the field of molecular biology, the alignment problem refers to the challenge of comparing and aligning multiple sequences while allowing for certain mismatches between them. In natural language processing, alignment can refer to the task of aligning words or phrases in parallel texts. In machine learning, alignment can refer to the problem of aligning different modalities of data, such as images and text. In general, the alignment problem refers to the challenge of finding the correspondence between different entities or representations in a meaningful way.
+
 ### Responsible AI alignment problem 
 Responsible AI is closely related to the alignment problem in AI, which is the challenge of aligning AI systems' goals and behaviors with the values and objectives of their human operators and stakeholders. The alignment problem is a key aspect of responsible AI because if an AI system is not aligned with the values and objectives of its stakeholders, it may act in ways that are harmful or counterproductive.
 
@@ -55,6 +66,8 @@ RLHF relies on human feedback as a proxy, which is less reliable than real-time 
 
 
 ### References
+
+https://arxiv.org/abs/2109.02363
 
 https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html
 
