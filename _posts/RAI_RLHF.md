@@ -69,6 +69,8 @@ RLHF relies on human feedback as a proxy, which is less reliable than real-time 
 
 https://arxiv.org/abs/2109.02363
 
+Christiano, P., Leike, J., & Amodei, D. (2019). Alignment for advanced machine learning systems. In Thirty-Third AAAI Conference on Artificial Intelligence.
+
 https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html
 
 
