@@ -88,6 +88,16 @@ https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges
 
 Christiano, P., Leike, J., & Amodei, D. (2019). Alignment for advanced machine learning systems. In Thirty-Third AAAI Conference on Artificial Intelligence.
 
+Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017). Deep reinforcement learning from human preferences. In Proceedings of the 31st Conference on Neural Information Processing Systems (NIPS'17) (pp. 4299-4307).
+
+Knox, W. B., & Stone, P. (2010). Combining manual feedback with subsequent MDP reward signals for reinforcement learning. In Proceedings of the 27th International Conference on Machine Learning (ICML'10) (pp. 607-614).
+
+MacGlashan, J., Ho, M. K., Loftin, R. B., Peng, B., Wang, J., Roberts, D. L., & Littman, M. L. (2017). Interactive learning from policy-dependent human feedback. In Proceedings of the 31st AAAI Conference on Artificial Intelligence (AAAI'17) (pp. 3060-3066).
+
+Suay, H. B., & Chernova, S. (2015). Behavior grounding in reinforcement learning via feedback from the real world. In Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems (AAMAS'15) (pp. 1491-1499).
+
+Wirth, C., & Schölkopf, B. (2016). A survey of semi-supervised learning. In S. Z. Li & S. J. Pan (Eds.), Semi-Supervised Learning (pp. 1-14). Springer.
+
 https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html
 
 
