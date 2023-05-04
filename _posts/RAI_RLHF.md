@@ -32,9 +32,18 @@ Cybersecurity risks: AI systems can be vulnerable to cyber attacks or other secu
 
 These are just a few examples of how the alignment problem can manifest in AI systems. Addressing the alignment problem requires a holistic approach that takes into account technical, ethical, and social factors, as well as the interests and values of stakeholders.
 
-
-
 ### Techniques Toward Alignment: RLHF 
+
+Reinforcement Learning from Human Feedback (RLHF) is a technique that involves using human feedback to train agents to perform tasks. It is a combination of preference modeling and reinforcement learning, where preference models are used to capture human judgments and RL is used to optimize the agent's behavior based on those judgments. RLHF has been applied to various domains, including natural language processing and embodied agents. However, there are challenges to using RLHF in real-world settings, such as the nature of NLP tasks and the constraints of production systems. Despite these challenges, RLHF has the potential to improve agent behavior and speed up learning in complex domains.
+
+Reinforcement Learning from Human Feedback (RLHF) is a subfield of reinforcement learning that focuses on developing algorithms and approaches for enabling agents to learn from feedback provided by humans. In traditional reinforcement learning, agents learn from rewards that are provided by the environment, but in RLHF, agents learn from feedback that is provided by a human teacher or evaluator.
+
+RLHF is often used in applications where it is difficult or impractical to define a reward function for an agent based on the environment alone. For example, in robotics or human-robot interaction, it may be challenging to design a reward function that captures all of the nuances of a task or behavior that a human would find desirable.
+
+RLHF algorithms typically involve a human evaluator providing feedback in the form of demonstrations, preferences, or critiques, which are used to update the agent's policy or value function. RLHF approaches may also involve active learning, where the agent queries the human for feedback in order to improve its performance.
+
+RLHF is an active area of research in reinforcement learning, and many approaches have been developed to address the challenges of learning from human feedback, such as dealing with noisy or inconsistent feedback, addressing the exploration-exploitation trade-off, and adapting to changes in the human evaluator's preferences or goals.
+
 When it comes to language models like GPT-3, the technique of Reinforcement Learning with Human Feedback (RLHF) is used by OpenAI in ChatGPT. What if whatever candidate you chose in the above example could be trained based on your feedback or the feedback of other humans? This is exactly what happens in RLHF, but it runs the risk of being exceptionally Sycophantic. 
 
 At a high level, RLHF works by learning a reward model for a certain task based on human feedback and then training a policy to optimize the reward received. This means the model is rewarded when it provides a good answer and penalized when it provides a bad one, to improve its answers in use. In doing so, it learns to do good more often. For ChatGPT, the model was rewarded for helpful, harmless, and honest answers. 
@@ -68,6 +77,14 @@ RLHF relies on human feedback as a proxy, which is less reliable than real-time 
 ### References
 
 https://arxiv.org/abs/2109.02363
+
+https://arxiv.org/abs/2011.02511
+
+https://arxiv.org/abs/2211.11602
+
+https://arxiv.org/abs/2204.05862
+
+https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges-for-in-NLP-Kreutzer-Riezler/328031842e86a9ccf8bcb0f7636cb4eb64f065bb
 
 Christiano, P., Leike, J., & Amodei, D. (2019). Alignment for advanced machine learning systems. In Thirty-Third AAAI Conference on Artificial Intelligence.
 
