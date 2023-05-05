@@ -73,6 +73,29 @@ As systems grow more advanced, much more effort may be needed to generate more c
 
 RLHF relies on human feedback as a proxy, which is less reliable than real-time human feedback. Humans are prone to making systematic errors, and the annotators are no exception. In addition, the process of providing feedback for RLHF may have negative impacts on human wellbeing. 
 
+It is possible that underpaid workers from developing countries may be involved in training Reinforcement Learning from Human Feedback (RLHF) models, as the process of collecting human feedback can involve crowdsourcing and other methods of outsourcing work. However, it is important to note that the use of such workers for data labeling and other tasks should be done in an ethical and responsible manner.
+
+If workers are underpaid or exploited in the process of training RLHF models, this would be a violation of ethical standards and could be considered a form of exploitation. It is important to ensure that workers are compensated fairly for their work, and that they are provided with safe and equitable working conditions.
+
+Furthermore, it is important to consider the potential power dynamics at play in such situations. Workers from developing countries may have limited options for employment, and may feel pressured to accept low-paying jobs in order to support themselves and their families. This can create an unequal power dynamic between workers and employers, which can lead to exploitation and abuse.
+
+In summary, while it is possible that underpaid workers from developing countries may be involved in training RLHF models, it is important to ensure that ethical and responsible practices are followed to protect the rights and well-being of workers.
+
+### Downsides 
+
+Time and resource-intensive: RLHF requires human input and feedback, which can be time-consuming and resource-intensive. It can be difficult to get people to provide feedback consistently and accurately, which can limit the usefulness of the learning process.
+
+Bias: The feedback provided by humans can be biased, either intentionally or unintentionally. This can lead to inaccurate or incomplete learning models that do not generalize well to new situations.
+
+Limited feedback: Humans may not always be able to provide feedback in all situations, or the feedback they provide may not be complete or accurate enough to fully train a reinforcement learning model.
+
+Difficulty in scaling: RLHF may be difficult to scale to larger or more complex tasks, as the amount of feedback required increases exponentially with the number of possible actions and states.
+
+Limited exploration: RLHF relies on the feedback provided by humans, which may limit exploration and discovery of new strategies or solutions.
+
+Cost: Human feedback can be expensive to collect, and the cost of using RLHF may not always be justified by the benefits gained.
+
+It is important to note that many of these downsides can be mitigated by careful design and implementation of RLHF algorithms, and by using appropriate methods to address bias and other limitations.
 
 ### References
 
