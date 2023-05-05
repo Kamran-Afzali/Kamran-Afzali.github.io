@@ -43,6 +43,54 @@ Clinical trial design: GPR can be used in clinical trial design to model the dos
 
 Overall, GPR can be used in many different areas of healthcare to model complex relationships between data and to make personalized predictions for individual patients. By providing a probabilistic framework for uncertainty quantification, GPR can also help to improve the transparency and reliability of healthcare decision-making.
 
+
+### Code
+
+library(kernlab)
+library(ggplot2)
+
+```
+# Generate some sample data
+x <- seq(0, 10, length.out = 100)
+y <- sin(x) + rnorm(length(x), sd = 0.1)
+
+# Fit a Gaussian process regression model
+model <- ksvm(x, y, type = "eps-svr", kernel = "rbfdot", kpar = list(sigma = 0.5), C = 10, epsilon = 0.1)
+
+# Predict on new data
+new_x <- seq(0, 10, length.out = 200)
+new_y <- predict(model, newdata = data.frame(x = new_x))
+
+# Plot the results
+ggplot() +
+  geom_point(aes(x = x, y = y), data = data.frame(x = x, y = y)) +
+  geom_line(aes(x = new_x, y = new_y), color = "red")
+
+
+# Load necessary packages
+library(kernlab)
+library(GPfit)
+library(ggplot2)
+
+# Generate simulated data
+set.seed(123)
+x <- seq(0, 10, length = 50)
+y <- sin(x) + rnorm(50, 0, 0.2)
+df <- data.frame(x = x, y = y)
+
+# Fit Gaussian process regression model
+gpr_model <- km(GPfit(y ~ x, data = df, method = "GP", kernel = "rbfdot"))
+y_pred <- predict(gpr_model, x)$fit
+
+# Visualize results
+ggplot(df, aes(x = x, y = y)) +
+  geom_point() +
+  geom_line(aes(y = y_pred), color = "red") +
+  labs(title = "Gaussian Process Regression", x = "x", y = "y")
+
+  
+```
+
 ### References
 
 https://arxiv.org/abs/2105.02796
