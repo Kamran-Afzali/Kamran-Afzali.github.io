@@ -91,6 +91,82 @@ ggplot(df, aes(x = x, y = y)) +
   
 ```
 
+### Bayesian
+
+Yes, Gaussian process regression (GPR) can also be implemented in a Bayesian context using Stan, which is a probabilistic programming language for fitting Bayesian models.
+
+In Bayesian GPR, we assume a prior distribution for the unknown function and then update our beliefs about the function based on the observed data. The prior distribution is typically specified as a Gaussian process with a mean function and covariance function that depend on hyperparameters. The likelihood function for the observed data is also assumed to be Gaussian with a mean function equal to the prior mean function and a covariance function equal to the sum of the prior covariance function and a noise term. The hyperparameters of the prior and likelihood functions are estimated from the data using Markov chain Monte Carlo (MCMC) methods.
+
+Here is an example of R code for fitting a Bayesian GPR model using Stan
+
+
+```
+library(rstan)
+library(ggplot2)
+
+# Generate simulated data
+set.seed(123)
+x <- seq(0, 10, length = 50)
+y <- sin(x) + rnorm(50, 0, 0.2)
+df <- data.frame(x = x, y = y)
+
+# Specify Stan model code
+stan_model_code <- "
+data {
+  int<lower=1> N;
+  vector[N] x;
+  vector[N] y;
+}
+parameters {
+  real mu;
+  real<lower=0> sigma_f;
+  real<lower=0> sigma_n;
+  vector[N] eta;
+}
+transformed parameters {
+  vector[N] f;
+  {
+    matrix[N, N] K;
+    for (i in 1:N) {
+      for (j in 1:N) {
+        K[i, j] = sigma_f^2 * exp(-0.5 * square(x[i] - x[j]));
+        if (i == j) K[i, j] = K[i, j] + sigma_n^2;
+      }
+    }
+    f = mu + cholesky_decompose(K) * eta;
+  }
+}
+model {
+  sigma_f ~ normal(0, 10);
+  sigma_n ~ normal(0, 10);
+  mu ~ normal(0, 10);
+  eta ~ normal(0, 1);
+  y ~ normal(f, sigma_n);
+}
+"
+
+# Compile Stan model
+gpr_stan_model <- stan_model(model_code = stan_model_code)
+
+# Prepare data for Stan model
+stan_data <- list(N = nrow(df), x = df$x, y = df$y)
+
+# Fit Bayesian GPR model using Stan
+gpr_fit <- sampling(gpr_stan_model, data = stan_data)
+
+# Extract posterior samples of f for prediction
+f_samples <- extract(gpr_fit, "f")$f
+
+# Predict new values of f and plot results
+x_new <- seq(0, 10, length = 100)
+f_new_samples <- matrix(0, nrow = nrow(f_samples), ncol = length(x_new))
+for (i in 1:length(x_new)) {
+  x_i <- rep(x_new[i], nrow(f_samples))
+  f_new_samples[,i] <- extract(gpr_fit, "f", data = list(N = length(x_i), x = x_i))$f
+}
+f_new_mean <- apply(f_new_samples, 2, mean)
+f_new_ci <- apply(f_new_samples, 2, quantile, c(0.025, 0.975))
+```
 ### References
 
 https://arxiv.org/abs/2105.02796
