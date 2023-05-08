@@ -97,6 +97,24 @@ Cost: Human feedback can be expensive to collect, and the cost of using RLHF may
 
 It is important to note that many of these downsides can be mitigated by careful design and implementation of RLHF algorithms, and by using appropriate methods to address bias and other limitations.
 
+
+# future of RHLF
+
+The wide applicability and burgeoning success of RLHF strongly motivate the need to evaluate its social impacts. Recent research has focused on improving RLHF agents with respect to all metrics, including subsequent human judgment during live interactions with agents. However, there is limited research on the future developments of RLHF. One paper  considers the social effects of RLHF, identifies key social and ethical issues of RLHF, and discusses social impacts for stakeholders. Another paper demonstrates how to use RLHF to improve upon simulated, embodied agents trained to a base level of competency with imitation learning.
+
+Improved algorithms and techniques: Researchers may develop new and improved algorithms and techniques for RLHF that are more efficient, accurate, and capable of handling a wider range of tasks.
+
+Integration with other AI methods: RLHF may be integrated with other AI methods, such as deep learning, to create more sophisticated and powerful AI systems.
+
+Expanded applications: RLHF may be applied to new domains and tasks beyond its current focus on gaming and robotics, such as healthcare, education, and finance.
+
+Ethical and regulatory frameworks: As RLHF becomes more widespread, there may be a greater need for ethical and regulatory frameworks to ensure that these systems are developed and deployed in a responsible and equitable manner.
+
+Human-robot collaboration: RLHF may enable more effective collaboration between humans and robots, with humans providing feedback and guidance to robots to improve their performance and safety in a wide range of settings.
+
+Overall, the future of RLHF is likely to be shaped by ongoing advances in AI research and technology, as well as broader social, ethical, and regulatory considerations.
+
+
 ### References
 
 https://arxiv.org/abs/2109.02363
