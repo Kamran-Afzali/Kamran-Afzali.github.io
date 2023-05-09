@@ -16,20 +16,13 @@ Another major policy topic that can be evaluated using a method that gauges disp
 
 In the US, differences in the distribution of health care spending between Blacks and Whites and between Hispanics and Whites are present at the top quantiles of spending. Even in the top income and educational categories, the same pattern of differences is still noticeable. The assessment of racial and ethnic differences in health care and mental health spending across various quantiles of spending has been done using quantile regression approaches. 
 
+### OLS vs Quantile regression
+
 Ordinary least squares (OLS) regression and related methods, which typically assume that associations between independent and dependent variables are the same at all levels. Quantile regression is not a regression estimated on a quantile, or subsample of data as the name may suggest. Quantile methods allow the analyst to relax the common regression slope assumption. The objective of OLS regression is to reduce the gaps between the values predicted by the regression line and the values actually observed. In contrast, quantile regression attempts to minimise the weighted distances by differently weighing the distances between the values predicted by the regression line and the observed values. The regression technique known as quantile regression is used to estimate these conditional quantile functions. Quantile regression estimates the conditional quantile function as a linear combination of the predictors, just like linear regression does for the conditional mean function.
 
 Quantile regression is a statistical method that is highly effective and resilient to outliers. Median regression (i.e. 50th quantile regression) is sometimes preferred to linear regression because it is “robust to outliers”. Quantile regression allows you to calculate any desired percentage or quantile for a particular value in the features variables. For instance, if you want to determine the 30th quantile for health expoenses, this means that there is a 30% probability that the actual health expoenses will be below the prediction, while there is a 70% chance that the price will be above it.
 
-
-
-
-
-
-
-
-
-
-
+### Conclusion 
 
 The health services literature offers numerous opportunities to use quantile regression. With the advancement of computing power, the time and effort required to estimate quantile regression has significantly reduced. This is evidenced by our study on over 10,000 subjects, which produced results in under a minute. As a result, it has become more feasible to examine interaction terms with observed covariates to determine if slopes are the same or different. With the availability of user-friendly quantile regression commands in widely-used statistical packages, and the reduced time barrier, these methods are expected to become increasingly popular in research projects.
 
@@ -37,6 +30,7 @@ The primary benefit of using quantile regression is that it allows for the exami
 
 Quantile regression has additional methodological advantages over other data segmentation methods. For instance, one could argue for running separate regressions that stratify the population based on the unconditional distribution of the dependent variable. In the example of the disparities analysis mentioned earlier, separate regression models could be used to estimate mean expenditures for sub-samples of the population with low, moderate, and high spending. However, segmenting the population in this way can result in smaller sample sizes for each regression and may introduce sample selection issues. In contrast, the quantile regression method assigns weights to different portions of the sample to generate coefficient estimates, which increases the power to detect differences in the upper and lower tails. This approach is superior to truncated regression, which involves segmenting the population based on conditional distributions of the dependent variable.
 
+### Code
 
 ```r
 library(quantreg)
