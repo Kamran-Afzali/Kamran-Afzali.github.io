@@ -1,41 +1,3 @@
-### Responsible use of artificial intelligence (AI) by Canadian Government
-
-
-
-Governments can play a crucial role in facilitating the implementation of responsible AI by taking the following actions:
-
-Setting clear regulations and guidelines: Governments can establish regulations and guidelines for the development and deployment of AI systems to ensure that they meet ethical and responsible standards. These regulations can include requirements for transparency, accountability, and privacy protection.
-
-Promoting collaboration between industry and academia: Governments can facilitate collaboration between industry and academia to promote research and development of AI systems that are ethical and responsible.
-
-Investing in AI literacy: Governments can invest in programs to increase AI literacy among the public and policymakers, enabling them to better understand the benefits and risks of AI and make informed decisions.
-
-Encouraging diversity and inclusivity: Governments can encourage the development of AI systems that are diverse and inclusive, reflecting the needs and values of all members of society.
-
-Supporting ethical AI startups: Governments can provide funding and resources to support ethical AI startups that are developing innovative AI solutions that are responsible and beneficial to society.
-
-By taking these actions, governments can help ensure that AI is developed and deployed in a responsible and ethical manner, benefiting society as a whole.
-
-Artificial intelligence (AI) technologies offer promise for improving how the Government of Canada serves Canadians. As we explore the use of AI in government programs and services, we are ensuring it is governed by clear values, ethics, and laws.
-
-Our guiding principles
-To ensure the effective and ethical use of AI the government will:
-
-understand and measure the impact of using AI by developing and sharing tools and approaches
-be transparent about how and when we are using AI, starting with a clear user need and public benefit
-provide meaningful explanations about AI decision making, while also offering opportunities to review results and challenge these decisions
-be as open as we can by sharing source code, training data, and other relevant information, all while protecting personal information, system integration, and national security and defence
-provide sufficient training so that government employees developing and using AI solutions have the responsible design, function, and implementation skills needed to make AI-based public services better
-
-
-
-
-###  Why responsible AI is important
-Responsible AI is an emerging area of AI governance and use of the word "responsible" is an umbrella term that covers both ethics and democratization.
-
-The heads of Microsoft and Google have publicly called for AI regulations, but as of this writing, there are no standards for accountability when AI programming creates unintended consequences. Often, bias can be introduced into AI by the data that's used to train machine learning models. When the training data is biased, it naturally follows that decisions made by the programming are also biased.
-
-Now that software programs with artificial intelligence (AI) features are becoming more common, it is increasingly apparent that there is a need for standards in AI beyond those established by Isaac Asimov in his "Three Laws of Robotics." The technology can be misused accidentally (or on purpose) for a number of reasons -- and much of the misuse is caused by a bias in the selection of data to train AI programming.
 
 ### What are the principles of responsible AI?
 AI and the machine learning models that support it should be comprehensive, explainable, ethical and efficient.
@@ -44,7 +6,30 @@ Comprehensiveness – comprehensive AI has clearly defined testing and governanc
 explainable AI is programmed to describe its purpose, rationale and decision-making process in a way that can be understood by the average end user.
 Ethical AI initiatives have processes in place to seek out and eliminate bias in machine learning models.
 Efficient AI is able to run continually and respond quickly to changes in the operational environment.
-### Why is responsible AI important?
+
+Fairness: AI systems should be designed and implemented to be fair to all individuals and groups, regardless of their race, gender, religion, or any other characteristic.
+
+Accountability: Those who design, develop, and deploy AI systems should be accountable for their actions and any negative consequences that may result from the use of the technology.
+
+Transparency: AI systems should be transparent, meaning that their decisions and reasoning should be understandable and easily explainable to users and stakeholders.
+
+Privacy: The use of AI should respect individuals' privacy and personal data. Data collection and processing should be done in a responsible and transparent manner.
+
+Safety: AI systems should be designed and implemented with safety in mind, ensuring that they do not pose a risk to individuals or society as a whole.
+
+Robustness: AI systems should be designed and implemented to be resilient to errors, biases, and adversarial attacks.
+
+Human control: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
+
+These are just a few principles of responsible AI. As AI technology continues to evolve, it's important that we continue to develop and refine principles that ensure its responsible use.
+
+###  Why responsible AI is important
+Responsible AI is an emerging area of AI governance and use of the word "responsible" is an umbrella term that covers both ethics and democratization.
+
+The heads of Microsoft and Google have publicly called for AI regulations, but as of this writing, there are no standards for accountability when AI programming creates unintended consequences. Often, bias can be introduced into AI by the data that's used to train machine learning models. When the training data is biased, it naturally follows that decisions made by the programming are also biased.
+
+Now that software programs with artificial intelligence (AI) features are becoming more common, it is increasingly apparent that there is a need for standards in AI beyond those established by Isaac Asimov in his "Three Laws of Robotics." The technology can be misused accidentally (or on purpose) for a number of reasons -- and much of the misuse is caused by a bias in the selection of data to train AI programming.
+
 An important goal of responsible AI is to reduce the risk that a minor change in an input's weight will drastically change the output of a machine learning model.
 
 Within the context of conforming to the four tenets of corporate governance, responsible AI should be:
@@ -53,6 +38,9 @@ Each step of the model development process should be recorded in a way that cann
 The data used to train machine models should not be biased.
 The analytic models that support an AI initiative can be adapted to changing environments without introducing bias.
 The organization deploying AI programming is sensitive to its potential impact -- both positive and negative.
+
+
+
 ### How do you design responsible AI?
 Building a responsible AI governance framework can be a lot of work. Ongoing scrutiny is crucial to ensure an organization is committed to providing an unbiased, trustworthy AI. This is why it is crucial for an organization to have a maturity model or rubric to follow while designing and implementing an AI system.
 
@@ -83,22 +71,36 @@ Balancing competing interests: Responsible AI often requires balancing competing
 
 These are just some of the challenges organizations may face when implementing responsible AI. Addressing these challenges requires a collaborative effort between technical experts, policymakers, and stakeholders from diverse communities.
 
-### Chat gpt
-Fairness: AI systems should be designed and implemented to be fair to all individuals and groups, regardless of their race, gender, religion, or any other characteristic.
 
-Accountability: Those who design, develop, and deploy AI systems should be accountable for their actions and any negative consequences that may result from the use of the technology.
 
-Transparency: AI systems should be transparent, meaning that their decisions and reasoning should be understandable and easily explainable to users and stakeholders.
+### Responsible use of artificial intelligence (AI) by Canadian Government
 
-Privacy: The use of AI should respect individuals' privacy and personal data. Data collection and processing should be done in a responsible and transparent manner.
+Governments can play a crucial role in facilitating the implementation of responsible AI by taking the following actions:
 
-Safety: AI systems should be designed and implemented with safety in mind, ensuring that they do not pose a risk to individuals or society as a whole.
+Setting clear regulations and guidelines: Governments can establish regulations and guidelines for the development and deployment of AI systems to ensure that they meet ethical and responsible standards. These regulations can include requirements for transparency, accountability, and privacy protection.
 
-Robustness: AI systems should be designed and implemented to be resilient to errors, biases, and adversarial attacks.
+Promoting collaboration between industry and academia: Governments can facilitate collaboration between industry and academia to promote research and development of AI systems that are ethical and responsible.
 
-Human control: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
+Investing in AI literacy: Governments can invest in programs to increase AI literacy among the public and policymakers, enabling them to better understand the benefits and risks of AI and make informed decisions.
 
-These are just a few principles of responsible AI. As AI technology continues to evolve, it's important that we continue to develop and refine principles that ensure its responsible use.
+Encouraging diversity and inclusivity: Governments can encourage the development of AI systems that are diverse and inclusive, reflecting the needs and values of all members of society.
+
+Supporting ethical AI startups: Governments can provide funding and resources to support ethical AI startups that are developing innovative AI solutions that are responsible and beneficial to society.
+
+By taking these actions, governments can help ensure that AI is developed and deployed in a responsible and ethical manner, benefiting society as a whole.
+
+Artificial intelligence (AI) technologies offer promise for improving how the Government of Canada serves Canadians. As we explore the use of AI in government programs and services, we are ensuring it is governed by clear values, ethics, and laws.
+
+Our guiding principles
+To ensure the effective and ethical use of AI the government will:
+
+understand and measure the impact of using AI by developing and sharing tools and approaches
+be transparent about how and when we are using AI, starting with a clear user need and public benefit
+provide meaningful explanations about AI decision making, while also offering opportunities to review results and challenge these decisions
+be as open as we can by sharing source code, training data, and other relevant information, all while protecting personal information, system integration, and national security and defence
+provide sufficient training so that government employees developing and using AI solutions have the responsible design, function, and implementation skills needed to make AI-based public services better
+
+
 
 ### Against Responsible AI
 
