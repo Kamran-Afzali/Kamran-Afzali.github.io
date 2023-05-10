@@ -6,9 +6,9 @@ featured-image: /images/stan.png
 tags: [STAN, R, Bayes]
 date-string: May 2023
 ---
-## Quantile regression and its postential for health services
+## Quantile regression and its potential for health services
 
-### Introduction
+### Health services and the necessity of adapted methodology
 
 Multivariate regression techniques are frequently used in health services research publications to assess the association between clinical characteristics, sociodemographic factors, and policy changes (which are typically considered as explanatory variables) and health service utilisation and outcomes. After adjusting for additional explanatory variables, common regression methods evaluate differences in outcome variables between populations at the mean (i.e., ordinary least squares regression), or a population average effect. These are frequently carried out on the presumption that the regression coefficients are constant across the population, meaning that the associations between the important outcomes and the explanatory variables hold true regardless of the values of the variables. However, rather than merely looking at group differences at the mean, researchers, decision-makers, and physicians could be more interested in group differences over the distribution of a given dependent variable.
 
@@ -22,7 +22,7 @@ Ordinary least squares (OLS) regression and related methods, which typically ass
 
 Quantile regression is a statistical method that is highly effective and resilient to outliers. Median regression (i.e. 50th quantile regression) is sometimes preferred to linear regression because it is “robust to outliers”. Quantile regression allows you to calculate any desired percentage or quantile for a particular value in the features variables. For instance, if you want to determine the 30th quantile for health expoenses, this means that there is a 30% probability that the actual health expoenses will be below the prediction, while there is a 70% chance that the price will be above it.
 
-### Conclusion 
+### Moving forward 
 
 The health services literature offers numerous opportunities to use quantile regression. With the advancement of computing power, the time and effort required to estimate quantile regression has significantly reduced. This is evidenced by our study on over 10,000 subjects, which produced results in under a minute. As a result, it has become more feasible to examine interaction terms with observed covariates to determine if slopes are the same or different. With the availability of user-friendly quantile regression commands in widely-used statistical packages, and the reduced time barrier, these methods are expected to become increasingly popular in research projects.
 
@@ -31,6 +31,8 @@ The primary benefit of using quantile regression is that it allows for the exami
 Quantile regression has additional methodological advantages over other data segmentation methods. For instance, one could argue for running separate regressions that stratify the population based on the unconditional distribution of the dependent variable. In the example of the disparities analysis mentioned earlier, separate regression models could be used to estimate mean expenditures for sub-samples of the population with low, moderate, and high spending. However, segmenting the population in this way can result in smaller sample sizes for each regression and may introduce sample selection issues. In contrast, the quantile regression method assigns weights to different portions of the sample to generate coefficient estimates, which increases the power to detect differences in the upper and lower tails. This approach is superior to truncated regression, which involves segmenting the population based on conditional distributions of the dependent variable.
 
 ### Code
+
+Here we present a code snippet for the use of quenstile regression in R
 
 ```r
 library(quantreg)
@@ -57,16 +59,22 @@ plot(sumQR)
 ## Reference
 
 + [Thinking beyond the mean: a practical guide for using quantile regression methods for health services research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4054530/)
++ Koenker, R., & Hallock, K. F. (2001). Quantile regression. Journal of Economic perspectives, 15(4), 143-156. doi: 10.1257/jep.15.4.143
+
++ Cortes, C., & Mohri, M. (2014). Domain adaptation and sample bias correction theory and algorithm for practitioners. arXiv preprint arXiv:1412.4863.
+
++ Koenker, R. (2005). Quantile regression. Cambridge University Press. doi: 10.1017/cbo9780511754098
+
++ Yu, B., & Zhang, X. (2005). A study on the relationship between the BMI of children and their parents. Journal of Zhejiang University. Science. B, 6(10), 948-952. doi: 10.1631/jzus.2005.b0948
 
 + [Quantile regression in R](https://www.statology.org/quantile-regression-in-r/)
-
-+ [Quantile regression in R 2](https://www.r-bloggers.com/2019/01/quantile-regression-in-r-2/)
-
-+ [Quantile regression in R 3](https://www.geeksforgeeks.org/quantile-regression-in-r-programming/)
-
-+ [Quantile regression on Rpubs](https://rpubs.com/ibn_abdullah/rquantile)
 
 + [Quantile regression on Cran](https://cran.r-project.org/web/packages/quantreg/vignettes/rq.pdf)
 
 + [Quantile regression on Cran 2](https://search.r-project.org/CRAN/refmans/lqr/html/loglqr.html)
 
++ [ ](https://www.r-bloggers.com/2019/01/quantile-regression-in-r-2/)
+
++ [ ](https://www.geeksforgeeks.org/quantile-regression-in-r-programming/)
+
++ [ ](https://rpubs.com/ibn_abdullah/rquantile)
