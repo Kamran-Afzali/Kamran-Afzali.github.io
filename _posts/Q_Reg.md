@@ -58,7 +58,8 @@ plot(sumQR)
 
 ## Reference
 
-+ [Thinking beyond the mean: a practical guide for using quantile regression methods for health services research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4054530/)
++ Zhang, W., Dolan, J. G., & Qian, F. (2014). Thinking beyond the mean: a practical guide for using quantile regression methods for health services research. Shanghai archives of psychiatry, 26(2), 69-76. doi: 10.3969/shpsy.2014.2.69[](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4054530/)
+
 + Koenker, R., & Hallock, K. F. (2001). Quantile regression. Journal of Economic perspectives, 15(4), 143-156. doi: 10.1257/jep.15.4.143
 
 + Cortes, C., & Mohri, M. (2014). Domain adaptation and sample bias correction theory and algorithm for practitioners. arXiv preprint arXiv:1412.4863.
@@ -73,8 +74,8 @@ plot(sumQR)
 
 + [Quantile regression on Cran 2](https://search.r-project.org/CRAN/refmans/lqr/html/loglqr.html)
 
-+ [ ](https://www.r-bloggers.com/2019/01/quantile-regression-in-r-2/)
+ [ ](https://www.r-bloggers.com/2019/01/quantile-regression-in-r-2/)
 
-+ [ ](https://www.geeksforgeeks.org/quantile-regression-in-r-programming/)
+ [ ](https://www.geeksforgeeks.org/quantile-regression-in-r-programming/)
 
-+ [ ](https://rpubs.com/ibn_abdullah/rquantile)
+ [ ](https://rpubs.com/ibn_abdullah/rquantile)
