@@ -32,27 +32,80 @@ Quantile regression has additional methodological advantages over other data seg
 
 ### Code
 
-Here we present a code snippet for the use of quenstile regression in R
+Here we present a code snippet for the use of quenstile regression in R using the Pima Indians Diabetes Data to predict the glucose levels based on triceps and mass variables.
+
+
+
 
 ```r
-library(quantreg)
+library(pdp)
+data(pima)
 
-data(Boston)
-
-med_fit <- rq(medv ~ lstat + rm, data = Boston, tau = 0.5)
-q90_fit <- rq(medv ~ lstat + rm, data = Boston, tau = 0.9)
+med_fit <- rq(glucose ~ triceps + mass, data = pima, tau = 0.5)
+q90_fit <- rq(glucose ~ triceps + mass, data = pima, tau = 0.9)
 
 summary(med_fit)
+```
+
+
+```
+## 
+## Call: rq(formula = glucose ~ triceps + mass, tau = 0.5, data = pima)
+## 
+## tau: [1] 0.5
+## 
+## Coefficients:
+##             coefficients lower bd upper bd
+## (Intercept) 77.33021     65.47730 87.01627
+## triceps      0.35647     -0.05278  0.80306
+## mass         0.88180      0.17010  1.41644
+```
+
+```r
 summary(q90_fit)
+```
 
-new_data <- data.frame(lstat = c(5, 10, 15), rm = c(6, 7, 8)) 
+```
+## 
+## Call: rq(formula = glucose ~ triceps + mass, tau = 0.9, data = pima)
+## 
+## tau: [1] 0.9
+## 
+## Coefficients:
+##             coefficients lower bd  upper bd 
+## (Intercept)  99.22857     66.07425 141.43019
+## triceps       0.31429     -0.25710   0.67261
+## mass          1.71429      0.59028   3.03415
+```
+
+```r
+new_data <- data.frame(triceps = c(23, 30, 35), mass = c(28, 28, 33)) 
 predict(med_fit, new_data, interval = "confidence")
+```
+
+```
+##        fit    lower   higher
+## 1 110.2195 107.1786 113.2604
+## 2 112.7148 108.6857 116.7439
+## 3 118.9062 114.5386 123.2738
+```
+
+```r
 predict(q90_fit, new_data, interval = "confidence")
+```
 
-QR=rq(medv ~ lstat + rm, data = Boston, tau=seq(0.2, 0.8, by=0.1))
+```
+##        fit    lower   higher
+## 1 154.4571 146.3103 162.6040
+## 2 156.6571 147.8560 165.4583
+## 3 166.8000 159.3241 174.2759
+```
 
-sumQR=summary(QR)
+```r
+QR=rq(glucose ~ triceps + mass, data = pima, tau=seq(0.2, 0.8, by=0.1))
+```
 
+```r
 plot(sumQR)
 ``` 
 
