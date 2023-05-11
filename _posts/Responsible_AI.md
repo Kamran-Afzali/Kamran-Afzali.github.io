@@ -1,4 +1,20 @@
 
+###  Why responsible AI is important
+Responsible AI is an emerging area of AI governance and use of the word "responsible" is an umbrella term that covers both ethics and democratization. Currently there are no standards for accountability when AI programming creates unintended consequences. Often, bias can be introduced into AI by the data that's used to train machine learning models. When the training data is biased, it naturally follows that decisions made by the programming are also biased. Now that software programs with artificial intelligence (AI) features are becoming more common, it is increasingly apparent that there is a need for standards in AI. The technology can be misused accidentally (or on purpose) for a number of reasons -- and much of the misuse is caused by a bias in the selection of data to train AI programming.
+
+Artificial intelligence (AI) has become increasingly ubiquitous in our lives, with applications ranging from image recognition to natural language processing. As AI becomes more prevalent, it is essential that we consider the ethical and societal implications of its use. Responsible AI is an approach to developing and deploying AI systems that takes into account their potential impact on individuals and society.
+
+One of the primary reasons why responsible AI is important is because of ethical considerations. AI systems have the potential to perpetuate bias and discrimination, which can have a significant impact on individuals and society as a whole. For example, an AI system used in hiring decisions could screen out qualified candidates based on factors such as gender or ethnicity. Responsible AI ensures that AI systems are designed and deployed in an ethical manner, taking into account their potential impact on individuals and society.
+
+In addition to ethical considerations, responsible AI is also important from a legal and regulatory perspective. There are legal requirements that organizations must adhere to when developing and deploying AI systems. For example, in the European Union, the General Data Protection Regulation (GDPR) includes provisions related to AI. Responsible AI ensures that organizations are in compliance with these requirements and are not exposed to legal or regulatory risks.
+
+Trust and credibility are also essential factors in the adoption and success of AI systems. If users and stakeholders do not trust an AI system, they may be less likely to use it or to rely on its recommendations. Responsible AI ensures that AI systems are transparent, explainable, and accountable, which can increase trust and credibility with users and stakeholders.
+
+Finally, responsible AI can lead to better business outcomes. By reducing the risk of negative impacts and increasing trust and credibility, responsible AI can help organizations to avoid reputational damage and other costs associated with AI failures. Additionally, responsible AI can lead to better outcomes for individuals and society, such as increased efficiency, accuracy, and innovation.
+
+In conclusion, responsible AI is important because it ensures that AI systems are developed and deployed in a way that is ethical, legal, transparent, and accountable. By taking into account the potential impact of AI on individuals and society, responsible AI can lead to better outcomes for all stakeholders.
+
+
 ### What are the principles of responsible AI?
 AI and the machine learning models that support it should be comprehensive, explainable, ethical and efficient.
 
@@ -21,16 +37,7 @@ Robustness: AI systems should be designed and implemented to be resilient to err
 
 Human control: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
 
-These are just a few principles of responsible AI. As AI technology continues to evolve, it's important that we continue to develop and refine principles that ensure its responsible use.
 
-###  Why responsible AI is important
-Responsible AI is an emerging area of AI governance and use of the word "responsible" is an umbrella term that covers both ethics and democratization.
-
-The heads of Microsoft and Google have publicly called for AI regulations, but as of this writing, there are no standards for accountability when AI programming creates unintended consequences. Often, bias can be introduced into AI by the data that's used to train machine learning models. When the training data is biased, it naturally follows that decisions made by the programming are also biased.
-
-Now that software programs with artificial intelligence (AI) features are becoming more common, it is increasingly apparent that there is a need for standards in AI beyond those established by Isaac Asimov in his "Three Laws of Robotics." The technology can be misused accidentally (or on purpose) for a number of reasons -- and much of the misuse is caused by a bias in the selection of data to train AI programming.
-
-An important goal of responsible AI is to reduce the risk that a minor change in an input's weight will drastically change the output of a machine learning model.
 
 Within the context of conforming to the four tenets of corporate governance, responsible AI should be:
 
@@ -38,8 +45,6 @@ Each step of the model development process should be recorded in a way that cann
 The data used to train machine models should not be biased.
 The analytic models that support an AI initiative can be adapted to changing environments without introducing bias.
 The organization deploying AI programming is sensitive to its potential impact -- both positive and negative.
-
-
 
 ### How do you design responsible AI?
 Building a responsible AI governance framework can be a lot of work. Ongoing scrutiny is crucial to ensure an organization is committed to providing an unbiased, trustworthy AI. This is why it is crucial for an organization to have a maturity model or rubric to follow while designing and implementing an AI system.
