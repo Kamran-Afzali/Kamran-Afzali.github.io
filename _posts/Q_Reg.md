@@ -109,6 +109,8 @@ QR=rq(glucose ~ triceps + mass, data = pima, tau=seq(0.2, 0.8, by=0.1))
 plot(sumQR)
 ``` 
 
+![](automl_files/figure-html/quantreg-1.png)
+
 ## Reference
 
 + Zhang, W., Dolan, J. G., & Qian, F. (2014). Thinking beyond the mean: a practical guide for using quantile regression methods for health services research. Shanghai archives of psychiatry, 26(2), 69-76. doi: 10.3969/shpsy.2014.2.69[](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4054530/)
