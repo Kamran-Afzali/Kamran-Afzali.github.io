@@ -16,10 +16,16 @@ In conclusion, responsible AI is important because it ensures that AI systems ar
 
 
 ### What are the principles of responsible AI?
+
+The organization deploying AI programming is sensitive to its potential both positive and negative The organization deploying AI programming is sensitive to its potential impact -- both positive and negative. Other important point to take into consideration is that within the context of conforming to the tenets of responsible AI each step of the model development process should be recorded in a way that cannot be altered by humans or other programming, the data used to train machine models should not be biased the analytic models that support an AI initiative can be adapted to changing environments without introducing bias.
 AI and the machine learning models that support it should be comprehensive, explainable, ethical and efficient.
 
 Comprehensiveness – comprehensive AI has clearly defined testing and governance criteria to prevent machine learning from being hacked easily.
+
+
 explainable AI is programmed to describe its purpose, rationale and decision-making process in a way that can be understood by the average end user.
+
+
 Ethical AI initiatives have processes in place to seek out and eliminate bias in machine learning models.
 Efficient AI is able to run continually and respond quickly to changes in the operational environment.
 
@@ -38,15 +44,7 @@ Robustness: AI systems should be designed and implemented to be resilient to err
 Human control: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
 
 
-
-Within the context of conforming to the four tenets of corporate governance, responsible AI should be:
-
-Each step of the model development process should be recorded in a way that cannot be altered by humans or other programming.
-The data used to train machine models should not be biased.
-The analytic models that support an AI initiative can be adapted to changing environments without introducing bias.
-The organization deploying AI programming is sensitive to its potential impact -- both positive and negative.
-
-### How do you design responsible AI?
+### How to design responsible AI?
 Building a responsible AI governance framework can be a lot of work. Ongoing scrutiny is crucial to ensure an organization is committed to providing an unbiased, trustworthy AI. This is why it is crucial for an organization to have a maturity model or rubric to follow while designing and implementing an AI system.
 
 At a base level, to be considered responsible, AI must be built with resources and technology according to a company-wide development standard that mandates the use of:
@@ -56,7 +54,6 @@ Approved model architectures
 Sanctioned variables
 Established bias testing methodologies to help determine the validity of tests for AI systems
 Stability standards for active machine learning models to make sure AI programming works as intended
-
 
 ### specific challenges in implementing responsible AI:
 
@@ -75,8 +72,6 @@ Regulatory challenges: Laws and regulations related to AI are still evolving, an
 Balancing competing interests: Responsible AI often requires balancing competing interests, such as privacy and security, transparency and interpretability, and fairness and accuracy. Finding the right balance can be challenging, especially when there are trade-offs between different principles.
 
 These are just some of the challenges organizations may face when implementing responsible AI. Addressing these challenges requires a collaborative effort between technical experts, policymakers, and stakeholders from diverse communities.
-
-
 
 ### Responsible use of artificial intelligence (AI) by Canadian Government
 
@@ -104,8 +99,6 @@ be transparent about how and when we are using AI, starting with a clear user ne
 provide meaningful explanations about AI decision making, while also offering opportunities to review results and challenge these decisions
 be as open as we can by sharing source code, training data, and other relevant information, all while protecting personal information, system integration, and national security and defence
 provide sufficient training so that government employees developing and using AI solutions have the responsible design, function, and implementation skills needed to make AI-based public services better
-
-
 
 ### Against Responsible AI
 
@@ -142,7 +135,6 @@ These are just a few examples, and there are many other R and Python packages av
 ### References
 
 https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html
-
 
 https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5
 
