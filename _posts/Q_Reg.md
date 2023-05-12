@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Quantile regression
-featured-image: /images/stan.png
+featured-image: /images/quantreg-1.png
 tags: [STAN, R, Bayes]
 date-string: May 2023
 ---
