@@ -109,7 +109,7 @@ QR=rq(glucose ~ triceps + mass, data = pima, tau=seq(0.2, 0.8, by=0.1))
 plot(sumQR)
 ``` 
 
-![](automl_files/figure-html/quantreg-1.png)
+![](/images/quantreg-1.png)
 
 ## Reference
 
