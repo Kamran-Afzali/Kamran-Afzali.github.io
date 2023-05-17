@@ -90,21 +90,13 @@ In conclusion, implementing responsible AI is a complex endeavor that involves a
 
 ### Responsible use of artificial intelligence (AI) by Canadian Government
 
-Governments can play a crucial role in facilitating the implementation of responsible AI by setting clear regulations and guidelines: Governments can establish regulations and guidelines for the development and deployment of AI systems to ensure that they meet ethical and responsible standards. These regulations can include requirements for transparency, accountability, and privacy protection.
+Governments can play a crucial role in facilitating the implementation of responsible AI by setting clear regulations and guidelines: Governments can establish regulations and guidelines for the development and deployment of AI systems to ensure that they meet ethical and responsible standards. These regulations can include requirements for transparency, accountability, and privacy protection. Moreover, by promoting collaboration between industry and academia: Governments can facilitate collaboration between industry and academia to promote research and development of AI systems that are ethical and responsible. This latter also increases the  AI literacy where Governments can invest in programs to increase AI literacy among the public and policymakers, enabling them to better understand the benefits and risks of AI and make informed decisions.
 
-Promoting collaboration between industry and academia: Governments can facilitate collaboration between industry and academia to promote research and development of AI systems that are ethical and responsible.
-
-Investing in AI literacy: Governments can invest in programs to increase AI literacy among the public and policymakers, enabling them to better understand the benefits and risks of AI and make informed decisions.
-
-Encouraging diversity and inclusivity: Governments can encourage the development of AI systems that are diverse and inclusive, reflecting the needs and values of all members of society.
-
-Supporting ethical AI startups: Governments can provide funding and resources to support ethical AI startups that are developing innovative AI solutions that are responsible and beneficial to society.
-
-By taking these actions, governments can help ensure that AI is developed and deployed in a responsible and ethical manner, benefiting society as a whole.
+Finally,Governments can encourage the development of AI systems that are diverse and inclusive, reflecting the needs and values of all members of society and provide funding and resources to support ethical AI startups that are developing innovative AI solutions that are responsible and beneficial to society.By taking these actions, governments can help ensure that AI is developed and deployed in a responsible and ethical manner, benefiting society as a whole.
 
 Artificial intelligence (AI) technologies offer promise for improving how the Government of Canada serves Canadians. As we explore the use of AI in government programs and services, we are ensuring it is governed by clear values, ethics, and laws.
 
-Our guiding principles
+Canada guiding principles
 To ensure the effective and ethical use of AI the government will:
 
 understand and measure the impact of using AI by developing and sharing tools and approaches
@@ -115,17 +107,7 @@ provide sufficient training so that government employees developing and using AI
 
 ### Against Responsible AI
 
-There are several interest groups or lobbies that may have concerns about the advancement of responsible AI and may try to block its implementation. These include:
-
-Companies or industries that rely on opaque algorithms: Companies that rely on algorithms that are not transparent or explainable may resist the implementation of responsible AI, as it could impact their bottom line.
-
-Government agencies that rely on surveillance: Government agencies that rely on surveillance or monitoring may be hesitant to adopt responsible AI, as it could limit their ability to monitor individuals or groups.
-
-Labor unions that fear automation: Labor unions may resist the implementation of responsible AI, as they may fear that it could lead to job losses or wage stagnation.
-
-Politicians with close ties to the tech industry: Politicians who have close ties to the tech industry may be hesitant to regulate AI or implement responsible AI measures, as it could impact the interests of their donors or supporters.
-
-Advocates of data privacy: While data privacy advocates may be supportive of responsible AI, they may also be concerned that implementing it could lead to increased data collection and sharing.
+There are several interest groups or lobbies that may have concerns about the advancement of responsible AI and may try to block its implementation. Companies or industries that rely on opaque algorithms: Companies that rely on algorithms that are not transparent or explainable may resist the implementation of responsible AI, as it could impact their bottom line. Government agencies that rely on surveillance: Government agencies that rely on surveillance or monitoring may be hesitant to adopt responsible AI, as it could limit their ability to monitor individuals or groups. Labor unions that fear automation: Labor unions may resist the implementation of responsible AI, as they may fear that it could lead to job losses or wage stagnation. Politicians with close ties to the tech industry: Politicians who have close ties to the tech industry may be hesitant to regulate AI or implement responsible AI measures, as it could impact the interests of their donors or supporters. Advocates of data privacy: While data privacy advocates may be supportive of responsible AI, they may also be concerned that implementing it could lead to increased data collection and sharing.
 
 It is important to note that not all companies, government agencies, or individuals in these groups are necessarily opposed to responsible AI. However, these groups may have concerns or interests that could conflict with the advancement of responsible AI.
 
