@@ -45,21 +45,19 @@ Iterative Process: The process of constructing an SRT and refining it is typical
 
 Overall, Sequential Regression Trees provide a sequential and tree-based approach to data imputation, leveraging decision tree structures and regression models to predict missing values based on the available data. By considering the sequential dependencies and iteratively refining the tree, SRTs can effectively handle data imputation tasks.
 
-
-
-Yes, the Sequential Regression Trees (SRTs) method can be used to generate data. While SRTs are commonly used for data imputation, they can also be applied in a generative manner to create synthetic data with missing values.
+While SRTs are commonly used for data imputation, they can also be applied in a generative manner to create synthetic data with missing values.
 
 To use SRTs for data generation, you would follow a similar process but with some modifications:
 
-Training Data: You would start with a dataset containing complete samples. Each sample would consist of features and a target variable, where the target variable could have missing values. This dataset serves as the training data for the SRT.
++ Training Data: You would start with a dataset containing complete samples. Each sample would consist of features and a target variable, where the target variable could have missing values. This dataset serves as the training data for the SRT.
 
-SRT Construction: Using the training data, you would construct an SRT by building a decision tree that predicts the target variable based on the available features. The tree would be constructed using a splitting criterion, such as minimizing mean squared error, to create homogeneous subsets of data.
++ SRT Construction: Using the training data, you would construct an SRT by building a decision tree that predicts the target variable based on the available features. The tree would be constructed using a splitting criterion, such as minimizing mean squared error, to create homogeneous subsets of data.
 
-Generating Missing Values: Once the SRT is constructed, you can use it to generate synthetic data by intentionally introducing missing values. You can randomly remove values from the target variable in the training data, representing the missing values you want to generate in the synthetic data.
++ Generating Missing Values: Once the SRT is constructed, you can use it to generate synthetic data by intentionally introducing missing values. You can randomly remove values from the target variable in the training data, representing the missing values you want to generate in the synthetic data.
 
-Sequential Regression: For each sample with missing values, you would traverse the SRT based on the available features, predicting the missing value at each node using the regression model. This process follows a sequential approach, similar to the imputation process, until a leaf node is reached.
++ Sequential Regression: For each sample with missing values, you would traverse the SRT based on the available features, predicting the missing value at each node using the regression model. This process follows a sequential approach, similar to the imputation process, until a leaf node is reached.
 
-Iterative Refinement: After generating the missing values, you can refine the SRT by adjusting thresholds or adding branches to improve the accuracy of future predictions. This iterative process helps the SRT adapt to the generated data and refine its generative capabilities.
++ Iterative Refinement: After generating the missing values, you can refine the SRT by adjusting thresholds or adding branches to improve the accuracy of future predictions. This iterative process helps the SRT adapt to the generated data and refine its generative capabilities.
 
 By using Sequential Regression Trees in this way, you can generate synthetic data with missing values that follow the patterns and relationships learned from the original training data. This can be useful in scenarios where you need to create realistic datasets for testing, simulations, or other purposes.
 
@@ -93,7 +91,7 @@ However, PSO may suffer from premature convergence or getting trapped in local o
 
 Overall, Particle Swarm Optimization is a powerful and widely used optimization algorithm that leverages the collective behavior of particles to efficiently search for optimal or near-optimal solutions in a given search space.
 
-##
+## The Traveling Salesman Problem (TSP)
 
 The Traveling Salesman Problem (TSP) is a classic optimization problem in computer science and operations research. It involves finding the shortest possible route that a salesman can take to visit a set of cities and return to the starting city, visiting each city exactly once.
 
