@@ -113,38 +113,35 @@ It is important to note that not all companies, government agencies, or individu
 
 ### R and Python packages
 
-there are several R and Python packages available for the implementation of responsible AI ideas. Here are a few examples:
+In the last section we take a look at some R and Python packages available for the implementation of responsible AI ideas. 
+AI Fairness 360: This is an open-source toolkit developed by IBM that provides a comprehensive set of metrics and algorithms for detecting and mitigating bias in AI models.
 
-AI Fairness 360: This is an open-source toolkit developed by IBM that provides a comprehensive set of metrics and algorithms for detecting and mitigating bias in AI models. It is available for both R and Python.
++ Fairlearn: This is a Python package developed by Microsoft that provides algorithms for measuring and mitigating unfairness in AI models, with a focus on classification problems.
 
-Fairlearn: This is a Python package developed by Microsoft that provides algorithms for measuring and mitigating unfairness in AI models, with a focus on classification problems.
++ Aequitas: This is a Python package that provides tools for measuring and mitigating bias in decision-making systems.
 
-Aequitas: This is a Python package developed by the Center for Applied Data Ethics at the University of San Francisco that provides tools for measuring and mitigating bias in decision-making systems, with a focus on fairness in criminal justice.
++ interpretML: This is a Python package developed by Microsoft that provides tools for interpreting and explaining AI models, with a focus on fairness, accountability, and transparency.
 
-interpretML: This is a Python package developed by Microsoft that provides tools for interpreting and explaining AI models, with a focus on fairness, accountability, and transparency.
-
-fairmodels: This is an R package developed by the Data Science Institute at Columbia University that provides tools for detecting and mitigating bias in predictive models, with a focus on algorithmic fairness.
-
-These are just a few examples, and there are many other R and Python packages available for the implementation of responsible AI ideas.
++ fairmodels: This is a R package provides tools for detecting and mitigating bias in predictive models, with a focus on algorithmic fairness.
 
 ### References
 
-https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html
++[](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html)
 
-https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5
++[](https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5)
 
-https://www.techtarget.com/searchenterpriseai/definition/responsible-AI
++[](https://www.techtarget.com/searchenterpriseai/definition/responsible-AI)
 
-https://arxiv.org/abs/2301.11270
++[](https://arxiv.org/abs/2301.11270)
 
-https://bdtechtalks.com/2023/01/16/what-is-rlhf/
++[](https://bdtechtalks.com/2023/01/16/what-is-rlhf/)
 
-https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx
++[](https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx)
 
-https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback
++[](https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback)
 
-https://huggingface.co/blog/rlhf
++[](https://huggingface.co/blog/rlhf)
 
-https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement
++[](https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement)
 
 https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research
