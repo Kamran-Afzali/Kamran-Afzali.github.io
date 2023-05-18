@@ -1,6 +1,6 @@
 
 
-While there isn't a specific algorithm widely known as "Sequential Trees" for data generation, there are techniques and methods that combine decision trees with sequential processes to generate synthetic data. One such approach is called "Sequential Regression Imputation" (SRI), which involves using decision trees iteratively for data generation. Here's a high-level overview of the SRI algorithm:
+ "Sequential Regression Imputation" (SRI), which involves using decision trees iteratively for data generation. Here's a high-level overview of the SRI algorithm:
 
 Training Phase: In the training phase, a decision tree model is trained using a dataset that includes complete observations for the target variable.
 
@@ -8,15 +8,15 @@ Initialization: Start with an incomplete dataset where the target variable has m
 
 Iteration: Repeat the following steps until all missing values are generated:
 
-a. Data Splitting: Split the dataset into two subsets: one subset with complete observations for the target variable and one subset with missing values for the target variable.
++ a. Data Splitting: Split the dataset into two subsets: one subset with complete observations for the target variable and one subset with missing values for the target variable.
 
-b. Decision Tree Generation: Build a decision tree using the subset with complete target variable observations. The decision tree uses the predictor variables as input and the target variable as the output.
++ b. Decision Tree Generation: Build a decision tree using the subset with complete target variable observations. The decision tree uses the predictor variables as input and the target variable as the output.
 
-c. Prediction: Use the decision tree to predict the missing values in the subset with missing target variable values. Each instance in the subset is traversed through the decision tree, and the predicted value is assigned to the missing target variable.
++ c. Prediction: Use the decision tree to predict the missing values in the subset with missing target variable values. Each instance in the subset is traversed through the decision tree, and the predicted value is assigned to the missing target variable.
 
-d. Imputation: Replace the missing values in the original dataset with the predicted values from the decision tree.
++ d. Imputation: Replace the missing values in the original dataset with the predicted values from the decision tree.
 
-Completion: Once all missing values are generated and imputed, the dataset is considered complete.
++ Completion: Once all missing values are generated and imputed, the dataset is considered complete.
 
 The Sequential Regression Imputation (SRI) algorithm combines decision trees with a sequential process, where the decision trees are built iteratively to generate missing values for the target variable. This approach allows the generated data to capture the relationships between the predictor variables and the target variable.
 
