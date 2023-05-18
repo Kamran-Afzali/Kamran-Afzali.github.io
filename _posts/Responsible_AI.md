@@ -144,4 +144,4 @@ AI Fairness 360: This is an open-source toolkit developed by IBM that provides a
 
 +[](https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement)
 
-https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research
++[](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research)
