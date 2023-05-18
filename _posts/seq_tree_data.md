@@ -62,6 +62,47 @@ To use SRTs for data generation, you would follow a similar process but with som
 By using Sequential Regression Trees in this way, you can generate synthetic data with missing values that follow the patterns and relationships learned from the original training data. This can be useful in scenarios where you need to create realistic datasets for testing, simulations, or other purposes.
 
 
+,,,
+Input: 
+- Training dataset with complete samples (train_data)
+- Number of iterations for refinement (num_iterations)
+
+Output:
+- Synthetic dataset with missing values (synthetic_data)
+
+Procedure SequentialTrees(train_data, num_iterations):
+    1. Preprocess the training dataset (e.g., handle missing values, feature engineering).
+
+    2. Construct Sequential Regression Trees (SRTs) using the training dataset:
+        a. Create an empty SRT.
+        b. Recursively build the SRT:
+           - At each node:
+             - Select the best splitting criterion based on a metric (e.g., mean squared error).
+             - Split the data based on the selected criterion.
+             - If the stopping criteria are met (e.g., maximum depth, minimum sample size), create a leaf node and set the prediction value.
+             - Otherwise, recursively build the left and right branches.
+             
+    3. Generate synthetic data with missing values:
+        a. Initialize an empty synthetic dataset (synthetic_data).
+        b. For each sample in the training dataset:
+           - Randomly select values to be masked or removed to represent missing values.
+           - Add the sample with missing values to synthetic_data.
+    
+    4. Perform missing value imputation using the SRTs:
+        a. For each sample with missing values in synthetic_data:
+           - Traverse the SRT based on available features.
+           - At each node, use the regression model to predict the missing value based on available features.
+           - Repeat the process until a leaf node is reached, providing an imputed value.
+           - Update the synthetic_data with the imputed value.
+
+    5. Iterate the refinement process (num_iterations times):
+        a. Adjust the splitting criteria, thresholds, or regression models in the SRTs.
+        b. Repeat steps 3 and 4 to generate new synthetic data and perform missing value imputation.
+
+    6. Return the final synthetic dataset with imputed missing values (synthetic_data).
+,,,
+
+
 ## Particle Swarm Optimization (PSO) 
 
 
