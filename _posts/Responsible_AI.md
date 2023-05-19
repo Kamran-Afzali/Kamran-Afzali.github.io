@@ -100,7 +100,7 @@ Artificial intelligence (AI) technologies offer promise for improving how the Go
 Canadaian guiding principles
 
 > To ensure the effective and ethical use of AI the government will:
-- understand and measure the impact of using AI by developing and sharing tools and approaches
+> - understand and measure the impact of using AI by developing and sharing tools and approaches
 - be transparent about how and when we are using AI, starting with a clear user need and public benefit
 - provide meaningful explanations about AI decision making, while also offering opportunities to review results and challenge these decisions
 - be as open as we can by sharing source code, training data, and other relevant information, all while protecting personal information, system -integration, and national security and defence
