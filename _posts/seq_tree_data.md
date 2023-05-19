@@ -166,3 +166,8 @@ In summary, PSO is an optimization algorithm that can be adapted to solve the Tr
 + https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.46/20150/Paper_33_Session_2_-_Univ._Edinburgh__Nowok_.pdf
 
 + Luping Fang, Pan Chen, Shihua Liu: Particle Swarm Optimization with Simulated Annealing for TSP, Proceedings of the 6th WSEAS Int. Conf. on Artificial Intelligence, Knowledge Engineering and Data Bases, Corfu Island, Greece, February 16-19, 2007, pp. 206-210 
++ https://github.com/CRCHUM-CITADEL/clover/blob/main/tests/utils/test_optimization.py
++ https://github.com/CRCHUM-CITADEL/clover/blob/main/utils/optimization.py
++ https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/synthpop_generator.py
++ https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/synthpop_generator.py
++ https://github.com/CRCHUM-CITADEL/clover/blob/main/notebooks/synthetic_data_generation.ipynb
