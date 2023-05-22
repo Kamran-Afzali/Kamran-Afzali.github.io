@@ -102,6 +102,9 @@ Procedure SequentialTrees(train_data, num_iterations):
     6. Return the final synthetic dataset with imputed missing values (synthetic_data).
 ,,,
 
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810457/figure/ocaa249-F1/
+
+![image here](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=7810457_ocaa249f1.jpg)
 
 ## Particle Swarm Optimization (PSO) 
 
@@ -161,7 +164,7 @@ In summary, PSO is an optimization algorithm that can be adapted to solve the Tr
 
 ## References
 
-+ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810457/
++ [Emam, K. E., Mosquera, L., & Zheng, C. (2021). Optimizing the synthesis of clinical trial data using sequential trees. Journal of the American Medical Informatics Association : JAMIA, 28(1), 3–13.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810457/
 
 + https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.46/20150/Paper_33_Session_2_-_Univ._Edinburgh__Nowok_.pdf
 
