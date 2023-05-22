@@ -104,7 +104,7 @@ Procedure SequentialTrees(train_data, num_iterations):
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810457/figure/ocaa249-F1/
 
-![image here](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=7810457_ocaa249f1.jpg)
+![image here](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=7810457_ocaa249f1.jpg "figure")
 
 ## Particle Swarm Optimization (PSO) 
 
