@@ -116,30 +116,30 @@ There are several interest groups or lobbies that may have concerns about the ad
 In the last section we take a look at some R and Python packages available for the implementation of responsible AI ideas. 
 AI Fairness 360: This is an open-source toolkit developed by IBM that provides a comprehensive set of metrics and algorithms for detecting and mitigating bias in AI models.
 
-+ Fairlearn: This is a Python package developed by Microsoft that provides algorithms for measuring and mitigating unfairness in AI models, with a focus on classification problems.
++ _Fairlearn_: This is a Python package developed by Microsoft that provides algorithms for measuring and mitigating unfairness in AI models, with a focus on classification problems.
 
-+ Aequitas: This is a Python package that provides tools for measuring and mitigating bias in decision-making systems.
++ _Aequitas_: This is a Python package that provides tools for measuring and mitigating bias in decision-making systems.
 
-+ interpretML: This is a Python package developed by Microsoft that provides tools for interpreting and explaining AI models, with a focus on fairness, accountability, and transparency.
++ _interpretML_: This is a Python package developed by Microsoft that provides tools for interpreting and explaining AI models, with a focus on fairness, accountability, and transparency.
 
-+ fairmodels: This is a R package provides tools for detecting and mitigating bias in predictive models, with a focus on algorithmic fairness.
++ _fairmodels_: This is a R package provides tools for detecting and mitigating bias in predictive models, with a focus on algorithmic fairness.
 
 ### References
 
-+[Responsible use of artificial intelligence (AI) - Government of Canada](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html)
++ [Responsible use of artificial intelligence (AI) - Government of Canada](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html)
 
-+[Microsoft page on Responsible AI](https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5)
++ [Microsoft page on Responsible AI](https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5)
 
-+[](https://www.techtarget.com/searchenterpriseai/definition/responsible-AI)
++ [Principled Reinforcement Learning with Human Feedback from Pairwise or K-wise Comparisons](https://arxiv.org/abs/2301.11270)
 
-+[Principled Reinforcement Learning with Human Feedback from Pairwise or K-wise Comparisons](https://arxiv.org/abs/2301.11270)
++ Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389-399. doi: 10.1038/s42256-019-0088-2
+Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Journal of Empirical Research on Human Research Ethics, 14(5), 522-533. doi: 10.1177/1556264619876365
 
-+[](https://bdtechtalks.com/2023/01/16/what-is-rlhf/)
++ Jobin, A., Ienca, M., & Vayena, E. (2020). Embedding responsibility in intelligent systems: from AI ethics to responsible AI ecosystems. Health Information Science and Systems, 8(1), 1-7. doi: 10.1007/s13755-020-00122-6
 
-+[](https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx)
++ Mittelstadt, B. D., Fairweather, B., Shaw, M., McBride, N., & McBride, M. (2020). AI ethics: seven principles to guide responsible development and use. Communications of the ACM, 63(10), 51-57. doi: 10.1145/3418527
 
-+[](https://huggingface.co/blog/rlhf)
++ Floridi, L., Cowls, J., Beltrametti, M., Chatila, R., Chazerand, P., Dignum, V., . . . Yaghmaie, K. (2018). AI4People—an ethical framework for a good AI society: opportunities, risks, principles, and recommendations. Minds and Machines, 28(4), 689-707. doi: 10.1007/s11023-018-9482-5
 
-+[](https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement)
++ Whittlestone, J., Nyrup, R., Alexandrova, A., Dihal, K., Cave, S., & Calvo, R. A. (2019). Ethical and societal implications of algorithms, data, and artificial intelligence: a roadmap for research. SSRN Electronic Journal. doi: 10.2139/ssrn.3425526
 
-+[](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research)
