@@ -1,5 +1,19 @@
 
 
+Bespoke Creation of Synthetic Data in R" is the title of a paper that describes the synthpop package for R, which provides routines to generate synthetic versions of original data sets. The package is designed to address confidentiality constraints that restrict access to unique and valuable microdata. Synthetic data created using synthpop mimic the original observed data and preserve the relationships between variables but do not contain any disclosive records. The package provides a methodology for generating synthetic data and its consequences for the data characteristics. It also offers features to compare gold standard analyses with those from the synthetic data. The paper uses a survey data example to illustrate the package features. The paper was published in the Journal of Statistical Software.
+
+
+
+The paper "Optimizing the synthesis of clinical trial data using sequential trees" explores the use of order-optimized sequential trees as a method for synthesizing clinical trial data. The authors note that synthetic data generated using sequential trees can vary significantly in data utility depending on variable order. Therefore, they propose a method to optimize the synthesis process using a hinge loss function based on the distinguishability metric. The paper reports the results of experiments comparing the performance of optimized sequential trees with unoptimized ones, as well as comparing the optimization approach with a random search. The authors find that the optimization approach significantly improves the performance of sequential trees in synthesizing clinical trial data. They conclude that order-optimized sequential trees can be a good method for the synthesis of clinical trial data.
+
+
+
+The paper "Utility of synthetic microdata generated using tree-based methods" evaluates the utility of synthetic data produced using tree-based methods available in the synthpop 1.2-1 software. The paper describes the use of classification and regression trees (CART) for generating synthetic data and evaluates the performance of various tree-based methods, including CART, bagging, and random forest. The authors create 10 synthetic data sets for each method and compare their utility using a range of measures, including statistical disclosure control and utility metrics. The paper concludes that tree-based methods can be a useful approach to synthesizing microdata and that such methods can be used in a variety of contexts, including those with confidentiality constraint.
+
+
+
+The paper "Guidelines for Producing Useful Synthetic Data" presents a set of guidelines for producing synthetic data that is useful and reliable. The paper discusses measures of data utility and how to assess the quality of synthetic data through graphical methods and statistical metrics. The authors also provide guidance on choosing appropriate models for synthesizing data and optimizing model parameters. The paper highlights the use of the synthpop package for R in implementing the guidelines. The paper concludes by noting that producing useful synthetic data requires careful consideration of various factors, including data quality, privacy concerns, and computational resources.
+
  "Sequential Regression Imputation" (SRI), which involves using decision trees iteratively for data generation. Here's a high-level overview of the SRI algorithm:
 
 Training Phase: In the training phase, a decision tree model is trained using a dataset that includes complete observations for the target variable.
@@ -169,9 +183,11 @@ In summary, PSO is an optimization algorithm that can be adapted to solve the Tr
 
 + [Nowok, B., Raab, G. M., Dibben, C., & Chris, D. (2016). synthpop: Bespoke creation of synthetic data in R. Journal of Statistical Software, 74(11), 1-26. doi: 10.18637/jss.v074.i11](https://www.jstatsoft.org/article/view/v074i11)
 
-+ [​Nowok, B​​., Raab, G. M​​., & Dibben, C​​. (2016). Utility​​ of synthetic​​ microdata generated​​ using tree-based methods​​. Journal of Statistical​​ Software, 74(11),​](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.46/20150/Paper_33_Session_2_-_Univ._Edinburgh__Nowok_.pdf) 
++ [​Nowok, B​​., Raab, G. M​​., & Dibben, C​​. (2016). Utility of synthetic microdata generated using tree-based methods​​. Journal of Statistical​​ Software, 74(11),​](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.46/20150/Paper_33_Session_2_-_Univ._Edinburgh__Nowok_.pdf) 
 
 + [Luping Fang, Pan Chen, Shihua Liu: Particle Swarm Optimization with Simulated Annealing for TSP, Proceedings of the 6th WSEAS Int. Conf. on Artificial Intelligence, Knowledge Engineering and Data Bases, Corfu Island, Greece, February 16-19, 2007, pp. 206-210 ](https://dl.acm.org/doi/10.5555/1348485.1348522)
+
++ [Raab, G. M., Nowok, B., & Dibben, C. (2017). Guidelines for producing useful synthetic data. arXiv preprint arXiv:1712.04078.]([url](https://www.arxiv-vanity.com/papers/1712.04078/))
 
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/tests/utils/test_optimization.py
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/utils/optimization.py
