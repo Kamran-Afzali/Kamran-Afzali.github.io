@@ -165,11 +165,14 @@ In summary, PSO is an optimization algorithm that can be adapted to solve the Tr
 
 ## References
 
-+ [Emam, K. E., Mosquera, L., & Zheng, C. (2021). Optimizing the synthesis of clinical trial data using sequential trees. Journal of the American Medical Informatics Association : JAMIA, 28(1), 3–13.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810457/
++ [Emam, K. E., Mosquera, L., & Zheng, C. (2021). Optimizing the synthesis of clinical trial data using sequential trees. Journal of the American Medical Informatics Association : JAMIA, 28(1), 3–13.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810457/)
 
-+ https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.46/20150/Paper_33_Session_2_-_Univ._Edinburgh__Nowok_.pdf
++ [Nowok, B., Raab, G. M., Dibben, C., & Chris, D. (2016). synthpop: Bespoke creation of synthetic data in R. Journal of Statistical Software, 74(11), 1-26. doi: 10.18637/jss.v074.i11](https://www.jstatsoft.org/article/view/v074i11)
 
-+ Luping Fang, Pan Chen, Shihua Liu: Particle Swarm Optimization with Simulated Annealing for TSP, Proceedings of the 6th WSEAS Int. Conf. on Artificial Intelligence, Knowledge Engineering and Data Bases, Corfu Island, Greece, February 16-19, 2007, pp. 206-210 
++ [Utilityofsyntheticmicrodatagenerated usingtree-basedmethods](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.46/20150/Paper_33_Session_2_-_Univ._Edinburgh__Nowok_.pdf) 
+
++ [Luping Fang, Pan Chen, Shihua Liu: Particle Swarm Optimization with Simulated Annealing for TSP, Proceedings of the 6th WSEAS Int. Conf. on Artificial Intelligence, Knowledge Engineering and Data Bases, Corfu Island, Greece, February 16-19, 2007, pp. 206-210 ](https://dl.acm.org/doi/10.5555/1348485.1348522)
+
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/tests/utils/test_optimization.py
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/utils/optimization.py
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/synthpop_generator.py
