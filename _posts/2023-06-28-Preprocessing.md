@@ -48,9 +48,10 @@ Size and shape of the brains vary, therefore it is necessary to first normalise 
 Spatial smoothing is the last procedure we'll go through in the preprocessing pipeline. In this step, the image is filtered to remove high frequency spatial information. This phase is the same as when we convolve a kernel to a 1-D signal in the lab for signal processing fundamentals, but in this case, the kernel is a 3-D Gaussian kernel. Using the Full Width at Half Maximum (FWHM) parameter, the width of the distribution (i.e., the standard deviation) is specified to define the degree of smoothing. By reducing the partial volume effects, lingering anatomical variations, and other issues from performing spatial transformation, smoothing improves the signal to noise ratio. Applying a filter to the image smooths out both functional and structural images. Through the removal of the highest frequencies from the frequency domain, smoothing improves the signal to noise ratio of your data. Spacial smoothing reduces spatial disparities between subjects to make it easier to compare participants. Naturally, smoothing has a trade-off in that you lose resolution, because smoothing can lead to the distinct of functionally distinct parts. A 3D Gaussian kernel is used to smooth the image; the amount of smoothing is commonly controlled by the kernel's full width at half maximum (FWHM) parameter. The smoothing kernel's width/diameter at half its height, or FWHM, is what the name suggests. The value of each voxel is altered to reflect the outcome of applying this smoothing kernel to its initial value. Your purpose for smoothing will also influence the smoothing kernel size that you choose. Generally speaking, the filter shouldn't be bigger than the activation you're looking for a large kernel could smooth your data too much if you only want to analyse a small area.  
 
 ### References
-+ [ ](https://dartbrains.org/content/Introduction_to_Neuroimaging_Data.html#)
-+ [ ](https://dartbrains.org/content/Signal_Processing.html)
+
 + [Dartbrains Preprocessing](https://dartbrains.org/content/Preprocessing.html)
 + [Evaluating fMRI preprocessing pipelines](https://ieeexplore.ieee.org/abstract/document/1607667)
-+ [ ](http://neuroimaging-data-science.org/content/005-nipy/001-nipy.html)
-+ [ ](https://miykael.github.io/nipype-beginner-s-guide/neuroimaging.html)
+ [ ](http://neuroimaging-data-science.org/content/005-nipy/001-nipy.html)
+ [ ](https://miykael.github.io/nipype-beginner-s-guide/neuroimaging.html)
+ [ ](https://dartbrains.org/content/Introduction_to_Neuroimaging_Data.html#)
+ [ ](https://dartbrains.org/content/Signal_Processing.html)
