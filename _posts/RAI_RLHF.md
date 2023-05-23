@@ -127,6 +127,16 @@ https://arxiv.org/abs/2204.05862
 
 https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges-for-in-NLP-Kreutzer-Riezler/328031842e86a9ccf8bcb0f7636cb4eb64f065bb
 
++ [](https://bdtechtalks.com/2023/01/16/what-is-rlhf/)
+
++ [](https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx)
+
++ [](https://huggingface.co/blog/rlhf)
+
++ [](https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement)
+
++ [](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research)
+
 Christiano, P., Leike, J., & Amodei, D. (2019). Alignment for advanced machine learning systems. In Thirty-Third AAAI Conference on Artificial Intelligence.
 
 Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017). Deep reinforcement learning from human preferences. In Proceedings of the 31st Conference on Neural Information Processing Systems (NIPS'17) (pp. 4299-4307).
