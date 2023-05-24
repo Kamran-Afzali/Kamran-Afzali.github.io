@@ -101,11 +101,8 @@ In the last section we take a look at some R and Python packages available for t
 AI Fairness 360: This is an open-source toolkit developed by IBM that provides a comprehensive set of metrics and algorithms for detecting and mitigating bias in AI models.
 
 + _Fairlearn_: This is a Python package developed by Microsoft that provides algorithms for measuring and mitigating unfairness in AI models, with a focus on classification problems.
-
 + _Aequitas_: This is a Python package that provides tools for measuring and mitigating bias in decision-making systems.
-
 + _interpretML_: This is a Python package developed by Microsoft that provides tools for interpreting and explaining AI models, with a focus on fairness, accountability, and transparency.
-
 + _fairmodels_: This is a R package provides tools for detecting and mitigating bias in predictive models, with a focus on algorithmic fairness.
 
 ### References
