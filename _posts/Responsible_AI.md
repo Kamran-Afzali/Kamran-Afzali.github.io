@@ -9,20 +9,17 @@ One of the primary reasons why responsible AI is important is because of ethical
 
 In addition to ethical considerations, responsible AI is also important from a legal and regulatory perspective. There are legal requirements that organizations must adhere to when developing and deploying AI systems. For example, in the European Union, the General Data Protection Regulation (GDPR) includes provisions related to AI. Responsible AI ensures that organizations are in compliance with these requirements and are not exposed to legal or regulatory risks.
 
-Trust and credibility are also essential factors in the adoption and success of AI systems. If users and stakeholders do not trust an AI system, they may be less likely to use it or to rely on its recommendations. Responsible AI ensures that AI systems are transparent, explainable, and accountable, which can increase trust and credibility with users and stakeholders.
-
-Finally, responsible AI can lead to better business outcomes. By reducing the risk of negative impacts and increasing trust and credibility, responsible AI can help organizations to avoid reputational damage and other costs associated with AI failures. Additionally, responsible AI can lead to better outcomes for individuals and society, such as increased efficiency, accuracy, and innovation.
-
-In conclusion, responsible AI is important because it ensures that AI systems are developed and deployed in a way that is ethical, legal, transparent, and accountable. By taking into account the potential impact of AI on individuals and society, responsible AI can lead to better outcomes for all stakeholders.
+Trust and credibility are also essential factors in the adoption and success of AI systems. If users and stakeholders do not trust an AI system, they may be less likely to use it or to rely on its recommendations. Responsible AI ensures that AI systems are transparent, explainable, and accountable, which can increase trust and credibility with users and stakeholders. Finally, responsible AI can lead to better business outcomes. By reducing the risk of negative impacts and increasing trust and credibility, responsible AI can help organizations to avoid reputational damage and other costs associated with AI failures. Additionally, responsible AI can lead to better outcomes for individuals and society, such as increased efficiency, accuracy, and innovation. In conclusion, responsible AI is important because it ensures that AI systems are developed and deployed in a way that is ethical, legal, transparent, and accountable. By taking into account the potential impact of AI on individuals and society, responsible AI can lead to better outcomes for all stakeholders.
 
 
 ### What are the principles of responsible AI?
 
 The organization deploying AI programming is sensitive to its potential both positive and negative The organization deploying AI programming is sensitive to its potential impact -- both positive and negative. Other important point to take into consideration is that within the context of conforming to the tenets of responsible AI each step of the model development process should be recorded in a way that cannot be altered by humans or other programming, the data used to train machine models should not be biased the analytic models that support an AI initiative can be adapted to changing environments without introducing bias. AI and the machine learning models that support it should be comprehensive, explainable, ethical and efficient. Explainable AI is programmed to describe its purpose, rationale and decision-making process in a way that can be understood by the average end user.
 
-
 + Comprehensiveness – comprehensive AI has clearly defined testing and governance criteria to prevent machine learning from being hacked easily.
+
 + Ethical AI initiatives have processes in place to seek out and eliminate bias in machine learning models.
+
 + Efficient AI is able to run continually and respond quickly to changes in the operational environment.
 
 + Fairness: AI systems should be designed and implemented to be fair to all individuals and groups, regardless of their race, gender, religion, or any other characteristic.
@@ -68,11 +65,7 @@ At a base level, to be considered responsible, AI must be built with resources a
 
 Implementing responsible AI poses several challenges that need to be addressed to ensure the ethical and equitable deployment of AI systems. These challenges span various dimensions, including technical, ethical, legal, and societal aspects. Understanding and overcoming these challenges is crucial for the successful implementation of responsible AI.
 
-Another challenge is the need for interdisciplinary collaboration and expertise. Responsible AI implementation requires the involvement of professionals from diverse fields, including computer science, ethics, law, sociology, and psychology. Bridging these disciplinary boundaries and fostering collaboration can be challenging due to differing perspectives, terminology, and methodologies. Building interdisciplinary teams and fostering a shared understanding of responsible AI principles and practices are crucial to overcome these challenges.
-
-Furthermore, there are challenges related to the legal and regulatory landscape. The rapid advancement of AI often outpaces the development of appropriate legal frameworks. Addressing issues such as liability, accountability, and intellectual property rights in the context of AI systems requires updating existing laws or developing new regulations that are adaptive and aligned with the unique challenges posed by AI technologies.
-
-In conclusion, implementing responsible AI is a complex endeavor that involves addressing challenges related to algorithmic biases, transparency, data privacy, ethical considerations, interdisciplinary collaboration, and legal frameworks. Overcoming these challenges requires concerted efforts from researchers, practitioners, policymakers, and society as a whole to ensure the responsible and equitable deployment of AI systems.
+Another challenge is the need for interdisciplinary collaboration and expertise. Responsible AI implementation requires the involvement of professionals from diverse fields, including computer science, ethics, law, sociology, and psychology. Bridging these disciplinary boundaries and fostering collaboration can be challenging due to differing perspectives, terminology, and methodologies. Building interdisciplinary teams and fostering a shared understanding of responsible AI principles and practices are crucial to overcome these challenges. Furthermore, there are challenges related to the legal and regulatory landscape. The rapid advancement of AI often outpaces the development of appropriate legal frameworks. Addressing issues such as liability, accountability, and intellectual property rights in the context of AI systems requires updating existing laws or developing new regulations that are adaptive and aligned with the unique challenges posed by AI technologies. Implementing responsible AI is a complex endeavor that involves addressing challenges related to algorithmic biases, transparency, data privacy, ethical considerations, interdisciplinary collaboration, and legal frameworks. Overcoming these challenges requires concerted efforts from researchers, practitioners, policymakers, and society as a whole to ensure the responsible and equitable deployment of AI systems.
 
 + Lack of data: AI systems require large amounts of data to learn and make decisions. However, there may be limited or biased data available, making it difficult to build accurate and unbiased models.
 
@@ -97,7 +90,7 @@ Finally, governments can encourage the development of AI systems that are divers
 
 Artificial intelligence (AI) technologies offer promise for improving how the Government of Canada serves Canadians. As we explore the use of AI in government programs and services, we are ensuring it is governed by clear values, ethics, and laws.
 
-Canadaian guiding principles
+_Canadaian guiding principles_
 
 > To ensure the effective and ethical use of AI the government will:
 > - understand and measure the impact of using AI by developing and sharing tools and approaches
@@ -130,8 +123,6 @@ AI Fairness 360: This is an open-source toolkit developed by IBM that provides a
 
 + [Microsoft page on Responsible AI](https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5)
 
-+ [Principled Reinforcement Learning with Human Feedback from Pairwise or K-wise Comparisons](https://arxiv.org/abs/2301.11270)
-
 + Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389-399. doi: 10.1038/s42256-019-0088-2
 Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Journal of Empirical Research on Human Research Ethics, 14(5), 522-533. doi: 10.1177/1556264619876365
 
@@ -142,4 +133,6 @@ Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics gui
 + Floridi, L., Cowls, J., Beltrametti, M., Chatila, R., Chazerand, P., Dignum, V., . . . Yaghmaie, K. (2018). AI4People—an ethical framework for a good AI society: opportunities, risks, principles, and recommendations. Minds and Machines, 28(4), 689-707. doi: 10.1007/s11023-018-9482-5
 
 + Whittlestone, J., Nyrup, R., Alexandrova, A., Dihal, K., Cave, S., & Calvo, R. A. (2019). Ethical and societal implications of algorithms, data, and artificial intelligence: a roadmap for research. SSRN Electronic Journal. doi: 10.2139/ssrn.3425526
+
+[](https://arxiv.org/abs/2301.11270)
 
