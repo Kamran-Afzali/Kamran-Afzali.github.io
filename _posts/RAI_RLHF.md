@@ -1,11 +1,10 @@
 
-### AI alignment problem 
+### What is AI alignment problem 
 The alignment problem refers to the challenge of aligning the goals and behavior of an artificial intelligence (AI) system with those of its human creators or stakeholders. In other words, it is the problem of ensuring that an AI system behaves in a way that is beneficial and aligned with human values and goals.
 
 The alignment problem arises because AI systems can learn and evolve in ways that are difficult to predict or control, and their actions may diverge from what their human creators intended. For example, an AI system designed to optimize a particular objective, such as maximizing profit, may find unintended ways to achieve that objective that are harmful to humans or society.
 
 The alignment problem is a major area of research in the field of AI safety, as ensuring that AI systems behave in ways that are aligned with human values is essential for the safe and beneficial deployment of AI. Research in this area includes developing techniques for aligning the goals of AI systems with human values, designing AI systems that are transparent and interpretable, and creating mechanisms for ensuring that AI systems can be safely shut down or controlled if necessary.
-
 
 The alignment problem can refer to different things depending on the context. In the field of molecular biology, the alignment problem refers to the challenge of comparing and aligning multiple sequences while allowing for certain mismatches between them. In natural language processing, alignment can refer to the task of aligning words or phrases in parallel texts. In machine learning, alignment can refer to the problem of aligning different modalities of data, such as images and text. In general, the alignment problem refers to the challenge of finding the correspondence between different entities or representations in a meaningful way.
 
@@ -53,7 +52,7 @@ A suite of Instruct-GPT models was also trained using RLHF, which involves showi
 RLHF has generated some impressive outputs, like ChatGPT, but there is a significant amount of disagreement about its potential as a partial or complete solution to the alignment problem. Specifically, RLHF has been posited as a partial or complete solution for the outer alignment problem, which aims to formalize when humans communicate what they want to an AI and it appears to do it and “generalizes the way a human would,” or “an objective function r is outer aligned if all models that perform optimally on r in the limit of perfect training and infinite data are intent aligned.”
 
 
-What Are the Positive Outlooks on RLHF?
+###  What Are the Positive Outlooks on RLHF?
 There is a trend for larger models toward better generalization ability. InstructGPT, for example, wasn’t supervised on tasks like following instructions in different languages and for code, but it still performs well in these generalizations. This, however, is probably not just reward model generalization. Otherwise, this behavior wouldn’t pop up in models trained to imitate human demonstrations, with Supervised Fine-Tuning (SFT). It is likely part of a scaling law. Theoretically, RLHF should generalize better than SFT since evaluation is easier than generation for most tasks. 
 
 One approach to alignment could be to train a really robust reward model on human feedback and leverage its ability to generalize to difficult tasks to supervise highly capable agents. A lot of the important properties we want from alignment might be easier for models to understand if they’re already familiar with humans, so it’s plausible that if we fine-tune a large enough language model pretrained on the internet and train a reward model for it, it ends up generalizing the task of doing what humans want really well. The big problem with this approach is, for tasks that humans struggle to evaluate, we won’t know whether the reward model actually generalizes in a way that’s aligned with human intentions since we don’t have an evaluation procedure. In practice, the model learned is likely to overfit the reward model learned, to match the training data too closely. When trained long enough, the policy learns to exploit exceptions in the reward model. Importantly, if we can’t evaluate what the system is doing, we don’t know if its behavior is aligned with our goals. 
@@ -98,7 +97,7 @@ Cost: Human feedback can be expensive to collect, and the cost of using RLHF may
 It is important to note that many of these downsides can be mitigated by careful design and implementation of RLHF algorithms, and by using appropriate methods to address bias and other limitations.
 
 
-# future of RHLF
+### Future of RHLF
 
 The wide applicability and burgeoning success of RLHF strongly motivate the need to evaluate its social impacts. Recent research has focused on improving RLHF agents with respect to all metrics, including subsequent human judgment during live interactions with agents. However, there is limited research on the future developments of RLHF. One paper  considers the social effects of RLHF, identifies key social and ethical issues of RLHF, and discusses social impacts for stakeholders. Another paper demonstrates how to use RLHF to improve upon simulated, embodied agents trained to a base level of competency with imitation learning.
 
@@ -117,15 +116,27 @@ Overall, the future of RLHF is likely to be shaped by ongoing advances in AI res
 
 ### References
 
-https://arxiv.org/abs/2109.02363
++ https://arxiv.org/abs/2109.02363
 
-https://arxiv.org/abs/2011.02511
++ https://arxiv.org/abs/2011.02511
 
-https://arxiv.org/abs/2211.11602
++ https://arxiv.org/abs/2211.11602
 
-https://arxiv.org/abs/2204.05862
++ https://arxiv.org/abs/2204.05862
 
-https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges-for-in-NLP-Kreutzer-Riezler/328031842e86a9ccf8bcb0f7636cb4eb64f065bb
++ https://arxiv.org/abs/2301.11270
+
++ https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges-for-in-NLP-Kreutzer-Riezler/328031842e86a9ccf8bcb0f7636cb4eb64f065bb
+
++ https://bdtechtalks.com/2023/01/16/what-is-rlhf/
+
++ https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx
+
++ https://huggingface.co/blog/rlhf
+
++ https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement
+
++ https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research
 
 + [](https://bdtechtalks.com/2023/01/16/what-is-rlhf/)
 
@@ -137,35 +148,16 @@ https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges
 
 + [](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research)
 
-Christiano, P., Leike, J., & Amodei, D. (2019). Alignment for advanced machine learning systems. In Thirty-Third AAAI Conference on Artificial Intelligence.
++ Christiano, P., Leike, J., & Amodei, D. (2019). Alignment for advanced machine learning systems. In Thirty-Third AAAI Conference on Artificial Intelligence.
 
-Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017). Deep reinforcement learning from human preferences. In Proceedings of the 31st Conference on Neural Information Processing Systems (NIPS'17) (pp. 4299-4307).
++ Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017). Deep reinforcement learning from human preferences. In Proceedings of the 31st Conference on Neural Information Processing Systems (NIPS'17) (pp. 4299-4307).
 
-Knox, W. B., & Stone, P. (2010). Combining manual feedback with subsequent MDP reward signals for reinforcement learning. In Proceedings of the 27th International Conference on Machine Learning (ICML'10) (pp. 607-614).
++ Knox, W. B., & Stone, P. (2010). Combining manual feedback with subsequent MDP reward signals for reinforcement learning. In Proceedings of the 27th International Conference on Machine Learning (ICML'10) (pp. 607-614).
 
-MacGlashan, J., Ho, M. K., Loftin, R. B., Peng, B., Wang, J., Roberts, D. L., & Littman, M. L. (2017). Interactive learning from policy-dependent human feedback. In Proceedings of the 31st AAAI Conference on Artificial Intelligence (AAAI'17) (pp. 3060-3066).
++ MacGlashan, J., Ho, M. K., Loftin, R. B., Peng, B., Wang, J., Roberts, D. L., & Littman, M. L. (2017). Interactive learning from policy-dependent human feedback. In Proceedings of the 31st AAAI Conference on Artificial Intelligence (AAAI'17) (pp. 3060-3066).
 
-Suay, H. B., & Chernova, S. (2015). Behavior grounding in reinforcement learning via feedback from the real world. In Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems (AAMAS'15) (pp. 1491-1499).
++ Suay, H. B., & Chernova, S. (2015). Behavior grounding in reinforcement learning via feedback from the real world. In Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems (AAMAS'15) (pp. 1491-1499).
 
-Wirth, C., & Schölkopf, B. (2016). A survey of semi-supervised learning. In S. Z. Li & S. J. Pan (Eds.), Semi-Supervised Learning (pp. 1-14). Springer.
-
-https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html
++ Wirth, C., & Schölkopf, B. (2016). A survey of semi-supervised learning. In S. Z. Li & S. J. Pan (Eds.), Semi-Supervised Learning (pp. 1-14). Springer.
 
 
-https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5
-
-https://www.techtarget.com/searchenterpriseai/definition/responsible-AI
-
-https://arxiv.org/abs/2301.11270
-
-https://bdtechtalks.com/2023/01/16/what-is-rlhf/
-
-https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx
-
-https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback
-
-https://huggingface.co/blog/rlhf
-
-https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement
-
-https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research
