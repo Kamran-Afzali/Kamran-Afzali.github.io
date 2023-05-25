@@ -72,7 +72,7 @@ To use SRTs for data generation, you would follow a similar process but with som
 By using Sequential Regression Trees in this way, you can generate synthetic data with missing values that follow the patterns and relationships learned from the original training data. This can be useful in scenarios where you need to create realistic datasets for testing, simulations, or other purposes.
 
 
-,,,
+```
 
 Input: 
 - Training dataset with complete samples (train_data)
@@ -111,7 +111,7 @@ Procedure SequentialTrees(train_data, num_iterations):
         b. Repeat steps 3 and 4 to generate new synthetic data and perform missing value imputation.
 
     6. Return the final synthetic dataset with imputed missing values (synthetic_data).
-,,,
+```
 
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810457/figure/ocaa249-F1/
