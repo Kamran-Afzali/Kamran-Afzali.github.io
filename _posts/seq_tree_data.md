@@ -73,6 +73,7 @@ By using Sequential Regression Trees in this way, you can generate synthetic dat
 
 
 ,,,
+
 Input: 
 - Training dataset with complete samples (train_data)
 - Number of iterations for refinement (num_iterations)
