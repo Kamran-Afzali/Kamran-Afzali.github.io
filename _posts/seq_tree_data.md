@@ -10,29 +10,7 @@ The paper "Guidelines for Producing Useful Synthetic Data" presents a set of gui
 
 ## Algorithm 
 
- "Sequential Regression Imputation" (SRI), which involves using decision trees iteratively for data generation. Here's a high-level overview of the SRI algorithm:
-
-Training Phase: In the training phase, a decision tree model is trained using a dataset that includes complete observations for the target variable.
-
-Initialization: Start with an incomplete dataset where the target variable has missing values that need to be generated.
-
-Iteration: Repeat the following steps until all missing values are generated:
-
-+ a. Data Splitting: Split the dataset into two subsets: one subset with complete observations for the target variable and one subset with missing values for the target variable.
-
-+ b. Decision Tree Generation: Build a decision tree using the subset with complete target variable observations. The decision tree uses the predictor variables as input and the target variable as the output.
-
-+ c. Prediction: Use the decision tree to predict the missing values in the subset with missing target variable values. Each instance in the subset is traversed through the decision tree, and the predicted value is assigned to the missing target variable.
-
-+ d. Imputation: Replace the missing values in the original dataset with the predicted values from the decision tree.
-
-+ Completion: Once all missing values are generated and imputed, the dataset is considered complete.
-
 The Sequential Regression Imputation (SRI) algorithm combines decision trees with a sequential process, where the decision trees are built iteratively to generate missing values for the target variable. This approach allows the generated data to capture the relationships between the predictor variables and the target variable.
-
-It's worth noting that this is just one example of how decision trees can be used sequentially for data generation. There may be variations or alternative methods that employ similar principles. Additionally, the specific implementation details and variations of this approach may depend on the software or library being used.
-
-
 
 
 Sequential Regression Trees (SRTs) are a type of machine learning algorithm used for data imputation, which is the process of filling in missing values in a dataset. SRTs combine the concepts of decision trees and regression to handle sequential dependencies and predict missing values based on the available data.
@@ -55,7 +33,7 @@ Iterative Process: The process of constructing an SRT and refining it is typical
 
 Overall, Sequential Regression Trees provide a sequential and tree-based approach to data imputation, leveraging decision tree structures and regression models to predict missing values based on the available data. By considering the sequential dependencies and iteratively refining the tree, SRTs can effectively handle data imputation tasks.
 
-While SRTs are commonly used for data imputation, they can also be applied in a generative manner to create synthetic data with missing values.
+
 
 To use SRTs for data generation, you would follow a similar process but with some modifications:
 
