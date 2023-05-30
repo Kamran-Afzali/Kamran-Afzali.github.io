@@ -51,6 +51,7 @@ To use SRTs for data generation, you would follow a similar process but with som
 By using Sequential Regression Trees in this way, you can generate synthetic data with missing values that follow the patterns and relationships learned from the original training data. This can be useful in scenarios where you need to create realistic datasets for testing, simulations, or other purposes.
 
 
+
 ```
 
 Input: 
@@ -97,6 +98,8 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7810457/figure/ocaa249-F1/
 
 ![image here](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=7810457_ocaa249f1.jpg "figure")
 
+The most important rule when selecting predictors is that independent variables in a prediction model have to be already synthesized. The only exception is when a variable is used only as a predictor and is not going to be synthesized at all. 
+In order to build an adequate predictor selection matrix, instead of doing it from scratch we can define an initial visit. sequence and corresponding method vector and run syn() function. Then we can adjust the predictor selection matrix used in this synthesis and rerun the function with new parameters. 
 
 ## The Traveling Salesman Problem (TSP)
 
