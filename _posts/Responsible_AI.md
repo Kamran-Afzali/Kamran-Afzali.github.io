@@ -2,6 +2,13 @@
 ###  Why AI should be responsible
 
 Microsoft five points blue print to be integrated https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW14Gtw
+When we at Microsoft adopted our six ethical principles for AI in 2018, we noted that one principle was the bedrock for everything else—accountability. This is the fundamental need: to ensure that machines remain subject to effective oversight by people and the people who design and operate machines remain accountable to everyone else.  In short, we must always ensure that AI remains under human control. This must be a first-order priority for technology companies and governments alike.
+
++ First, implement and build upon new government-led AI safety frameworks. 
++ Second, require effective safety brakes for AI systems that control critical infrastructure. 
++ Third, develop a broad legal and regulatory framework based on the technology architecture for AI.
++ Fourth, promote transparency and ensure academic and nonprofit access to AI. 
++ Fifth, pursue new public-private partnerships to use AI as an effective tool to address the inevitable societal challenges that come with new technology.
 
 Responsible AI is an emerging area of AI governance and use of the word "responsible" is an umbrella term that covers both ethics and democratization. Currently there are no standards for accountability when AI programming creates unintended consequences. Often, bias can be introduced into AI by the data that's used to train machine learning models. When the training data is biased, it naturally follows that decisions made by the programming are also biased. Now that software programs with artificial intelligence (AI) features are becoming more common, it is increasingly apparent that there is a need for standards in AI. The technology can be misused accidentally (or on purpose) for a number of reasons -- and much of the misuse is caused by a bias in the selection of data to train AI programming.
 
@@ -106,6 +113,8 @@ AI Fairness 360: This is an open-source toolkit developed by IBM that provides a
 + [Responsible use of artificial intelligence (AI) - Government of Canada](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai.html)
 
 + [Microsoft page on Responsible AI](https://www.microsoft.com/en-us/ai/our-approach?activetab=pivot1%3aprimaryr5)
+
++ [Microsoft Governing AI: A Blueprint for the Future](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW14Gtw)
 
 + Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389-399. doi: 10.1038/s42256-019-0088-2
 Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Journal of Empirical Research on Human Research Ethics, 14(5), 522-533. doi: 10.1177/1556264619876365
