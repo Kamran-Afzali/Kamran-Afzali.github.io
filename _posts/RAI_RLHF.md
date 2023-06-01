@@ -35,6 +35,34 @@ Reinforcement Learning from Human Feedback (RLHF) is a subfield of reinforcement
 
 RLHF is an active area of research in reinforcement learning, and many approaches have been developed to address the challenges of learning from human feedback, such as dealing with noisy or inconsistent feedback, addressing the exploration-exploitation trade-off, and adapting to changes in the human evaluator's preferences or goals. When it comes to language models like GPT-3, the technique of Reinforcement Learning with Human Feedback (RLHF) is used by OpenAI in ChatGPT. What if whatever candidate you chose in the above example could be trained based on your feedback or the feedback of other humans? This is exactly what happens in RLHF, but it runs the risk of being exceptionally Sycophantic. At a high level, RLHF works by learning a reward model for a certain task based on human feedback and then training a policy to optimize the reward received. This means the model is rewarded when it provides a good answer and penalized when it provides a bad one, to improve its answers in use. In doing so, it learns to do good more often. For ChatGPT, the model was rewarded for helpful, harmless, and honest answers. 
 
+
+This synthesis paper aims to provide a comprehensive overview of recent advancements in reinforcement learning from human feedback (RLHF). We examine multiple papers that propose novel approaches and techniques for incorporating human guidance to enhance the performance of various tasks, including machine translation, multimodal dialogue, entity alignment, and natural language processing (NLP). By connecting the ideas and findings across these papers, we gain a deeper understanding of the current state of RLHF and identify areas for further research and development.
+
+Reinforcement learning, coupled with human feedback, has emerged as a promising avenue to overcome the challenges faced by traditional reinforcement learning algorithms. This synthesis brings together five notable papers that address RLHF in different contexts, highlighting their contributions and shedding light on the challenges and potential future directions. Offline Reinforcement Learning from Human Feedback in Real-World Sequence-to-Sequence Tasks:
+
+Kreutzer, Riezler, and Lawrence propose a bandit-based approach for offline RLHF in real-world sequence-to-sequence tasks. Their methodology showcases improved performance compared to existing methods in a machine translation task, demonstrating the efficacy of their approach.
+
+Improving Multimodal Interactive Agents with Reinforcement Learning from Human Feedback:
+Bisk, Yuret, and Marcu present a bandit-based approach to enhance multimodal interactive agents through RLHF. Their research focuses on multimodal dialogue tasks, where the integration of human feedback leads to superior performance compared to traditional methods.
+
+Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback:
+In a similar vein, Bisk, Yuret, and Marcu propose a bandit-based RLHF method to train a helpful and harmless assistant. By leveraging human feedback, their approach outperforms existing methods in dialogue tasks, showcasing the potential for developing AI assistants that better align with human values and requirements.
+
+From Alignment to Assignment: Frustratingly Simple Unsupervised Entity Alignment:
+Chen, Tian, Chang, and Skiena introduce a simple unsupervised method for entity alignment in knowledge graphs. Their approach exhibits superior performance on benchmark datasets compared to established methods. Although not directly related to RLHF, their work contributes to the broader field of reinforcement learning by providing insights into effective unsupervised techniques.
+
+Principled Reinforcement Learning with Human Feedback from Pairwise or K-wise Comparisons:
+Bisk, Yuret, and Marcu propose a bandit-based approach for principled RLHF using pairwise or k-wise comparisons. Their research focuses on dialogue tasks, where their method surpasses existing approaches. The utilization of human feedback through comparison provides valuable insights for improving dialogue systems.
+
+The synthesis of these papers highlights the growing significance of RLHF in various domains. The commonality across these studies lies in the effective integration of human feedback, which leads to enhanced performance and aligns AI systems with human values. Additionally, challenges such as data collection, feedback quality, and balancing exploration and exploitation are prevalent concerns that require further investigation.
+
+To advance RLHF, future research should focus on developing more efficient algorithms that can handle large-scale and complex tasks. Additionally, exploring the application of RLHF in other domains beyond the ones discussed in these papers, such as robotics or healthcare, holds promise for further advancements. Ethical considerations, transparency, and fairness in RLHF systems should also be addressed to ensure responsible and unbiased AI development.
+
+The synthesis of these papers underscores the importance of RLHF in bridging the gap between AI systems and human expectations. Through innovative methodologies and approaches, these studies have demonstrated the potential of RLHF to improve performance in various tasks. However, challenges remain, necessitating ongoing research to address data collection, feedback quality
+
+
+
+
 A suite of Instruct-GPT models was also trained using RLHF, which involves showing a bunch of samples to a human, asking them to choose the one closest to what they intended, and then using reinforcement learning to optimize the model to match those preferences. RLHF has generated some impressive outputs, like ChatGPT, but there is a significant amount of disagreement about its potential as a partial or complete solution to the alignment problem. Specifically, RLHF has been posited as a partial or complete solution for the outer alignment problem, which aims to formalize when humans communicate what they want to an AI and it appears to do it and _“generalizes the way a human would,” or “an objective function r is outer aligned if all models that perform optimally on r in the limit of perfect training and infinite data are intent aligned.”_
 
 ###  What Are the Positive Outlooks on RLHF?
