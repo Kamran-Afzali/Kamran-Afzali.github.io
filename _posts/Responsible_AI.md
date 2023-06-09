@@ -1,8 +1,7 @@
 
 ###  Why AI should be responsible
 
-Microsoft five points blue print to be integrated https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW14Gtw
-When we at Microsoft adopted our six ethical principles for AI in 2018, we noted that one principle was the bedrock for everything else—accountability. This is the fundamental need: to ensure that machines remain subject to effective oversight by people and the people who design and operate machines remain accountable to everyone else.  In short, we must always ensure that AI remains under human control. This must be a first-order priority for technology companies and governments alike.
+Microsoft five points [blueprint](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW14Gtw) to ensure that machines remain subject to effective oversight by people and the people who design and operate machines remain accountable to everyone else. This is to ensure that AI remains under human control. This must be a first-order priority for technology companies and governments alike.
 
 + First, implement and build upon new government-led AI safety frameworks. 
 + Second, require effective safety brakes for AI systems that control critical infrastructure. 
