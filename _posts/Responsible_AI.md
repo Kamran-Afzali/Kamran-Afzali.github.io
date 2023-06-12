@@ -1,13 +1,6 @@
 
 ###  Why AI should be responsible
 
-Microsoft five points [blueprint](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW14Gtw) to ensure that machines remain subject to effective oversight by people and the people who design and operate machines remain accountable to everyone else. This is to ensure that AI remains under human control. This must be a first-order priority for technology companies and governments alike.
-
-+ First, implement and build upon new government-led AI safety frameworks. 
-+ Second, require effective safety brakes for AI systems that control critical infrastructure. 
-+ Third, develop a broad legal and regulatory framework based on the technology architecture for AI.
-+ Fourth, promote transparency and ensure academic and nonprofit access to AI. 
-+ Fifth, pursue new public-private partnerships to use AI as an effective tool to address the inevitable societal challenges that come with new technology.
 
 Responsible AI is an emerging area of AI governance and use of the word "responsible" is an umbrella term that covers both ethics and democratization. Currently there are no standards for accountability when AI programming creates unintended consequences. Often, bias can be introduced into AI by the data that's used to train machine learning models. When the training data is biased, it naturally follows that decisions made by the programming are also biased. Now that software programs with artificial intelligence (AI) features are becoming more common, it is increasingly apparent that there is a need for standards in AI. The technology can be misused accidentally (or on purpose) for a number of reasons -- and much of the misuse is caused by a bias in the selection of data to train AI programming.
 
@@ -34,6 +27,15 @@ The organization deploying AI programming is sensitive to its potential both pos
 + Safety: AI systems should be designed and implemented with safety in mind, ensuring that they do not pose a risk to individuals or society as a whole.
 + Robustness: AI systems should be designed and implemented to be resilient to errors, biases, and adversarial attacks.
 + Human control: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
+
+Microsoft five points [blueprint](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW14Gtw) to ensure that machines remain subject to effective oversight by people and the people who design and operate machines remain accountable to everyone else. This is to ensure that AI remains under human control. This must be a first-order priority for technology companies and governments alike.
+
++ First, implement and build upon new government-led AI safety frameworks. 
++ Second, require effective safety brakes for AI systems that control critical infrastructure. 
++ Third, develop a broad legal and regulatory framework based on the technology architecture for AI.
++ Fourth, promote transparency and ensure academic and nonprofit access to AI. 
++ Fifth, pursue new public-private partnerships to use AI as an effective tool to address the inevitable societal challenges that come with new technology.
+
 
 ### How to design responsible AI?
 Designing responsible AI involves a thoughtful and systematic approach that takes into account ethical, legal, and societal considerations throughout the entire AI development lifecycle. This approach ensures that AI systems are designed to align with societal values, protect user rights, and minimize potential negative impacts. Several key steps can be followed to design responsible AI.
