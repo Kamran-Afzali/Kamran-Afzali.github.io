@@ -166,5 +166,4 @@ In summary, PSO offers an effective approach to address the Traveling Salesman P
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/tests/utils/test_optimization.py
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/utils/optimization.py
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/synthpop_generator.py
-+ https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/synthpop_generator.py
 + https://github.com/CRCHUM-CITADEL/clover/blob/main/notebooks/synthetic_data_generation.ipynb
