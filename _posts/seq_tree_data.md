@@ -113,8 +113,7 @@ Consider as an example a default synthesis, i.e. synthesis with all values of al
 
 
 
-The most important rule when selecting predictors is that independent variables in a prediction model have to be already synthesized. The only exception is when a variable is used only as a predictor and is not going to be synthesized at all. 
-In order to build an adequate predictor selection matrix, instead of doing it from scratch we can define an initial visit. sequence and corresponding method vector and run syn() function. Then we can adjust the predictor selection matrix used in this synthesis and rerun the function with new parameters. 
+The most important rule when selecting predictors is that independent variables in a prediction model have to be already synthesized. The only exception is when a variable is used only as a predictor and is not going to be synthesized at all. In order to build an adequate predictor selection matrix, instead of doing it from scratch we can define an initial visit. Then we can adjust the predictor selection matrix used in this synthesis and rerun the function with new parameters. Another option would be to concenputalize the variable order as an optimization problem such as the Traveling Salesman Problem (TSP). 
 
 ## The Traveling Salesman Problem (TSP)
 
