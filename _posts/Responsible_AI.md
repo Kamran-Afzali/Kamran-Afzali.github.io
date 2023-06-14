@@ -7,28 +7,22 @@ As mentioned above, one of the primary reasons why responsible AI is important i
 
 
 ### What are the principles of responsible AI?
-
-The organization deploying AI programming is sensitive to its potential both positive and negative The organization deploying AI programming is sensitive to its potential impact -- both positive and negative. Other important point to take into consideration is that within the context of conforming to the tenets of responsible AI each step of the model development process should be recorded in a way that cannot be altered by humans or other programming, the data used to train machine models should not be biased the analytic models that support an AI initiative can be adapted to changing environments without introducing bias. AI and the machine learning models that support it should be comprehensive, explainable, ethical and efficient. Explainable AI is programmed to describe its purpose, rationale and decision-making process in a way that can be understood by the average end user.
-
-+ Comprehensiveness – comprehensive AI has clearly defined testing and governance criteria to prevent machine learning from being hacked easily.
-+ Ethical AI initiatives have processes in place to seek out and eliminate bias in machine learning models.
-+ Efficient AI is able to run continually and respond quickly to changes in the operational environment.
-+ Fairness: AI systems should be designed and implemented to be fair to all individuals and groups, regardless of their race, gender, religion, or any other characteristic.
-+ Accountability: Those who design, develop, and deploy AI systems should be accountable for their actions and any negative consequences that may result from the use of the technology.
-+ Transparency: AI systems should be transparent, meaning that their decisions and reasoning should be understandable and easily explainable to users and stakeholders.
-+ Privacy: The use of AI should respect individuals' privacy and personal data. Data collection and processing should be done in a responsible and transparent manner.
-+ Safety: AI systems should be designed and implemented with safety in mind, ensuring that they do not pose a risk to individuals or society as a whole.
-+ Robustness: AI systems should be designed and implemented to be resilient to errors, biases, and adversarial attacks.
-+ Human control: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
-
 Microsoft five points [blueprint](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW14Gtw) to ensure that machines remain subject to effective oversight by people and the people who design and operate machines remain accountable to everyone else. This is to ensure that AI remains under human control. This must be a first-order priority for technology companies and governments alike.
 
 + First, implement and build upon new government-led AI safety frameworks. 
 + Second, require effective safety brakes for AI systems that control critical infrastructure. 
 + Third, develop a broad legal and regulatory framework based on the technology architecture for AI.
 + Fourth, promote transparency and ensure academic and nonprofit access to AI. 
-+ Fifth, pursue new public-private partnerships to use AI as an effective tool to address the inevitable societal challenges that come with new technology.
-
++ Fifth, pursue new public-private partnerships to use AI as an effective tool to address the inevitable societal challenges that come with new technology. Below is he list of some additional tenets of responsible AI
++ **Comprehensiveness** – comprehensive AI has clearly defined testing and governance criteria to prevent machine learning from being hacked easily.
++ **Efficient** AI is able to run continually and respond quickly to changes in the operational environment.
++ **Fairness**: AI systems should be designed and implemented to be fair to all individuals and groups, regardless of their race, gender, religion, or any other characteristic.
++ **Accountability**: Those who design, develop, and deploy AI systems should be accountable for their actions and any negative consequences that may result from the use of the technology.
++ **Transparency**: AI systems should be transparent, meaning that their decisions and reasoning should be understandable and easily explainable to users and stakeholders.
++ **Privacy**: The use of AI should respect individuals' privacy and personal data. Data collection and processing should be done in a responsible and transparent manner.
++ **Safety**: AI systems should be designed and implemented with safety in mind, ensuring that they do not pose a risk to individuals or society as a whole.
++ **Robustness**: AI systems should be designed and implemented to be resilient to errors, biases, and adversarial attacks.
++ **Human control**: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
 
 ### How to design responsible AI?
 Designing responsible AI involves a thoughtful and systematic approach that takes into account ethical, legal, and societal considerations throughout the entire AI development lifecycle. This approach ensures that AI systems are designed to align with societal values, protect user rights, and minimize potential negative impacts. Several key steps can be followed to design responsible AI.
