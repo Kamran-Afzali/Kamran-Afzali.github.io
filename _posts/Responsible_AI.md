@@ -13,7 +13,10 @@ Microsoft five points [blueprint](https://query.prod.cms.rt.microsoft.com/cms/ap
 + Second, require effective safety brakes for AI systems that control critical infrastructure. 
 + Third, develop a broad legal and regulatory framework based on the technology architecture for AI.
 + Fourth, promote transparency and ensure academic and nonprofit access to AI. 
-+ Fifth, pursue new public-private partnerships to use AI as an effective tool to address the inevitable societal challenges that come with new technology. Below is he list of some additional tenets of responsible AI
++ Fifth, pursue new public-private partnerships to use AI as an effective tool to address the inevitable societal challenges that come with new technology. 
+
+Below is he list of some additional tenets of responsible AI:
+
 + **Comprehensiveness** – comprehensive AI has clearly defined testing and governance criteria to prevent machine learning from being hacked easily.
 + **Efficient** AI is able to run continually and respond quickly to changes in the operational environment.
 + **Fairness**: AI systems should be designed and implemented to be fair to all individuals and groups, regardless of their race, gender, religion, or any other characteristic.
@@ -25,29 +28,10 @@ Microsoft five points [blueprint](https://query.prod.cms.rt.microsoft.com/cms/ap
 + **Human control**: Humans should remain in control of AI systems, meaning that decisions made by the technology should be subject to human oversight and intervention.
 
 ### How to design responsible AI?
-Designing responsible AI involves a thoughtful and systematic approach that takes into account ethical, legal, and societal considerations throughout the entire AI development lifecycle. This approach ensures that AI systems are designed to align with societal values, protect user rights, and minimize potential negative impacts. Several key steps can be followed to design responsible AI.
 
-Firstly, it is crucial to define clear ethical principles and objectives that guide the design process. These principles should reflect values such as fairness, transparency, privacy, and accountability. By establishing a solid ethical foundation, designers can prioritize responsible AI outcomes and avoid potential biases and discrimination in the system.
+Designing responsible AI involves a thoughtful and systematic approach that takes into account ethical, legal, and societal considerations throughout the entire AI development lifecycle. This approach ensures that AI systems are designed to align with societal values, protect user rights, and minimize potential negative impacts. Several key steps can be followed to design responsible AI. It is crucial to define clear ethical principles and objectives that guide the design process. These principles should reflect values such as fairness, transparency, privacy, and accountability. By establishing a solid ethical foundation, designers can prioritize responsible AI outcomes and avoid potential biases and discrimination in the system. Moreover, it is important to ensure that data used for AI training and decision-making is diverse, representative, and unbiased. Biased or incomplete data can perpetuate societal inequalities and produce unfair outcomes. Therefore, data collection processes should be carefully designed to mitigate bias, ensure inclusivity, and respect privacy rights. Additionally, ongoing monitoring and evaluation of data sources and algorithms are necessary to identify and address potential biases that may emerge during AI deployment.
 
-Secondly, it is important to ensure that data used for AI training and decision-making is diverse, representative, and unbiased. Biased or incomplete data can perpetuate societal inequalities and produce unfair outcomes. Therefore, data collection processes should be carefully designed to mitigate bias, ensure inclusivity, and respect privacy rights. Additionally, ongoing monitoring and evaluation of data sources and algorithms are necessary to identify and address potential biases that may emerge during AI deployment.
-
-Thirdly, designers should prioritize transparency and explainability in AI systems. Users and stakeholders should have access to understandable explanations of how AI systems work, including their decision-making processes. Transparent AI systems can help build trust, enable accountability, and allow for external scrutiny. Providing clear information about data sources, algorithmic models, and system limitations fosters a sense of trust and allows users to make informed decisions.
-
-Furthermore, responsible AI design should incorporate mechanisms for user consent, control, and recourse. Users should have the ability to provide informed consent for data collection and use, and they should be empowered to exercise control over their personal data. Additionally, effective grievance mechanisms and avenues for redress should be in place to address concerns and ensure accountability in case of system failures or harm caused by the AI system.
-
-Lastly, continuous monitoring, evaluation, and adaptation are critical components of responsible AI design. AI systems should be regularly assessed for their impact on individuals and society, with feedback loops that allow for course corrections and improvements. This ongoing evaluation process ensures that AI systems remain aligned with ethical principles and adapt to changing societal needs and values.
-
-In conclusion, designing responsible AI requires a holistic approach that encompasses ethical principles, unbiased data, transparency, user consent and control, and continuous monitoring and adaptation. By following these steps, designers can create AI systems that are aligned with societal values, respect user rights, and contribute positively to the well-being of individuals and society as a whole.
-
-Building a responsible AI governance framework can be a lot of work. Ongoing scrutiny is crucial to ensure an organization is committed to providing an unbiased, trustworthy AI. This is why it is crucial for an organization to have a maturity model or rubric to follow while designing and implementing an AI system.
-
-At a base level, to be considered responsible, AI must be built with resources and technology according to a company-wide development standard that mandates the use of:
-
-+ Shared code repositories
-+ Approved model architectures
-+ Sanctioned variables
-+ Established bias testing methodologies to help determine the validity of tests for AI systems
-+ Stability standards for active machine learning models to make sure AI programming works as intended
+Furthermore, responsible AI design should incorporate mechanisms for user consent, control, and recourse. Users should have the ability to provide informed consent for data collection and use, and they should be empowered to exercise control over their personal data. Additionally, effective grievance mechanisms and avenues for redress should be in place to address concerns and ensure accountability in case of system failures or harm caused by the AI system. Continuous monitoring, evaluation, and adaptation are critical components of responsible AI design. AI systems should be regularly assessed for their impact on individuals and society, with feedback loops that allow for course corrections and improvements. This ongoing evaluation process ensures that AI systems remain aligned with ethical principles and adapt to changing societal needs and values.
 
 ### Challenges in implementing responsible AI
 
