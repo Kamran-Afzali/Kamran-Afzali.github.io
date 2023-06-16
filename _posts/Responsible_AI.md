@@ -68,17 +68,17 @@ _Canadaian guiding principles_
 
 ### Against Responsible AI
 
-There are several interest groups or lobbies that may have concerns about the advancement of responsible AI and may try to block its implementation. Companies or industries that rely on opaque algorithms: Companies that rely on algorithms that are not transparent or explainable may resist the implementation of responsible AI, as it could impact their bottom line. Government agencies that rely on surveillance: Government agencies that rely on surveillance or monitoring may be hesitant to adopt responsible AI, as it could limit their ability to monitor individuals or groups. Labor unions that fear automation: Labor unions may resist the implementation of responsible AI, as they may fear that it could lead to job losses or wage stagnation. Politicians with close ties to the tech industry: Politicians who have close ties to the tech industry may be hesitant to regulate AI or implement responsible AI measures, as it could impact the interests of their donors or supporters. Advocates of data privacy: While data privacy advocates may be supportive of responsible AI, they may also be concerned that implementing it could lead to increased data collection and sharing. It is important to note that not all companies, government agencies, or individuals in these groups are necessarily opposed to responsible AI. However, these groups may have concerns or interests that could conflict with the advancement of responsible AI.
+Several interest groups or lobbies that may have concerns about the advancement of responsible AI and may try to block its implementation. Companies that rely on algorithms that are not transparent or explainable may resist the implementation of responsible AI. Likewise, government agencies that rely on surveillance or monitoring may be hesitant to adopt responsible AI, as it could limit their ability to monitor individuals or groups. Politicians with close ties to the tech industry: Politicians who have close ties to the tech industry may be hesitant to regulate AI or implement responsible AI measures, as it could impact the interests of their donors or supporters. Advocates of data privacy: While data privacy advocates may be supportive of responsible AI, they may also be concerned that implementing it could lead to increased data collection and sharing. It is important to note that not all companies, government agencies, or individuals in these groups are necessarily opposed to responsible AI. However, these groups may have concerns or interests that could conflict with the advancement of responsible AI.
 
 ### R and Python packages
 
 In the last section we take a look at some R and Python packages available for the implementation of responsible AI ideas. 
 AI Fairness 360: This is an open-source toolkit developed by IBM that provides a comprehensive set of metrics and algorithms for detecting and mitigating bias in AI models.
 
-+ _Fairlearn_: This is a Python package developed by Microsoft that provides algorithms for measuring and mitigating unfairness in AI models, with a focus on classification problems.
-+ _Aequitas_: This is a Python package that provides tools for measuring and mitigating bias in decision-making systems.
-+ _interpretML_: This is a Python package developed by Microsoft that provides tools for interpreting and explaining AI models, with a focus on fairness, accountability, and transparency.
-+ _fairmodels_: This is a R package provides tools for detecting and mitigating bias in predictive models, with a focus on algorithmic fairness.
++ [_Fairlearn_](https://arxiv.org/abs/2303.16626): This is a Python package developed by Microsoft that provides algorithms for measuring and mitigating unfairness in AI models, with a focus on classification problems.
++ [_Aequitas_](http://www.datasciencepublicpolicy.org/our-work/tools-guides/aequitas/): This is a Python package that provides tools for measuring and mitigating bias in decision-making systems.
++ [_interpretML_](https://interpret.ml/): This is a Python package developed by Microsoft that provides tools for interpreting and explaining AI models, with a focus on fairness, accountability, and transparency.
++ [_fairmodels_](https://arxiv.org/abs/2104.00507): This is a R package provides tools for detecting and mitigating bias in predictive models, with a focus on algorithmic fairness.
 
 ### References
 
