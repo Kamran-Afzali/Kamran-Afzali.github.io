@@ -23,45 +23,19 @@ Theoretical foundations of the conditional inference framework are discussed, em
 
 ## Algorithm 
 
-Sequential Regression Trees (SRTs) are a type of machine learning algorithm used for data imputation, which is the process of filling in missing values in a dataset. SRTs combine the concepts of decision trees and regression to handle sequential dependencies and predict missing values based on the available data.
+Sequential Regression Trees (SRTs) are a type of machine learning algorithm used for data imputation and data generation, based on the concepts of decision trees and sequentiality.
 
-Here's how SRTs work in the context of data imputation:
-
-Data Representation: SRTs operate on a dataset that contains both complete and incomplete samples. Each sample consists of a set of features and a target variable, where the target variable is the feature with the missing value.
-
-Decision Tree Construction: Initially, an SRT is constructed using the complete samples in the dataset. The decision tree partitions the feature space based on the available features to predict the target variable accurately. The tree is built recursively by splitting the data based on the selected feature and its threshold value.
-
-Splitting Criterion: The splitting criterion used in SRTs is typically based on minimizing the mean squared error (MSE) or a similar metric. The goal is to create homogeneous subsets of data that share similar characteristics, making it easier to predict the missing values.
-
-Handling Missing Values: When predicting the target variable for incomplete samples, the SRT uses a sequential approach. Starting from the root of the tree, it traverses the tree based on the available features, making predictions at each node until it reaches a leaf node.
-
-Sequential Regression: At each node, SRTs estimate the missing value using regression. The regression model is trained on complete samples that reach the current node. This model takes the available features as inputs and predicts the missing value. The predicted value is then used to guide the traversal of the tree until a leaf node is reached.
-
-Tree Refinement: After making a prediction, the SRT checks whether the prediction matches the actual value (if available). If there is a mismatch, it updates the tree structure to refine future predictions. The tree can be refined by adjusting the thresholds or adding new branches to handle previously mispredicted samples more accurately.
-
-Iterative Process: The process of constructing an SRT and refining it is typically performed iteratively until a convergence criterion is met. This allows the algorithm to adaptively learn from the data and improve its imputation accuracy.
-
-Overall, Sequential Regression Trees provide a sequential and tree-based approach to data imputation, leveraging decision tree structures and regression models to predict missing values based on the available data. By considering the sequential dependencies and iteratively refining the tree, SRTs can effectively handle data imputation tasks.
-
-
-
-To use SRTs for data generation, you would follow a similar process but with some modifications:
+Here's how SRTs work in the context of data generation:
 
 + Training Data: You would start with a dataset containing complete samples. Each sample would consist of features and a target variable, where the target variable could have missing values. This dataset serves as the training data for the SRT.
 
 + SRT Construction: Using the training data, you would construct an SRT by building a decision tree that predicts the target variable based on the available features. The tree would be constructed using a splitting criterion, such as minimizing mean squared error, to create homogeneous subsets of data.
 
-+ Generating Missing Values: Once the SRT is constructed, you can use it to generate synthetic data by intentionally introducing missing values. You can randomly remove values from the target variable in the training data, representing the missing values you want to generate in the synthetic data.
++ Generating Values: Once the SRT is constructed, you can use it to generate synthetic data by intentionally introducing missing values. You can randomly remove values from the target variable in the training data, representing the missing values you want to generate in the synthetic data.
 
-+ Sequential Regression: For each sample with missing values, you would traverse the SRT based on the available features, predicting the missing value at each node using the regression model. This process follows a sequential approach, similar to the imputation process, until a leaf node is reached.
-
-+ Iterative Refinement: After generating the missing values, you can refine the SRT by adjusting thresholds or adding branches to improve the accuracy of future predictions. This iterative process helps the SRT adapt to the generated data and refine its generative capabilities.
-
-By using Sequential Regression Trees in this way, you can generate synthetic data with missing values that follow the patterns and relationships learned from the original training data. This can be useful in scenarios where you need to create realistic datasets for testing, simulations, or other purposes.
 
 Let's say we have five variables, A,B,C,D, and E. The generation is performed sequentially, and therefore we need to have a sequence. Various criteria can be used to choose a sequence. For our example, we define the sequence A ->E -> C -> B ->D. Let the prime notation indicate that the variable is synthesized. For example, A' means that this is the synthesized version of A. 
 The generative process consists of two general steps: fitting and synthesis. The following are the steps for sequential generation:
-
 
 
 ```
