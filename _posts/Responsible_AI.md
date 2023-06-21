@@ -39,14 +39,14 @@ Implementing responsible AI poses several challenges that need to be addressed t
 Furthermore, there are challenges related to the legal and regulatory landscape. The rapid advancement of AI often outpaces the development of appropriate legal frameworks. Addressing issues such as liability, accountability, and intellectual property rights in the context of AI systems requires updating existing laws or developing new regulations that are adaptive and aligned with the unique challenges posed by AI technologies. Implementing responsible AI is a complex endeavor that involves addressing challenges related to algorithmic biases, transparency, data privacy, ethical considerations, interdisciplinary collaboration, and legal frameworks. Overcoming these challenges requires concerted efforts from researchers, practitioners, policymakers, and society as a whole to ensure the responsible and equitable deployment of AI systems.
 
 
-+ Resistance to change: Some stakeholders may resist the implementation of responsible AI due to concerns about the impact on existing business models or fear of job displacement. This can make it challenging to get buy-in from all stakeholders and may slow down the adoption of responsible AI.
-+ Regulatory challenges: Laws and regulations related to AI are still evolving, and it can be challenging for organizations to navigate the complex legal landscape. Additionally, regulations may vary across different regions or countries, adding complexity to the implementation of responsible AI.
-+ Balancing competing interests: Responsible AI often requires balancing competing interests, such as privacy and security, transparency and interpretability, and fairness and accuracy. Finding the right balance can be challenging, especially when there are trade-offs between different principles.
++ **Resistance to change**: Some stakeholders may resist the implementation of responsible AI due to concerns about the impact on existing business models or fear of job displacement. This can make it challenging to get buy-in from all stakeholders and may slow down the adoption of responsible AI.
++ **Regulatory challenges**: Laws and regulations related to AI are still evolving, and it can be challenging for organizations to navigate the complex legal landscape. Additionally, regulations may vary across different regions or countries, adding complexity to the implementation of responsible AI.
++ **Balancing competing interests**: Responsible AI often requires balancing competing interests, such as privacy and security, transparency and interpretability, and fairness and accuracy. Finding the right balance can be challenging, especially when there are trade-offs between different principles.
 
-+ Lack of data: AI systems require large amounts of data to learn and make decisions. However, there may be limited or biased data available, making it difficult to build accurate and unbiased models.
-+ Technical complexity: Implementing responsible AI requires technical expertise in areas such as data science, machine learning, and cybersecurity. However, many organizations may not have the necessary technical resources or may face challenges in recruiting and retaining qualified staff.
-+ Cost: Building and deploying responsible AI systems can be expensive, requiring investment in hardware, software, and personnel. Small and medium-sized organizations may struggle to afford the necessary resources, limiting their ability to implement responsible AI.
-+ Lack of standardization: There are currently no widely accepted standards or guidelines for responsible AI. This can make it difficult for organizations to know what they need to do to ensure their AI systems are responsible and ethical.
++ **Lack of data**: AI systems require large amounts of data to learn and make decisions. However, there may be limited or biased data available, making it difficult to build accurate and unbiased models.
++ **Technical complexity**: Implementing responsible AI requires technical expertise in areas such as data science, machine learning, and cybersecurity. However, many organizations may not have the necessary technical resources or may face challenges in recruiting and retaining qualified staff.
++ **Cost**: Building and deploying responsible AI systems can be expensive, requiring investment in hardware, software, and personnel. Small and medium-sized organizations may struggle to afford the necessary resources, limiting their ability to implement responsible AI.
++ **Lack of standardization**: There are currently no widely accepted standards or guidelines for responsible AI. This can make it difficult for organizations to know what they need to do to ensure their AI systems are responsible and ethical.
 
 ### Responsible use of artificial intelligence (AI) by Canadian Government
 
@@ -87,7 +87,6 @@ AI Fairness 360: This is an open-source toolkit developed by IBM that provides a
 + [Microsoft Governing AI: A Blueprint for the Future](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW14Gtw)
 
 + Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389-399. doi: 10.1038/s42256-019-0088-2
-Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Journal of Empirical Research on Human Research Ethics, 14(5), 522-533. doi: 10.1177/1556264619876365
 
 + Jobin, A., Ienca, M., & Vayena, E. (2020). Embedding responsibility in intelligent systems: from AI ethics to responsible AI ecosystems. Health Information Science and Systems, 8(1), 1-7. doi: 10.1007/s13755-020-00122-6
 
