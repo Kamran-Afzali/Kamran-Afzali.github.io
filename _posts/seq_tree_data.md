@@ -86,7 +86,16 @@ The Traveling Salesman Problem (TSP) is a well-known optimization problem in com
 
 Particle Swarm Optimization (PSO) is a population-based stochastic optimization algorithm that draws inspiration from the collective behavior observed in bird flocks or fish schools. In PSO, a population of potential solutions, referred to as particles, collaboratively explores the search space in an iterative manner to locate the optimal or near-optimal solution. Each particle represents a candidate solution and navigates through the search space, guided by its own experience and the knowledge shared by its neighboring particles. The objective function is then evaluated for each particle, providing a measure of its fitness or quality at the current position. Each particle maintains a personal best position, reflecting the position that has yielded the best fitness value thus far. If the current position surpasses the personal best, the personal best is updated accordingly. Additionally, the global best position, representing the best solution discovered by any particle in the entire population, is continuously updated based on the personal best positions of all particles. To adapt their movement, particles update their velocities and positions based on their current state, personal best, and global best. The velocity influences the direction and magnitude of the particle's movement, while the new position determines its location in the search space. These steps are iteratively repeated for a specified number of iterations or until a termination criterion is met, such as achieving a desired fitness value or exhausting computational resources.
 
-    PSO(pop_size=population_size, sampling=PermutationRandomSampling(),repair=UniqueIntegerRepair(),)
+     """
+    This optimization algorithm uses a swarm of particles to search the space.
+    The objective function does not need to be differentiable.
+    The solution is a sequence of unique integers.
+    :param problem: the problem object defining what to optimize and the objective function
+    :param population_size: the size of the swarm
+    :param num_epochs: the number of iterations
+    :return: the best solution and its cost
+    """
+    PSO(pop_size=population_size, sampling=PermutationRandomSampling(),repair=UniqueIntegerRepair())
 
 However, PSO may encounter challenges such as premature convergence or being trapped in local optima. To mitigate these limitations, researchers have proposed various enhancements and extensions to the algorithm. These include incorporating adaptive parameters, hybridizing PSO with other algorithms, or leveraging problem-specific knowledge to improve performance and convergence. In summary, Particle Swarm Optimization is a powerful and widely employed optimization algorithm that harnesses the collective behavior of particles to efficiently explore and discover optimal or near-optimal solutions within a given search space. Its effectiveness, ease of implementation, and ability to handle complex objective functions make it a valuable tool for solving a wide range of optimization problems. Ongoing research continues to advance PSO and its adaptations, paving the way for further improvements in solving complex optimization challenges.
 
