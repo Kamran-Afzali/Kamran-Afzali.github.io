@@ -1,4 +1,11 @@
-
+---
+layout: post
+categories: posts
+title: Responsible AI
+featured-image: /images/machineLearning.png
+tags: [Artificial intelligence, Responsible AI, Fairness]
+date-string: July 2023
+---
 ###  Why AI should be responsible
 
 Artificial intelligence (AI) has become increasingly ubiquitous in our lives, with applications ranging from image recognition to natural language processing. As AI becomes more prevalent, it is essential that we consider the ethical and societal implications of its use. Responsible AI is an approach to developing and deploying AI systems that takes into account their potential impact on individuals and society. Currently there are no standards set for accountability when it comes to AI and it's unintended consequences. Often, bias can be introduced into AI by the data that's used to train machine learning models, when the training data is biased, it naturally follows that decisions made by the programming are also biased. Now that software programs with AI features are becoming more common, it is increasingly apparent that there is a need for standards in AI. Responsible AI is an emerging area of AI governance and use of the word "responsible" is an umbrella term that covers both ethics and democratization.
