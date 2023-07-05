@@ -67,6 +67,19 @@ In the era of telemedicine and remote patient monitoring, SFT finds application 
 
 These examples illustrate the broad potential of SFT in healthcare, where it assists in improving the accuracy, efficiency, and effectiveness of AI models. By leveraging supervised fine-tuning techniques, healthcare providers can harness the power of AI to support diagnostics, treatment planning, drug discovery, clinical decision-making, and remote patient monitoring.
 
+### Downsides
+
+While Supervised Fine-Tuning (SFT) offers valuable advantages in healthcare, it is important to consider its potential downsides. One limitation is the reliance on labeled data for the fine-tuning process. Obtaining high-quality labeled data can be time-consuming, costly, and resource-intensive. In healthcare, acquiring labeled data that accurately represents the complex and diverse nature of medical conditions and patient populations can be particularly challenging. Insufficient or biased labeled data may lead to suboptimal fine-tuning results and impact the generalizability of the model's performance.
+
+Another drawback of SFT is the potential for overfitting. Fine-tuning a pre-trained model using a specific dataset may cause the model to become overly specialized and less adaptable to new and unseen data. This overfitting phenomenon can limit the model's ability to generalize well to diverse patient populations or changing healthcare contexts. Mitigating overfitting requires careful regularization techniques and validation strategies to ensure the model remains robust and reliable in real-world scenarios.
+
+Ethical considerations also arise when employing SFT in healthcare. The use of labeled data containing sensitive patient information raises concerns about privacy and data protection. Safeguarding patient privacy and complying with relevant data protection regulations is crucial to maintain trust in healthcare AI applications. Additionally, the potential bias in the labeled data used for fine-tuning can introduce ethical challenges. Biases in the data, such as disparities in healthcare access or underrepresentation of certain demographic groups, can be perpetuated and amplified by the fine-tuned models, leading to inequitable outcomes and exacerbating healthcare disparities.
+
+Furthermore, SFT may require significant computational resources and expertise. Fine-tuning large-scale models can be computationally intensive, necessitating substantial computing infrastructure and time. Additionally, healthcare professionals and researchers must possess the necessary expertise to navigate the complexities of fine-tuning, including selecting appropriate hyperparameters, addressing regularization techniques, and interpreting the results effectively.
+
+In summary, while SFT offers notable benefits in healthcare, it is essential to be mindful of its limitations and challenges. These include the reliance on labeled data, the potential for overfitting, ethical considerations regarding privacy and bias, and the need for computational resources and expertise. By addressing these downsides and developing robust strategies, SFT can be harnessed effectively to enhance healthcare AI applications while ensuring patient privacy, fairness, and generalizability.
+
+
 ### References
 
 https://medium.datadriveninvestor.com/lima-efficient-large-language-model-with-supervised-finetuning-bad42f7a48a6
