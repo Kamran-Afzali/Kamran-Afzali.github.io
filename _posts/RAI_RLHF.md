@@ -35,27 +35,17 @@ However, as RLHF becomes more prevalent, ethical considerations and regulatory f
 
 
 
-+ https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges-for-in-NLP-Kreutzer-Riezler/328031842e86a9ccf8bcb0f7636cb4eb64f065bb
++ [Learning from Human Feedback: Challenges for Real-World Reinforcement Learning in NLP](https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges-for-in-NLP-Kreutzer-Riezler/328031842e86a9ccf8bcb0f7636cb4eb64f065bb)
 
-+ https://bdtechtalks.com/2023/01/16/what-is-rlhf/
++ [What is reinforcement learning from human feedback (RLHF)](https://bdtechtalks.com/2023/01/16/what-is-rlhf/)
 
-+ https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx
++ [Understanding Reinforcement Learning from Human Feedback (RLHF)](https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx)
 
-+ https://huggingface.co/blog/rlhf
++ [Illustrating Reinforcement Learning from Human Feedback ](https://huggingface.co/blog/rlhf)
 
 + [Can AI Alignment and Reinforcement Learning with Human Feedback (RLHF) Solve Web3 Issues?](https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement)
 
-+ https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research
-
-+ [link](https://bdtechtalks.com/2023/01/16/what-is-rlhf/)
-
-+ [link](https://wandb.ai/ayush-thakur/RLHF/reports/Understanding-Reinforcement-Learning-from-Human-Feedback-RLHF-Part-1--VmlldzoyODk5MTIx)
-
-+ [link](https://huggingface.co/blog/rlhf)
-
-+ [link](https://sinoglobalcapital.substack.com/p/can-ai-alignment-and-reinforcement)
-
-+ [link](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research)
++ [Thoughts on the impact of RLHF research](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research)
 
 + Bai, Y., Jones, A., Ndousse, K., Askell, A., Chen, A., DasSarma, N., ... & Kaplan, J. (2022). Training a helpful and harmless assistant with reinforcement learning from human feedback. arXiv preprint arXiv:2204.05862
 
