@@ -33,15 +33,7 @@ However, as RLHF becomes more prevalent, ethical considerations and regulatory f
 
 ### References
 
-+ https://arxiv.org/abs/2109.02363
 
-+ https://arxiv.org/abs/2011.02511
-
-+ https://arxiv.org/abs/2211.11602
-
-+ https://arxiv.org/abs/2204.05862
-
-+ https://arxiv.org/abs/2301.11270
 
 + https://www.semanticscholar.org/paper/Learning-from-Human-Feedback%3A-Challenges-for-in-NLP-Kreutzer-Riezler/328031842e86a9ccf8bcb0f7636cb4eb64f065bb
 
@@ -65,6 +57,8 @@ However, as RLHF becomes more prevalent, ethical considerations and regulatory f
 
 + [link](https://www.alignmentforum.org/posts/vwu4kegAEZTBtpT6p/thoughts-on-the-impact-of-rlhf-research)
 
++ Bai, Y., Jones, A., Ndousse, K., Askell, A., Chen, A., DasSarma, N., ... & Kaplan, J. (2022). Training a helpful and harmless assistant with reinforcement learning from human feedback. arXiv preprint arXiv:2204.05862
+
 + Christiano, P., Leike, J., & Amodei, D. (2019). Alignment for advanced machine learning systems. In Thirty-Third AAAI Conference on Artificial Intelligence.
 
 + Christiano, P. F., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017). Deep reinforcement learning from human preferences. In Proceedings of the 31st Conference on Neural Information Processing Systems (NIPS'17) (pp. 4299-4307).
@@ -78,3 +72,7 @@ However, as RLHF becomes more prevalent, ethical considerations and regulatory f
 + Wirth, C., & Schölkopf, B. (2016). A survey of semi-supervised learning. In S. Z. Li & S. J. Pan (Eds.), Semi-Supervised Learning (pp. 1-14). Springer.
 
 
+[](https://arxiv.org/abs/2109.02363) 
+[](https://arxiv.org/abs/2011.02511) 
+[](https://arxiv.org/abs/2211.11602) 
+[](https://arxiv.org/abs/2301.11270) 
