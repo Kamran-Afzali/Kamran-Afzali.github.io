@@ -26,6 +26,20 @@ To overcome these challenges, ongoing research focuses on developing techniques 
 
 In conclusion, Supervised Fine-Tuning (SFT) represents a promising technique toward achieving alignment in AI systems. Through the combination of pre-training and fine-tuning, SFT enables customization and adaptation to specific tasks while incorporating human supervision and feedback. This technique allows AI systems to align with human values, address biases, and incorporate ethical considerations. As research and advancements in SFT continue, techniques such as active learning and adversarial fine-tuning further enhance the potential for achieving alignment. By leveraging SFT, we move closer to the goal of developing AI systems that are transparent, interpretable, and aligned with human values, paving the way for responsible and beneficial AI integration in our society.
 
+### Responsible AI
+Supervised fine-tuning (SFT) is related to responsible AI in the context of adapting pre-trained models to specific tasks while considering ethical and responsible considerations. Here are a few ways in which SFT relates to responsible AI:
+
+Fairness and Bias: Responsible AI entails addressing issues of fairness and bias in machine learning models. When applying SFT, it is essential to ensure that the pre-trained model used for fine-tuning is itself fair and unbiased. Care must be taken to avoid reinforcing or amplifying any biases present in the pre-trained model during the fine-tuning process. Additionally, data used for fine-tuning should be carefully selected and representative to mitigate biases in the resulting model.
+
+Transparency and Explainability: Responsible AI emphasizes the need for transparency and explainability in AI systems. With SFT, it is crucial to maintain transparency regarding the fine-tuning process. Clear documentation of the pre-training and fine-tuning procedures, including the datasets used, hyperparameters, and any modifications made, helps ensure transparency and facilitates model explainability.
+
+Ethical Data Usage: Responsible AI involves using data in an ethical manner, respecting privacy, and adhering to relevant regulations. When applying SFT, it is important to consider the ethical implications of the data used for fine-tuning. Data privacy and security measures should be in place to protect sensitive information, and data should be obtained and used in accordance with legal and ethical guidelines.
+
+Accountability and Governance: Responsible AI requires accountability and governance mechanisms to ensure the responsible development, deployment, and use of AI systems. SFT should be conducted in a responsible manner, following best practices and guidelines. It is important to establish clear ownership and responsibility for the fine-tuning process, including monitoring and evaluating the impact of the adapted model to detect and address any unintended consequences or ethical issues.
+
+Continuous Learning and Improvement: Responsible AI involves ongoing monitoring and improvement of AI systems. With SFT, the adapted model should be continuously evaluated to assess its performance, including monitoring for biases, fairness, and unintended consequences. Feedback mechanisms should be established to gather insights from users and stakeholders, enabling iterative improvements and addressing any ethical concerns that arise during the deployment of the fine-tuned model.
+
+In summary, SFT is related to responsible AI through considerations of fairness, bias, transparency, explainability, ethical data usage, accountability, governance, and continuous learning. By integrating responsible practices and principles into the process of supervised fine-tuning, AI practitioners can contribute to the development and deployment of AI systems that align with ethical and responsible guidelines.
 ###  Supervised fine-tuning (SFT) and Reinforcement Learning from Human Feedback (RLHF)
 Supervised fine-tuning (SFT) and Reinforcement Learning from Human Feedback (RLHF) are two distinct approaches in machine learning that serve different purposes and have different applications. Let's explore how they compare:
 
@@ -57,20 +71,6 @@ Generalization: SFT aims to generalize well on the target task by fine-tuning th
 
 In summary, SFT is a method to adapt a pre-trained model to a specific target task by fine-tuning it on labeled data, with a focus on achieving high performance on the target task. RLHF, on the other hand, is a reinforcement learning approach that leverages human feedback to improve the decision-making of an agent, aiming to learn optimal policies. While both approaches have their strengths and applications, they serve different purposes and are used in different scenarios based on the specific requirements and objectives of the problem at hand.
 
-### responsible AI
-Supervised fine-tuning (SFT) is related to responsible AI in the context of adapting pre-trained models to specific tasks while considering ethical and responsible considerations. Here are a few ways in which SFT relates to responsible AI:
-
-Fairness and Bias: Responsible AI entails addressing issues of fairness and bias in machine learning models. When applying SFT, it is essential to ensure that the pre-trained model used for fine-tuning is itself fair and unbiased. Care must be taken to avoid reinforcing or amplifying any biases present in the pre-trained model during the fine-tuning process. Additionally, data used for fine-tuning should be carefully selected and representative to mitigate biases in the resulting model.
-
-Transparency and Explainability: Responsible AI emphasizes the need for transparency and explainability in AI systems. With SFT, it is crucial to maintain transparency regarding the fine-tuning process. Clear documentation of the pre-training and fine-tuning procedures, including the datasets used, hyperparameters, and any modifications made, helps ensure transparency and facilitates model explainability.
-
-Ethical Data Usage: Responsible AI involves using data in an ethical manner, respecting privacy, and adhering to relevant regulations. When applying SFT, it is important to consider the ethical implications of the data used for fine-tuning. Data privacy and security measures should be in place to protect sensitive information, and data should be obtained and used in accordance with legal and ethical guidelines.
-
-Accountability and Governance: Responsible AI requires accountability and governance mechanisms to ensure the responsible development, deployment, and use of AI systems. SFT should be conducted in a responsible manner, following best practices and guidelines. It is important to establish clear ownership and responsibility for the fine-tuning process, including monitoring and evaluating the impact of the adapted model to detect and address any unintended consequences or ethical issues.
-
-Continuous Learning and Improvement: Responsible AI involves ongoing monitoring and improvement of AI systems. With SFT, the adapted model should be continuously evaluated to assess its performance, including monitoring for biases, fairness, and unintended consequences. Feedback mechanisms should be established to gather insights from users and stakeholders, enabling iterative improvements and addressing any ethical concerns that arise during the deployment of the fine-tuned model.
-
-In summary, SFT is related to responsible AI through considerations of fairness, bias, transparency, explainability, ethical data usage, accountability, governance, and continuous learning. By integrating responsible practices and principles into the process of supervised fine-tuning, AI practitioners can contribute to the development and deployment of AI systems that align with ethical and responsible guidelines.
 
 
 ### Healthcare
@@ -117,3 +117,12 @@ In conclusion, the future of SFT holds immense potential. Advancements in perfor
 ### References
 
 https://medium.datadriveninvestor.com/lima-efficient-large-language-model-with-supervised-finetuning-bad42f7a48a6
+
+Holstein, K., Wortman Vaughan, J., Daumé III, H., Dudík, M., & Wallach, H. (2019). Improving fairness in machine learning systems: What do industry practitioners need? In Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems (pp. 1-16). doi: 10.1145/3290605.3300830
+Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., ... & Gebru, T. (2019). Model cards for model reporting. In Proceedings of the Conference on Fairness, Accountability, and Transparency (pp. 220-229). doi: 10.1145/3287560.3287596
+Arrieta, A. B., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... & Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115. doi: 10.1016/j.inffus.2019.12.012
+Honegger, A., & Passweg, D. (2021). Supervised fine-tuning for controlled and responsible AI. arXiv preprint arXiv:2106.11539.
+Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389-399. doi: 10.1038/s42256-019-0088-2
+Barredo Arrieta, A., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... & Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115. doi: 10.1016/j.inffus.2019.12.012
+Campolo, A., Sanfilippo, M., Whittaker, M., & Crawford, K. (2017). AI Now 2017 Report. AI Now Institute at New York University. Retrieved from https://ainowinstitute.org/AI_Now_2017_Report.pdf
+Floridi, L., & Cowls, J. (2019). A unified framework of five principles for AI in society. Harvard Data Science Review, 1(1). doi: 10.1162/99608f92.8cd550d1
