@@ -116,13 +116,12 @@ In conclusion, the future of SFT holds immense potential. Advancements in perfor
 
 ### References
 
-https://medium.datadriveninvestor.com/lima-efficient-large-language-model-with-supervised-finetuning-bad42f7a48a6
-
-Holstein, K., Wortman Vaughan, J., Daumé III, H., Dudík, M., & Wallach, H. (2019). Improving fairness in machine learning systems: What do industry practitioners need? In Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems (pp. 1-16). doi: 10.1145/3290605.3300830
-Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., ... & Gebru, T. (2019). Model cards for model reporting. In Proceedings of the Conference on Fairness, Accountability, and Transparency (pp. 220-229). doi: 10.1145/3287560.3287596
-Arrieta, A. B., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... & Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115. doi: 10.1016/j.inffus.2019.12.012
-Honegger, A., & Passweg, D. (2021). Supervised fine-tuning for controlled and responsible AI. arXiv preprint arXiv:2106.11539.
-Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389-399. doi: 10.1038/s42256-019-0088-2
-Barredo Arrieta, A., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... & Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115. doi: 10.1016/j.inffus.2019.12.012
-Campolo, A., Sanfilippo, M., Whittaker, M., & Crawford, K. (2017). AI Now 2017 Report. AI Now Institute at New York University. Retrieved from https://ainowinstitute.org/AI_Now_2017_Report.pdf
-Floridi, L., & Cowls, J. (2019). A unified framework of five principles for AI in society. Harvard Data Science Review, 1(1). doi: 10.1162/99608f92.8cd550d1
++ [](https://medium.datadriveninvestor.com/lima-efficient-large-language-model-with-supervised-finetuning-bad42f7a48a6)
++ Holstein, K., Wortman Vaughan, J., Daumé III, H., Dudík, M., & Wallach, H. (2019). Improving fairness in machine learning systems: What do industry practitioners need? In Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems (pp. 1-16). doi: 10.1145/3290605.3300830
++ Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., ... & Gebru, T. (2019). Model cards for model reporting. In Proceedings of the Conference on Fairness, Accountability, and Transparency (pp. 220-229). doi: 10.1145/3287560.3287596
++ Arrieta, A. B., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... & Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115. doi: 10.1016/j.inffus.2019.12.012
++ Honegger, A., & Passweg, D. (2021). Supervised fine-tuning for controlled and responsible AI. arXiv preprint arXiv:2106.11539.
++ Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389-399. doi: 10.1038/s42256-019-0088-2
++ Barredo Arrieta, A., Díaz-Rodríguez, N., Del Ser, J., Bennetot, A., Tabik, S., Barbado, A., ... & Herrera, F. (2020). Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information Fusion, 58, 82-115. doi: 10.1016/j.inffus.2019.12.012
++ Campolo, A., Sanfilippo, M., Whittaker, M., & Crawford, K. (2017). AI Now 2017 Report. AI Now Institute at New York University. Retrieved from https://ainowinstitute.org/AI_Now_2017_Report.pdf
++ Floridi, L., & Cowls, J. (2019). A unified framework of five principles for AI in society. Harvard Data Science Review, 1(1). doi: 10.1162/99608f92.8cd550d1
