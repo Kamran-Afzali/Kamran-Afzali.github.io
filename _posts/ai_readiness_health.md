@@ -5,20 +5,33 @@ Artificial intelligence (AI) has the potential to revolutionize healthcare by im
 
 Evaluating AI readiness in the healthcare context involves assessing various factors that contribute to successful AI implementation. Here are some key considerations:
 Technical Expertise: Assessing the technical expertise of healthcare professionals and IT staff is essential. It involves evaluating their knowledge and skills in AI technologies, data analysis, and machine learning algorithms.
+
 Data Availability and Quality: Evaluating the availability and quality of healthcare data is crucial for AI readiness. This includes assessing the accessibility of electronic health records, medical imaging data, and other relevant datasets necessary for training and testing AI models.
+
 Infrastructure and Resources: Assessing the existing infrastructure and resources is important to determine if they can support AI implementation. This includes evaluating the computing power, storage capacity, and network capabilities required for AI algorithms to run efficiently.
+
 Regulatory and Ethical Considerations: Evaluating the regulatory and ethical frameworks surrounding AI in healthcare is crucial. It involves assessing compliance with data privacy regulations, patient consent, and ethical guidelines for AI implementation.
+
 Organizational Culture and Leadership: Assessing the organizational culture and leadership support for AI adoption is essential. It involves evaluating the willingness to embrace change, promote innovation, and allocate resources for AI initiatives.
+
 Collaboration and Partnerships: Evaluating the potential for collaboration and partnerships with AI technology providers, research institutions, and other healthcare organizations is important. It can facilitate knowledge sharing, access to expertise, and accelerate AI implementation.
-Overview of AI Maturity Models in Healthcare
+
+#### vOverview of AI Maturity Models in Healthcare
+
 AI maturity models provide a framework for assessing the level of AI adoption and implementation in healthcare organizations. These models help organizations understand their current state and identify areas for improvement. Here are some notable AI maturity models in healthcare:
+
 AI Readiness Index for Hospitals: The AI Readiness Index for Hospitals is a policy tool that assesses the readiness of healthcare organizations to adopt AI. It evaluates factors such as leadership support, technical capabilities, data availability, and ethical considerations5.
+
 Organizational Readiness for AI in Health Care: This model focuses on the organizational issues raised by the integration of AI into clinical routine. It emphasizes the importance of studying organizational readiness to integrate AI into healthcare delivery1.
+
 Framework for Evaluating AI Readiness: This framework evaluates the readiness of healthcare sectors in developing countries to adopt AI. It considers technical expertise, financial sustainability, socio-political commitment, and the psycho-cultural context2.
+
 Clinical AI Quality Improvement: This model emphasizes the continual monitoring and updating of AI algorithms in clinical care. It highlights the collaboration between model developers, clinicians, IT professionals, biostatisticians, and regulatory agencies3.
+
 Modeling Conceptual Framework for Implementing Barriers of AI in Public Healthcare: This framework focuses on understanding the significance of AI and its implementation barriers in healthcare systems in developing countries4.
+
 These AI maturity models provide a structured approach to assess AI readiness and guide healthcare organizations in their AI implementation journey.
-Conclusion
+
 Evaluating AI readiness in the healthcare context is crucial for successful implementation and utilization of AI technologies. It involves assessing technical expertise, data availability, infrastructure, regulatory considerations, organizational culture, and collaboration opportunities. AI maturity models provide frameworks to assess the level of AI adoption and guide organizations in their AI implementation journey. By evaluating AI readiness and utilizing AI maturity models, healthcare organizations can effectively harness the potential of AI to improve patient care and outcomes.
 
 #### AI Maturity 
@@ -135,17 +148,13 @@ In conclusion, AIMMs offer valuable frameworks for assessing AI readiness and ma
 
 ### References
 
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9746075/
-
-https://pubmed.ncbi.nlm.nih.gov/33258359/
-
-https://bmcmededuc.biomedcentral.com/articles/10.1186/s12909-021-02546-6
-
-https://www.cambridge.org/core/books/abs/ai-in-ehealth/organisational-readiness-for-the-adoption-of-artificial-intelligence-in-hospitals/4297BBCEC08130B0C1540127EE8D63C1
-
-[1] https://www.nature.com/articles/s41746-022-00611-y
-[2] https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-019-1426-2
-[3] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8654471/
-[4] https://www.mdpi.com/2071-1050/14/18/11698
-[5] https://pubmed.ncbi.nlm.nih.gov/33258359/
-[6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6616181/
++ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9746075/
++ https://pubmed.ncbi.nlm.nih.gov/33258359/
++ https://bmcmededuc.biomedcentral.com/articles/10.1186/s12909-021-02546-6
++ https://www.cambridge.org/core/books/abs/ai-in-ehealth/organisational-readiness-for-the-adoption-of-artificial-intelligence-in-hospitals/4297BBCEC08130B0C1540127EE8D63C1
++ https://www.nature.com/articles/s41746-022-00611-y
++ https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-019-1426-2
++ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8654471/
++ https://www.mdpi.com/2071-1050/14/18/11698
++ https://pubmed.ncbi.nlm.nih.gov/33258359/
++ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6616181/
