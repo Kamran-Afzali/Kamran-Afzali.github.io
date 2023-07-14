@@ -14,10 +14,7 @@ Gaussian Process Regression (GPR) finds diverse applications in healthcare. It a
 
 Gaussian Process Regression (GPR) offers several benefits in healthcare. Firstly, it provides uncertainty quantification, allowing healthcare professionals to assess the reliability of predictions and make informed decisions. GPR's probabilistic outputs offer confidence intervals for better understanding. Secondly, GPR demonstrates flexibility and adaptability by accommodating various types of data, making it suitable for a wide range of healthcare scenarios. Its non-parametric nature enhances versatility in predictive modeling. Thirdly, GPR provides interpretable models, aiding healthcare professionals in understanding the relationships between variables. Visualizing the learned functions enables evidence-based decision-making. Lastly, GPR showcases data efficiency, accurately predicting outcomes even with limited data points. This feature is particularly valuable in healthcare where data collection can be challenging and costly, making GPR an optimal choice for applications with limited data availability. Overall, GPR's benefits contribute to improved decision-making, enhanced understanding, and efficient use of healthcare resources.
 
-Despite its numerous benefits, Gaussian Process Regression (GPR) in healthcare comes with certain challenges and limitations that should be considered. Computational complexity poses a significant challenge, particularly with large datasets, necessitating efficient algorithms and computational resources to handle the associated complexity. Hyperparameter tuning is another consideration, involving the selection of optimal values for parameters such as the kernel function and noise level. This task can be challenging and may require expert knowledge or extensive experimentation. Furthermore, as GPR models complex relationships, the interpretability of the learned models can become intricate. Understanding the underlying factors contributing to predictions becomes more challenging in highly nonlinear models. These challenges highlight the need for careful consideration and expertise when applying GPR in healthcare settings.
-
-
-Gaussian Process Regression (GPR) is a powerful tool that holds great promise in the healthcare domain. Its ability to model complex relationships, estimate uncertainties, and provide interpretable predictions makes it an invaluable asset for predictive modeling in healthcare. By leveraging GPR, healthcare professionals can enhance disease progression modeling, personalize treatment plans, detect diseases early, and improve medical imaging analysis. While challenges exist, ongoing research and advancements in computational techniques are addressing these limitations, making GPR an increasingly valuable tool in healthcare. As the field continues to evolve, GPR is poised to revolutionize healthcare by enabling more accurate predictions, better decision-making, and improved patient outcomes.
+Despite its numerous benefits, Gaussian Process Regression (GPR) in healthcare comes with certain challenges and limitations that should be considered. Computational complexity poses a significant challenge, particularly with large datasets, necessitating efficient algorithms and computational resources to handle the associated complexity. Hyperparameter tuning is another consideration, involving the selection of optimal values for parameters such as the kernel function and noise level. This task can be challenging and may require expert knowledge or extensive experimentation. Furthermore, as GPR models complex relationships, the interpretability of the learned models can become intricate. Understanding the underlying factors contributing to predictions becomes more challenging in highly nonlinear models. These challenges highlight the need for careful consideration and expertise when applying GPR in healthcare settings. GPR is a powerful tool that holds great promise in the healthcare domain. Its ability to model complex relationships, estimate uncertainties, and provide interpretable predictions makes it an invaluable asset for predictive modeling in healthcare. By leveraging GPR, healthcare professionals can enhance disease progression modeling, personalize treatment plans, detect diseases early, and improve medical imaging analysis. While challenges exist, ongoing research and advancements in computational techniques are addressing these limitations, making GPR an increasingly valuable tool in healthcare. As the field continues to evolve, GPR is poised to revolutionize healthcare by enabling more accurate predictions, better decision-making, and improved patient outcomes.
 
 
 
@@ -147,7 +144,12 @@ f_new_ci <- apply(f_new_samples, 2, quantile, c(0.025, 0.975))
 ### References
 
 + https://arxiv.org/abs/2105.02796
-
++ https://www.russelltech.com/News/ArtMID/719/ArticleID/202/GPR-Advantages-Methods-and-Applications
++ https://iopscience.iop.org/article/10.1088/1755-1315/221/1/012019/meta
++ https://www.researchgate.net/figure/Advantages-and-limitations-of-using-GPR-for-linear-infrastructure-monitoring_tbl2_340067469
++ https://www.geophysical.com/concrete-inspection-the-advantages-of-using-ground-penetrating-radar-gpr
++ https://www.ohsu.edu/school-of-dentistry/general-practice-residency
++ https://dot.ca.gov/-/media/dot-media/programs/research-innovation-system-information/documents/f0016956-ca09-1645-finalreport.pdf
 + Nguyen, T. D., & Nguyen, T. T. (2018). Multi-task Gaussian process models for biomedical applications. arXiv preprint arXiv:1806.03836.
 + Nguyen, T. D., & Nguyen, T. T. (2019). Multitask Gaussian Processes for Multivariate Physiological Time-Series Analysis. IEEE Transactions on Biomedical Engineering, 66(3), 656-665.
 + Zhang, Y., & Li, J. (2019). Uniform Design–Based Gaussian Process Regression for Data-Driven Rapid Fragility Assessment of Bridges. Journal of Bridge Engineering, 24(1), 04018077.
@@ -161,15 +163,10 @@ f_new_ci <- apply(f_new_samples, 2, quantile, c(0.025, 0.975))
 + Zang, Y., & Ji, Q. (2019). Bayesian dose-finding with adaptive Gaussian process regression. Statistics in Medicine, 38(8), 1474-1491.
 + Rasmussen, C. E., & Williams, C. K. I. (2006). Gaussian processes for machine learning. MIT Press.
 + Duvenaud, D. K., Nickisch, H., & Rasmussen, C. E. (2013). Gaussian processes for machine learning: tutorial. In S. Sra, S. Nowozin, & S. J. Wright (Eds.), Optimization for Machine Learning (pp. 133-181). MIT Press.
-+ Titsias, M. K. (2009). Variational learning of inducing variables in sparse Gaussian processes. In Proceedings of the Twelfth International Conference on Artificial Intelligence and Statistics (pp. 567-574).
++ Titsias, M. K. (2009). Variational learning of inducing variables in sparse Gaussian processes. In Proceedings of the Twelfth International Conference on Artificial Intelligence and Statistics.
 + Lawrence, N. D. (2005). Probabilistic non-linear principal component analysis with Gaussian process latent variable models. Journal of Machine Learning Research, 6, 1783-1816.
 + Filippone, M., & Franzoni, L. (2016). A survey of kernel and spectral methods for clustering. Pattern Recognition, 58, 51-68.
 + Kocijan, J., & Murray-Smith, R. (2010). Modelling and control using Gaussian processes. Control Engineering Practice, 18(7), 713-725.
 + Duan, R., Huang, X., & Wang, Y. (2015). A review on Gaussian processes for regression. Journal of Industrial and Management Optimization, 11(1), 1-27.
-+ [1] https://www.russelltech.com/News/ArtMID/719/ArticleID/202/GPR-Advantages-Methods-and-Applications
-+ [2] https://iopscience.iop.org/article/10.1088/1755-1315/221/1/012019/meta
-+ [3] https://www.researchgate.net/figure/Advantages-and-limitations-of-using-GPR-for-linear-infrastructure-monitoring_tbl2_340067469
-+ [4] https://www.geophysical.com/concrete-inspection-the-advantages-of-using-ground-penetrating-radar-gpr
-+ [5] https://www.ohsu.edu/school-of-dentistry/general-practice-residency
-+ [6] https://dot.ca.gov/-/media/dot-media/programs/research-innovation-system-information/documents/f0016956-ca09-1645-finalreport.pdf
+
 
