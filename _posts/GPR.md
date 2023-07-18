@@ -142,9 +142,6 @@ f_new_ci <- apply(f_new_samples, 2, quantile, c(0.025, 0.975))
 + https://arxiv.org/abs/2105.02796
 + https://www.russelltech.com/News/ArtMID/719/ArticleID/202/GPR-Advantages-Methods-and-Applications
 + https://iopscience.iop.org/article/10.1088/1755-1315/221/1/012019/meta
-+ https://www.researchgate.net/figure/Advantages-and-limitations-of-using-GPR-for-linear-infrastructure-monitoring_tbl2_340067469
-+ https://www.geophysical.com/concrete-inspection-the-advantages-of-using-ground-penetrating-radar-gpr
-+ https://www.ohsu.edu/school-of-dentistry/general-practice-residency
 + https://dot.ca.gov/-/media/dot-media/programs/research-innovation-system-information/documents/f0016956-ca09-1645-finalreport.pdf
 + Nguyen, T. D., & Nguyen, T. T. (2018). Multi-task Gaussian process models for biomedical applications. arXiv preprint arXiv:1806.03836.
 + Nguyen, T. D., & Nguyen, T. T. (2019). Multitask Gaussian Processes for Multivariate Physiological Time-Series Analysis. IEEE Transactions on Biomedical Engineering, 66(3), 656-665.
