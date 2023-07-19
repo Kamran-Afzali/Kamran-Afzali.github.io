@@ -139,23 +139,10 @@ f_new_ci <- apply(f_new_samples, 2, quantile, c(0.025, 0.975))
 ```
 ### References
 
++ Duvenaud, D. K., Nickisch, H., & Rasmussen, C. E. (2013). Gaussian processes for machine learning: tutorial. In S. Sra, S. Nowozin, & S. J. Wright (Eds.), Optimization for Machine Learning (pp. 133-181). MIT Press.
 + Nguyen, T. D., & Nguyen, T. T. (2018). Multi-task Gaussian process models for biomedical applications. arXiv preprint arXiv:1806.03836.
-+ Nguyen, T. D., & Nguyen, T. T. (2019). Multitask Gaussian Processes for Multivariate Physiological Time-Series Analysis. IEEE Transactions on Biomedical Engineering, 66(3), 656-665.
-+ Zhang, Y., & Li, J. (2019). Uniform Design–Based Gaussian Process Regression for Data-Driven Rapid Fragility Assessment of Bridges. Journal of Bridge Engineering, 24(1), 04018077.
-+ Li, Y., & Wang, Y. (2019). JGPR: a computationally efficient multi-target Gaussian process regression algorithm. Journal of Cheminformatics, 11(1), 1-14.
-+ Snelson, E., & Ghahramani, Z. (2006). Sparse Gaussian processes using pseudo-inputs. In Advances in neural information processing systems (pp. 1257-1264).
 + Alaa, A. M., & van der Schaar, M. (2018). Prognostication and risk factors for cystic fibrosis via automated machine learning and Gaussian process regression. Scientific Reports, 8(1), 1-12.
 + Nguyen, T. T., Nguyen, H. T., Nguyen, T. L., & Chetty, G. (2017). Gaussian process regression for predicting 30-day readmission of heart failure patients. Journal of Biomedical Informatics, 71, 199-209.
 + Kazemi, S., & Soltanian-Zadeh, H. (2013). A new Gaussian process regression-based method for segmentation of brain tissues from MRI. Medical Image Analysis, 17(3), 225-234.
-+ Ralaivola, L., Swamidass, S. J., Saigo, H., & Baldi, P. (2005). Graph kernels for chemical informatics. Neural Networks, 18(8), 1093-1110.
-+ Wilson, A. G., & Ghahramani, Z. (2015). Bayesian optimization for drug discovery. In Proceedings of the 32nd International Conference on Machine Learning (pp. 648-656).
-+ Zang, Y., & Ji, Q. (2019). Bayesian dose-finding with adaptive Gaussian process regression. Statistics in Medicine, 38(8), 1474-1491.
-+ Rasmussen, C. E., & Williams, C. K. I. (2006). Gaussian processes for machine learning. MIT Press.
-+ Duvenaud, D. K., Nickisch, H., & Rasmussen, C. E. (2013). Gaussian processes for machine learning: tutorial. In S. Sra, S. Nowozin, & S. J. Wright (Eds.), Optimization for Machine Learning (pp. 133-181). MIT Press.
-+ Titsias, M. K. (2009). Variational learning of inducing variables in sparse Gaussian processes. In Proceedings of the Twelfth International Conference on Artificial Intelligence and Statistics.
-+ Lawrence, N. D. (2005). Probabilistic non-linear principal component analysis with Gaussian process latent variable models. Journal of Machine Learning Research, 6, 1783-1816.
-+ Filippone, M., & Franzoni, L. (2016). A survey of kernel and spectral methods for clustering. Pattern Recognition, 58, 51-68.
-+ Kocijan, J., & Murray-Smith, R. (2010). Modelling and control using Gaussian processes. Control Engineering Practice, 18(7), 713-725.
-+ Duan, R., Huang, X., & Wang, Y. (2015). A review on Gaussian processes for regression. Journal of Industrial and Management Optimization, 11(1), 1-27.
 
 
