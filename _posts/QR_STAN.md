@@ -73,13 +73,8 @@ We can then use the stan() function in R to compile and run the model using the 
 
 ### References
 
-+ Koenker, R., & Bassett Jr, G. (1978). Regression quantiles. Econometrica: Journal of the Econometric Society, 33-50.
 + Yu, K., & Moyeed, R. A. (2001). Bayesian quantile regression. Statistics & Probability Letters, 54(4), 437-447.
-+ Kottas, A., & Gelfand, A. E. (2002). Bayesian semiparametric median regression modeling. Journal of the American Statistical Association, 97(457), 109-121.
-+ Koenker, R., Ng, P., & Portnoy, S. (1994). Quantile smoothing splines. Biometrika, 81(4), 673-680.
-+ Chen, Y., & Dunson, D. B. (2003). Bayesian quantile regression. Biometrika, 90(4), 791-804.
++ Kottas, A., & Gelfand, A. E. (2001). Bayesian semiparametric median regression modeling. Journal of the American Statistical Association, 97(457), 109-121.
 + Koenker, R., & Xiao, Z. (2006). Quantile autoregression. Journal of the American Statistical Association, 101(475), 980-990.
 + Yu, K., & Moyeed, R. A. (2000). Bayesian quantile regression. Journal of the Royal Statistical Society: Series D (The Statistician), 49(3), 385-392.
-+ Koenker, R., & Hallock Jr, K. F. (2001). Quantile regression. Journal of Economic Perspectives, 15(4), 143-156.
 + Koenker, R., & Xiao, Z. (2004). Inference on the quantile regression process. Econometrica, 72(1), 71-104.
-+ Yu, K., & Stander, J. (2007). Bayesian quantile regression using adaptive LASSO priors. Computational Statistics & Data Analysis, 51(11), 5296-5308.
