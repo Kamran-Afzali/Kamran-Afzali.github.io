@@ -192,6 +192,16 @@ outOLS = lm(y~X)
            lwd=c(1,1,1,1,1,2),col=c(1:6),title="Quantile")
 ```
 
+```
+n <- 200
+x <- runif(n = n, min = 0, max = 10)
+y <- 1 + 2 * x + rnorm(n = n, mean = 0, sd = 0.6*x)
+dat <- data.frame(x, y)
+# fit the 20%-quantile
+fit <- brm(bf(y ~ x, quantile = 0.2), data = dat, family = asym_laplace())
+summary(fit)
+```
+
 ### References
 
 + Yu, K., & Moyeed, R. A. (2001). Bayesian quantile regression. Statistics & Probability Letters, 54(4), 437-447.
