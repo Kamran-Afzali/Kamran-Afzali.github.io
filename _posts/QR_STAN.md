@@ -98,6 +98,72 @@ Finally, we use the log_sum_exp() function to combine the log-likelihoods for th
 
 We can then use the stan() function in R to compile and run the model using the input data.
 
+
+```
+# Simulate some data
+set.seed(123)
+n <- 100
+x <- seq(0, 10, length.out = n)
+y <- sin(x) + rnorm(n, sd = 0.2)
+df <- data.frame(x = x, y = y)
+
+# Prepare data for Stan model
+stan_data <- list(
+  n = nrow(df),
+  p = 1,  # We have only one predictor variable (x)
+  X = as.matrix(df$x),
+  y = df$y,
+  tau = 0.5  # Quantile of interest (e.g., 0.5 for median)
+)
+
+# Specify Stan model code
+stan_model_code <- "
+data {
+  int<lower=1> n;
+  int<lower=1> p;
+  matrix[n,p] X;
+  vector[n] y;
+  real tau;
+}
+parameters {
+  vector[p] beta;
+}
+transformed parameters {
+  vector[n] mu;
+  for (i in 1:n) {
+    mu[i] = X[i] * beta;
+  }
+}
+model {
+  beta ~ normal(0, 10);
+  for (i in 1:n) {
+    target += log_sum_exp({
+      normal_lpdf(y[i] | mu[i], 1),
+      normal_lccdf(y[i] | mu[i], 1) - log(1 - tau),
+      normal_lcdf(y[i] | mu[i], 1) - log(tau)
+    });
+  }
+}
+"
+
+# Compile Stan model
+gqr_stan_model <- stan_model(model_code = stan_model_code)
+
+# Fit Bayesian quantile regression model using Stan
+gqr_fit <- sampling(gqr_stan_model, data = stan_data)
+
+# Extract the posterior samples and summarize the results
+posterior_samples <- extract(gqr_fit)
+summary(gqr_fit)
+
+
+samples <- extract(gqr_fit)
+
+# Summary of the posterior distribution
+summary(samples$beta)
+
+```
+
 ### References
 
 + Yu, K., & Moyeed, R. A. (2001). Bayesian quantile regression. Statistics & Probability Letters, 54(4), 437-447.
