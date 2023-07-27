@@ -89,6 +89,9 @@ The results are then visualized using `ggplot2`. A scatter plot of the original 
 
 In summary, this code demonstrates how to perform Gaussian process regression on simulated data and visualize the results using R and the `kernlab`, `GPfit`, and `ggplot2` packages. Gaussian process regression is a flexible and powerful method for modeling complex relationships between variables and is particularly useful for applications with noisy or sparse data.
 
+
+
+
 ### Bayesian
 
 Gaussian process regression (GPR) can also be implemented in a Bayesian context using Stan. In Bayesian GPR, we assume a prior distribution for the unknown function and then update our beliefs about the function based on the observed data. The prior distribution is typically specified as a Gaussian process with a mean function and covariance function that depend on hyperparameters. The likelihood function for the observed data is also assumed to be Gaussian with a mean function equal to the prior mean function and a covariance function equal to the sum of the prior covariance function and a noise term. The hyperparameters of the prior and likelihood functions are estimated from the data using Markov chain Monte Carlo (MCMC) methods.
