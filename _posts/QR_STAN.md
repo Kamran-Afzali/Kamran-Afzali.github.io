@@ -55,6 +55,131 @@ dat <- data.frame(x, y)
 fit <- brm(bf(y ~ x, quantile = 0.2), data = dat, family = asym_laplace())
 summary(fit)
 ```
+#### Backend stan model
+
+```
+functions {
+  /* helper function for asym_laplace_lpdf
+   * Args:
+   *   y: the response value
+   *   quantile: quantile parameter in (0, 1)
+   */
+   real rho_quantile(real y, real quantile) {
+     if (y < 0) {
+       return y * (quantile - 1);
+     } else {
+       return y * quantile;
+     }
+   }
+  /* asymmetric laplace log-PDF for a single response
+   * Args:
+   *   y: the response value
+   *   mu: location parameter
+   *   sigma: positive scale parameter
+   *   quantile: quantile parameter in (0, 1)
+   * Returns:
+   *   a scalar to be added to the log posterior
+   */
+   real asym_laplace_lpdf(real y, real mu, real sigma, real quantile) {
+     return log(quantile * (1 - quantile)) -
+            log(sigma) -
+            rho_quantile((y - mu) / sigma, quantile);
+   }
+  /* asymmetric laplace log-CDF for a single quantile
+   * Args:
+   *   y: a quantile
+   *   mu: location parameter
+   *   sigma: positive scale parameter
+   *   quantile: quantile parameter in (0, 1)
+   * Returns:
+   *   a scalar to be added to the log posterior
+   */
+   real asym_laplace_lcdf(real y, real mu, real sigma, real quantile) {
+     if (y < mu) {
+       return log(quantile) + (1 - quantile) * (y - mu) / sigma;
+     } else {
+       return log1m((1 - quantile) * exp(-quantile * (y - mu) / sigma));
+     }
+   }
+  /* asymmetric laplace log-CCDF for a single quantile
+   * Args:
+   *   y: a quantile
+   *   mu: location parameter
+   *   sigma: positive scale parameter
+   *   quantile: quantile parameter in (0, 1)
+   * Returns:
+   *   a scalar to be added to the log posterior
+   */
+   real asym_laplace_lccdf(real y, real mu, real sigma, real quantile) {
+     if (y < mu) {
+       return log1m(quantile * exp((1 - quantile) * (y - mu) / sigma));
+     } else {
+       return log1m(quantile) - quantile * (y - mu) / sigma;
+     }
+   }
+}
+data {
+  int<lower=1> N;  // total number of observations
+  vector[N] Y;  // response variable
+  int<lower=1> K;  // number of population-level effects
+  matrix[N, K] X;  // population-level design matrix
+  int prior_only;  // should the likelihood be ignored?
+}
+transformed data {
+  int Kc = K - 1;
+  matrix[N, Kc] Xc;  // centered version of X without an intercept
+  vector[Kc] means_X;  // column means of X before centering
+  for (i in 2:K) {
+    means_X[i - 1] = mean(X[, i]);
+    Xc[, i - 1] = X[, i] - means_X[i - 1];
+  }
+}
+parameters {
+  vector[Kc] b;  // population-level effects
+  real Intercept;  // temporary intercept for centered predictors
+  real<lower=0> sigma;  // dispersion parameter
+}
+transformed parameters {
+  real quantile = 0.2;  // quantile parameter
+  real lprior = 0;  // prior contributions to the log posterior
+  lprior += student_t_lpdf(Intercept | 3, 11, 7.8);
+  lprior += student_t_lpdf(sigma | 3, 0, 7.8)
+    - 1 * student_t_lccdf(0 | 3, 0, 7.8);
+}
+model {
+  // likelihood including constants
+  if (!prior_only) {
+    // initialize linear predictor term
+    vector[N] mu = rep_vector(0.0, N);
+    mu += Intercept + Xc * b;
+    for (n in 1:N) {
+      target += asym_laplace_lpdf(Y[n] | mu[n], sigma, quantile);
+    }
+  }
+  // priors including constants
+  target += lprior;
+}
+generated quantities {
+  // actual population-level intercept
+  real b_Intercept = Intercept - dot_product(means_X, b);
+}
+```
+This Stan code specifies a Bayesian model for asymmetric Laplace regression, where the main goal is to estimate the population-level effects and dispersion parameter of the model from the provided data. The asymmetric Laplace distribution is used as the likelihood function for the response variable.
+
+1. The `functions` block contains three helper functions: `rho_quantile`, `asym_laplace_lpdf`, and `asym_laplace_lccdf`. These functions are used to calculate the asymmetric Laplace log-PDF, log-CDF, and log-CCDF for a single response variable.
+
+2. The `data` block defines the input data for the model, including the total number of observations `N`, the response variable `Y`, the number of population-level effects `K`, the population-level design matrix `X`, and a binary variable `prior_only` that indicates whether to ignore the likelihood (for prior-only sampling).
+
+3. The `transformed data` block preprocesses the data. It calculates the centered version of the design matrix `Xc`, removes the intercept from the design matrix `X`, and stores the column means of `X` before centering in the vector `means_X`.
+
+4. The `parameters` block defines the parameters to be estimated in the model. It includes the population-level effects `b`, the temporary intercept for centered predictors `Intercept`, and the dispersion parameter `sigma`.
+
+5. The `transformed parameters` block calculates the quantile parameter `quantile` (set to 0.2 in this case) and the prior contributions to the log posterior (`lprior`). The `lprior` term includes the priors for the `Intercept` and `sigma` parameters, which are specified as Student's t-distributions.
+
+6. The `model` block defines the likelihood and priors for the model. The likelihood accounts for the asymmetric Laplace distribution for the response variable `Y`, given the linear predictor `mu` (calculated using the population-level effects `b` and `Intercept`) and the dispersion parameter `sigma`. If `prior_only` is true, the likelihood is ignored, and the model only considers the priors.
+
+7. The `generated quantities` block computes the actual population-level intercept `b_Intercept` by removing the effect of the centered predictors from the temporary intercept `Intercept`.
+
 
 ### References
 
