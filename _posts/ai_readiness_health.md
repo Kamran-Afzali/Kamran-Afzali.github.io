@@ -71,6 +71,12 @@ The HIMSS Analytics AI Maturity Model offers a six-stage framework: Ad Hoc, Awar
 
 #### Overview of AI Maturity Models in Healthcare
 
+A maturity model (MM) describes the growth and development of capability maturity over time in discrete but coordinated stages which describe the organizational behaviors, practices, and processes that reliably and sustainably produce the required out-
+comes. Monitoring and evaluation of organizational behaviors, operating procedures, and policies along the maturity stages is quality measurement and improvement.
+
+The Digital Health Profile and Maturity Assessment Toolkit (DHPMAT) describes five essential DH foundations: information communication technology infrastructure, access, and equity; essential DH tools; readiness to share informa-
+tion; enablers of trust and adoption; and quality improvement,monitoring, and evaluation (QIME) and five stages of maturity: basic,controlled, standardized, optimizing and, innovating.
+
 Evaluating AI readiness is a critical step in successfully integrating AI technologies in healthcare. The use of AI maturity models provides a structured approach to assess an organization's current state, identify gaps, and plan for AI implementation. By considering technological infrastructure, data availability, workforce skills, regulatory compliance, and organizational culture, healthcare institutions can better navigate the complex landscape of AI adoption. Such evaluation enables informed decision-making, enhances patient care, and maximizes the potential benefits of AI in healthcare.
 
 AI maturity models offer structured frameworks to assess an organization's readiness and guide its AI journey. These models provide a roadmap for progressing through different stages of AI adoption, from initial exploration to advanced implementation. Here, we present an overview of two prominent AI maturity models used in the healthcare domain:
