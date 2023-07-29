@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Responsible AI
-featured-image: /images/machineLearning.png
+featured-image: /images/RAI.png
 tags: [Artificial intelligence, Responsible AI, Fairness]
 date-string: July 2023
 ---
