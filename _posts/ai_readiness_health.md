@@ -99,7 +99,7 @@ Evaluating AI readiness in the healthcare context is crucial for successful impl
 
 ##### Translational Evaluation of Healthcare AI (TEHAI) 
 
-The Translational Evaluation of Healthcare AI (TEHAI) framework has been guided by specific principles in its development. As an initial step, a comprehensive review of relevant literature, encompassing frameworks and guidelines related to AI in healthcare reporting and evaluation, was conducted (References 6–8, 13–15). The project team then identified essential components to be considered in the framework and formulated an initial draft version of TEHAI. This draft version underwent scrutiny by an international panel consisting of experts in medicine, data science, healthcare policy, biomedical research, and healthcare commissioning from the UK, USA, and New Zealand. The panel provided valuable feedback, which facilitated the refinement and finalization of TEHAI.
+The Translational Evaluation of Healthcare AI (TEHAI) framework has been guided by specific principles in its development. The essential components were considered in the framework and formulated an initial draft version of TEHAI. TEHAI framework offers a comprehensive approach to evaluating healthcare AI, covering aspects ranging from technical competence to usability and practical integration. By employing this framework, stakeholders can gain valuable insights into the effectiveness and applicability of AI systems, thus enhancing their potential impact on healthcare practices.
 
 One of the key components of TEHAI is Capability, which examines the intrinsic technical competence of the AI system in fulfilling its intended purpose. This evaluation involves a thorough assessment of how the AI system was developed, including proper training and testing protocols, as these are pivotal to ensuring the system's effectiveness in healthcare settings.
 
@@ -107,7 +107,7 @@ The Utility component of TEHAI focuses on the usability of the AI system, encomp
 
 Another critical aspect of TEHAI is the Adoption component, which addresses the challenges associated with integrating AI systems into healthcare delivery, despite their demonstrated efficacy in in-silico or controlled environments. Evaluating the translational value of current AI systems, this component assesses key elements that demonstrate the practical adoption of the model in real-life settings.
 
-Overall, the TEHAI framework offers a comprehensive approach to evaluating healthcare AI, covering aspects ranging from technical competence to usability and practical integration. By employing this framework, stakeholders can gain valuable insights into the effectiveness and applicability of AI systems, thus enhancing their potential impact on healthcare practices.
+
 
 #### OBVIA
 
