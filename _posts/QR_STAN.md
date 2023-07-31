@@ -1,4 +1,4 @@
-### Bayesian Quintile Regression with Stan
+### Bayesian Quintile Regression
 
 As disucced in an earlier post quintile regression is a powerful statistical technique that allows for the estimation of conditional quantiles of the response variable. Unlike traditional regression models that focus on the mean, quintile regression provides insights into the distribution of the response variable at different quantiles. This enables a more comprehensive understanding of the relationship between predictors and the response across the entire distribution. In recent years, the Bayesian approach to quintile regression using the probabilistic programming language Stan has gained popularity due to its flexibility and ability to incorporate prior knowledge. The Bayesian framework provides a natural way to account for uncertainty in quintile regression. By specifying prior distributions for the model parameters, we can incorporate existing knowledge or beliefs about the relationships between predictors and quantiles. This is particularly useful in situations where limited data are available or when prior information from previous studies is available. 
 
@@ -18,26 +18,36 @@ To illustrate the use of Bayesian Quintile Regression with Stan, let's consider 
 ### Model Specification
 
 #### Using bayesQR package
+
+
+Simulate data from heteroskedastic regression
+
 ```
-# Simulate data from heteroskedastic regression
     set.seed(66)
     n <- 200
     X <- runif(n=n,min=0,max=10)
     X <- X
     y <- 1 + 2*X + rnorm(n=n, mean=0, sd=.6*X)
-    # Estimate series of quantile regressions with adaptive lasso
-    # NOTE: to limit execution time of the example, ndraw is set
-    #       to a very low value. Set value to 5000 for a better
-    #       approximation of the posterior distirubtion.
+```
+
+Estimate series of quantile regressions with adaptive lasso
+to limit execution time of the example, ndraw is set to a very low value. Set value to 5000 for a better approximation of the posterior distirubtion.
+
+```    
     out <- bayesQR(y~X, quantile=c(.05,.25,.5,.75,.95), alasso=TRUE, ndraw=500)
-    # Initiate plot
-    ## Plot datapoints
+```
+Initiate plot
+
+```
     plot(X, y, main="", cex=.6, xlab="X")
     ## Add quantile regression lines to the plot (exclude first 500 burn-in draws)
     sum <- summary(out, burnin=50)
     for (i in 1:length(sum)){
       abline(a=sum[[i]]$betadraw[1,1],b=sum[[i]]$betadraw[2,1],lty=i,col=i)
     }
+```
+
+```
 outOLS = lm(y~X)
     abline(outOLS,lty=1,lwd=2,col=6)
     # Add legend to plot
