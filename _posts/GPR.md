@@ -243,6 +243,7 @@ f_new_ci <- apply(f_new_samples, 2, quantile, c(0.025, 0.975))
 + Alaa, A. M., & van der Schaar, M. (2018). Prognostication and risk factors for cystic fibrosis via automated machine learning and Gaussian process regression. Scientific Reports, 8(1), 1-12.
 + Nguyen, T. T., Nguyen, H. T., Nguyen, T. L., & Chetty, G. (2017). Gaussian process regression for predicting 30-day readmission of heart failure patients. Journal of Biomedical Informatics, 71, 199-209.
 + Kazemi, S., & Soltanian-Zadeh, H. (2013). A new Gaussian process regression-based method for segmentation of brain tissues from MRI. Medical Image Analysis, 17(3), 225-234.
-+ [Gaussian process demonstration with Stan](https://avehtari.github.io/casestudies/Motorcycle/motorcycle_gpcourse.html) 
++ [Gaussian process demonstration with Stan](https://avehtari.github.io/casestudies/Motorcycle/motorcycle_gpcourse.html)
++ https://gist.github.com/tjmahr/329271d16cc3ff95fb9c82be5768b4ab
 
 
