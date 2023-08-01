@@ -151,21 +151,6 @@ f_samples <- extract(gpr_fit, "f")$f
 
 The `extract` function is used to extract the posterior samples of the latent function `f` from the fitted GPR model. These samples will be used to predict new values of `f` for new values of `x`.
 
-7. Predict New Values of f and Plot Results:
-
-```R
-x_new <- seq(0, 10, length = 100)
-f_new_samples <- matrix(0, nrow = nrow(f_samples), ncol = length(x_new))
-for (i in 1:length(x_new)) {
-  x_i <- rep(x_new[i], nrow(f_samples))
-  f_new_samples[,i] <- extract(gpr_fit, "f", data = list(N = length(x_i), x = x_i))$f
-}
-f_new_mean <- apply(f_new_samples, 2, mean)
-f_new_ci <- apply(f_new_samples, 2, quantile, c(0.025, 0.975))
-```
-
-In this part, new values of the predictor variable `x_new` are generated, and corresponding values of the latent function `f` are predicted using the posterior samples of `f`. The mean and credible intervals of the predictions are calculated using the `apply` function. Finally, the results are ready for visualization or further analysis.
-
 The code above demonstrates how to perform Bayesian GPR on simulated data, which is useful for modeling non-linear relationships between variables and making predictions with uncertainty estimates. Bayesian GPR provides a flexible framework for dealing with complex and noisy data, making it a powerful tool for various data analysis tasks.
 
 
