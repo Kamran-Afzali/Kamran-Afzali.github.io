@@ -211,15 +211,7 @@ gpr_fit <- sampling(gpr_stan_model, data = stan_data)
 # Extract posterior samples of f for prediction
 f_samples <- extract(gpr_fit, "f")$f
 
-# Predict new values of f and plot results
-x_new <- seq(0, 10, length = 100)
-f_new_samples <- matrix(0, nrow = nrow(f_samples), ncol = length(x_new))
-for (i in 1:length(x_new)) {
-  x_i <- rep(x_new[i], nrow(f_samples))
-  f_new_samples[,i] <- extract(gpr_fit, "f", data = list(N = length(x_i), x = x_i))$f
-}
-f_new_mean <- apply(f_new_samples, 2, mean)
-f_new_ci <- apply(f_new_samples, 2, quantile, c(0.025, 0.975))
+
 ```
 ### References
 
