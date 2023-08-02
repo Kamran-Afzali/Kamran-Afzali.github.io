@@ -130,7 +130,11 @@ The Stan model is compiled using the `stan_model` function from the `rstan` pack
 4. Prepare Data for Stan Model:
 
 ```R
-stan_data <- list(N = nrow(df), x = df$x, y = df$y)
+stan_data <- list(x=df$x,
+                  x2=df$x,
+                  y=df$y,
+                  N=length(df$x),
+                  N2=length(df$x))
 ```
 
 The data is prepared as a list `stan_data` with the number of rows `N`, the predictor variable `x`, and the response variable `y`. This data will be used as input to the Stan model during sampling.
@@ -147,6 +151,18 @@ The Bayesian GPR model is fitted using the `sampling` function from `rstan`. Thi
 
 ```R
 f_samples <- extract(gpr_fit, "f")$f
+sigma_samples <- extract(gpr_fit, "sigma")$sigma
+
+
+df %>%
+  mutate(Ef=colMeans(f_samples),
+         sigma=mean(sigma_samples)) %>%  
+  ggplot(aes(x=x,y=y))+
+  geom_point()+
+  labs(x="Time (ms)", y="Acceleration (g)")+
+  geom_line(aes(y=Ef), color='red')+
+  geom_line(aes(y=Ef-2*sigma), color='red',linetype="dashed")+
+  geom_line(aes(y=Ef+2*sigma), color='red',linetype="dashed")
 ```
 
 The `extract` function is used to extract the posterior samples of the latent function `f` from the fitted GPR model. These samples will be used to predict new values of `f` for new values of `x`.
@@ -166,36 +182,81 @@ df <- data.frame(x = x, y = y)
 
 # Specify Stan model code
 stan_model_code <- "
-data {
-  int<lower=1> N;
-  vector[N] x;
-  vector[N] y;
-}
-parameters {
-  real mu;
-  real<lower=0> sigma_f;
-  real<lower=0> sigma_n;
-  vector[N] eta;
-}
-transformed parameters {
-  vector[N] f;
-  {
-    matrix[N, N] K;
-    for (i in 1:N) {
-      for (j in 1:N) {
-        K[i, j] = sigma_f^2 * exp(-0.5 * square(x[i] - x[j]));
-        if (i == j) K[i, j] = K[i, j] + sigma_n^2;
-      }
+functions {
+  vector gp_pred_rng(array[] real x2,
+                     vector y1,
+                     array[] real x1,
+                     real sigma_f,
+                     real lengthscale_f,
+                     real sigma,
+                     real jitter) {
+    int N1 = rows(y1);
+    int N2 = size(x2);
+    vector[N2] f2;
+    {
+      matrix[N1, N1] L_K;
+      vector[N1] K_div_y1;
+      matrix[N1, N2] k_x1_x2;
+      matrix[N1, N2] v_pred;
+      vector[N2] f2_mu;
+      matrix[N2, N2] cov_f2;
+      matrix[N1, N1] K;
+      K = gp_exp_quad_cov(x1, sigma_f, lengthscale_f);
+      for (n in 1:N1)
+        K[n, n] = K[n,n] + square(sigma);
+      L_K = cholesky_decompose(K);
+      K_div_y1 = mdivide_left_tri_low(L_K, y1);
+      K_div_y1 = mdivide_right_tri_low(K_div_y1', L_K)';
+      k_x1_x2 = gp_exp_quad_cov(x1, x2, sigma_f, lengthscale_f);
+      f2_mu = (k_x1_x2' * K_div_y1);
+      v_pred = mdivide_left_tri_low(L_K, k_x1_x2);
+      cov_f2 = gp_exp_quad_cov(x2, sigma_f, lengthscale_f) - v_pred' * v_pred;
+
+      f2 = multi_normal_rng(f2_mu, add_diag(cov_f2, rep_vector(jitter, N2)));
     }
-    f = mu + cholesky_decompose(K) * eta;
+    return f2;
   }
 }
+data {
+  int<lower=1> N;      // number of observations
+  vector[N] x;         // univariate covariate
+  vector[N] y;         // target variable
+  int<lower=1> N2;     // number of test points
+  vector[N2] x2;       // univariate test points
+}
+transformed data {
+  // Normalize data
+  real xmean = mean(x);
+  real ymean = mean(y);
+  real xsd = sd(x);
+  real ysd = sd(y);
+  array[N] real xn = to_array_1d((x - xmean)/xsd);
+  array[N2] real x2n = to_array_1d((x2 - xmean)/xsd);
+  vector[N] yn = (y - ymean)/ysd;
+  real sigma_intercept = 1;
+  vector[N] zeros = rep_vector(0, N);
+}
+parameters {
+  real<lower=0> lengthscale_f; // lengthscale of f
+  real<lower=0> sigma_f;       // scale of f
+  real<lower=0> sigman;         // noise sigma
+}
 model {
-  sigma_f ~ normal(0, 10);
-  sigma_n ~ normal(0, 10);
-  mu ~ normal(0, 10);
-  eta ~ normal(0, 1);
-  y ~ normal(f, sigma_n);
+  // covariances and Cholesky decompositions
+  matrix[N, N] K_f = gp_exp_quad_cov(xn, sigma_f, lengthscale_f)+
+                     sigma_intercept^2;
+  matrix[N, N] L_f = cholesky_decompose(add_diag(K_f, sigman^2));
+  // priors
+  lengthscale_f ~ normal(0, 1);
+  sigma_f ~ normal(0, 1);
+  sigman ~ normal(0, 1);
+  // model
+  yn ~ multi_normal_cholesky(zeros, L_f);
+}
+generated quantities {
+  // function scaled back to the original scale
+  vector[N2] f = gp_pred_rng(x2n, yn, xn, sigma_f, lengthscale_f, sigman, 1e-9)*ysd + ymean;
+  real sigma = sigman*ysd;
 }
 "
 
@@ -203,13 +264,31 @@ model {
 gpr_stan_model <- stan_model(model_code = stan_model_code)
 
 # Prepare data for Stan model
-stan_data <- list(N = nrow(df), x = df$x, y = df$y)
+stan_data <- list(x=df$x,
+                  x2=df$x,
+                  y=df$y,
+                  N=length(df$x),
+                  N2=length(df$x))
 
 # Fit Bayesian GPR model using Stan
 gpr_fit <- sampling(gpr_stan_model, data = stan_data)
 
-# Extract posterior samples of f for prediction
+
 f_samples <- extract(gpr_fit, "f")$f
+sigma_samples <- extract(gpr_fit, "sigma")$sigma
+
+
+df %>%
+  mutate(Ef=colMeans(f_samples),
+         sigma=mean(sigma_samples)) %>%  
+  ggplot(aes(x=x,y=y))+
+  geom_point()+
+  labs(x="Time (ms)", y="Acceleration (g)")+
+  geom_line(aes(y=Ef), color='red')+
+  geom_line(aes(y=Ef-2*sigma), color='red',linetype="dashed")+
+  geom_line(aes(y=Ef+2*sigma), color='red',linetype="dashed")
+
+
 
 
 ```
