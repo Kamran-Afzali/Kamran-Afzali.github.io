@@ -79,26 +79,37 @@ The Digital Health Profile and Maturity Assessment Toolkit (DHPMAT) describes
 
 Five essential DH foundations: 
 
-+ information communication technology infrastructure, access, and equity; 
-+ essential DH tools; 
-+ readiness to share information; 
-+ enablers of trust and adoption; 
-+ quality improvement,monitoring, and evaluation (QIME) 
+
++ Information communication technology infrastructure, access, and equity
+  + This involves the evaluation of 21 indicators to determine the overall development of Information and Communication Technology (ICT). The assessment focuses on aspects such as ICT coverage, access, affordability, and resilience. The aim is to understand the distribution and reach of the national digital health program.
+
++ Essential DH tools
+  + The evaluation of 39 indicators is used to assess the current implementation and utilization of crucial digital health tools. These tools include unique identifiers, health information systems like Electronic Medical Records (EMR) or Electronic Health Records (EHR), clinical decision support, telemedicine, mHealth, social media, eLearning, and big data analytics. The focus is on the development and maintenance of the national health data asset, which includes registers and EMRs/EHRs.
+    
++ Readiness to share information
+  + Assessment of 27 indicators to evaluate the readiness in terms of interoperability framework, architecture, standards, data quality, and legal frameworks. This evaluation aims to understand how health and other information are collected and managed to meet a standard.
+
++ Enablers of trust and adoption
+  + This involves the evaluation of 31 indicators, including leadership, governance, funding, current strategy, and investment in digital health, as well as digital and health literacy. The assessment also looks into capacity building for digital health development and deployment, as well as the availability of digital health services and applications. The focus is on understanding the deployment of digital health literacy projects and assessing the complexity of digital health interventions and projects.
+
++ Quality improvement,monitoring, and evaluation (QIME)
+  + This section describes various QIMME programs, ranging from single-site, ad hoc evaluations to multi-site implementations with comparative effectiveness research. The aim is to evaluate large-scale implementations with an assessment of financial and economic value and measurements of impacts on processes and outcomes. Indicators are used to assess and monitor the improved sharing of interoperable and fit-for-purpose data (data quality), quality of care, equity, and access to care. Additionally, the RE-AIM elements of implementation, including Reach, Effectiveness, Adoption, Implementation, and Maintenance at individual, community, and organizational levels, are also monitored and assessed.
+
 
 Five stages of maturity: 
 
-+ basic
-+ controlled
-+ standardized
-+ optimized
-+ innovating
++ Basic
++ Controlled
++ Standardized
++ Optimized
++ Innovating
 
 
 ##### Translational Evaluation of Healthcare AI (TEHAI) 
 
 The Translational Evaluation of Healthcare AI (TEHAI) framework has been guided by specific principles in its development. The essential components were considered in the framework and formulated an initial draft version of TEHAI. TEHAI framework offers a comprehensive approach to evaluating healthcare AI, covering aspects ranging from **technical competence to usability and practical integration**. By employing this framework, stakeholders can gain valuable insights into the effectiveness and applicability of AI systems, thus enhancing their potential impact on healthcare practices.
 
-One of the key components of TEHAI is **Capability**, which examines the intrinsic technical competence of the AI system in fulfilling its intended purpose. This evaluation involves a thorough assessment of how the AI system was developed, including proper training and testing protocols, as these are pivotal to ensuring the system's effectiveness in healthcare settings.
+One of the key components of TEHAI is **Capability**, which examines the intrinsic technical competence of the AI system in fulfilling its intended purpose. This evaluation involves a thorough assessment of how the AI system was developed, including proper training and testing protocols, as these are pivotal to ensuring the system's effectiveness in healthcare settings. 
 
 The **Utility** component of TEHAI focuses on the usability of the AI system, encompassing various dimensions such as contextual relevance, safety, and ethical considerations during potential clinical deployment. Additionally, this component evaluates the system's efficiency in achieving maximum productivity while maintaining competency, gauged through quality, adoption, and alignment measures. By assessing these dimensions, Utility helps determine the applicability of the AI system for specific use cases and the broader domain.
 
@@ -107,7 +118,14 @@ Another critical aspect of TEHAI is the **Adoption** component, which addresses 
 
 ##### AI Readiness Index for Hospitals (AI-RIH) 
 
-The development of an AI Readiness Index for Hospitals (AI-RIH) is proposed as a means to enhance organizational readiness and address potential barriers that could impede the effective implementation of AI in healthcare settings. AI readiness, in this context, refers to an organization's preparedness to adopt AI-related applications and technology-driven changes. For healthcare institutions, AI readiness is defined as the capacity to overcome healthcare-specific obstacles and fully capitalize on the innovative potential of AI. While a specific index is not presented, six fundamental categories that an index should encompass are outlined: (i) electronic health records, data quality, and interoperability; (ii) data security, privacy, and regulatory compliance; (iii) patient consultation and safety; (iv) AI upskilling, leadership, and change potential; (v) AI innovation and research; and (vi) AI partnerships and procurement.
+The development of an AI Readiness Index for Hospitals (AI-RIH) is proposed as a means to enhance organizational readiness and address potential barriers that could impede the effective implementation of AI in healthcare settings. AI readiness, in this context, refers to an organization's preparedness to adopt AI-related applications and technology-driven changes. For healthcare institutions, AI readiness is defined as the capacity to overcome healthcare-specific obstacles and fully capitalize on the innovative potential of AI. While a specific index is not presented, six fundamental categories that an index should encompass are outlined: 
+
++ Electronic health records, data quality, and interoperability
++ Data security, privacy, and regulatory compliance
++ Patient consultation and safety
++ AI upskilling, leadership, and change potential
++ AI innovation and research
++ AI partnerships and procurement.
 
 Going beyond digital indices for hospitals, a comprehensive policy approach to AI readiness benchmarking is suggested to identify transformation gaps and harness AI's potential in healthcare. The AI-RIH is motivated by the mixed success of previous AI projects, the necessity for long-term preparation, and the widening gap between hospitals' health information technology status and the private sector. Failure to adequately prepare for AI could lead to technology projects that disrupt hospital care or erode trust among staff and patients. While the concept of an AI-RIH for hospitals is promising, its design and composition raise questions. The index development process entails various steps, such as theoretical framework development, data selection, normalization, and stakeholder consultation, and requires continuous usability testing. Instead of delving into the technical aspects of index development, the focus shifts to discussing the desired properties of an AI-RIH, potential limitations, and ideas for its implementation and utilization for benchmarking hospitals' AI readiness. Research and specialty hospitals often possess more independent oversight and receptive cultures, making them better suited for higher degrees of digitization and workforce upskilling. These hospitals can serve as pioneers or hubs driving AI adoption and innovation. In contrast, smaller district hospitals may rely on regional AI strategies due to limited financial and human resources. Furthermore, technology adoption is particularly complex in hospitals with a high degree of specialization, making specialty and research hospitals more likely to embrace their role as innovators and examples for challenging technology implementation scenarios, including education, spin-outs, and partnerships.
 
