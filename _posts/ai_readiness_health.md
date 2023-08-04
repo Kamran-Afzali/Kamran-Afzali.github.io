@@ -158,11 +158,31 @@ This subcomponent evaluates the level of transparency in the AI model's function
 
 Privacy concerns encompass personal privacy, data protection, and security. This subcomponent emphasizes autonomy and self-determination, including control over personal information access and use, as well as consent processes for data authorization. Privacy is scored based on documented privacy considerations, subject consent procedures, data security measures, data life cycle management during the study, and future protection measures if the AI is deployed in real-world scenarios.
 
-      + Non-maleficence Evaluation:
+    - Non-maleficence Evaluation:
 
 This subcomponent addresses the identification of potential harms resulting from AI usage, beyond patient safety, and emphasizes actions to avoid foreseen or unintended harms. Harms may affect individuals, systems, organizations, infrastructure, and societal well-being. The scoring focuses on the extent to which potential harms are identified and quantified and the measures taken to mitigate risks and avoid harm.
 
 Another critical aspect of TEHAI is the **Adoption** component, which addresses the challenges associated with integrating AI systems into healthcare delivery, despite their demonstrated efficacy in in-silico or controlled environments. Evaluating the translational value of current AI systems, this component assesses key elements that demonstrate the practical adoption of the model in real-life settings.
+
+**Adoption Evaluation:**
+
+    - Use in Healthcare Settings:
+
+As many AI systems are initially developed and tested in controlled environments, it becomes necessary to assess their real-world use and integration with existing health service information systems. While trials may demonstrate efficacy, real-world deployment is essential to demonstrate effectiveness. The utility of the system for end users, such as clinicians and administrators, and its benefits for beneficiaries, namely patients, reflect the system's sustainability and acceptance in the healthcare service. This subcomponent scores the extent of integration into external healthcare sites and the system's utility for end users and beneficiaries.
+
+    - Technical Integration:
+
+This subcomponent evaluates how well the AI models integrate with existing clinical and administrative workflows outside the development setting and how they perform in such situations. Reporting of failed integration, if any, is also considered. The scoring focuses on anticipating integration aspects and taking specific steps to facilitate practical integration.
+
+    - Number of Services:
+
+Many AI in healthcare studies are limited to single-site use without evidence of wider testing or validation. This subcomponent reviews quantitative assessments of wider usage, considering the system's use across multiple healthcare organizations and/or different types of healthcare environments.
+
+    - Alignment with Domain:
+
+This category considers the alignment and relevance of the AI system to the specific healthcare domain and its potential long-term acceptance. It assesses the benefits of the AI system in the particular medical domain where it is applied, emphasizing translational aspects. Scoring is based on how well the benefits of the AI system for the medical domain are articulated.
+
+To facilitate the implementation of these checklists, we propose conducting checks during different phases, namely Development Check (during AI system development), Deployment Check (during AI system deployment), and Discernment Check (as part of ongoing monitoring). These checks ensure a comprehensive evaluation of the AI system's adoption, use in healthcare settings, technical integration, scope of services, and alignment with the targeted medical domain.
 
 
 ##### AI Readiness Index for Hospitals (AI-RIH) 
