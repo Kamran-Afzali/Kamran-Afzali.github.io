@@ -111,35 +111,56 @@ The Translational Evaluation of Healthcare AI (TEHAI) framework has been guided 
 
 One of the key components of TEHAI is **Capability**, which examines the intrinsic technical competence of the AI system in fulfilling its intended purpose. This evaluation involves a thorough assessment of how the AI system was developed, including proper training and testing protocols, as these are pivotal to ensuring the system's effectiveness in healthcare settings. 
 
-+ Capability Assessment:
++ **Capability Assessment:**
 
-The Capability component evaluates the intrinsic technical competence of the AI system to fulfill its intended purpose. Key aspects of the AI system's development process are scrutinized. Adequate training and testing of the model are crucial for the system's usefulness in healthcare environments.
-
-  + Objective Assessment:
+      + Objective Assessment:
 
 This subcomponent focuses on the ethical justification of the system's objective. The study's stated contribution to addressing a specific healthcare problem, aiming to reduce morbidity and/or mortality and enhance efficiency, is assessed. The clarity with which the objective is articulated, including the problem the AI addresses, the study's purpose, and its contribution to the domain's knowledge, determines the scoring.
 
-  + Dataset Source and Integrity Evaluation:
+      + Dataset Source and Integrity Evaluation:
 
 The quality of an AI system is contingent on the data it is derived from. This subcomponent assesses the data source and integrity of datasets used to train and test the AI system. The representation and coverage of the target population in the data, along with the data collection process's consistency and reproducibility, are appraised. The scoring considers how well the dataset is described, its alignment with the objective from a technical standpoint, and the credibility and reliability of the data source.
 
-  + Internal Validity Analysis:
+      + Internal Validity Analysis:
 
 An internally valid model demonstrates reliable and accurate predictions of health outcomes using the training data. The validation process includes measures of goodness-of-fit and cross-validation schemes that use data from the same sources for training and testing. Scoring accounts for the size and properties of the training data set relevant to the healthcare challenge, data diversity to ensure comprehensive modeling coverage, and statistical performance meeting the requirements for usefulness in healthcare.
 
-  + External Validity Assessment:
+      + External Validity Assessment:
 
 External validity evaluation examines whether external data used to assess model performance originate from sources independent of the model construction team or were collected at substantially different times. The scoring considers the size and coverage of external data and the variation present to allow meaningful statistical conclusions.
 
-  + Performance Metrics Examination:
+      + Performance Metrics Examination:
 
 Performance metrics are mathematical formulas used to assess how well an AI model predicts clinical or health outcomes. Proper selection of metrics is essential for reliable accuracy assessment. Biases inherent in specific metrics warrant consideration, and using multiple metrics may provide more reliable conclusions. This subcomponent evaluates whether appropriate performance measures were selected for study presentation, taking into account the healthcare challenge's nature and considering the reliability of the metrics across domains or during model updates.
 
-  + Use Case Justification:
+      + Use Case Justification:
 
 This subcomponent investigates the rationale for utilizing AI in the study, distinct from evaluating statistical or analytical methods. It examines whether the study provides evidence or arguments justifying the AI method's relevance and fit for the specific healthcare domain it is applied to. The scoring considers how well the use case is articulated and whether the study presents evidence or arguments justifying the AI method's application.
 
 The **Utility** component of TEHAI focuses on the usability of the AI system, encompassing various dimensions such as contextual relevance, safety, and ethical considerations during potential clinical deployment. Additionally, this component evaluates the system's efficiency in achieving maximum productivity while maintaining competency, gauged through quality, adoption, and alignment measures. By assessing these dimensions, Utility helps determine the applicability of the AI system for specific use cases and the broader domain.
+
+ + **Utility Evaluation:**
+
+
+      + Generalisability and Contextualisation Analysis:
+
+Biases or disparities arising from underrepresented or inappropriate data in AI model training and validation can affect the system's real-world utility unjustly. This subcomponent examines how well the AI model captures the intended target groups and considers contextualization. Contextualization refers to the alignment between the model's performance, expected outcomes, characteristics of the training data, and the overall objective.
+
+      + Safety and Quality Assessment:
+
+Critical to deploying AI in healthcare, especially clinical settings, is assessing the system's safety and quality. Ongoing monitoring mechanisms, such as robust clinical governance, are essential to ensure the safety and quality of care. This subcomponent scores the presence and strength of safety and quality evaluations, considering their effectiveness in real-world AI applications.
+
+      + Transparency Examination:
+
+This subcomponent evaluates the level of transparency in the AI model's functionality and architecture. It considers whether the algorithm's decision-making process is understandable, with elements such as model structure, individual components, learning algorithm, and the solution reached by the algorithm. The scoring focuses on the model's transparency, interpretability, and reproducibility based on the available information.
+
+      + Privacy Consideration:
+
+Privacy concerns encompass personal privacy, data protection, and security. This subcomponent emphasizes autonomy and self-determination, including control over personal information access and use, as well as consent processes for data authorization. Privacy is scored based on documented privacy considerations, subject consent procedures, data security measures, data life cycle management during the study, and future protection measures if the AI is deployed in real-world scenarios.
+
+      + Non-maleficence Evaluation:
+
+This subcomponent addresses the identification of potential harms resulting from AI usage, beyond patient safety, and emphasizes actions to avoid foreseen or unintended harms. Harms may affect individuals, systems, organizations, infrastructure, and societal well-being. The scoring focuses on the extent to which potential harms are identified and quantified and the measures taken to mitigate risks and avoid harm.
 
 Another critical aspect of TEHAI is the **Adoption** component, which addresses the challenges associated with integrating AI systems into healthcare delivery, despite their demonstrated efficacy in in-silico or controlled environments. Evaluating the translational value of current AI systems, this component assesses key elements that demonstrate the practical adoption of the model in real-life settings.
 
