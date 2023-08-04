@@ -195,19 +195,24 @@ Going beyond digital indices for hospitals, a comprehensive policy approach to A
 
 The authors present a methodical and systematic approach to facilitate the development of Artificial Intelligence and ensure its safe integration into clinical practice. The implementation of this approach requires collaboration among interdisciplinary research teams, who should diligently adhere to relevant regulations. Furthermore, transparent publication of their research findings is crucial, and the utilization of referenced guidelines and good practices can provide valuable support in this endeavor.
 
-+ Phase 0: Preparations Prior to AI Model Development
++ Phase 0: **Preparations Prior to AI Model Development**
+  
 The initial phase involves defining the clinical problem that the AI model aims to address and engaging relevant stakeholders. The AI models should be designed to enhance patient care and tackle clinically significant issues. To ensure their efficacy, these models should produce actionable outputs linked to clinical decision-making. Before commencing the development of the AI model, it is crucial to establish the clinical problem and its significance.
 
-+ Phase I: AI Model Development
++ Phase I: **AI Model Development**
+  
 In this phase, the data extracted directly from hospital information systems undergo preparation and preprocessing. Raw data, especially monitoring data, may contain errors that could introduce bias into the AI model. Hence, data preparation and preprocessing are necessary to mitigate such issues. Different AI models, such as traditional statistical models like logistic regression or advanced AI models like neural networks, can be employed to address the clinical problem effectively.
 
-+ Phase II: Assessment of AI Performance and Reliability
++ Phase II: **Assessment of AI Performance and Reliability**
+  
 Once the AI model is developed locally, it is imperative to evaluate its performance and reliability through external validation. AI models, unlike traditional medical devices, provide patient-specific predictions, making their generalizability and safety essential considerations. External validation helps determine the model's suitability and applicability across various settings. While broad generalizability might be challenging, site-specific training can enhance the model's performance within specific practice settings.
 
-+ Phase III: Clinically Testing AI
++ Phase III: **Clinically Testing AI**
+  
 Clinical AI studies should ideally be conducted in a randomized setting, with detailed steps to facilitate replication by others. These studies may adopt different designs, similar to traditional medical research, necessitating considerations such as randomization, multicentricity, and blinding. Adherence to the Standard Protocol Items: Recommendations for Interventional Trials–Artificial Intelligence guideline is crucial throughout this phase.
 
-+ Phase IV: Implementing and Governing AI
++ Phase IV: **Implementing and Governing AI**
+  
 After successful validation, the AI model can be implemented clinically. This phase involves obtaining legal approval, addressing regulatory aspects, and establishing data and model governance. A dedicated quality management system should be in place to monitor the AI model's performance continuously. Prompt identification of any deteriorating model performance allows timely actions such as retiring, retraining, adjusting, or switching to alternative models. Governance over data and AI model management is of utmost importance, covering aspects like data security, data quality, access, and overall accountability, in accordance with guidelines like FAIR (Findable, Accessible, Interoperable, and Reusable).
 
 
