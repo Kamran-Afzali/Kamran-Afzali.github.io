@@ -1,4 +1,4 @@
-### Introduction
+## Introduction
 
 Advancements in artificial intelligence (AI) have opened up new approaches to address healthcare-related challenges. However, AI systems have not achieved their full practical applications, as they are developed with a predominant focus on technical aspects, neglecting considerations regarding their real-world integration and value. Additionally, applying machine learning to biased or poor-quality datasets can pose significant challenges, with ethical considerations play a critical role in technology-supported clinical decisions, yet these are often inadequately addressed in purely technical evaluations. Integrating AI systems into clinical settings may come with considerable costs and disruptions, necessitating a thorough justification for their deployment. As a result, the generalizability of AI systems and their successful adoption in healthcare may encounter obstacles. Consequently, a rigorous evaluation framework that assesses AI systems at different stages of their clinical deployment is essential. The growing potential of AI in healthcare necessitates a careful evaluation process that encompasses both technical and practical considerations at various stages of AI system deployment. Presently available frameworks tend to focus on specific aspects and might not be adequate for a comprehensive assessment. Developing a unified evaluation framework that addresses the functional, utility, and ethical dimensions of AI models is critical for fostering successful integration and adoption in healthcare settings.
 
@@ -29,7 +29,7 @@ By considering these key components, healthcare organizations can develop a comp
 
 
 
-### Best practices
+## Best practices
 Implementing AI in healthcare requires careful consideration and adherence to best practices. Here are some key best practices for healthcare providers to implement AI in their practice:
 
 1. **Define Clear Objectives**: Clearly define the objectives and goals of implementing AI in healthcare. Identify specific areas where AI can be applied to improve patient care, diagnosis, treatment, or operational efficiency.
@@ -54,26 +54,40 @@ Implementing AI in healthcare requires careful consideration and adherence to be
 
 By following these best practices, healthcare providers can effectively implement AI technologies in their practice, leading to improved patient care, enhanced clinical decision-making, and increased operational efficiency.
 
-### How to enhance understanding of AI in healthcare
+## How to enhance understanding of AI in healthcare
 
 Understanding AI in healthcare empowers healthcare professionals to use it for better patient care, resource management, smart decisions, ethical practices, research advancements, and teamwork. By staying informed and using AI responsibly, healthcare pros can bring positive changes to healthcare and improve patient health. Healthcare providers can enhance their understanding and proficiency through participation in continuing education programs focused on AI in healthcare can provide healthcare providers with valuable knowledge and skills. These programs may include workshops, seminars, webinars, and online courses specifically designed to educate healthcare professionals about AI technologies and their applications in healthcare. Another aspect to take into consideration is collaboration with AI experts, such as data scientists, machine learning engineers, and AI researchers to help healthcare providers gain insights into AI methodologies and best practices. Establishing partnerships with academic institutions, research organizations, or AI technology companies can facilitate knowledge sharing and access to expertise. Engaging in collaborative projects and research initiatives that involve AI can provide healthcare providers with hands-on experience and practical knowledge. By actively participating in AI projects, healthcare providers can gain insights into data analysis, AI model development, and the implementation of AI solutions in healthcare settings. Internal Training Programs: Healthcare organizations can develop internal training programs to educate their staff about AI technologies and their applications in healthcare. These programs can include workshops, seminars, or online modules tailored to the specific needs of healthcare providers. Internal training programs can help healthcare providers understand how AI can be integrated into their clinical workflows and enhance patient care. Along these lines healthcare organizations can identify and designate internal AI champions who can serve as mentors and guides for other healthcare providers. These AI champions can share their knowledge and experiences, provide training sessions, and offer support to colleagues interested in learning about AI. By actively pursuing these strategies, healthcare providers can enhance their knowledge and skills in AI, enabling them to effectively leverage AI technologies to improve patient care, diagnosis, treatment, and overall healthcare outcomes.
 
 
-### AI Maturity Models
+## The Challenge of the Conventional Approach for Digital Health Innovators
+
+The conventional methods for developing robust evidence are not well-aligned with the agile approach taken in software development. There is a mismatch between the length of Randomized Controlled Trials (RCTs) and the typical development and update cycle of software, posing fundamental limitations for researchers seeking to generate evidence for digital health solutions. Consequently, evaluating the effectiveness of digital health solutions has been recognized as an area needing improvement and a significant obstacle to their wider adoption.
+
+To address this challenge, collective efforts from multiple parties, including health authorities, healthcare providers (such as academic medical centers), small and medium-sized enterprises (SMEs), and multinational corporations (MNCs) are required. However, each of these parties faces its own unique difficulties with the current approaches to evidence generation.
+
+SMEs, for instance, often face resource constraints that limit their ability to undertake extensive clinical studies. Their focus is primarily on product development, and establishing robust evidence for their solutions can be difficult given the challenges of launching new ventures. Moreover, conducting well-designed studies requires skilled researchers, often necessitating collaborations with academia, which adds further complexity to the process. The time-consuming and costly nature of obtaining ethical approval for pilot or trial studies has been a significant impediment for SMEs in providing evidence of effectiveness.
+
+On the other hand, MNCs possess more resources to develop evidence, but they, too, face time limitations. They may find it challenging to invest in expensive and time-consuming clinical studies for early-stage solutions that are continuously evolving. Evidence published today may not accurately reflect the latest refined version of the product. Additionally, investments in sales and manufacturing typically yield more tangible and predictable returns compared to investments in clinical studies. Similar to SMEs, MNCs encounter obstacles in navigating the healthcare system's infrastructure, addressing cultural resistance to digital solutions, and identifying suitable principal investigators for evaluation studies.
+
+Academic institutions have established digital health research programs, but they tend to favor traditional research methodologies that prioritize high-impact publications. As a result, the timeliness of studies becomes less critical, potentially causing delays in implementing valuable digital health solutions on a large scale. Additionally, securing sufficient research funding can be challenging for academic centers.
+
+In conclusion, the conventional approach to evidence generation for digital health solutions faces multiple challenges, and a more agile and efficient approach is necessary to ensure timely adoption and implementation of these innovative solutions in healthcare settings.
+
+## AI Maturity Models
 
 AI maturity models (AIMMs) play a crucial role in assessing an organization's readiness and progress in adopting artificial intelligence (AI) technologies. However, the definitions and components of AIMMs vary across studies, indicating a lack of consensus in the field. The chosen studies highlight different characteristics and components of AIMMs. The studies reveal variations in the number of levels, descriptors, and elements used in AIMMs. Some studies lack clarity in how dimensions are evaluated, while others focus on specific industries or domains. The different designations used for elements indicate a lack of standard terminology in the field. However, dimensions are often considered the core of AIMMs, representing the maturity levels.  While there is no unified definition or standard components, AIMMs provide insights into an organization's progress in adopting AI technologies. Future research should aim to establish a common understanding and standardize the terminology and components of AIMMs to facilitate better evaluation and comparison across organizations.For instance, the Gartner AI Maturity Model outlines five levels of maturity: Foundation, Opportunistic, Methodical, Strategic, and Transformed. At the Foundation level, organizations establish basic data management practices. The Opportunistic level involves piloting AI projects in specific domains. In the Methodical level, organizations develop standardized processes for AI implementation. The Strategic level focuses on enterprise-wide integration and AI-driven decision-making. Finally, the Transformed level represents organizations that have fully embraced AI and achieved significant outcomes.
 
 
-#### Overview of AI Maturity Models in Healthcare
+## Overview of AI Maturity Models in Healthcare
 
 A maturity model (MM) describes the growth and development of capability maturity over time in discrete but coordinated stages which describe the organizational behaviors, practices, and processes that reliably and sustainably produce the required outcomes. Monitoring and evaluation of organizational behaviors, operating procedures, and policies along the maturity stages is quality measurement and improvement. Likewise,valuating AI readiness is a critical step in successfully integrating AI technologies in healthcare. The use of AI maturity models provides a structured approach to assess an organization's current state, identify gaps, and plan for AI implementation. By considering technological infrastructure, data availability, workforce skills, regulatory compliance, and organizational culture, healthcare institutions can better navigate the complex landscape of AI adoption. Such evaluation enables informed decision-making, enhances patient care, and maximizes the potential benefits of AI in healthcare.
 
-##### HIMSS Analytics AI Maturity Model
+### HIMSS Analytics AI Maturity Model
 
 The model is developed by HIMSS (Healthcare Information and Management Systems Society), a global organization focused on advancing healthcare through the best use of information technology. The HIMSS Analytics AI Maturity Model consists of different stages or levels, each representing increasing degrees of AI adoption and sophistication. The HIMSS Analytics AI Maturity Model offers a six-stage framework: Ad Hoc, Awareness, Exploration, Preparatory, Operational, and Transformational. The Ad Hoc stage represents limited AI adoption, while the Awareness stage involves understanding AI concepts and potential benefits. The Exploration stage focuses on identifying AI use cases and building internal expertise. In the Preparatory stage, organizations develop strategies and infrastructure for AI implementation. The Operational stage signifies active use of AI solutions, and the Transformational stage represents a fully integrated and optimized AI ecosystem.
 
 
-##### Digital Health Profile and Maturity Assessment Toolkit (DHPMAT)
+### Digital Health Profile and Maturity Assessment Toolkit (DHPMAT)
 
 The Digital Health Profile and Maturity Assessment Toolkit (DHPMAT) describes 
 
@@ -105,7 +119,7 @@ Five stages of maturity:
 + Innovating
 
 
-##### Translational Evaluation of Healthcare AI (TEHAI) 
+### Translational Evaluation of Healthcare AI (TEHAI) 
 
 The Translational Evaluation of Healthcare AI (TEHAI) framework has been guided by specific principles in its development. The essential components were considered in the framework and formulated an initial draft version of TEHAI. TEHAI framework offers a comprehensive approach to evaluating healthcare AI, covering aspects ranging from **technical competence to usability and practical integration**. By employing this framework, stakeholders can gain valuable insights into the effectiveness and applicability of AI systems, thus enhancing their potential impact on healthcare practices.
 
@@ -178,7 +192,7 @@ This category considers the alignment and relevance of the AI system to the spec
 
 
 
-##### AI Readiness Index for Hospitals (AI-RIH) 
+### AI Readiness Index for Hospitals (AI-RIH) 
 
 The development of an AI Readiness Index for Hospitals (AI-RIH) is proposed as a means to enhance organizational readiness and address potential barriers that could impede the effective implementation of AI in healthcare settings. AI readiness, in this context, refers to an organization's preparedness to adopt AI-related applications and technology-driven changes. For healthcare institutions, AI readiness is defined as the capacity to overcome healthcare-specific obstacles and fully capitalize on the innovative potential of AI. While a specific index is not presented, six fundamental categories that an index should encompass are outlined: 
 
@@ -191,7 +205,7 @@ The development of an AI Readiness Index for Hospitals (AI-RIH) is proposed as a
 
 Going beyond digital indices for hospitals, a comprehensive policy approach to AI readiness benchmarking is suggested to identify transformation gaps and harness AI's potential in healthcare. The AI-RIH is motivated by the mixed success of previous AI projects, the necessity for long-term preparation, and the widening gap between hospitals' health information technology status and the private sector. Failure to adequately prepare for AI could lead to technology projects that disrupt hospital care or erode trust among staff and patients. While the concept of an AI-RIH for hospitals is promising, its design and composition raise questions. The index development process entails various steps, such as theoretical framework development, data selection, normalization, and stakeholder consultation, and requires continuous usability testing. Instead of delving into the technical aspects of index development, the focus shifts to discussing the desired properties of an AI-RIH, potential limitations, and ideas for its implementation and utilization for benchmarking hospitals' AI readiness. Research and specialty hospitals often possess more independent oversight and receptive cultures, making them better suited for higher degrees of digitization and workforce upskilling. These hospitals can serve as pioneers or hubs driving AI adoption and innovation. In contrast, smaller district hospitals may rely on regional AI strategies due to limited financial and human resources. Furthermore, technology adoption is particularly complex in hospitals with a high degree of specialization, making specialty and research hospitals more likely to embrace their role as innovators and examples for challenging technology implementation scenarios, including education, spin-outs, and partnerships.
 
-##### Van de Sande D, Van Genderen
+### Van de Sande D, Van Genderen
 
 The authors present a methodical and systematic approach to facilitate the development of Artificial Intelligence and ensure its safe integration into clinical practice. The implementation of this approach requires collaboration among interdisciplinary research teams, who should diligently adhere to relevant regulations. Furthermore, transparent publication of their research findings is crucial, and the utilization of referenced guidelines and good practices can provide valuable support in this endeavor.
 
@@ -216,7 +230,7 @@ Clinical AI studies should ideally be conducted in a randomized setting, with de
 After successful validation, the AI model can be implemented clinically. This phase involves obtaining legal approval, addressing regulatory aspects, and establishing data and model governance. A dedicated quality management system should be in place to monitor the AI model's performance continuously. Prompt identification of any deteriorating model performance allows timely actions such as retiring, retraining, adjusting, or switching to alternative models. Governance over data and AI model management is of utmost importance, covering aspects like data security, data quality, access, and overall accountability, in accordance with guidelines like FAIR (Findable, Accessible, Interoperable, and Reusable).
 
 
-#### Vision in Quebec: OBVIA
+### Vision in Quebec: OBVIA
 
 OBVIA recenctly pulished a fact sheet that presents the main promises (or potential benefits or use cases) of AI in healthcare from the point of view of universal healthcare, the one that aims to improve the health of the population as well as the experience of patients and caregivers. These potential benefits are presented for the most promising uses of artificial intelligence systems (AIS), with a focus on recent developments in AI techniques (e.g. machine learning). This fact sheet does not cover the full potential of AIS to improve health, particularly in support of research, discovery and public health (e.g. prevention and protection). Before presenting the various promises, it is important to emphasize that AIS are not inter- ventions that are easy to circumscribe and evaluate. 
 
