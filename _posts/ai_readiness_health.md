@@ -55,7 +55,7 @@ By following these best practices, healthcare providers can effectively implemen
 
 
 
-## Challenge of AI in healthcare innovations
+## [Challenge of AI in healthcare innovations](https://pubmed.ncbi.nlm.nih.gov/32904379/)
 
 The conventional methods for developing robust evidence in healthcare (e.g. RCT) are not well-aligned with the agile approach taken in software development. There is a mismatch between the length of RCTs and the typical development and update cycle of software, posing fundamental limitations for researchers seeking to generate evidence for digital health solutions. Evaluation of the effectiveness of digital AI has been recognized as an area needing improvement and a significant obstacle to their wider adoption. This issue affects multiple parties, including health authorities, healthcare providers (such as academic medical centers), small and medium-sized enterprises (SMEs), and multinational corporations (MNCs) with each of these parties faces its own unique difficulties with the current approaches to evidence generation. For instance SMEs often face resource constraints that limit their ability to undertake extensive clinical studies. Their focus is primarily on product development, and establishing robust evidence for their solutions can be difficult given the challenges of launching new ventures. Moreover, conducting well-designed studies requires skilled researchers, often necessitating collaborations with academia, which adds further complexity to the process. The time-consuming and costly nature of obtaining ethical approval for pilot or trial studies has been a significant impediment for SMEs in providing evidence of effectiveness.
 
@@ -199,27 +199,27 @@ The development of an AI Readiness Index for Hospitals (AI-RIH) is proposed as a
 
 Going beyond digital indices for hospitals, a comprehensive policy approach to AI readiness benchmarking is suggested to identify transformation gaps and harness AI's potential in healthcare. The AI-RIH is motivated by the mixed success of previous AI projects, the necessity for long-term preparation, and the widening gap between hospitals' health information technology status and the private sector. Failure to adequately prepare for AI could lead to technology projects that disrupt hospital care or erode trust among staff and patients. While the concept of an AI-RIH for hospitals is promising, its design and composition raise questions. The index development process entails various steps, such as theoretical framework development, data selection, normalization, and stakeholder consultation, and requires continuous usability testing. Instead of delving into the technical aspects of index development, the focus shifts to discussing the desired properties of an AI-RIH, potential limitations, and ideas for its implementation and utilization for benchmarking hospitals' AI readiness. Research and specialty hospitals often possess more independent oversight and receptive cultures, making them better suited for higher degrees of digitization and workforce upskilling. These hospitals can serve as pioneers or hubs driving AI adoption and innovation. In contrast, smaller district hospitals may rely on regional AI strategies due to limited financial and human resources. Furthermore, technology adoption is particularly complex in hospitals with a high degree of specialization, making specialty and research hospitals more likely to embrace their role as innovators and examples for challenging technology implementation scenarios, including education, spin-outs, and partnerships.
 
-### Van de Sande D, Van Genderen
+### [Van de Sande D, Van Genderen](https://informatics.bmj.com/content/29/1/e100495)
 
 The authors present a methodical and systematic approach to facilitate the development of Artificial Intelligence and ensure its safe integration into clinical practice. The implementation of this approach requires collaboration among interdisciplinary research teams, who should diligently adhere to relevant regulations. Furthermore, transparent publication of their research findings is crucial, and the utilization of referenced guidelines and good practices can provide valuable support in this endeavor.
 
-+ Phase 0: **Preparations Prior to AI Model Development**
++ **Phase 0: Preparations Prior to AI Model Development**
   
 The initial phase involves defining the clinical problem that the AI model aims to address and engaging relevant stakeholders. The AI models should be designed to enhance patient care and tackle clinically significant issues. To ensure their efficacy, these models should produce actionable outputs linked to clinical decision-making. Before commencing the development of the AI model, it is crucial to establish the clinical problem and its significance.
 
-+ Phase I: **AI Model Development**
++ **Phase I: AI Model Development**
   
 In this phase, the data extracted directly from hospital information systems undergo preparation and preprocessing. Raw data, especially monitoring data, may contain errors that could introduce bias into the AI model. Hence, data preparation and preprocessing are necessary to mitigate such issues. Different AI models, such as traditional statistical models like logistic regression or advanced AI models like neural networks, can be employed to address the clinical problem effectively.
 
-+ Phase II: **Assessment of AI Performance and Reliability**
++ **Phase II: Assessment of AI Performance and Reliability**
   
 Once the AI model is developed locally, it is imperative to evaluate its performance and reliability through external validation. AI models, unlike traditional medical devices, provide patient-specific predictions, making their generalizability and safety essential considerations. External validation helps determine the model's suitability and applicability across various settings. While broad generalizability might be challenging, site-specific training can enhance the model's performance within specific practice settings.
 
-+ Phase III: **Clinically Testing AI**
++ **Phase III: Clinically Testing AI**
   
 Clinical AI studies should ideally be conducted in a randomized setting, with detailed steps to facilitate replication by others. These studies may adopt different designs, similar to traditional medical research, necessitating considerations such as randomization, multicentricity, and blinding. Adherence to the Standard Protocol Items: Recommendations for Interventional Trials–Artificial Intelligence guideline is crucial throughout this phase.
 
-+ Phase IV: **Implementing and Governing AI**
++ **Phase IV: Implementing and Governing AI**
   
 After successful validation, the AI model can be implemented clinically. This phase involves obtaining legal approval, addressing regulatory aspects, and establishing data and model governance. A dedicated quality management system should be in place to monitor the AI model's performance continuously. Prompt identification of any deteriorating model performance allows timely actions such as retiring, retraining, adjusting, or switching to alternative models. Governance over data and AI model management is of utmost importance, covering aspects like data security, data quality, access, and overall accountability, in accordance with guidelines like FAIR (Findable, Accessible, Interoperable, and Reusable).
 
@@ -240,6 +240,7 @@ Digital tools for use cases requiring heterogeneous clinical data as input are t
 
 + https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9746075/
 + https://pubmed.ncbi.nlm.nih.gov/33258359/
++ https://pubmed.ncbi.nlm.nih.gov/32904379/
 + https://bmcmededuc.biomedcentral.com/articles/10.1186/s12909-021-02546-6
 + https://www.cambridge.org/core/books/abs/ai-in-ehealth/organisational-readiness-for-the-adoption-of-artificial-intelligence-in-hospitals/4297BBCEC08130B0C1540127EE8D63C1
 + https://www.nature.com/articles/s41746-022-00611-y
