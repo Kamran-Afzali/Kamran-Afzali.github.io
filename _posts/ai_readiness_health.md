@@ -6,11 +6,24 @@ Artificial Intelligence (AI) in the context of healthcare refers to the utilizat
 
 Here is some of these points with more details. 
 
-+ **Technical Expertise**: Assessing the technical expertise of healthcare professionals and IT staff is essential. It involves evaluating their knowledge and skills in AI technologies, data analysis, and machine learning algorithms.
+
+#### Data related considerations
 
 + **Data Availability and Quality**: Evaluating the availability and quality of healthcare data is crucial for AI readiness. This includes assessing the accessibility of electronic health records, medical imaging data, and other relevant datasets necessary for training and testing AI models.
 
++ **Data Governance and Management**: Developing a robust data governance and management strategy is crucial for AI readiness. It involves establishing policies and procedures for data collection, storage, sharing, and analysis to ensure data quality, security, and privacy.
+
+#### Technological related considerations
+
 + **Infrastructure and Resources**: Assessing the existing infrastructure and resources is important to determine if they can support AI implementation. This includes evaluating the computing power, storage capacity, and network capabilities required for AI algorithms to run efficiently.
+  
+#### People related considerations
+
++ **Training and Education**: Providing training and education to healthcare professionals and IT staff is crucial for AI readiness. It involves developing training programs to enhance technical expertise, data analysis skills, and knowledge of AI technologies and their applications in healthcare.
+
++ **Technical Expertise**: Assessing the technical expertise of healthcare professionals and IT staff is essential. It involves evaluating their knowledge and skills in AI technologies, data analysis, and machine learning algorithms.
+
+#### Organizational considerations
 
 + **Regulatory and Ethical Considerations**: Evaluating the regulatory and ethical frameworks surrounding AI in healthcare is crucial. It involves assessing compliance with data privacy regulations, patient consent, and ethical guidelines for AI implementation.
 
@@ -18,11 +31,8 @@ Here is some of these points with more details.
 
 + **Collaboration and Partnerships**: Evaluating the potential for collaboration and partnerships with AI technology providers, research institutions, and other healthcare organizations is important. It can facilitate knowledge sharing, access to expertise, and accelerate AI implementation.
 
-+ **Data Governance and Management**: Developing a robust data governance and management strategy is crucial for AI readiness. It involves establishing policies and procedures for data collection, storage, sharing, and analysis to ensure data quality, security, and privacy.
-
 + **Performance Metrics and Evaluation**: Developing performance metrics and evaluation criteria is essential to monitor and evaluate the effectiveness of AI implementation. It involves establishing key performance indicators (KPIs) and metrics to measure the impact of AI on patient outcomes, clinical workflows, and organizational efficiency.
 
-+ **Training and Education**: Providing training and education to healthcare professionals and IT staff is crucial for AI readiness. It involves developing training programs to enhance technical expertise, data analysis skills, and knowledge of AI technologies and their applications in healthcare.
 
 By considering these key components, healthcare organizations can develop a comprehensive AI readiness framework that addresses the technical, regulatory, ethical, organizational, and cultural aspects of AI implementation. An effective AI readiness framework can help organizations harness the potential of AI to improve patient care and outcomes.
 
@@ -72,7 +82,7 @@ Understanding AI in healthcare empowers healthcare professionals to use it for b
 AI maturity models (AIMMs) play a crucial role in assessing an organization's readiness and progress in adopting artificial intelligence (AI) technologies. However, the definitions and components of AIMMs vary across studies, indicating a lack of consensus in the field. The chosen studies highlight different characteristics and components of AIMMs. The studies reveal variations in the number of levels, descriptors, and elements used in AIMMs. Some studies lack clarity in how dimensions are evaluated, while others focus on specific industries or domains. The different designations used for elements indicate a lack of standard terminology in the field. However, dimensions are often considered the core of AIMMs, representing the maturity levels.  While there is no unified definition or standard components, AIMMs provide insights into an organization's progress in adopting AI technologies. Future research should aim to establish a common understanding and standardize the terminology and components of AIMMs to facilitate better evaluation and comparison across organizations.For instance, the Gartner AI Maturity Model outlines five levels of maturity: Foundation, Opportunistic, Methodical, Strategic, and Transformed. At the Foundation level, organizations establish basic data management practices. The Opportunistic level involves piloting AI projects in specific domains. In the Methodical level, organizations develop standardized processes for AI implementation. The Strategic level focuses on enterprise-wide integration and AI-driven decision-making. Finally, the Transformed level represents organizations that have fully embraced AI and achieved significant outcomes.
 
 
-## Overview of AI Maturity Models in Healthcare
+## Some AI Maturity Models in Healthcare
 
 A maturity model (MM) describes the growth and development of capability maturity over time in discrete but coordinated stages which describe the organizational behaviors, practices, and processes that reliably and sustainably produce the required outcomes. Monitoring and evaluation of organizational behaviors, operating procedures, and policies along the maturity stages is quality measurement and improvement. Likewise,valuating AI readiness is a critical step in successfully integrating AI technologies in healthcare. The use of AI maturity models provides a structured approach to assess an organization's current state, identify gaps, and plan for AI implementation. By considering technological infrastructure, data availability, workforce skills, regulatory compliance, and organizational culture, healthcare institutions can better navigate the complex landscape of AI adoption. Such evaluation enables informed decision-making, enhances patient care, and maximizes the potential benefits of AI in healthcare.
 
@@ -183,7 +193,6 @@ Many AI in healthcare studies are limited to single-site use without evidence of
 + Alignment with Domain:
 
 This category considers the alignment and relevance of the AI system to the specific healthcare domain and its potential long-term acceptance. It assesses the benefits of the AI system in the particular medical domain where it is applied, emphasizing translational aspects. Scoring is based on how well the benefits of the AI system for the medical domain are articulated.
-
 
 
 ### AI Readiness Index for Hospitals (AI-RIH) 
