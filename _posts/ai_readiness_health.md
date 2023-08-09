@@ -43,7 +43,7 @@ By considering these key components, healthcare organizations can develop a comp
 
 Implementing AI in healthcare requires careful consideration and adherence to best practices. Here are some key best practices for healthcare providers to implement AI in their practice:
 
-#### Procedures and governance related considerations  
+#### Organizational and governance related considerations  
 
 + **Define Clear Objectives**: Clearly define the objectives and goals of implementing AI in healthcare. Identify specific areas where AI can be applied to improve patient care, diagnosis, treatment, or operational efficiency.
 
