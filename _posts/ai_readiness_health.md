@@ -250,8 +250,8 @@ Digital tools for use cases requiring heterogeneous clinical data as input are t
 
 ### References
 
-+ https://pubmed.ncbi.nlm.nih.gov/33258359/
-+ https://pubmed.ncbi.nlm.nih.gov/32904379/
++ [Organizational readiness for artificial intelligence in health care: insights for decision-making and practice](https://pubmed.ncbi.nlm.nih.gov/33258359/) 
++ [Challenges for the evaluation of digital health solutions-A call for innovative evidence generation approaches](https://pubmed.ncbi.nlm.nih.gov/32904379/) 
 + https://bmcmededuc.biomedcentral.com/articles/10.1186/s12909-021-02546-6
 + https://www.cambridge.org/core/books/abs/ai-in-ehealth/organisational-readiness-for-the-adoption-of-artificial-intelligence-in-hospitals/4297BBCEC08130B0C1540127EE8D63C1
 + https://www.nature.com/articles/s41746-022-00611-y
