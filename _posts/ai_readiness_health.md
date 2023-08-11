@@ -250,7 +250,6 @@ Digital tools for use cases requiring heterogeneous clinical data as input are t
 
 ### References
 
-+ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9746075/
 + https://pubmed.ncbi.nlm.nih.gov/33258359/
 + https://pubmed.ncbi.nlm.nih.gov/32904379/
 + https://bmcmededuc.biomedcentral.com/articles/10.1186/s12909-021-02546-6
@@ -259,5 +258,4 @@ Digital tools for use cases requiring heterogeneous clinical data as input are t
 + https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-019-1426-2
 + https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8654471/
 + https://www.mdpi.com/2071-1050/14/18/11698
-+ https://pubmed.ncbi.nlm.nih.gov/33258359/
 + https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6616181/
