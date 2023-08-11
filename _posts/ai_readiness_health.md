@@ -113,8 +113,7 @@ Five essential DH foundations:
   + This involves the evaluation of 31 indicators, including leadership, governance, funding, current strategy, and investment in digital health, as well as digital and health literacy. The assessment also looks into capacity building for digital health development and deployment, as well as the availability of digital health services and applications. The focus is on understanding the deployment of digital health literacy projects and assessing the complexity of digital health interventions and projects.
 
 + Quality improvement,monitoring, and evaluation (**QIME**)
-  + This section describes various QIMME programs, ranging from single-site, ad hoc evaluations to multi-site implementations with comparative effectiveness research. The aim is to evaluate large-scale implementations with an assessment of financial and economic value and measurements of impacts on processes and outcomes. Indicators are used to assess and monitor the improved sharing of interoperable and fit-for-purpose data (data quality), quality of care, equity, and access to care. Additionally, the RE-AIM elements of implementation, including Reach, Effectiveness, Adoption, Implementation, and Maintenance at individual, community, and organizational levels, are also monitored and assessed.
-
+  + This section describes various QIMME programs, ranging from single-site, ad hoc evaluations to multi-site implementations with comparative effectiveness research. The aim is to evaluate large-scale implementations with an assessment of financial and economic value and measurements of impacts on processes and outcomes. Indicators are used to assess and monitor the improved sharing of interoperable and fit-for-purpose data (data quality), quality of care, equity, and access to care. Additionally, the RE-AIM elements of implementation, including Reach, Effectiveness, Adoption, Implementation, and Maintenance at individual, community, and organizational levels, are also monitored and assessed. Moreover, intricate AI systems exhibit sensitivity to environmental alterations, rendering them susceptible to performance deterioration. Following their successful integration into clinical practice, the continuous monitoring and updating of ML/AI algorithms are imperative to ensure their sustained safety and efficacy. To advance the maturation of AI in clinical care, the establishment of specialized hospital units dedicated to the quality assurance and enhancement of these algorithms, denoted as "AI-QI" units, is proposed. This discourse explores the adaptation of conventional hospital quality assurance and improvement tools for the monitoring of static ML algorithms. Conversely, mechanisms for ongoing model refinement are still in their infancy.
 
 Five stages of maturity: 
 
@@ -252,9 +251,8 @@ Digital tools for use cases requiring heterogeneous clinical data as input are t
 
 + [Organizational readiness for artificial intelligence in health care: insights for decision-making and practice](https://pubmed.ncbi.nlm.nih.gov/33258359/) 
 + [Challenges for the evaluation of digital health solutions-A call for innovative evidence generation approaches](https://pubmed.ncbi.nlm.nih.gov/32904379/) 
-+ https://bmcmededuc.biomedcentral.com/articles/10.1186/s12909-021-02546-6
 + https://www.cambridge.org/core/books/abs/ai-in-ehealth/organisational-readiness-for-the-adoption-of-artificial-intelligence-in-hospitals/4297BBCEC08130B0C1540127EE8D63C1
-+ https://www.nature.com/articles/s41746-022-00611-y
++ [Clinical artificial intelligence quality improvement: towards continual monitoring and updating of AI algorithms in healthcare](https://www.nature.com/articles/s41746-022-00611-y) 
 + https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-019-1426-2
 + https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8654471/
 + https://www.mdpi.com/2071-1050/14/18/11698
