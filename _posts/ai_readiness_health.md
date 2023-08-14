@@ -242,7 +242,7 @@ Digital tools for use cases requiring heterogeneous clinical data as input are t
 + https://www.cambridge.org/core/books/abs/ai-in-ehealth/organisational-readiness-for-the-adoption-of-artificial-intelligence-in-hospitals/4297BBCEC08130B0C1540127EE8D63C1
 + [Clinical artificial intelligence quality improvement: towards continual monitoring and updating of AI algorithms in healthcare](https://www.nature.com/articles/s41746-022-00611-y)
 + [Transforming healthcare with AI: The impact on the workforce and organizations](https://www.mckinsey.com/industries/healthcare/our-insights/transforming-healthcare-with-ai)
-+ [https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-019-1426-2](Key challenges for delivering clinical impact with artificial intelligence)
++ [Key challenges for delivering clinical impact with artificial intelligence](https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-019-1426-2)
 + [Modeling Conceptual Framework for Implementing Barriers of AI in Public Healthcare for Improving Operational Excellence: Experiences from Developing Countries](https://www.mdpi.com/2071-1050/14/18/11698)
 + [The potential for artificial intelligence in healthcare](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6616181/)
 
