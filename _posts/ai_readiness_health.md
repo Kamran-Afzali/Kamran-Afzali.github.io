@@ -136,40 +136,27 @@ The **Utility** component of TEHAI focuses on the usability of the AI system, en
 
  + **Utility Evaluation:**
    
-+ Generalisability and Contextualisation Analysis:
-   Biases or disparities arising from underrepresented or inappropriate data in AI model training and validation can affect the system's real-world utility unjustly. This subcomponent examines how well the AI model captures the intended target groups and considers contextualization. Contextualization refers to the alignment between the model's performance, expected outcomes, characteristics of the training data, and the overall objective.
+  + Generalisability and Contextualisation Analysis: Biases or disparities arising from underrepresented or inappropriate data in AI model training and validation can affect the system's real-world utility unjustly. This subcomponent examines how well the AI model captures the intended target groups and considers contextualization. Contextualization refers to the alignment between the model's performance, expected outcomes, characteristics of the training data, and the overall objective.
 
-+ Safety and Quality Assessment:
-        Critical to deploying AI in healthcare, especially clinical settings, is assessing the system's safety and quality. Ongoing monitoring mechanisms, such as robust clinical governance, are essential to ensure the safety and quality of care. This subcomponent scores the presence and strength of safety and quality evaluations, considering their effectiveness in real-world AI applications.
+  + Safety and Quality Assessment: Critical to deploying AI in healthcare, especially clinical settings, is assessing the system's safety and quality. Ongoing monitoring mechanisms, such as robust clinical governance, are essential to ensure the safety and quality of care. This subcomponent scores the presence and strength of safety and quality evaluations, considering their effectiveness in real-world AI applications.
 
-+ Transparency Examination:
-        This subcomponent evaluates the level of transparency in the AI model's functionality and architecture. It considers whether the algorithm's decision-making process is understandable, with elements such as model structure, individual components, learning algorithm, and the solution reached by the algorithm. The scoring focuses on the model's transparency, interpretability, and reproducibility based on the available information.
+  + Transparency Examination: This subcomponent evaluates the level of transparency in the AI model's functionality and architecture. It considers whether the algorithm's decision-making process is understandable, with elements such as model structure, individual components, learning algorithm, and the solution reached by the algorithm. The scoring focuses on the model's transparency, interpretability, and reproducibility based on the available information.
 
-+ Privacy Consideration:
-        Privacy concerns encompass personal privacy, data protection, and security. This subcomponent emphasizes autonomy and self-determination, including control over personal information access and use, as well as consent processes for data authorization. Privacy is scored based on documented privacy considerations, subject consent procedures, data security measures, data life cycle management during the study, and future protection measures if the AI is deployed in real-world scenarios.
+  + Privacy Consideration: Privacy concerns encompass personal privacy, data protection, and security. This subcomponent emphasizes autonomy and self-determination, including control over personal information access and use, as well as consent processes for data authorization. Privacy is scored based on documented privacy considerations, subject consent procedures, data security measures, data life cycle management during the study, and future protection measures if the AI is deployed in real-world scenarios.
 
-+ Non-maleficence Evaluation:
-      This subcomponent addresses the identification of potential harms resulting from AI usage, beyond patient safety, and emphasizes actions to avoid foreseen or unintended harms. Harms may affect individuals, systems, organizations, infrastructure, and societal well-being. The scoring focuses on the extent to which potential harms are identified and quantified and the measures taken to mitigate risks and avoid harm.
+  + Non-maleficence Evaluation: This subcomponent addresses the identification of potential harms resulting from AI usage, beyond patient safety, and emphasizes actions to avoid foreseen or unintended harms. Harms may affect individuals, systems, organizations, infrastructure, and societal well-being. The scoring focuses on the extent to which potential harms are identified and quantified and the measures taken to mitigate risks and avoid harm.
 
 Another critical aspect of TEHAI is the **Adoption** component, which addresses the challenges associated with integrating AI systems into healthcare delivery, despite their demonstrated efficacy in in-silico or controlled environments. Evaluating the translational value of current AI systems, this component assesses key elements that demonstrate the practical adoption of the model in real-life settings.
 
 **Adoption Evaluation:**
 
-+ Use in Healthcare Settings:
+  + Use in Healthcare Settings: As many AI systems are initially developed and tested in controlled environments, it becomes necessary to assess their real-world use and integration with existing health service information systems. While trials may demonstrate efficacy, real-world deployment is essential to demonstrate effectiveness. The utility of the system for end users, such as clinicians and administrators, and its benefits for beneficiaries, namely patients, reflect the system's sustainability and acceptance in the healthcare service. This subcomponent scores the extent of integration into external healthcare sites and the system's utility for end users and beneficiaries.
 
-As many AI systems are initially developed and tested in controlled environments, it becomes necessary to assess their real-world use and integration with existing health service information systems. While trials may demonstrate efficacy, real-world deployment is essential to demonstrate effectiveness. The utility of the system for end users, such as clinicians and administrators, and its benefits for beneficiaries, namely patients, reflect the system's sustainability and acceptance in the healthcare service. This subcomponent scores the extent of integration into external healthcare sites and the system's utility for end users and beneficiaries.
+  + Technical Integration: This subcomponent evaluates how well the AI models integrate with existing clinical and administrative workflows outside the development setting and how they perform in such situations. Reporting of failed integration, if any, is also considered. The scoring focuses on anticipating integration aspects and taking specific steps to facilitate practical integration.
 
-+ Technical Integration:
+  + Number of Services: Many AI in healthcare studies are limited to single-site use without evidence of wider testing or validation. This subcomponent reviews quantitative assessments of wider usage, considering the system's use across multiple healthcare organizations and/or different types of healthcare environments.
 
-This subcomponent evaluates how well the AI models integrate with existing clinical and administrative workflows outside the development setting and how they perform in such situations. Reporting of failed integration, if any, is also considered. The scoring focuses on anticipating integration aspects and taking specific steps to facilitate practical integration.
-
-+ Number of Services:
-
-Many AI in healthcare studies are limited to single-site use without evidence of wider testing or validation. This subcomponent reviews quantitative assessments of wider usage, considering the system's use across multiple healthcare organizations and/or different types of healthcare environments.
-
-+ Alignment with Domain:
-
-This category considers the alignment and relevance of the AI system to the specific healthcare domain and its potential long-term acceptance. It assesses the benefits of the AI system in the particular medical domain where it is applied, emphasizing translational aspects. Scoring is based on how well the benefits of the AI system for the medical domain are articulated.
+  + Alignment with Domain: This category considers the alignment and relevance of the AI system to the specific healthcare domain and its potential long-term acceptance. It assesses the benefits of the AI system in the particular medical domain where it is applied, emphasizing translational aspects. 
 
 
 ### AI Readiness Index for Hospitals (AI-RIH) 
