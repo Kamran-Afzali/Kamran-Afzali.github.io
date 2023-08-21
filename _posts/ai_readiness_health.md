@@ -218,7 +218,7 @@ Overall, the most mature tools are those associated with sensor-based data (e.g.
 
 Digital tools for use cases requiring heterogeneous clinical data as input are therefore less mature. To ensure that AIS mobilizing heterogeneous clinical data as input are effective and safe (and therefore unbiased), it is important to pay particular attention to the nature and types of input, including local information system data models, local data coding standards, as well as local data capture and quality analysis practices prior to their use for secondary use (develop an AI model). For example, complicated clinical conditions, with a diversity of symptoms or high variability of manifestations between individuals, become difficult to represent numerically in a uniform and unambiguous way.
 
-### References
+## References
 
 + [Organizational readiness for artificial intelligence in health care: insights for decision-making and practice](https://pubmed.ncbi.nlm.nih.gov/33258359/) 
 + [Challenges for the evaluation of digital health solutions-A call for innovative evidence generation approaches](https://pubmed.ncbi.nlm.nih.gov/32904379/) 
