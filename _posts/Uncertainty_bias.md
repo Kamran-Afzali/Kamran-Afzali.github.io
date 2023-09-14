@@ -47,8 +47,8 @@ Responsible AI aims to ensure that AI systems are developed and deployed in a ma
 ### References:
 +  O'Neil, C. (2016). Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy. Broadway Books.
 +  Barocas, S., Hardt, M., & Narayanan, A. (2019). Fairness and Machine Learning. http://fairmlbook.org
-+ "Understanding Bias & Uncertainty for AI & ML" - BIG Linden
-+ "AI bias: exploring discriminatory algorithmic decision-making models and the application of possible machine-centric solutions adapted from the pharmaceutical industry" - PMC - NCBI
++ "[Understanding Bias & Uncertainty for AI & ML](https://biglinden.com/uncertainty-and-bias-in-ai-and-machine-learning/)" - BIG Linden
++ "[AI bias: exploring discriminatory algorithmic decision-making models and the application of possible machine-centric solutions adapted from the pharmaceutical industry](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8830968/)" - PMC - NCBI
 + "The Uncertainty Bias in AI and How to Tackle it" - AiThority
 + "TOWARDS IDENTIFYING AND MANAGING SOURCES OF UNCERTAINTY IN AI AND MACHINE LEARNING MODELS – AN OVERVIEW" - arXiv
 + "FAIRNESS AND BIAS IN ARTIFICIAL INTELLIGENCE: A BRIEF SURVEY OF SOURCES, IMPACTS, AND MITIGATION STRATEGIES" - arXiv
@@ -60,7 +60,7 @@ Responsible AI aims to ensure that AI systems are developed and deployed in a ma
 + "Uncertainty in Deep Learning — Brief Introduction" - Kaan Bıçakcı
 + "Uncertainty Quantification in Artificial Intelligence-based Systems" - KDnuggets
 + "Bias in AI: What it is, Types, Examples & 6 Ways to Fix it in 2023" - AIMultiple
-+ "3 kinds of bias in AI models — and how we can address them" - InfoWorld
++ ["3 kinds of bias in AI models — and how we can address them"](https://www.infoworld.com/article/3607748/3-kinds-of-bias-in-ai-models-and-how-we-can-address-them.html) - InfoWorld
 + "What Do We Do About the Biases in AI?" - Harvard Business Review
 + "FAIRNESS AND BIAS IN ARTIFICIAL INTELLIGENCE: A BRIEF SURVEY OF SOURCES, IMPACTS, AND MITIGATION STRATEGIES" - arXiv
 + "A Survey on Bias and Fairness in Machine Learning" - arXiv
@@ -79,20 +79,17 @@ Responsible AI aims to ensure that AI systems are developed and deployed in a ma
 
 
 
-+  https://biglinden.com/uncertainty-and-bias-in-ai-and-machine-learning/
 +  https://aithority.com/machine-learning/the-uncertainty-bias-in-ai-and-how-to-tackle-it/
 +  https://arxiv.org/pdf/1811.11669.pdf
 +  https://machinelearningmastery.com/uncertainty-in-machine-learning/
 +  https://towardsdatascience.com/uncertainty-in-deep-learning-brief-introduction-1f9a5de3ae04
 +  https://www.kdnuggets.com/2022/04/uncertainty-quantification-artificial-intelligencebased-systems.html
 +  https://biglinden.com/uncertainty-and-bias-in-ai-and-machine-learning/
-+  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8830968/
 +  https://aithority.com/machine-learning/the-uncertainty-bias-in-ai-and-how-to-tackle-it/
 +  https://arxiv.org/pdf/1811.11669.pdf
 +  https://arxiv.org/pdf/2304.07683.pdf
 +  https://www.sciencedaily.com/releases/2023/06/230622142350.htm
 +  https://research.aimultiple.com/ai-bias/
-+  https://www.infoworld.com/article/3607748/3-kinds-of-bias-in-ai-models-and-how-we-can-address-them.html
 +  https://hbr.org/2019/10/what-do-we-do-about-the-biases-in-ai
 +  https://arxiv.org/pdf/2304.07683.pdf
 +  https://arxiv.org/pdf/1908.09635.pdf
@@ -102,5 +99,4 @@ Responsible AI aims to ensure that AI systems are developed and deployed in a ma
 +  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8830968/
 +  https://hbr.org/2019/10/what-do-we-do-about-the-biases-in-ai
 +  https://www.linkedin.com/advice/0/how-do-you-manage-bias-uncertainty-ai-models
-+  https://www.infoworld.com/article/3607748/3-kinds-of-bias-in-ai-models-and-how-we-can-address-them.html
 
