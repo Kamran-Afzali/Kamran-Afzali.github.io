@@ -49,7 +49,7 @@ Responsible AI aims to ensure that AI systems are developed and deployed in a ma
 +  Barocas, S., Hardt, M., & Narayanan, A. (2019). Fairness and Machine Learning. http://fairmlbook.org
 + "[Understanding Bias & Uncertainty for AI & ML](https://biglinden.com/uncertainty-and-bias-in-ai-and-machine-learning/)" - BIG Linden
 + "[AI bias: exploring discriminatory algorithmic decision-making models and the application of possible machine-centric solutions adapted from the pharmaceutical industry](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8830968/)" - PMC - NCBI
-+ "The Uncertainty Bias in AI and How to Tackle it" - AiThority
++ "[The Uncertainty Bias in AI and How to Tackle it](https://aithority.com/machine-learning/the-uncertainty-bias-in-ai-and-how-to-tackle-it/)" - AiThority
 + "TOWARDS IDENTIFYING AND MANAGING SOURCES OF UNCERTAINTY IN AI AND MACHINE LEARNING MODELS – AN OVERVIEW" - arXiv
 + "FAIRNESS AND BIAS IN ARTIFICIAL INTELLIGENCE: A BRIEF SURVEY OF SOURCES, IMPACTS, AND MITIGATION STRATEGIES" - arXiv
 + "Generative AI models are encoding biases and negative stereotypes in their users" - ScienceDaily
@@ -79,7 +79,6 @@ Responsible AI aims to ensure that AI systems are developed and deployed in a ma
 
 
 
-+  https://aithority.com/machine-learning/the-uncertainty-bias-in-ai-and-how-to-tackle-it/
 +  https://arxiv.org/pdf/1811.11669.pdf
 +  https://machinelearningmastery.com/uncertainty-in-machine-learning/
 +  https://towardsdatascience.com/uncertainty-in-deep-learning-brief-introduction-1f9a5de3ae04
