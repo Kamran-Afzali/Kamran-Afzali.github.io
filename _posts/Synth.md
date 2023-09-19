@@ -78,7 +78,7 @@ Thirdly, underlying biases in models used for synthetic data generation can be u
 Overall, synthetic data usage is emerging as a credible alternative for training models in the face of advancements in simulations and generative models. However, several challenges such as standard tool absence, differentiation between synthetic and real data, and maximizing the effective utilization of imperfect synthetic data by machine learning algorithms need to be addressed to achieve high performance. As models, metrics, and technologies mature, we anticipate that synthetic data generation will have a more substantial impact in the future.
 
 
-#### State of the art
+#### State of the art paper https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138
 
 
 The advent of Information and Communication Technologies (ICT) has revolutionized all facets of life, notably in the medical realm where a shift from traditional human-centric practice to technology-driven healthcare has been transformative. Incorporating ICT into healthcare, exemplified by advanced telemedicine, Electronic Health Records (EHR), personal health assistants, and medical decision support systems, has notably enhanced the efficiency, pervasiveness, accuracy, and reliability of health services. However, this integration is highly reliant on access to robust datasets.
@@ -86,3 +86,30 @@ The advent of Information and Communication Technologies (ICT) has revolutionize
 In healthcare, the availability of high-quality data is pivotal for research, development initiatives, informed medical decisions, and ultimately, a better quality of life. Yet, privacy concerns have led to limitations in sharing healthcare data openly, primarily due to the sensitive nature of medical datasets containing personal information like diagnoses, treatments, and billing records. Privacy regulations like the Health Insurance Portability Accountability Act (HIPAA) and the General Data Protection Regulation (GDPR) impose restrictions on public data release.
 
 Researchers are thus exploring alternatives like synthetic data (SD) creation. Synthetic data, artificially generated yet preserving statistical characteristics of the original data, is being viewed as a viable substitute that is more resilient to privacy breaches. Generating realistic synthetic medical data is gaining traction despite its inherent complexity and longitudinal nature, with a surge in research publications in this domain. The future holds a broader adoption of synthetic data, accompanied by ongoing efforts to refine generation methods and establish robust evaluation metrics for its effectiveness as a substitute for real data. Consolidation of knowledge and concepts in this evolving field is deemed essential for a comprehensive understanding.
+
+
+
+#### Narrative review paper
+
+**Definition and Categorization of Synthetic Data**
+
+The term "synthetic data" is often defined based on the US Census Bureau's perspective, emphasizing the generation of new data values using statistical models that replicate the statistical properties of original data. This strategic use of synthetic data aims to enhance data utility while safeguarding privacy and confidentiality. Depending on the generation method, synthetic datasets can offer reverse disclosure protection, allowing appropriate multivariate analyses while preventing inferences about parameters in statistical models.
+
+Synthetic data is broadly categorized into three types: fully synthetic, partially synthetic, and hybrid. Fully synthetic data involves creating entirely fabricated data, devoid of any real data, providing strong privacy control but limited analytic value due to data loss. Partially synthetic data replaces sensitive variables with synthetic versions while retaining original values, posing some reidentification risk. Hybrid synthetic data combines original and synthetic data, balancing privacy control and utility, albeit with increased processing time and memory requirements.
+
+The UK's Office for National Statistics (ONS) has delineated a detailed spectrum of synthetic data types, ranging from the lowest, purely synthetic structural dataset developed using metadata only (with minimal analytic value and no disclosure risk), to a replica level synthetically-augmented dataset that closely mirrors real data, preserving format, structure, joint distribution, patterns, and geographies at the cost of higher disclosure risks. This categorization aids in understanding the varying utility and privacy aspects of synthetic data across different levels of replication and augmentation.
+
+
+**Synthetic Data: Opportunities, Challenges, and Validation**
+
+Synthetic data has emerged as a potent tool addressing three pivotal challenges in healthcare data. Primarily, it safeguards individual privacy and record confidentiality by generating data that is difficult to re-identify, being a blend of "fake" and original data. Secondly, it enhances accessibility to health data for researchers and various users due to minimal disclosure risk in synthesized datasets. This opens doors for a broader array of users, accelerating research. Thirdly, synthetic data fills the void of realistic data for software development and testing, providing cost-effective and authentic test data for software applications.
+
+Leveraging synthetic data offers substantial opportunities to bolster data infrastructure, especially in confronting emerging health challenges. Restrictions on sharing mental health data, like opioid use disorder (OUD) records, have impeded research and public health initiatives. Synthetic longitudinal records, mirroring individuals diagnosed with OUD and those lost to opioid overdose, provide essential data for pattern analysis, risk identification, policy simulations, and program evaluation. Synthetic data proves crucial in studying communicable diseases and stigmatized populations like those diagnosed with HIV, where data sharing barriers persist.
+
+The COVID-19 pandemic heightened the demand for timely and accessible data. Initiatives like the National COVID Cohort Collaborative (N3C) have utilized synthetic data to broaden data availability for research. Studies exploring the use of synthetic data for COVID-19-related clinical research have indicated that synthetic data can effectively act as a proxy for real datasets, significantly enhancing its value and utility.
+
+However, despite these advantages, there are notable limitations. Synthetic data strives to provide artificial variables to preserve record confidentiality, but there's a risk of original data leakage. Adversarial machine learning techniques and data outliers can compromise the confidentiality intended by synthetic data. Additionally, not all synthetic data accurately replicate the content and properties of the original dataset, limiting its use in clinical research.
+
+Addressing these limitations requires thorough validation of synthetic data and the models used for its generation. Presently, there's a lack of standardized benchmarks for validation. Various frameworks and approaches have been proposed to validate the realism of synthetic data, comparing synthetic data results with real-world data to assess accuracy. Clinical quality measures have been suggested as a validation approach, aiding in understanding the limitations of synthetic data in modeling diverse outcomes.
+
+In conclusion, synthetic data presents immense promise in healthcare, overcoming critical challenges while offering a wealth of opportunities. However, addressing its limitations and ensuring validation frameworks are crucial for maximizing its potential in transforming healthcare data infrastructure and research. Researchers and data users need to consider these factors and validation results when utilizing specific synthetic datasets.
