@@ -89,7 +89,7 @@ Researchers are thus exploring alternatives like synthetic data (SD) creation. S
 
 
 
-#### Narrative review paper
+#### Narrative review paper https://doi.org/10.1371/journal.pdig.0000082
 
 **Definition and Categorization of Synthetic Data**
 
@@ -113,3 +113,30 @@ However, despite these advantages, there are notable limitations. Synthetic data
 Addressing these limitations requires thorough validation of synthetic data and the models used for its generation. Presently, there's a lack of standardized benchmarks for validation. Various frameworks and approaches have been proposed to validate the realism of synthetic data, comparing synthetic data results with real-world data to assess accuracy. Clinical quality measures have been suggested as a validation approach, aiding in understanding the limitations of synthetic data in modeling diverse outcomes.
 
 In conclusion, synthetic data presents immense promise in healthcare, overcoming critical challenges while offering a wealth of opportunities. However, addressing its limitations and ensuring validation frameworks are crucial for maximizing its potential in transforming healthcare data infrastructure and research. Researchers and data users need to consider these factors and validation results when utilizing specific synthetic datasets.
+
+**Utilizations of Synthetic Health Data**
+
+While relatively new, the utilization of synthetic data in various realms of health care has gained recognition in both peer-reviewed and grey literature. The value of synthetic data has been acknowledged in health care research, education, data management, and health IT development. 
+
+**1. Simulation Studies and Predictive Analytics:**
+Simulation and prediction research necessitate extensive datasets for accurate prediction of behaviors and outcomes. Synthetic data, based on real datasets, can act as a supplement or substitute for real data, aiding researchers in expanding sample sizes or adding variables not present in the original set. It has been used in disease-specific hybrid simulation, microsimulation for policy testing, and health care financing strategy evaluation.
+
+**2. Algorithm, Hypothesis, and Methods Testing:**
+Synthetic data mirroring the format and structure of real data enables researchers to explore variables, assess dataset feasibility, and test hypotheses before accessing the actual dataset. It offers an additional level of validation and comparison for testing methods and algorithms beneficial for machine learning techniques development.
+
+**3. Epidemiological Study/Public Health Research:**
+Synthetic data proves valuable in epidemiology and public health studies where real datasets may be limited, challenging to obtain due to privacy concerns, or expensive. Synthetic datasets, especially during health emergencies like the COVID-19 pandemic, improve data timeliness, support real-time computational epidemiology, and enhance disease detection algorithms.
+
+**4. Health IT Development and Testing:**
+In health IT development, synthetic data serves as a crucial tool for software testing, significantly reducing cost, time, and labor. It provides developers with realistic datasets without privacy concerns, expediting the development lifecycle.
+
+**5. Education and Training:**
+In educational settings, synthetic data is instrumental in training students, especially in fields like data science and health economics. It allows students to access a large number of realistic datasets, essential for learning and skill development.
+
+**6. Public Release of Datasets:**
+Releasing health datasets for public use while preserving analytical value and ensuring confidentiality is a challenge. Partially synthesized data can mitigate disclosure risks while still allowing users to obtain valid inferences comparable to real data.
+
+**7. Linking Data:**
+Synthetic data is widely used to test, validate, and evaluate various data linkage methods, frameworks, and algorithms. It aids in comparing the performance of different algorithms in terms of linkage accuracy and speed.
+
+In summary, synthetic health data demonstrates versatile applicability across health care research, education, IT development, and more. Its significance continues to grow, addressing challenges and contributing to advancements in diverse domains.
