@@ -99,6 +99,21 @@ While synthetic data presents a rapid and cost-effective means of generating dat
 
 In summary, synthetic data in healthcare holds promise as a solution to privacy challenges and data scarcity. Its applications span forecasting, technology development, feasibility assessment, education, and more, showcasing its versatile potential in revolutionizing healthcare research and practice. Continued research and development are imperative to unlock its full capabilities and address the unique challenges posed by healthcare data.
 
+**Approaches to Synthetic Medical Data Generation**
+
+Synthetic data generation methods are categorized into three primary approaches based on the source of ground truth: Knowledge-Driven (KD) methods, Data-Driven methods, and Hybrid methods.
+
+**Knowledge-Driven (KD) Approaches:**
+Also termed as Theory-driven approaches, KD methods derive ground truth from domain-specific knowledge available in academic or research documents, web resources, or human expertise. Generative models in KD approaches are curated manually based on rules, statistical, mathematical, or computational models. Real data is seldom involved, making these methods resilient against disclosure attacks. However, the usefulness of KD synthetic data heavily relies on the skills and knowledge of the model curator. A good generative model should encompass maximum coverage and completeness of the ground truth, which can be challenging due to the high dimensionality and complex correlations in medical data. Additionally, human intervention can introduce errors and omissions, potentially undermining the truthfulness of the generated data. It's crucial to note that the field of practice contains hidden patterns not yet documented in domain theory, making a purely theory-based model potentially lacking in real-life clinical relevance.
+
+**Data-Driven Approaches:**
+Data-driven techniques derive the generative model from actual observed data, which indirectly represents domain theory and the 'positive deviances' occurring in real-world practice. These approaches have been studied rigorously, mainly because real field data is superior at capturing ground realities compared to theoretical approaches. Furthermore, data-driven methods can be fully automated, enhancing efficiency. However, the quality of generated data heavily depends on the quality of the original data in terms of correctness, diversity, and coverage. These approaches can be categorized into transformative and simulation modes.
+
+- **Transformative Methods:** These techniques transform original data using various masking operations before publishing to guard against privacy leakage. However, this transformation is lossy and may lead to a significant degradation of data truthfulness to ensure high privacy, especially with medical data.
+- **Simulations:** In simulation techniques, generative models estimate the probability distribution of real data, and synthetic samples are drawn from it. This maintains semantic similarity in the underlying structure of synthetic and real data, ensuring the synthetic data exhibits the same aggregate structure as real data but with sufficient micro-level differences to avoid privacy leakages.
+
+**Hybrid Methods:**
+Hybrid approaches combine knowledge-driven and data-driven elements to derive the ground truth. The generative model learns from data and is supplemented with advice from domain theory or experts. This combination enhances model flexibility, comprehensiveness, and can guide generation towards specific regions of the sample space. Integrating these methods in hybrid approaches offers potential to advance synthetic medical data generation by addressing limitations of individual approaches and enhancing the comprehensiveness of the generative model. Further research in this direction is essential for the progress of synthetic medical data generation.
 
 
 #### Narrative review paper https://doi.org/10.1371/journal.pdig.0000082
