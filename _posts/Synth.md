@@ -126,6 +126,28 @@ The term "syntheticity" is introduced to describe the proportion of artificial v
 
 Researchers view synthetic data as a promising alternative to original data, provided it meets two key quality attributes: Realism (similarity in behavior to original data) and Privacy Preservation (mitigating potential privacy disclosure risks). Realism should strike a balance between resembling real data and preventing sensitive information leaks, while privacy preservation entails protecting against identity, membership, and attribute disclosures, even though fully synthetic data isn't entirely immune to such threats.
 
+**Hybrid Approaches: Pioneering the Path Forward**
+
+**Intricacies of Medical Data and Generative Modeling**
+
+Medical data presents a significant challenge for generative modeling due to its high dimensionality and complex interfeature correlation. Both **Knowledge-Driven (KD)** and **Data-Driven (DD)** approaches face distinct challenges. KD-based methods struggle with incompleteness and omissions, often requiring manual curation, while DD methods demand extensive high-quality real data for effective learning. The **hybrid approach**, combining the flexibility of KD automation with the efficiency of DD elements, emerges as an intuitive choice for synthetic health data generation. Current **Hybrid-Based Data (HBD)** methods predominantly rely on KD components, necessitating new hybrid approaches that strike an optimal balance between data and knowledge to exploit the strengths of both methods. Methods like the '**advice**' mechanism hold promise as a way forward in generative models.
+
+**Leveraging Domain Knowledge for Machine-Friendly Representation**
+
+Constructing and evaluating synthetic health records significantly benefit from domain knowledge. However, this process is primarily manual, making it inefficient and error-prone. The transformation to a more automated, machine-ready representation of domain knowledge, consolidated from diverse sources, can enhance the efficiency and accuracy of synthetic data (SD) construction. This transition facilitates a smoother integration of domain knowledge into the synthetic data generation process.
+
+**Balancing Granularity and Spectrum in Synthetic Data**
+
+Electronic Health Records (EHRs) offer a wealth of information for medical research and discovery, yet privacy concerns restrict their use. Synthetic EHRs present an opportunity to unlock vast research potential, but their creation at scale necessitates significant volumes of real data. The challenge lies in maintaining realism while accommodating the diversity and complexity of information found in EHRs. Addressing this requires a careful balance between granularity and spectrum in synthetic data creation. Targeted, condition-specific synthesis can reduce complexity and make use of smaller training datasets, enabling comprehensive research while preserving privacy and utility.
+
+**Privacy Evaluation in Synthetic Data Quality**
+
+Privacy evaluation is a critical aspect of assessing synthetic data quality, yet historically, it has received less attention compared to realism evaluation. Synthetic data is not impervious to privacy attacks, necessitating a rigorous assessment of privacy risks before its release. Balancing privacy and utility is key to optimizing the quality of synthetic data for specific applications. More research is needed to understand and formalize the relationship between these two crucial attributes.
+
+**Toward a Standardized Framework for Synthetic Data Quality Evaluation**
+
+As the volume of literature on medical Synthetic Data Generation (SDG) grows, a standardized evaluation framework is imperative. Such a framework would enable practitioners to assess the utility of synthetic data for their target applications and select suitable methods without grappling with technical intricacies. Additionally, it would establish benchmarks and guidelines for further research, contributing to the maturity of the field. Recent advances in SDG evaluation frameworks have begun to address this need, focusing on utility assessment and providing a roadmap for continued enhancement of SD quality evaluation methods.
+
 #### Narrative review paper https://doi.org/10.1371/journal.pdig.0000082
 
 **Definition and Categorization of Synthetic Data**
