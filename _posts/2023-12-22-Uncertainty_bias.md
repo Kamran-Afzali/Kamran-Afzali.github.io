@@ -1,3 +1,12 @@
+---
+layout: post
+categories: posts
+title: Uncertainty and Bias in AI Models
+featured-image: /images/RAI.png
+tags: [Artificial intelligence, Uncertainty, Bias]
+date-string: December 2023
+---
+
 ### Uncertainty and Bias in AI Models
 
 Although Artificial Intelligence (AI) has rapidly become central to different aspects of modern life and the models grow more sophisticated, challenges of uncertainty and bias have emerged as important factors that require thorough examination. Understanding the different types of uncertainty and bias in AI models is essential for building responsible, equitable, and reliable AI systems that benefit society at large. Here we discuss different types of uncertainty and bias in AI models, highlighting their implications and discussing potential strategies to address them.
