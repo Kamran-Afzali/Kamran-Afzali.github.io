@@ -77,7 +77,7 @@ Thirdly, underlying biases in models used for synthetic data generation can be u
 Overall, synthetic data usage is emerging as a credible alternative for training models in the face of advancements in simulations and generative models. However, several challenges such as standard tool absence, differentiation between synthetic and real data, and maximizing the effective utilization of imperfect synthetic data by machine learning algorithms need to be addressed to achieve high performance. As models, metrics, and technologies mature, we anticipate that synthetic data generation will have a more substantial impact in the future.
 
 
-#### [State of the art paper](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138) 
+## [State of the art paper](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138) 
 
 
 The advent of Information and Communication Technologies (ICT) has revolutionized all facets of life, notably in the medical realm where a shift from traditional human-centric practice to technology-driven healthcare has been noticable. Incorporating ICT into healthcare, exemplified by advanced telemedicine, Electronic Health Records (EHR), personal health assistants, and medical decision support systems, has notably enhanced the efficiency, accuracy, and reliability of health services. However, this integration is highly reliant on access to robust datasets. In healthcare, the availability of high-quality data is central for research, development initiatives, informed medical decisions, and ultimately, a better quality of life. Yet, privacy concerns have led to limitations in sharing healthcare data openly, primarily due to the sensitive nature of medical datasets containing personal information like diagnoses, treatments, and billing records. Privacy regulations like the Health Insurance Portability Accountability Act (HIPAA) and the General Data Protection Regulation (GDPR) impose restrictions on public data release.
@@ -122,7 +122,7 @@ Researchers view synthetic data as a promising alternative to original data, pro
 
 **Intricacies of Medical Data and Generative Modeling**
 
-Medical data presents a significant challenge for generative modeling due to its high dimensionality and complex interfeature correlation. Both **Knowledge-Driven (KD)** and **Data-Driven (DD)** approaches face distinct challenges. KD-based methods struggle with incompleteness and omissions, often requiring manual curation, while DD methods demand extensive high-quality real data for effective learning. The **hybrid approach**, combining the flexibility of KD automation with the efficiency of DD elements, emerges as an intuitive choice for synthetic health data generation. Current **Hybrid-Based Data (HBD)** methods predominantly rely on KD components, necessitating new hybrid approaches that strike an optimal balance between data and knowledge to exploit the strengths of both methods. Methods like the '**advice**' mechanism hold promise as a way forward in generative models.
+Both **Knowledge-Driven (KD)** and **Data-Driven (DD)** approaches face distinct challenges. KD-based methods struggle with incompleteness and omissions, often requiring manual curation, while DD methods demand extensive high-quality real data for effective learning. The **hybrid approach**, combining the flexibility of KD automation with the efficiency of DD elements, emerges as an intuitive choice for synthetic health data generation. Current **Hybrid-Based Data (HBD)** methods predominantly rely on KD components, necessitating new hybrid approaches that strike an optimal balance between data and knowledge to exploit the strengths of both methods. Methods like the '**advice**' mechanism hold promise as a way forward in generative models.
 
 **Leveraging Domain Knowledge for Machine-Friendly Representation**
 
@@ -140,7 +140,7 @@ Privacy evaluation is a critical aspect of assessing synthetic data quality, yet
 
 As the volume of literature on medical Synthetic Data Generation (SDG) grows, a standardized evaluation framework is imperative. Such a framework would enable practitioners to assess the utility of synthetic data for their target applications and select suitable methods without grappling with technical intricacies. Additionally, it would establish benchmarks and guidelines for further research, contributing to the maturity of the field. Recent advances in SDG evaluation frameworks have begun to address this need, focusing on utility assessment and providing a roadmap for continued enhancement of SD quality evaluation methods.
 
-#### [Narrative review paper](https://doi.org/10.1371/journal.pdig.0000082)
+## [Narrative review paper](https://doi.org/10.1371/journal.pdig.0000082)
 
 **Definition and Categorization of Synthetic Data**
 
