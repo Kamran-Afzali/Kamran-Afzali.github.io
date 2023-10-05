@@ -193,7 +193,7 @@ Synthetic data is widely used to test, validate, and evaluate various data linka
 
 In summary, synthetic health data demonstrates versatile applicability across health care research, education, IT development, and more. Its significance continues to grow, addressing challenges and contributing to advancements in diverse domains.
 
-### Synthetic data as an enabler for machine learning applications in medicine
+### [Synthetic data as an enabler for machine learning applications in medicine](https://www.cell.com/iscience/fulltext/S2589-0042(22)01603-0_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2589004222016030%3Fshowall%3Dtrue)
 
 **Exploring Opportunities in Synthetic Data Generation**
 
@@ -234,3 +234,9 @@ Synthetic data inherits biases present in the real data on which it's based. Bia
 **Navigating the Privacy-Utility Trade-off**
 
 Achieving the ideal private synthetic dataset involves meticulously navigating the privacy-utility trade-off, optimizing the balance based on stakeholders' needs and concerns. Evaluating biases, ensuring fairness, and comprehensively understanding the implications of synthetic data generation are essential to enhance the quality and applicability of synthetic medical data. Continual research and advancements are crucial in refining evaluation metrics, privacy-preserving methods, and strategies to mitigate bias amplification for a more robust and reliable generation of synthetic medical data.
+
+**Futur direction**
+
+Synthetic Data Generation (SDG) holds immense potential in the healthcare domain, encompassing applications like training in clinical data sciences and testing ML-based clinical decision support tools. Notably, it acts as a crucial tool for safeguarding patient privacy, enhancing small datasets, and mitigating bias against different subgroups. In today's data-centric world, revisiting the opportunities and challenges of synthetic health data is crucial. Privacy concerns related to AI and data collection emphasize the urgent need to bridge the accountability gap, making privacy legislation and AI regulations a priority globally.
+
+The ongoing COVID-19 pandemic has shed light on how limited data access hampers real-time monitoring and a coordinated public health response. Collaborative data sharing approaches across countries or involving trusted third parties can alleviate these challenges. Leveraging data science and ML for improved healthcare necessitates investing in research and development of synthetic data techniques. Striking a balance between innovation and health data privacy requires comprehensive discussions involving scientists, ethics committees, administrators, policymakers, and data custodians. With data-sharing regulations tightening, adopting privacy-enhancing technologies like SDG is crucial. Accelerated development of evaluation frameworks for utility and privacy in synthetic data is a fundamental step toward enhancing SDG methods and facilitating informed decisions for data custodians.
