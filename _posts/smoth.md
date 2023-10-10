@@ -1,4 +1,4 @@
-
+As an alternative, in 2002, Chawla et al. [15] proposed a novel oversampling method, SMOTE, where instead of replicating existing instances, new instances were synthesized to balance the dataset. In SMOTE, for each underrepresented instance, a predetermined number of neighbors were calculated, then some minority class instances were randomly chosen for synthetic data point creation. Finally, artificial observations were created along the line between the selected minority instance and its closest neighbors. Chawla et al. experimented with SMOTE on a wide range of datasets which showed that SMOTE can improve classifier performance for minority class. By virtue of being trained on more underrepresented examples, SMOTE decreased generalization errors.
 ## References
 https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1
 https://www.mdpi.com/2571-5577/4/1/18
