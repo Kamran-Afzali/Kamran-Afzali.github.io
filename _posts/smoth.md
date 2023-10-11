@@ -68,23 +68,20 @@ Keep in mind that this pseudocode provides a conceptual understanding of how SMO
 - [4] https://www.mdpi.com/2571-5577/4/1/18
 - [5] https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html
 
-Citations:
-[1] https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
-[2] https://towardsdatascience.com/create-artificial-data-with-smote-2a31ee855904
-[3] https://towardsdatascience.com/smote-synthetic-data-augmentation-for-tabular-data-1ce28090debc
-[4] https://www.mdpi.com/2571-5577/4/1/18
-[5] https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html
-[6] https://learn.microsoft.com/en-us/azure/machine-learning/component-reference/smote?view=azureml-api-2
+- [1] https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
+- [2] https://towardsdatascience.com/create-artificial-data-with-smote-2a31ee855904
+- [3] https://towardsdatascience.com/smote-synthetic-data-augmentation-for-tabular-data-1ce28090debc
+- [4] https://www.mdpi.com/2571-5577/4/1/18
+- [5] https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html
+- [6] https://learn.microsoft.com/en-us/azure/machine-learning/component-reference/smote?view=azureml-api-2
 
-Citations:
-[1] https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
-[2] https://towardsdatascience.com/smote-fdce2f605729
-[3] https://datascience.stackexchange.com/questions/108342/how-does-smote-work-for-dataset-with-only-categorical-variables
-[4] https://www.kdnuggets.com/2022/11/introduction-smote.html
-[5] https://towardsdatascience.com/5-smote-techniques-for-oversampling-your-imbalance-data-b8155bdbe2b5
-[6] https://www.geeksforgeeks.org/ml-handling-imbalanced-data-with-smote-and-near-miss-algorithm-in-python/
+- [1] https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
+- [2] https://towardsdatascience.com/smote-fdce2f605729
+- [3] https://datascience.stackexchange.com/questions/108342/how-does-smote-work-for-dataset-with-only-categorical-variables
+- [4] https://www.kdnuggets.com/2022/11/introduction-smote.html
+- [5] https://towardsdatascience.com/5-smote-techniques-for-oversampling-your-imbalance-data-b8155bdbe2b5
+- [6] https://www.geeksforgeeks.org/ml-handling-imbalanced-data-with-smote-and-near-miss-algorithm-in-python/
 
-
-https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1
-https://www.mdpi.com/2571-5577/4/1/18
-https://dl.acm.org/doi/abs/10.1145/3548785.3548793?casa_token=O3_Lm4h5AGIAAAAA:2_2MRJLdQsfhcy-Yr1k6v359sq50v4vsocxnalttcvUq-2S2sVnG8VFhv2oWWcrNJO_iOpGsaC0NDbQ
+- https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1
+- https://www.mdpi.com/2571-5577/4/1/18
+- https://dl.acm.org/doi/abs/10.1145/3548785.3548793?casa_token=O3_Lm4h5AGIAAAAA:2_2MRJLdQsfhcy-Yr1k6v359sq50v4vsocxnalttcvUq-2S2sVnG8VFhv2oWWcrNJO_iOpGsaC0NDbQ
