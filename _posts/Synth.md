@@ -52,17 +52,18 @@ Here we go through some of of the challenges in synthetic Data generation:
 
 **Evaluating Quality**
 
-Assessing the quality of synthetic medical data is a dynamic research area, often categorized by three key qualities: fidelity, diversity, and generalization. Fidelity pertains to the quality of the samples, distinguishing them from real samples and enabling valid population inferences. Computational and human evaluations are common methods to measure fidelity, involving comparing statistical model parameter estimates and utilizing distance metrics between distributions of real and synthetic data. Diversity gauges the coverage of the real data population, ensuring subgroups aren't underrepresented. Generalization is tied to privacy concerns, determining whether synthetic data accurately mirrors real data.
+The quality of synthetic medical data is often categorized by three key qualities: fidelity, diversity, and generalization. Fidelity concerns the quality of the samples, distinguishing them from real samples and enabling valid population inferences. Computational and human evaluations are common methods to measure fidelity, involving comparing statistical model parameter estimates and utilizing distance metrics between distributions of real and synthetic data. Diversity gauges the coverage of the real data population, ensuring subgroups aren't underrepresented. Generalization is tied to privacy concerns, determining whether synthetic data accurately mirrors real data.
 
 **Implementing and Evaluating Privacy**
 
-False assumptions regarding privacy can arise from various machine learning (ML) techniques, including Synthetic Data Generation (SDG). Privacy evaluation typically involves privacy attacks like data extractions, model inversions, and Membership Inference Attacks (MIA). MIA assesses if a data sample was used for training an SDG model. There's a privacy-transparency trade-off, especially when sharing components of the SDG generation process. Federated learning is considered a privacy-preserving alternative, but careful implementation is necessary to avoid vulnerabilities.
-
-Differential privacy (DP) is a reliable privacy protection method, introducing randomization to limit the effect of individual training records. However, it's not a complete solution and can be challenging to implement effectively. Balancing utility and privacy is crucial in producing good synthetic data, often involving a trade-off. Methods like k-anonymization and DP impact data utility, and there's a constant challenge of predicting which data characteristics are preserved through SDG while balancing privacy and utility.
+Privacy evaluation typically involves privacy attacks like data extractions, model inversions, and Membership Inference Attacks (MIA). MIA assesses if a data sample was used for training an SDG model. There's a privacy-transparency trade-off, especially when sharing components of the SDG generation process. Federated learning is considered a privacy-preserving alternative, but careful implementation is necessary to avoid vulnerabilities. Balancing utility and privacy is crucial in producing good synthetic data, often involving a trade-off. Methods like k-anonymization impact data utility, and there's a constant challenge of predicting which data characteristics are preserved through SDG while balancing privacy and utility.
 
 **Mitigating Bias Amplification**
 
 Synthetic data inherits biases present in the real data on which it's based. Biases are prevalent in real datasets due to the entire data production pipeline, and SDG can inadvertently magnify these biases. Underrepresented groups in real data may be overlooked during the SDG process, further exacerbating biases. The correlation fallacy, confusing correlation with causation, is another bias source. Addressing biases, evaluating fairness, and minimizing their amplification in synthetic datasets are ongoing research objectives.
+
+
+
 
 **Navigating the Privacy-Utility Trade-off**
 
