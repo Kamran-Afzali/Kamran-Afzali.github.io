@@ -55,8 +55,7 @@ In this pseudocode:
 
 The basic steps of SMOTE involve selecting a sample from the minority class, finding its k-nearest neighbors, and creating synthetic samples by combining features from the selected sample and its neighbors.
 
-Keep in mind that this pseudocode provides a conceptual understanding of how SMOTE works. Depending on the specific implementation or programming language you're using, the actual code may vary in terms of details and optimizations.
-
+ Primarily SMOTE has been used in medical applications to improve classification performance over imbalanced medical datasets. However, it can be used for synthetic data generation in medical applications, and there are several studies that have used SMOTE for this purpose. For example, a study used SMOTE to generate synthetic data for predictive models in low-middle-income countries, while study used SMOTE to generate high-fidelity synthetic patient data for assessing machine learning healthcare software. Additionally, a novel algorithm called SMOTE-ENC was proposed to generate synthetic data for nominal and continuous features in medical imbalanced data[3]. 
 
 
 
@@ -89,12 +88,11 @@ Keep in mind that this pseudocode provides a conceptual understanding of how SMO
 
 
 
- SMOTE has been used in medical applications to improve classification performance over imbalanced medical datasets[4]. For example, a study used SMOTE to generate synthetic data for predictive models in low-middle-income countries based on a small dataset of 364 patients[1]. Another study used SMOTE to generate high-fidelity synthetic patient data for assessing machine learning healthcare software[2]. Additionally, a novel algorithm called SMOTE-ENC was proposed to generate synthetic data for nominal and continuous features in medical imbalanced data[3]. Therefore, SMOTE can be used for synthetic data generation in medical applications, and there are several studies that have used SMOTE for this purpose.
 
 Citations:
-[1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10295936/
-[2] https://www.nature.com/articles/s41746-020-00353-9
-[3] https://www.mdpi.com/2571-5577/4/1/18
+[1] [Synthesizing Electronic Health Records for Predictive Models in Low-Middle-Income Countries (LMICs)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10295936/) 
+[2] [Generating high-fidelity synthetic patient data for assessing machine learning healthcare software](https://www.nature.com/articles/s41746-020-00353-9)
+[3] [SMOTE-ENC: A Novel SMOTE-Based Method to Generate Synthetic Data for Nominal and Continuous Features](https://www.mdpi.com/2571-5577/4/1/18)
 [4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7292850/
 [5] https://towardsdatascience.com/smote-synthetic-data-augmentation-for-tabular-data-1ce28090debc
 [6] https://www.sciencedirect.com/science/article/pii/S0957417423008874
