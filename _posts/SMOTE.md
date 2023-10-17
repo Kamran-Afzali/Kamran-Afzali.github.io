@@ -55,6 +55,10 @@ In this pseudocode:
 
 The basic steps of SMOTE involve selecting a sample from the minority class, finding its k-nearest neighbors, and creating synthetic samples by combining features from the selected sample and its neighbors.
 
+
+SMOTE, a valuable technique, finds applications beyond its initial domain. Recently, an innovative approach called data collaboration (DC) analysis has emerged, enabling privacy-conscious joint analysis across diverse institutions. This method aggregates individually crafted dimensionality-reduced representations and facilitates comprehensive analysis through collaborative representations, all while safeguarding the original data. Typically, each institution contributes a shareable anchor dataset and consolidates its intermediate representation for this integrated analysis. While a random anchor dataset works well for DC analysis, using an anchor dataset resembling the raw dataset's distribution can notably enhance recognition performance, especially for interpretable DC analysis. This study introduces an extension of SMOTE, proposing an anchor data construction method to enhance recognition performance without heightening the risk of data exposure. Empirical results underscore the effectiveness of this SMOTE-based approach compared to existing methods, showcasing significant performance enhancements in essential feature selection, accuracy (ACC), and normalized mutual information (NMI) for both artificial and real-world datasets. For instance, the proposed method demonstrates substantial improvements of 6, 4, and 36 percentage points in NMI, ACC, and essential feature selection, respectively, using an income dataset, highlighting its efficiency over current methods.
+
+
  Primarily SMOTE has been used in medical applications to improve classification performance over imbalanced medical datasets. However, it can be used for synthetic data generation in medical applications, and there are several studies that have used SMOTE for this purpose. For example, a study used SMOTE to generate synthetic data for predictive models in low-middle-income countries, while study used SMOTE to generate high-fidelity synthetic patient data for assessing machine learning healthcare software. Additionally, a novel algorithm called SMOTE-ENC was proposed to generate synthetic data for nominal and continuous features in medical imbalanced data[3]. 
 
 
@@ -93,6 +97,5 @@ Citations:
 [1] [Synthesizing Electronic Health Records for Predictive Models in Low-Middle-Income Countries (LMICs)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10295936/) 
 [2] [Generating high-fidelity synthetic patient data for assessing machine learning healthcare software](https://www.nature.com/articles/s41746-020-00353-9)
 [3] [SMOTE-ENC: A Novel SMOTE-Based Method to Generate Synthetic Data for Nominal and Continuous Features](https://www.mdpi.com/2571-5577/4/1/18)
-[4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7292850/
-[5] https://towardsdatascience.com/smote-synthetic-data-augmentation-for-tabular-data-1ce28090debc
-[6] https://www.sciencedirect.com/science/article/pii/S0957417423008874
+[4] [RSMOTE: improving classification performance over imbalanced medical datasets](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7292850/)
+[6] [Another use of SMOTE for interpretable data collaboration analysis](https://www.sciencedirect.com/science/article/pii/S0957417423008874)
