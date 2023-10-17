@@ -45,6 +45,24 @@ Addressing these challenges is crucial to harnessing the complete potential of m
 
 The quality of synthetic medical data is often categorized by three key qualities: fidelity, diversity, and generalization. Fidelity concerns the quality of the samples, distinguishing them from real samples and enabling valid population inferences. Computational and human evaluations are common methods to measure fidelity, involving comparing statistical model parameter estimates and utilizing distance metrics between distributions of real and synthetic data. Diversity gauges the coverage of the real data population, ensuring subgroups aren't underrepresented. Generalization is tied to privacy concerns, determining whether synthetic data accurately mirrors real data.
 
+
+**Evaluation Approaches**
+
+In this section, we explore different methodologies for assessing the quality of synthetic data, a crucial aspect in ascertaining the effectiveness and relevance of synthetic data generation techniques in real-world contexts. We classify these assessment approaches as follows:
+
+1. **Human Assessment**: Directly evaluating synthesized data involves seeking feedback from domain experts or non-experts to judge aspects like similarity to real data, usability in specific applications, or overall quality. For instance, in speech synthesis, evaluators blindly rate both synthesized and real human speech. However, this method has drawbacks, including high cost, time intensiveness, susceptibility to errors, and limited scalability. It's particularly challenging for high-dimensional data not easily visualized by humans.
+
+2. **Statistical Comparison**: This approach entails calculating diverse statistical metrics on both synthetic and real datasets and comparing the outcomes. For example, statistics on features like medical concept frequency or patient-level clinical attributes can be employed to evaluate generated electronic health record (EHR) data. Smaller differences in statistical properties between synthetic and real data indicate higher quality in the synthetic dataset.
+
+3. **Model-based Evaluation**: Utilizing a pre-trained machine learning model, especially the discriminator in Generative Adversarial Networks (GANs), helps distinguish between synthetic and real data. The performance of the discriminator on synthetic data serves as an indicator of the realism achieved by the generator, allowing assessment not only in GANs but also in other generative models using pre-trained machine learning models.
+
+4. **Training and Testing on Real Data**: Here, synthetic data is utilized to train machine learning models, and their predictive performance is evaluated on real test data in downstream applications. Strong performance on real test data suggests successful capture of essential real data characteristics, establishing synthetic data as a valuable proxy for training. This strategy offers insights into the effectiveness of synthetic data in training machine learning models across various tasks and domains.
+
+5. **Domain-specific Evaluation**: Depending on the specific domain or application, specialized evaluation techniques tailored to unique requirements, like regulatory compliance, privacy considerations, or specific performance metrics, may be employed to assess the synthesized data's quality. By evaluating synthesized data in its intended use context, a more precise assessment of its quality and suitability can be achieved.
+
+These evaluation strategies offer diverse avenues to measure the quality of synthesized data, aiding researchers and professionals in determining the efficacy of synthetic data generation methods in real-world scenarios. Employing a blend of these strategies can furnish a comprehensive understanding of the synthetic data's strengths and weaknesses, facilitating ongoing enhancements in synthetic data generation techniques.
+
+
 #### **Implementing and Evaluating Privacy**
 
 Privacy evaluation typically involves privacy attacks like data extractions, model inversions, and Membership Inference Attacks (MIA). MIA assesses if a data sample was used for training an SDG model. There's a privacy-transparency trade-off, especially when sharing components of the SDG generation process. Federated learning is considered a privacy-preserving alternative, but careful implementation is necessary to avoid vulnerabilities. Balancing utility and privacy is crucial in producing good synthetic data, often involving a trade-off. Methods like k-anonymization impact data utility, and there's a constant challenge of predicting which data characteristics are preserved through SDG while balancing privacy and utility.
@@ -52,7 +70,9 @@ Privacy evaluation typically involves privacy attacks like data extractions, mod
 #### **Mitigating Bias Amplification**
 
 Synthetic data inherits biases present in the real data on which it's based. Biases are prevalent in real datasets due to the entire data production pipeline, and SDG can inadvertently magnify these biases. Underrepresented groups in real data may be overlooked during the SDG process, further exacerbating biases. The correlation fallacy, confusing correlation with causation, is another bias source. Addressing biases, evaluating fairness, and minimizing their amplification in synthetic datasets are ongoing research objectives.
+The challenge of fairness arises when generating synthetic data that accurately reflects the key statistical characteristics of real-world data. However, these synthetic datasets can inadvertently carry biases from data preprocessing, collection methods, and the algorithms used. Addressing fairness in synthetic data involves three main methods: preprocessing, in-processing, and postprocessing. Preprocessing modifies the input data to eliminate correlations with sensitive attributes, often using techniques like massaging, reweighting, or sampling. In contrast, in-processing integrates fairness constraints into the model learning process, while postprocessing adjusts model predictions after training. Existing fairness-aware data synthesis methods primarily utilize preprocessing techniques, leveraging balanced synthetic datasets from Generative Adversarial Networks (GANs) to mitigate disparate impact caused by imbalances in minoritized subgroups.
 
+However, the preprocessing approach requires prior knowledge of all correlations, biases, and variable distributions in existing datasets. The latter two methods (in-processing and postprocessing) are less developed for ensuring fairness in synthetic data. Additionally, the introduction of differential privacy amplifies fairness concerns in the original data, particularly affecting the influence of majority subgroups and reducing synthetic data utility in downstream tasks. Fairness metrics for synthesized data have been proposed to analyze covariate-level disparities, considering protected attributes to assess bias. It's crucial to regulate the real-world data used to create the synthetic data distribution, ensuring the quality and minimizing biases. Moreover, ongoing scrutiny and the removal of sensitive and toxic information from both data and models are necessary to govern the outcomes generated by foundation models and prevent harm and discrimination.
 
 ### **Futur direction**
 
@@ -75,9 +95,7 @@ Technical approaches to enhancing and safeguarding privacy can aid health data s
 
 **fairness**
 
-The challenge of fairness arises when generating synthetic data that accurately reflects the key statistical characteristics of real-world data. However, these synthetic datasets can inadvertently carry biases from data preprocessing, collection methods, and the algorithms used. Addressing fairness in synthetic data involves three main methods: preprocessing, in-processing, and postprocessing. Preprocessing modifies the input data to eliminate correlations with sensitive attributes, often using techniques like massaging, reweighting, or sampling. In contrast, in-processing integrates fairness constraints into the model learning process, while postprocessing adjusts model predictions after training. Existing fairness-aware data synthesis methods primarily utilize preprocessing techniques, leveraging balanced synthetic datasets from Generative Adversarial Networks (GANs) to mitigate disparate impact caused by imbalances in minoritized subgroups.
 
-However, the preprocessing approach requires prior knowledge of all correlations, biases, and variable distributions in existing datasets. The latter two methods (in-processing and postprocessing) are less developed for ensuring fairness in synthetic data. Additionally, the introduction of differential privacy amplifies fairness concerns in the original data, particularly affecting the influence of majority subgroups and reducing synthetic data utility in downstream tasks. Fairness metrics for synthesized data have been proposed to analyze covariate-level disparities, considering protected attributes to assess bias. It's crucial to regulate the real-world data used to create the synthetic data distribution, ensuring the quality and minimizing biases. Moreover, ongoing scrutiny and the removal of sensitive and toxic information from both data and models are necessary to govern the outcomes generated by foundation models and prevent harm and discrimination.
 
 **Assuring Reliability**
 
@@ -119,6 +137,10 @@ Secondly, prevailing methods may overlook outliers and exceptional cases present
 Thirdly, underlying biases in models used for synthetic data generation can be unnoticed. Biases stemming from sample selection and class imbalances can significantly affect the performance of algorithms when deployed in settings different from the data collection conditions. Hence, strategies must be developed to address these biases, ensuring that synthetic data generation results in accurate and reliable outcomes across various applications and domains.
 
 Overall, synthetic data usage is emerging as a credible alternative for training models in the face of advancements in simulations and generative models. However, several challenges such as standard tool absence, differentiation between synthetic and real data, and maximizing the effective utilization of imperfect synthetic data by machine learning algorithms need to be addressed to achieve high performance. As models, metrics, and technologies mature, we anticipate that synthetic data generation will have a more substantial impact in the future.
+
+
+
+
 
 
 ## [State of the art paper](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138) 
