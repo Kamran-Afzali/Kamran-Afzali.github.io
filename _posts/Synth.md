@@ -35,6 +35,33 @@ Privacy, primarily protecting against unexpected access to sensitive information
 
 Datasets for medical applications are often limited in size due to the requirements for data collection and annotation. Data augmentation, including SDG, provides a solution to augment dataset size without the need for extensive data collection. SDG optimizes statistical information extraction from real data, especially in medical imaging. By incorporating synthetic data into the training set alongside real data, the performance of machine learning models can be enhanced significantly. ML algorithms may exhibit bias, particularly when trained on imbalanced datasets. Underrepresented groups may suffer from poor model performance. Data augmentation, including synthetic data, can address this issue by augmenting underrepresented groups, improving model performance for each subgroup. Synthetic data can be used to augment rare subtypes of data, enhancing the accuracy and representativity of ML models.
 
+#### [Utilizations of Synthetic Health Data](https://doi.org/10.1371/journal.pdig.0000082)
+
+Here are some other utilizations of Synthetic Health Data
+
+**1. Simulation Studies and Predictive Analytics:**
+Simulation and prediction research necessitate extensive datasets for accurate prediction of behaviors and outcomes. Synthetic data, based on real datasets, can act as a supplement or substitute for real data, aiding researchers in expanding sample sizes or adding variables not present in the original set. It has been used in disease-specific hybrid simulation, microsimulation for policy testing, and health care financing strategy evaluation.
+
+**2. Algorithm, Hypothesis, and Methods Testing:**
+Synthetic data mirroring the format and structure of real data enables researchers to explore variables, assess dataset feasibility, and test hypotheses before accessing the actual dataset. It offers an additional level of validation and comparison for testing methods and algorithms beneficial for machine learning techniques development.
+
+**3. Epidemiological Study/Public Health Research:**
+Synthetic data proves valuable in epidemiology and public health studies where real datasets may be limited, challenging to obtain due to privacy concerns, or expensive. Synthetic datasets, especially during health emergencies like the COVID-19 pandemic, improve data timeliness, support real-time computational epidemiology, and enhance disease detection algorithms.
+
+**4. Health IT Development and Testing:**
+In health IT development, synthetic data serves as a crucial tool for software testing, significantly reducing cost, time, and labor. It provides developers with realistic datasets without privacy concerns, expediting the development lifecycle.
+
+**5. Education and Training:**
+In educational settings, synthetic data is instrumental in training students, especially in fields like data science and health economics. It allows students to access a large number of realistic datasets, essential for learning and skill development.
+
+**6. Public Release of Datasets:**
+Releasing health datasets for public use while preserving analytical value and ensuring confidentiality is a challenge. Partially synthesized data can mitigate disclosure risks while still allowing users to obtain valid inferences comparable to real data.
+
+**7. Linking Data:**
+Synthetic data is widely used to test, validate, and evaluate various data linkage methods, frameworks, and algorithms. It aids in comparing the performance of different algorithms in terms of linkage accuracy and speed.
+
+
+
 ### **Challenges in Synthetic Medical Data Generation**
 
 Although synthetic data presents immense promise in healthcare, overcoming critical challenges while offering a wealth of opportunities, addressing its limitations and ensuring validation frameworks are crucial for maximizing its potential in transforming healthcare data infrastructure and research. Researchers and data users need to consider these factors and validation results when utilizing specific synthetic datasets. Synthetic data strives to provide artificial variables to preserve record confidentiality, but there's a risk of original data leakage. Adversarial machine learning techniques and data outliers can compromise the confidentiality intended by synthetic data. Additionally, not all synthetic data accurately replicate the content and properties of the original dataset, limiting its use in clinical research. Addressing these limitations requires thorough validation of synthetic data and the models used for its generation. Presently, there's a lack of standardized benchmarks for validation. Various frameworks and approaches have been proposed to validate the realism of synthetic data, comparing synthetic data results with real-world data to assess accuracy. Clinical quality measures have been suggested as a validation approach, aiding in understanding the limitations of synthetic data in modeling diverse outcomes.
@@ -44,7 +71,6 @@ Addressing these challenges is crucial to harnessing the complete potential of m
 #### **Evaluating Quality**
 
 The quality of synthetic medical data is often categorized by three key qualities: fidelity, diversity, and generalization. Fidelity concerns the quality of the samples, distinguishing them from real samples and enabling valid population inferences. Computational and human evaluations are common methods to measure fidelity, involving comparing statistical model parameter estimates and utilizing distance metrics between distributions of real and synthetic data. Diversity gauges the coverage of the real data population, ensuring subgroups aren't underrepresented. Generalization is tied to privacy concerns, determining whether synthetic data accurately mirrors real data.
-
 
 **Evaluation Approaches**
 
@@ -93,6 +119,21 @@ Technical approaches to enhancing and safeguarding privacy can aid health data s
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **fairness**
 
 
@@ -110,21 +151,6 @@ Additionally, evaluating the trustworthiness of synthetic data involves scrutini
 In summary, while synthetic data offers substantial advantages, its credibility relies on its faithfulness to the original data, preservation of privacy, and avoidance of biases. Acknowledging and tackling these concerns empowers researchers and professionals to make well-informed decisions regarding the authenticity and ethical implications of synthetic data. Open and robust methods for generating synthetic data are crucial in nurturing this credibility.
 
 
-**Evaluation Approaches**
-
-In this section, we explore different methodologies for assessing the quality of synthetic data, a crucial aspect in ascertaining the effectiveness and relevance of synthetic data generation techniques in real-world contexts. We classify these assessment approaches as follows:
-
-1. **Human Assessment**: Directly evaluating synthesized data involves seeking feedback from domain experts or non-experts to judge aspects like similarity to real data, usability in specific applications, or overall quality. For instance, in speech synthesis, evaluators blindly rate both synthesized and real human speech. However, this method has drawbacks, including high cost, time intensiveness, susceptibility to errors, and limited scalability. It's particularly challenging for high-dimensional data not easily visualized by humans.
-
-2. **Statistical Comparison**: This approach entails calculating diverse statistical metrics on both synthetic and real datasets and comparing the outcomes. For example, statistics on features like medical concept frequency or patient-level clinical attributes can be employed to evaluate generated electronic health record (EHR) data. Smaller differences in statistical properties between synthetic and real data indicate higher quality in the synthetic dataset.
-
-3. **Model-based Evaluation**: Utilizing a pre-trained machine learning model, especially the discriminator in Generative Adversarial Networks (GANs), helps distinguish between synthetic and real data. The performance of the discriminator on synthetic data serves as an indicator of the realism achieved by the generator, allowing assessment not only in GANs but also in other generative models using pre-trained machine learning models.
-
-4. **Training and Testing on Real Data**: Here, synthetic data is utilized to train machine learning models, and their predictive performance is evaluated on real test data in downstream applications. Strong performance on real test data suggests successful capture of essential real data characteristics, establishing synthetic data as a valuable proxy for training. This strategy offers insights into the effectiveness of synthetic data in training machine learning models across various tasks and domains.
-
-5. **Domain-specific Evaluation**: Depending on the specific domain or application, specialized evaluation techniques tailored to unique requirements, like regulatory compliance, privacy considerations, or specific performance metrics, may be employed to assess the synthesized data's quality. By evaluating synthesized data in its intended use context, a more precise assessment of its quality and suitability can be achieved.
-
-These evaluation strategies offer diverse avenues to measure the quality of synthesized data, aiding researchers and professionals in determining the efficacy of synthetic data generation methods in real-world scenarios. Employing a blend of these strategies can furnish a comprehensive understanding of the synthetic data's strengths and weaknesses, facilitating ongoing enhancements in synthetic data generation techniques.
 
 **Challenges and Prospects**
 
@@ -137,6 +163,23 @@ Secondly, prevailing methods may overlook outliers and exceptional cases present
 Thirdly, underlying biases in models used for synthetic data generation can be unnoticed. Biases stemming from sample selection and class imbalances can significantly affect the performance of algorithms when deployed in settings different from the data collection conditions. Hence, strategies must be developed to address these biases, ensuring that synthetic data generation results in accurate and reliable outcomes across various applications and domains.
 
 Overall, synthetic data usage is emerging as a credible alternative for training models in the face of advancements in simulations and generative models. However, several challenges such as standard tool absence, differentiation between synthetic and real data, and maximizing the effective utilization of imperfect synthetic data by machine learning algorithms need to be addressed to achieve high performance. As models, metrics, and technologies mature, we anticipate that synthetic data generation will have a more substantial impact in the future.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -202,34 +245,5 @@ Privacy evaluation is a critical aspect of assessing synthetic data quality, yet
 
 As the volume of literature on medical Synthetic Data Generation (SDG) grows, a standardized evaluation framework is imperative. Such a framework would enable practitioners to assess the utility of synthetic data for their target applications and select suitable methods without grappling with technical intricacies. Additionally, it would establish benchmarks and guidelines for further research, contributing to the maturity of the field. Recent advances in SDG evaluation frameworks have begun to address this need, focusing on utility assessment and providing a roadmap for continued enhancement of SD quality evaluation methods.
 
-## [Narrative review paper](https://doi.org/10.1371/journal.pdig.0000082)
 
-
-
-**Utilizations of Synthetic Health Data**
-
-While relatively new, the utilization of synthetic data in various realms of health care has gained recognition in both peer-reviewed and grey literature. The value of synthetic data has been acknowledged in health care research, education, data management, and health IT development. 
-
-**1. Simulation Studies and Predictive Analytics:**
-Simulation and prediction research necessitate extensive datasets for accurate prediction of behaviors and outcomes. Synthetic data, based on real datasets, can act as a supplement or substitute for real data, aiding researchers in expanding sample sizes or adding variables not present in the original set. It has been used in disease-specific hybrid simulation, microsimulation for policy testing, and health care financing strategy evaluation.
-
-**2. Algorithm, Hypothesis, and Methods Testing:**
-Synthetic data mirroring the format and structure of real data enables researchers to explore variables, assess dataset feasibility, and test hypotheses before accessing the actual dataset. It offers an additional level of validation and comparison for testing methods and algorithms beneficial for machine learning techniques development.
-
-**3. Epidemiological Study/Public Health Research:**
-Synthetic data proves valuable in epidemiology and public health studies where real datasets may be limited, challenging to obtain due to privacy concerns, or expensive. Synthetic datasets, especially during health emergencies like the COVID-19 pandemic, improve data timeliness, support real-time computational epidemiology, and enhance disease detection algorithms.
-
-**4. Health IT Development and Testing:**
-In health IT development, synthetic data serves as a crucial tool for software testing, significantly reducing cost, time, and labor. It provides developers with realistic datasets without privacy concerns, expediting the development lifecycle.
-
-**5. Education and Training:**
-In educational settings, synthetic data is instrumental in training students, especially in fields like data science and health economics. It allows students to access a large number of realistic datasets, essential for learning and skill development.
-
-**6. Public Release of Datasets:**
-Releasing health datasets for public use while preserving analytical value and ensuring confidentiality is a challenge. Partially synthesized data can mitigate disclosure risks while still allowing users to obtain valid inferences comparable to real data.
-
-**7. Linking Data:**
-Synthetic data is widely used to test, validate, and evaluate various data linkage methods, frameworks, and algorithms. It aids in comparing the performance of different algorithms in terms of linkage accuracy and speed.
-
-In summary, synthetic health data demonstrates versatile applicability across health care research, education, IT development, and more. Its significance continues to grow, addressing challenges and contributing to advancements in diverse domains.
 
