@@ -106,13 +106,6 @@ Synthetic Data Generation holds a great potential in the healthcare domain by ap
 
 
 
-## Other paper 
-
-The exploration of leveraging health data for innovation and enhancing care has been a long-standing topic. AI and machine learning (ML) have opened exciting prospects for utilizing health system data to offer decision support for clinicians, develop better treatments, and enhance overall system efficiency. However, achieving widespread innovation and adoption encounters substantial challanges. ML applications are highly data-dependent, necessitating a resolution for the challenge of data accessibility.
-
-Privacy concerns are major issues to health data sharing and access. Obtaining datasets for research projects from authors of published studies is an option, but it is often inefficient and unsuccessful. Particularly in European Economic Area (EEA) countries, compliance with the EU General Data Protection Regulation (GDPR) poses significant challenges, setting a standard globally. The 'privacy chill', a slowdown or complete restriction on health data sharing, has been identified to have detrimental effects on response to health crises like the COVID-19 pandemic and on recruiting and retaining talented health data scientists.
-
-Technical approaches to enhancing and safeguarding privacy can aid health data stewards in overcoming the 'privacy chill' and sharing data for secondary purposes. Synthetic data generation (SDG) emerges as a promising tool. A symposium and workshop in 2021 explored the potential and challenges of deploying synthetic data approaches in medical research and training. Synthetic data, if appropriately generated, has the potential to preserve privacy, offering exciting prospects across health and life sciences. However, realizing the full benefits requires further education, research, and policy innovation. The article summarizes the opportunities and challenges of SDG for health data as discussed during the symposium, presents a case study on synthetic PET scans, and outlines directions for leveraging this technology to accelerate data access for secondary purposes.
 
 
 
@@ -134,9 +127,14 @@ Technical approaches to enhancing and safeguarding privacy can aid health data s
 
 ## BREAK
 
-**fairness**
 
+### Other paper 
 
+The exploration of leveraging health data for innovation and enhancing care has been a long-standing topic. AI and machine learning (ML) have opened exciting prospects for utilizing health system data to offer decision support for clinicians, develop better treatments, and enhance overall system efficiency. However, achieving widespread innovation and adoption encounters substantial challanges. ML applications are highly data-dependent, necessitating a resolution for the challenge of data accessibility.
+
+Privacy concerns are major issues to health data sharing and access. Obtaining datasets for research projects from authors of published studies is an option, but it is often inefficient and unsuccessful. Particularly in European Economic Area (EEA) countries, compliance with the EU General Data Protection Regulation (GDPR) poses significant challenges, setting a standard globally. The 'privacy chill', a slowdown or complete restriction on health data sharing, has been identified to have detrimental effects on response to health crises like the COVID-19 pandemic and on recruiting and retaining talented health data scientists.
+
+Technical approaches to enhancing and safeguarding privacy can aid health data stewards in overcoming the 'privacy chill' and sharing data for secondary purposes. Synthetic data generation (SDG) emerges as a promising tool. A symposium and workshop in 2021 explored the potential and challenges of deploying synthetic data approaches in medical research and training. Synthetic data, if appropriately generated, has the potential to preserve privacy, offering exciting prospects across health and life sciences. However, realizing the full benefits requires further education, research, and policy innovation. The article summarizes the opportunities and challenges of SDG for health data as discussed during the symposium, presents a case study on synthetic PET scans, and outlines directions for leveraging this technology to accelerate data access for secondary purposes.
 
 **Assuring Reliability**
 
@@ -163,27 +161,6 @@ Secondly, prevailing methods may overlook outliers and exceptional cases present
 Thirdly, underlying biases in models used for synthetic data generation can be unnoticed. Biases stemming from sample selection and class imbalances can significantly affect the performance of algorithms when deployed in settings different from the data collection conditions. Hence, strategies must be developed to address these biases, ensuring that synthetic data generation results in accurate and reliable outcomes across various applications and domains.
 
 Overall, synthetic data usage is emerging as a credible alternative for training models in the face of advancements in simulations and generative models. However, several challenges such as standard tool absence, differentiation between synthetic and real data, and maximizing the effective utilization of imperfect synthetic data by machine learning algorithms need to be addressed to achieve high performance. As models, metrics, and technologies mature, we anticipate that synthetic data generation will have a more substantial impact in the future.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## [State of the art paper](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138) 
