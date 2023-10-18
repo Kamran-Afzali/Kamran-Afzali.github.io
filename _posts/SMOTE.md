@@ -58,30 +58,24 @@ The basic steps of SMOTE involve selecting a sample from the minority class, fin
 
 SMOTE, a valuable technique, finds applications beyond initial domain for which it is developped. Recently, an innovative approach called Data Collaboration (DC) analysis has emerged, enabling privacy-conscious joint analysis across diverse institutions. This method aggregates dimensionality-reduced representations and facilitates comprehensive analysis through collaborative representations, all while safeguarding the original data. Typically, each institution contributes a shareable  dataset and consolidates its intermediate representation for this integrated analysis. While a random anchor dataset works well for DC analysis, using an anchor dataset resembling the raw dataset's distribution can notably enhance recognition performance, especially for interpretable DC analysis. Primarily SMOTE has been used in medical applications to improve classification performance over imbalanced medical datasets. However, it can be used for synthetic data generation in medical applications, and there are several studies that have used SMOTE for this purpose. For example, a study used SMOTE to generate synthetic data for predictive models in low-middle-income countries, while study used SMOTE to generate high-fidelity synthetic patient data for assessing machine learning healthcare software. Additionally, a novel algorithm called SMOTE-ENC was proposed to generate synthetic data for nominal and continuous features in medical imbalanced data. 
 
+### Clover implementation
 
+https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/smote.py
 
 ## References
 
-- [1] https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
-- [2] https://towardsdatascience.com/create-artificial-data-with-smote-2a31ee855904
-- [3] https://towardsdatascience.com/smote-synthetic-data-augmentation-for-tabular-data-1ce28090debc
-- [4] https://www.mdpi.com/2571-5577/4/1/18
-- [5] https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html
 
-- [1] https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
-- [2] https://towardsdatascience.com/create-artificial-data-with-smote-2a31ee855904
-- [3] https://towardsdatascience.com/smote-synthetic-data-augmentation-for-tabular-data-1ce28090debc
-- [4] https://www.mdpi.com/2571-5577/4/1/18
-- [5] https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html
-- [6] https://learn.microsoft.com/en-us/azure/machine-learning/component-reference/smote?view=azureml-api-2
-
-- [1] https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
-- [2] https://towardsdatascience.com/smote-fdce2f605729
-- [3] https://datascience.stackexchange.com/questions/108342/how-does-smote-work-for-dataset-with-only-categorical-variables
-- [4] https://www.kdnuggets.com/2022/11/introduction-smote.html
-- [5] https://towardsdatascience.com/5-smote-techniques-for-oversampling-your-imbalance-data-b8155bdbe2b5
-- [6] https://www.geeksforgeeks.org/ml-handling-imbalanced-data-with-smote-and-near-miss-algorithm-in-python/
-
+- https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
+- https://towardsdatascience.com/create-artificial-data-with-smote-2a31ee855904
+- https://towardsdatascience.com/smote-synthetic-data-augmentation-for-tabular-data-1ce28090debc
+- https://www.mdpi.com/2571-5577/4/1/18
+- https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html
+- https://learn.microsoft.com/en-us/azure/machine-learning/component-reference/smote?view=azureml-api-2
+- https://towardsdatascience.com/smote-fdce2f605729
+- https://datascience.stackexchange.com/questions/108342/how-does-smote-work-for-dataset-with-only-categorical-variables
+- https://www.kdnuggets.com/2022/11/introduction-smote.html
+- https://towardsdatascience.com/5-smote-techniques-for-oversampling-your-imbalance-data-b8155bdbe2b5
+- https://www.geeksforgeeks.org/ml-handling-imbalanced-data-with-smote-and-near-miss-algorithm-in-python/
 - https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1
 - https://www.mdpi.com/2571-5577/4/1/18
 - https://dl.acm.org/doi/abs/10.1145/3548785.3548793?casa_token=O3_Lm4h5AGIAAAAA:2_2MRJLdQsfhcy-Yr1k6v359sq50v4vsocxnalttcvUq-2S2sVnG8VFhv2oWWcrNJO_iOpGsaC0NDbQ
