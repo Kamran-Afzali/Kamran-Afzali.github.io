@@ -62,6 +62,30 @@ SMOTE, a valuable technique, finds applications beyond initial domain for which 
 
 https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/smote.py
 
+
+
+    """
+    Wrapper of the SMOTE (Synthetic Minority Oversampling TEchnique) Python implementation from imbalanced-learn.
+
+    :cvar name: the name of the metric
+    :vartype name: str
+
+    :param df: the data to synthesize
+    :param metadata: a dictionary containing the list of **continuous** and **categorical** variables
+    :param random_state: for reproducibility purposes
+    :param generator_filepath: the path of the generator to sample from if it exists
+    :param k_neighbors: the number of neighbors used to find the avatar
+    """
+
+    SmoteGenerator(
+        df: pd.DataFrame,
+        metadata: dict,
+        random_state: int = None,
+        generator_filepath: Union[Path, str] = None,
+        k_neighbors: int = 5):
+
+    
+
 ## References
 
 
