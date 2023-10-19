@@ -127,6 +127,18 @@ Synthetic Data Generation holds a great potential in the healthcare domain by ap
 
 ## BREAK
 
+In today's era of digitalization and Big Data, there is a growing demand for innovative AI algorithms. However, the development and application of these technologies require access to data. Unfortunately, various challenges related to privacy, intellectual property, and security often hinder data sharing. These challenges are particularly prominent in the healthcare sector, where data is highly sensitive. Overcoming these barriers to data sharing, while preserving the privacy and rights of individuals, is crucial to advancing research in this field.
+
+Synthetic Tabular Data Generation (STDG) techniques have emerged as a promising solution to address these data-sharing challenges. The main objective of this systematic review is to provide an overview of STDG approaches, particularly in healthcare applications where tabular data needs to be generated. Special attention is given to Generative Adversarial Networks (GANs) due to their recent success in similar applications.
+
+Healthcare data plays a vital role in the development of AI-based healthcare systems, and structured data, often in tabular format, is the most common data source for these applications. This structured health data offers valuable opportunities, and progress in this domain is critical. Tabular healthcare data, typically sourced from Electronic Health Records (EHR), clinical trials, or laboratories, contains a wealth of patient-related information, including explicit identifiers, quasi-identifiers, and sensitive attributes. These data are integral to healthcare research and AI development.
+
+Privacy in the healthcare sector is a complex issue, governed by contextual rules that regulate the flow of information to maintain the security and confidentiality of patient records. Violations of these rules, termed "invasions of privacy" or "violations of privacy," lead to the disclosure of personal information intended to be kept private from unauthorized entities. Privacy threats include identity disclosure, attribute disclosure, and membership disclosure, with adversaries using various techniques to compromise patient privacy.
+
+In this landscape, STDG techniques offer a promising way to generate synthetic tabular data that can be shared for research and development purposes while safeguarding patient privacy. The review classifies various STDG algorithms into distinct groups but notes a lack of evaluation regarding their privacy-preserving capabilities and performance metrics. The development of standardized benchmarks and metrics is essential to assess these algorithms effectively and to drive improvements in the field.
+
+In summary, the study contributes valuable insights to the scientific community by classifying and evaluating STDG techniques, with a focus on their resemblance, utility, and privacy dimensions. These findings can aid researchers in developing AI-based applications without compromising user privacy and provide guidance in addressing research challenges. To advance intelligent healthcare applications while preserving patient privacy, the widespread use of fully synthetic tabular data is crucial.
+
 
 ### Other paper 
 
