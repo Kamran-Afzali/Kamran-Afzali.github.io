@@ -62,6 +62,7 @@ SMOTE, a valuable technique, finds applications beyond initial domain for which 
 
 https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/smote.py
 
+https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1
 
 
     """
