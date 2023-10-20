@@ -127,6 +127,8 @@ Synthetic Data Generation holds a great potential in the healthcare domain by ap
 
 ## BREAK
 
+### [Synthetic data generation for tabular health records: A systematic review Hernandez, M., Epelde, G., Alberdi, A., Cilla, R., & Rankin, D. (2022). Synthetic data generation for tabular health records: A systematic review. Neurocomputing, 493, 28-45. Advance online publication.](https://doi.org/10.1016/j.neucom.2022.04.053)
+
 In today's era of digitalization and Big Data, there is a growing demand for innovative AI algorithms. However, the development and application of these technologies require access to data. Unfortunately, various challenges related to privacy, intellectual property, and security often hinder data sharing. These challenges are particularly prominent in the healthcare sector, where data is highly sensitive. Overcoming these barriers to data sharing, while preserving the privacy and rights of individuals, is crucial to advancing research in this field.
 
 Synthetic Tabular Data Generation (STDG) techniques have emerged as a promising solution to address these data-sharing challenges. The main objective of this systematic review is to provide an overview of STDG approaches, particularly in healthcare applications where tabular data needs to be generated. Special attention is given to Generative Adversarial Networks (GANs) due to their recent success in similar applications.
@@ -140,7 +142,7 @@ In this landscape, STDG techniques offer a promising way to generate synthetic t
 In summary, the study contributes valuable insights to the scientific community by classifying and evaluating STDG techniques, with a focus on their resemblance, utility, and privacy dimensions. These findings can aid researchers in developing AI-based applications without compromising user privacy and provide guidance in addressing research challenges. To advance intelligent healthcare applications while preserving patient privacy, the widespread use of fully synthetic tabular data is crucial.
 
 
-### Other paper 
+### [Machine Learning for Synthetic Data Generation](https://arxiv.org/abs/2302.04062) 
 
 The exploration of leveraging health data for innovation and enhancing care has been a long-standing topic. AI and machine learning (ML) have opened exciting prospects for utilizing health system data to offer decision support for clinicians, develop better treatments, and enhance overall system efficiency. However, achieving widespread innovation and adoption encounters substantial challanges. ML applications are highly data-dependent, necessitating a resolution for the challenge of data accessibility.
 
