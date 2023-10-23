@@ -62,6 +62,21 @@ SMOTE, a valuable technique, finds applications beyond initial domain for which 
 
 Implementation of the SMOTE generator in the Clover is based on the `over_sampling` functions in the `imblearn` [module](https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1) in python.
 
+        # Instantiate the SMOTE method according to the variable types
+        # Parameters for the SMOTE instantiation
+        # Prepare the X and y depending on the prediction type (classification or regression)
+        # SMOTE is not defined for regression: we add a fake minority sample so
+        # that the neighbors are searched across all majority samples
+        # Number of samples in each class
+        # (SMOTE is an oversampling method so the number needs to be superior to the original one)
+        # Classification
+        # The ratio of each class must be preserved
+        # we add or remove the extra samples due to the rounding to the most frequent class
+        # Update SMOTE parameters
+        # Fit and resample (cannot be separated)
+        # Separate the real samples from the synthetic ones
+        # Real samples plus the fake one - the labels were fake
+        # Classification
 
 
 
