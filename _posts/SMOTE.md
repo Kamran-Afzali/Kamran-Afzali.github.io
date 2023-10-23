@@ -58,11 +58,12 @@ The basic steps of SMOTE involve selecting a sample from the minority class, fin
 
 SMOTE, a valuable technique, finds applications beyond initial domain for which it is developped. Recently, an innovative approach called Data Collaboration (DC) analysis has emerged, enabling privacy-conscious joint analysis across diverse institutions. This method aggregates dimensionality-reduced representations and facilitates comprehensive analysis through collaborative representations, all while safeguarding the original data. Typically, each institution contributes a shareable  dataset and consolidates its intermediate representation for this integrated analysis. While a random anchor dataset works well for DC analysis, using an anchor dataset resembling the raw dataset's distribution can notably enhance recognition performance, especially for interpretable DC analysis. Primarily SMOTE has been used in medical applications to improve classification performance over imbalanced medical datasets. However, it can be used for synthetic data generation in medical applications, and there are several studies that have used SMOTE for this purpose. For example, a study used SMOTE to generate synthetic data for predictive models in low-middle-income countries, while study used SMOTE to generate high-fidelity synthetic patient data for assessing machine learning healthcare software. Additionally, a novel algorithm called SMOTE-ENC was proposed to generate synthetic data for nominal and continuous features in medical imbalanced data. 
 
-### Clover implementation
+### [Clover implementation](https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/smote.py)
 
-https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/smote.py
+Implementation of the SMOTE generator in the Clover is based on the `over_sampling` functions in the `imblearn` [module](https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1) in python.
 
-https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1
+
+
 
 
     """
