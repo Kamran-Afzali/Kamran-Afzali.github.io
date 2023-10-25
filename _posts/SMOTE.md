@@ -60,16 +60,7 @@ SMOTE, a valuable technique, finds applications beyond initial domain for which 
 
 ### [Clover implementation](https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/smote.py)
 
-Implementation of the SMOTE generator in the Clover is based on the `over_sampling` functions in the `imblearn` [module](https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1) in python.
-
-First, `Clover` instantiates the SMOTE method according to the variable types then based on the metadata provided it prepares the X and y depending on the prediction type if such a thin is available, the package will add a fake minority sample so it does the data generation based on this varaible. 
-        # that the neighbors are searched across all majority samples
-        # Number of samples in each class
-        # (SMOTE is an oversampling method so the number needs to be superior to the original one)
-        # The ratio of each class must be preserved
-        # we add or remove the extra samples due to the rounding to the most frequent class
-
-Then it fits the model and generate samples, with a specific functionality to separate the real samples from the synthetic ones and provides a data frame including real samples plus the generated ones. 
+Implementation of the SMOTE generator in the Clover is based on the `over_sampling` functions in the `imblearn` [module](https://imbalanced-ensemble.readthedocs.io/en/latest/api/sampler/_autosummary/imbens.sampler.SMOTE.html#rd2827128d089-1) in python. First, `Clover` instantiates the SMOTE method according to the variable types. Afterwards, based on the metadata provided and if available it separates the independent and dependent variablesand the prediction type. If an independent variable is not availabile the package will add a fake minority sample and the data generation will take place based on this varaible. Hyperparameters such as the number of neighbors and number of samples in each class is also set before the generation process starts. Once the generation process is finished `Clover` will add or remove the extra samples due to the rounding to the most frequent class. Finally a specific functionality separates the real samples from the synthetic ones and provides a dataframe including real samples plus the generated ones. 
 
 
 
