@@ -13,7 +13,7 @@ Synthetic data is broadly categorized into three types: fully synthetic, partial
 
 The UK's Office for National Statistics (ONS) has delineated a detailed spectrum of synthetic data types, ranging from the lowest, purely synthetic structural dataset developed using metadata only (with minimal analytic value and no disclosure risk), to a replica level synthetically-augmented dataset that closely mirrors real data, preserving format, structure, joint distribution, patterns, and geographies at the cost of higher disclosure risks. This categorization aids in understanding the varying utility and privacy aspects of synthetic data across different levels of replication and augmentation.
 
-### **Exploring Opportunities in Synthetic Data Generation** [Utilizations of Synthetic Health Data](https://doi.org/10.1371/journal.pdig.0000082)
+### **Exploring Opportunities in Synthetic Data Generation: Utilizations of Synthetic Health Data**
 
 Synthetic data has emerged as a tool addressing main challenges in healthcare data. It safeguards individual privacy and record confidentiality by generating data that is difficult to re-identify, being a blend of "fake" and original data. Moreover, it enhances accessibility to health data for researchers and various users due to minimal disclosure risk in synthesized datasets. This opens doors for a broader array of users, accelerating research. Finally, synthetic data fills the void of realistic data for software development and testing, providing cost-effective and authentic test data for software applications. Synthetic data presents a compelling array of benefits, making it an attractive option for a wide range of applications. It significantly streamlines the processes involved in training, testing, and deploying AI solutions, promoting more efficient and effective development. Furthermore, this cutting-edge technology plays a crucial role in reducing the risk of exposing sensitive information, thereby ensuring customer security and privacy. As researchers transition synthetic data from the lab to practical implementations, its real-world applications continue to expand. This section delves into several noteworthy domains where synthetic data generation significantly impacts addressing real-world challenges. Here we go through some of the specific opportunities in synthetic Data generation:
 
@@ -83,9 +83,10 @@ Synthetic Data Generation holds a great potential in the healthcare domain by ap
 
 ### References
 
-- [Synthetic data generation for tabular health records: A systematic review Hernandez, M., Epelde, G., Alberdi, A., Cilla, R., & Rankin, D. (2022). Synthetic data generation for tabular health records: A systematic review. Neurocomputing, 493, 28-45. Advance online publication.](https://doi.org/10.1016/j.neucom.2022.04.053)
+- [Synthetic data generation for tabular health records: A systematic review. Neurocomputing, 493, 28-45. Advance online publication.](https://doi.org/10.1016/j.neucom.2022.04.053)
+- [Synthetic data in health care: A narrative review](https://doi.org/10.1371/journal.pdig.0000082)
 - [Machine Learning for Synthetic Data Generation](https://arxiv.org/abs/2302.04062) 
-- [State of the art paper](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138)
+- [Synthetic data generation: State of the art in health care domain](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138)
 - [Synthetic data as an enabler for machine learning applications in medicine](https://www.cell.com/iscience/fulltext/S2589-0042(22)01603-0_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2589004222016030%3Fshowall%3Dtrue)
 
 
