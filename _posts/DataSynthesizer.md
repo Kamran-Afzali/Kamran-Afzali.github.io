@@ -2,9 +2,8 @@
 
 ### Clover implementation
 
- """
+    """
     Wrapper of the DataSynthesizer implementation https://github.com/DataResponsibly/DataSynthesizer.
-
     See the article `Ping, Haoyue, Julia Stoyanovich, and Bill Howe.
     "Datasynthesizer: Privacy-preserving synthetic datasets." Proceedings of the 29th International Conference on
     Scientific and Statistical Database Management. 2017.
