@@ -22,15 +22,15 @@
     """
 
 
-   DataSynthesizer(
-        df: pd.DataFrame,
-        metadata: dict,
-        random_state: int = None,
-        generator_filepath: Union[Path, str] = None,
-        candidate_keys: List[str] = None,
-        epsilon: int = 0,
-        degree: int = 5,
-    ):
+       DataSynthesizer(
+            df: pd.DataFrame,
+            metadata: dict,
+            random_state: int = None,
+            generator_filepath: Union[Path, str] = None,
+            candidate_keys: List[str] = None,
+            epsilon: int = 0,
+            degree: int = 5,
+        ):
 
 ### References
 
