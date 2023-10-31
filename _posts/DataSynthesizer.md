@@ -1,4 +1,6 @@
 ### DataSynthesizer
+DataSynthesizer consists of three high-level modules --- DataDescriber, DataGenerator and ModelInspector. The first, DataDescriber, investigates the data types, correlations and distributions of the attributes in the private dataset, and produces a data summary, adding noise to the distributions to preserve privacy. DataGenerator samples from the summary computed by DataDescriber and outputs synthetic data. ModelInspector shows an intuitive description of the data summary that was computed by DataDescriber, allowing the data owner to evaluate the accuracy of the summarization process and adjust any parameters, if desired.
+
 
 ### Clover implementation
 
@@ -39,3 +41,5 @@ https://dl.acm.org/doi/10.1145/3085504.3091117
 https://github.com/DataResponsibly/DataSynthesizer/tree/master
 
 https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/dataSynthesizer.py
+
+https://github.com/DataResponsibly/DataSynthesizer.
