@@ -54,6 +54,30 @@ As healthcare IT continues to evolve and play an increasingly central role in th
 
 The integration of information technology into healthcare has ushered in a new era of possibilities and challenges. Health informatics, as a dynamic and multidisciplinary field, plays a central role in leveraging IT to improve the healthcare system. With its power to transform healthcare practices and organizations, it is essential to adapt health informatics education and training to meet the evolving demands of the field. A strategy for the future should prioritize curriculum enhancement, interdisciplinary collaboration, research and innovation, industry engagement, standards and regulation, professional development
 
+#### Varieties of Digital Health Training
+
+The landscape of digital health training encompasses a broad spectrum of courses and programs tailored to both undergraduate and postgraduate levels. These offerings exhibit a diverse array of approaches, falling into two primary categories: basic courses and advanced programs.
+
+Basic Courses:
+
+Basic courses are designed as integral components of the curriculum for healthcare professionals, particularly those in medicine and nursing. These courses are structured to blend both face-to-face and online learning modalities, equipping healthcare practitioners with the knowledge and skills required to seamlessly integrate and manage IT within their healthcare practices.
+
+For example, Sheffield Hallam University in the UK offers the Systems of eCare program, which was initiated in 2009 and has been incorporated into the student curriculum as a Faculty of Health elective. This program is spread over three years of undergraduate training and comprises six modules, ensuring that students are well-versed in the integration of IT in healthcare.
+
+Similarly, the University of Sydney in Australia provides a semester-long (6-credit) course titled "eHealth for Health Professionals," catering to students within the Faculties of Health. This course equips students with the necessary digital health knowledge and skills, allowing them to navigate the evolving healthcare landscape.
+
+Advanced Programs:
+2. Advanced programs in health informatics are typically offered at the Master's level. These programs can be categorized as professional or research-oriented, with the former often leading to the attainment of an MHI (Master in Health Informatics), and the latter sometimes integrated into research-intensive programs like an MSc option in Health Services Research at institutions such as the University of Toronto.
+
+Professional-level health informatics programs are structured without a research thesis, emphasizing practical and applied knowledge in the field. Graduates of these programs are equipped to take on various roles in healthcare informatics.
+
+Research-oriented health informatics programs often involve the pursuit of a postgraduate PhD, emphasizing a deeper exploration of health informatics with a research focus. These programs contribute to the body of knowledge in the field and prepare individuals for research-oriented roles.
+
+Additionally, it is noteworthy that clinical informatics has emerged as a fully recognized medical specialty in the United States. This specialization underscores the significance of informatics in clinical practice, where healthcare professionals are trained to navigate the intersection of healthcare and technology.
+
+For readers seeking in-depth knowledge of health informatics, there is an exceptional online course known as a Massive Open Online Course (MOOC). Initially managed by the University of Oxford in the UK, this MOOC offers comprehensive insights into health informatics. It covers a wide range of topics and provides valuable resources for individuals interested in delving deeper into the field. This online course serves as a valuable resource for staying current with the evolving landscape of health informatics.
+
+The diverse array of training options, ranging from basic courses for healthcare professionals to advanced programs at the Master's level and the emergence of specialized clinical informatics, demonstrates the growing recognition of the pivotal role that digital health plays in the healthcare sector. These training programs equip individuals with the knowledge and skills necessary to navigate the complex and rapidly evolving intersection of healthcare and information technology, ensuring that healthcare professionals are well-prepared to meet the challenges and opportunities presented by the digital transformation of healthcare.
 
 ### What is digital health
 Digital health refers to the use of digital technologies, information, and communication systems to support and improve healthcare delivery, patient care, and overall health outcomes. It encompasses a wide range of technologies and platforms designed to enhance the efficiency, accessibility, and effectiveness of healthcare services. Key components of digital health include:
