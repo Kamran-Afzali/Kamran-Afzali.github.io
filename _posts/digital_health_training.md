@@ -79,6 +79,10 @@ For readers seeking in-depth knowledge of health informatics, there is an except
 
 The diverse array of training options, ranging from basic courses for healthcare professionals to advanced programs at the Master's level and the emergence of specialized clinical informatics, demonstrates the growing recognition of the pivotal role that digital health plays in the healthcare sector. These training programs equip individuals with the knowledge and skills necessary to navigate the complex and rapidly evolving intersection of healthcare and information technology, ensuring that healthcare professionals are well-prepared to meet the challenges and opportunities presented by the digital transformation of healthcare.
 
+
+In conclusion, the analysis of training programs in health informatics underscores the increasing appeal of this field among academics striving to keep pace with the dynamic landscape shaped by health information technologies. Consequently, there is a growing demand for training, given that the rapid evolution of these technologies surpasses the rate at which individuals must acquire proficiency in their use. In Canada, only six universities offer graduate-level programs in health informatics, and these programs typically fall into one of two categories: practice-oriented or research-oriented. Often, these training initiatives are driven by a single academic focus, such as Public Health or Informatics. An exception to this pattern is McMaster University, which offers interdisciplinary training spanning three faculties. Conversely, Quebec faces a scarcity of health informatics training opportunities, revealing a pressing need to bridge this gap. This need is particularly acute in the context of preparing healthcare professionals, public health experts, and managers to navigate the evolving landscapes of healthcare and health services. Equipping these individuals with the necessary skills to harness the potential of emerging technologies is vital in addressing the contemporary challenges faced by healthcare systems, including issues related to accessibility, costs, and health disparities. The integration of these promising technologies holds the key to addressing these multifaceted challenges.
+
+
 ### What is digital health
 Digital health refers to the use of digital technologies, information, and communication systems to support and improve healthcare delivery, patient care, and overall health outcomes. It encompasses a wide range of technologies and platforms designed to enhance the efficiency, accessibility, and effectiveness of healthcare services. Key components of digital health include:
 
@@ -189,3 +193,25 @@ An academic program on digital health typically includes a range of courses and 
     - Specialized seminars and workshops may be offered to delve into emerging trends and technologies in digital health.
 
 The components of an academic program in digital health can vary, and the curriculum may evolve to keep up with industry developments. It's essential to review the specific program's curriculum and objectives to understand the components it offers and how they align with your career goals and interests.
+
+
+#### Where to look for more information 
+
+
+USA: Chicago, Buffalo, Standford, Harvard ; 
+Canada: UofVic, UofT ; 
+France:  Bordeaux, Marseille, Paris Sorbonne  
+EFMI, AMIA 
+
+Associations scientifiques
+• International Association of Medical Informatics
+– Colloque aux 4 ans MedInfo
+– Accréditation de programmes en health informatics
+• AMIA American Medical Informatics Association
+– Colloque annuel AMIA
+• European Federation of Medical Informatics
+– Colloque Annuel Medical Informatics Europe (MIE)
+§ Associations professionnelles États-Unis
+• HIMSS : Healthcare Information and Management Systems Society
+• CAHIIM : Commission on Accreditation for Health Informatics and
+Information Management Education
