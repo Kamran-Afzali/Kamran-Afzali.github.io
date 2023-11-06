@@ -234,8 +234,9 @@ Associations scientifiques
    - IMIA Accredited Health & Biomedical Informatics Program
       - Health and Human Services Informatics Master’s Degree Program, University of Eastern Finland, Kuopio, Finland
       - Health Informatics Master Degree and Health Informatics Bachelor Degree Programs, Universitätsmedizin Göttingen, Georg-August-Universität, Göttingen, Germany
-      - Master and PhD Programs in Biomedical Informatics, Graduate Institute of Biomedical Informatics, College of Medical Science and Technology, Taipei Medical University, Taipei City, Taiwan      
-- Colloque aux 4 ans MedInfo
+      - Master and PhD Programs in Biomedical Informatics, Graduate Institute of Biomedical Informatics, College of Medical Science and Technology, Taipei Medical University, Taipei City, Taiwan
+      - Colloque aux 4 ans MedInfo       
+
 – Accréditation de programmes en health informatics
 - [AMIA American Medical Informatics Association](https://amia.org/careers-certifications/informatics-academic-programs)
    - CAHIIM (Commission on Accreditation for Health Informatics and Information Management) Accredited
@@ -243,9 +244,11 @@ Associations scientifiques
    - Colloque annuel AMIA
 - [European Federation of Medical Informatics](http://efmi-ac2.bmhi-edu.org/thematic-areas/health-informatics)
    - Colloque Annuel Medical Informatics Europe (MIE)
-
+   
 Associations professionnelles États-Unis
 
-- HIMSS : Healthcare Information and Management Systems Society
-- CAHIIM : Commission on Accreditation for Health Informatics and
-- Information Management Education
+- HIMSS : [Healthcare Information and Management Systems Society](https://www.himss.org/resources-certification/overview)
+   - [CAHIMS](https://www.himss.org/resources-certification/cahims)  Certified Associate in Healthcare Information and Management Systems
+   - [CPHIMS](https://www.himss.org/resources-certification/cphims)  Certified Professional in Healthcare Information and Management Systems
+   - [CPDHTS](https://www.himss.org/resources-certification/cpdhts) Certified Professional in Digital Health Transformation Strategy
+
