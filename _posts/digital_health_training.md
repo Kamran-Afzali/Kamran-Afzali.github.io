@@ -242,7 +242,6 @@ Associations scientifiques
    - ACGME (Accreditation Council for Graduate Medical Education) Accredited     
    - Colloque annuel AMIA
 - [European Federation of Medical Informatics](http://efmi-ac2.bmhi-edu.org/thematic-areas/health-informatics)
-   -
    - Colloque Annuel Medical Informatics Europe (MIE)
 
 Associations professionnelles États-Unis
