@@ -1,3 +1,108 @@
+### Bayesian networks
+Bayesian networks can be used for synthetic data generation by capturing the probabilistic dependencies and relationships among attributes in the original dataset. These networks provide a structured representation of the data, which can then be leveraged to generate synthetic data that preserves the statistical properties of the original dataset while maintaining privacy.
+
+Here's how Bayesian networks can be applied in the process of synthetic data generation:
+
+Modeling Dependencies: Bayesian networks are adept at modeling dependencies between attributes. Each node in the network represents an attribute, and the edges between nodes indicate conditional dependencies. By constructing a Bayesian network from the original dataset, you can capture how attributes influence one another, such as how age might influence income or education level.
+
+Learning the Network: In many cases, the structure of the Bayesian network can be learned directly from the original data using various machine learning algorithms. This process involves identifying the conditional dependencies and structure that best fits the data. Bayesian network learning algorithms can discover relationships that might not be immediately apparent, making them a valuable tool for understanding complex datasets.
+
+Sampling from the Network: Once the Bayesian network is established, you can use it to sample synthetic data. Starting with known values or evidence for certain attributes, the network generates values for other attributes based on their conditional dependencies. This process ensures that the synthetic data retains the same probabilistic relationships as the original data.
+
+Bayesian networks can be effectively applied in the process of synthetic data generation. A Bayesian network is a graphical model that encodes probabilistic relationships among variables of interest[3]. It takes the form of a directed acyclic graph where the nodes represent variables and the edges indicate a dependency between variables[2]. 
+
+In the context of synthetic data generation, Bayesian networks are used to learn probabilistic graphical structures from real datasets, and then simulate synthetic records from the learned structure[1][4]. This approach has been successfully applied in various fields, including healthcare and social media data synthesis[1][3].
+
+In healthcare, for instance, a study used Bayesian networks to generate synthetic patient records from real datasets, such as the University of California Irvine (UCI) heart disease and diabetes datasets, as well as the MIMIC-III diagnoses database[1][4]. The generated synthetic data was evaluated through statistical tests, machine learning tasks, preservation of rare events, disclosure risk, and the ability of a machine learning classifier to discriminate between the real and synthetic data[1]. The Bayesian network model outperformed or equaled the predominant existing method, medBGAN, in all key metrics, notably capturing rare variables and preserving association rules[1]. 
+
+In the realm of social media, Bayesian networks have been used to generate synthetic social media profiles data[3]. The personal data synthesis problem was considered as the inference of a joint probability distribution from the oriented probabilistic models like Bayesian networks[3]. The quality of this approach in generating VKontakte (VK is the Russian analog of Facebook) social network data was demonstrated and assessed[3].
+
+The use of Bayesian networks in synthetic data generation offers several advantages. They generate data sufficiently similar to the original data with minimal risk of disclosure, while offering additional transparency, computational efficiency, and capacity to handle more data types in comparison to existing methods[1][4]. This makes them a valuable tool for organizations that need to distribute data to researchers, reducing the need for access to real data[1][2][4].
+
+However, it's important to note that the quality of synthetic data generated using Bayesian networks can be influenced by the quality and characteristics of the original data, as well as the specific methods used to learn the network structure and simulate the synthetic data[2][7]. Therefore, careful consideration and validation of the methods used are crucial to ensure the utility and privacy of the generated synthetic data.
+
+The algorithm used for Bayesian networks in synthetic data generation involves several steps. First, a "greedy" search algorithm is used to generate alternative network structures and to select the structure with the highest posterior probability given the data and prior information[1]. This network is then used to generate synthetic data[1].
+
+One of the methods used for synthetic data generation with Bayesian networks is PrivBayes, which synthesizes data via a Bayesian network with differentially private (DP) conditional distributions[3]. PrivBayes is a differentially private method for synthetic data generation[7]. The construction of the Bayesian network and the approximation of the low dimension distributions are conducted in a manner that satisfies differential privacy[7]. Finally, PrivBayes generates synthetic tuples using the Bayesian network and noisy distributions, and releases them[7].
+
+The PrivBayes method involves two main steps[7]:
+1. Network learning: Construct a Bayesian network over the attributes in the data using the analytical Gaussian mechanism. The Bayesian network is represented as a fully connected set of attributes and a set of attribute-parent pairs.
+2. Distribution learning: Generate the corresponding joint and conditional distributions for the Bayesian network learned in the first phase using the analytical Gaussian mechanism.
+
+It's important to note that the quality of synthetic data generated using Bayesian networks can be influenced by the quality and characteristics of the original data, as well as the specific methods used to learn the network structure and simulate the synthetic data[4]. Therefore, careful consideration and validation of the methods used are crucial to ensure the utility and privacy of the generated synthetic data.
+
+### Psuedo code
+
+Based on the search results, the PrivBayes algorithm for synthetic data generation using Bayesian networks can be broken down into two main steps: Network Learning and Distribution Learning. Here is a simplified pseudocode representation of the process:
+
+```python
+# PrivBayes Algorithm
+
+# Step 1: Network Learning
+function NetworkLearning(Dataset D, Privacy budget ε):
+    Initialize Bayesian network N
+    for each attribute in D:
+        Select attribute Xi and its parent set Πi in a differentially private manner
+        Add Xi and Πi to N
+    return N
+
+# Step 2: Distribution Learning
+function DistributionLearning(Bayesian network N, Dataset D, Privacy budget ε):
+    Initialize set of distributions P
+    for each attribute Xi and its parent set Πi in N:
+        Compute joint distribution Pr[Xi, Πi] in a differentially private manner
+        Derive conditional distribution Pr[Xi|Πi] from Pr[Xi, Πi]
+        Add Pr[Xi|Πi] to P
+    return P
+
+# Main function
+function PrivBayes(Dataset D, Privacy budget ε):
+    N = NetworkLearning(D, ε)
+    P = DistributionLearning(N, D, ε)
+    Generate synthetic data from P
+```
+
+In the Network Learning step, the algorithm constructs a Bayesian network over the attributes in the data in a differentially private manner. This involves selecting an attribute and its parent set in each iteration and adding them to the network[2].
+
+In the Distribution Learning step, the algorithm generates the corresponding joint and conditional distributions for the Bayesian network learned in the first phase. This is done in a differentially private manner, and the distributions are added to a set P[1].
+
+Finally, the synthetic data is generated from the set of distributions P[1].
+
+Please note that this is a simplified version of the algorithm. The actual implementation would involve more complex steps and considerations, such as handling privacy budgets, noise injection for differential privacy, and specific methods for computing differentially private distributions[1][2][7].
+
+
+
+
+The pseudo code provided outlines the PrivBayes algorithm, a differentially private method for generating synthetic data while preserving the privacy of the individuals in the original dataset. This algorithm consists of two main steps: Network Learning and Distribution Learning.
+
+**Step 1: Network Learning**
+In this step, the algorithm constructs a Bayesian network (N) from the original dataset (D) while ensuring differential privacy. A Bayesian network is a graphical model that represents probabilistic dependencies between attributes. Here's an explanation of the key elements:
+
+- `Initialize Bayesian network N`: Create an empty Bayesian network to be populated with nodes and edges.
+- `for each attribute in D`: Iterate through each attribute in the original dataset.
+  - `Select attribute Xi and its parent set Πi in a differentially private manner`: For each attribute, choose the attribute itself (Xi) and its parent set (Πi) in a way that preserves differential privacy. The parent set represents the attributes that directly influence Xi.
+  - `Add Xi and Πi to N`: Incorporate Xi and Πi into the Bayesian network N.
+- `return N`: The network N, which captures the probabilistic relationships among attributes, is returned.
+
+**Step 2: Distribution Learning**
+In this step, the algorithm computes the joint and conditional distributions associated with the attributes in the Bayesian network N. These distributions are used to generate the synthetic data. Here's an explanation of the key elements:
+
+- `Initialize set of distributions P`: Create an empty set (P) to store the conditional distributions.
+- `for each attribute Xi and its parent set Πi in N`: Iterate through each attribute and its corresponding parent set in the Bayesian network.
+  - `Compute joint distribution Pr[Xi, Πi] in a differentially private manner`: Calculate the joint distribution between Xi and Πi while preserving differential privacy.
+  - `Derive conditional distribution Pr[Xi|Πi] from Pr[Xi, Πi]`: From the joint distribution, derive the conditional distribution of Xi given its parent set Πi.
+  - `Add Pr[Xi|Πi] to P`: Incorporate the conditional distribution Pr[Xi|Πi] into the set P.
+- `return P`: The set P now contains all the conditional distributions for attributes, which will be used for data generation.
+
+**Main Function (PrivBayes)**
+The main function combines the results from the two previous steps to generate the synthetic data while preserving differential privacy. Here's a brief explanation:
+
+- `N = NetworkLearning(D, ε)`: Create the Bayesian network N by invoking the NetworkLearning function with the original dataset D and privacy budget ε.
+- `P = DistributionLearning(N, D, ε)`: Compute the set of conditional distributions P by invoking the DistributionLearning function with the Bayesian network N, original dataset D, and privacy budget ε.
+- `Generate synthetic data from P`: Use the conditional distributions in P to generate a synthetic dataset that approximates the statistical properties of the original dataset while satisfying the privacy constraints.
+
+In summary, the PrivBayes algorithm is a privacy-preserving approach for generating synthetic data by first learning the probabilistic relationships between attributes and then using these relationships to model the conditional distributions necessary for data generation. Differential privacy is maintained throughout the process to protect individual privacy.
+
 ### DataSynthesizer
 DataSynthesizer consists of three high-level modules --- DataDescriber, DataGenerator and ModelInspector. The first, DataDescriber, investigates the data types, correlations and distributions of the attributes in the private dataset, and produces a data summary, adding noise to the distributions to preserve privacy. DataGenerator samples from the summary computed by DataDescriber and outputs synthetic data. ModelInspector shows an intuitive description of the data summary that was computed by DataDescriber, allowing the data owner to evaluate the accuracy of the summarization process and adjust any parameters, if desired.
 
@@ -84,5 +189,36 @@ https://dl.acm.org/doi/10.1145/3085504.3091117
 https://github.com/DataResponsibly/DataSynthesizer/tree/master
 
 https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/dataSynthesizer.py
-
 https://github.com/DataResponsibly/DataSynthesizer.
+
+[1] https://pubmed.ncbi.nlm.nih.gov/33367620/
+[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7973486/
+[3] https://dl.acm.org/doi/10.1145/3411170.3411243
+[4] https://academic.oup.com/jamia/article/28/4/801/6046159
+[5] https://www.sciencedirect.com/science/article/pii/S2667096823000241
+[6] https://www.cs.cmu.edu/~dmarg/Papers/PhD-Thesis-Margaritis.pdf
+[7] https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf
+[8] https://youtube.com/watch?v=06PzhH5lSPY
+[9] https://www.aimspress.com/article/doi/10.3934/mbe.2021426
+[10] https://www.researchgate.net/publication/288995388_Using_Bayesian_Networks_to_Create_Synthetic_Data
+[11] https://cprd.com/sites/default/files/2022-02/Tucker%20et%20al.%20preprint.pdf
+[12] https://www.researchgate.net/publication/355308838_Synthetic_data_generation_with_probabilistic_Bayesian_Networks
+
+
+
+[1] https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf
+[2] https://www.aimspress.com/article/doi/10.3934/mbe.2021426
+[3] https://github.com/daanknoors/synthetic_data_generation
+[4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7973486/
+[5] https://pubmed.ncbi.nlm.nih.gov/33367620/
+[6] https://www.researchgate.net/publication/288995388_Using_Bayesian_Networks_to_Create_Synthetic_Data
+[7] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723
+
+
+[1] http://dimacs.rutgers.edu/~graham/pubs/papers/privbayes-tods.pdf
+[2] http://dimacs.rutgers.edu/~graham/pubs/papers/PrivBayes.pdf
+[3] https://www.usenix.org/system/files/sec21fall-zhang-zhikun.pdf
+[4] https://dr.ntu.edu.sg/bitstream/10356/69204/1/PpMain.V1.pdf
+[5] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723
+[6] https://www.utupub.fi/bitstream/handle/10024/151045/Perkonoja_Katariina_opinnayte.pdf?isAllowed=y&sequence=1
+[7] https://www.researchgate.net/publication/320679178_PrivBayes_Private_Data_Release_via_Bayesian_Networks
