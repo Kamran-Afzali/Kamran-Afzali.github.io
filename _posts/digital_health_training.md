@@ -222,20 +222,30 @@ The components of an academic program in digital health can vary, and the curric
 #### Where to look for more information 
 
 
-USA: Chicago, Buffalo, Standford, Harvard ; 
-Canada: UofVic, UofT ; 
-France:  Bordeaux, Marseille, Paris Sorbonne  
-EFMI, AMIA 
+- USA: Chicago, Buffalo, Standford, Harvard ; 
+- Canada: UofVic, UofT ; 
+- France:  Bordeaux, Marseille, Paris Sorbonne  
+- EFMI
+- AMIA 
 
 Associations scientifiques
-• International Association of Medical Informatics
-– Colloque aux 4 ans MedInfo
+
+- [International Association of Medical Informatics](https://imia-medinfo.org/wp/imia-accreditation-pilot/)
+   - IMIA Accredited Health & Biomedical Informatics Program
+      - Health and Human Services Informatics Master’s Degree Program, University of Eastern Finland, Kuopio, Finland
+      - Health Informatics Master Degree and Health Informatics Bachelor Degree Programs, Universitätsmedizin Göttingen, Georg-August-Universität, Göttingen, Germany
+      - Master and PhD Programs in Biomedical Informatics, Graduate Institute of Biomedical Informatics, College of Medical Science and Technology, Taipei Medical University, Taipei City, Taiwan      
+- Colloque aux 4 ans MedInfo
 – Accréditation de programmes en health informatics
-• AMIA American Medical Informatics Association
-– Colloque annuel AMIA
-• European Federation of Medical Informatics
-– Colloque Annuel Medical Informatics Europe (MIE)
-§ Associations professionnelles États-Unis
-• HIMSS : Healthcare Information and Management Systems Society
-• CAHIIM : Commission on Accreditation for Health Informatics and
-Information Management Education
+- [AMIA American Medical Informatics Association](https://amia.org/careers-certifications/informatics-academic-programs)
+   - CAHIIM Accredited
+   - ACGME Accredited     
+- Colloque annuel AMIA
+- European Federation of Medical Informatics
+- Colloque Annuel Medical Informatics Europe (MIE)
+
+Associations professionnelles États-Unis
+
+- HIMSS : Healthcare Information and Management Systems Society
+- CAHIIM : Commission on Accreditation for Health Informatics and
+- Information Management Education
