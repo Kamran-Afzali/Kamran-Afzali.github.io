@@ -238,11 +238,12 @@ Associations scientifiques
 - Colloque aux 4 ans MedInfo
 – Accréditation de programmes en health informatics
 - [AMIA American Medical Informatics Association](https://amia.org/careers-certifications/informatics-academic-programs)
-   - CAHIIM Accredited
-   - ACGME Accredited     
-- Colloque annuel AMIA
-- European Federation of Medical Informatics
-- Colloque Annuel Medical Informatics Europe (MIE)
+   - CAHIIM (Commission on Accreditation for Health Informatics and Information Management) Accredited
+   - ACGME (Accreditation Council for Graduate Medical Education) Accredited     
+   - Colloque annuel AMIA
+- [European Federation of Medical Informatics](http://efmi-ac2.bmhi-edu.org/thematic-areas/health-informatics)
+   -
+   - Colloque Annuel Medical Informatics Europe (MIE)
 
 Associations professionnelles États-Unis
 
