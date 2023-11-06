@@ -222,11 +222,10 @@ The components of an academic program in digital health can vary, and the curric
 #### Where to look for more information 
 
 
-- USA: Chicago, Buffalo, Standford, Harvard ; 
-- Canada: UofVic, UofT ; 
+- USA: Chicago, Buffalo, Standford, Harvard  
+- Canada: UofVic, UofT  
 - France:  Bordeaux, Marseille, Paris Sorbonne  
-- EFMI
-- AMIA 
+
 
 Associations scientifiques
 
@@ -237,7 +236,6 @@ Associations scientifiques
       - Master and PhD Programs in Biomedical Informatics, Graduate Institute of Biomedical Informatics, College of Medical Science and Technology, Taipei Medical University, Taipei City, Taiwan
       - Colloque aux 4 ans MedInfo       
 
-– Accréditation de programmes en health informatics
 - [AMIA American Medical Informatics Association](https://amia.org/careers-certifications/informatics-academic-programs)
    - CAHIIM (Commission on Accreditation for Health Informatics and Information Management) Accredited
    - ACGME (Accreditation Council for Graduate Medical Education) Accredited     
