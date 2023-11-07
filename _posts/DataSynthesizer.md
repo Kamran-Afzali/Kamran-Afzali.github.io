@@ -1,21 +1,19 @@
 ### Bayesian networks
-Bayesian networks can be used for synthetic data generation by capturing the probabilistic dependencies and relationships among attributes in the original dataset. These networks provide a structured representation of the data, which can then be leveraged to generate synthetic data that preserves the statistical properties of the original dataset while maintaining privacy.
 
-Here's how Bayesian networks can be applied in the process of synthetic data generation:
-
-Modeling Dependencies: Bayesian networks are adept at modeling dependencies between attributes. Each node in the network represents an attribute, and the edges between nodes indicate conditional dependencies. By constructing a Bayesian network from the original dataset, you can capture how attributes influence one another, such as how age might influence income or education level.
-
-Learning the Network: In many cases, the structure of the Bayesian network can be learned directly from the original data using various machine learning algorithms. This process involves identifying the conditional dependencies and structure that best fits the data. Bayesian network learning algorithms can discover relationships that might not be immediately apparent, making them a valuable tool for understanding complex datasets.
-
-Sampling from the Network: Once the Bayesian network is established, you can use it to sample synthetic data. Starting with known values or evidence for certain attributes, the network generates values for other attributes based on their conditional dependencies. This process ensures that the synthetic data retains the same probabilistic relationships as the original data.
-
-Bayesian networks can be effectively applied in the process of synthetic data generation. A Bayesian network is a graphical model that encodes probabilistic relationships among variables of interest[3]. It takes the form of a directed acyclic graph where the nodes represent variables and the edges indicate a dependency between variables[2]. 
+A Bayesian network is a graphical model that encodes probabilistic relationships among variables of interest[3]. It takes the form of a directed acyclic graph where the nodes represent variables and the edges indicate a dependency between variables[2]. 
 
 In the context of synthetic data generation, Bayesian networks are used to learn probabilistic graphical structures from real datasets, and then simulate synthetic records from the learned structure[1][4]. This approach has been successfully applied in various fields, including healthcare and social media data synthesis[1][3].
 
-In healthcare, for instance, a study used Bayesian networks to generate synthetic patient records from real datasets, such as the University of California Irvine (UCI) heart disease and diabetes datasets, as well as the MIMIC-III diagnoses database[1][4]. The generated synthetic data was evaluated through statistical tests, machine learning tasks, preservation of rare events, disclosure risk, and the ability of a machine learning classifier to discriminate between the real and synthetic data[1]. The Bayesian network model outperformed or equaled the predominant existing method, medBGAN, in all key metrics, notably capturing rare variables and preserving association rules[1]. 
+Here's how Bayesian networks can be applied in the process of synthetic data generation:
 
-In the realm of social media, Bayesian networks have been used to generate synthetic social media profiles data[3]. The personal data synthesis problem was considered as the inference of a joint probability distribution from the oriented probabilistic models like Bayesian networks[3]. The quality of this approach in generating VKontakte (VK is the Russian analog of Facebook) social network data was demonstrated and assessed[3].
+- Modeling Dependencies: Bayesian networks are adept at modeling dependencies between attributes. Each node in the network represents an attribute, and the edges between nodes indicate conditional dependencies. By constructing a Bayesian network from the original dataset, you can capture how attributes influence one another, such as how age might influence income or education level.
+
+- Learning the Network: In many cases, the structure of the Bayesian network can be learned directly from the original data using various machine learning algorithms. This process involves identifying the conditional dependencies and structure that best fits the data. Bayesian network learning algorithms can discover relationships that might not be immediately apparent, making them a valuable tool for understanding complex datasets.
+
+- Sampling from the Network: Once the Bayesian network is established, you can use it to sample synthetic data. Starting with known values or evidence for certain attributes, the network generates values for other attributes based on their conditional dependencies. This process ensures that the synthetic data retains the same probabilistic relationships as the original data.
+
+
+In healthcare, for instance, a study used Bayesian networks to generate synthetic patient records from real datasets, such as the University of California Irvine (UCI) heart disease and diabetes datasets, as well as the MIMIC-III diagnoses database[1][4]. The generated synthetic data was evaluated through statistical tests, machine learning tasks, preservation of rare events, disclosure risk, and the ability of a machine learning classifier to discriminate between the real and synthetic data[1]. The Bayesian network model outperformed or equaled the predominant existing method, medBGAN, in all key metrics, notably capturing rare variables and preserving association rules[1]. 
 
 The use of Bayesian networks in synthetic data generation offers several advantages. They generate data sufficiently similar to the original data with minimal risk of disclosure, while offering additional transparency, computational efficiency, and capacity to handle more data types in comparison to existing methods[1][4]. This makes them a valuable tool for organizations that need to distribute data to researchers, reducing the need for access to real data[1][2][4].
 
@@ -28,8 +26,6 @@ One of the methods used for synthetic data generation with Bayesian networks is 
 The PrivBayes method involves two main steps[7]:
 1. Network learning: Construct a Bayesian network over the attributes in the data using the analytical Gaussian mechanism. The Bayesian network is represented as a fully connected set of attributes and a set of attribute-parent pairs.
 2. Distribution learning: Generate the corresponding joint and conditional distributions for the Bayesian network learned in the first phase using the analytical Gaussian mechanism.
-
-It's important to note that the quality of synthetic data generated using Bayesian networks can be influenced by the quality and characteristics of the original data, as well as the specific methods used to learn the network structure and simulate the synthetic data[4]. Therefore, careful consideration and validation of the methods used are crucial to ensure the utility and privacy of the generated synthetic data.
 
 ### Psuedo code
 
