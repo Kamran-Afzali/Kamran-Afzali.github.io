@@ -40,17 +40,17 @@ Tailor education to individual students by assessing their unique needs and sele
 
 A qualitative examination of study programs in Canada has allowed us to categorize the learning domains within health informatics programs into four overarching themes. The distribution of these themes varies depending on the type of training program:
 
-Healthcare Systems: This theme encompasses clinical and biomedical processes, the organization of healthcare systems, and a focus on the patient and consumer perspective.
+- Healthcare Systems: This theme encompasses clinical and biomedical processes, the organization of healthcare systems, and a focus on the patient and consumer perspective.
 
-Health Information Processes: Within this domain, students delve into health information management, systems, applications, and tools. It also includes the study of systems analysis and integration, project management, change management, decision support, and the critical aspects of data protection and confidentiality.
+- Health Information Processes: Within this domain, students delve into health information management, systems, applications, and tools. It also includes the study of systems analysis and integration, project management, change management, decision support, and the critical aspects of data protection and confidentiality.
 
-Information and Communication Technologies: This theme delves into the norms and standards governing health informatics, as well as the architecture and development of information systems. Students also explore programming, computer engineering, and the intricacies of data security management.
+- Information and Communication Technologies: This theme delves into the norms and standards governing health informatics, as well as the architecture and development of information systems. Students also explore programming, computer engineering, and the intricacies of data security management.
 
-Research: In this theme, students are exposed to research processes and methodologies, including epidemiology and statistical analysis.
+- Research: In this theme, students are exposed to research processes and methodologies, including epidemiology and statistical analysis.
 
 The composition of these themes varies depending on the specific nature of the training program. This comprehensive analysis demonstrates that health informatics education encompasses a multidisciplinary approach that bridges healthcare, information technology, and research methods. By equipping students with knowledge across these domains, these programs prepare future professionals to address the evolving landscape of healthcare, which is increasingly reliant on information technology, research, and data-driven decision-making.
 
-In my knowledge, health informatics is indeed a multidisciplinary field that draws from healthcare, computer science, information technology, and research methodologies. This multidimensional approach is essential to address the complex challenges and opportunities presented by the integration of technology into healthcare systems. Health informatics professionals play a crucial role in optimizing healthcare delivery, ensuring data security and privacy, and facilitating evidence-based decision-making in the medical field. Moreover, the demand for individuals skilled in health informatics continues to grow as healthcare systems increasingly rely on digital solutions and data analysis for more efficient and effective patient care.
+Health informatics is indeed a multidisciplinary field that draws from healthcare, computer science, information technology, and research methodologies. This multidimensional approach is essential to address the complex challenges and opportunities presented by the integration of technology into healthcare systems. Health informatics professionals play a crucial role in optimizing healthcare delivery, ensuring data security and privacy, and facilitating evidence-based decision-making in the medical field. Moreover, the demand for individuals skilled in health informatics continues to grow as healthcare systems increasingly rely on digital solutions and data analysis for more efficient and effective patient care.
 
 
 #### A Strategy for the Future of Health Informatics
