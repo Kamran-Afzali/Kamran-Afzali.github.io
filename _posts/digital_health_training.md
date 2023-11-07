@@ -36,10 +36,7 @@ Key stakeholders in health informatics education include academic institutions, 
 
 course offerings revolve around fundamental principles designed to:
 
-Tailor education to individual students by assessing their unique needs and selecting courses aligned with their expertise, experience, and expectations.
-Promote interdisciplinary collaboration, fostering partnerships not only among practitioners but also between students from diverse fields, spanning health, engineering, technology, management, and business.
-Provide a diverse blend of courses, internships, and research opportunities, along with avenues for students to integrate into the corporate world.
-These principles ensure that our educational programs are flexible, student-centric, and encompass a wide range of experiences, reflecting the evolving landscape of modern education. They prioritize personalization, collaboration, and the practical application of knowledge, mirroring the real-world demands of an increasingly interdisciplinary and interconnected global society. In essence, our courses are designed to equip students with the skills, knowledge, and adaptability they need to thrive in a rapidly changing professional environment, characterized by diverse fields and collaborative approaches.
+Tailor education to individual students by assessing their unique needs and selecting courses aligned with their expertise, experience, and expectations. Promote interdisciplinary collaboration, fostering partnerships not only among practitioners but also between students from diverse fields, spanning health, engineering, technology, management, and business. Provide a diverse blend of courses, internships, and research opportunities, along with avenues for students to integrate into the corporate world. These principles ensure that our educational programs are flexible, student-centric, and encompass a wide range of experiences, reflecting the evolving landscape of modern education. They prioritize personalization, collaboration, and the practical application of knowledge, mirroring the real-world demands of an increasingly interdisciplinary and interconnected global society. In essence, our courses are designed to equip students with the skills, knowledge, and adaptability they need to thrive in a rapidly changing professional environment, characterized by diverse fields and collaborative approaches.
 
 A qualitative examination of study programs in Canada has allowed us to categorize the learning domains within health informatics programs into four overarching themes. The distribution of these themes varies depending on the type of training program:
 
@@ -82,16 +79,17 @@ The integration of information technology into healthcare has ushered in a new e
 
 The landscape of digital health training encompasses a broad spectrum of courses and programs tailored to both undergraduate and postgraduate levels. These offerings exhibit a diverse array of approaches, falling into two primary categories: basic courses and advanced programs.
 
-Basic Courses:
+##### Fundamental Courses:
 
-Basic courses are designed as integral components of the curriculum for healthcare professionals, particularly those in medicine and nursing. These courses are structured to blend both face-to-face and online learning modalities, equipping healthcare practitioners with the knowledge and skills required to seamlessly integrate and manage IT within their healthcare practices.
+Fundamental courses are designed as integral components of the curriculum for healthcare professionals, particularly those in medicine and nursing. These courses are structured to blend both face-to-face and online learning modalities, equipping healthcare practitioners with the knowledge and skills required to seamlessly integrate and manage IT within their healthcare practices.
 
 For example, Sheffield Hallam University in the UK offers the Systems of eCare program, which was initiated in 2009 and has been incorporated into the student curriculum as a Faculty of Health elective. This program is spread over three years of undergraduate training and comprises six modules, ensuring that students are well-versed in the integration of IT in healthcare.
 
 Similarly, the University of Sydney in Australia provides a semester-long (6-credit) course titled "eHealth for Health Professionals," catering to students within the Faculties of Health. This course equips students with the necessary digital health knowledge and skills, allowing them to navigate the evolving healthcare landscape.
 
-Advanced Programs:
-2. Advanced programs in health informatics are typically offered at the Master's level. These programs can be categorized as professional or research-oriented, with the former often leading to the attainment of an MHI (Master in Health Informatics), and the latter sometimes integrated into research-intensive programs like an MSc option in Health Services Research at institutions such as the University of Toronto.
+##### Advanced Programs:
+
+Advanced programs in health informatics are typically offered at the Master's level. These programs can be categorized as professional or research-oriented, with the former often leading to the attainment of an MHI (Master in Health Informatics), and the latter sometimes integrated into research-intensive programs like an MSc option in Health Services Research at institutions such as the University of Toronto.
 
 Professional-level health informatics programs are structured without a research thesis, emphasizing practical and applied knowledge in the field. Graduates of these programs are equipped to take on various roles in healthcare informatics.
 
@@ -132,36 +130,14 @@ Digital health refers to the use of digital technologies, information, and commu
 
 Digital health has the potential to improve the quality of care, reduce healthcare costs, and enhance patient outcomes. It is continually evolving as new technologies and innovations emerge, and it plays a vital role in modern healthcare systems. However, it also raises important considerations related to data privacy, security, and the need for regulatory frameworks to ensure safe and effective use.
 
-### How to learn
-
-Learning about digital health involves gaining knowledge in various aspects of healthcare technology, including electronic health records, telemedicine, health informatics, and more. Here are some steps you can take to learn about digital health:
-
-Online Courses and MOOCs:
-
-Enroll in online courses and Massive Open Online Courses (MOOCs) related to digital health. Platforms like Coursera, edX, and Udemy offer a variety of courses on healthcare technology and informatics.
-University and College Programs:
-
-Consider pursuing a formal degree or certificate program in health informatics, health IT, or a related field at a university or college.
-Books and Publications:
-
-Read books, research papers, and academic journals on digital health topics. This will help you gain a deeper understanding of the field.
-Webinars and Workshops:
-
-Attend webinars, workshops, and conferences related to digital health. These events often feature expert speakers and provide opportunities for networking.
-Industry Associations:
-
-Join organizations like the Health Information Management Systems Society (HIMSS) or the American Telemedicine Association (ATA). These associations offer resources, webinars, and conferences to stay updated on industry trends.
-Online Resources:
-
-Explore websites, blogs, and online communities dedicated to digital health. These platforms often provide news, case studies, and practical insights.
-Networking:
+### How to learn about digital health
 
 Connect with professionals in the field of digital health through LinkedIn, Twitter, or other social media platforms. Networking can help you learn from experts and gain practical insights.
 Healthcare IT Certifications:
 
 Consider pursuing certifications in healthcare IT or health informatics, such as Certified Professional in Healthcare Information and Management Systems (CPHIMS) or Certified Health Informatics Systems Professional (CHISP).
 
-### academic version
+#### academic version
 
 An academic program on digital health typically includes a range of courses and components designed to provide students with a comprehensive understanding of the field. The specific components can vary depending on the program and its level (e.g., undergraduate, graduate, or postgraduate). However, here are some main components you might expect to find in an academic program on digital health:
 
@@ -198,36 +174,18 @@ An academic program on digital health typically includes a range of courses and 
    - Healthcare Leadership: Preparing students for leadership roles in healthcare organizations.
    - Health Economics: Understanding the economic aspects of healthcare and digital health.
 
-9. **Capstone Project:**
-   - Many programs require students to complete a capstone project that allows them to apply their knowledge and skills in a real-world digital health context.
-
-10. **Internships or Clinical Placements:**
-    - Practical experience in healthcare settings or technology companies can be a valuable part of the program.
-
-11. **Research Opportunities:**
-    - For graduate or postgraduate programs, research components can be included to encourage students to explore new areas and contribute to the field's knowledge.
-
-12. **Elective Courses:**
-    - Programs often offer a range of elective courses that allow students to tailor their education to their specific interests within digital health.
-
-13. **Industry Partnerships:**
-    - Collaboration with healthcare organizations and technology companies can provide students with exposure to real-world challenges and opportunities.
-
-14. **Seminars and Workshops:**
-    - Specialized seminars and workshops may be offered to delve into emerging trends and technologies in digital health.
-
 The components of an academic program in digital health can vary, and the curriculum may evolve to keep up with industry developments. It's essential to review the specific program's curriculum and objectives to understand the components it offers and how they align with your career goals and interests.
 
 
 #### Where to look for more information 
 
+**Universities**
 
 - USA: Chicago, Buffalo, Standford, Harvard  
 - Canada: UofVic, UofT  
 - France:  Bordeaux, Marseille, Paris Sorbonne  
 
-
-Associations scientifiques
+**Associations scientifiques**
 
 - [International Association of Medical Informatics](https://imia-medinfo.org/wp/imia-accreditation-pilot/)
    - IMIA Accredited Health & Biomedical Informatics Program
@@ -243,7 +201,7 @@ Associations scientifiques
 - [European Federation of Medical Informatics](http://efmi-ac2.bmhi-edu.org/thematic-areas/health-informatics)
    - Colloque Annuel Medical Informatics Europe (MIE)
    
-Associations professionnelles États-Unis
+**Associations professionnelles États-Unis**
 
 - HIMSS : [Healthcare Information and Management Systems Society](https://www.himss.org/resources-certification/overview)
    - [CAHIMS](https://www.himss.org/resources-certification/cahims)  Certified Associate in Healthcare Information and Management Systems
