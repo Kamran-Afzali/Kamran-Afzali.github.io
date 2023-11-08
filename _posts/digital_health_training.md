@@ -181,9 +181,12 @@ The components of an academic program in digital health can vary, and the curric
 
 **Universities**
 
-- USA: Chicago, Buffalo, Standford, Harvard  
-- Canada: UofVic, UofT  
-- France:  Bordeaux, Marseille, Paris Sorbonne  
+- USA: Chicago, Buffalo, Standford, Harvard, Northeast (Boston), Mc Cornell  
+- Canada: UofVic, UofT, McMaster, Waterloo, Dalhousie, York
+- Australie: University of Sydney, University of Tasmania
+- UK: Sheffield Hallam University 
+- Quebec: UdeM, Sherbrook, McGill  
+- France:  Bordeaux, Marseille, Paris Sorbonne, Paris Diderot, Pole TES Caen-Normandie, Paris-Lille EDHEC  
 
 **Associations scientifiques**
 
