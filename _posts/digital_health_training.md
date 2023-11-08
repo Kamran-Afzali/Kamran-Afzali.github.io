@@ -208,3 +208,5 @@ The components of an academic program in digital health can vary, and the curric
    - [CPHIMS](https://www.himss.org/resources-certification/cphims)  Certified Professional in Healthcare Information and Management Systems
    - [CPDHTS](https://www.himss.org/resources-certification/cpdhts) Certified Professional in Digital Health Transformation Strategy
 
+- Digital Health Canada
+   - [Overview: Virtual Care Certificate](https://digitalhealthcanada.com/wp-content/uploads/2022/07/Digital-Health-Canada-Syllabus-Virtual-Care.pdf)    
