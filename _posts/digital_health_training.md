@@ -169,6 +169,10 @@ The components of an academic program in digital health can vary, and the curric
 - [Health System Management & Health Data Analytics PHD](https://www.yorku.ca/gradstudies/health/current-students/degree-requirements/)
 - [Course details](https://www.yorku.ca/gradstudies/health/wp-content/uploads/sites/339/2021/12/health-course-decription-2021–22.pdf)
 
+#### UofT
+
+- [Master of health informatics](https://ihpme.utoronto.ca/programs/health-informatics/mhi-program-details/degree-requirements/)
+
 #### Where to look for more information 
 
 **Universities**
