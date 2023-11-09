@@ -162,6 +162,12 @@ An academic program on digital health typically includes a range of courses and 
 
 The components of an academic program in digital health can vary, and the curriculum may evolve to keep up with industry developments. It's essential to review the specific program's curriculum and objectives to understand the components it offers and how they align with your career goals and interests.
 
+#### York 
+
+- [Health Policy, Management & Digital Health - Bachelor of Health Studies](www.yorku.ca/health/shpm/wp-content/uploads/sites/406/2023/10/Spec-Honours-HPMDH-Course-listing-for-weblink.pdf)
+- [Health System Management & Health Data Analytics MA](https://www.yorku.ca/gradstudies/health/current-students/degree-requirements/)
+- [Health System Management & Health Data Analytics PHD](https://www.yorku.ca/gradstudies/health/current-students/degree-requirements/)
+- [Course details](https://www.yorku.ca/gradstudies/health/wp-content/uploads/sites/339/2021/12/health-course-decription-2021–22.pdf)
 
 #### Where to look for more information 
 
