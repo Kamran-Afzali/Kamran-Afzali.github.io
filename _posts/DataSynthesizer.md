@@ -102,22 +102,14 @@ In summary, the PrivBayes algorithm is a privacy-preserving approach for generat
 DataSynthesizer is a comprehensive system designed for generating synthetic datasets from private input data. DataSynthesizer addresses the challenges of data sharing agreements, particularly in fields such as government, social sciences, and healthcare, where strict privacy rules can hinder collaborations. This system can produce structurally and statistically similar datasets while maintaining robust privacy safeguards. Its user-friendly design offers three intuitive operational modes, requiring minimal user input. The potential applications of DataSynthesizer are diverse, ranging from standalone library usage to integration into comprehensive data sharing platforms. Ongoing efforts are focused on enhancing data owner accessibility and meeting additional requirements. DataSynthesizer is open source, accessible for download at https://github.com/DataResponsibly/DataSynthesizer, making it a valuable resource for the data privacy and sharing community.
 
 
-DataSynthesizer consists of three high-level modules --- DataDescriber, DataGenerator and ModelInspector. The first, DataDescriber, investigates the data types, correlations and distributions of the attributes in the private dataset, and produces a data summary, adding noise to the distributions to preserve privacy. DataGenerator samples from the summary computed by DataDescriber and outputs synthetic data. ModelInspector shows an intuitive description of the data summary that was computed by DataDescriber, allowing the data owner to evaluate the accuracy of the summarization process and adjust any parameters, if desired. The process begins with the DataDescriber module, which first processes the input dataset. It identifies the attributes' domains and estimates their distributions, saving this information in a dataset description file. For categorical attributes, DataDescriber computes the frequency distribution, which is represented as a bar chart. The DataGenerator module then samples from this distribution to create the synthetic dataset. Non-categorical numerical and datetime attributes are processed differently, with DataDescriber creating an equi-width histogram to represent their distribution. DataGenerator uses uniform sampling from this histogram during data generation. For non-categorical string attributes, DataDescriber records the minimum and maximum lengths, generating random strings within this length range during data generation.
+DataSynthesizer consists of three high-level modules --- DataDescriber, DataGenerator and ModelInspector. The first, DataDescriber, investigates the data types, correlations and distributions of the attributes in the private dataset, and produces a data summary, adding noise to the distributions to preserve privacy. DataGenerator samples from the summary computed by DataDescriber and outputs synthetic data. ModelInspector shows an intuitive description of the data summary that was computed by DataDescriber, allowing the data owner to evaluate the accuracy of the summarization process and adjust any parameters. The process begins with the DataDescriber module, which first processes the input dataset. It identifies the attributes' domains and estimates their distributions, saving this information in a dataset description file. For categorical attributes, DataDescriber computes the frequency distribution, which is represented as a bar chart. The DataGenerator module then samples from this distribution to create the synthetic dataset. Non-categorical numerical and datetime attributes are processed differently, with DataDescriber creating an equi-width histogram to represent their distribution. DataGenerator uses uniform sampling from this histogram during data generation. For non-categorical string attributes, DataDescriber records the minimum and maximum lengths, generating random strings within this length range during data generation.
 
 
 #### DataDescriber
 
-DataSynthesizer's DataDescriber module plays a pivotal role in the system's functionality, aiding in the inference and definition of data types and domains for the attributes within a given dataset. This understanding of attribute characteristics is fundamental to the generation of synthetic data that mimics the original dataset while preserving privacy and statistical fidelity.
+DataSynthesizer's DataDescriber module plays a central role in the system's functionality, aiding in the inference and definition of data types and domains for the attributes within a given dataset. Data types are classified into four distinct categories within DataSynthesizer. Users have the flexibility to explicitly specify these data types as needed. However, if a user does not specify a data type for an attribute, DataDescriber takes on the task of inferring it. The initial step in this process involves determining if an attribute is numerical and, if so, whether it is an integer or a floating-point number. In the case that the attribute doesn't align with any of the numerical categories, DataDescriber attempts to parse it as a datetime attribute. If this is unsuccessful, the attribute is identified as a string.
 
-Data types, which are crucial in characterizing the attributes, are classified into four distinct categories within DataSynthesizer. Users have the flexibility to explicitly specify these data types as needed. However, if a user does not specify a data type for an attribute, DataDescriber takes on the task of inferring it. The initial step in this process involves determining if an attribute is numerical and, if so, whether it is an integer or a floating-point number. In the case that the attribute doesn't align with any of the numerical categories, DataDescriber attempts to parse it as a datetime attribute. If this is unsuccessful, the attribute is identified as a string.
-
-The data type of an attribute plays a pivotal role in defining its domain, which is essentially the set of permissible values. The domain can become more restricted if an attribute is categorized as "categorical." Categorical attributes are those for which only specific values are legitimate. For instance, in a dataset about students, the attribute "degree" may be constrained to values like "BS," "BA," "MS," or "PhD," rendering its domain as {BS, BA, MS, PhD}. It's noteworthy that even integer, floating-point, and datetime attributes can fall under the categorical category. The general criterion for an attribute to be considered categorical is when a limited number of distinct values appear in the input dataset. DataDescriber uses a default threshold, denoted as the "categorical threshold," which is set at 10 and signifies the maximum allowable distinct values for an attribute to be regarded as categorical.
-
-However, setting a universal threshold can be challenging, as user preferences may vary for different attributes within the input dataset. Some attributes may seem categorical based on the threshold but are better suited to be treated as numerical. For instance, even if the age of elementary school children assumes only a handful of distinct values, users might prefer generating data for this attribute from a continuous range. Conversely, attributes with numerous distinct values, like country names, may not meet the categorical criteria, yet users may still prefer to treat them as categorical, generating valid country names rather than random strings. To cater to these nuanced preferences, DataSynthesizer provides users with the ability to specify data types and categorization for each attribute individually, thereby overriding the default settings.
-
-It is worth noting that the actual datatype assigned to a categorical attribute is not particularly relevant in terms of the statistical properties and privacy guarantees of the synthetic data generation process. Whether an attribute like "sex" is encoded as "M/F," "0/1," or by using a Boolean flag (e.g., "True" for male and "False" for female), the tool performs computations based on the frequencies of each attribute value in the input dataset and subsequently samples values accordingly.
-
-In the event that the input dataset contains missing values, DataDescriber recognizes their significance and computes the missing rate for each attribute. This rate is calculated as the number of observed missing values divided by the dataset's size, denoted as 'n'. This information is crucial in ensuring that the synthetic data generated by DataSynthesizer accurately represents the missing values present in the original dataset.
+The domain can become more restricted if an attribute is categorized as "categorical." Categorical attributes are those for which only specific values are legitimate. It's noteworthy that even integer, floating-point, and datetime attributes can fall under the categorical category. The general criterion for an attribute to be considered categorical is when a limited number of distinct values appear in the input dataset. In the event that the input dataset contains missing values, DataDescriber recognizes their significance and computes the missing rate for each attribute. This rate is calculated as the number of observed missing values divided by the dataset's size, denoted as 'n'. This information is crucial in ensuring that the synthetic data generated by DataSynthesizer accurately represents the missing values present in the original dataset.
 
 #### DataGenerator
 
@@ -133,11 +125,7 @@ Differential privacy is a critical concern, as repeated data generation requests
 
 #### Model Inspector
 
-The Model Inspector component offers a range of built-in functions aimed at assessing the similarity between the private input dataset and the synthetic output dataset. This tool empowers data owners to efficiently verify whether the synthetic dataset contains detectable differences by facilitating a comparison of the first five and last five tuples in both datasets.
-
-Ensuring that the synthetic dataset exhibits comparable attribute value distributions to the input dataset is crucial. When operating in independent attribute mode, Model Inspector enables users to visually inspect and compare these attribute distributions through representations like bar charts or histograms. Additionally, the system calculates a correlation coefficient that aligns with the attribute type and the KL divergence value. The correlation coefficient measures the extent of association between attributes, while the KL divergence quantifies the disparity between the "before" and "after" probability distributions for a specific attribute.
-
-In scenarios where correlated attribute mode is employed, Model Inspector provides comprehensive insights by presenting matrices that illustrate pairwise mutual information before and after the synthetic data generation process. It also provides information about Bayesian networks. This functionality allows data owners to conveniently assess and compare the statistical characteristics of both datasets in one glance. Ultimately, the Model Inspector serves as a valuable tool for ensuring the privacy-preserving synthetic dataset aligns closely with the original private dataset, both in terms of individual tuple comparisons and overall statistical properties.
+The Model Inspector component offers a range of built-in functions aimed at assessing the similarity between the private input dataset and the synthetic output dataset. This tool enables data owners to efficiently verify whether the synthetic dataset contains detectable differences by facilitating a comparison of the first five and last five tuples in both datasets. Model Inspector also enables users to visually inspect and compare these attribute distributions through representations like bar charts or histograms. Additionally, the system calculates a correlation coefficient that aligns with the attribute type and the KL divergence value. The correlation coefficient measures the extent of association between attributes, while the KL divergence quantifies the disparity between the "before" and "after" probability distributions for a specific attribute. In scenarios where correlated attribute mode is employed, Model Inspector provides comprehensive insights by presenting matrices that illustrate pairwise mutual information before and after the synthetic data generation process. It also provides information about Bayesian networks. This functionality allows data owners to conveniently assess and compare the statistical characteristics of both datasets in one glance. Ultimately, the Model Inspector serves as a valuable tool for ensuring the privacy-preserving synthetic dataset aligns closely with the original private dataset, both in terms of individual tuple comparisons and overall statistical properties.
 
 ### Clover implementation
 
@@ -173,41 +161,39 @@ In scenarios where correlated attribute mode is employed, Model Inspector provid
 
 ### References
 
-https://dl.acm.org/doi/10.1145/3085504.3091117
+- https://dl.acm.org/doi/10.1145/3085504.3091117
+- https://github.com/DataResponsibly/DataSynthesizer/tree/master
+- https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/dataSynthesizer.py
+- https://github.com/DataResponsibly/DataSynthesizer.
 
-https://github.com/DataResponsibly/DataSynthesizer/tree/master
-
-https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/dataSynthesizer.py
-https://github.com/DataResponsibly/DataSynthesizer.
-
-[1] https://pubmed.ncbi.nlm.nih.gov/33367620/
-[2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7973486/
-[3] https://dl.acm.org/doi/10.1145/3411170.3411243
-[4] https://academic.oup.com/jamia/article/28/4/801/6046159
-[5] https://www.sciencedirect.com/science/article/pii/S2667096823000241
-[6] https://www.cs.cmu.edu/~dmarg/Papers/PhD-Thesis-Margaritis.pdf
-[7] https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf
-[8] https://youtube.com/watch?v=06PzhH5lSPY
-[9] https://www.aimspress.com/article/doi/10.3934/mbe.2021426
-[10] https://www.researchgate.net/publication/288995388_Using_Bayesian_Networks_to_Create_Synthetic_Data
-[11] https://cprd.com/sites/default/files/2022-02/Tucker%20et%20al.%20preprint.pdf
-[12] https://www.researchgate.net/publication/355308838_Synthetic_data_generation_with_probabilistic_Bayesian_Networks
+- [1] https://pubmed.ncbi.nlm.nih.gov/33367620/
+- [2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7973486/
+- [3] https://dl.acm.org/doi/10.1145/3411170.3411243
+- [4] https://academic.oup.com/jamia/article/28/4/801/6046159
+- [5] https://www.sciencedirect.com/science/article/pii/S2667096823000241
+- [6] https://www.cs.cmu.edu/~dmarg/Papers/PhD-Thesis-Margaritis.pdf
+- [7] https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf
+- [8] https://youtube.com/watch?v=06PzhH5lSPY
+- [9] https://www.aimspress.com/article/doi/10.3934/mbe.2021426
+- [10] https://www.researchgate.net/publication/288995388_Using_Bayesian_Networks_to_Create_Synthetic_Data
+- [11] https://cprd.com/sites/default/files/2022-02/Tucker%20et%20al.%20preprint.pdf
+- [12] https://www.researchgate.net/publication/355308838_Synthetic_data_generation_with_probabilistic_Bayesian_Networks
 
 
 
-[1] https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf
-[2] https://www.aimspress.com/article/doi/10.3934/mbe.2021426
-[3] https://github.com/daanknoors/synthetic_data_generation
-[4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7973486/
-[5] https://pubmed.ncbi.nlm.nih.gov/33367620/
-[6] https://www.researchgate.net/publication/288995388_Using_Bayesian_Networks_to_Create_Synthetic_Data
-[7] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723
+- [1] https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf
+- [2] https://www.aimspress.com/article/doi/10.3934/mbe.2021426
+- [3] https://github.com/daanknoors/synthetic_data_generation
+- [4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7973486/
+- [5] https://pubmed.ncbi.nlm.nih.gov/33367620/
+- [6] https://www.researchgate.net/publication/288995388_Using_Bayesian_Networks_to_Create_Synthetic_Data
+- [7] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723
 
 
-[1] http://dimacs.rutgers.edu/~graham/pubs/papers/privbayes-tods.pdf
-[2] http://dimacs.rutgers.edu/~graham/pubs/papers/PrivBayes.pdf
-[3] https://www.usenix.org/system/files/sec21fall-zhang-zhikun.pdf
-[4] https://dr.ntu.edu.sg/bitstream/10356/69204/1/PpMain.V1.pdf
-[5] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723
-[6] https://www.utupub.fi/bitstream/handle/10024/151045/Perkonoja_Katariina_opinnayte.pdf?isAllowed=y&sequence=1
-[7] https://www.researchgate.net/publication/320679178_PrivBayes_Private_Data_Release_via_Bayesian_Networks
+- [1] http://dimacs.rutgers.edu/~graham/pubs/papers/privbayes-tods.pdf
+- [2] http://dimacs.rutgers.edu/~graham/pubs/papers/PrivBayes.pdf
+- [3] https://www.usenix.org/system/files/sec21fall-zhang-zhikun.pdf
+- [4] https://dr.ntu.edu.sg/bitstream/10356/69204/1/PpMain.V1.pdf
+- [5] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723
+- [6] https://www.utupub.fi/bitstream/handle/10024/151045/Perkonoja_Katariina_opinnayte.pdf?isAllowed=y&sequence=1
+- [7] https://www.researchgate.net/publication/320679178_PrivBayes_Private_Data_Release_via_Bayesian_Networks
