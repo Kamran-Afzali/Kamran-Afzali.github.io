@@ -113,15 +113,8 @@ The domain can become more restricted if an attribute is categorized as "categor
 
 #### DataGenerator
 
-The The DataGenerator component, which operates in tandem with the dataset description file created by DataDescriber, plays a pivotal role in generating synthetic data. This synthetic dataset's size can be specified by the user, with the default size being the same as the input dataset, denoted as 'n.'
+The The DataGenerator component, which operates based the dataset description file created by DataDescriber. This synthetic dataset's size can be specified by the user, with the default size being the same as the input dataset, denoted as 'n'. When DataGenerator is in random mode, it generates random values for each attribute while ensuring type consistency. In independent attribute mode, DataGenerator draws samples from bar charts or histograms using uniform sampling. In correlated attribute mode, attribute values are sampled in an order determined by the Bayesian network established by DataDescriber. Differential privacy is a critical concern, as repeated data generation requests can lead to disclosure of private information. To safeguard against such risks, a unique random seed can be assigned to each individual generating a synthetic dataset, a measure that the system administrator can implement. DataGenerator facilitates this by offering per-user seed functionality, adding an extra layer of privacy protection for those interacting with the system. 
 
-The data generation process is detailed in Algorithm 2. When DataGenerator is in random mode, it generates random values for each attribute while ensuring type consistency. In independent attribute mode, DataGenerator draws samples from bar charts or histograms using uniform sampling. In correlated attribute mode, attribute values are sampled in an order determined by the Bayesian network established by DataDescriber.
-
-Differential privacy is a critical concern, as repeated data generation requests can lead to the inadvertent disclosure of private information. To safeguard against such risks, a unique random seed can be assigned to each individual requiring a synthetic dataset, a measure that the system administrator can implement. DataGenerator facilitates this by offering per-user seed functionality, adding an extra layer of privacy protection for those interacting with the system. component, which operates in tandem with the dataset description file created by DataDescriber, plays a pivotal role in generating synthetic data. This synthetic dataset's size can be specified by the user, with the default size being the same as the input dataset, denoted as 'n.'
-
-The data generation process is detailed in Algorithm 2. When DataGenerator is in random mode, it generates random values for each attribute while ensuring type consistency. In independent attribute mode, DataGenerator draws samples from bar charts or histograms using uniform sampling. In correlated attribute mode, attribute values are sampled in an order determined by the Bayesian network established by DataDescriber.
-
-Differential privacy is a critical concern, as repeated data generation requests can lead to the inadvertent disclosure of private information. To safeguard against such risks, a unique random seed can be assigned to each individual requiring a synthetic dataset, a measure that the system administrator can implement. DataGenerator facilitates this by offering per-user seed functionality, adding an extra layer of privacy protection for those interacting with the system.
 
 #### Model Inspector
 
@@ -179,8 +172,6 @@ The Model Inspector component offers a range of built-in functions aimed at asse
 - [11] https://cprd.com/sites/default/files/2022-02/Tucker%20et%20al.%20preprint.pdf
 - [12] https://www.researchgate.net/publication/355308838_Synthetic_data_generation_with_probabilistic_Bayesian_Networks
 
-
-
 - [1] https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf
 - [2] https://www.aimspress.com/article/doi/10.3934/mbe.2021426
 - [3] https://github.com/daanknoors/synthetic_data_generation
@@ -188,7 +179,6 @@ The Model Inspector component offers a range of built-in functions aimed at asse
 - [5] https://pubmed.ncbi.nlm.nih.gov/33367620/
 - [6] https://www.researchgate.net/publication/288995388_Using_Bayesian_Networks_to_Create_Synthetic_Data
 - [7] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723
-
 
 - [1] http://dimacs.rutgers.edu/~graham/pubs/papers/privbayes-tods.pdf
 - [2] http://dimacs.rutgers.edu/~graham/pubs/papers/PrivBayes.pdf
