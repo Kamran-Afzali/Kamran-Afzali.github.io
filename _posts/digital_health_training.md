@@ -32,32 +32,9 @@ A qualitative examination of study programs in Canada has allowed us to categori
 
 - Research: In this theme, students are exposed to research processes and methodologies, including epidemiology and statistical analysis.
 
-The composition of these themes varies depending on the specific nature of the training program. This comprehensive analysis demonstrates that health informatics education encompasses a multidisciplinary approach that bridges healthcare, information technology, and research methods. By equipping students with knowledge across these domains, these programs prepare future professionals to address the evolving landscape of healthcare, which is increasingly reliant on information technology, research, and data-driven decision-making.
-
-Health informatics is indeed a multidisciplinary field that draws from healthcare, computer science, information technology, and research methodologies. This multidimensional approach is essential to address the complex challenges and opportunities presented by the integration of technology into healthcare systems. Health informatics professionals play a crucial role in optimizing healthcare delivery, ensuring data security and privacy, and facilitating evidence-based decision-making in the medical field. Moreover, the demand for individuals skilled in health informatics continues to grow as healthcare systems increasingly rely on digital solutions and data analysis for more efficient and effective patient care.
+Health informatics is indeed a multidisciplinary field that draws from healthcare, computer science, information technology, and research methodologies. A multidimensional approach is essential to address the complex challenges and opportunities presented by the integration of technology into healthcare systems. Although the composition of aforementioned themes varies depending on the specific nature of the training program, by equipping students with knowledge across these domains, these programs prepare future professionals to address the evolving landscape of healthcare, which is increasingly reliant on information technology, research, and data-driven decision-making.
 
 
-#### A Strategy for the Future of Health Informatics
-
-As healthcare IT continues to evolve and play an increasingly central role in the healthcare sector, it is imperative to develop a forward-looking strategy for the future of health informatics. This strategy should focus on addressing the following key areas:
-
-1. Curriculum Enhancement: Continuously update and expand health informatics curricula to reflect the evolving landscape of healthcare IT. Incorporate emerging technologies, data analytics, and cybersecurity measures into educational programs to ensure that graduates are well-prepared to navigate the complexities of modern healthcare.
-
-2. Interdisciplinary Collaboration: Encourage interdisciplinary collaboration between healthcare professionals, IT experts, and researchers. Fostering a collaborative environment can lead to innovative solutions that enhance patient care, streamline healthcare processes, and improve health outcomes.
-
-3. Research and Innovation: Support research initiatives that explore the potential of healthcare IT to address healthcare challenges. Encourage innovation in areas such as telemedicine, electronic health records, health data analytics, and digital health interventions.
-
-4. Industry Engagement: Forge partnerships with industry players, including IT companies and healthcare providers, to ensure that health informatics programs align with real-world needs and expectations. Industry collaborations can offer students practical experience and insights into the latest technological advancements.
-
-5. Standards and Regulation: Stay abreast of healthcare IT standards and regulations to ensure that health informatics programs prepare students to navigate the compliance landscape effectively. This includes privacy and security regulations, data interoperability standards, and ethical considerations.
-
-6. Professional Development: Offer ongoing professional development opportunities for healthcare practitioners and IT professionals seeking to enhance their skills in health informatics. These programs can help current professionals adapt to the changing healthcare landscape.
-
-7. Patient-Centered Care: Emphasize the importance of patient-centered care in health informatics education. Prepare students to engage with patients and meet their preferences for technology-enabled healthcare solutions.
-
-#### Conclusion
-
-The integration of information technology into healthcare has ushered in a new era of possibilities and challenges. Health informatics, as a dynamic and multidisciplinary field, plays a central role in leveraging IT to improve the healthcare system. With its power to transform healthcare practices and organizations, it is essential to adapt health informatics education and training to meet the evolving demands of the field. A strategy for the future should prioritize curriculum enhancement, interdisciplinary collaboration, research and innovation, industry engagement, standards and regulation, professional development
 
 #### Varieties of Digital Health Training
 
@@ -89,40 +66,7 @@ The diverse array of training options, ranging from basic courses for healthcare
 In conclusion, the analysis of training programs in health informatics underscores the increasing appeal of this field among academics striving to keep pace with the dynamic landscape shaped by health information technologies. Consequently, there is a growing demand for training, given that the rapid evolution of these technologies surpasses the rate at which individuals must acquire proficiency in their use. In Canada, only six universities offer graduate-level programs in health informatics, and these programs typically fall into one of two categories: practice-oriented or research-oriented. Often, these training initiatives are driven by a single academic focus, such as Public Health or Informatics. An exception to this pattern is McMaster University, which offers interdisciplinary training spanning three faculties. Conversely, Quebec faces a scarcity of health informatics training opportunities, revealing a pressing need to bridge this gap. This need is particularly acute in the context of preparing healthcare professionals, public health experts, and managers to navigate the evolving landscapes of healthcare and health services. Equipping these individuals with the necessary skills to harness the potential of emerging technologies is vital in addressing the contemporary challenges faced by healthcare systems, including issues related to accessibility, costs, and health disparities. The integration of these promising technologies holds the key to addressing these multifaceted challenges.
 
 
-### What is digital health
-Digital health refers to the use of digital technologies, information, and communication systems to support and improve healthcare delivery, patient care, and overall health outcomes. It encompasses a wide range of technologies and platforms designed to enhance the efficiency, accessibility, and effectiveness of healthcare services. Key components of digital health include:
-
-1. Electronic Health Records (EHRs): These are digital versions of patients' medical records that make it easier for healthcare providers to access and share patient information, leading to better coordination of care and reduced errors.
-
-2. Telemedicine and Telehealth: These technologies enable remote consultations and the delivery of healthcare services through video conferencing, messaging, or other digital communication tools. They can improve access to care, especially in underserved or remote areas.
-
-3. Mobile Health (mHealth): Mobile apps and wearable devices allow individuals to monitor their health, track fitness, and manage chronic conditions. These tools can collect and transmit real-time health data to healthcare providers for analysis and intervention.
-
-4. Health Information Exchange (HIE): HIE systems facilitate the secure sharing of patient information among healthcare organizations, which can lead to better-informed clinical decisions and care coordination.
-
-5. Remote Patient Monitoring: This involves using digital devices to track and transmit patient data (e.g., vital signs, glucose levels) to healthcare providers, enabling them to monitor and manage patients with chronic conditions from a distance.
-
-6. Health Analytics and Big Data: The analysis of large datasets in healthcare can help identify trends, predict outbreaks, and improve treatment outcomes. It's essential for evidence-based decision-making and population health management.
-
-7. Artificial Intelligence (AI) and Machine Learning: These technologies are used for diagnostic support, data analysis, and predictive modeling in healthcare. They can enhance clinical decision-making, automate administrative tasks, and improve patient care.
-
-8. Health Information Technology (IT): Digital infrastructure, such as hardware and software, is crucial for the secure storage, transmission, and retrieval of patient data.
-
-9. Personalized Medicine: Digital health tools can enable the customization of medical treatment and interventions based on an individual's unique genetic and health characteristics.
-
-10. Health Education and Information: Digital platforms and apps provide health information, resources, and tools to educate and empower individuals to take control of their own health and wellness.
-
-Digital health has the potential to improve the quality of care, reduce healthcare costs, and enhance patient outcomes. It is continually evolving as new technologies and innovations emerge, and it plays a vital role in modern healthcare systems. However, it also raises important considerations related to data privacy, security, and the need for regulatory frameworks to ensure safe and effective use.
-
-### How to learn about digital health
-
-Connect with professionals in the field of digital health through LinkedIn, Twitter, or other social media platforms. Networking can help you learn from experts and gain practical insights.
-Healthcare IT Certifications:
-
-Consider pursuing certifications in healthcare IT or health informatics, such as Certified Professional in Healthcare Information and Management Systems (CPHIMS) or Certified Health Informatics Systems Professional (CHISP).
-
-#### academic version
-
+#### How to learn about digital health: An academic program on digital health
 An academic program on digital health typically includes a range of courses and components designed to provide students with a comprehensive understanding of the field. The specific components can vary depending on the program and its level (e.g., undergraduate, graduate, or postgraduate). However, here are some main components you might expect to find in an academic program on digital health:
 
 1. **Core Courses:**
@@ -171,8 +115,21 @@ The components of an academic program in digital health can vary, and the curric
 
 - [Master of health informatics](https://ihpme.utoronto.ca/programs/health-informatics/mhi-program-details/degree-requirements/)
 
-#### Where to look for more information 
+#### university of victoria
+- [Master of health informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
+   - [Course details](https://www.uvic.ca/calendar/grad/#/courses?group=Health%20Information%20Science%20(HINF))
+- [undergraduate programs](https://www.uvic.ca/hsd/hinf/undergraduate/programs/index.php)
+   - [Course details](https://www.uvic.ca/hsd/hinf/undergraduate/programs/bsc/index.php)
+- [Graduate Certificate in Health Terminology Standards](https://www.uvic.ca/hsd/hinf/graduate/certificate/index.php)
 
+#### McMaster
+  
+- [Master eHealth](https://ehealth.mcmaster.ca/)
+   - [Course details](https://ehealth.mcmaster.ca/program-options/program-requirements/compulsary-courses/)
+- [Diploma in Health Informatics](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-diploma)
+
+
+#### Where to look for more information 
 **Universities**
 
 - USA: Chicago, Buffalo, Standford, Harvard, Northeast (Boston), Mc Cornell  
