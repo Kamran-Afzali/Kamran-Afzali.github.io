@@ -13,11 +13,14 @@ Here's how Bayesian networks can be applied in the process of synthetic data gen
 - Sampling from the Network: Once the Bayesian network is established, you can use it to sample synthetic data. Starting with known values or evidence for certain attributes, the network generates values for other attributes based on their conditional dependencies. This process ensures that the synthetic data retains the same probabilistic relationships as the original data.
 
 
-In healthcare, for instance, a study used Bayesian networks to generate synthetic patient records from real datasets, such as the University of California Irvine (UCI) heart disease and diabetes datasets, as well as the MIMIC-III diagnoses database[1][4]. The generated synthetic data was evaluated through statistical tests, machine learning tasks, preservation of rare events, disclosure risk, and the ability of a machine learning classifier to discriminate between the real and synthetic data[1]. The Bayesian network model outperformed or equaled the predominant existing method, medBGAN, in all key metrics, notably capturing rare variables and preserving association rules[1]. 
-
-The use of Bayesian networks in synthetic data generation offers several advantages. They generate data sufficiently similar to the original data with minimal risk of disclosure, while offering additional transparency, computational efficiency, and capacity to handle more data types in comparison to existing methods[1][4]. This makes them a valuable tool for organizations that need to distribute data to researchers, reducing the need for access to real data[1][2][4].
+In healthcare, for instance, a study used Bayesian networks to generate synthetic patient records from real datasets, such as the University of California Irvine (UCI) heart disease and diabetes datasets, as well as the MIMIC-III diagnoses database[1][4]. The generated synthetic data was evaluated through statistical tests, machine learning tasks, preservation of rare events, disclosure risk, and the ability of a machine learning classifier to discriminate between the real and synthetic data[1]. 
 
 The algorithm used for Bayesian networks in synthetic data generation involves several steps. First, a "greedy" search algorithm is used to generate alternative network structures and to select the structure with the highest posterior probability given the data and prior information[1]. This network is then used to generate synthetic data[1].
+
+
+
+
+
 
 One of the methods used for synthetic data generation with Bayesian networks is PrivBayes, which synthesizes data via a Bayesian network with differentially private (DP) conditional distributions[3]. PrivBayes is a differentially private method for synthetic data generation[7]. The construction of the Bayesian network and the approximation of the low dimension distributions are conducted in a manner that satisfies differential privacy[7]. Finally, PrivBayes generates synthetic tuples using the Bayesian network and noisy distributions, and releases them[7].
 
