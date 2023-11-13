@@ -21,85 +21,120 @@ The algorithm used for Bayesian networks in synthetic data generation involves s
 
 
 
+The algorithm you've provided describes a method for generating synthetic data while preserving the correlations between attributes, specifically in "correlated attribute mode." The process involves constructing Bayesian networks (BNs) to model the correlations between attributes, and it incorporates techniques to ensure privacy. Let's break down how the algorithm works:
 
-One of the methods used for synthetic data generation with Bayesian networks is PrivBayes, which synthesizes data via a Bayesian network with differentially private (DP) conditional distributions[3]. PrivBayes is a differentially private method for synthetic data generation[7]. The construction of the Bayesian network and the approximation of the low dimension distributions are conducted in a manner that satisfies differential privacy[7]. Finally, PrivBayes generates synthetic tuples using the Bayesian network and noisy distributions, and releases them[7].
+Construction of Bayesian Networks (BNs):
 
-The PrivBayes method involves two main steps[7]:
+The algorithm uses the GreedyBayes algorithm to create Bayesian networks that capture the probabilistic relationships between attributes. These relationships represent how attributes are correlated. For example, it can model the correlation between a person's age and income.
+A Bayesian network is constructed from the input dataset (D), the set of attributes (A), and a parameter (k) that specifies the maximum number of parent nodes for each node in the BN. This parameter is set to a default value of 4.
+During this process, the algorithm maintains a set of visited attributes (V) and a subset of visited attributes ( ) that could potentially become parents of a node (X) in the BN. The selection of which attributes in   will become parents of X is done greedily, with the goal of maximizing mutual information (ÅX;  º). Mutual information measures the statistical dependency between two variables.
+Importantly, the mutual information calculations are designed to be differentially private. This means that privacy-preserving mechanisms are applied to ensure that the privacy of individuals in the dataset is protected.
+Sampling Order:
 
-1. Network learning: Construct a Bayesian network over the attributes in the data using the analytical Gaussian mechanism. The Bayesian network is represented as a fully connected set of attributes and a set of attribute-parent pairs.
-2. Distribution learning: Generate the corresponding joint and conditional distributions for the Bayesian network learned in the first phase using the analytical Gaussian mechanism.
+The Bayesian networks constructed in step 1 provide the order in which attribute values should be sampled to maintain the correlations between attributes. These networks define the dependencies between attributes, which guide the sampling process.
+The distributions used for generating dependent attribute values are referred to as "conditioned distributions." To maintain privacy, noise (represented as ε) is injected into these conditioned distributions. This noise prevents the disclosure of sensitive information about individual data points.
+Modeling Parent Attributes:
+
+The parent attributes of a dependent attribute can be either categorical or numerical. These parent attributes' distributions are modeled using bar charts for categorical parents and histograms for numerical parents.
+The conditions for a dependent attribute are based on the legal values of categorical parent attributes and the intervals of numerical parent attributes. Intervals are established in a manner similar to the unconditioned distributions of parent attributes.
+Example:
+
+Consider an example where the "age" attribute has intervals in its unconditioned distribution, such as {[10, 20), [20, 30), [30, 40)}. If "education" depends on "age," its conditioned distributions will be created within the same intervals, like "age 2 [10, 20)" or "age 2 [20, 30)," etc.
+In summary, the algorithm constructs Bayesian networks to capture attribute dependencies and uses differentially private techniques to preserve individual privacy. It defines the order in which attribute values are sampled and ensures that the correlations between attributes are maintained during the synthetic data generation process. Noise is introduced to protect privacy, and both categorical and numerical parent attributes are handled appropriately to model conditioned distributions.  
 
 ### Psuedo code
 
-Based on the search results, the PrivBayes algorithm for synthetic data generation using Bayesian networks can be broken down into two main steps: Network Learning and Distribution Learning. Here is a simplified pseudocode representation of the process:
+The pseudocode for the synthetic data generation algorithm using Bayesian networks, as described in the search results, can be represented as follows:
 
 ```python
-# PrivBayes Algorithm
+# Synthetic Data Generation Algorithm
 
-# Step 1: Network Learning
-function NetworkLearning(Dataset D, Privacy budget ε):
-    Initialize Bayesian network N
-    for each attribute in D:
-        Select attribute Xi and its parent set Πi in a differentially private manner
-        Add Xi and Πi to N
-    return N
+# Step 1: Construct Bayesian Networks
+function ConstructBayesianNetworks(Dataset D, Set of attributes A, Maximum number of parent nodes k):
+    Initialize Bayesian network BN
+    Initialize set of visited attributes V
+    Initialize subset of potential parent attributes P
+    for each attribute X in A:
+        Select subset of attributes P from V that maximizes mutual information with X
+        Add X and P to BN
+        Add X to V
+    return BN
 
-# Step 2: Distribution Learning
-function DistributionLearning(Bayesian network N, Dataset D, Privacy budget ε):
-    Initialize set of distributions P
-    for each attribute Xi and its parent set Πi in N:
-        Compute joint distribution Pr[Xi, Πi] in a differentially private manner
-        Derive conditional distribution Pr[Xi|Πi] from Pr[Xi, Πi]
-        Add Pr[Xi|Πi] to P
-    return P
+# Step 2: Define Sampling Order
+function DefineSamplingOrder(Bayesian network BN):
+    return order of attributes in BN
+
+# Step 3: Model Parent Attributes
+function ModelParentAttributes(Bayesian network BN, Privacy budget ε):
+    Initialize set of conditioned distributions CD
+    for each attribute X in BN:
+        if X has parent attributes P:
+            for each parent attribute Pi in P:
+                if Pi is categorical:
+                    Model distribution of Pi using bar chart
+                else if Pi is numerical:
+                    Model distribution of Pi using histogram
+                Compute conditioned distribution of X given Pi in a differentially private manner
+                Add conditioned distribution to CD
+    return CD
 
 # Main function
-function PrivBayes(Dataset D, Privacy budget ε):
-    N = NetworkLearning(D, ε)
-    P = DistributionLearning(N, D, ε)
-    Generate synthetic data from P
+function SyntheticDataGeneration(Dataset D, Set of attributes A, Maximum number of parent nodes k, Privacy budget ε):
+    BN = ConstructBayesianNetworks(D, A, k)
+    order = DefineSamplingOrder(BN)
+    CD = ModelParentAttributes(BN, ε)
+    Generate synthetic data from CD in the order specified by order
 ```
 
-In the Network Learning step, the algorithm constructs a Bayesian network over the attributes in the data in a differentially private manner. This involves selecting an attribute and its parent set in each iteration and adding them to the network[2].
+In the first step, the algorithm constructs Bayesian networks that capture the probabilistic relationships between attributes. This is done using the GreedyBayes algorithm, which selects the subset of attributes that maximizes mutual information with the current attribute in a differentially private manner.
 
-In the Distribution Learning step, the algorithm generates the corresponding joint and conditional distributions for the Bayesian network learned in the first phase. This is done in a differentially private manner, and the distributions are added to a set P[1].
+In the second step, the algorithm defines the order in which attribute values should be sampled based on the structure of the Bayesian networks.
 
-Finally, the synthetic data is generated from the set of distributions P[1].
+In the third step, the algorithm models the distributions of parent attributes and computes the conditioned distributions of their dependent attributes in a differentially private manner. This involves handling both categorical and numerical parent attributes appropriately.
 
-Please note that this is a simplified version of the algorithm. The actual implementation would involve more complex steps and considerations, such as handling privacy budgets, noise injection for differential privacy, and specific methods for computing differentially private distributions[1][2][7].
+Finally, the synthetic data is generated from the conditioned distributions in the order specified by the Bayesian networks.
 
+Please note that this is a simplified version of the algorithm. The actual implementation would involve more complex steps and considerations, such as handling privacy budgets, noise injection for differential privacy, and specific methods for computing differentially private distributions and modeling parent attributes.
 
+The provided pseudo code outlines a step-by-step algorithm for generating synthetic data while preserving the statistical properties and privacy of the original dataset. Here's an explanation of each step:
 
+**Step 1: Construct Bayesian Networks**
+This step involves constructing Bayesian networks (BNs) to model the probabilistic dependencies among attributes in the original dataset. Here's what each part of the code does:
+- `Initialize Bayesian network BN`: Create an empty Bayesian network to be filled with nodes and edges.
+- `Initialize set of visited attributes V`: Start with an empty set to keep track of attributes that have been visited during network construction.
+- `Initialize subset of potential parent attributes P`: Create an empty subset to store attributes that are candidates for being parents of a given node.
+- `for each attribute X in A`: Loop through each attribute in the set of attributes A.
+  - `Select subset of attributes P from V that maximizes mutual information with X`: Choose a subset of attributes from the visited set that maximizes the mutual information with the current attribute X. This step determines the parent attributes for X in the Bayesian network.
+  - `Add X and P to BN`: Add the attribute X and its selected parent attributes P to the Bayesian network BN.
+  - `Add X to V`: Include the current attribute X in the set of visited attributes.
+- `return BN`: The constructed Bayesian network BN captures the dependencies between attributes and their parent nodes.
 
-The pseudo code provided outlines the PrivBayes algorithm, a differentially private method for generating synthetic data while preserving the privacy of the individuals in the original dataset. This algorithm consists of two main steps: Network Learning and Distribution Learning.
+**Step 2: Define Sampling Order**
+This step is relatively straightforward:
+- `return order of attributes in BN`: Determine the order in which attribute values should be sampled from the Bayesian network BN. The order is essential to ensure that the generated synthetic data preserves the relationships and dependencies between attributes.
 
-**Step 1: Network Learning**
-In this step, the algorithm constructs a Bayesian network (N) from the original dataset (D) while ensuring differential privacy. A Bayesian network is a graphical model that represents probabilistic dependencies between attributes. Here's an explanation of the key elements:
+**Step 3: Model Parent Attributes**
+This step focuses on modeling the parent attributes and creating conditioned distributions for generating synthetic data:
+- `Initialize set of conditioned distributions CD`: Start with an empty set to store the conditioned distributions.
+- `for each attribute X in BN`: Iterate through each attribute in the Bayesian network BN.
+  - `if X has parent attributes P`: Check if the current attribute X has parent attributes (P).
+    - `for each parent attribute Pi in P`: Loop through each parent attribute in the set of parent attributes P.
+      - `if Pi is categorical`: Check if the parent attribute Pi is categorical.
+        - `Model distribution of Pi using a bar chart`: Model the distribution of Pi using a bar chart, which is suitable for categorical attributes.
+      - `else if Pi is numerical`: Check if the parent attribute Pi is numerical.
+        - `Model distribution of Pi using a histogram`: Model the distribution of Pi using a histogram, which is appropriate for numerical attributes.
+      - `Compute conditioned distribution of X given Pi in a differentially private manner`: Calculate the conditioned distribution of X given Pi while preserving differential privacy.
+      - `Add conditioned distribution to CD`: Include the calculated conditioned distribution in the set of conditioned distributions CD.
+- `return CD`: The set CD now contains all the conditioned distributions necessary for generating synthetic data, considering the relationships with parent attributes.
 
-- `Initialize Bayesian network N`: Create an empty Bayesian network to be populated with nodes and edges.
-- `for each attribute in D`: Iterate through each attribute in the original dataset.
-  - `Select attribute Xi and its parent set Πi in a differentially private manner`: For each attribute, choose the attribute itself (Xi) and its parent set (Πi) in a way that preserves differential privacy. The parent set represents the attributes that directly influence Xi.
-  - `Add Xi and Πi to N`: Incorporate Xi and Πi into the Bayesian network N.
-- `return N`: The network N, which captures the probabilistic relationships among attributes, is returned.
+**Main Function (SyntheticDataGeneration)**
+The main function combines the results from the previous steps to generate synthetic data:
+- `BN = ConstructBayesianNetworks(D, A, k)`: Create the Bayesian network BN using the provided original dataset D, attributes A, and the maximum number of parent nodes (k).
+- `order = DefineSamplingOrder(BN)`: Define the order in which attribute values should be sampled based on the constructed Bayesian network BN.
+- `CD = ModelParentAttributes(BN, ε)`: Model the parent attributes and create the conditioned distributions while maintaining privacy (using the privacy budget ε).
+- `Generate synthetic data from CD in the order specified by order`: Use the conditioned distributions in the specified order to generate the synthetic dataset while preserving the statistical properties and privacy constraints.
 
-**Step 2: Distribution Learning**
-In this step, the algorithm computes the joint and conditional distributions associated with the attributes in the Bayesian network N. These distributions are used to generate the synthetic data. Here's an explanation of the key elements:
-
-- `Initialize set of distributions P`: Create an empty set (P) to store the conditional distributions.
-- `for each attribute Xi and its parent set Πi in N`: Iterate through each attribute and its corresponding parent set in the Bayesian network.
-  - `Compute joint distribution Pr[Xi, Πi] in a differentially private manner`: Calculate the joint distribution between Xi and Πi while preserving differential privacy.
-  - `Derive conditional distribution Pr[Xi|Πi] from Pr[Xi, Πi]`: From the joint distribution, derive the conditional distribution of Xi given its parent set Πi.
-  - `Add Pr[Xi|Πi] to P`: Incorporate the conditional distribution Pr[Xi|Πi] into the set P.
-- `return P`: The set P now contains all the conditional distributions for attributes, which will be used for data generation.
-
-**Main Function (PrivBayes)**
-The main function combines the results from the two previous steps to generate the synthetic data while preserving differential privacy. Here's a brief explanation:
-
-- `N = NetworkLearning(D, ε)`: Create the Bayesian network N by invoking the NetworkLearning function with the original dataset D and privacy budget ε.
-- `P = DistributionLearning(N, D, ε)`: Compute the set of conditional distributions P by invoking the DistributionLearning function with the Bayesian network N, original dataset D, and privacy budget ε.
-- `Generate synthetic data from P`: Use the conditional distributions in P to generate a synthetic dataset that approximates the statistical properties of the original dataset while satisfying the privacy constraints.
-
-In summary, the PrivBayes algorithm is a privacy-preserving approach for generating synthetic data by first learning the probabilistic relationships between attributes and then using these relationships to model the conditional distributions necessary for data generation. Differential privacy is maintained throughout the process to protect individual privacy.
+In summary, this algorithm constructs a Bayesian network to model attribute dependencies, defines a sampling order, models parent attributes, and generates synthetic data while preserving privacy and maintaining the statistical relationships between attributes.
 
 ### DataSynthesizer
 DataSynthesizer is a comprehensive system designed for generating synthetic datasets from private input data. DataSynthesizer addresses the challenges of data sharing agreements, particularly in fields such as government, social sciences, and healthcare, where strict privacy rules can hinder collaborations. This system can produce structurally and statistically similar datasets while maintaining robust privacy safeguards. Its user-friendly design offers three intuitive operational modes, requiring minimal user input. The potential applications of DataSynthesizer are diverse, ranging from standalone library usage to integration into comprehensive data sharing platforms. Ongoing efforts are focused on enhancing data owner accessibility and meeting additional requirements. DataSynthesizer is open source, accessible for download at https://github.com/DataResponsibly/DataSynthesizer, making it a valuable resource for the data privacy and sharing community.
