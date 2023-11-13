@@ -104,6 +104,9 @@ An academic program on digital health typically includes a range of courses and 
 
 The components of an academic program in digital health can vary, and the curriculum may evolve to keep up with industry developments. It's essential to review the specific program's curriculum and objectives to understand the components it offers and how they align with your career goals and interests.
 
+
+### Canada
+
 #### York 
 
 - [Health Policy, Management & Digital Health - Bachelor of Health Studies](www.yorku.ca/health/shpm/wp-content/uploads/sites/406/2023/10/Spec-Honours-HPMDH-Course-listing-for-weblink.pdf)
@@ -115,7 +118,7 @@ The components of an academic program in digital health can vary, and the curric
 
 - [Master of health informatics](https://ihpme.utoronto.ca/programs/health-informatics/mhi-program-details/degree-requirements/)
 
-#### university of victoria
+#### University of Victoria
 - [Master of health informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
    - [Course details](https://www.uvic.ca/calendar/grad/#/courses?group=Health%20Information%20Science%20(HINF))
 - [undergraduate programs](https://www.uvic.ca/hsd/hinf/undergraduate/programs/index.php)
@@ -127,6 +130,17 @@ The components of an academic program in digital health can vary, and the curric
 - [Master eHealth](https://ehealth.mcmaster.ca/)
    - [Course details](https://ehealth.mcmaster.ca/program-options/program-requirements/compulsary-courses/)
 - [Diploma in Health Informatics](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-diploma)
+
+#### Dalhousie
+
+[Certificate in Health Informatics](https://www.dal.ca/academics/programs/graduate/digital-innovation/program-details/health-informatics.html)
+
+#### Waterloo
+
+- [Undergraduate  Health Informatics Option](https://uwaterloo.ca/health-informatics/future-undergraduate-students)
+   - [Course details](https://ugradcalendar.uwaterloo.ca/page/HEA-Health-Informatics-Option1)
+- [Master Health Informatics](https://uwaterloo.ca/public-health-sciences/future-graduate-students/professional-programs/master-health-informatics)
+   - [Course details](https://uwaterloo.ca/public-health-sciences/future-graduate-students/professional-programs/master-health-informatics/master-health-informatics-course-offerings-and-program#fullltime)
 
 
 #### Where to look for more information 
