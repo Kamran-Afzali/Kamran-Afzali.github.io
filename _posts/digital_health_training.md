@@ -142,9 +142,15 @@ The components of an academic program in digital health can vary, and the curric
 - [Master Health Informatics](https://uwaterloo.ca/public-health-sciences/future-graduate-students/professional-programs/master-health-informatics)
    - [Course details](https://uwaterloo.ca/public-health-sciences/future-graduate-students/professional-programs/master-health-informatics/master-health-informatics-course-offerings-and-program#fullltime)
 
+### Quebec
+
 #### Sherbrook
 
 - [Microprogramme de 2e cycle  informatique de la santé](https://www.usherbrooke.ca/admission/programme/453/microprogramme-de-2e-cycle-sur-les-competences-de-base-en-informatique-de-la-sante#structure/)
+
+#### UdeM
+
+#### McGill
 
 ### Australie
 
@@ -156,6 +162,9 @@ The components of an academic program in digital health can vary, and the curric
 
 #### University of Tasmania
 
+- [Graduate Certificate in E-Health (Health Informatics)](https://www.utas.edu.au/courses/bus/courses/h5e-graduate-certificate-in-e-health-health-informatics?year=2022&SQ_CONTEXT_NAME=2022&SQ_ACTION=set_context)
+
+- [Master of E-Health (Health Informatics)](https://www.utas.edu.au/courses/bus/courses/h7e-master-of-e-health-health-informatics?year=2022)
 
 #### Where to look for more information 
 **Universities**
