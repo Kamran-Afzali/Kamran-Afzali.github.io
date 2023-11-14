@@ -150,7 +150,14 @@ The components of an academic program in digital health can vary, and the curric
 
 #### UdeM
 
+- [DESS en santé numérique](https://admission.umontreal.ca/programmes/dess-en-sante-numerique/)
+
+- [Microprogramme de 2e cycle en santé numérique](https://admission.umontreal.ca/programmes/microprogramme-de-2e-cycle-en-sante-numerique/)
+
 #### McGill
+
+- [MSc in Experimental Medicine (Digital Health Innovation) and the MSc in Experimental Surgery (Digital Health Innovation)](https://www.mcgill.ca/digitalhealth/program)
+- [Health Informatics Fellowship](https://www.mcgill.ca/emergency/education/fellowship/health-informatics)
 
 ### Australie
 
@@ -172,8 +179,8 @@ The components of an academic program in digital health can vary, and the curric
 - USA: Chicago, Buffalo, Standford, Harvard, Northeast (Boston), Mc Cornell  
 - Canada: UofVic, UofT, McMaster, Waterloo, Dalhousie, York
 - Australie: University of Sydney, University of Tasmania
+- Quebec: UdeM, Sherbrook, McGill
 - UK: Sheffield Hallam University 
-- Quebec: UdeM, Sherbrook, McGill  
 - France:  Bordeaux, Marseille, Paris Sorbonne, Paris Diderot, Pole TES Caen-Normandie, Paris-Lille EDHEC  
 
 **Associations scientifiques**
