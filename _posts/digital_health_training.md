@@ -142,6 +142,20 @@ The components of an academic program in digital health can vary, and the curric
 - [Master Health Informatics](https://uwaterloo.ca/public-health-sciences/future-graduate-students/professional-programs/master-health-informatics)
    - [Course details](https://uwaterloo.ca/public-health-sciences/future-graduate-students/professional-programs/master-health-informatics/master-health-informatics-course-offerings-and-program#fullltime)
 
+#### Sherbrook
+
+- [Microprogramme de 2e cycle  informatique de la santé](https://www.usherbrooke.ca/admission/programme/453/microprogramme-de-2e-cycle-sur-les-competences-de-base-en-informatique-de-la-sante#structure/)
+
+### Australie
+
+#### University of Sydney
+
+- [Bachelor of Advanced Computing and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-health.html)
+- [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
+- [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
+
+#### University of Tasmania
+
 
 #### Where to look for more information 
 **Universities**
