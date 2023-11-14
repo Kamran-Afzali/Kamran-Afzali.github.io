@@ -23,24 +23,11 @@ The algorithm used for Bayesian networks in synthetic data generation involves s
 
 The algorithm you've provided describes a method for generating synthetic data while preserving the correlations between attributes, specifically in "correlated attribute mode." The process involves constructing Bayesian networks (BNs) to model the correlations between attributes, and it incorporates techniques to ensure privacy. Let's break down how the algorithm works:
 
-Construction of Bayesian Networks (BNs):
+### Construction of Bayesian Networks (BNs):
 
 The algorithm uses the GreedyBayes algorithm to create Bayesian networks that capture the probabilistic relationships between attributes. These relationships represent how attributes are correlated. For example, it can model the correlation between a person's age and income.
-A Bayesian network is constructed from the input dataset (D), the set of attributes (A), and a parameter (k) that specifies the maximum number of parent nodes for each node in the BN. This parameter is set to a default value of 4.
-During this process, the algorithm maintains a set of visited attributes (V) and a subset of visited attributes ( ) that could potentially become parents of a node (X) in the BN. The selection of which attributes in   will become parents of X is done greedily, with the goal of maximizing mutual information (ÅX;  º). Mutual information measures the statistical dependency between two variables.
-Importantly, the mutual information calculations are designed to be differentially private. This means that privacy-preserving mechanisms are applied to ensure that the privacy of individuals in the dataset is protected.
-Sampling Order:
+A Bayesian network is constructed from the input dataset (D), the set of attributes (A), and a parameter (k) that specifies the maximum number of parent nodes for each node in the BN. This parameter is set to a default value of 4. During this process, the algorithm maintains a set of visited attributes (V) and a subset of visited attributes that could potentially become parents of a node (X) in the BN. The selection of which attributes to become parents of X is done greedily, with the goal of maximizing mutual information. Mutual information measures the statistical dependency between two variables. Importantly, the mutual information calculations are designed to be differentially private. This means that privacy-preserving mechanisms are applied to ensure that the privacy of individuals in the dataset is protected. The Bayesian networks constructed in step above provide the order in which attribute values should be sampled to maintain the correlations between attributes. These networks define the dependencies between attributes, which guide the sampling process. The distributions used for generating dependent attribute values are referred to as "conditioned distributions." To maintain privacy, noise (represented as ε) is injected into these conditioned distributions. This noise prevents the disclosure of sensitive information about individual data points. The parent attributes of a dependent attribute can be either categorical or numerical. These parent attributes' distributions are modeled using bar charts for categorical parents and histograms for numerical parents. The conditions for a dependent attribute are based on the legal values of categorical parent attributes and the intervals of numerical parent attributes. Intervals are established in a manner similar to the unconditioned distributions of parent attributes.
 
-The Bayesian networks constructed in step 1 provide the order in which attribute values should be sampled to maintain the correlations between attributes. These networks define the dependencies between attributes, which guide the sampling process.
-The distributions used for generating dependent attribute values are referred to as "conditioned distributions." To maintain privacy, noise (represented as ε) is injected into these conditioned distributions. This noise prevents the disclosure of sensitive information about individual data points.
-Modeling Parent Attributes:
-
-The parent attributes of a dependent attribute can be either categorical or numerical. These parent attributes' distributions are modeled using bar charts for categorical parents and histograms for numerical parents.
-The conditions for a dependent attribute are based on the legal values of categorical parent attributes and the intervals of numerical parent attributes. Intervals are established in a manner similar to the unconditioned distributions of parent attributes.
-Example:
-
-Consider an example where the "age" attribute has intervals in its unconditioned distribution, such as {[10, 20), [20, 30), [30, 40)}. If "education" depends on "age," its conditioned distributions will be created within the same intervals, like "age 2 [10, 20)" or "age 2 [20, 30)," etc.
-In summary, the algorithm constructs Bayesian networks to capture attribute dependencies and uses differentially private techniques to preserve individual privacy. It defines the order in which attribute values are sampled and ensures that the correlations between attributes are maintained during the synthetic data generation process. Noise is introduced to protect privacy, and both categorical and numerical parent attributes are handled appropriately to model conditioned distributions.  
 
 ### Psuedo code
 
@@ -86,17 +73,9 @@ function SyntheticDataGeneration(Dataset D, Set of attributes A, Maximum number 
     Generate synthetic data from CD in the order specified by order
 ```
 
-In the first step, the algorithm constructs Bayesian networks that capture the probabilistic relationships between attributes. This is done using the GreedyBayes algorithm, which selects the subset of attributes that maximizes mutual information with the current attribute in a differentially private manner.
+In the first step, the algorithm constructs Bayesian networks that capture the probabilistic relationships between attributes. This is done using the GreedyBayes algorithm, which selects the subset of attributes that maximizes mutual information with the current attribute in a differentially private manner. In the second step, the algorithm defines the order in which attribute values should be sampled based on the structure of the Bayesian networks. In the third step, the algorithm models the distributions of parent attributes and computes the conditioned distributions of their dependent attributes in a differentially private manner. This involves handling both categorical and numerical parent attributes appropriately. Finally, the synthetic data is generated from the conditioned distributions in the order specified by the Bayesian networks. Please note that this is a simplified version of the algorithm. The actual implementation would involve more complex steps and considerations, such as handling privacy, noise injection for differential privacy, and specific methods for computing differentially private distributions and modeling parent attributes.
 
-In the second step, the algorithm defines the order in which attribute values should be sampled based on the structure of the Bayesian networks.
-
-In the third step, the algorithm models the distributions of parent attributes and computes the conditioned distributions of their dependent attributes in a differentially private manner. This involves handling both categorical and numerical parent attributes appropriately.
-
-Finally, the synthetic data is generated from the conditioned distributions in the order specified by the Bayesian networks.
-
-Please note that this is a simplified version of the algorithm. The actual implementation would involve more complex steps and considerations, such as handling privacy budgets, noise injection for differential privacy, and specific methods for computing differentially private distributions and modeling parent attributes.
-
-The provided pseudo code outlines a step-by-step algorithm for generating synthetic data while preserving the statistical properties and privacy of the original dataset. Here's an explanation of each step:
+Here's an explanation of each step:
 
 **Step 1: Construct Bayesian Networks**
 This step involves constructing Bayesian networks (BNs) to model the probabilistic dependencies among attributes in the original dataset. Here's what each part of the code does:
