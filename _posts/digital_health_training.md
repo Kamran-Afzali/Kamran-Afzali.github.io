@@ -181,8 +181,51 @@ The components of an academic program in digital health can vary, and the curric
 
 ### Royaume-Uni
 
+#### Bournemouth University
+
+- [MSc Digital Health](https://www.bournemouth.ac.uk/study/courses/msc-digital-health)
+- [MSc Digital Health & Artificial Intelligence](https://www.bournemouth.ac.uk/study/courses/msc-digital-health-artificial-intelligence)
+
 #### Sheffield Hallam University 
 
+- [MSc Healthcare Analytics and Artificial Intelligence](https://www.shu.ac.uk/courses/computing/msc-healthcare-analytics-and-artificial-intelligence/full-time/2024) (This course is no longer accepting applications)
+
+#### University of Central Lancashire (UCLan)
+
+- [MSc Health Informatics](https://www.uclan.ac.uk/postgraduate/courses/health-informatics-msc#:~:text=Through%20our%20specialist%20qualification%20in,outstanding%20health%20and%20social%20care) 
+- [Certificate Health Informatics](https://www.uclan.ac.uk/cpd/courses/health-informatics-cert) 
+
+####  Imperial College London
+
+- [MSc Health Data Analytics and Machine Learning](https://www.imperial.ac.uk/study/courses/postgraduate-taught/health-data-analytics/)
+
+#### University College London
+
+- [MSc Artificial Intelligence Enabled Healthcare MRes + MPhil/PhD](https://www.ucl.ac.uk/prospective-students/graduate/research-degrees/artificial-intelligence-enabled-healthcare-mres-mphil-phd)
+
+####  University of Manchester
+
+- [MSc Health Data Science](https://www.manchester.ac.uk/study/masters/courses/list/10076/msc-health-data-science/course-details/)
+
+#### University of Oxford ([Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health))
+
+- [MSc Applied Digital Health](https://www.phc.ox.ac.uk/study/msc-applied-digital-health)
+
+- [MSc in Translational Health Sciences](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences)
+
+
+#### University of Leeds
+
+- [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
+- [Certificate Health Informatics with Data Science PGCert](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert)
+
+
+#### University of Cambridge
+
+- [Healthcare Data - Informatics, Innovation and Commercialization](https://www.ice.cam.ac.uk/course/mst-healthcare-data-informatics-innovation-and-commercialization)
+- [Postgraduate Diploma Healthcare Data: Informatics, Innovation and Commercialization ](https://www.ice.cam.ac.uk/course/mst-flexible-healthcare-data-informatics-innovation-and-commercialization)
+
+### France https://www.findamasters.com/masters-degrees/france/health-informatics/
 
 
 
