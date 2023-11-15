@@ -40,7 +40,7 @@ Health informatics is indeed a multidisciplinary field that draws from healthcar
 
 The landscape of digital health training encompasses a broad spectrum of courses and programs tailored to both undergraduate and postgraduate levels. These offerings exhibit a diverse array of approaches, falling into two primary categories: basic courses and advanced programs.
 
-##### Fundamental Courses:
+##### Fundamental and Undergraduate Programs:
 
 Fundamental courses are designed as integral components of the curriculum for healthcare professionals, particularly those in medicine and nursing. These courses are structured to blend both face-to-face and online learning modalities, equipping healthcare practitioners with the knowledge and skills required to seamlessly integrate and manage IT within their healthcare practices.
 
@@ -48,7 +48,7 @@ For example, Sheffield Hallam University in the UK offers the Systems of eCare p
 
 Similarly, the University of Sydney in Australia provides a semester-long (6-credit) course titled "eHealth for Health Professionals," catering to students within the Faculties of Health. This course equips students with the necessary digital health knowledge and skills, allowing them to navigate the evolving healthcare landscape.
 
-##### Advanced Programs:
+##### Advanced and Graduate Programs:
 
 Advanced programs in health informatics are typically offered at the Master's level. These programs can be categorized as professional or research-oriented, with the former often leading to the attainment of an MHI (Master in Health Informatics), and the latter sometimes integrated into research-intensive programs like an MSc option in Health Services Research at institutions such as the University of Toronto.
 
@@ -63,10 +63,16 @@ For readers seeking in-depth knowledge of health informatics, there is an except
 The diverse array of training options, ranging from basic courses for healthcare professionals to advanced programs at the Master's level and the emergence of specialized clinical informatics, demonstrates the growing recognition of the pivotal role that digital health plays in the healthcare sector. These training programs equip individuals with the knowledge and skills necessary to navigate the complex and rapidly evolving intersection of healthcare and information technology, ensuring that healthcare professionals are well-prepared to meet the challenges and opportunities presented by the digital transformation of healthcare.
 
 
-In conclusion, the analysis of training programs in health informatics underscores the increasing appeal of this field among academics striving to keep pace with the dynamic landscape shaped by health information technologies. Consequently, there is a growing demand for training, given that the rapid evolution of these technologies surpasses the rate at which individuals must acquire proficiency in their use. In Canada, only six universities offer graduate-level programs in health informatics, and these programs typically fall into one of two categories: practice-oriented or research-oriented. Often, these training initiatives are driven by a single academic focus, such as Public Health or Informatics. An exception to this pattern is McMaster University, which offers interdisciplinary training spanning three faculties. Conversely, Quebec faces a scarcity of health informatics training opportunities, revealing a pressing need to bridge this gap. This need is particularly acute in the context of preparing healthcare professionals, public health experts, and managers to navigate the evolving landscapes of healthcare and health services. Equipping these individuals with the necessary skills to harness the potential of emerging technologies is vital in addressing the contemporary challenges faced by healthcare systems, including issues related to accessibility, costs, and health disparities. The integration of these promising technologies holds the key to addressing these multifaceted challenges.
+##### Microprogams and Diplomas :
 
 
-#### How to learn about digital health: An academic program on digital health
+
+
+##### Summary 
+The analysis of training programs in health informatics underscores the increasing appeal of this field among academics striving to keep pace with the dynamic landscape shaped by health information technologies. Consequently, there is a growing demand for training, given that the rapid evolution of these technologies surpasses the rate at which individuals must acquire proficiency in their use. In Canada, only six universities offer graduate-level programs in health informatics, and these programs typically fall into one of two categories: practice-oriented or research-oriented. Often, these training initiatives are driven by a single academic focus, such as Public Health or Informatics. An exception to this pattern is McMaster University, which offers interdisciplinary training spanning three faculties. Conversely, Quebec faces a scarcity of health informatics training opportunities, revealing a pressing need to bridge this gap. This need is particularly acute in the context of preparing healthcare professionals, public health experts, and managers to navigate the evolving landscapes of healthcare and health services. Equipping these individuals with the necessary skills to harness the potential of emerging technologies is vital in addressing the contemporary challenges faced by healthcare systems, including issues related to accessibility, costs, and health disparities. The integration of these promising technologies holds the key to addressing these multifaceted challenges.
+
+
+#### An overview of the common points of academic programs
 An academic program on digital health typically includes a range of courses and components designed to provide students with a comprehensive understanding of the field. The specific components can vary depending on the program and its level (e.g., undergraduate, graduate, or postgraduate). However, here are some main components you might expect to find in an academic program on digital health:
 
 1. **Core Courses:**
@@ -172,6 +178,13 @@ The components of an academic program in digital health can vary, and the curric
 - [Graduate Certificate in E-Health (Health Informatics)](https://www.utas.edu.au/courses/bus/courses/h5e-graduate-certificate-in-e-health-health-informatics?year=2022&SQ_CONTEXT_NAME=2022&SQ_ACTION=set_context)
 
 - [Master of E-Health (Health Informatics)](https://www.utas.edu.au/courses/bus/courses/h7e-master-of-e-health-health-informatics?year=2022)
+
+### Royaume-Uni
+
+#### Sheffield Hallam University 
+
+
+
 
 #### Where to look for more information 
 **Universities**
