@@ -225,9 +225,37 @@ The components of an academic program in digital health can vary, and the curric
 - [Healthcare Data - Informatics, Innovation and Commercialization](https://www.ice.cam.ac.uk/course/mst-healthcare-data-informatics-innovation-and-commercialization)
 - [Postgraduate Diploma Healthcare Data: Informatics, Innovation and Commercialization ](https://www.ice.cam.ac.uk/course/mst-flexible-healthcare-data-informatics-innovation-and-commercialization)
 
-### France https://www.findamasters.com/masters-degrees/france/health-informatics/
+### France 
 
+#### Bordeaux
 
+- [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
+
+#### Marseille ([presentation](https://sesstim.univ-amu.fr/sites/default/files/ressources_pedagogiques/aiandhi_3.pdf))
+
+- [Master - Artificial Intelligence for Public Health (AI4PH)](https://sesstim.univ-amu.fr/fr/master-ai4ph)
+
+#### Paris Sorbonne
+
+- [Master’s Degree in Technological Innovation in Health (MTiH)](https://sciences.sorbonne-universite.fr/en/masters-degree-technological-innovation-health-mtih)
+
+#### Paris Cite
+
+- [Master Informatique - Parcours : Cybersécurité et esanté](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html)
+- [Diplôme Universitaire de Santé Connectée](https://pums.aphp.fr/diplome-universitaire-de-sante-connectee/)
+
+#### Pole TES Caen-Normandie
+
+- [Master Santé (Management des activités de santé, spécialisation Entrepreneuriat, innovation et transformation digitale en santé)](https://uniform.unicaen.fr/catalogue/formation/master/7267-master-sante)
+- [Diploma e-Santé](https://actualites.pole-tes.com/du-e-sante-2/)
+
+#### Université Côte d'Azur
+
+- [MSc Biobanks & Complex Data Management](https://univ-cotedazur.eu/msc/biobanks-complex-data-management)
+
+#### Emlyon Business School
+
+- [MSc in Health Management & Data Intelligence](https://msc-health-data-intelligence.com/fr)
 
 #### Where to look for more information 
 **Universities**
@@ -237,7 +265,7 @@ The components of an academic program in digital health can vary, and the curric
 - Australie: University of Sydney, University of Tasmania
 - Quebec: UdeM, Sherbrook, McGill
 - UK: Sheffield Hallam University 
-- France:  Bordeaux, Marseille, Paris Sorbonne, Paris Diderot, Pole TES Caen-Normandie, Paris-Lille EDHEC  
+- France:  Bordeaux, Marseille, Paris Sorbonne, Paris Diderot, Pole TES Caen-Normandie
 
 **Associations scientifiques**
 
