@@ -257,6 +257,84 @@ The components of an academic program in digital health can vary, and the curric
 
 - [MSc in Health Management & Data Intelligence](https://msc-health-data-intelligence.com/fr)
 
+
+### USA
+
+#### University of Illinois Chicago
+
+- https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/
+- https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/
+- https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/
+- https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/
+- https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/
+
+#### Stanford
+
+- https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html
+- https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html
+- https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html
+
+#### North Eastern
+- https://graduate.northeastern.edu/program/master-of-science-in-health-informatics-boston-5247/
+- https://www.mastersportal.com/studies/374756/health-informatics.html?ref=search_card
+- https://www.mastersportal.com/studies/331848/health-informatics.html?ref=search_card
+
+
+#### University of Michigan - Dearborn
+
+- https://www.mastersportal.com/studies/183591/health-information-technology.html?ref=search_card
+
+#### The City University of New York
+- https://www.mastersportal.com/studies/127905/health-informatics.html?ref=search_card
+
+#### Stony Brook University
+- https://www.mastersportal.com/studies/189296/applied-health-informatics.html?ref=search_card
+
+####  University of Houston
+
+- https://www.mastersportal.com/studies/332057/computational-health-informatics.html?ref=search_card
+
+
+
+####  Windsor University
+
+- https://www.mastersportal.com/studies/430807/health-information-science.html?ref=search_card
+
+
+
+####  Boston University
+
+- https://www.mastersportal.com/studies/329067/health-informatics.html?ref=search_card
+
+
+####  University of San Diego
+
+- https://www.mastersportal.com/studies/138615/health-care-informatics.html?ref=search_card
+
+
+####  University of Southern California
+
+- https://www.mastersportal.com/studies/317431/healthcare-data-science.html?ref=search_card
+
+####  Johns Hopkins University
+
+- https://www.mastersportal.com/studies/211617/health-sciences-informatics-research.html?ref=search_card
+
+####  Yale
+
+- https://www.mastersportal.com/studies/320987/health-informatics-concentration.html?ref=search_card
+
+####  University of Denver
+
+
+- https://www.mastersportal.com/studies/334890/health-informatics-health-data-science.html?ref=search_card
+- https://www.mastersportal.com/studies/408934/health-informatics-project-management.html?ref=search_card
+
+
+####  University of North Texas
+
+[Advanced Health Data Analytics](https://www.mastersportal.com/studies/397491/advanced-health-data-analytics.html?ref=search_card)
+
 #### Where to look for more information 
 **Universities**
 
