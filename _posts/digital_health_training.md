@@ -110,6 +110,8 @@ An academic program on digital health typically includes a range of courses and 
 
 The components of an academic program in digital health can vary, and the curriculum may evolve to keep up with industry developments. It's essential to review the specific program's curriculum and objectives to understand the components it offers and how they align with your career goals and interests.
 
+## Where to look for more information 
+### Universities
 
 ### Canada
 
@@ -294,57 +296,46 @@ The components of an academic program in digital health can vary, and the curric
 - [Msc Computational Health Informatics](https://uh.edu/online/programs/online-programs/graduate/comp-health-informatics-ms.php)
 
 
-####  Windsor University
-
-- Health Information Science
-
-
-
 
 ####  Boston University
 
-- https://www.mastersportal.com/studies/329067/health-informatics.html?ref=search_card
+- [Health Informatics Graduate Certificate](https://www.bu.edu/met/degrees-certificates/health-informatics-graduate-certificate/)
+- [MS in Health Informatics](https://www.bu.edu/met/degrees-certificates/ms-health-informatics/)
+- [MS in Health Informatics, Health Information Management Concentration](https://www.bu.edu/met/degrees-certificates/ms-health-informatics-health-information-management/)
 
 
-####  University of San Diego
 
-- https://www.mastersportal.com/studies/138615/health-care-informatics.html?ref=search_card
+####  University of San Diego ([Hahn School of Nursing and Health Science](https://www.sandiego.edu/nursing/))
 
+- [Nursing Informatics board](https://www.sandiego.edu/nursing/academic-programs/msn/nursing-informatics/curriculum.php)
 
 ####  University of Southern California
 
-- https://www.mastersportal.com/studies/317431/healthcare-data-science.html?ref=search_card
+- [Master of Science in Healthcare Data Science](https://datascience.usc.edu/academics/master-of-science-in-healthcare-data-science/)
+
 
 ####  Johns Hopkins University
 
-- https://www.mastersportal.com/studies/211617/health-sciences-informatics-research.html?ref=search_card
+- [Master of Science Health Sciences Informatics - Research](https://e-catalogue.jhu.edu/medicine/graduate-programs/health-sciences-informatics-research-ms/)
+- [Master of Science Applied Health Sciences Informatics](https://e-catalogue.jhu.edu/medicine/graduate-programs/applied-health-sciences-informatics-ms/)
+- [Health Sciences Informatics, PhD](https://e-catalogue.jhu.edu/medicine/graduate-programs/health-sciences-informatics-phd/)
 
 ####  Yale
 
-- https://www.mastersportal.com/studies/320987/health-informatics-concentration.html?ref=search_card
+- [Master of Science in Public Health /Health Informatics Concentration (HI)](https://catalog.yale.edu/ysph/master-science-public-health/health-informatics-concentration-hi/)
 
 ####  University of Denver
 
-
-- https://www.mastersportal.com/studies/334890/health-informatics-health-data-science.html?ref=search_card
-- https://www.mastersportal.com/studies/408934/health-informatics-project-management.html?ref=search_card
+- [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#faculty)
+- [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
 
 
 ####  University of North Texas
 
-[Advanced Health Data Analytics](https://www.mastersportal.com/studies/397491/advanced-health-data-analytics.html?ref=search_card)
+[MS Advanced Health Data Analytics](https://hps.unt.edu/health-data-analytics-ms)
 
-#### Where to look for more information 
-**Universities**
 
-- USA: Chicago, Buffalo, Standford, Harvard, Northeast (Boston), Mc Cornell  
-- Canada: UofVic, UofT, McMaster, Waterloo, Dalhousie, York
-- Australie: University of Sydney, University of Tasmania
-- Quebec: UdeM, Sherbrook, McGill
-- UK: Sheffield Hallam University 
-- France:  Bordeaux, Marseille, Paris Sorbonne, Paris Diderot, Pole TES Caen-Normandie
-
-**Associations scientifiques**
+### Associations scientifiques
 
 - [International Association of Medical Informatics](https://imia-medinfo.org/wp/imia-accreditation-pilot/)
    - IMIA Accredited Health & Biomedical Informatics Program
@@ -360,7 +351,7 @@ The components of an academic program in digital health can vary, and the curric
 - [European Federation of Medical Informatics](http://efmi-ac2.bmhi-edu.org/thematic-areas/health-informatics)
    - Colloque Annuel Medical Informatics Europe (MIE)
    
-**Associations professionnelles États-Unis**
+### Associations professionnelles 
 
 - HIMSS : [Healthcare Information and Management Systems Society](https://www.himss.org/resources-certification/overview)
    - [CAHIMS](https://www.himss.org/resources-certification/cahims)  Certified Associate in Healthcare Information and Management Systems
