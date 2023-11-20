@@ -10,7 +10,7 @@ Here's how Bayesian networks can be applied in the process of synthetic data gen
 
 - Sampling from the Network: Once the Bayesian network is established, you can use it to sample synthetic data. Starting with known values or evidence for certain attributes, the network generates values for other attributes based on their conditional dependencies. This process ensures that the synthetic data retains the same probabilistic relationships as the original data.
 
-In healthcare, for instance, a study used Bayesian networks to generate synthetic patient records from real datasets, such as the University of California Irvine (UCI) heart disease and diabetes datasets, as well as the MIMIC-III diagnoses database. The generated synthetic data was evaluated through statistical tests, machine learning tasks, preservation of rare events, disclosure risk, and the ability of a machine learning classifier to discriminate between the real and synthetic data. The algorithm used for Bayesian networks in synthetic data generation involves several steps. First, a "greedy" search algorithm is used to generate alternative network structures and to select the structure with the highest posterior probability given the data and prior information[1]. This network is then used to generate synthetic data.
+In healthcare, for instance, a study used Bayesian networks to generate synthetic patient records from real datasets, such as the University of California Irvine (UCI) heart disease and diabetes datasets, as well as the MIMIC-III diagnoses database. The generated synthetic data was evaluated through statistical tests, machine learning tasks, preservation of rare events, disclosure risk, and the ability of a machine learning classifier to discriminate between the real and synthetic data. The algorithm used for Bayesian networks in synthetic data generation involves several steps. First, a "greedy" search algorithm is used to generate alternative network structures and to select the structure with the highest posterior probability given the data and prior information. This network is then used to generate synthetic data.
 
 ### DataSynthesizer
 
@@ -154,24 +154,19 @@ This algorithm constructs a Bayesian network to model attribute dependencies, de
 
 ### References
 
-- https://dl.acm.org/doi/10.1145/3085504.3091117
+
 - https://github.com/DataResponsibly/DataSynthesizer/tree/master
 - https://github.com/CRCHUM-CITADEL/clover/blob/main/generators/dataSynthesizer.py
-- https://github.com/DataResponsibly/DataSynthesizer.
+- https://github.com/DataResponsibly/DataSynthesizer
+- https://github.com/daanknoors/synthetic_data_generation
 
-- [1] https://pubmed.ncbi.nlm.nih.gov/33367620/
-- [2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7973486/
-- [3] https://dl.acm.org/doi/10.1145/3411170.3411243
-- [4] https://academic.oup.com/jamia/article/28/4/801/6046159
-- [5] https://www.sciencedirect.com/science/article/pii/S2667096823000241
-- [6] https://www.cs.cmu.edu/~dmarg/Papers/PhD-Thesis-Margaritis.pdf
-- [7] https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf
-- [8] https://youtube.com/watch?v=06PzhH5lSPY
-- [9] https://www.aimspress.com/article/doi/10.3934/mbe.2021426
-- [10] https://www.researchgate.net/publication/288995388_Using_Bayesian_Networks_to_Create_Synthetic_Data
-- [11] https://cprd.com/sites/default/files/2022-02/Tucker%20et%20al.%20preprint.pdf
-- [12] https://www.researchgate.net/publication/355308838_Synthetic_data_generation_with_probabilistic_Bayesian_Networks
-- [3] https://github.com/daanknoors/synthetic_data_generation
-- [7] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723
+- [DataSynthesizer: Privacy-Preserving Synthetic Datasets](https://dl.acm.org/doi/10.1145/3085504.3091117)
+- [Application of Bayesian networks to generate synthetic health data](https://pubmed.ncbi.nlm.nih.gov/33367620/)
+- [Bayesian Networks-based personal data synthesis](https://dl.acm.org/doi/10.1145/3411170.3411243)
+- [Comparison of tabular synthetic data generation techniques using propensity and cluster log metric](https://www.sciencedirect.com/science/article/pii/S2667096823000241)
+- [Using Bayesian Networks to Create Synthetic Data](https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/using-bayesian-networks-to-create-synthetic-data.pdf)
+- [Synthetic data generation with probabilistic Bayesian Networks](https://www.aimspress.com/article/doi/10.3934/mbe.2021426)
+- [Practical Lessons from Generating Synthetic Healthcare Data with Bayesian Networks](https://cprd.com/sites/default/files/2022-02/Tucker%20et%20al.%20preprint.pdf)
+- [Synthetic data generation with differential privacy via Bayesian networks](https://journalprivacyconfidentiality.org/index.php/jpc/article/download/776/723)
 
 
