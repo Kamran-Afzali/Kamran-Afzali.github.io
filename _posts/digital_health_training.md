@@ -260,45 +260,44 @@ The components of an academic program in digital health can vary, and the curric
 
 ### USA
 
-#### University of Illinois Chicago
+#### [University of Illinois Chicago](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
 
-- https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/
-- https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/
-- https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/
-- https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/
-- https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/
+- [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/) 
+- [Post-Baccalaureate Certificate in Health Informatics (PBC HI)](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
+- [Master of Science in Health Informatics (MSHI)](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
+- [Post-Master’s Certificate in Health Informatics (PMC HI)](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/)
 
-#### Stanford
+#### Stanford ([Medicine](https://med.stanford.edu/))
 
-- https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html
-- https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html
-- https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html
+- [Master of Science in Clinical Informatics Management (MCiM)](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html)
+- [Clinical Informatics Fellowship](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html)
+- [MS & PhD in Biomedical Informatics](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html
+)
 
 #### North Eastern
-- https://graduate.northeastern.edu/program/master-of-science-in-health-informatics-boston-5247/
-- https://www.mastersportal.com/studies/374756/health-informatics.html?ref=search_card
-- https://www.mastersportal.com/studies/331848/health-informatics.html?ref=search_card
+- [Msc Health Informatics](https://graduate.northeastern.edu/program/master-of-science-in-health-informatics-boston-5247/) 
 
 
 #### University of Michigan - Dearborn
 
-- https://www.mastersportal.com/studies/183591/health-information-technology.html?ref=search_card
+-  [Msc Health Information Technology ](https://umdearborn.edu/cehhs/graduate-programs/areas-study/ms-health-information-technology)
 
 #### The City University of New York
-- https://www.mastersportal.com/studies/127905/health-informatics.html?ref=search_card
+- [Msc Population Health Informatics](https://sph.cuny.edu/academics/degrees-and-programs/masters-programs/ms-in-population-health-informatics/)
 
-#### Stony Brook University
-- https://www.mastersportal.com/studies/189296/applied-health-informatics.html?ref=search_card
+#### Stony Brook University ([Stony Brook School of Health Professions](https://healthprofessions.stonybrookmedicine.edu/))
+- [Msc Applied Health Informatics](https://healthprofessions.stonybrookmedicine.edu/programs/ahi)
+
 
 ####  University of Houston
 
-- https://www.mastersportal.com/studies/332057/computational-health-informatics.html?ref=search_card
-
+- [Msc Computational Health Informatics](https://uh.edu/online/programs/online-programs/graduate/comp-health-informatics-ms.php)
 
 
 ####  Windsor University
 
-- https://www.mastersportal.com/studies/430807/health-information-science.html?ref=search_card
+- Health Information Science
+
 
 
 
