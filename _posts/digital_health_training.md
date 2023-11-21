@@ -115,35 +115,35 @@ The components of an academic program in digital health can vary, and the curric
 
 ### Canada
 
-#### York 
+#### York (Faculty of Health)
 
 - [Health Policy, Management & Digital Health - Bachelor of Health Studies](www.yorku.ca/health/shpm/wp-content/uploads/sites/406/2023/10/Spec-Honours-HPMDH-Course-listing-for-weblink.pdf)
 - [Health System Management & Health Data Analytics MA](https://www.yorku.ca/gradstudies/health/current-students/degree-requirements/)
 - [Health System Management & Health Data Analytics PHD](https://www.yorku.ca/gradstudies/health/current-students/degree-requirements/)
 - [Course details](https://www.yorku.ca/gradstudies/health/wp-content/uploads/sites/339/2021/12/health-course-decription-2021–22.pdf)
 
-#### UofT
+#### UofT (IHPME within the Dalla Lana School of Public Health)
 
 - [Master of health informatics](https://ihpme.utoronto.ca/programs/health-informatics/mhi-program-details/degree-requirements/)
 
-#### University of Victoria
-- [Master of health informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
+#### University of Victoria 
+- [Master of health informatics- Double Degree Master of Nursing and Master of Science in Health Informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
    - [Course details](https://www.uvic.ca/calendar/grad/#/courses?group=Health%20Information%20Science%20(HINF))
 - [undergraduate programs](https://www.uvic.ca/hsd/hinf/undergraduate/programs/index.php)
    - [Course details](https://www.uvic.ca/hsd/hinf/undergraduate/programs/bsc/index.php)
 - [Graduate Certificate in Health Terminology Standards](https://www.uvic.ca/hsd/hinf/graduate/certificate/index.php)
 
-#### McMaster
+#### McMaster (collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business)
   
 - [Master eHealth](https://ehealth.mcmaster.ca/)
    - [Course details](https://ehealth.mcmaster.ca/program-options/program-requirements/compulsary-courses/)
 - [Diploma in Health Informatics](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-diploma)
 
-#### Dalhousie
+#### Dalhousie (Digital Innovation, Faculty of Computer Science)
 
 [Certificate in Health Informatics](https://www.dal.ca/academics/programs/graduate/digital-innovation/program-details/health-informatics.html)
 
-#### Waterloo
+#### Waterloo (School of Public Health Sciences)
 
 - [Undergraduate  Health Informatics Option](https://uwaterloo.ca/health-informatics/future-undergraduate-students)
    - [Course details](https://ugradcalendar.uwaterloo.ca/page/HEA-Health-Informatics-Option1)
@@ -152,17 +152,17 @@ The components of an academic program in digital health can vary, and the curric
 
 ### Quebec
 
-#### Sherbrook
+#### Sherbrook (Faculty of Medicine and Health Sciences)
 
 - [Microprogramme de 2e cycle  informatique de la santé](https://www.usherbrooke.ca/admission/programme/453/microprogramme-de-2e-cycle-sur-les-competences-de-base-en-informatique-de-la-sante#structure/)
 
-#### UdeM
+#### UdeM (École de santé publique)
 
 - [DESS en santé numérique](https://admission.umontreal.ca/programmes/dess-en-sante-numerique/)
 
 - [Microprogramme de 2e cycle en santé numérique](https://admission.umontreal.ca/programmes/microprogramme-de-2e-cycle-en-sante-numerique/)
 
-#### McGill
+#### McGill (Departments of Experimental Medicine and Experimental Surgery)
 
 - [MSc in Experimental Medicine (Digital Health Innovation) and the MSc in Experimental Surgery (Digital Health Innovation)](https://www.mcgill.ca/digitalhealth/program)
 - [Health Informatics Fellowship](https://www.mcgill.ca/emergency/education/fellowship/health-informatics)
@@ -183,29 +183,29 @@ The components of an academic program in digital health can vary, and the curric
 
 ### Royaume-Uni
 
-#### Bournemouth University
+#### Bournemouth University (Computing Department)
 
 - [MSc Digital Health](https://www.bournemouth.ac.uk/study/courses/msc-digital-health)
 - [MSc Digital Health & Artificial Intelligence](https://www.bournemouth.ac.uk/study/courses/msc-digital-health-artificial-intelligence)
 
-#### Sheffield Hallam University 
+#### Sheffield Hallam University (Computing Department)
 
 - [MSc Healthcare Analytics and Artificial Intelligence](https://www.shu.ac.uk/courses/computing/msc-healthcare-analytics-and-artificial-intelligence/full-time/2024) (This course is no longer accepting applications)
 
-#### University of Central Lancashire (UCLan)
+#### University of Central Lancashire (Computing Department)
 
 - [MSc Health Informatics](https://www.uclan.ac.uk/postgraduate/courses/health-informatics-msc#:~:text=Through%20our%20specialist%20qualification%20in,outstanding%20health%20and%20social%20care) 
 - [Certificate Health Informatics](https://www.uclan.ac.uk/cpd/courses/health-informatics-cert) 
 
-####  Imperial College London
+####  Imperial College London (School of Public Health)
 
 - [MSc Health Data Analytics and Machine Learning](https://www.imperial.ac.uk/study/courses/postgraduate-taught/health-data-analytics/)
 
-#### University College London
+#### University College London (Faculty of Population Health Sciences)
 
 - [MSc Artificial Intelligence Enabled Healthcare MRes + MPhil/PhD](https://www.ucl.ac.uk/prospective-students/graduate/research-degrees/artificial-intelligence-enabled-healthcare-mres-mphil-phd)
 
-####  University of Manchester
+####  University of Manchester ([Faculty of Biology, Medicine and Health](https://research.manchester.ac.uk/en/organisations/division-of-informatics-imaging-data-sciences))
 
 - [MSc Health Data Science](https://www.manchester.ac.uk/study/masters/courses/list/10076/msc-health-data-science/course-details/)
 
@@ -216,46 +216,46 @@ The components of an academic program in digital health can vary, and the curric
 - [MSc in Translational Health Sciences](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences)
 
 
-#### University of Leeds
+#### University of Leeds (School of Medicine)
 
 - [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
 - [Certificate Health Informatics with Data Science PGCert](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert)
 
 
-#### University of Cambridge
+#### University of Cambridge (Institute of Continuing Education (ICE))
 
-- [Healthcare Data - Informatics, Innovation and Commercialization](https://www.ice.cam.ac.uk/course/mst-healthcare-data-informatics-innovation-and-commercialization)
+- [MSt Healthcare Data - Informatics, Innovation and Commercialization](https://www.ice.cam.ac.uk/course/mst-healthcare-data-informatics-innovation-and-commercialization)
 - [Postgraduate Diploma Healthcare Data: Informatics, Innovation and Commercialization ](https://www.ice.cam.ac.uk/course/mst-flexible-healthcare-data-informatics-innovation-and-commercialization)
 
 ### France 
 
-#### Bordeaux
+#### Bordeaux (School of Public Health)
 
 - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
 
-#### Marseille ([presentation](https://sesstim.univ-amu.fr/sites/default/files/ressources_pedagogiques/aiandhi_3.pdf))
+#### Marseille ([Sciences économiques et sociales de la santé & traitement de l’information médicale](https://sesstim.univ-amu.fr/sites/default/files/ressources_pedagogiques/aiandhi_3.pdf))
 
 - [Master - Artificial Intelligence for Public Health (AI4PH)](https://sesstim.univ-amu.fr/fr/master-ai4ph)
 
-#### Paris Sorbonne
+#### Paris Sorbonne (Faculty of Science & Engineering, Sorbonne University)
 
 - [Master’s Degree in Technological Innovation in Health (MTiH)](https://sciences.sorbonne-universite.fr/en/masters-degree-technological-innovation-health-mtih)
 
-#### Paris Cite
+#### Paris Cite (UFR des Sciences fondamentales et biomédicales)
 
 - [Master Informatique - Parcours : Cybersécurité et esanté](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html)
 - [Diplôme Universitaire de Santé Connectée](https://pums.aphp.fr/diplome-universitaire-de-sante-connectee/)
 
-#### Pole TES Caen-Normandie
+#### Pole TES Caen-Normandie (UFR Santé)
 
 - [Master Santé (Management des activités de santé, spécialisation Entrepreneuriat, innovation et transformation digitale en santé)](https://uniform.unicaen.fr/catalogue/formation/master/7267-master-sante)
 - [Diploma e-Santé](https://actualites.pole-tes.com/du-e-sante-2/)
 
-#### Université Côte d'Azur
+#### Université Côte d'Azur ([inter-institutionnel](https://univ-cotedazur.eu/msc/biobanks-complex-data-management/academic-team/institutional-industrial-partners))
 
 - [MSc Biobanks & Complex Data Management](https://univ-cotedazur.eu/msc/biobanks-complex-data-management)
 
-#### Emlyon Business School
+#### Emlyon Business School (business school)
 
 - [MSc in Health Management & Data Intelligence](https://msc-health-data-intelligence.com/fr)
 
