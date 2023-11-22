@@ -335,7 +335,7 @@ The components of an academic program in digital health can vary, and the curric
 [MS Advanced Health Data Analytics](https://hps.unt.edu/health-data-analytics-ms)
 
 
-### Associations scientifiques
+### Associations scientifiques 
 
 - [International Association of Medical Informatics](https://imia-medinfo.org/wp/imia-accreditation-pilot/)
    - IMIA Accredited Health & Biomedical Informatics Program
