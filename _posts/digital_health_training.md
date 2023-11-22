@@ -262,7 +262,7 @@ The components of an academic program in digital health can vary, and the curric
 
 ### USA
 
-#### [University of Illinois Chicago](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+#### University of Illinois Chicago- [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
 
 - [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/) 
 - [Post-Baccalaureate Certificate in Health Informatics (PBC HI)](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
@@ -282,7 +282,7 @@ The components of an academic program in digital health can vary, and the curric
 
 #### University of Michigan - Dearborn
 
--  [Msc Health Information Technology ](https://umdearborn.edu/cehhs/graduate-programs/areas-study/ms-health-information-technology)
+-  [Msc Health Information Technology](https://umdearborn.edu/cehhs/graduate-programs/areas-study/ms-health-information-technology)
 
 #### The City University of New York
 - [Msc Population Health Informatics](https://sph.cuny.edu/academics/degrees-and-programs/masters-programs/ms-in-population-health-informatics/)
