@@ -309,28 +309,28 @@ The components of an academic program in digital health can vary, and the curric
 
 - [Nursing Informatics board](https://www.sandiego.edu/nursing/academic-programs/msn/nursing-informatics/curriculum.php)
 
-####  University of Southern California
+####  University of Southern California (Viterbi School of Engineering)
 
 - [Master of Science in Healthcare Data Science](https://datascience.usc.edu/academics/master-of-science-in-healthcare-data-science/)
 
 
-####  Johns Hopkins University
+####  Johns Hopkins University (School of Medicine)
 
 - [Master of Science Health Sciences Informatics - Research](https://e-catalogue.jhu.edu/medicine/graduate-programs/health-sciences-informatics-research-ms/)
 - [Master of Science Applied Health Sciences Informatics](https://e-catalogue.jhu.edu/medicine/graduate-programs/applied-health-sciences-informatics-ms/)
 - [Health Sciences Informatics, PhD](https://e-catalogue.jhu.edu/medicine/graduate-programs/health-sciences-informatics-phd/)
 
-####  Yale
+####  Yale (School of Public Health)
 
 - [Master of Science in Public Health /Health Informatics Concentration (HI)](https://catalog.yale.edu/ysph/master-science-public-health/health-informatics-concentration-hi/)
 
-####  University of Denver
+####  University of Denver (HIMSS Academic Organizational Affiliate)
 
 - [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#faculty)
 - [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
 
 
-####  University of North Texas
+####  University of North Texas (College of Health and Public Service)
 
 [MS Advanced Health Data Analytics](https://hps.unt.edu/health-data-analytics-ms)
 
