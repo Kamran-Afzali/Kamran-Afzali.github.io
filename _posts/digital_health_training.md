@@ -276,11 +276,11 @@ The components of an academic program in digital health can vary, and the curric
 - [MS & PhD in Biomedical Informatics](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html
 )
 
-#### North Eastern
+#### North Eastern (collaboration between Bouvé College of Health Sciences, Khoury College of Computer Sciences)
 - [Msc Health Informatics](https://graduate.northeastern.edu/program/master-of-science-in-health-informatics-boston-5247/) 
 
 
-#### University of Michigan - Dearborn
+#### University of Michigan - Dearborn (College of Education, Health, and Human Services (CEHHS))
 
 -  [Msc Health Information Technology](https://umdearborn.edu/cehhs/graduate-programs/areas-study/ms-health-information-technology)
 
