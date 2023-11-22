@@ -284,20 +284,20 @@ The components of an academic program in digital health can vary, and the curric
 
 -  [Msc Health Information Technology](https://umdearborn.edu/cehhs/graduate-programs/areas-study/ms-health-information-technology)
 
-#### The City University of New York
+#### The City University of New York (CUNY Graduate School of Public Health & Health Policy (CUNY SPH))
 - [Msc Population Health Informatics](https://sph.cuny.edu/academics/degrees-and-programs/masters-programs/ms-in-population-health-informatics/)
 
 #### Stony Brook University ([Stony Brook School of Health Professions](https://healthprofessions.stonybrookmedicine.edu/))
 - [Msc Applied Health Informatics](https://healthprofessions.stonybrookmedicine.edu/programs/ahi)
 
 
-####  University of Houston
+####  University of Houston (Engineering Technology)
 
 - [Msc Computational Health Informatics](https://uh.edu/online/programs/online-programs/graduate/comp-health-informatics-ms.php)
 
 
 
-####  Boston University
+####  Boston University (Department of Computer Science)
 
 - [Health Informatics Graduate Certificate](https://www.bu.edu/met/degrees-certificates/health-informatics-graduate-certificate/)
 - [MS in Health Informatics](https://www.bu.edu/met/degrees-certificates/ms-health-informatics/)
