@@ -334,6 +334,17 @@ The components of an academic program in digital health can vary, and the curric
 
 [MS Advanced Health Data Analytics](https://hps.unt.edu/health-data-analytics-ms)
 
+####  Harvard
+
+- [Master of Science in Health Data Science](https://dbmi.hms.harvard.edu/education/masters-program)
+- [Master of Medical Sciences in Biomedical Informatics](https://dbmi.hms.harvard.edu/education/masters-program)
+- [NLM Biomedical Informatics and Data Science Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-fellowship)
+
+####  University at Buffalo (School of medicine-AMIA partner program)
+
+- [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
+- [MS Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters.html)
+- [PhD Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd.html)
 
 ### Associations scientifiques 
 
