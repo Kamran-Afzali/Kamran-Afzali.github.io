@@ -2,6 +2,35 @@ McKenna (2021) introduces a general approach for differentially private syntheti
 
 Our approach to di erentially private synthetic data generation consists of three highlevel steps, as show in Figure 1: (1) query selection, (2) query measurement and (3) synthetic data generation. For step (1), there are various ways to approach query selection; a domain expert familiar with the data and its use cases can specify the set of queries, or they can be automatically determined by an algorithm. The selected queries are important because they will ultimately determine the statistics for which the synthetic data preserves accuracy. For step (2), after the queries are  xed, they are measured privately with a noise-addition mechanism, in our case, with the Gaussian mechanism. In step (3), the noisy measurements are processed through Private-PGM, a post-processing method that can estimate a high-dimensional data distribution from noisy measurements and generate synthetic data. 
 
+Private-PGM is a synthetic data generator that uses a differentially private approach to generate synthetic data while preserving privacy. It is based on the paper "Graphical-model based estimation and inference for differential privacy" by McKenna, Sheldon, and Miklau[1]. The algorithm consists of three main steps:
+
+1. Select a collection of low-dimensional marginals.
+2. Measure those marginals with a noise addition mechanism.
+3. Generate synthetic data that preserves the measured marginals well[1].
+
+Private-PGM is a post-processing method used to estimate a high-dimensional data distribution from noisy measurements of its marginals[1]. It has been successfully applied in various settings, including the 2018 NIST differential privacy synthetic data competition, where it was the winning mechanism[1].
+
+The main idea behind Private-PGM is to construct a probabilistic graphical model (PGM) that captures the dependencies between attributes in the data. This model is then used to generate synthetic data that maintains the correlations between attributes while satisfying differential privacy guarantees[1].
+
+To use Private-PGM for synthetic data generation, you can refer to the GitHub repository (https://github.com/ryan112358/private-pgm) which provides an implementation of the tools described in the paper[1]. The repository also includes examples and mechanisms for different problems, making it easier for users to learn how to use the codebase and build their own mechanisms on top of it[1].
+
+Citations:
+[1] https://github.com/ryan112358/private-pgm
+[2] https://arxiv.org/pdf/2108.04978.pdf
+[3] https://github.com/BorealisAI/private-data-generation
+[4] https://differentialprivacy.org/synth-data-1/
+[5] https://arxiv.org/pdf/2310.20062.pdf
+[6] https://pages.nist.gov/privacy_collaborative_research_cycle/pages/techniques.html
+[7] https://arxiv.org/abs/2108.04978
+[8] https://www.vldb.org/pvldb/vol16/p1573-pujol.pdf
+[9] https://arxiv.org/pdf/2310.03447.pdf
+[10] https://arxiv.org/pdf/2201.12677.pdf
+[11] https://www.usenix.org/system/files/sec21fall-zhang-zhikun.pdf
+[12] https://youtube.com/watch?v=UKzh9QgNRxA
+[13] https://journalprivacyconfidentiality.org/index.php/jpc/article/view/778
+[14] https://openreview.net/pdf?id=B9R1uLC1B1
+[15] https://programming-dp.com/ch14.html
+[16] https://aaai-ppai22.github.io/files/26.pdf
 
 - https://github.com/alan-turing-institute/reprosyn
 - https://arxiv.org/abs/2108.04978
