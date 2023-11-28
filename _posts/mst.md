@@ -56,41 +56,27 @@ This pseudo code provides a high-level overview of the Private-PGM algorithm. Th
 
 
 Citations:
-- [1] https://github.com/ryan112358/private-pgm
-- [2] https://arxiv.org/pdf/2108.04978.pdf
-- [3] https://github.com/BorealisAI/private-data-generation
-- [4] https://differentialprivacy.org/synth-data-1/
-- [5] https://arxiv.org/pdf/2310.20062.pdf
-- [6] https://pages.nist.gov/privacy_collaborative_research_cycle/pages/techniques.html
-- [7] https://arxiv.org/abs/2108.04978
-- [8] https://www.vldb.org/pvldb/vol16/p1573-pujol.pdf
-- [9] https://arxiv.org/pdf/2310.03447.pdf
-- [10] https://arxiv.org/pdf/2201.12677.pdf
-- [11] https://www.usenix.org/system/files/sec21fall-zhang-zhikun.pdf
-- [12] https://youtube.com/watch?v=UKzh9QgNRxA
-- [13] https://journalprivacyconfidentiality.org/index.php/jpc/article/view/778
-- [14] https://openreview.net/pdf?id=B9R1uLC1B1
-- [15] https://programming-dp.com/ch14.html
-- [16] https://aaai-ppai22.github.io/files/26.pdf
+- [](https://arxiv.org/pdf/2108.04978.pdf)
+- [](https://differentialprivacy.org/synth-data-1/)
+- [](https://pages.nist.gov/privacy_collaborative_research_cycle/pages/techniques.html)
+- [](https://www.vldb.org/pvldb/vol16/p1573-pujol.pdf)
+- [](https://www.vldb.org/pvldb/vol14/p2190-cai.pdf)
+- [](https://arxiv.org/pdf/2310.20062.pdf)
+- [](https://arxiv.org/pdf/2310.03447.pdf)
+- [](https://arxiv.org/pdf/2201.12677.pdf)
+- [](https://arxiv.org/pdf/1901.09136.pdf)
+- [](https://arxiv.org/pdf/2109.06153.pdf)
+- [](https://youtube.com/watch?v=UKzh9QgNRxA)
+- [](https://journalprivacyconfidentiality.org/index.php/jpc/article/view/778)
+- [](https://journalprivacyconfidentiality.org/index.php/jpc/article/download/778/727/1684)
+- [](https://openreview.net/pdf?id=B9R1uLC1B1)
+- [](https://openreview.net/forum?id=comGUyv5sac)
+- [](https://openreview.net/forum?id=5JdyRvTrK0q)
+- [](https://programming-dp.com/ch14.html)
+- [](https://aaai-ppai22.github.io/files/26.pdf)
+- [](https://proceedings.mlr.press/v202/liu23ag/liu23ag.pdf)
+- [](https://www.usenix.org/system/files/sec21fall-zhang-zhikun.pdf)
 
-
-- [1] https://github.com/ryan112358/private-pgm
-- [2] https://openreview.net/forum?id=comGUyv5sac
-- [3] https://proceedings.mlr.press/v202/liu23ag/liu23ag.pdf
-- [4] https://arxiv.org/pdf/1901.09136.pdf
-- [5] https://arxiv.org/pdf/2109.06153.pdf
-- [6] https://openreview.net/forum?id=5JdyRvTrK0q
-- [7] https://openreview.net/pdf?id=comGUyv5sac
-- [8] https://www.usenix.org/system/files/sec21fall-zhang-zhikun.pdf
-- [9] https://arxiv.org/pdf/2106.07153.pdf
-- [10] https://journalprivacyconfidentiality.org/index.php/jpc/article/download/778/727/1684
-- [11] https://www.vldb.org/pvldb/vol14/p2190-cai.pdf
-- [12] https://www.usenix.org/system/files/sec21-zhang-zhikun.pdf
-- [13] https://differentialprivacy.org/synth-data-1/
-- [14] https://arxiv.org/pdf/2108.04978.pdf
-- [15] https://youtube.com/watch?v=UKzh9QgNRxA
-- [16] https://journalprivacyconfidentiality.org/index.php/jpc/article/view/778
-- [17] https://pages.nist.gov/privacy_collaborative_research_cycle/pages/techniques.html
 
 
 - https://github.com/alan-turing-institute/reprosyn
@@ -99,3 +85,5 @@ Citations:
 - https://elicit.com/?workflow=table-of-papers&run=ff8e68e9-5d2e-4e22-9afd-314251deb473
 - https://github.com/ryan112358/private-pgm
 - https://arxiv.org/pdf/1901.09136.pdf
+- https://github.com/BorealisAI/private-data-generation
+
