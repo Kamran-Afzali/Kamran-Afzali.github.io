@@ -57,6 +57,25 @@ This pseudo code provides a high-level overview of the Private-PGM algorithm. Th
 
 ## Clover implementation 
 
+
+    class MSTGenerator(Generator):
+    """
+    Wrapper of the Maximum Spanning Tree (MST) method from Private-PGM repo:
+    https://github.com/ryan112358/private-pgm/tree/master.
+
+    :cvar name: the name of the metric
+    :vartype name: str
+
+    :param df: the data to synthesize
+    :param metadata: a dictionary containing the list of **continuous** and **categorical** variables
+    :param random_state: for reproducibility purposes
+    :param generator_filepath: the path of the generator to sample from if it exists
+    :param epsilon: the privacy budget of the differential privacy
+    :param delta: the failure probability of the differential privacy
+    """
+
+  
+
 ## References:
 - [Winning the NIST Contest: A scalable and general approach to differentially private synthetic data](https://arxiv.org/pdf/2108.04978.pdf)
 - [A simple recipe for private synthetic data generation](https://differentialprivacy.org/synth-data-1/)
@@ -82,10 +101,7 @@ This pseudo code provides a high-level overview of the Private-PGM algorithm. Th
 
 
 - https://github.com/alan-turing-institute/reprosyn
-- https://arxiv.org/abs/2108.04978
-- https://app.litmaps.com/seed/47184668?utm_source=litmaps&utm_content=home-seed
-- https://elicit.com/?workflow=table-of-papers&run=ff8e68e9-5d2e-4e22-9afd-314251deb473
 - https://github.com/ryan112358/private-pgm
-- https://arxiv.org/pdf/1901.09136.pdf
 - https://github.com/BorealisAI/private-data-generation
+- https://github.com/alan-turing-institute/reprosyn
 
