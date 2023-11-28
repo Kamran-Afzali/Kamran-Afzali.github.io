@@ -370,4 +370,99 @@ The components of an academic program in digital health can vary, and the curric
    - [CPDHTS](https://www.himss.org/resources-certification/cpdhts) Certified Professional in Digital Health Transformation Strategy
 
 - Digital Health Canada
-   - [Overview: Virtual Care Certificate](https://digitalhealthcanada.com/wp-content/uploads/2022/07/Digital-Health-Canada-Syllabus-Virtual-Care.pdf)    
+   - [Overview: Virtual Care Certificate](https://digitalhealthcanada.com/wp-content/uploads/2022/07/Digital-Health-Canada-Syllabus-Virtual-Care.pdf)
+ 
+
+## Selected Universities
+
+### Canada
+
+
+#### University of Victoria 
+- [Master of health informatics- Double Degree Master of Nursing and Master of Science in Health Informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
+   - [Course details](https://www.uvic.ca/calendar/grad/#/courses?group=Health%20Information%20Science%20(HINF))
+- [undergraduate programs](https://www.uvic.ca/hsd/hinf/undergraduate/programs/index.php)
+   - [Course details](https://www.uvic.ca/hsd/hinf/undergraduate/programs/bsc/index.php)
+- [Graduate Certificate in Health Terminology Standards](https://www.uvic.ca/hsd/hinf/graduate/certificate/index.php)
+
+#### McMaster (collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business)
+  
+- [Master eHealth](https://ehealth.mcmaster.ca/)
+   - [Course details](https://ehealth.mcmaster.ca/program-options/program-requirements/compulsary-courses/)
+- [Diploma in Health Informatics](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-diploma)
+
+
+### Australie
+
+#### University of Sydney
+
+- [Bachelor of Advanced Computing and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-health.html)
+- [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
+- [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
+
+
+### Royaume-Uni
+
+
+#### University of Oxford ([Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health))
+
+- [MSc Applied Digital Health](https://www.phc.ox.ac.uk/study/msc-applied-digital-health)
+
+- [MSc in Translational Health Sciences](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences)
+
+
+#### University of Leeds (School of Medicine)
+
+- [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
+- [Certificate Health Informatics with Data Science PGCert](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert)
+
+
+### France 
+
+#### Bordeaux (School of Public Health)
+
+- [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
+
+
+#### Paris Cite (UFR des Sciences fondamentales et biomédicales)
+
+- [Master Informatique - Parcours : Cybersécurité et esanté](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html)
+- [Diplôme Universitaire de Santé Connectée](https://pums.aphp.fr/diplome-universitaire-de-sante-connectee/)
+
+
+### USA
+
+#### University of Illinois Chicago- [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+
+- [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/) 
+- [Post-Baccalaureate Certificate in Health Informatics (PBC HI)](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
+- [Master of Science in Health Informatics (MSHI)](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
+- [Post-Master’s Certificate in Health Informatics (PMC HI)](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/)
+
+#### Stanford ([Medicine](https://med.stanford.edu/))
+
+- [Master of Science in Clinical Informatics Management (MCiM)](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html)
+- [Clinical Informatics Fellowship](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html)
+- [MS & PhD in Biomedical Informatics](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html
+)
+
+
+####  University of Denver (HIMSS Academic Organizational Affiliate)
+
+- [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#faculty)
+- [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
+
+
+
+####  Harvard
+
+- [Master of Science in Health Data Science](https://dbmi.hms.harvard.edu/education/masters-program)
+- [Master of Medical Sciences in Biomedical Informatics](https://dbmi.hms.harvard.edu/education/masters-program)
+- [NLM Biomedical Informatics and Data Science Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-fellowship)
+
+####  University at Buffalo (School of medicine-AMIA partner program)
+
+- [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
+- [MS Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters.html)
+- [PhD Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd.html)
+
