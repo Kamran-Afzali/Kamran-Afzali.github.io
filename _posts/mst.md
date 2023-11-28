@@ -1,3 +1,5 @@
+## Introduction 
+
 McKenna (2021) introduces a general approach for differentially private synthetic data generation, which involves selecting low-dimensional marginals, adding noise to measure them, and generating synthetic data that preserves these marginals. This approach is implemented in the NIST-MST and MST mechanisms, with the former winning the 2018 NIST contest. Bowen (2019, 2021) provides a comparative evaluation of differentially private synthetic data algorithms, including those from the NIST PSCR challenge, based on data accuracy and usability. Rosenblatt (2020) further evaluates differentially private generative adversarial networks for data synthesis, highlighting the need for effective assessment and proposing the QUAIL ensemble-based modeling approach.
 
 Our approach to di erentially private synthetic data generation consists of three highlevel steps, as show in Figure 1: (1) query selection, (2) query measurement and (3) synthetic data generation. For step (1), there are various ways to approach query selection; a domain expert familiar with the data and its use cases can specify the set of queries, or they can be automatically determined by an algorithm. The selected queries are important because they will ultimately determine the statistics for which the synthetic data preserves accuracy. For step (2), after the queries are  xed, they are measured privately with a noise-addition mechanism, in our case, with the Gaussian mechanism. In step (3), the noisy measurements are processed through Private-PGM, a post-processing method that can estimate a high-dimensional data distribution from noisy measurements and generate synthetic data. 
@@ -55,17 +57,17 @@ This pseudo code provides a high-level overview of the Private-PGM algorithm. Th
 
 
 
-Citations:
+## References:
 - [Winning the NIST Contest: A scalable and general approach to differentially private synthetic data](https://arxiv.org/pdf/2108.04978.pdf)
 - [A simple recipe for private synthetic data generation](https://differentialprivacy.org/synth-data-1/)
 - [Privacy Techniques in the CRC Collection So Far](https://pages.nist.gov/privacy_collaborative_research_cycle/pages/techniques.html)
 - [Privately Generating Justifiably Fair Synthetic Data](https://www.vldb.org/pvldb/vol16/p1573-pujol.pdf)
 - [DataSynthesisviaDifferentiallyPrivateMarkovRandomFields](https://www.vldb.org/pvldb/vol14/p2190-cai.pdf)
 - [Decentralised, Scalableand Privacy-Preserving Synthetic Data Generation](https://arxiv.org/pdf/2310.20062.pdf)
-- [](https://arxiv.org/pdf/2310.03447.pdf)
-- [](https://arxiv.org/pdf/2201.12677.pdf)
-- [](https://arxiv.org/pdf/1901.09136.pdf)
-- [](https://arxiv.org/pdf/2109.06153.pdf)
+- [FLAIM: AIM-based synthetic data generation in the federated setting](https://arxiv.org/pdf/2310.03447.pdf)
+- [AIM: An Adaptiveand Iterative Mechanism for Differentially Private Synthetic Data](https://arxiv.org/pdf/2201.12677.pdf)
+- [Graphical-model based estimation and inference for differential privacy](https://arxiv.org/pdf/1901.09136.pdf)
+- [Relaxed Marginal Consistency for Differentially Private Query Answering](https://arxiv.org/pdf/2109.06153.pdf)
 - [](https://youtube.com/watch?v=UKzh9QgNRxA)
 - [](https://journalprivacyconfidentiality.org/index.php/jpc/article/view/778)
 - [](https://journalprivacyconfidentiality.org/index.php/jpc/article/download/778/727/1684)
