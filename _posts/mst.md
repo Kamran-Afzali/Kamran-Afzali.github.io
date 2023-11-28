@@ -55,7 +55,7 @@ function PrivatePGM(data, marginals, epsilon):
 
 This pseudo code provides a high-level overview of the Private-PGM algorithm. The actual implementation would involve more detailed steps, such as the specific method for constructing the PGM and the method for sampling from the PGM to generate synthetic data[1][4].
 
-
+## Clover implementation 
 
 ## References:
 - [Winning the NIST Contest: A scalable and general approach to differentially private synthetic data](https://arxiv.org/pdf/2108.04978.pdf)
