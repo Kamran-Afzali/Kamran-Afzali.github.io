@@ -56,12 +56,12 @@ This pseudo code provides a high-level overview of the Private-PGM algorithm. Th
 
 
 Citations:
-- [](https://arxiv.org/pdf/2108.04978.pdf)
-- [](https://differentialprivacy.org/synth-data-1/)
-- [](https://pages.nist.gov/privacy_collaborative_research_cycle/pages/techniques.html)
-- [](https://www.vldb.org/pvldb/vol16/p1573-pujol.pdf)
-- [](https://www.vldb.org/pvldb/vol14/p2190-cai.pdf)
-- [](https://arxiv.org/pdf/2310.20062.pdf)
+- [Winning the NIST Contest: A scalable and general approach to differentially private synthetic data](https://arxiv.org/pdf/2108.04978.pdf)
+- [A simple recipe for private synthetic data generation](https://differentialprivacy.org/synth-data-1/)
+- [Privacy Techniques in the CRC Collection So Far](https://pages.nist.gov/privacy_collaborative_research_cycle/pages/techniques.html)
+- [Privately Generating Justifiably Fair Synthetic Data](https://www.vldb.org/pvldb/vol16/p1573-pujol.pdf)
+- [DataSynthesisviaDifferentiallyPrivateMarkovRandomFields](https://www.vldb.org/pvldb/vol14/p2190-cai.pdf)
+- [Decentralised, Scalableand Privacy-Preserving Synthetic Data Generation](https://arxiv.org/pdf/2310.20062.pdf)
 - [](https://arxiv.org/pdf/2310.03447.pdf)
 - [](https://arxiv.org/pdf/2201.12677.pdf)
 - [](https://arxiv.org/pdf/1901.09136.pdf)
