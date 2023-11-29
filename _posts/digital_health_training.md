@@ -371,9 +371,21 @@ The components of an academic program in digital health can vary, and the curric
 
 - Digital Health Canada
    - [Overview: Virtual Care Certificate](https://digitalhealthcanada.com/wp-content/uploads/2022/07/Digital-Health-Canada-Syllabus-Virtual-Care.pdf)
+
+
+
+
+
+
+
+
+
+
+
+
  
 
-## Selected Universities
+## Selected Universities (Health Information Science)
 
 ### Canada
 
@@ -381,6 +393,15 @@ The components of an academic program in digital health can vary, and the curric
 #### University of Victoria 
 - [Master of health informatics- Double Degree Master of Nursing and Master of Science in Health Informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
    - [Course details](https://www.uvic.ca/calendar/grad/#/courses?group=Health%20Information%20Science%20(HINF))
+      - Our double-degree option lets you study nursing and health informatics side by side. You'll become a nursing leader in this rapidly expanding field. You’ll study areas of health technology like telehealth and electronic health care records.
+      - This program requires a completion of a total of 31.5 units of study, including a research project or thesis. All course requirements must be completed prior to proceeding to the final oral examination. Students will have a supervisor from each School. Students with an overall A- average may complete a thesis, with the approval of both supervisors, the Director of the School of Health Information Science and the Associate Director, Graduate Education in the School of Nursing. Completion of a Master's degree with thesis is encouraged for students intending to pursue Doctoral studies. Students are expected to be enrolled full time for the duration of their program. Cooperative learning experiences must usually be undertaken outside of a student's current employment setting.
+      - [Course details](https://www.uvic.ca/hsd/nursing/graduate/program/double-degree/index.php)
+- [Health Informatics (MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-msc.php#ipn-faculties-amp-departments)
+      - Health information science (also known as health informatics) is the study of: how health data are collected, stored and communicated; how those data are processed into health information suitable for administrative and clinical decision making; and how computer and telecommunications technology can be applied to support these processes. You will learn to identify what information and data are needed and used to make effective healthcare decision by doctors, nurses, hospital administrators, government planners and other health care professionals.
+      - The MSc program requires completion of coursework and a research project. All course requirements must be completed prior to proceeding to the final oral examination. Exceptional students with supervisor and Director approval may work on a thesis rather than a research project. Students are expected to be enrolled full time continuously during their program.
+      - [Course details](https://www.uvic.ca/calendar/grad/index.php#/programs/ryG2am0f4)
+
+  
 - [undergraduate programs](https://www.uvic.ca/hsd/hinf/undergraduate/programs/index.php)
    - [Course details](https://www.uvic.ca/hsd/hinf/undergraduate/programs/bsc/index.php)
 - [Graduate Certificate in Health Terminology Standards](https://www.uvic.ca/hsd/hinf/graduate/certificate/index.php)
