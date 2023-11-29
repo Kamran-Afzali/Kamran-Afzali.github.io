@@ -1,9 +1,9 @@
-## Selected Universities (Health Information Science)
+## Selected Universities
 
 ### Canada
 
 
-#### University of Victoria 
+#### University of Victoria  (Health Information Science/Nursing)
 - [Master of health informatics- Double Degree Master of Nursing and Master of Science in Health Informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
   
    - Our double-degree option lets you study nursing and health informatics side by side. You'll become a nursing leader in this rapidly expanding field. You’ll study areas of health technology like telehealth and electronic health care records.
@@ -26,13 +26,18 @@
    - [Combined Major in Computer Science and Health Information Science](https://www.uvic.ca/hsd/hinf/undergraduate/programs/combined-major/index.php)
    - The Combined Major in Computer Science and Health Information Science combines studies in the organization of health care systems and specific issues involving health informatics with the fundamentals of software engineering, operating systems, programming languages and computer hardware.
 - [Graduate Certificate in Health Terminology Standards](https://www.uvic.ca/hsd/hinf/graduate/certificate/index.php)
-   - The Graduate Certificate in Health Terminology Standards is a 1-year, part-time program with four graduate level courses done through weekly online evening classes and a virtual workshop. If you work in the health industry and are involved with or have an interest in health terminologies and standards, interoperable electronic health record, and clinical coding and classification, then this Certificate is for you. The program is intended to meet national and international needs for best practices in controlled terminologies used in the health industry. Graduates of this program are eligible for the Canadian College of Health Information Management Terminology Standards Specialist Certification.
+   - The Graduate Certificate in Health Terminology Standards is a 1-year, part-time program with four graduate level courses done through weekly online evening classes and a virtual workshop. If you work in the health industry and are involved with or have an interest in health terminologies and standards, interoperable electronic health record, and clinical coding and classification, then this Certificate is for you. The program is intended to meet national and international needs for best practices in controlled terminologies used in the health industry. Graduates of this program are eligible for the **Canadian College of Health Information Management Terminology Standards Specialist Certification**.
 
 #### McMaster (collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business)
   
 - [Master eHealth](https://ehealth.mcmaster.ca/)
+   - McMaster’s eHealth MSc program is a unique healthcare graduate program that immerses you in the world of digital health informatics. Offered through a collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business – the eHealth MSc builds on theoretical foundations in healthcare, information technology and business. An 8-month internship offers firsthand perspective on how these fields intersect in the transformation of modern healthcare delivery and management. You do not need an information technology degree to enroll in the eHealth MSc. Our interdisciplinary approach to learning lets you identify your area of study and pursue this through elective coursework and research. The program’s flexibility means that your academic experience can be as broad or as focused as you like. Modes of study include full time course-based, full time thesis-based, and part-time options.
+   - Complete at least 5 graduate-level, one-term courses. You must earn at least a B- in each of them. This includes: 4 compulsory (required) courses. At least one approved elective from your area of focus. Complete an 8-month internship. Prepare and orally defend a written thesis.
    - [Course details](https://ehealth.mcmaster.ca/program-options/program-requirements/compulsary-courses/)
-- [Diploma in Health Informatics](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-diploma)
+- [Graduate Diploma in Health Informatics](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-diploma)
+  - Three pillars : The fundamental theories, principles and ethical standards of health informatics, Technical foundations for effective systems analysis design and implementation, Project management, quality control and performance evaluation.
+  -  This educational offering has been approved for the following continuing education credit/professional development credit by the **Canadian Society of Respiratory Therapists**. McMaster University Continuing Education maintains all responsibility for this offering and its content.
+  - [Course details](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-courses)
 
 
 ### Australie
