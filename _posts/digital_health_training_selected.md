@@ -114,4 +114,4 @@
 - [MS Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters.html)
 - [PhD Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd.html)
 
-![image](https://github.com/Kamran-Afzali/Kamran-Afzali.github.io/assets/36087887/e9f35e99-ce6a-423a-a080-07c962f18724)
+
