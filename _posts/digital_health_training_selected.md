@@ -45,9 +45,14 @@
 #### University of Sydney
 
 - [Bachelor of Advanced Computing and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-health.html)
+  - The Bachelor of Advanced Computing/Bachelor of Science (Health) is a combined undergraduate coursework degree that will develop your technical skills in computing while providing a thorough grounding in health and health systems at the local, national and global level. You will complete core units that cover the skills needed to work as a computing professional, along with a major from the Advanced Computing disciplinary pool and advanced computing elective units. Additionally, you will complete a major in health, with core units in areas such as human biology, psychology and eHealth, ensuring you develop a breadth of knowledge in healthcare and its latest developments.
+  - [Course details](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-medical-science.html)
 - [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
+  - Our Master of Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
+  - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1145)
 - [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
-
+  - Our Graduate Certificate in Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
+  - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1146)
 
 ### Royaume-Uni
 
