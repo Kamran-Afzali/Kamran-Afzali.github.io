@@ -46,7 +46,7 @@
 
 - [Bachelor of Advanced Computing and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-health.html)
   - The Bachelor of Advanced Computing/Bachelor of Science (Health) is a combined undergraduate coursework degree that will develop your technical skills in computing while providing a thorough grounding in health and health systems at the local, national and global level. You will complete core units that cover the skills needed to work as a computing professional, along with a major from the Advanced Computing disciplinary pool and advanced computing elective units. Additionally, you will complete a major in health, with core units in areas such as human biology, psychology and eHealth, ensuring you develop a breadth of knowledge in healthcare and its latest developments.
-  - [Course details](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-medical-science.html)
+  - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/782)
 - [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
   - Our Master of Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1145)
@@ -60,8 +60,12 @@
 #### University of Oxford ([Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health))
 
 - [MSc Applied Digital Health](https://www.phc.ox.ac.uk/study/msc-applied-digital-health)
+  -  This applied, interdisciplinary MSc is led by the Nuffield Department of Primary Care Health Sciences (NDPCHS), capitalising on the existing breadth of internationally leading digital health research in the department. In addition, the course draws on the expertise of faculty from across the University to create an interdisciplinary learning experience, spanning medicine, social science, engineering, artificial intelligence and data science. The course is further enriched by linking to the department's Oxford Institute of Digital Health, National Institute for Health Research (NIHR) Oxford & Thames Valley Applied Research Collaboration (ARC), which is hosted by NDPCHS (led by Theme Lead John Powell, Academic Director for this MSc), as well as the NIHR Community Healthcare MedTech and IVD Cooperative and the NIHR Oxford Biomedical Research Center.
+  - [Course details](https://www.ox.ac.uk/sites/files/oxford/media_wysiwyg/MSc%20ADH%20Handbook%2022_23.pdf)
 
 - [MSc in Translational Health Sciences](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences)
+  - This MSc is ideal for researchers who want to study scientific and technological innovation in a healthcare setting and research managers looking to run clinical trials or promote the uptake of research findings. It will also assist entrepreneurs (from an industry or clinical background) who seek to improve patient care through innovation and policymakers (local and national) wishing to support research and its translation to improve services. For students interested in undertaking doctoral research, the MSc will prepare them to apply for a DPhil in Translational Health Sciences. We expect all our students to have some relevant past experience in a work environment.
+  - [Course details](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences) 
 
 
 #### University of Leeds (School of Medicine)
