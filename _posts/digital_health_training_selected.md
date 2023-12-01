@@ -75,7 +75,8 @@
   - Created by experienced academics and professionals, our course is designed for both recent graduates and professionals looking to advance their careers. The course will develop your knowledge and understanding of health informatics, health data science techniques, and real-world application of research methods.
   -  [Course details](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc#content)
 - [Certificate Health Informatics with Data Science PGCert](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert)
-  - [Course details](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert#content)
+  - We combine health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. With us, you will be actively involved in listening to, and informing, the informatics and data science agenda for health. 
+  -  [Course details](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert#content)
 
 
 ### France 
