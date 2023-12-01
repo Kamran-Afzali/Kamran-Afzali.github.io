@@ -1,13 +1,13 @@
 ## Introduction 
 
-McKenna (2021) introduces a general approach for differentially private synthetic data generation, which involves selecting low-dimensional marginals, adding noise to measure them, and generating synthetic data that preserves these marginals. This approach to dierentially private synthetic data generation consists of three highlevel steps. Step (1), A domain expert familiar with the data and its use cases can specify the set of queries, or they can be automatically determined by an algorithm. The selected queries are important because they will ultimately determine the statistics for which the synthetic data preserves accuracy. Step (2), after the queries are set, privay is augmented with a noise-addition mechanism, here, the Gaussian mechanism. In step (3), the noisy measurements are processed to estimate a high-dimensional data distribution from noisy measurements and generate synthetic data. This procedure is based on the Private-PGM, a synthetic data generator that uses a differentially private approach to generate synthetic data while preserving privacy. The algorithm consists of three main steps:
+McKenna (2021) introduces a general approach for differentially private synthetic data generation, which involves selecting low-dimensional marginals, adding noise to measure them, and generating synthetic data that preserves these marginals. This approach to dierentially private synthetic data generation consists of highlevel steps as follows. First, a domain expert familiar with the data and its use cases can specify the set of queries, or they can be automatically determined by an algorithm. The selected queries are important because they will ultimately determine the statistics for which the synthetic data preserves accuracy. After the queries are set, the privacy is augmented with a noise-addition mechanism such as the Gaussian mechanism. Finally, the noisy measurements are processed to estimate a high-dimensional data distribution from noisy measurements and generate synthetic data. This procedure is based on the _Private-PGM_, a synthetic data generator that uses a differentially private approach to data generatation. The algorithm consists of three main steps:
 
 1. Select a collection of low-dimensional marginals.
 2. Measure those marginals with a noise addition mechanism.
 3. Generate synthetic data that preserves the measured marginals well.
 
 
-The main idea behind Private-PGM is to construct a probabilistic graphical model (PGM) that captures the dependencies between attributes in the data. This model is then used to generate synthetic data that maintains the correlations between attributes while satisfying differential privacy guarantees. To use Private-PGM for synthetic data generation, you can refer to the [GitHub repository](https://github.com/ryan112358/private-pgm) which provides an implementation of the tools described in the paper. The repository also includes examples and mechanisms for different problems, making it easier for users to learn how to use the codebase and build their own mechanisms on top of it. This approach is particularly effective in preserving the statistical properties of the original data and has been successfully applied in various domains, including health record data, where it outperformed existing models in terms of data quality and model performance (Torfi, 2022). 
+The main idea behind Private-PGM is to construct a Probabilistic Graphical Model (PGM) that captures the dependencies between attributes in the data. This model is then used to generate synthetic data that maintains the correlations between attributes while satisfying differential privacy guarantees. To use Private-PGM for synthetic data generation, you can refer to the [GitHub repository](https://github.com/ryan112358/private-pgm) which provides an implementation of the tools described in the paper. The repository also includes examples and mechanisms for different problems, making it easier for users to learn how to use the codebase and build their own mechanisms on top of it. This approach is particularly effective in preserving the statistical properties of the original data and has been successfully applied in various domains, including health record data, where it outperformed existing models in terms of data quality and model performance (Torfi, 2022). 
 
 
 Below is the pseudo code for the Private-PGM algorithm can be outlined as follows:
@@ -38,8 +38,36 @@ function PrivatePGM(data, marginals, epsilon):
     synthetic_data = GenerateSyntheticData(noisy_marginals)
     return synthetic_data
 ```
+Here's a breakdown of each step:
 
-This pseudo code provides a high-level overview of the Private-PGM algorithm. The actual implementation would involve more detailed steps, such as the specific method for constructing the PGM and the method for sampling from the PGM to generate synthetic data.
+1. **Measurement (MeasureMarginals function):**
+   - **Input:** Original data (`data`), a set of marginals to be preserved (`marginals`), and privacy parameter (`epsilon`).
+   - **Output:** Noisy marginals for the specified variables.
+   - **Procedure:**
+     - For each specified marginal variable in the input set `marginals`:
+       - Compute the true marginal value (`true_value`) based on the original data using the `computeMarginal` function.
+       - Generate Laplace or Gaussian noise (`noise`) using the `generateNoise` function with privacy parameter `epsilon`.
+       - Add the noise to the true value to obtain the noisy marginal.
+       - Store the noisy marginal in the `noisy_marginals` dictionary.
+   - Return the dictionary of noisy marginals.
+
+2. **Synthetic Data Generation (GenerateSyntheticData function):**
+   - **Input:** Noisy marginals obtained from the measurement step (`noisy_marginals`).
+   - **Output:** Synthetic data generated based on the constructed Probabilistic Graphical Model (PGM).
+   - **Procedure:**
+     - Construct a PGM (`pgm`) based on the noisy marginals using the `constructPGM` function.
+     - Generate synthetic data (`synthetic_data`) by sampling from the constructed PGM using the `sampleFromPGM` function.
+   - Return the synthetic data.
+
+3. **Main Function (PrivatePGM function):**
+   - **Input:** Original data (`data`), a set of marginals to be preserved (`marginals`), and privacy parameter (`epsilon`).
+   - **Output:** Synthetic data generated while preserving marginals.
+   - **Procedure:**
+     - Call the `MeasureMarginals` function to obtain the noisy marginals.
+     - Call the `GenerateSyntheticData` function with the obtained noisy marginals to generate synthetic data.
+     - Return the synthetic data.
+
+The core idea is to add noise to the true marginal values to achieve privacy, and then use these noisy marginals to construct a probabilistic graphical model. Finally, synthetic data is generated from this model, ensuring that the privacy of the original data is preserved while maintaining statistical properties specified by the marginals.
 
 ## Clover implementation 
 
