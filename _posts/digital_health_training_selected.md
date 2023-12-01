@@ -80,9 +80,11 @@
 
 ### France 
 
-#### Bordeaux (School of Public Health)
+#### Bordeaux (School of Public Health-- in collaboration with [McGill](https://www.mcgill.ca/epi-biostat-occh/education/grad/dual-degree-programs-public-health-data-science))
 
 - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
+- [Digital Public Health Graduate Program - University of Bordeaux](https://digital-public-health.u-bordeaux.fr/)
+  - [Course details](https://digital-public-health.u-bordeaux.fr/Master-Program/Teaching-Program)
 
 
 #### Paris Cite (UFR des Sciences fondamentales et biomédicales)
