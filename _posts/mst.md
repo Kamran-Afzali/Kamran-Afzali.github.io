@@ -13,7 +13,7 @@ The main idea behind _Private-PGM_ is to construct a Probabilistic Graphical Mod
 Below is the pseudo code for the Private-PGM algorithm can be outlined as follows:
 
 ```python
-# Pseudo code for Private-PGM algorithm
+# Pseudo code for Private-PGM algorithm with MST
 
 # Step 1: Measurement
 function MeasureMarginals(data, marginals, epsilon):
@@ -26,8 +26,8 @@ function MeasureMarginals(data, marginals, epsilon):
 
 # Step 2: Synthetic Data Generation
 function GenerateSyntheticData(noisy_marginals):
-    # Construct a PGM based on the noisy marginals
-    pgm = constructPGM(noisy_marginals)
+    # Construct a PGM based on the noisy marginals using MST
+    pgm = constructPGMwithMST(noisy_marginals)
     # Generate synthetic data from the PGM
     synthetic_data = sampleFromPGM(pgm)
     return synthetic_data
@@ -40,6 +40,8 @@ function PrivatePGM(data, marginals, epsilon):
 ```
 Here's a breakdown of each step:
 
+Certainly! Let's break down the pseudo code for the Private-PGM algorithm with the use of the Maximum Spanning Tree (MST) algorithm:
+
 1. **Measurement (MeasureMarginals function):**
    - **Input:** Original data (`data`), a set of marginals to be preserved (`marginals`), and privacy parameter (`epsilon`).
    - **Output:** Noisy marginals for the specified variables.
@@ -49,17 +51,33 @@ Here's a breakdown of each step:
        - Generate Laplace or Gaussian noise (`noise`) using the `generateNoise` function with privacy parameter `epsilon`.
        - Add the noise to the true value to obtain the noisy marginal.
        - Store the noisy marginal in the `noisy_marginals` dictionary.
-   - Return the dictionary of noisy marginals.
+     - Return the dictionary of noisy marginals.
 
 2. **Synthetic Data Generation (GenerateSyntheticData function):**
    - **Input:** Noisy marginals obtained from the measurement step (`noisy_marginals`).
-   - **Output:** Synthetic data generated based on the constructed Probabilistic Graphical Model (PGM).
+   - **Output:** Synthetic data generated based on the constructed Probabilistic Graphical Model (PGM) with MST.
    - **Procedure:**
-     - Construct a PGM (`pgm`) based on the noisy marginals using the `constructPGM` function.
+     - Construct a PGM (`pgm`) based on the noisy marginals using the `constructPGMwithMST` function.
+     - The `constructPGMwithMST` function likely involves using the Maximum Spanning Tree algorithm to create the graphical structure of the model.
      - Generate synthetic data (`synthetic_data`) by sampling from the constructed PGM using the `sampleFromPGM` function.
    - Return the synthetic data.
 
-3. **Main Function (PrivatePGM function):**
+   ```python
+   # Pseudo code for a simplified constructPGMwithMST function using MST
+   function constructPGMwithMST(noisy_marginals):
+       # Use Maximum Spanning Tree algorithm to determine the edges of the PGM
+       mst_edges = maximumSpanningTreeAlgorithm(noisy_marginals)
+       # Construct the PGM based on the noisy marginals and the MST edges
+       # ...
+       return pgm
+   ```
+
+3. **Maximum Spanning Tree (constructPGMwithMST function):**
+   - The `constructPGMwithMST` function is responsible for constructing the Probabilistic Graphical Model (PGM) based on the noisy marginals using the Maximum Spanning Tree algorithm.
+   - The Maximum Spanning Tree algorithm helps determine the edges of the PGM, representing significant relationships among variables.
+   - The resulting PGM structure is used to guide the generation of synthetic data.
+
+4. **Main Function (PrivatePGM function):**
    - **Input:** Original data (`data`), a set of marginals to be preserved (`marginals`), and privacy parameter (`epsilon`).
    - **Output:** Synthetic data generated while preserving marginals.
    - **Procedure:**
@@ -67,7 +85,7 @@ Here's a breakdown of each step:
      - Call the `GenerateSyntheticData` function with the obtained noisy marginals to generate synthetic data.
      - Return the synthetic data.
 
-The core idea is to add noise to the true marginal values to achieve privacy, and then use these noisy marginals to construct a probabilistic graphical model. Finally, synthetic data is generated from this model, ensuring that the privacy of the original data is preserved while maintaining statistical properties specified by the marginals.
+The Maximum Spanning Tree algorithm is specifically utilized in the `constructPGMwithMST` function to determine the graphical structure of the Probabilistic Graphical Model (PGM) based on the noisy marginals. This structure is then used to generate synthetic data while preserving statistical properties specified by the marginals.
 
 ## Clover implementation 
 
