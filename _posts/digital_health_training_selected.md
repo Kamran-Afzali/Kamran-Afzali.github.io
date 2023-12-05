@@ -139,7 +139,12 @@
 ####  University at Buffalo (School of medicine-AMIA partner program)
 
 - [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
+  - In our two-year, ACGME-accredited fellowship, you’ll study all facets of clinical informatics, working with leaders in the field to develop and leverage innovations that enhance biomedical research, patient safety and clinical care. Our formal didactics thoroughly prepare you for the board certification exam in clinical informatics. You’ll stay on top of the latest evidence-based trends and findings by participating in — and presenting at — journal club and departmental grand rounds. And if you’re concerned about your clinical skills growing rusty, don’t be: To maintain your clinical skills and enrich your clinical experience, you’ll spend a full 20 percent of your training providing patient care in your specialty area.
+  - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics/curriculum.html)
 - [MS Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters.html)
+  - The program provide you with the skills you need to manage information in health care, industry and biomedical research settings. You’ll learn how to evaluate and work effectively with the concepts, systems and tools of biomedical informatics — key qualifications for high-level technical, policy or planning positions.
+  - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters/course-descriptions.html)
 - [PhD Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd.html)
-
+  - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares you to lead these organizations through complex information management challenges. With your advanced knowledge and skills, you’ll apply sophisticated tools and methods to help design new systems and applications. Best of all, thanks to our close partnerships with regional health care organizations, you don’t have to wait until you’ve earned your PhD to begin making high-level contributions to our field.
+  - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd/course-descriptions.html)
 
