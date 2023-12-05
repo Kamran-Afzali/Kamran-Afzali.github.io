@@ -1,11 +1,6 @@
 ## Introduction 
 
-McKenna (2021) introduces a general approach for differentially private synthetic data generation, which involves selecting low-dimensional marginals, adding noise to measure them, and generating synthetic data that preserves these marginals. This approach to dierentially private synthetic data generation consists of highlevel steps as follows. First, a domain expert familiar with the data and its use cases can specify the set of queries, or they can be automatically determined by an algorithm. The selected queries are important because they will ultimately determine the statistics for which the synthetic data preserves accuracy. After the queries are set, the privacy is augmented with a noise-addition mechanism such as the Gaussian mechanism. Finally, the noisy measurements are processed to estimate a high-dimensional data distribution and generate synthetic data. This procedure is based on the Maximum Spanning Tree (MST) from _Private-PGM_ Module. MST is a synthetic data generator that uses a differentially private approach to data generatation. The algorithm consists of three main steps:
-
-1. Select a collection of low-dimensional marginals.
-2. Measure those marginals with a noise addition mechanism.
-3. Generate synthetic data that preserves the measured marginals well.
-
+McKenna (2021) introduces a general approach for differentially private synthetic data generation, which involves selecting low-dimensional marginals, adding noise to measure them, and generating synthetic data that preserves these marginals. This approach includes three highlevel steps as follows. First, a domain expert familiar with the data and its use cases can specify the set of queries, or they can be automatically determined by an algorithm. The selected queries are important because they will ultimately determine the statistics for which the synthetic data preserves accuracy. After the queries are set, the privacy is augmented with a noise-addition mechanism such as the Gaussian mechanism. Finally, the noisy measurements are processed to estimate a high-dimensional data distribution and generate synthetic data. This procedure is based on the Maximum Spanning Tree (MST) functionality from _Private-PGM_ Module. The algorithm consists of three main steps:
 
 The main idea behind _Private-PGM_ is to construct a Probabilistic Graphical Model (PGM) that captures the dependencies between attributes in the data. This model is then used to generate synthetic data that maintains the correlations between attributes while satisfying differential privacy guarantees. To use Private-PGM for synthetic data generation, you can refer to the [GitHub repository](https://github.com/ryan112358/private-pgm) which provides an implementation of the tools described in the paper. The repository also includes examples and mechanisms for different problems, making it easier for users to learn how to use the codebase and build their own mechanisms on top of it. This approach is particularly effective in preserving the statistical properties of the original data and has been successfully applied in various domains, including health record data, where it outperformed existing models in terms of data quality and model performance (Torfi, 2022). 
 
@@ -32,6 +27,13 @@ function GenerateSyntheticData(noisy_marginals):
     synthetic_data = sampleFromPGM(pgm)
     return synthetic_data
 
+   # the constructPGMwithMST function using MST
+   function constructPGMwithMST(noisy_marginals):
+       # Use Maximum Spanning Tree algorithm to determine the edges of the PGM
+       mst_edges = maximumSpanningTreeAlgorithm(noisy_marginals)
+       # Construct the PGM based on the noisy marginals and the MST edges
+       return pgm
+
 # Main function
 function PrivatePGM(data, marginals, epsilon):
     noisy_marginals = MeasureMarginals(data, marginals, epsilon)
@@ -40,7 +42,7 @@ function PrivatePGM(data, marginals, epsilon):
 ```
 Here's a breakdown of each step:
 
-Certainly! Let's break down the pseudo code for the Private-PGM algorithm with the use of the Maximum Spanning Tree (MST) algorithm:
+Let's break down the pseudo code for the Private-PGM algorithm with the use of the Maximum Spanning Tree (MST) algorithm:
 
 1. **Measurement (MeasureMarginals function):**
    - **Input:** Original data (`data`), a set of marginals to be preserved (`marginals`), and privacy parameter (`epsilon`).
@@ -58,19 +60,9 @@ Certainly! Let's break down the pseudo code for the Private-PGM algorithm with t
    - **Output:** Synthetic data generated based on the constructed Probabilistic Graphical Model (PGM) with MST.
    - **Procedure:**
      - Construct a PGM (`pgm`) based on the noisy marginals using the `constructPGMwithMST` function.
-     - The `constructPGMwithMST` function likely involves using the Maximum Spanning Tree algorithm to create the graphical structure of the model.
+     - The `constructPGMwithMST` function involves using the Maximum Spanning Tree algorithm to create the graphical structure of the model.
      - Generate synthetic data (`synthetic_data`) by sampling from the constructed PGM using the `sampleFromPGM` function.
    - Return the synthetic data.
-
-   ```python
-   # Pseudo code for a simplified constructPGMwithMST function using MST
-   function constructPGMwithMST(noisy_marginals):
-       # Use Maximum Spanning Tree algorithm to determine the edges of the PGM
-       mst_edges = maximumSpanningTreeAlgorithm(noisy_marginals)
-       # Construct the PGM based on the noisy marginals and the MST edges
-       # ...
-       return pgm
-   ```
 
 3. **Maximum Spanning Tree (constructPGMwithMST function):**
    - The `constructPGMwithMST` function is responsible for constructing the Probabilistic Graphical Model (PGM) based on the noisy marginals using the Maximum Spanning Tree algorithm.
