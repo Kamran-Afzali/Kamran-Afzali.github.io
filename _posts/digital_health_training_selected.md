@@ -120,9 +120,15 @@
 ####  University of Denver (HIMSS Academic Organizational Affiliate)
 
 - [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#faculty)
+
+  - Leverage health data science tools and applications to achieve business and research outcomes within the health sector. In this master’s degree concentration, you’ll work with real hands-on data science projects using de-identified data from a curated health data repository built with industry partners—the first of its kind! Learn to optimize data to support evidence- and value-based results and enhance your knowledge in analytics, data science, and artificial intelligence. In addition, you’ll focus on how to integrate data platforms in the health and healthcare industries, virtual reality, data mining, machine learning, and reporting.
+
+  - [Course details](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#curriculum)
+    
 - [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
 
-
+  - With advancements in technology, healthcare organizations require leaders that can oversee and manage complex projects. Gain practical experience in project management in healthcare by using the tools and techniques leveraged for large- and small-scale projects. Develop the strategies and skills to ensure teams meet their goals for timeline, scope, and budget while delivering exceptional patient care. The program curriculum aligns with the PMI® Project Management Body of Knowledge.
+  - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634#curriculum)
 
 ####  Harvard
 
