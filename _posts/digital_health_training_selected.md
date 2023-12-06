@@ -112,9 +112,14 @@
 #### Stanford ([Medicine](https://med.stanford.edu/))
 
 - [Master of Science in Clinical Informatics Management (MCiM)](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html)
+  -  MCiM is a novel one-year management program for working professionals seeking to harness the power of digital innovations to deliver high-quality, cost-effective health care. Blending Stanford’s renowned expertise across medicine, business, and technology, MCiM prepares managers and senior leaders to drive the transformation of health systems, life sciences businesses, start-ups, and healthcare-focused technology organizations.
+  -  [Course details](https://med.stanford.edu/master-clinical-informatics-management/academics/mcim-curriculum.html) 
 - [Clinical Informatics Fellowship](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html)
-- [MS & PhD in Biomedical Informatics](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html
-)
+  - As the nation’s first accredited clinical informatics fellowship program by the Accreditation Council for Graduate Medical Education, the Stanford Clinical Informatics (CI) Fellowship builds upon Stanford’s longstanding tradition of leadership in clinical informatics. The CI fellowship program is a American Board of Medical Specialties approved Clinical Informatics board-eligible subspecialty fellowship sponsored by the American Board of Preventive Medicine. This program focuses on the understanding, integration and application of information technology to meet clinical objectives.
+  - [fellowship details](https://med.stanford.edu/cifellowship.html)
+- [MS & PhD in Biomedical Informatics](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html)
+  - Biomedical informatics is an interdisciplinary field that combines ideas from computer science and quantitative disciplines (statistics, data science, decision science) to solving challenging problems in biology and medicine. The BMI program provides coursework and mentored research training, with a focus on methods development, drawing heavily on quantitative and computational approaches.
+  - [Curriculum](https://dbds.stanford.edu/biomedical-data-science-graduate-program-overview/). MS and PhD candidates take coursework in four areas: (1) core DBDS classes, (2) an individual plan with electives in computer science, statistics, mathematics, engineering, and allied informatics-related disciplines, (3) required coursework in social, legal, and ethical issues, (4) unrestricted electives. In addition, PhD candidates are required to choose electives in some area of biology or medicine. Degree candidates also learn important didactic skills by serving as teaching assistants in our core courses.
 
 
 ####  University of Denver (HIMSS Academic Organizational Affiliate)
