@@ -81,7 +81,7 @@ The Maximum Spanning Tree algorithm is specifically utilized in the `constructPG
 ## Clover implementation 
 
 
-    class MSTGenerator(Generator):
+     MSTGenerator(Generator):
     """
     Wrapper of the Maximum Spanning Tree (MST) method from Private-PGM repo:
     https://github.com/ryan112358/private-pgm/tree/master.
@@ -96,6 +96,13 @@ The Maximum Spanning Tree algorithm is specifically utilized in the `constructPG
     :param epsilon: the privacy budget of the differential privacy
     :param delta: the failure probability of the differential privacy
     """
+    Steps include:
+    Preparing the parameters to train the generator.
+    Define and save the MST parameters. The fit is executed with the sampling.
+    Generate samples using the MST method.
+
+
+
 
   
 
@@ -115,8 +122,6 @@ The Maximum Spanning Tree algorithm is specifically utilized in the `constructPG
 - [Priv Syn:Differentially Private Data Synthesis](https://www.usenix.org/system/files/sec21fall-zhang-zhikun.pdf)
 
 
-
-- https://github.com/alan-turing-institute/reprosyn
 - https://github.com/ryan112358/private-pgm
 - https://github.com/BorealisAI/private-data-generation
 - https://github.com/alan-turing-institute/reprosyn
