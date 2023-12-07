@@ -137,11 +137,14 @@
 
 ####  Harvard
 
-- [Master of Science in Health Data Science](https://dbmi.hms.harvard.edu/education/masters-program)
+- [Master of Science in Health Data Science](https://www.hsph.harvard.edu/health-data-science/)
+  - The Master of Science (SM) in Health Data Science is designed to provide rigorous quantitative training and essential statistical and computing skills needed to manage and analyze health science data to address important questions in public health and biomedical sciences. The 16-month program blends strong statistical and computational training to solve emerging problems in public health and the biomedical sciences. This training will enable students to manage and analyze massive, noisy data sets and learn how to interpret their findings. The program will provide training in three principal pillars of health data science: statistics, computing, and health sciences.
+  - [Course details](https://content.sph.harvard.edu/biostats/publications/hds_handbook/hds_handbook.pdf)
 - [Master of Medical Sciences in Biomedical Informatics](https://dbmi.hms.harvard.edu/education/masters-program)
   - The Master of Medical Sciences in Biomedical Informatics (MMSc-BMI) program will train students to become contributors to the rapidly evolving use of biomedical data for revolutionary advances in scientific inquiry and technological development. This program is created for students who are looking to develop skills in data science in the context of medicine and biological science to improve human health. Through a rigorous combination of core coursework and a year-long full-time thesis research project, our students will graduate with the computational, methodological, and data science skills to contribute to an ongoing revolution in biomedical discovery. The MMSc in Biomedical Informatics program is a **full-time, residential program** completed over two academic years (4 semesters) of study.
   - [Course Details](https://dbmi.hms.harvard.edu/education/masters-program/mmsc-bmi-curriculum)
 - [NLM Biomedical Informatics and Data Science Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-fellowship)
+  - The Biomedical Informatics and Data Science Research Training (BIRT) Program is a consortium of leading informatics laboratories at Harvard Medical School. It is supported by a training grant from the National Library of Medicine, National Institutes of Health. This postdoctoral fellowship is available for United States citizens and permanent residents and provides up to two years of funding, including stipend, tuition, travel funds, and training-related expenses. In addition to research training, fellows are provided with many opportunities for collaboration, networking, and professional development. 
 
 ####  University at Buffalo (School of medicine-AMIA partner program)
 
