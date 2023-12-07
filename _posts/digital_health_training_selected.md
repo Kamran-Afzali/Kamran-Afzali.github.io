@@ -104,10 +104,19 @@
 
 #### University of Illinois Chicago- [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
 
-- [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/) 
+- [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
+  - Bachelor of Science in Health Information Management (BSHIM) completion program was designed to prepare graduates to take the prestigious Registered Health Information Administrator (RHIA) exam. This dynamic degree program provides skilled instruction in the management and use of information and information systems for healthcare planning and provision, resource allocation, and executive decision making. As you work your way through the curriculum presented online, you will also explore essential topics, such as coding, systems analysis, data quality management and health information research.
+  - [Course Details](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
+
 - [Post-Baccalaureate Certificate in Health Informatics (PBC HI)](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
+  - Post-Baccalaureate Health Informatics Certificate is 12-13 credit hours and can be completed in 12 months. There are four focus-areas: Health Informatics Fundamentals, Health Data Science Informatics, Leadership in Health Informatics, Mobile Health Informatics, All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+  - [Course Details](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
 - [Master of Science in Health Informatics (MSHI)](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
+  - The 100% online asynchronous Master of Science in Health Informatics program encompasses digital health, data science, and leadership. The 38-credit hour program is housed within University of Illinois Chicago (UIC) College of Applied Health Sciences and can be completed in 30 months. The curriculum focuses on social informatics at the population level. Students develop knowledge and skills in: Data collection, storage, extraction, manipulation, network architecture, data analysis and visualization, predictive analytics, healthcare project management, human factors in computer design, ethics, patient experience and healthcare communications. Students in the program often have clinical, business, or computer science backgrounds. They value the online format for flexibility, CAHIIM accreditation, and vast professional network.
+  - [Course details](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
 - [Post-Master’s Certificate in Health Informatics (PMC HI)](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/)
+  - Illinois Board of Higher Education (IBHE) approved Post-Master’s Certificate in Health Informatics (PMC HI) is 24 credit hours and can be completed in 18 months. This non-degree program is designed to help build knowledge and skills in accelerated format. All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+  - [course details](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/) 
 
 #### Stanford ([Medicine](https://med.stanford.edu/))
 
