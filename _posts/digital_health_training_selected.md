@@ -81,6 +81,13 @@
 
 ### France 
 
+ 
+https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure
+ 
+https://beesens.com/contents/94528
+ 
+
+
 #### Bordeaux (School of Public Health-- in collaboration with [McGill](https://www.mcgill.ca/epi-biostat-occh/education/grad/dual-degree-programs-public-health-data-science))
 
 - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
