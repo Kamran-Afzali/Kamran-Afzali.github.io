@@ -81,10 +81,11 @@
 
 ### France 
 
+At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties and UFRs began teaching digital health to students in their second cycle (4th to 6th year) in 2019. It was necessary to move fast and train doctors close to their entry into the job market. Have faculties taken too long to grasp the subject in its entirety? In 2016, Pierre Simon, a nephrologist and founding president of the Société française de télémédecine, urged universities to speed up the teaching of e-health.
+
  
-https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure
- 
-https://beesens.com/contents/94528
+- [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure) 
+- [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
  
 
 
