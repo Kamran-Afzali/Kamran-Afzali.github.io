@@ -28,6 +28,16 @@ Privacy preservation, particularly with the introduction of the General Data Pro
 The complexity in electronic healthcare data stems from heterogeneous data sources and intricate relationships within the data. Heterogeneity refers to varied data representations, such as cross-sectional versus longitudinal data, with the conversion between these formats posing a processing challenge. Relationships within the data model, involving entities like patient, clinical observation, and drug records, contribute to complexity. Comprehensive data models, as exemplified by multidimensional models, aim to address the intricate relationships, but learning these relationships remains a challenge to retain clinical information fidelity.
 
 
+
+**A proposed synthetic data framework** aims to facilitate the synthesis of healthcare data with a focus on maintaining a high degree of similarity to the ground truth, encompassing biological relationships and values, while also safeguarding privacy. The framework delineates several processes, including ground truth selection, synthetic data generation, evaluation, and the iterative selection of sensible synthetic data.
+
+The ground truth selection process involves two intertwined tasks: identifying privacy-sensitive variables and defining biological relationships. The results of these tasks inform the study data model, guiding the choice of a suitable synthetic data generation model. The synthetic data generation process aims to produce synthetic data candidates while ensuring data quality in terms of consistent data values and format. The subsequent evaluation process focuses on assessing key criteria, including biological relationship preservation, univariate and multivariate distances, and privacy preservation. The sensible synthetic data selection is an iterative process that concludes when all evaluation criteria are met.
+
+In the ground truth selection process, variables are chosen based on their relevance to the study context. Privacy-sensitive variable identification involves considering combinations of variables that might pose a risk of reidentification. Reference to guidance from entities like the UK's Information Commissioner's Office (ICO) can aid in predefining a set of sensitive variables. Additionally, well-established biological relationships between variables and the study target must be defined at this stage.
+
+Considerations for the synthetic data generation process include the identification of biological relationships, the privacy-sensitive nature of variables, and the number of variables. Adding noise can be effective when full synthetic data are not needed, but balancing privacy risk with data utility is crucial. Expert-driven approaches and machine learning algorithms offer solutions based on factors such as data accessibility, complexity, and transparency requirements. Transparency becomes vital, especially when interpreting the model architecture and results of machine learning algorithms. A recommendation emphasizes considering more transparent algorithms, such as Bayesian networks, when alternatives are available. After generating synthetic data, a data quality check may be necessary for variables with continuous values to ensure biological plausibility.
+
+
 ## References
 
 https://onlinelibrary.wiley.com/doi/full/10.1111/coin.12427
