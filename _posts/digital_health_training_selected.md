@@ -2,6 +2,7 @@
 
 ### Canada
 
+-  There is a need to educate family medicine residents in the realm of health informatics, applied data analytics for continuous quality improvement, and general principles of digital health technologies. However, the integration of health informatics concepts into the curricula of Canadian medical schools and residencies is proceeding slowly (see [here](https://www.cfp.ca/content/65/10/683)). [OMD](https://www.ontariomd.ca/documents/resource%20library/dig.%20health%20education%20for%20med%20school.pdf) proposes a Digital Health Curriculum that medical schools can leverage to deliver further value to your students. This digital health educational package includes well-defined instructional digital health materials developed by practicing physicians and digital health experts who are university faculty members. Each module in the curriculum is specifically designed to enhance experiential learning and can be easily customized to the learning goals of each university’s medical school and the student’s education year.  
 
 #### University of Victoria  (Health Information Science/Nursing)
 - [Master of health informatics- Double Degree Master of Nursing and Master of Science in Health Informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
