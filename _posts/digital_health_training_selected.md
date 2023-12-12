@@ -111,6 +111,8 @@ At the start of the 2024 academic year, digital health will make its appearance 
 
 ### USA
 
+In the United States, some medical schools have been reported to offer digital health teachings, reaching from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
+
 #### University of Illinois Chicago- [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
 
 - [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
