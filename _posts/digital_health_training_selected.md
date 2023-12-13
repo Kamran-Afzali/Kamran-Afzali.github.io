@@ -41,7 +41,10 @@
   - [Course details](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-courses)
 
 
-### Australie
+### Australia
+The Australian Medical Council (AMC) and the Australian Digital Health Agency (the Agency) formed a partnership in 2020 to engage in a project aimed at understanding how technology impacts the standards of medical education, training and practice in Australia. This was done in alignment with the AMC’s roles as a national standards body for medical education and training, and as the accreditation authority for the medical profession.  AMC completed this work by launching the [framework](https://www.amc.org.au/wp-content/uploads/2021/10/Digital-Health-in-Medicine-Capability-Framework-FINAL-18-Oct-2021.pdf) with medical education providers and other key stakeholders of medicine. As part of this launch, AMC also presented on the capability framework at a number of national medical education and workforce conferences and shared a new look digital health page with their stakeholders.
+
+
 
 #### University of Sydney
 
@@ -55,8 +58,9 @@
   - Our Graduate Certificate in Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1146)
 
-### Royaume-Uni
+### UK
 
+In recent investigations among UK healthcare professionals (HCPs), notable discrepancies in digital literacy within the healthcare field have been identified. These disparities present obstacles to the efficient integration of emerging technologies in clinical practices. Moreover, insufficient training on the ethical considerations related to these technologies poses a potential dilemma for HCPs in safeguarding patient rights. Recognizing these challenges and the evident need for focused education in digital health, a group pf UK medical doctors have recently [advocate for a concentrated effort](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8966807/) on the fundamental component of any healthcare profession—the undergraduate curriculum.
 
 #### University of Oxford ([Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health))
 
