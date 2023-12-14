@@ -2,7 +2,9 @@
 
 ### Canada
 
--  There is a need to educate family medicine residents in the realm of health informatics, applied data analytics for continuous quality improvement, and general principles of digital health technologies. However, the integration of health informatics concepts into the curricula of Canadian medical schools and residencies is proceeding slowly (see [here](https://www.cfp.ca/content/65/10/683)). There are offeres by medical associations to improve digital health training in medical schools, for instance [OMD](https://www.ontariomd.ca/documents/resource%20library/dig.%20health%20education%20for%20med%20school.pdf) proposes a Digital Health Curriculum that medical schools can leverage to deliver further value to your students. This digital health educational package includes well-defined instructional digital health materials developed by practicing physicians and digital health experts who are university faculty members. Each module in the curriculum is specifically designed to enhance experiential learning and can be easily customized to the learning goals of each university’s medical school and the student’s education year.  
+####  Medical schools 
+
+- There is a need to educate family medicine residents in the realm of health informatics, applied data analytics for continuous quality improvement, and general principles of digital health technologies. However, the integration of health informatics concepts into the curricula of Canadian medical schools and residencies is proceeding slowly (see [here](https://www.cfp.ca/content/65/10/683)). There are offeres by medical associations to improve digital health training in medical schools, for instance [OMD](https://www.ontariomd.ca/documents/resource%20library/dig.%20health%20education%20for%20med%20school.pdf) proposes a Digital Health Curriculum that medical schools can leverage to deliver further value to your students. This digital health educational package includes well-defined instructional digital health materials developed by practicing physicians and digital health experts who are university faculty members. Each module in the curriculum is specifically designed to enhance experiential learning and can be easily customized to the learning goals of each university’s medical school and the student’s education year.  
 
 #### University of Victoria  (Health Information Science/Nursing)
 - [Master of health informatics- Double Degree Master of Nursing and Master of Science in Health Informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
@@ -42,7 +44,10 @@
 
 
 ### Australia
-The Australian Medical Council (AMC) and the Australian Digital Health Agency (the Agency) formed a partnership in 2020 to engage in a project aimed at understanding how technology impacts the standards of medical education, training and practice in Australia. This was done in alignment with the AMC’s roles as a national standards body for medical education and training, and as the accreditation authority for the medical profession.  AMC completed this work by launching the [framework](https://www.amc.org.au/wp-content/uploads/2021/10/Digital-Health-in-Medicine-Capability-Framework-FINAL-18-Oct-2021.pdf) with medical education providers and other key stakeholders of medicine. As part of this launch, AMC also presented on the capability framework at a number of national medical education and workforce conferences and shared a new look digital health page with their stakeholders.
+
+####  Medical schools 
+
+- The Australian Medical Council (AMC) and the Australian Digital Health Agency (the Agency) formed a partnership in 2020 to engage in a project aimed at understanding how technology impacts the standards of medical education, training and practice in Australia. This was done in alignment with the AMC’s roles as a national standards body for medical education and training, and as the accreditation authority for the medical profession.  AMC completed this work by launching the [framework](https://www.amc.org.au/wp-content/uploads/2021/10/Digital-Health-in-Medicine-Capability-Framework-FINAL-18-Oct-2021.pdf) with medical education providers and other key stakeholders of medicine. As part of this launch, AMC also presented on the capability framework at a number of national medical education and workforce conferences and shared a new look digital health page with their stakeholders.
 
 
 
@@ -60,7 +65,9 @@ The Australian Medical Council (AMC) and the Australian Digital Health Agency (t
 
 ### UK
 
-In recent investigations among UK healthcare professionals (HCPs), notable discrepancies in digital literacy within the healthcare field have been identified. These disparities present obstacles to the efficient integration of emerging technologies in clinical practices. Moreover, insufficient training on the ethical considerations related to these technologies poses a potential dilemma for HCPs in safeguarding patient rights. Recognizing these challenges and the evident need for focused education in digital health, a group pf UK medical doctors have recently [advocate for a concentrated effort](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8966807/) on the fundamental component of any healthcare profession—the undergraduate curriculum.
+####  Medical schools 
+
+- In recent investigations among UK healthcare professionals (HCPs), notable discrepancies in digital literacy within the healthcare field have been identified. These disparities present obstacles to the efficient integration of emerging technologies in clinical practices. Moreover, insufficient training on the ethical considerations related to these technologies poses a potential dilemma for HCPs in safeguarding patient rights. Recognizing these challenges and the evident need for focused education in digital health, a group pf UK medical doctors have recently [advocate for a concentrated effort](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8966807/) on the fundamental component of any healthcare profession—the undergraduate curriculum.
 
 #### University of Oxford ([Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health))
 
@@ -86,7 +93,9 @@ In recent investigations among UK healthcare professionals (HCPs), notable discr
 
 ### France 
 
-At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties and UFRs began teaching digital health to students in their second cycle (4th to 6th year) in 2019. It was necessary to move fast and train doctors close to their entry into the job market. Have faculties taken too long to grasp the subject in its entirety? In 2016, Pierre Simon, a nephrologist and founding president of the Société française de télémédecine, urged universities to speed up the teaching of e-health.
+####  Medical schools 
+
+- At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties and UFRs began teaching digital health to students in their second cycle (4th to 6th year) in 2019. It was necessary to move fast and train doctors close to their entry into the job market. Have faculties taken too long to grasp the subject in its entirety? In 2016, Pierre Simon, a nephrologist and founding president of the Société française de télémédecine, urged universities to speed up the teaching of e-health.
 
  
 - [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure) 
@@ -115,7 +124,9 @@ At the start of the 2024 academic year, digital health will make its appearance 
 
 ### USA
 
-In the United States, some medical schools have been reported to offer digital health teachings, reaching from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
+####  Medical schools 
+
+- In the United States, some medical schools have been reported to offer digital health teachings, reaching from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
 
 #### University of Illinois Chicago- [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
 
