@@ -1,4 +1,13 @@
 
+The utilization of health data for innovation and enhancing care has been a long-standing focus. AI and machine learning (ML) present opportunities to leverage health system data for developing decision support tools, refining treatments, and enhancing system efficiencies. Despite these prospects, significant barriers hinder widespread innovation and adoption. ML applications being data-intensive face challenges related to data access. Privacy concerns act as critical impediments to health data sharing and access. Accessing datasets directly from authors of published studies, an option available, often proves to be poor, with varying and generally low success rates. Challenges are particularly pronounced in European Economic Area (EEA) countries adhering to the stringent EU General Data Protection Regulation (GDPR), which sets high standards for data sharing. The GDPR's global influence further complicates data sharing practices. The concept of a 'privacy chill,' as identified by the Public Health Agency of Canada, underscores the negative impact of restricted health data sharing, affecting pandemic response and the recruitment of skilled health data scientists. Technical solutions, such as synthetic data approaches, emerge as tools to enhance and protect privacy, overcoming the challenges posed by privacy concerns. Synthetic data generation (SDG) involves training ML models on real datasets to capture patterns, enabling the generation of privacy-preserving synthetic data without a direct mapping to the original or real patients.
+
+A symposium organized by CIFAR, IVADO, and Mila in November 2021 delved into the opportunities and challenges of deploying synthetic data approaches in various health applications. The discussions revealed a burgeoning interest in applying synthetic data across health and life sciences. However, realizing its full benefits necessitates further education, research, and policy innovation. This article encapsulates insights from the symposium, outlining the opportunities and challenges associated with SDG for health data. Additionally, a case study on synthetic PET scans is presented, offering directions on how this technology can expedite data access for secondary purposes.
+
+
+
+
+
+
 Machine learning has empowered intelligent computer systems to autonomously tackle tasks, contributing significantly to industrial innovation. Through the integration of high-performance computing, modern modeling, and simulations, machine learning has become an indispensable tool for managing and analyzing massive volumes of data. Despite the current perception of artificial intelligence entering a golden age, challenges persist in its development and application, necessitating solutions for unlocking its full transformative potential across industries.
 
 While machine learning has proven its capability to handle various tasks, it does not consistently provide optimal solutions. Challenges in the field persist, emphasizing the need for continuous efforts to address obstacles hindering the technology's progress. One of the critical challenges lies in data quality, where subpar data can lead to incorrect or imprecise predictions. Additionally, data scarcity poses a significant issue, either due to insufficient available datasets or the excessive cost of manual labeling. The ethical concerns of data privacy and fairness further complicate matters, requiring a balanced and secure approach to the development and deployment of machine learning technologies.
@@ -60,6 +69,8 @@ The creation of an ideal private synthetic dataset involves optimizing the priva
 https://onlinelibrary.wiley.com/doi/full/10.1111/coin.12427
 
 https://www.sciencedirect.com/science/article/pii/S2589004222016030
+
+https://www.oreilly.com/library/view/practical-synthetic-data/9781492072737/
 
 https://www.zotero.org/groups/5185601/synthetic_data_whitepaper/collections/EARWRPS6/items/YUUMDYNX/collection
 
