@@ -95,11 +95,9 @@
 
 ####  Medical schools 
 
-- At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties and UFRs began teaching digital health to students in their second cycle (4th to 6th year) in 2019. It was necessary to move fast and train doctors close to their entry into the job market. Have faculties taken too long to grasp the subject in its entirety? In 2016, Pierre Simon, a nephrologist and founding president of the Société française de télémédecine, urged universities to speed up the teaching of e-health.
-
- 
-- [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure) 
-- [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
+- At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties began teaching digital health to students in their second cycle (4th to 6th year) in 2019. More information can be found in the following articles.
+  - [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure)
+  - [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
  
 
 
@@ -126,7 +124,7 @@
 
 ####  Medical schools 
 
-- In the United States, some medical schools have been reported to offer digital health teachings, reaching from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
+- In the United States, in absence of a centeralized and unfied effort, some medical schools have been reported to offer digital health teachings. This can go from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
 
 #### University of Illinois Chicago- [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
 
