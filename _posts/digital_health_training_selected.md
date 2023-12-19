@@ -239,3 +239,6 @@
   - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares you to lead these organizations through complex information management challenges. With your advanced knowledge and skills, you’ll apply sophisticated tools and methods to help design new systems and applications. Best of all, thanks to our close partnerships with regional health care organizations, you don’t have to wait until you’ve earned your PhD to begin making high-level contributions to our field.
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd/course-descriptions.html)
 
+
+
+https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/
