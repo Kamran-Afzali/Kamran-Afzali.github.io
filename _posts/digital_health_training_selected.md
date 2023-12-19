@@ -19,9 +19,7 @@
   
    - Health information science (also known as health informatics) is the study of: how health data are collected, stored and communicated; how those data are processed into health information suitable for administrative and clinical decision making; and how computer and telecommunications technology can be applied to support these processes. You will learn to identify what information and data are needed and used to make effective healthcare decision by doctors, nurses, hospital administrators, government planners and other health care professionals.
    - The MSc program requires completion of coursework and a research project. All course requirements must be completed prior to proceeding to the final oral examination. Exceptional students with supervisor and Director approval may work on a thesis rather than a research project. Students are expected to be enrolled full time continuously during their program.
-   - [Course details](https://www.uvic.ca/calendar/grad/index.php#/programs/ryG2am0f4)
-  
-   - [Course details](https://www.uvic.ca/calendar/grad/#/courses?group=Health%20Information%20Science%20(HINF))
+   - [Course details](https://www.uvic.ca/calendar/grad/index.php#/programs/ryG2am0f4) [Additional information](https://www.uvic.ca/calendar/grad/#/courses?group=Health%20Information%20Science%20(HINF))
   
 - [undergraduate programs : Two unique programs](https://www.uvic.ca/hsd/hinf/undergraduate/programs/index.php)
    - [BSc in Health Information Science](https://www.uvic.ca/hsd/hinf/undergraduate/programs/bsc/index.php)
@@ -30,6 +28,31 @@
    - The Combined Major in Computer Science and Health Information Science combines studies in the organization of health care systems and specific issues involving health informatics with the fundamentals of software engineering, operating systems, programming languages and computer hardware.
 - [Graduate Certificate in Health Terminology Standards](https://www.uvic.ca/hsd/hinf/graduate/certificate/index.php)
    - The Graduate Certificate in Health Terminology Standards is a 1-year, part-time program with four graduate level courses done through weekly online evening classes and a virtual workshop. If you work in the health industry and are involved with or have an interest in health terminologies and standards, interoperable electronic health record, and clinical coding and classification, then this Certificate is for you. The program is intended to meet national and international needs for best practices in controlled terminologies used in the health industry. Graduates of this program are eligible for the **Canadian College of Health Information Management Terminology Standards Specialist Certification**.
+
+
+| Nb | Courses                                                   | Nursing Informatics | V of Vic |
+|----|-----------------------------------------------------------|---------------------|----------|
+| 1  | Philosophy for Advanced Practice Nursing                  | Nursing Informatics | V of Vic |
+| 2  | Health Informatics: An Overview                           | Nursing Informatics | V of Vic |
+| 3  | Advanced Practice Nursing & Professional Identity         | Nursing Informatics | V of Vic |
+| 4  | Health Information Systems Design                         | Nursing Informatics | V of Vic |
+| 5  | Database Design                                           | Nursing Informatics | V of Vic |
+| 6  | Nursing Ethics for Health System Transformation           | Nursing Informatics | V of Vic |
+| 7  | Research Methods in Health Informatics                    | Nursing Informatics | V of Vic |
+| 8  |  Evidence for Advanced Practice Nursing                   | Nursing Informatics | V of Vic |
+| 9  | Disciplinary Research for Advanced Practice Nursing       | Nursing Informatics | V of Vic |
+| 10 | Thesis                                                    | Nursing Informatics | V of Vic |
+| 11 | Research Methods in Health Informatics and Digital Health | Health Informatics  | V of Vic |
+| 12 | Health Informatics Overview                               | Health Informatics  | V of Vic |
+| 13 | Applied Statistics for Health Informatics                 | Health Informatics  | V of Vic |
+| 14 | Health Informatics Graduate Seminar                       | Health Informatics  | V of Vic |
+| 15 | Health Database Design                                    | Health Informatics  | V of Vic |
+| 16 | Intelligent Decision Support Systems and AI in Health     | Health Informatics  | V of Vic |
+| 17 | Health Information Standards                              | Health Informatics  | V of Vic |
+| 18 | Health Information Systems Design                         | Health Informatics  | V of Vic |
+| 19 | Research Project                                          | Health Informatics  | V of Vic |
+| 20 | Health Informatics Thesis                                 | Health Informatics  | V of Vic |
+| 21 | electives                                                 | Health Informatics  | V of Vic |
 
 #### McMaster (collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business)
   
