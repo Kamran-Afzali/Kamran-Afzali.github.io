@@ -96,6 +96,59 @@
 | 58 | Health Information Exchange Standards                       | GC Health Terminology Standards          | V of Vic   |
 | 59 | Field Project in Health Informatics                         | GC Health Terminology Standards          | V of Vic   |
 
+The presented health informatics programs encompass a wide array of courses, providing a comprehensive foundation for students in various aspects of healthcare and information technology. The courses can be categorized into several main themes:
+
+1. **Foundational Health Informatics Courses:**
+   - Health Informatics Overview
+   - Introduction to Health Information Technology
+   - Principles of Health Database Design
+
+2. **Clinical and Professional Development Courses:**
+   - Philosophy for Advanced Practice Nursing
+   - Advanced Practice Nursing & Professional Identity
+   - Nursing Ethics for Health System Transformation
+   - Introduction to Professional Practice
+   - Organizational Behavior and Change Management
+
+3. **Health Information Management and Systems Design:**
+   - Health Information Systems Design
+   - Health Database Design
+   - Database Management and Development for Health Care Systems
+   - Health Information System Design
+
+4. **Research and Methodology Courses:**
+   - Research Methods in Health Informatics
+   - Research Methods in Health Informatics and Digital Health
+   - Disciplinary Research for Advanced Practice Nursing
+   - Field Project in Health Informatics
+
+5. **Technological Competency Courses:**
+   - Programming for Healthcare
+   - Introduction to Systems Analysis
+   - Algorithms and Data Structures
+   - Software Development Method
+
+6. **Ethical and Legal Considerations:**
+   - Legal and Security Issues in Health Informatics
+   - Societal and Ethical Implications of Information Technology
+
+7. **Specialized Topics:**
+   - Intelligent Decision Support Systems and AI in Health
+   - Electronic Records and Decision Support Systems
+   - Artificial Intelligence in Health Care
+   - Controlled Terminology Standards
+   - Health Information Exchange Standards
+
+8. **Management and Leadership Courses:**
+   - Project Management
+   - Health Care Delivery Organization
+   - System Evaluation and Quality Improvement
+
+9. **Interdisciplinary Understanding:**
+   - Introduction to the Canadian Health Care Systems (addressed in multiple programs)
+   - Epidemiology, Population Health, and Public Health
+
+
 #### McMaster (collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business)
   
 - [Master eHealth](https://ehealth.mcmaster.ca/)
