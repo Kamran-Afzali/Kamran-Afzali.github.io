@@ -8,7 +8,7 @@
 
 #### University of Victoria 
 - **Departments**: Nursing, Faculty of Human and Social Development, Health Information Science
-- **Programs**: Diploma, Bachlors, Masters with possiblity to continue to PhD in health informatics, Double Degree Master of Nursing 
+- **Programs**: Graduate Certificate, Bachlors, Masters with possiblity to continue to PhD in health informatics, Double Degree Master of Nursing 
 - [Master of health informatics- Double Degree Master of Nursing and Master of Science in Health Informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
   
    - Our double-degree option lets you study nursing and health informatics side by side. You'll become a nursing leader in this rapidly expanding field. You’ll study areas of health technology like telehealth and electronic health care records.
@@ -149,7 +149,10 @@ The presented health informatics programs encompass a wide array of courses, pro
    - Epidemiology, Population Health, and Public Health
 
 
-#### McMaster (collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business)
+#### McMaster 
+
+- **Departments**: collaboration by three Faculties – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business
+- **Programs**: Graduate Diploma, Masters 
   
 - [Master eHealth](https://ehealth.mcmaster.ca/)
    - McMaster’s eHealth MSc program is a unique healthcare graduate program that immerses you in the world of digital health informatics. Offered through a collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business – the eHealth MSc builds on theoretical foundations in healthcare, information technology and business. An 8-month internship offers firsthand perspective on how these fields intersect in the transformation of modern healthcare delivery and management. You do not need an information technology degree to enroll in the eHealth MSc. Our interdisciplinary approach to learning lets you identify your area of study and pursue this through elective coursework and research. The program’s flexibility means that your academic experience can be as broad or as focused as you like. Modes of study include full time course-based, full time thesis-based, and part-time options.
@@ -160,6 +163,69 @@ The presented health informatics programs encompass a wide array of courses, pro
   -  This educational offering has been approved for the following continuing education credit/professional development credit by the **Canadian Society of Respiratory Therapists**. McMaster University Continuing Education maintains all responsibility for this offering and its content.
   - [Course details](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-courses)
 
+#### Anthology of presented courses 
+
+| Statistics for eHealth                                      | E-Health MSc                  | McMaster |
+|-------------------------------------------------------------|-------------------------------|----------|
+| Fundamentals of eHealth and the Canadian Health Care System | E-Health MSc                  | McMaster |
+| Management Issues in eHealth                                | E-Health MSc                  | McMaster |
+| Modern Software Technology for eHealth                      | E-Health MSc                  | McMaster |
+| Research and Evaluation Methods in eHealth                  | E-Health MSc                  | McMaster |
+| Virtual Care and Telemedicine                               | E-Health MSc                  | McMaster |
+| eHealth Innovations and Trends                              | E-Health MSc                  | McMaster |
+| Healthcare Analytics                                        | E-Health MSc                  | McMaster |
+| Information, Privacy, and Security                          | E-Health MSc                  | McMaster |
+| Health Information Management                               | Diploma in Health Informatics | McMaster |
+| Professionalism, Ethics & Professional Standards            | Diploma in Health Informatics | McMaster |
+| Privacy, Confidentiality, Security                          | Diploma in Health Informatics | McMaster |
+| Information Systems & Technology                            | Diploma in Health Informatics | McMaster |
+| Systems Analysis & Evaluation                               | Diploma in Health Informatics | McMaster |
+| Health Informatics Data Analysis                            | Diploma in Health Informatics | McMaster |
+| Project Management for the Health Sector                    | Diploma in Health Informatics | McMaster |
+| Health Informatics Practical Experience                     | Diploma in Health Informatics | McMaster |
+| Foundations in Health Informatics                           | Diploma in Health Informatics | McMaster |
+| Health Data Standards & Classifications                     | Diploma in Health Informatics | McMaster |
+| Quality and Performance Evaluation                          | Diploma in Health Informatics | McMaster |
+
+**Synthesis of Health Informatics Courses:**
+
+The courses presented can be categorized into several main themes, providing a comprehensive overview of foundational and specialized areas in the field:
+
+1. **Foundational Health Informatics Courses:**
+   - Fundamentals of eHealth and the Canadian Health Care System
+   - Foundations in Health Informatics
+
+2. **Clinical and Professional Development Courses:**
+   - Management Issues in eHealth
+   - Professionalism, Ethics & Professional Standards
+   - Privacy, Confidentiality, Security
+   - Project Management for the Health Sector
+   - Health Informatics Practical Experience
+
+3. **Health Information Management and Systems Design:**
+   - Health Information Management
+   - Information Systems & Technology
+   - Systems Analysis & Evaluation
+   - Health Informatics Data Analysis
+   - Health Data Standards & Classifications
+   - Quality and Performance Evaluation
+
+4. **Research and Methodology Courses:**
+   - Research and Evaluation Methods in eHealth
+
+5. **Technological Competency Courses:**
+   - Modern Software Technology for eHealth
+
+6. **Ethical and Legal Considerations:**
+   - Information, Privacy, and Security
+
+7. **Specialized Topics:**
+   - Virtual Care and Telemedicine
+   - eHealth Innovations and Trends
+   - Healthcare Analytics
+
+8. **Management and Leadership Courses:**
+   - Project Management for the Health Sector
 
 ### Australia
 
