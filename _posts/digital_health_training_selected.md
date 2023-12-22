@@ -164,9 +164,9 @@ The presented health informatics programs encompass a wide array of courses, pro
   - [Course details](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-courses)
 
 #### Anthology of presented courses 
-
-| Statistics for eHealth                                      | E-Health MSc                  | McMaster |
+|Courses                                                     | Program                        |University|
 |-------------------------------------------------------------|-------------------------------|----------|
+| Statistics for eHealth                                      | E-Health MSc                  | McMaster |
 | Fundamentals of eHealth and the Canadian Health Care System | E-Health MSc                  | McMaster |
 | Management Issues in eHealth                                | E-Health MSc                  | McMaster |
 | Modern Software Technology for eHealth                      | E-Health MSc                  | McMaster |
@@ -246,6 +246,82 @@ The courses presented can be categorized into several main themes, providing a c
 - [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
   - Our Graduate Certificate in Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1146)
+
+#### Anthology of presented courses 
+|Courses                                        | Program                                                 |University|
+|-----------------------------------------------|---------------------------------------------------------|----------|
+|  Foundations of Data Science                  | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Introduction to Programming                  | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Computing 1A Professionalism                 | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Mathematics 1A                               | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Discrete Mathematics for Computation         | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Computing 1B OS & Network Platforms          | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Introduction to Computer Systems             | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Object-Oriented Programming                  | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Introduction to Health and Health Care       | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Life and Evolution                           | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  From Molecules to Ecosystems                 | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Human Biology                                | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Data Structures & Algorithms                 | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Society and Health                           | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Psychology 1002                              | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Agile Software Development Practices         | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Research Methods in Health                   | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Computing 2 Usability and Security           | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Innovations in eHealth                       | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Data & Information Management                | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Computing 3 Management                       | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+|  Computing 4 Innovation                       | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
+| Clinical Ethics                               | Master of Digital Health and Data Science               | U Sydney |
+| Regulatory Affairs in the Medical Industry    | Master of Digital Health and Data Science               | U Sydney |
+| Introduction to Clinical Epidemiology         | Master of Digital Health and Data Science               | U Sydney |
+| Usability Engineering                         | Master of Digital Health and Data Science               | U Sydney |
+| Leadership in Health                          | Master of Digital Health and Data Science               | U Sydney |
+| Foundations Health Technology Assessment      | Master of Digital Health and Data Science               | U Sydney |
+| Design Thinking                               | Master of Digital Health and Data Science               | U Sydney |
+| Biomedical Image Analysis                     | Master of Digital Health and Data Science               | U Sydney |
+| AI, Data, and Society in Health               | Master of Digital Health and Data Science               | U Sydney |
+| Natural Language Processing                   | Master of Digital Health and Data Science               | U Sydney |
+| Visual Analytics                              | Master of Digital Health and Data Science               | U Sydney |
+| Machine Learning and Data Mining              | Master of Digital Health and Data Science               | U Sydney |
+| Information Technology in Biomedicine         | Master of Digital Health and Data Science               | U Sydney |
+| Introduction to Programming                   | Master of Digital Health and Data Science               | U Sydney |
+| Object-Oriented Programming                   | Master of Digital Health and Data Science               | U Sydney |
+| Health Technology Evaluation                  | Master of Digital Health and Data Science               | U Sydney |
+| Enterprise Healthcare Information Systems     | Master of Digital Health and Data Science               | U Sydney |
+| Introduction to Statistics                    | Master of Digital Health and Data Science               | U Sydney |
+| Computational Statistical Methods             | Master of Digital Health and Data Science               | U Sydney |
+|  Foundations of Digital Health                | Master of Digital Health and Data Science               | U Sydney |
+|  Foundations of Healthcare Data Science       | Master of Digital Health and Data Science               | U Sydney |
+|  Digital Health Innovation and Implementation | Master of Digital Health and Data Science               | U Sydney |
+|  Applied Healthcare Data Science              | Master of Digital Health and Data Science               | U Sydney |
+|  Digital Health and Data Science Project A    | Master of Digital Health and Data Science               | U Sydney |
+|  Digital Health and Data Science Project B    | Master of Digital Health and Data Science               | U Sydney |
+| Enterprise Healthcare Information Systems     | Master of Digital Health and Data Science               | U Sydney |
+| Introduction to Statistics                    | Master of Digital Health and Data Science               | U Sydney |
+| Applied Healthcare Data Science               | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Foundations of Healthcare Data Science        | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Digital Health Innovation and Implementation  | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Foundations of Digital Health                 | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Biomedical Image Analysis                     | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| AI, Data, and Society in Health               | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Natural Language Processing                   | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Visual Analytics                              | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Machine Learning and Data Mining              | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Information Technology in Biomedicine         | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Introduction to Programming                   | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Object-Oriented Programming                   | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Health Technology Evaluation                  | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Enterprise Healthcare Information Systems     | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Introduction to Statistics                    | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Computational Statistical Methods             | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Clinical Ethics                               | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Regulatory Affairs in the Medical Industry    | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Introduction to Clinical Epidemiology         | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Usability Engineering                         | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Leadership in Health                          | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Foundations Health Technology Assessment      | Graduate Certificate in Digital Health and Data Science | U Sydney |
+| Design Thinking                               | Graduate Certificate in Digital Health and Data Science | U Sydney |
 
 ### UK
 
