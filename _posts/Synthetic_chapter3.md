@@ -41,7 +41,7 @@ In the ground truth selection process, variables are chosen based on their relev
 
 Considerations for the synthetic data generation process include the identification of biological relationships, the privacy-sensitive nature of variables, and the number of variables. Adding noise can be effective when full synthetic data are not needed, but balancing privacy risk with data utility is crucial. Expert-driven approaches and machine learning algorithms offer solutions based on factors such as data accessibility, complexity, and transparency requirements. Transparency becomes vital, especially when interpreting the model architecture and results of machine learning algorithms. A recommendation emphasizes considering more transparent algorithms, such as Bayesian networks, when alternatives are available. After generating synthetic data, a data quality check may be necessary for variables with continuous values to ensure biological plausibility.
 
-The framework below outlines key considerations and steps for the generation and evaluation of synthetic data in the context of healthcare. The three highlighted points cover the synthesis process, quality assessment, and privacy assessment, providing a comprehensive approach to ensure the effectiveness, reliability, and privacy preservation of synthetic healthcare data.
+The **framework** below outlines key considerations and steps for the generation and evaluation of synthetic data in the context of healthcare. The three highlighted points cover the synthesis process, quality assessment, and privacy assessment, providing a comprehensive approach to ensure the effectiveness, reliability, and privacy preservation of synthetic healthcare data.
 
 **Synthesis Process:**
 The synthesis process for generating synthetic data in healthcare begins with the utilization of real-world data. Various techniques can be employed for synthesis, including decision trees, deep learning methods, and iterative proportional fitting. The selection of a specific technique is driven by the nature of the problem at hand and the desired level of data utility. Decision trees may be suitable for certain structured datasets, while deep learning techniques might be more effective in capturing complex patterns. The choice of synthesis method should align with the specific goals of the healthcare application, ensuring that the generated synthetic data retains essential features while mitigating privacy risks.
@@ -52,8 +52,10 @@ A critical aspect of synthetic data generation in healthcare involves a comprehe
 **Privacy Assessment:**
 Privacy assessment is central to evaluate the potential risks associated with synthetic data. It examines the likelihood of individuals being re-identified in the synthetic dataset and assesses the ease with which new information could be inferred if re-identification occurs. Existing frameworks provide empirical methods to quantify privacy risks. Adjustments to synthesis parameters may be necessary to enhance privacy assurances. This iterative approach ensures that the generated synthetic data minimizes the risk of re-identification and unauthorized disclosure, aligning with ethical and legal considerations in healthcare data usage. Regular privacy assessments contribute to the ongoing refinement of synthetic data generation processes, promoting a balance between data utility and individual privacy protection.
 
+**Synthesis Process**
+The process of synthetic data generation involves two main categories: Knowledge-Driven Methods and Data-Driven Methods. Knowledge-Driven (KD) approaches, also known as Theory-driven, derive ground truth from publicly available domain-specific knowledge found in academic or research documents, web resources, and human expertise. These methods require manual curation of the generative model, involving rules, statistical, mathematical, or computational models. KD approaches rarely involve real data, making them resilient to disclosure attacks, but their utility depends on the expertise of the model curator. Knowledge-driven methods are especially useful when data access is challenging, allowing for the creation of synthetic data based on statistical metrics extracted from existing literature. However, challenges may arise when dealing with a large number of variables, limiting the ability to capture hidden patterns among them.
 
-
+On the other hand, Data-Driven Methods derive the generative model directly from actual data, capturing ground realities more rigorously. Machine learning algorithms, commonly used in data-driven approaches, are effective in discovering hidden patterns, making them suitable when stringent requirements on both data utility and privacy exist, especially in scenarios with numerous and complex biological relationships between variables. Despite their advantages, the choice of a machine learning algorithm depends on transparency requirements. While black box models may offer advantages, a more transparent algorithm, such as Bayesian networks, is recommended when interpretability and trust in the underlying logic are crucial. Adding noise can be a pragmatic solution to balance privacy risks and data utility, especially when full synthetic data is not required. However, striking the right balance is essential, as more noise reduces privacy risk but also diminishes data utility, requiring careful consideration of the added noise level and its impact on preserving original correlations between variables.
 
 
 **Evaluating the quality of synthetic medical**
@@ -73,14 +75,19 @@ Federated learning (FL) is suggested as a privacy-preserving alternative, creati
 
 ## References
 
-https://onlinelibrary.wiley.com/doi/full/10.1111/coin.12427
+- https://onlinelibrary.wiley.com/doi/full/10.1111/coin.12427
 
-https://www.sciencedirect.com/science/article/pii/S2589004222016030
+- https://www.sciencedirect.com/science/article/pii/S2589004222016030
 
-https://www.oreilly.com/library/view/practical-synthetic-data/9781492072737/
+- https://www.oreilly.com/library/view/practical-synthetic-data/9781492072737/
 
-https://www.zotero.org/groups/5185601/synthetic_data_whitepaper/collections/EARWRPS6/items/YUUMDYNX/collection
+- https://www.zotero.org/groups/5185601/synthetic_data_whitepaper/collections/EARWRPS6/items/YUUMDYNX/collection
 
-https://arxiv.org/abs/2302.04062
+
+- [Synthetic data generation for tabular health records: A systematic review. Neurocomputing, 493, 28-45. Advance online publication.](https://doi.org/10.1016/j.neucom.2022.04.053)
+- [Synthetic data in health care: A narrative review](https://doi.org/10.1371/journal.pdig.0000082)
+- [Machine Learning for Synthetic Data Generation](https://arxiv.org/abs/2302.04062) 
+- [Synthetic data generation: State of the art in health care domain](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138)
+- [Synthetic data as an enabler for machine learning applications in medicine](https://www.cell.com/iscience/fulltext/S2589-0042(22)01603-0_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2589004222016030%3Fshowall%3Dtrue)
 
 
