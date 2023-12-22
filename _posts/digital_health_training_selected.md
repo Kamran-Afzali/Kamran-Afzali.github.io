@@ -237,6 +237,9 @@ The courses presented can be categorized into several main themes, providing a c
 
 #### University of Sydney
 
+- **Departments**: Faculty of Engineering, Computer sciences 
+- **Programs**: Graduate Certificate, Bachlors, Masters,
+
 - [Bachelor of Advanced Computing and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-health.html)
   - The Bachelor of Advanced Computing/Bachelor of Science (Health) is a combined undergraduate coursework degree that will develop your technical skills in computing while providing a thorough grounding in health and health systems at the local, national and global level. You will complete core units that cover the skills needed to work as a computing professional, along with a major from the Advanced Computing disciplinary pool and advanced computing elective units. Additionally, you will complete a major in health, with core units in areas such as human biology, psychology and eHealth, ensuring you develop a breadth of knowledge in healthcare and its latest developments.
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/782)
@@ -322,6 +325,62 @@ The courses presented can be categorized into several main themes, providing a c
 | Leadership in Health                          | Graduate Certificate in Digital Health and Data Science | U Sydney |
 | Foundations Health Technology Assessment      | Graduate Certificate in Digital Health and Data Science | U Sydney |
 | Design Thinking                               | Graduate Certificate in Digital Health and Data Science | U Sydney |
+
+**Synthesis of Health Informatics Courses:**
+
+The courses presented across various health informatics programs can be categorized into several main themes, reflecting a holistic and interdisciplinary approach to health and technology integration:
+
+1. **Foundational Health Informatics Courses:**
+   - Foundations of Data Science
+   - Foundations of Digital Health
+   - Foundations of Healthcare Data Science
+   - Applied Healthcare Data Science
+
+2. **Clinical and Professional Development Courses:**
+   - Clinical Ethics
+   - Regulatory Affairs in the Medical Industry
+   - Introduction to Clinical Epidemiology
+   - Usability Engineering
+   - Leadership in Health
+   - Foundations Health Technology Assessment
+   - Design Thinking
+
+3. **Health Information Management and Systems Design:**
+   - Data & Information Management
+   - Enterprise Healthcare Information Systems
+
+4. **Research and Methodology Courses:**
+   - Research and Evaluation Methods in eHealth
+   - Introduction to Statistics
+   - Computational Statistical Methods
+
+5. **Technological Competency Courses:**
+   - Introduction to Programming
+   - Object-Oriented Programming
+   - Computing 1A Professionalism
+   - Computing 1B OS & Network Platforms
+   - Computing 2 Usability and Security
+   - Computing 3 Management
+   - Computing 4 Innovation
+   - Innovations in eHealth
+
+6. **Ethical and Legal Considerations:**
+   - Information, Privacy, and Security
+
+7. **Specialized Topics:**
+   - Healthcare Analytics
+   - Biomedical Image Analysis
+   - AI, Data, and Society in Health
+   - Natural Language Processing
+   - Visual Analytics
+   - Machine Learning and Data Mining
+   - Information Technology in Biomedicine
+
+8. **Management and Leadership Courses:**
+   - Project Management for the Health Sector
+   - Leadership in Health
+   - Computing 3 Management
+
 
 ### UK
 
