@@ -238,7 +238,7 @@ The courses presented can be categorized into several main themes, providing a c
 #### University of Sydney
 
 - **Departments**: Faculty of Engineering, Computer sciences 
-- **Programs**: Graduate Certificate, Bachlors, Masters,
+- **Programs**: Graduate Certificate, Bachlors, Masters
 
 - [Bachelor of Advanced Computing and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-health.html)
   - The Bachelor of Advanced Computing/Bachelor of Science (Health) is a combined undergraduate coursework degree that will develop your technical skills in computing while providing a thorough grounding in health and health systems at the local, national and global level. You will complete core units that cover the skills needed to work as a computing professional, along with a major from the Advanced Computing disciplinary pool and advanced computing elective units. Additionally, you will complete a major in health, with core units in areas such as human biology, psychology and eHealth, ensuring you develop a breadth of knowledge in healthcare and its latest developments.
@@ -455,6 +455,9 @@ The courses presented across different health informatics programs can be synthe
 
 #### University of Leeds (School of Medicine)
 
+- **Departments**: School of Medicine 
+- **Programs**: Graduate Certificate, Masters
+
 - [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
   - Created by experienced academics and professionals, our course is designed for both recent graduates and professionals looking to advance their careers. The course will develop your knowledge and understanding of health informatics, health data science techniques, and real-world application of research methods.
   -  [Course details](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc#content)
@@ -470,7 +473,66 @@ The courses presented across different health informatics programs can be synthe
 - At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties began teaching digital health to students in their second cycle (4th to 6th year) in 2019. More information can be found in the following articles.
   - [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure)
   - [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
- 
+
+#### Anthology of presented courses 
+
+
+| Courses                                                  | Program                                     | University |
+|----------------------------------------------------------|---------------------------------------------|------------|
+| Statistics and Modelling for Health Sciences             | MSc Health Informatics with Data Science    | Leeds      |
+| Foundations of Health Data                               | MSc Health Informatics with Data Science    | Leeds      |
+| Human Factors in Health Data Science                     | MSc Health Informatics with Data Science    | Leeds      |
+| Informatics and Data Science in Health Care and Research | MSc Health Informatics with Data Science    | Leeds      |
+| Law, Ethics and Governance for Health Data Science       | MSc Health Informatics with Data Science    | Leeds      |
+| Artificial Intelligence and Machine Learning in Health   | MSc Health Informatics with Data Science    | Leeds      |
+| MSc Health Informatics Project                           | MSc Health Informatics with Data Science    | Leeds      |
+| Principles of Health Economics                           | MSc Health Informatics with Data Science    | Leeds      |
+| Economic Evaluations for Health Technology Assessment    | MSc Health Informatics with Data Science    | Leeds      |
+| Introduction to Health Economics                         | MSc Health Informatics with Data Science    | Leeds      |
+| Key Issues in International Health                       | MSc Health Informatics with Data Science    | Leeds      |
+| Monitoring and Evaluation of Health Programmes           | MSc Health Informatics with Data Science    | Leeds      |
+| Health Promotion                                         | MSc Health Informatics with Data Science    | Leeds      |
+| Spatial Analytics and Visualisation for Health           | MSc Health Informatics with Data Science    | Leeds      |
+| Visualisation for Health Data                            | MSc Health Informatics with Data Science    | Leeds      |
+| Statistics and Modelling for Health Sciences             | Health Informatics with Data Science PGCert | Leeds      |
+| Foundations of Health Data                               | Health Informatics with Data Science PGCert | Leeds      |
+| Informatics and Data Science in Health Care and Research | Health Informatics with Data Science PGCert | Leeds      |
+| Law, Ethics and Governance for Health Data Science       | Health Informatics with Data Science PGCert | Leeds      |
+
+**Synthesis of Health Informatics Courses:**
+
+The courses presented across different health informatics programs, particularly in the realm of Health Informatics with Data Science, can be synthesized into several main categories, demonstrating a comprehensive approach to the integration of health and data science:
+
+1. **Foundational Health Data Science Courses:**
+   - Statistics and Modelling for Health Sciences
+   - Foundations of Health Data
+   - Informatics and Data Science in Health Care and Research
+
+2. **Ethical and Legal Considerations in Health Data Science:**
+   - Law, Ethics and Governance for Health Data Science
+
+3. **Advanced Data Science Techniques:**
+   - Artificial Intelligence and Machine Learning in Health
+   - Spatial Analytics and Visualisation for Health
+   - Visualisation for Health Data
+
+4. **Health Economics and Evaluation:**
+   - Principles of Health Economics
+   - Economic Evaluations for Health Technology Assessment
+   - Introduction to Health Economics
+
+5. **International Health and Program Evaluation:**
+   - Key Issues in International Health
+   - Monitoring and Evaluation of Health Programmes
+
+6. **Health Promotion:**
+   - Health Promotion
+
+7. **Postgraduate Certificate Courses:**
+   - Statistics and Modelling for Health Sciences
+   - Foundations of Health Data
+   - Informatics and Data Science in Health Care and Research
+   - Law, Ethics and Governance for Health Data Science
 
 
 #### Bordeaux (School of Public Health-- in collaboration with [McGill](https://www.mcgill.ca/epi-biostat-occh/education/grad/dual-degree-programs-public-health-data-science))
