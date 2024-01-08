@@ -390,6 +390,9 @@ The courses presented across various health informatics programs can be categori
 
 #### University of Oxford ([Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health))
 
+- **Departments**: Oxford Institute of Digital Health, Nuffield Department of Primary Care Health Sciences
+- **Programs**: Masters 
+
 - [MSc Applied Digital Health](https://www.phc.ox.ac.uk/study/msc-applied-digital-health)
   -  This applied, interdisciplinary MSc is led by the Nuffield Department of Primary Care Health Sciences (NDPCHS), capitalising on the existing breadth of internationally leading digital health research in the department. In addition, the course draws on the expertise of faculty from across the University to create an interdisciplinary learning experience, spanning medicine, social science, engineering, artificial intelligence and data science. The course is further enriched by linking to the department's Oxford Institute of Digital Health, National Institute for Health Research (NIHR) Oxford & Thames Valley Applied Research Collaboration (ARC), which is hosted by NDPCHS (led by Theme Lead John Powell, Academic Director for this MSc), as well as the NIHR Community Healthcare MedTech and IVD Cooperative and the NIHR Oxford Biomedical Research Center.
   - [Course details](https://www.ox.ac.uk/sites/files/oxford/media_wysiwyg/MSc%20ADH%20Handbook%2022_23.pdf)
@@ -398,6 +401,56 @@ The courses presented across various health informatics programs can be categori
   - This MSc is ideal for researchers who want to study scientific and technological innovation in a healthcare setting and research managers looking to run clinical trials or promote the uptake of research findings. It will also assist entrepreneurs (from an industry or clinical background) who seek to improve patient care through innovation and policymakers (local and national) wishing to support research and its translation to improve services. For students interested in undertaking doctoral research, the MSc will prepare them to apply for a DPhil in Translational Health Sciences. We expect all our students to have some relevant past experience in a work environment.
   - We combine health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. With us you will be actively involved in listening to and informing the informatics and data science agenda for health.
   - [Course details](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences) 
+
+
+#### Anthology of presented courses 
+
+| Courses                                                     | Program                              | University |
+|-------------------------------------------------------------|--------------------------------------|------------|
+| Foundations of Digital Health                               | MSc Applied Digital Health           | Oxford     |
+| Clinical Informatics for Trials and Health Surveillance     | MSc Applied Digital Health           | Oxford     |
+| Harnessing Big Data to Improve Care                         | MSc Applied Digital Health           | Oxford     |
+| Remote Monitoring and Digital Diagnostics                   | MSc Applied Digital Health           | Oxford     |
+| Supporting Health Behaviour Change using Digital Tools      | MSc Applied Digital Health           | Oxford     |
+| Digital Transformation of Primary Care                      | MSc Applied Digital Health           | Oxford     |
+| Introduction and Research Methods for Translational Science | MSc in Translational Health Sciences | Oxford     |
+| Behavioural Science and Complex Interventions               | MSc in Translational Health Sciences | Oxford     |
+| Economics and Regulation in Translational Science           | MSc in Translational Health Sciences | Oxford     |
+| Ethics and Justice in Translational Science                 | MSc in Translational Health Sciences | Oxford     |
+| Health Organisations and Policy                             | MSc in Translational Health Sciences | Oxford     |
+| Patients, Citizens & the Politics of Evidence               | MSc in Translational Health Sciences | Oxford     |
+| Healthcare Evaluation and Research Impact                   | MSc in Translational Health Sciences | Oxford     |
+| Technological Innovation and Digital Health                 | MSc in Translational Health Sciences | Oxford     |
+| Translational Science and Global Health                     | MSc in Translational Health Sciences | Oxford     |
+
+
+**Synthesis of Health Informatics Courses:**
+
+The courses presented across different health informatics programs can be synthesized into several main categories, reflecting a comprehensive approach to digital health and translational science:
+
+1. **Foundational Digital Health Courses:**
+   - Foundations of Digital Health
+
+2. **Digital Health Applications and Technologies:**
+   - Clinical Informatics for Trials and Health Surveillance
+   - Harnessing Big Data to Improve Care
+   - Remote Monitoring and Digital Diagnostics
+   - Supporting Health Behavior Change using Digital Tools
+   - Digital Transformation of Primary Care
+   - Technological Innovation and Digital Health
+
+3. **Translational Science and Research Methods:**
+   - Introduction and Research Methods for Translational Science
+   - Behavioural Science and Complex Interventions
+   - Economics and Regulation in Translational Science
+   - Ethics and Justice in Translational Science
+   - Healthcare Evaluation and Research Impact
+   - Translational Science and Global Health
+
+4. **Health Policy, Organizations, and Ethics:**
+   - Health Organisations and Policy
+   - Patients, Citizens & the Politics of Evidence
+
 
 
 #### University of Leeds (School of Medicine)
