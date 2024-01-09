@@ -453,7 +453,7 @@ The courses presented across different health informatics programs can be synthe
 
 
 
-#### University of Leeds (School of Medicine)
+#### University of Leeds 
 
 - **Departments**: School of Medicine 
 - **Programs**: Graduate Certificate, Masters
@@ -465,14 +465,6 @@ The courses presented across different health informatics programs can be synthe
   - We combine health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. With us, you will be actively involved in listening to, and informing, the informatics and data science agenda for health. 
   -  [Course details](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert#content)
 
-
-### France 
-
-####  Medical schools 
-
-- At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties began teaching digital health to students in their second cycle (4th to 6th year) in 2019. More information can be found in the following articles.
-  - [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure)
-  - [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
 
 #### Anthology of presented courses 
 
@@ -534,21 +526,92 @@ The courses presented across different health informatics programs, particularly
    - Informatics and Data Science in Health Care and Research
    - Law, Ethics and Governance for Health Data Science
 
+### France 
 
-#### Bordeaux (School of Public Health-- in collaboration with [McGill](https://www.mcgill.ca/epi-biostat-occh/education/grad/dual-degree-programs-public-health-data-science))
+####  Medical schools 
 
+- At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties began teaching digital health to students in their second cycle (4th to 6th year) in 2019. More information can be found in the following articles.
+  - [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure)
+  - [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
+
+
+#### Bordeaux 
+
+- **Departments**: School of Public Health-- in collaboration with  [McGill University School of Population and Global Health](https://www.mcgill.ca/epi-biostat-occh/) 
+- **Programs**: Masters, PhD, Dual Degree Programs in Public Health Data Science in collaboration with [McGill](https://www.mcgill.ca/epi-biostat-occh/education/grad/dual-degree-programs-public-health-data-science)
 - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
   - The training program aims to equip professionals in the field of data science applied to public health, preparing them for roles in both the industry and public sectors. The objectives include providing foundational skills such as scientific expertise, the ability to manage complex issues, and proficiency in handling informational and technological data. The program also aims to enable participants to seamlessly integrate into a Ph.D. program within a research team. Emphasis is placed on developing knowledge and skills necessary for managing projects or multidisciplinary programs in data science, fostering collaboration with partners and networks. Additionally, participants will gain expertise in conducting research related to public health, spanning from project design to data analysis and presentation of results. The curriculum ensures the acquisition of multidisciplinary skills in epidemiology, computer science, and biostatistics, and emphasizes understanding the strengths and limitations of technologies and digital approaches in the context of public health.
   - [Course details](www.isped.u-bordeaux.fr/Portals/0/TELECHARGEMENT/Rubrique_FORMATIONS/M2_PHDS/M2_PHDS_Programme.pdf?ver=W5KEEUS0-yxdY37kYNBfkg%3d%3d)
-- [Digital Public Health Graduate Program - University of Bordeaux in collaboration with McGill](https://digital-public-health.u-bordeaux.fr/)
-  - The Master in Public Health Data Science offers a comprehensive year of international research encompassing various aspects of public health data science, ranging from project inception to the analysis of real-life health data and the subsequent communication of results. The curriculum covers a spectrum of multidisciplinary skills, including epidemiology, informatics, and statistics, ensuring that students acquire a robust understanding of the capabilities and limitations of digital technologies in the realm of public health research. In the epidemiology component, students learn to translate public health and clinical issues into research questions, design research plans for surveillance systems, and conduct observational and experimental studies, including clinical trials. The statistics module covers methods for supervised and unsupervised statistical analysis, modeling of biomedical data (including high-dimensional and time-to-event data), statistical learning, data mining, data integration, and advanced computational statistics. In the informatics segment, students delve into topics such as data integration architecture (i2b2, Transmart), interoperability, knowledge representation (terminologies, ontologies), natural language processing, data visualization, programming, cloud computing, Hadoop, linked open data, and aspects of data security, confidentiality, and integrity.
-  -  [Course details](https://digital-public-health.u-bordeaux.fr/Master-Program/Teaching-Program)
 
 
-#### Paris Cite (UFR des Sciences fondamentales et biomédicales)
+#### Anthology of presented courses 
 
+
+| Courses                                       | Program                                  | University |
+|-----------------------------------------------|------------------------------------------|------------|
+| Web-based data for public health              | Master of Public Health and Data Science | Bordeaux   |
+| Value creation                                | Master of Public Health and Data Science | Bordeaux   |
+| Omics data                                    | Master of Public Health and Data Science | Bordeaux   |
+| Electronic Health Records                     | Master of Public Health and Data Science | Bordeaux   |
+| Digital Cohorts                               | Master of Public Health and Data Science | Bordeaux   |
+|  Core principle of Biostatistics              | Master of Public Health and Data Science | Bordeaux   |
+|  Database design                              | Master of Public Health and Data Science | Bordeaux   |
+|  Unix shell, networks & docker                | Master of Public Health and Data Science | Bordeaux   |
+|  Notion of object                             | Master of Public Health and Data Science | Bordeaux   |
+| oriented programming                          | Master of Public Health and Data Science | Bordeaux   |
+|  Regression modelling                         | Master of Public Health and Data Science | Bordeaux   |
+|  Introduction to machine learning             | Master of Public Health and Data Science | Bordeaux   |
+|  Data legislation                             | Master of Public Health and Data Science | Bordeaux   |
+|  Experiment design and modelling              | Master of Public Health and Data Science | Bordeaux   |
+|  Parallel programming & reproducible science  | Master of Public Health and Data Science | Bordeaux   |
+|  Core principle in epidemiology               | Master of Public Health and Data Science | Bordeaux   |
+|  Basic of digital health communication        | Master of Public Health and Data Science | Bordeaux   |
+
+**Synthesis of Health Informatics Courses:**
+
+The courses presented in the Master of Public Health and Data Science program can be synthesized into several main categories, providing a comprehensive overview of health informatics at the intersection of public health and data science:
+
+1. **Foundational Health Informatics Courses:**
+   - Core principles of Biostatistics
+   - Core principles in epidemiology
+   - Basic of digital health communication
+
+2. **Health Information Management and Systems Design:**
+   - Electronic Health Records
+
+3. **Research and Methodology Courses:**
+   - Experiment design and modeling
+   - Regression modeling
+   - Introduction to machine learning
+
+4. **Technological Competency Courses:**
+   - Database design
+   - Unix shell, networks & docker
+   - Notion of object-oriented programming
+   - Parallel programming & reproducible science
+
+5. **Ethical and Legal Considerations:**
+   - Data legislation
+
+6. **Specialized Topics:**
+   - Omics data
+   - Digital Cohorts
+
+7. **Management and Leadership Courses:**
+   - Value creation
+
+
+
+
+#### Paris Cite 
+
+- **Departments**: Faculty of biomedical and fundamental sciences 
+- **Programs**:  Masters, Unversity Diploma
+
+  
 - [Master Informatique - Parcours : Cybersécurité et esanté](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html)
   - The digital transformation has also given rise to an increasing number of cyberattacks, necessitating a reevaluation of cybersecurity practices within a more stringent regulatory framework. Organizations are compelled to adapt to safeguard users, activities, and assets from evolving cyber threats. Additionally, the professionalization of cybercrime exacerbates risks and threats, revealing a significant gap in the protection levels afforded to companies and institutions. The proliferation of non-targeted cyberattacks, such as ransomware and internet fraud employing social engineering techniques, underscores the vulnerabilities of current security measures. The loss of sensitive data due to embezzlement, risks associated with outsourcing applications and data (cloud computing), and the growing adoption of telemedicine over vulnerable communication networks further compound the challenges. In response to these complexities, the two-year Cybersecurity and e-Health Master's program aims to train experts specializing in the cybersecurity of systems, networks, and data within the realms of connected health (e-Health) and the Internet of Things (IoT). These experts will possess the skills to conduct consulting, analysis, and security audits while developing, implementing, and validating technical security solutions.
+    
   -  [Course details](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html) 
 - [Diplôme Universitaire de Santé Connectée](https://pums.aphp.fr/diplome-universitaire-de-sante-connectee/)
   - Connected healthcare, in its broadest sense (telemedicine, connected objects, remote monitoring and e-coaching applications, etc.), offers solutions that are potentially useful, if not indispensable, for tomorrow's optimal medical care. Hardly a day goes by without a patient telling us about a connected application or object. Connected health is not taught in medical school. However, many professionals from other backgrounds are keen to acquire knowledge and skills in connected health, to help them bring their projects to fruition. The DU offers a cross-disciplinary introduction to connected healthcare for all those who understand the imminent digital shift in medicine. This course is aimed  for Healthcare professionals, administrative staff, start-ups, IT specialists and investors who want to acquire the knowledge and skills they need to successfully implement connected healthcare projects.
