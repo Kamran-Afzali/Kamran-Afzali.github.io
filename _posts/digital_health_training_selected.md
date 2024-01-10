@@ -617,6 +617,71 @@ The courses presented in the Master of Public Health and Data Science program ca
   - Connected healthcare, in its broadest sense (telemedicine, connected objects, remote monitoring and e-coaching applications, etc.), offers solutions that are potentially useful, if not indispensable, for tomorrow's optimal medical care. Hardly a day goes by without a patient telling us about a connected application or object. Connected health is not taught in medical school. However, many professionals from other backgrounds are keen to acquire knowledge and skills in connected health, to help them bring their projects to fruition. The DU offers a cross-disciplinary introduction to connected healthcare for all those who understand the imminent digital shift in medicine. This course is aimed  for Healthcare professionals, administrative staff, start-ups, IT specialists and investors who want to acquire the knowledge and skills they need to successfully implement connected healthcare projects.
   - [Course details](https://aphp.aphp.fr/wp-content/blogs.dir/274/files/2020/06/DU-sante-connectee-2021.pdf) 
 
+#### Anthology of presented courses 
+
+
+| Courses                                                      | Program                                                                 | University |
+|--------------------------------------------------------------|-------------------------------------------------------------------------|------------|
+| Programming and Algorithms                                   | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| TCP/IP networks and operating systems                        | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Artificial Intelligence, Data Science and Big Data           | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Cryptography and computer security                           | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Cybersecurity                                                | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Network and system security                                  | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Ethics and regulations                                       | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Project Management                                           | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Body sensor networks for healthcare                          | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Telemedicine and data protection: regulations and compliance | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Advanced cryptography and blockchain                         | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Security of IOT networks and medical sensors                 | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Security of mobile networks and cloud computing              | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Security Audit, Ethical Hacking and Penetration Testing      | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Advanced Cybersecurity: Forensic Analysis and Malware        | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| Technology Watch and Innovation                              | Master's degree in computer science - Cybersecurity and e-health course | Paris Cite |
+| e-health fundamentals                                        | University Diploma in Connected Health                                  | Paris Cite |
+| connected health law                                         | University Diploma in Connected Health                                  | Paris Cite |
+| artificial intelligence                                      | University Diploma in Connected Health                                  | Paris Cite |
+| Blockchain and healthcare                                    | University Diploma in Connected Health                                  | Paris Cite |
+| Evaluating connected health: principles                      | University Diploma in Connected Health                                  | Paris Cite |
+| Medico-economic evaluations of connected healthcare          | University Diploma in Connected Health                                  | Paris Cite |
+| Robotics, augmented reality and virtual reality              | University Diploma in Connected Health                                  | Paris Cite |
+| optimizing care with technology                              | University Diploma in Connected Health                                  | Paris Cite |
+
+**Synthesis of Health Informatics Courses:**
+
+1. **Foundational Health Informatics Courses:**
+   - e-health fundamentals 
+2. **Clinical Courses:**
+   - Body sensor networks for healthcare
+   - Telemedicine 
+
+3. **Health Information Management and Systems Design:**
+   - Security of IOT networks and medical sensors
+   - Security of mobile networks and cloud computing
+   - Technology Watch and Innovation
+   - TCP/IP networks and operating systems
+
+4. **Technological Competency Courses:**
+   - Cryptography and computer security
+   - Cybersecurity
+   - Network and system security
+   - Advanced cryptography and blockchain
+   - Security Audit, Ethical Hacking, and Penetration Testing
+   - Advanced Cybersecurity: Forensic Analysis and Malware
+5. **Research and Methodology Courses:**
+   - Medico-economic evaluations of connected healthcare (University Diploma)
+   - Evaluating connected health: principles (University Diploma)
+6. **Ethical and Legal Considerations:**
+   - Ethics and regulations
+   - Connected health law (University Diploma)
+7. **Specialized Topics:**
+   - Robotics, augmented reality, and virtual reality (University Diploma)
+   - Blockchain and healthcare (University Diploma)
+8. **Management and Leadership Courses:**
+   - Project Management
+
+
+
 ### USA
 
 ####  Medical schools 
@@ -624,6 +689,10 @@ The courses presented in the Master of Public Health and Data Science program ca
 - In the United States, in absence of a centeralized and unfied effort, some medical schools have been reported to offer digital health teachings. This can go from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
 
 #### University of Illinois Chicago- [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+
+- **Departments**: 
+- **Programs**:
+
 
 - [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
   - Bachelor of Science in Health Information Management (BSHIM) completion program was designed to prepare graduates to take the prestigious Registered Health Information Administrator (RHIA) exam. This dynamic degree program provides skilled instruction in the management and use of information and information systems for healthcare planning and provision, resource allocation, and executive decision making. As you work your way through the curriculum presented online, you will also explore essential topics, such as coding, systems analysis, data quality management and health information research.
@@ -639,7 +708,14 @@ The courses presented in the Master of Public Health and Data Science program ca
   - Illinois Board of Higher Education (IBHE) approved Post-Master’s Certificate in Health Informatics (PMC HI) is 24 credit hours and can be completed in 18 months. This non-degree program is designed to help build knowledge and skills in accelerated format. All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
   - [course details](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/) 
 
+#### Anthology of presented courses 
+
+
 #### Stanford ([Medicine](https://med.stanford.edu/))
+
+- **Departments**: 
+- **Programs**:
+
 
 - [Master of Science in Clinical Informatics Management (MCiM)](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html)
   -  MCiM is a novel one-year management program for working professionals seeking to harness the power of digital innovations to deliver high-quality, cost-effective health care. Blending Stanford’s renowned expertise across medicine, business, and technology, MCiM prepares managers and senior leaders to drive the transformation of health systems, life sciences businesses, start-ups, and healthcare-focused technology organizations.
@@ -651,8 +727,14 @@ The courses presented in the Master of Public Health and Data Science program ca
   - Biomedical informatics is an interdisciplinary field that combines ideas from computer science and quantitative disciplines (statistics, data science, decision science) to solving challenging problems in biology and medicine. The BMI program provides coursework and mentored research training, with a focus on methods development, drawing heavily on quantitative and computational approaches.
   - [Curriculum](https://dbds.stanford.edu/biomedical-data-science-graduate-program-overview/). MS and PhD candidates take coursework in four areas: (1) core DBDS classes, (2) an individual plan with electives in computer science, statistics, mathematics, engineering, and allied informatics-related disciplines, (3) required coursework in social, legal, and ethical issues, (4) unrestricted electives. In addition, PhD candidates are required to choose electives in some area of biology or medicine. Degree candidates also learn important didactic skills by serving as teaching assistants in our core courses.
 
+#### Anthology of presented courses 
+
 
 ####  University of Denver (HIMSS Academic Organizational Affiliate)
+
+- **Departments**: 
+- **Programs**:
+
 
 - [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#faculty)
 
@@ -665,7 +747,14 @@ The courses presented in the Master of Public Health and Data Science program ca
   - With advancements in technology, healthcare organizations require leaders that can oversee and manage complex projects. Gain practical experience in project management in healthcare by using the tools and techniques leveraged for large- and small-scale projects. Develop the strategies and skills to ensure teams meet their goals for timeline, scope, and budget while delivering exceptional patient care. The program curriculum aligns with the PMI® Project Management Body of Knowledge.
   - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634#curriculum)
 
+#### Anthology of presented courses 
+
+
 ####  Harvard
+
+- **Departments**: 
+- **Programs**:
+
 
 - [Master of Science in Health Data Science](https://www.hsph.harvard.edu/health-data-science/)
   - The Master of Science (SM) in Health Data Science is designed to provide rigorous quantitative training and essential statistical and computing skills needed to manage and analyze health science data to address important questions in public health and biomedical sciences. The 16-month program blends strong statistical and computational training to solve emerging problems in public health and the biomedical sciences. This training will enable students to manage and analyze massive, noisy data sets and learn how to interpret their findings. The program will provide training in three principal pillars of health data science: statistics, computing, and health sciences.
@@ -676,7 +765,14 @@ The courses presented in the Master of Public Health and Data Science program ca
 - [NLM Biomedical Informatics and Data Science Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-fellowship)
   - The Biomedical Informatics and Data Science Research Training (BIRT) Program is a consortium of leading informatics laboratories at Harvard Medical School. It is supported by a training grant from the National Library of Medicine, National Institutes of Health. This postdoctoral fellowship is available for United States citizens and permanent residents and provides up to two years of funding, including stipend, tuition, travel funds, and training-related expenses. In addition to research training, fellows are provided with many opportunities for collaboration, networking, and professional development. 
 
+#### Anthology of presented courses 
+
+
 ####  University at Buffalo (School of medicine-AMIA partner program)
+
+- **Departments**: 
+- **Programs**:
+
 
 - [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
   - In our two-year, ACGME-accredited fellowship, you’ll study all facets of clinical informatics, working with leaders in the field to develop and leverage innovations that enhance biomedical research, patient safety and clinical care. Our formal didactics thoroughly prepare you for the board certification exam in clinical informatics. You’ll stay on top of the latest evidence-based trends and findings by participating in — and presenting at — journal club and departmental grand rounds. And if you’re concerned about your clinical skills growing rusty, don’t be: To maintain your clinical skills and enrich your clinical experience, you’ll spend a full 20 percent of your training providing patient care in your specialty area.
@@ -688,6 +784,7 @@ The courses presented in the Master of Public Health and Data Science program ca
   - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares you to lead these organizations through complex information management challenges. With your advanced knowledge and skills, you’ll apply sophisticated tools and methods to help design new systems and applications. Best of all, thanks to our close partnerships with regional health care organizations, you don’t have to wait until you’ve earned your PhD to begin making high-level contributions to our field.
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd/course-descriptions.html)
 
+#### Anthology of presented courses 
 
 
 https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/
