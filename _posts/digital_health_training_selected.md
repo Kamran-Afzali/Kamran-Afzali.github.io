@@ -732,22 +732,118 @@ The courses presented in the Master of Public Health and Data Science program ca
 
 ####  University of Denver (HIMSS Academic Organizational Affiliate)
 
-- **Departments**: 
-- **Programs**:
+- **Departments**: University College (multi disciplinary)
+- **Programs**: Masters with four specialties (Health Data Science, Digital health, analytics, project managment), Certificate
 
 
-- [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#faculty)
+- [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594)
 
   - Leverage health data science tools and applications to achieve business and research outcomes within the health sector. In this master’s degree concentration, you’ll work with real hands-on data science projects using de-identified data from a curated health data repository built with industry partners—the first of its kind! Learn to optimize data to support evidence- and value-based results and enhance your knowledge in analytics, data science, and artificial intelligence. In addition, you’ll focus on how to integrate data platforms in the health and healthcare industries, virtual reality, data mining, machine learning, and reporting.
 
   - [Course details](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#curriculum)
     
+- [Master of Health Informatics - Digital Health](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/590)
+
+  -  At the cutting-edge of emerging health technology, including telehealth, digital health, and virtual health by learning how technology affects and improves diagnosis, treatment, training, patient records, and financial transactions. In this master’s degree concentration, you will gain high-level knowledge of the interoperability of healthcare information systems, the benefits and barriers associated with consumer digital health products, and the evolving use of distance medicine.
+
+  - [Course details](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/590#curriculum)
+    
 - [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
 
   - With advancements in technology, healthcare organizations require leaders that can oversee and manage complex projects. Gain practical experience in project management in healthcare by using the tools and techniques leveraged for large- and small-scale projects. Develop the strategies and skills to ensure teams meet their goals for timeline, scope, and budget while delivering exceptional patient care. The program curriculum aligns with the PMI® Project Management Body of Knowledge.
   - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634#curriculum)
+ 
+- [Master of Health Informatics - Analytics](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/592)
+
+  - Learn about healthcare delivery in the U.S. within the framework of the “4 Ps”: patients/people, providers, payers, and population. This framework allows you to understand both informatics and analytics related to the process of transforming data into information, knowledge, and then insight. Compare and contrast the similarities and differences between asking and answering research and business questions, all within the context of healthcare. In this master’s degree concentration, you’ll learn how to collaborate, organize projects, and formulate real-life solutions to existing healthcare industry issues.
+    
+  - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/592#curriculum)
 
 #### Anthology of presented courses 
+
+| Courses                                                | Program                   | University           |
+|--------------------------------------------------------|---------------------------|----------------------|
+| Data Platforms in Healthcare                           | Health Data Science       | University of Denver |
+| Digital and Virtual Health                             | Health Data Science       | University of Denver |
+| Experiential Learning in Health Informatics            | Health Data Science       | University of Denver |
+| Foundations of Digital Health                          | Health Data Science       | University of Denver |
+| Health Data Mining                                     | Health Data Science       | University of Denver |
+| Health Data Science Reporting                          | Health Data Science       | University of Denver |
+| Health Informatics Communication                       | Health Data Science       | University of Denver |
+| Healthcare Cybersecurity                               | Health Data Science       | University of Denver |
+| Healthcare Data and Delivery by Perspective            | Health Data Science       | University of Denver |
+| Healthcare Data Mining, Integration and Interpretation | Health Data Science       | University of Denver |
+| Healthcare Database Applications                       | Health Data Science       | University of Denver |
+| Healthcare Ethics and Biostatistics                    | Health Data Science       | University of Denver |
+| Healthcare Finance                                     | Health Data Science       | University of Denver |
+| Healthcare Information Systems                         | Health Data Science       | University of Denver |
+| Healthcare Methods and Programming                     | Health Data Science       | University of Denver |
+| Healthcare Project Management and Professionalism      | Health Data Science       | University of Denver |
+| Healthcare Statistical Dynamics of Machine Learning    | Health Data Science       | University of Denver |
+| Healthcare Workflow and Gap Analysis                   | Health Data Science       | University of Denver |
+| Survey of Health Industry Artificial Intelligence      | Health Data Science       | University of Denver |
+| Values and Outcomes in Digital Health                  | Health Data Science       | University of Denver |
+| Principles of Project Management                       | Health Project Management | University of Denver |
+| Project Contracts and Procurement                      | Health Project Management | University of Denver |
+| Project Management Dynamics                            | Health Project Management | University of Denver |
+| Project Risk and Quality Management                    | Health Project Management | University of Denver |
+| Experiential Learning in Health Informatics            | Health Project Management | University of Denver |
+| Health Informatics Communication                       | Health Project Management | University of Denver |
+| Healthcare Finance                                     | Health Project Management | University of Denver |
+| Healthcare Project Management and Professionalism      | Health Project Management | University of Denver |
+| Healthcare Workflow and Gap Analysis                   | Health Project Management | University of Denver |
+| Healthcare Data and Delivery by Perspective            | Analytics                 | University of Denver |
+| Healthcare Ethics and Biostatistics                    | Analytics                 | University of Denver |
+| Healthcare Methods and Programming                     | Analytics                 | University of Denver |
+| Healthcare Data Mining, Integration and Interpretation | Analytics                 | University of Denver |
+| Healthcare Database Applications                       | Analytics                 | University of Denver |
+| Digital and Virtual Health                             | Digital Health            | University of Denver |
+| Foundations of Digital Health                          | Digital Health            | University of Denver |
+| Healthcare Cybersecurity                               | Digital Health            | University of Denver |
+| Healthcare Information Systems                         | Digital Health            | University of Denver |
+| Values and Outcomes in Digital Health                  | Digital Health            | University of Denver |
+
+Based on the provided courses and their corresponding programs, we can categorize them into the following main categories:
+
+1. **Foundational Health Informatics Courses:**
+   - Foundations of Digital Health
+   - Experiential Learning in Health Informatics
+   - Digital and Virtual Health
+   - Values and Outcomes in Digital Health
+
+
+2. **Health Information Management and Systems Design:**
+   - Data Platforms in Healthcare
+   - Healthcare Database Applications
+   - Healthcare Workflow and Gap Analysis
+
+3. **Research and Methodology Courses:**
+   - Healthcare Data Mining, Integration and Interpretation
+   - Healthcare Statistical Dynamics of Machine Learning
+
+4. **Technological Competency Courses:**
+   - Healthcare Cybersecurity
+   - Healthcare Methods and Programming
+   - Healthcare Information Systems
+
+5. **Ethical and Legal Considerations:**
+   - Health Informatics Communication
+   - Healthcare Ethics and Biostatistics
+
+
+6. **Specialized Topics:**
+   - Health Data Mining
+   - Healthcare Data and Delivery by Perspective
+   - Survey of Health Industry Artificial Intelligence
+   - Digital and Virtual Health
+
+7. **Management and Leadership Courses:**
+   - Healthcare Finance
+   - Healthcare Project Management and Professionalism
+   - Principles of Project Management
+   - Project Contracts and Procurement
+   - Project Management Dynamics
+   - Project Risk and Quality Management
 
 
 ####  Harvard
