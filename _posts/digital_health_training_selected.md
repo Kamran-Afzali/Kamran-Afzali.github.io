@@ -864,10 +864,10 @@ Based on the provided courses and their corresponding programs, we can categoriz
 #### Anthology of presented courses 
 
 
-####  University at Buffalo (School of medicine-AMIA partner program)
+####  University at Buffalo (AMIA partner program)
 
-- **Departments**: 
-- **Programs**:
+- **Departments**: School of medicine 
+- **Programs**: Fellowship, Masters, PhD
 
 
 - [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
@@ -881,6 +881,70 @@ Based on the provided courses and their corresponding programs, we can categoriz
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd/course-descriptions.html)
 
 #### Anthology of presented courses 
+
+| Courses                                                          | Program                           | University            |
+|------------------------------------------------------------------|-----------------------------------|-----------------------|
+| Rotation in Inpatient Clinical Laboratory and Catheter Systems   | Fellowship                        | University of Buffalo |
+| Rotation in Inpatient Psychiatry and Dialysis Systems            | Fellowship                        | University of Buffalo |
+| Rotation in Outpatient Systems                                   | Fellowship                        | University of Buffalo |
+| database design                                                  | Fellowship                        | University of Buffalo |
+| employment of standards                                          | Fellowship                        | University of Buffalo |
+| quality and patient safety                                       | Fellowship                        | University of Buffalo |
+| biostatistics                                                    | Fellowship                        | University of Buffalo |
+| Survey of Biomedical Informatics                                 | Masters in Biomedical Informatics | University of Buffalo |
+| Biomedical Informatics Application Domains and Ethics            | Masters in Biomedical Informatics | University of Buffalo |
+| Systems Databases  & Software Development Methods in Biomedical  | Masters in Biomedical Informatics | University of Buffalo |
+| Data Analysis                                                    | Masters in Biomedical Informatics | University of Buffalo |
+| Bioinformatics and Translational Research Informatics            | Masters in Biomedical Informatics | University of Buffalo |
+| Clinical Population research and Public health Informatics       | Masters in Biomedical Informatics | University of Buffalo |
+|  Clinical Informatics & Decision Making                          | Masters in Biomedical Informatics | University of Buffalo |
+| Biomedical Ontologies                                            | Masters in Biomedical Informatics | University of Buffalo |
+| Socio-technical & Human-centered Design in Biomedical Informatic | Masters in Biomedical Informatics | University of Buffalo |
+| Faculty-mentored Research or Informatics Practicum Project       | Masters in Biomedical Informatics | University of Buffalo |
+| Organizational Leadership & Change Management for Biomedical Inf | Masters in Biomedical Informatics | University of Buffalo |
+| Biomedical Informatics Thesis Research                           | Masters in Biomedical Informatics | University of Buffalo |
+| Biomedical Informatics MS Degree Practicum Project               | Masters in Biomedical Informatics | University of Buffalo |
+| Biomedical Informatics Special Topic Elective                    | Masters in Biomedical Informatics | University of Buffalo |
+| Advanced Research Project in Biomedical Informatics              | Masters in Biomedical Informatics | University of Buffalo |
+| Advanced Study Design and Data Analytics                         | Masters in Biomedical Informatics | University of Buffalo |
+| Advanced Statistical Analysis                                    | Masters in Biomedical Informatics | University of Buffalo |
+| Advanced Data Mining and Cost Analysis Methods                   | Masters in Biomedical Informatics | University of Buffalo |
+| Advanced Evaluation and Cost Analysis Methods                    | Masters in Biomedical Informatics | University of Buffalo |
+
+
+Based on the provided courses and their corresponding programs, we can categorize them into the following main groups:
+
+1. **Clinical Rotations and Skills Development:**
+   - Rotation in Inpatient Clinical Laboratory and Catheter Systems (Fellowship)
+   - Rotation in Inpatient Psychiatry and Dialysis Systems (Fellowship)
+   - Rotation in Outpatient Systems (Fellowship)
+
+2. **Database Design and Standards:**
+   - Database Design (Fellowship)
+   - Employment of Standards (Fellowship)
+
+3. **Quality, Safety:**
+   - Quality and Patient Safety (Fellowship)
+   - Biostatistics (Fellowship)
+
+4. **Foundational Biomedical Informatics Courses:**
+   - Survey of Biomedical Informatics 
+   - Biomedical Informatics Application Domains and Ethics 
+   - Systems Databases & Software Development Methods in Biomedical 
+   - Data Analysis 
+   - Bioinformatics and Translational Research Informatics 
+   - Clinical Population Research and Public Health Informatics 
+   - Clinical Informatics & Decision Making 
+   - Biomedical Ontologies
+   - Socio-technical & Human-centered Design in Biomedical Informatics 
+
+5. **Advanced Analytics and Methods:**
+   - Advanced Study Design and Data Analytics 
+   - Advanced Statistical Analysis 
+   - Advanced Data Mining and Cost Analysis Methods 
+   - Advanced Evaluation and Cost Analysis Methods 
+
+
 
 
 https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/
