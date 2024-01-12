@@ -57,9 +57,29 @@ Although the free energy principle primarily focuses on system dynamics, it can 
 The free energy principle and predictive processing are interconnected in their descriptions of belief formation concerning learning and perceptual inference. The key distinction lies in the free energy principle providing a foundational method that seeks to dissolve disciplinary boundaries. Together, these approaches not only elucidate optimal prediction and model generation but also consider how contextual cues influence the probabilities of specific states or outcomes. Importantly, they allow exploration of outcomes resulting from decisions, choices, and actions.
 
 
+### Bayesian Brain Hypothesis 
+
+
+The Bayesian brain hypothesis and the free energy principle are closely related. The free energy principle, proposed by Karl Friston, suggests that the brain operates as a prediction machine, constantly minimizing surprise or uncertainty by making and updating predictions based on internal models. This principle integrates Bayesian inference with active inference, where actions are guided by predictions and sensory feedback refines them. The Bayesian brain hypothesis, on the other hand, posits that the brain is equipped with an internal (or "generative") model of the environment, which specifies a "recipe" for generating sensory observations from hidden states. This internal model may not be represented explicitly anywhere in the brain; the claim is that the brain computes "as if" it had an internal model.
+
+In short, the free energy principle subsumes the Bayesian brain hypothesis, and the two are closely aligned in their emphasis on the brain as a prediction machine that seeks to minimize surprise or prediction error. The free energy principle provides a theoretical foundation for understanding the mechanisms underlying the Bayesian brain hypothesis, and both frameworks are concerned with how the brain makes and updates predictions to minimize surprise and uncertainty.
+
+
+The Bayesian brain hypothesis employs Bayesian probability theory to conceptualize perception as a constructive process based on internal or generative models. The fundamental idea is that the brain possesses a model of the world, which it seeks to optimize using sensory inputs. This perspective views the brain as an inference machine actively predicting and explaining sensations. Central to this hypothesis is a probabilistic model that generates predictions, against which sensory samples are tested to update beliefs about their causes. The generative model consists of a likelihood (probability of sensory data given their causes) and a prior (a priori probability of those causes). Perception, in this framework, involves inverting the likelihood model to access the posterior probability of causes given sensory data, a process equivalent to minimizing the difference between recognition and posterior densities to suppress free energy.
+
+The Bayesian brain hypothesis faces questions about the form of the generative model and how it manifests in the brain. Hierarchical generative models address criticisms by optimizing priors within a hierarchical structure. In hierarchical models, causes at one level generate subordinate causes at a lower level, with sensory data generated at the lowest level. The optimization of empirical priors in hierarchical models is informed by sensory data, resulting in an internally consistent representation of sensory causes across multiple levels.
+
+Another issue concerns the form of the recognition density encoded by physical attributes of the brain, such as synaptic activity. The encoding of density by sufficient statistics places constraints on recognition schemes, ranging from free-form schemes to simpler forms like the Gaussian assumption. The Gaussian form, known as the Laplace assumption, aligns with predictive coding, a popular framework for understanding neuronal message passing in cortical hierarchies.
+
+In summary, the Bayesian brain hypothesis suggests that the brain is an inference engine striving to optimize probabilistic representations of the causes of sensory input. The optimization is facilitated by the variational free-energy principle, which is implemented through various schemes involving message passing or belief propagation among brain areas or units. This connection allows the integration of the free-energy principle with information theory, providing a comprehensive understanding of sensory processing.
 
 ### Refrences
 
+- https://gershmanlab.com/pubs/free_energy.pdf
+- https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf
+- https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf
+- https://en.wikipedia.org/wiki/Free_energy_principle
+- https://www.fil.ion.ucl.ac.uk/~karl/A%20free%20energy%20principle%20for%20the%20brain.pdf
 
 - https://arxiv.org/pdf/2207.06415.pdf
 - https://www.frontiersin.org/articles/10.3389/frobt.2022.794464
