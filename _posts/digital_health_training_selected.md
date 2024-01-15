@@ -31,7 +31,7 @@
 - [Graduate Certificate in Health Terminology Standards](https://www.uvic.ca/hsd/hinf/graduate/certificate/index.php)
    - The Graduate Certificate in Health Terminology Standards is a 1-year, part-time program with four graduate level courses done through weekly online evening classes and a virtual workshop. If you work in the health industry and are involved with or have an interest in health terminologies and standards, interoperable electronic health record, and clinical coding and classification, then this Certificate is for you. The program is intended to meet national and international needs for best practices in controlled terminologies used in the health industry. Graduates of this program are eligible for the **Canadian College of Health Information Management Terminology Standards Specialist Certification**.
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 
 | Nb | Courses                                                     | Program                                  | University |
@@ -163,7 +163,7 @@ The presented health informatics programs encompass a wide array of courses, pro
   -  This educational offering has been approved for the following continuing education credit/professional development credit by the **Canadian Society of Respiratory Therapists**. McMaster University Continuing Education maintains all responsibility for this offering and its content.
   - [Course details](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-courses)
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 |Courses                                                     | Program                        |University|
 |-------------------------------------------------------------|-------------------------------|----------|
 | Statistics for eHealth                                      | E-Health MSc                  | McMaster |
@@ -250,7 +250,7 @@ The courses presented can be categorized into several main themes, providing a c
   - Our Graduate Certificate in Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1146)
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 |Courses                                        | Program                                                 |University|
 |-----------------------------------------------|---------------------------------------------------------|----------|
 |  Foundations of Data Science                  | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
@@ -403,7 +403,7 @@ The courses presented across various health informatics programs can be categori
   - [Course details](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences) 
 
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 | Courses                                                     | Program                              | University |
 |-------------------------------------------------------------|--------------------------------------|------------|
@@ -466,7 +466,7 @@ The courses presented across different health informatics programs can be synthe
   -  [Course details](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert#content)
 
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 
 | Courses                                                  | Program                                     | University |
@@ -544,7 +544,7 @@ The courses presented across different health informatics programs, particularly
   - [Course details](www.isped.u-bordeaux.fr/Portals/0/TELECHARGEMENT/Rubrique_FORMATIONS/M2_PHDS/M2_PHDS_Programme.pdf?ver=W5KEEUS0-yxdY37kYNBfkg%3d%3d)
 
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 
 | Courses                                       | Program                                  | University |
@@ -617,7 +617,7 @@ The courses presented in the Master of Public Health and Data Science program ca
   - Connected healthcare, in its broadest sense (telemedicine, connected objects, remote monitoring and e-coaching applications, etc.), offers solutions that are potentially useful, if not indispensable, for tomorrow's optimal medical care. Hardly a day goes by without a patient telling us about a connected application or object. Connected health is not taught in medical school. However, many professionals from other backgrounds are keen to acquire knowledge and skills in connected health, to help them bring their projects to fruition. The DU offers a cross-disciplinary introduction to connected healthcare for all those who understand the imminent digital shift in medicine. This course is aimed  for Healthcare professionals, administrative staff, start-ups, IT specialists and investors who want to acquire the knowledge and skills they need to successfully implement connected healthcare projects.
   - [Course details](https://aphp.aphp.fr/wp-content/blogs.dir/274/files/2020/06/DU-sante-connectee-2021.pdf) 
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 
 | Courses                                                      | Program                                                                 | University |
@@ -688,10 +688,10 @@ The courses presented in the Master of Public Health and Data Science program ca
 
 - In the United States, in absence of a centeralized and unfied effort, some medical schools have been reported to offer digital health teachings. This can go from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
 
-#### University of Illinois Chicago- [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+#### University of Illinois Chicago
 
-- **Departments**: 
-- **Programs**:
+- **Departments**: [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+- **Programs**: Bachelor, Post-Baccalaureate Certificate, Master, Post-Master Certificate
 
 
 - [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
@@ -700,6 +700,7 @@ The courses presented in the Master of Public Health and Data Science program ca
 
 - [Post-Baccalaureate Certificate in Health Informatics (PBC HI)](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
   - Post-Baccalaureate Health Informatics Certificate is 12-13 credit hours and can be completed in 12 months. There are four focus-areas: Health Informatics Fundamentals, Health Data Science Informatics, Leadership in Health Informatics, Mobile Health Informatics, All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+    
   - [Course Details](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
 - [Master of Science in Health Informatics (MSHI)](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
   - The 100% online asynchronous Master of Science in Health Informatics program encompasses digital health, data science, and leadership. The 38-credit hour program is housed within University of Illinois Chicago (UIC) College of Applied Health Sciences and can be completed in 30 months. The curriculum focuses on social informatics at the population level. Students develop knowledge and skills in: Data collection, storage, extraction, manipulation, network architecture, data analysis and visualization, predictive analytics, healthcare project management, human factors in computer design, ethics, patient experience and healthcare communications. Students in the program often have clinical, business, or computer science backgrounds. They value the online format for flexibility, CAHIIM accreditation, and vast professional network.
@@ -708,7 +709,7 @@ The courses presented in the Master of Public Health and Data Science program ca
   - Illinois Board of Higher Education (IBHE) approved Post-Master’s Certificate in Health Informatics (PMC HI) is 24 credit hours and can be completed in 18 months. This non-degree program is designed to help build knowledge and skills in accelerated format. All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
   - [course details](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/) 
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 
 #### Stanford ([Medicine](https://med.stanford.edu/))
@@ -727,7 +728,7 @@ The courses presented in the Master of Public Health and Data Science program ca
   - Biomedical informatics is an interdisciplinary field that combines ideas from computer science and quantitative disciplines (statistics, data science, decision science) to solving challenging problems in biology and medicine. The BMI program provides coursework and mentored research training, with a focus on methods development, drawing heavily on quantitative and computational approaches.
   - [Curriculum](https://dbds.stanford.edu/biomedical-data-science-graduate-program-overview/). MS and PhD candidates take coursework in four areas: (1) core DBDS classes, (2) an individual plan with electives in computer science, statistics, mathematics, engineering, and allied informatics-related disciplines, (3) required coursework in social, legal, and ethical issues, (4) unrestricted electives. In addition, PhD candidates are required to choose electives in some area of biology or medicine. Degree candidates also learn important didactic skills by serving as teaching assistants in our core courses.
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 
 ####  University of Denver (HIMSS Academic Organizational Affiliate)
@@ -759,7 +760,7 @@ The courses presented in the Master of Public Health and Data Science program ca
     
   - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/592#curriculum)
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 | Courses                                                | Program                   | University           |
 |--------------------------------------------------------|---------------------------|----------------------|
@@ -861,7 +862,7 @@ Based on the provided courses and their corresponding programs, we can categoriz
 - [NLM Biomedical Informatics and Data Science Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-fellowship)
   - The Biomedical Informatics and Data Science Research Training (BIRT) Program is a consortium of leading informatics laboratories at Harvard Medical School. It is supported by a training grant from the National Library of Medicine, National Institutes of Health. This postdoctoral fellowship is available for United States citizens and permanent residents and provides up to two years of funding, including stipend, tuition, travel funds, and training-related expenses. In addition to research training, fellows are provided with many opportunities for collaboration, networking, and professional development. 
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 | Courses | Program                                                        | University                                           |
 |---------|----------------------------------------------------------------|------------------------------------------------------|
@@ -965,7 +966,7 @@ Based on the provided courses and their corresponding programs, we can categoriz
   - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares you to lead these organizations through complex information management challenges. With your advanced knowledge and skills, you’ll apply sophisticated tools and methods to help design new systems and applications. Best of all, thanks to our close partnerships with regional health care organizations, you don’t have to wait until you’ve earned your PhD to begin making high-level contributions to our field.
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd/course-descriptions.html)
 
-#### Anthology of presented courses 
+### Anthology of presented courses 
 
 | Courses                                                          | Program                           | University            |
 |------------------------------------------------------------------|-----------------------------------|-----------------------|
