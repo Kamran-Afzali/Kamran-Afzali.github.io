@@ -101,8 +101,6 @@
 </details>
 
 
-The presented health informatics programs encompass a wide array of courses, providing a comprehensive foundation for students in various aspects of healthcare and information technology. The courses can be categorized into several main themes:
-
 1. **Foundational Health Informatics Courses:**
    - Health Informatics Overview
    - Introduction to Health Information Technology
@@ -169,6 +167,10 @@ The presented health informatics programs encompass a wide array of courses, pro
   - [Course details](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-courses)
 
 ##### Anthology of presented courses 
+
+<details>
+
+
 |Courses                                                     | Program                        |University|
 |-------------------------------------------------------------|-------------------------------|----------|
 | Statistics for eHealth                                      | E-Health MSc                  | McMaster |
@@ -192,9 +194,7 @@ The presented health informatics programs encompass a wide array of courses, pro
 | Health Data Standards & Classifications                     | Diploma in Health Informatics | McMaster |
 | Quality and Performance Evaluation                          | Diploma in Health Informatics | McMaster |
 
-**Synthesis of Health Informatics Courses:**
-
-The courses presented can be categorized into several main themes, providing a comprehensive overview of foundational and specialized areas in the field:
+</details>
 
 1. **Foundational Health Informatics Courses:**
    - Fundamentals of eHealth and the Canadian Health Care System
@@ -256,6 +256,10 @@ The courses presented can be categorized into several main themes, providing a c
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1146)
 
 ##### Anthology of presented courses 
+
+<details>
+
+
 |Courses                                        | Program                                                 |University|
 |-----------------------------------------------|---------------------------------------------------------|----------|
 |  Foundations of Data Science                  | Bachelor of Advanced Computing/Bachelor of Health       | U Sydney |
@@ -331,9 +335,8 @@ The courses presented can be categorized into several main themes, providing a c
 | Foundations Health Technology Assessment      | Graduate Certificate in Digital Health and Data Science | U Sydney |
 | Design Thinking                               | Graduate Certificate in Digital Health and Data Science | U Sydney |
 
-**Synthesis of Health Informatics Courses:**
+</details>
 
-The courses presented across various health informatics programs can be categorized into several main themes, reflecting a holistic and interdisciplinary approach to health and technology integration:
 
 1. **Foundational Health Informatics Courses:**
    - Foundations of Data Science
@@ -410,6 +413,9 @@ The courses presented across various health informatics programs can be categori
 
 ##### Anthology of presented courses 
 
+<details>
+
+
 | Courses                                                     | Program                              | University |
 |-------------------------------------------------------------|--------------------------------------|------------|
 | Foundations of Digital Health                               | MSc Applied Digital Health           | Oxford     |
@@ -429,9 +435,8 @@ The courses presented across various health informatics programs can be categori
 | Translational Science and Global Health                     | MSc in Translational Health Sciences | Oxford     |
 
 
-**Synthesis of Health Informatics Courses:**
+</details>
 
-The courses presented across different health informatics programs can be synthesized into several main categories, reflecting a comprehensive approach to digital health and translational science:
 
 1. **Foundational Digital Health Courses:**
    - Foundations of Digital Health
@@ -473,6 +478,7 @@ The courses presented across different health informatics programs can be synthe
 
 ##### Anthology of presented courses 
 
+<details>
 
 | Courses                                                  | Program                                     | University |
 |----------------------------------------------------------|---------------------------------------------|------------|
@@ -496,9 +502,8 @@ The courses presented across different health informatics programs can be synthe
 | Informatics and Data Science in Health Care and Research | Health Informatics with Data Science PGCert | Leeds      |
 | Law, Ethics and Governance for Health Data Science       | Health Informatics with Data Science PGCert | Leeds      |
 
-**Synthesis of Health Informatics Courses:**
+</details>
 
-The courses presented across different health informatics programs, particularly in the realm of Health Informatics with Data Science, can be synthesized into several main categories, demonstrating a comprehensive approach to the integration of health and data science:
 
 1. **Foundational Health Data Science Courses:**
    - Statistics and Modelling for Health Sciences
@@ -551,6 +556,8 @@ The courses presented across different health informatics programs, particularly
 
 ##### Anthology of presented courses 
 
+<details>
+
 
 | Courses                                       | Program                                  | University |
 |-----------------------------------------------|------------------------------------------|------------|
@@ -572,9 +579,7 @@ The courses presented across different health informatics programs, particularly
 |  Core principle in epidemiology               | Master of Public Health and Data Science | Bordeaux   |
 |  Basic of digital health communication        | Master of Public Health and Data Science | Bordeaux   |
 
-**Synthesis of Health Informatics Courses:**
-
-The courses presented in the Master of Public Health and Data Science program can be synthesized into several main categories, providing a comprehensive overview of health informatics at the intersection of public health and data science:
+</details>
 
 1. **Foundational Health Informatics Courses:**
    - Core principles of Biostatistics
@@ -606,8 +611,6 @@ The courses presented in the Master of Public Health and Data Science program ca
    - Value creation
 
 
-
-
 #### Paris Cite 
 
 - **Departments**: Faculty of biomedical and fundamental sciences 
@@ -624,6 +627,7 @@ The courses presented in the Master of Public Health and Data Science program ca
 
 ##### Anthology of presented courses 
 
+<details>
 
 | Courses                                                      | Program                                                                 | University |
 |--------------------------------------------------------------|-------------------------------------------------------------------------|------------|
@@ -652,7 +656,7 @@ The courses presented in the Master of Public Health and Data Science program ca
 | Robotics, augmented reality and virtual reality              | University Diploma in Connected Health                                  | Paris Cite |
 | optimizing care with technology                              | University Diploma in Connected Health                                  | Paris Cite |
 
-**Synthesis of Health Informatics Courses:**
+</details>
 
 1. **Foundational Health Informatics Courses:**
    - e-health fundamentals 
@@ -715,6 +719,9 @@ The courses presented in the Master of Public Health and Data Science program ca
   - [course details](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/) 
 
 ##### Anthology of presented courses 
+
+<details>
+
 
 | Courses                                                                      | Program                                               | University                     |
 |------------------------------------------------------------------------------|-------------------------------------------------------|--------------------------------|
@@ -850,6 +857,7 @@ The courses presented in the Master of Public Health and Data Science program ca
 | Healthcare Data Visualization                                                | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
 | Applied Statistics for Health Data Science                                   | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
 
+</details>
 
 
 1. **Foundational Health Informatics Courses:**
@@ -958,6 +966,9 @@ The courses presented in the Master of Public Health and Data Science program ca
 
 ##### Anthology of presented courses 
 
+<details>
+
+
 | Courses                                                | Program                   | University           |
 |--------------------------------------------------------|---------------------------|----------------------|
 | Data Platforms in Healthcare                           | Health Data Science       | University of Denver |
@@ -999,6 +1010,8 @@ The courses presented in the Master of Public Health and Data Science program ca
 | Healthcare Cybersecurity                               | Digital Health            | University of Denver |
 | Healthcare Information Systems                         | Digital Health            | University of Denver |
 | Values and Outcomes in Digital Health                  | Digital Health            | University of Denver |
+
+</details>
 
 
 1. **Foundational Health Informatics Courses:**
@@ -1059,6 +1072,9 @@ The courses presented in the Master of Public Health and Data Science program ca
 
 ##### Anthology of presented courses 
 
+<details>
+
+
 | Courses | Program                                                        | University                                           |
 |---------|----------------------------------------------------------------|------------------------------------------------------|
 | 273     | Basics of Statistical Inference                                | Masters in Health data science                       |
@@ -1099,7 +1115,7 @@ The courses presented in the Master of Public Health and Data Science program ca
 | 308     | Systems Development for Computational Science                  | Masters in Health data science                       |
 | 309     | Visualization                                                  | Masters in Health data science                       |
 
-
+</details>
 
 1. **Foundational Health Informatics Courses:**
    - Basics of Statistical Inference
@@ -1162,6 +1178,9 @@ The courses presented in the Master of Public Health and Data Science program ca
 
 ##### Anthology of presented courses 
 
+<details>
+
+
 | Courses                                                          | Program                           | University            |
 |------------------------------------------------------------------|-----------------------------------|-----------------------|
 | Rotation in Inpatient Clinical Laboratory and Catheter Systems   | Fellowship                        | University of Buffalo |
@@ -1191,6 +1210,7 @@ The courses presented in the Master of Public Health and Data Science program ca
 | Advanced Data Mining and Cost Analysis Methods                   | Masters in Biomedical Informatics | University of Buffalo |
 | Advanced Evaluation and Cost Analysis Methods                    | Masters in Biomedical Informatics | University of Buffalo |
 
+</details>
 
 
 1. **Clinical Rotations and Skills Development:**
