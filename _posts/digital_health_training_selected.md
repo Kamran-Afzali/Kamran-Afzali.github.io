@@ -33,6 +33,8 @@
 
 ##### Anthology of presented courses 
 
+<details>
+
 
 | Nb | Courses                                                     | Program                                  | University |
 |----|-------------------------------------------------------------|------------------------------------------|------------|
@@ -95,6 +97,9 @@
 | 57 | Controlled Terminology Standards                            | GC Health Terminology Standards          | U of Vic   |
 | 58 | Health Information Exchange Standards                       | GC Health Terminology Standards          | U of Vic   |
 | 59 | Field Project in Health Informatics                         | GC Health Terminology Standards          | U of Vic   |
+
+</details>
+
 
 The presented health informatics programs encompass a wide array of courses, providing a comprehensive foundation for students in various aspects of healthcare and information technology. The courses can be categorized into several main themes:
 
