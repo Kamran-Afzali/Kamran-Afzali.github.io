@@ -711,6 +711,197 @@ The courses presented in the Master of Public Health and Data Science program ca
 
 ##### Anthology of presented courses 
 
+| Courses                                                                      | Program                                               | University                     |
+|------------------------------------------------------------------------------|-------------------------------------------------------|--------------------------------|
+| Medical Sciences and Human Pathophysiology                                   | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Medical Terminology for Health Information Management                        | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Health Data Structures and Management                                        | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Introduction to Health Informatics                                           | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Information Systems for Health Information Management                        | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Management and Business Practices                                            | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Principles of Health Information Management                                  | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Alternative Health Records                                                   | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Technical Affiliation                                                        | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Legal Aspects of Health Information Management                               | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Analysis of Health Care Data                                                 | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Quality Evaluation and Management                                            | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Human Resources Management                                                   | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Systems Analysis                                                             | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Health Information Research                                                  | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Current Issues in Health Information Management                              | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Clinical Practicum                                                           | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Introduction to the Health Care System                                       | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Coding and Classification Systems                                            | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Coding and Reimbursement Systems                                             | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Healthcare Financial Management                                              | Bachelor of Science in Health Information Management  | University of Chicago Illinois |
+| Introduction to Health Informatics                                           | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Healthcare Information Systems                                               | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Patient Safety Topics in Health Informatics                                  | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Mobile Health Informatics                                                    | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Knowledge Management in Healthcare Organizations                             | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Introduction to Health Informatics                                           | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Mobile Health Informatics                                                    | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Consumer Health Informatics                                                  | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Transforming Healthcare using Business Intelligence and Predictive Analytics | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Essentials in Health Data Science                                            | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Healthcare Data Analytics                                                    | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Health Informatics Business intelligence Tools and Applications              | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Healthcare Data Visualization                                                | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Health Informatics Product Management                                        | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Healthcare Project Management                                                | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Leadership Development in Health Informatics                                 | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Social and Organizational Issues in Health Informatics                       | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Healthcare IT Administration                                                 | Post-Baccalaureate Certificate in Health Informatics  | University of Chicago Illinois |
+| Medical Terminology for Health Information Management                        | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Fundamentals of Health Information Management                                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Data                                                              | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Information Sources in Biomedical & Health Information Sciences              | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Communication Skills in Health Informatics                                   | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Ethics & Legal Issues in Health Informatics                                  | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Information Systems                                               | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Management of Healthcare Communication Systems                               | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Health Information Systems Analysis & Design                                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Social and Organizational Issues in Health Informatics                       | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Topics in Health Informatics                                                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Qualitative Methods and Health IT Evaluation                                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Informatics for the Clinical Investigator                                    | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Application of Health Care Information Systems                               | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Patient Safety Topics in Health Informatics                                  | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Information Security and Cybersecurity Foundations                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Mobile Health Informatics                                                    | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Advanced Topics in Mobile Health Technologies                                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Knowledge Management in Healthcare Organizations                             | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Consumer Health Informatics                                                  | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Transforming Healthcare using Business Intelligence and Predictive Analytics | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Foundations of Clinical Decision Support Systems                             | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Practical Implementation of Clinical Decision Support Systems                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Health Informatics Product Management                                        | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare IT Administration                                                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Essentials in Health Data Science                                            | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Data Analytics                                                    | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Artificial Intelligence                                                      | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Project Management                                                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Leadership Development in Health Informatics                                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Health Informatics Business intelligence Tools and Applications              | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Programming for Health Analytics                                             | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Data Visualization                                                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Human Factors and Cognition in Health Information Technology                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Applied Statistics for Health Data Science                                   | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Practicum in Biomedical and Health Information Sciences                      | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Essentials in Health Data Science                                            | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Applied Statistics for Health Data Science                                   | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Knowledge Management in Healthcare Organizations                             | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Transforming Healthcare using Business Intelligence and Predictive Analytics | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Theoretical Concepts of Clinical Decisions Support Systems                   | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Practical Implementation of Clinical Decision Support Systems                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Data Analytics                                                    | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Artificial Intelligence                                                      | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Health Informatics Business intelligence Tools and Applications              | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Programming for Health Analytics                                             | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Data Visualization                                                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Project Management                                                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Leadership Development in Health Informatics                                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Organizational Dynamics and Health Informatics                               | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Health Informatics Product Management                                        | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare IT Administration                                                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Human Factors and Cognition in Health Information Technology                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Practicum in Biomedical and Health Information Sciences                      | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Mobile Health Informatics                                                    | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Consumer Health Informatics                                                  | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Qualitative Methods and Health IT Evaluation                                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Healthcare Data Security and Cybersecurity Foundations                       | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Advanced Topics in Mobile Health Technologies                                | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Organizational Dynamics and Health Informatics                               | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Human Factors and Cognition in Health Information Technology                 | Master of Science in Health Informatics (MSHI)        | University of Chicago Illinois |
+| Medical Terminology for Health Information Management                        | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Introduction to Health Informatics                                           | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Fundamentals of Health Information Management                                | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Healthcare Data                                                              | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Information Sources in Biomedical & Health Information Sciences              | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Healthcare Information Systems                                               | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Management of Healthcare Communication Systems                               | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Health Information Systems Analysis & Design                                 | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Social and Organizational Issues in Health Informatics                       | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Topics in Health Informatics                                                 | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Application of Health Care Information Systems                               | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Patient Safety Topics in Health Informatics                                  | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Healthcare Information Security                                              | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Mobile Health Informatics                                                    | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Knowledge Management in Healthcare Organizations                             | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Consumer Health Informatics                                                  | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Transforming Healthcare using Business Intelligence and Predictive Analytics | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Theoretical Concepts of Clinical Decisions Support Systems                   | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Practical Implementation of Clinical Decision Support Systems                | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Information Technology and Patient Safety                                    | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Health Informatics Product Management                                        | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Healthcare IT Administration                                                 | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Essentials in Health Data Science                                            | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Healthcare Data Analytics                                                    | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Artificial Intelligence                                                      | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Healthcare Project Management                                                | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Leadership Development in Health Informatics                                 | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Health Informatics Business intelligence Tools and Applications              | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Programming for Health Analytics                                             | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Healthcare Data Visualization                                                | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+| Applied Statistics for Health Data Science                                   | Post-Master’s Certificate in Health Informatics       | University of Chicago Illinois |
+
+
+
+1. **Foundational Health Informatics Courses:**
+   - Introduction to Health Informatics
+   - Principles of Health Information Management
+   - Medical Terminology for Health Information Management
+   - Fundamentals of Health Information Management
+   - Information Systems for Health Information Management
+   - Health Data Structures and Management
+   - Healthcare Data
+   - Information Sources in Biomedical & Health Information Sciences
+
+
+2. **Clinical and Professional Development Courses:**
+   - Clinical Practicum
+   - Medical Sciences and Human Pathophysiology
+   - Coding and Classification Systems
+   - Coding and Reimbursement Systems
+
+3. **Health Information Management and Systems Design:**
+   - Alternative Health Records
+   - Systems Analysis
+   - Management of Healthcare Communication Systems
+   - Health Information Systems Analysis & Design
+
+4. **Research and Methodology Courses:**
+   
+   - Health Information Research
+
+6. **Technological Competency Courses:**
+   - Introduction to Health Informatics
+   - Healthcare Information Systems
+   - Healthcare Data Analytics
+   - Health Informatics Business Intelligence Tools and Applications
+   - Healthcare Data Visualization
+   - Programming for Health Analytics
+   - Artificial Intelligence
+
+7. **Ethical and Legal Considerations:**
+   - Legal Aspects of Health Information Management
+   - Ethics & Legal Issues in Health Informatics
+
+8. **Specialized Topics:**
+   - Mobile Health Informatics
+   - Consumer Health Informatics
+   - Advanced Topics in Mobile Health Technologies
+   - Practical Implementation of Clinical Decision Support Systems
+   - Information Technology and Patient Safety
+   - Health Informatics Product Management
+
+9. **Management and Leadership Courses:**
+   - Management and Business Practices
+   - Human Resources Management
+   - Leadership Development in Health Informatics
+   - Organizational Dynamics and Health Informatics
+
+
 
 #### Stanford ([Medicine](https://med.stanford.edu/))
 
@@ -804,7 +995,6 @@ The courses presented in the Master of Public Health and Data Science program ca
 | Healthcare Information Systems                         | Digital Health            | University of Denver |
 | Values and Outcomes in Digital Health                  | Digital Health            | University of Denver |
 
-Based on the provided courses and their corresponding programs, we can categorize them into the following main categories:
 
 1. **Foundational Health Informatics Courses:**
    - Foundations of Digital Health
@@ -905,7 +1095,6 @@ Based on the provided courses and their corresponding programs, we can categoriz
 | 309     | Visualization                                                  | Masters in Health data science                       |
 
 
-Based on the provided courses and their corresponding programs, we can categorize them into the following main groups:
 
 1. **Foundational Health Informatics Courses:**
    - Basics of Statistical Inference
@@ -998,7 +1187,6 @@ Based on the provided courses and their corresponding programs, we can categoriz
 | Advanced Evaluation and Cost Analysis Methods                    | Masters in Biomedical Informatics | University of Buffalo |
 
 
-Based on the provided courses and their corresponding programs, we can categorize them into the following main groups:
 
 1. **Clinical Rotations and Skills Development:**
    - Rotation in Inpatient Clinical Laboratory and Catheter Systems (Fellowship)
