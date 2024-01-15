@@ -78,11 +78,11 @@ Federated learning (FL) is suggested as a privacy-preserving alternative, creati
 - [Generating and evaluating cross-sectional synthetic electronic healthcare data: Preserving data utility and patient privacy](https://onlinelibrary.wiley.com/doi/full/10.1111/coin.12427)
 - [Synthetic data as an enabler for machine learning applications in medicine](https://www.sciencedirect.com/science/article/pii/S2589004222016030)
 - [Practical Synthetic Data Generation](https://www.oreilly.com/library/view/practical-synthetic-data/9781492072737/)
-- [](https://www.zotero.org/groups/5185601/synthetic_data_whitepaper/collections/EARWRPS6/items/YUUMDYNX/collection)
 - [Synthetic data generation for tabular health records: A systematic review. Neurocomputing, 493, 28-45. Advance online publication.](https://doi.org/10.1016/j.neucom.2022.04.053)
 - [Synthetic data in health care: A narrative review](https://doi.org/10.1371/journal.pdig.0000082)
 - [Machine Learning for Synthetic Data Generation](https://arxiv.org/abs/2302.04062) 
 - [Synthetic data generation: State of the art in health care domain](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138)
 - [Synthetic data as an enabler for machine learning applications in medicine](https://www.cell.com/iscience/fulltext/S2589-0042(22)01603-0_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2589004222016030%3Fshowall%3Dtrue)
+- [](https://www.zotero.org/groups/5185601/synthetic_data_whitepaper/collections/EARWRPS6/items/YUUMDYNX/collection)
 
 
