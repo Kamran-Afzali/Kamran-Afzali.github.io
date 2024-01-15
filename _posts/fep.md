@@ -73,6 +73,19 @@ Another issue concerns the form of the recognition density encoded by physical a
 
 In summary, the Bayesian brain hypothesis suggests that the brain is an inference engine striving to optimize probabilistic representations of the causes of sensory input. The optimization is facilitated by the variational free-energy principle, which is implemented through various schemes involving message passing or belief propagation among brain areas or units. This connection allows the integration of the free-energy principle with information theory, providing a comprehensive understanding of sensory processing.
 
+### Adaptive Priors and the Hierarchical Brain 
+
+Individuals are adapted or optimized to their environment, either through evolution or daily learning, resulting in expectations encoded by neuronal form and activity. While individual expectations may differ, there is a need to inherit some aspect of these expectations to conserve the physical form across generations. The Bayesian prior beliefs play a crucial role in this context, representing expectations about the sensory experiences expected in the world.
+
+The Free Energy Principle (FEP) proposes that species-typical patterns of cognition and behavior can be explained through adaptive priors—inherit expectations about the causal structure of the world shaped by evolution and life's characteristic properties. The FEP posits that living systems must minimize variational free energy to reduce the entropy of sensory and physiological states, ensuring their survival. Variational free energy is an information theoretic quantity limiting the entropy of a generative model entailed by the state of a biological system.
+
+Living systems, as per the FEP, actively avoid surprising phase-transitions by minimizing the entropy of their sensory and physical states, exhibiting local ergodicity. This propensity to minimize surprise is a consequence of natural selection, favoring systems capable of avoiding phase-transitions. The ability to repeatedly return to a limited set of unsurprising states delays the deleterious effects of dissipative processes.
+
+Biological systems indirectly reduce surprise by minimizing free energy, using sensations and predictions based on the hierarchical generative model encoded in internal states. The FEP generalizes the theory of predictive coding, suggesting that living beings can minimize surprise through changes in predictions by altering internal states (perception and learning) or by changing their relation with the environment (action). Action and perception operate reciprocally to maintain homeostasis and optimize an organism's generative model of the world.
+
+Minimizing free energy means inducing an upper bound on surprise through predictions and optimizing brain activity and connectivity, involving action, perception, and learning. This process, mathematically equivalent to maximizing Bayesian model evidence, compels individuals to make Bayesian inferences about their environment. The optimization of world models occurs through evolution, neurodevelopment, and learning. The discussion then transitions to the role of prior beliefs in shaping predictions, behavior, and the hierarchical structure of the brain.
+
+
 ### Refrences
 
 - https://gershmanlab.com/pubs/free_energy.pdf
