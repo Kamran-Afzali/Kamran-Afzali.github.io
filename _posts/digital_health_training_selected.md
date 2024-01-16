@@ -1001,6 +1001,63 @@
 </details>
 
 
+1. **Foundational Health Informatics Courses:**
+   - Introduction to Biomedical Data Science Research Methodology
+   - Data Driven Medicine
+   - Foundations of Computational Human Genomics
+   - Introduction to Biomedical Data Science Research Methodology
+   - Data Science for Medicine
+   - Translational Bioinformatics
+   - Biomedical Data Science
+   - Modeling Biomedical Systems
+
+1. **Clinical and Professional Development Courses:**
+   - Digital Health Practicum in a Health Care Delivery System
+   - Quality & Safety in U.S. Healthcare
+   - Applied Clinical Informatics Seminar
+   - MCiM Practicum 
+
+2. **Health Information Management and Systems Design:**
+   - Health Information Technology and Strategy
+   - Healthcare Operations Management
+   - Modeling Biomedical Systems: Ontology, Terminology, Problem Solving
+   - Principles of Business Strategy
+
+3. **Research and Methodology Courses:**
+   - Introduction to Biomedical Data Science Research Methodology
+   - Data Driven Medicine
+   - Precision Practice with Big Data
+   - Informatics in Industry
+   - Computational Methods for Biomedical Image Analysis and Interpretation
+   - Medical Scholars Research
+
+4. **Technological Competency Courses:**
+   - Data Driven Medicine
+   - Representations and Algorithms for Computational Molecular Biology
+   - Machine Learning Approaches for Data Fusion in Biomedicine
+   - Cloud Computing for Biology and Healthcare
+   - Programming Methodology
+   - Programming Abstractions
+
+5. **Ethical and Legal Considerations:**
+   - Deploying and Evaluating Fair AI in Healthcare
+   - Ethics in Bioengineering
+   - Computers, Ethics, and Public Policy
+   - Ethics, Public Policy, and Technological Change
+   - Bioethical Challenges of New Technology
+
+6. **Specialized Topics:**
+   - Modeling Biomedical Systems
+   - Computational Methods for Biomedical Image Analysis and Interpretation
+   - Seminar in Artificial Intelligence in Healthcare
+
+7. **Management and Leadership Courses:**
+   - Accounting for Managers and Entrepreneurs
+   - Leading and Managing Health Care Organizations
+   - Marketing Science and Patient Engagement
+   - Principles of Business Strategy
+   - Quality & Safety in U.S. Healthcare
+
 
 ####  University of Denver (HIMSS Academic Organizational Affiliate)
 
