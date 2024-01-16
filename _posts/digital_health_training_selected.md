@@ -916,10 +916,10 @@
 
 
 
-#### Stanford ([Medicine](https://med.stanford.edu/))
+#### Stanford 
 
-- **Departments**: 
-- **Programs**:
+- **Departments**:[School of Medicine](https://med.stanford.edu/)
+- **Programs**: Masters, PHD, Certificate, Fellowship
 
 
 - [Master of Science in Clinical Informatics Management (MCiM)](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html)
@@ -930,9 +930,76 @@
   - [fellowship details](https://med.stanford.edu/cifellowship.html)
 - [MS & PhD in Biomedical Informatics](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html)
   - Biomedical informatics is an interdisciplinary field that combines ideas from computer science and quantitative disciplines (statistics, data science, decision science) to solving challenging problems in biology and medicine. The BMI program provides coursework and mentored research training, with a focus on methods development, drawing heavily on quantitative and computational approaches.
-  - [Curriculum](https://dbds.stanford.edu/biomedical-data-science-graduate-program-overview/). MS and PhD candidates take coursework in four areas: (1) core DBDS classes, (2) an individual plan with electives in computer science, statistics, mathematics, engineering, and allied informatics-related disciplines, (3) required coursework in social, legal, and ethical issues, (4) unrestricted electives. In addition, PhD candidates are required to choose electives in some area of biology or medicine. Degree candidates also learn important didactic skills by serving as teaching assistants in our core courses.
+  - [Curriculum](https://dbds.stanford.edu/for-current-students/#curriculum). MS and PhD candidates take coursework in four areas: (1) core DBDS classes, (2) an individual plan with electives in computer science, statistics, mathematics, engineering, and allied informatics-related disciplines, (3) required coursework in social, legal, and ethical issues, (4) unrestricted electives. In addition, PhD candidates are required to choose electives in some area of biology or medicine. Degree candidates also learn important didactic skills by serving as teaching assistants in our core courses.
+
+- [Biomedical Data Science Graduate Certificate](https://online.stanford.edu/programs/biomedical-data-science)
+  - The Biomedical Data Science Graduate Certificate, previously named "Biomedical Informatics: Data, Modeling and Analysis", explores the design and implementation of novel quantitative and computational methods that solve challenging problems across the entire spectrum of biology and medicine. You will acquire knowledge and skills in bio- and clinical informatics that go beyond the undergraduate level. From recent genomic research to new applications of basic biology, you will develop an in-depth understanding of the techniques used to analyze vast amounts of biological data.
+  - [Course details](https://online.stanford.edu/programs/biomedical-data-science)
+
 
 ##### Anthology of presented courses 
+
+<details>
+
+| Courses                                                                | Program                                              | University |
+|------------------------------------------------------------------------|------------------------------------------------------|------------|
+| Biomedical Data Science                                                | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Introduction to Biomedical Data Science Research Methodology           | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Representations and Algorithms for Computational Molecular Biology     | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Data Driven Medicine                                                   | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Economics of Health and Medical Care                                   | MS & PhD in Biomedical Informatics                   | Stanford   |
+|  Foundations of Computational Human Genomics                           | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Precision Practice with Big Data                                       | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Informatics in Industry                                                | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Applied Clinical Informatics Seminar                                   | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Introduction to Biomedical Data Science Research Methodology           | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Data Science for Medicine                                              | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Translational Bioinformatics                                           | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Mathematical Models and Medical Decisions                              | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Machine Learning Approaches for Data Fusion in Biomedicine             | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Cloud Computing for Biology and Healthcare                             | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Deploying and Evaluating Fair AI in Healthcare                         | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Data Driven Medicine                                                   | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Digital Health Practicum in a Health Care Delivery System              | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Quality & Safety in U.S. Healthcare                                    | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Economics of Health and Medical Care                                   | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Computational Methods for Biomedical Image Analysis and Interpretation | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Medical Scholars Research                                              | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Stakeholder Competencies for Artificial Intelligence in Healthcare     | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Analysis of Costs, Risks, and Benefits of Health Care                  | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Ethics in Bioengineering                                               | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Quality & Safety in U.S. Healthcare                                    | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Computers, Ethics, and Public Policy                                   | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Ethics, Public Policy, and Technological Change                        | MS & PhD in Biomedical Informatics                   | Stanford   |
+| Biomedical Data Science                                                | Biomedical Data Science Graduate Certificate         | Stanford   |
+| Modeling Biomedical Systems                                            | Biomedical Data Science Graduate Certificate         | Stanford   |
+| Representations and Algorithms for Computational Molecular Biology     | Biomedical Data Science Graduate Certificate         | Stanford   |
+| Computational Methods for Biomedical Image Analysis and Interpretation | Biomedical Data Science Graduate Certificate         | Stanford   |
+| Data Science for Medicine                                              | Biomedical Data Science Graduate Certificate         | Stanford   |
+| Programming Methodology                                                | Biomedical Data Science Graduate Certificate         | Stanford   |
+| Seminar in Artificial Intelligence in Healthcare                       | Biomedical Data Science Graduate Certificate         | Stanford   |
+| Programming Abstractions                                               | Biomedical Data Science Graduate Certificate         | Stanford   |
+| Accounting for Managers and Entrepreneurs                              | Master of Science in Clinical Informatics Management | Stanford   |
+| Biodesign for Digital Health                                           | Master of Science in Clinical Informatics Management | Stanford   |
+| Bioethical Challenges of New Technology                                | Master of Science in Clinical Informatics Management | Stanford   |
+| Bioethical Challenges of New Technology                                | Master of Science in Clinical Informatics Management | Stanford   |
+| Bioethical Challenges of New Technology                                | Master of Science in Clinical Informatics Management | Stanford   |
+| Bioethical Challenges of New Technology                                | Master of Science in Clinical Informatics Management | Stanford   |
+| Corporate Financial Management                                         | Master of Science in Clinical Informatics Management | Stanford   |
+| Data Driven Medicine                                                   | Master of Science in Clinical Informatics Management | Stanford   |
+| Health Information Technology and Strategy                             | Master of Science in Clinical Informatics Management | Stanford   |
+| Healthcare Operations Management                                       | Master of Science in Clinical Informatics Management | Stanford   |
+| Leading and Managing Health Care Organizations                         | Master of Science in Clinical Informatics Management | Stanford   |
+| Marketing Science and Patient Engagement                               | Master of Science in Clinical Informatics Management | Stanford   |
+| MCiM Practicum                                                         | Master of Science in Clinical Informatics Management | Stanford   |
+| MCiM Practicum                                                         | Master of Science in Clinical Informatics Management | Stanford   |
+| MCiM Practicum                                                         | Master of Science in Clinical Informatics Management | Stanford   |
+| Modeling Biomedical Systems: Ontology, Terminology, Problem Solving    | Master of Science in Clinical Informatics Management | Stanford   |
+| Principles of Business Strategy                                        | Master of Science in Clinical Informatics Management | Stanford   |
+| Quality & Safety in U.S. Healthcare                                    | Master of Science in Clinical Informatics Management | Stanford   |
+
+</details>
+
 
 
 ####  University of Denver (HIMSS Academic Organizational Affiliate)
