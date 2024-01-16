@@ -85,6 +85,19 @@ Biological systems indirectly reduce surprise by minimizing free energy, using s
 
 Minimizing free energy means inducing an upper bound on surprise through predictions and optimizing brain activity and connectivity, involving action, perception, and learning. This process, mathematically equivalent to maximizing Bayesian model evidence, compels individuals to make Bayesian inferences about their environment. The optimization of world models occurs through evolution, neurodevelopment, and learning. The discussion then transitions to the role of prior beliefs in shaping predictions, behavior, and the hierarchical structure of the brain.
 
+### Implications for Theorizing and Research in Psychology
+
+
+The Hierarchical Mechanistic Mind emphasizes the importance of extending the principle of free-energy minimization across all areas of psychological inquiry. In neuroscience, the focus has traditionally been on fourth-level mechanistic phenomena, such as perception, action, attention, and learning. Support for the Free Energy Principle (FEP) comes from computer simulations, visual system studies, and brain microcircuit analyses. Researchers use simulations, fMRI, and EEG to apply computational dynamic causal models, explaining neural responses to unpredictable stimuli and complex phenomena like insight and curiosity.
+
+While progress has been made in neuroscience, psychologists have been slow to utilize the explanatory power of the FEP. However, some have explored its relevance to various psychological phenomena, such as anxiety, emotion, illusions, delusions, hallucinations, and consciousness. The FEP aligns with ecological psychology principles, emphasizing the reciprocal relationship between organisms and their environment, particularly the concept of affordance.
+
+The FEP also aligns with representationalism, as free-energy is defined in relation to a Bayesian belief about hidden causes in the environment. Active inference, rooted in the FEP, has been applied to reinforcement learning, avoiding circularity issues present in classical approaches. It formulates utility based on adaptive and empirical priors acquired over nested timescales, addressing deep problems in traditional approaches.
+
+At the social psychology level, the FEP has inspired models explaining mentalizing and self- and other-representations. Predictive coding is proposed to explain mentalizing, with estimations used to predict others' behaviors. The FEP has been leveraged to explain self- and other-representations as heuristics reducing uncertainty in social interactions. Beliefs about likely social outcomes are weighted by their precision and updated with experience.
+
+Extending beyond social cognition, the FEP has been applied to interpersonal behaviors like dyadic conversation. Communication is seen as a means to resolve uncertainty by adopting a shared narrative, enabling actors to predict each other's sensations and minimize mutual prediction errors. Finally, the FEP has been applied to large-scale sociocultural phenomena, explaining how shared expectations in social groups become encoded neuronally as high-level priors, guiding cooperative action and reducing uncertainty at individual and group levels.
+
 
 ### Refrences
 
