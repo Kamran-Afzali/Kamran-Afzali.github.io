@@ -7,28 +7,35 @@
 - There is a need to educate family medicine residents in the realm of health informatics, applied data analytics for continuous quality improvement, and general principles of digital health technologies. However, the integration of health informatics concepts into the curricula of Canadian medical schools and residencies is proceeding slowly (see [here](https://www.cfp.ca/content/65/10/683)). There are offeres by medical associations to improve digital health training in medical schools, for instance [OMD](https://www.ontariomd.ca/documents/resource%20library/dig.%20health%20education%20for%20med%20school.pdf) proposes a Digital Health Curriculum that medical schools can leverage to deliver further value to your students. This digital health educational package includes well-defined instructional digital health materials developed by practicing physicians and digital health experts who are university faculty members. Each module in the curriculum is specifically designed to enhance experiential learning and can be easily customized to the learning goals of each university’s medical school and the student’s education year.  
 
 #### University of Victoria 
+
 - **Departments**: Nursing, Faculty of Human and Social Development, Health Information Science
-- **Programs**: Graduate Certificate, Bachlors, Masters with possiblity to continue to PhD in health informatics, Double Degree Master of Nursing 
+- **Programs**: Graduate Certificate, Bachlors, Masters with possiblity to continue to PhD in health informatics, Double Degree Master of Nursing
+
+- [undergraduate programs : Two unique programs](https://www.uvic.ca/hsd/hinf/undergraduate/programs/index.php)
+  
+   - [BSc in Health Information Science](https://www.uvic.ca/hsd/hinf/undergraduate/programs/bsc/index.php)
+     
+   - Health Information Science is about connecting the worlds of technology and health care. To span these worlds, you'll need expertise in both fields. This program offers a four-year co-operative education program leading to the Bachelor of Science in Health Information Science which gives you expertise in both healthcare and information technology.
+     
+   - [Combined Major in Computer Science and Health Information Science](https://www.uvic.ca/hsd/hinf/undergraduate/programs/combined-major/index.php)
+  
+   - The Combined Major in Computer Science and Health Information Science combines studies in the organization of health care systems and specific issues involving health informatics with the fundamentals of software engineering, operating systems, programming languages and computer hardware.
+  
 - [Master of health informatics- Double Degree Master of Nursing and Master of Science in Health Informatics](https://www.uvic.ca/hsd/hinf/graduate/masters/index.php)
   
-   - Our double-degree option lets you study nursing and health informatics side by side. You'll become a nursing leader in this rapidly expanding field. You’ll study areas of health technology like telehealth and electronic health care records.
-   - This program requires a completion of a total of 31.5 units of study, including a research project or thesis. All course requirements must be completed prior to proceeding to the final oral examination. Students will have a supervisor from each School. Students with an overall A- average may complete a thesis, with the approval of both supervisors, the Director of the School of Health Information Science and the Associate Director, Graduate Education in the School of Nursing. Completion of a Master's degree with thesis is encouraged for students intending to pursue Doctoral studies. Students are expected to be enrolled full time for the duration of their program. Cooperative learning experiences must usually be undertaken outside of a student's current employment setting.
+   - The double-degree option lets the participant study nursing and health informatics side by side, with a prospect of becoming a nursing leader in this rapidly expanding field. This program requires a completion of a total of 31.5 units of study, including a research project or thesis. All course requirements must be completed prior to proceeding to the final oral examination. Students will have a supervisor from each School. Students with an overall A- average may complete a thesis, with the approval of both supervisors, the Director of the School of Health Information Science and the Associate Director, Graduate Education in the School of Nursing. Completion of a Master's degree with thesis is encouraged for students intending to pursue Doctoral studies. Students are expected to be enrolled full time for the duration of their program. Cooperative learning experiences must usually be undertaken outside of a student's current employment setting.
   
    - [Course details](https://www.uvic.ca/hsd/nursing/graduate/program/double-degree/index.php)
 
   
 - [Health Informatics (MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-msc.php#ipn-faculties-amp-departments)
   
-   - Health information science (also known as health informatics) is the study of: how health data are collected, stored and communicated; how those data are processed into health information suitable for administrative and clinical decision making; and how computer and telecommunications technology can be applied to support these processes. You will learn to identify what information and data are needed and used to make effective healthcare decision by doctors, nurses, hospital administrators, government planners and other health care professionals.
-   - The MSc program requires completion of coursework and a research project. All course requirements must be completed prior to proceeding to the final oral examination. Exceptional students with supervisor and Director approval may work on a thesis rather than a research project. Students are expected to be enrolled full time continuously during their program.
+   - Health information science is the study of: how health data are collected, stored and communicated; how those data are processed into health information suitable for administrative and clinical decision making; and how computer and telecommunications technology can be applied to support these processes. You will learn to identify what information and data are needed and used to make effective healthcare decision by doctors, nurses, hospital administrators, government planners and other health care professionals. The MSc program requires completion of coursework and a research project. All course requirements must be completed prior to proceeding to the final oral examination. Exceptional students with supervisor and Director approval may work on a thesis rather than a research project. Students are expected to be enrolled full time continuously during their program.
+     
    - [Course details](https://www.uvic.ca/calendar/grad/index.php#/programs/ryG2am0f4) [Additional information](https://www.uvic.ca/calendar/grad/#/courses?group=Health%20Information%20Science%20(HINF))
   
-- [undergraduate programs : Two unique programs](https://www.uvic.ca/hsd/hinf/undergraduate/programs/index.php)
-   - [BSc in Health Information Science](https://www.uvic.ca/hsd/hinf/undergraduate/programs/bsc/index.php)
-   - Health Information Science is about connecting the worlds of technology and health care. To span these worlds, you'll need expertise in both fields. We offer a four-year co-operative education program leading to the Bachelor of Science in Health Information Science which gives you expertise in both healthcare and information technology. 
-   - [Combined Major in Computer Science and Health Information Science](https://www.uvic.ca/hsd/hinf/undergraduate/programs/combined-major/index.php)
-   - The Combined Major in Computer Science and Health Information Science combines studies in the organization of health care systems and specific issues involving health informatics with the fundamentals of software engineering, operating systems, programming languages and computer hardware.
 - [Graduate Certificate in Health Terminology Standards](https://www.uvic.ca/hsd/hinf/graduate/certificate/index.php)
+  
    - The Graduate Certificate in Health Terminology Standards is a 1-year, part-time program with four graduate level courses done through weekly online evening classes and a virtual workshop. If you work in the health industry and are involved with or have an interest in health terminologies and standards, interoperable electronic health record, and clinical coding and classification, then this Certificate is for you. The program is intended to meet national and international needs for best practices in controlled terminologies used in the health industry. Graduates of this program are eligible for the **Canadian College of Health Information Management Terminology Standards Specialist Certification**.
 
 ##### Anthology of presented courses 
@@ -36,67 +43,67 @@
 <details>
 
 
-| Nb | Courses                                                     | Program                                  | University |
-|----|-------------------------------------------------------------|------------------------------------------|------------|
-| 1  | Philosophy for Advanced Practice Nursing                    | Nursing Informatics MSc                  | U of Vic   |
-| 2  | Health Informatics: An Overview                             | Nursing Informatics MSc                  | U of Vic   |
-| 3  | Advanced Practice Nursing & Professional Identity           | Nursing Informatics MSc                  | U of Vic   |
-| 4  | Health Information Systems Design                           | Nursing Informatics MSc                  | U of Vic   |
-| 5  | Database Design                                             | Nursing Informatics MSc                  | U of Vic   |
-| 6  | Nursing Ethics for Health System Transformation             | Nursing Informatics MSc                  | U of Vic   |
-| 7  | Research Methods in Health Informatics                      | Nursing Informatics MSc                  | U of Vic   |
-| 8  |  Evidence for Advanced Practice Nursing                     | Nursing Informatics MSc                  | U of Vic   |
-| 9  | Disciplinary Research for Advanced Practice Nursing         | Nursing Informatics MSc                  | U of Vic   |
-| 10 | Thesis                                                      | Nursing Informatics MSc                  | U of Vic   |
-| 11 | Research Methods in Health Informatics and Digital Health   | Health Informatics MSc                   | U of Vic   |
-| 12 | Health Informatics Overview                                 | Health Informatics MSc                   | U of Vic   |
-| 13 | Applied Statistics for Health Informatics                   | Health Informatics MSc                   | U of Vic   |
-| 14 | Health Informatics Graduate Seminar                         | Health Informatics MSc                   | U of Vic   |
-| 15 | Health Database Design                                      | Health Informatics MSc                   | U of Vic   |
-| 16 | Intelligent Decision Support Systems and AI in Health       | Health Informatics MSc                   | U of Vic   |
-| 17 | Health Information Standards                                | Health Informatics MSc                   | U of Vic   |
-| 18 | Health Information Systems Design                           | Health Informatics MSc                   | U of Vic   |
-| 19 | Research Project                                            | Health Informatics MSc                   | U of Vic   |
-| 20 | Health Informatics Thesis                                   | Health Informatics MSc                   | U of Vic   |
-| 21 | Electives                                                   | Health Informatics MSc                   | U of Vic   |
-| 22 | Programming for Healthcare                                  | BSc in Health Information Science        | U of Vic   |
-| 23 | Introduction to Health Information Analysis                 | BSc in Health Information Science        | U of Vic   |
-| 24 | Introduction to Health Information Technology               | BSc in Health Information Science        | U of Vic   |
-| 25 | Introduction to the Canadian Health Care Systems            | BSc in Health Information Science        | U of Vic   |
-| 26 | Principles of Health Database Design                        | BSc in Health Information Science        | U of Vic   |
-| 27 | Database Management and Development for Health Care Systems | BSc in Health Information Science        | U of Vic   |
-| 28 | Introduction to Professional Practice                       | BSc in Health Information Science        | U of Vic   |
-| 29 | Health Care Delivery Organization                           | BSc in Health Information Science        | U of Vic   |
-| 30 | Organizational Behavior and Change Management               | BSc in Health Information Science        | U of Vic   |
-| 31 | Human Aspects of Healthcare Information Systems             | BSc in Health Information Science        | U of Vic   |
-| 32 | Introduction to Systems Analysis                            | BSc in Health Information Science        | U of Vic   |
-| 33 | Project Management                                          | BSc in Health Information Science        | U of Vic   |
-| 34 | Health Information Standards                                | BSc in Health Information Science        | U of Vic   |
-| 35 | Epidemiology, Population Health and Public Health           | BSc in Health Information Science        | U of Vic   |
-| 36 | Electronic Records and Decision Support Systems             | BSc in Health Information Science        | U of Vic   |
-| 37 | Legal and Security Issues in Health Informatics             | BSc in Health Information Science        | U of Vic   |
-| 38 | Networks, Interoperability and Systems Security             | BSc in Health Information Science        | U of Vic   |
-| 39 | Information Technology Procurement                          | BSc in Health Information Science        | U of Vic   |
-| 40 | Clinical Methodologies                                      | BSc in Health Information Science        | U of Vic   |
-| 41 | Information Management and Technology                       | BSc in Health Information Science        | U of Vic   |
-| 42 | Societal and Ethical Implications of Information Technology | BSc in Health Information Science        | U of Vic   |
-| 43 | Health Information System Design                            | BSc in Health Information Science        | U of Vic   |
-| 44 | System Evaluation and Quality Improvement                   | BSc in Health Information Science        | U of Vic   |
-| 45 | Trends in Health Informatics                                | BSc in Health Information Science        | U of Vic   |
-| 46 | Artificial Intelligence in Health Care                      | BSc in Health Information Science        | U of Vic   |
-| 47 | Fundamentals of Programming                                 | BSc in Health Information Science and CS | U of Vic   |
-| 48 | Introduction to the Canadian Health Care Systems            | BSc in Health Information Science and CS | U of Vic   |
-| 49 | Introduction to Health Information Technology               | BSc in Health Information Science and CS | U of Vic   |
-| 50 | Principles of Health Database Design                        | BSc in Health Information Science and CS | U of Vic   |
-| 51 | Organizational Behaviour and Change Management              | BSc in Health Information Science and CS | U of Vic   |
-| 52 | Introduction to Professional Practice                       | BSc in Health Information Science and CS | U of Vic   |
-| 53 | Software Development Method                                 | BSc in Health Information Science and CS | U of Vic   |
-| 54 | Database Management and Development for Health Care Systems | BSc in Health Information Science and CS | U of Vic   |
-| 55 | Algorithms and Data Structures                              | BSc in Health Information Science and CS | U of Vic   |
-| 56 | Health Information Standards                                | GC Health Terminology Standards          | U of Vic   |
-| 57 | Controlled Terminology Standards                            | GC Health Terminology Standards          | U of Vic   |
-| 58 | Health Information Exchange Standards                       | GC Health Terminology Standards          | U of Vic   |
-| 59 | Field Project in Health Informatics                         | GC Health Terminology Standards          | U of Vic   |
+| Courses                                                     | Program                                  | University |
+|-------------------------------------------------------------|------------------------------------------|------------|
+| Philosophy for Advanced Practice Nursing                    | Nursing Informatics MSc                  | U of Vic   |
+| Health Informatics: An Overview                             | Nursing Informatics MSc                  | U of Vic   |
+| Advanced Practice Nursing & Professional Identity           | Nursing Informatics MSc                  | U of Vic   |
+| Health Information Systems Design                           | Nursing Informatics MSc                  | U of Vic   |
+| Database Design                                             | Nursing Informatics MSc                  | U of Vic   |
+| Nursing Ethics for Health System Transformation             | Nursing Informatics MSc                  | U of Vic   |
+| Research Methods in Health Informatics                      | Nursing Informatics MSc                  | U of Vic   |
+|  Evidence for Advanced Practice Nursing                     | Nursing Informatics MSc                  | U of Vic   |
+| Disciplinary Research for Advanced Practice Nursing         | Nursing Informatics MSc                  | U of Vic   |
+| Thesis                                                      | Nursing Informatics MSc                  | U of Vic   |
+| Research Methods in Health Informatics and Digital Health   | Health Informatics MSc                   | U of Vic   |
+| Health Informatics Overview                                 | Health Informatics MSc                   | U of Vic   |
+| Applied Statistics for Health Informatics                   | Health Informatics MSc                   | U of Vic   |
+| Health Informatics Graduate Seminar                         | Health Informatics MSc                   | U of Vic   |
+| Health Database Design                                      | Health Informatics MSc                   | U of Vic   |
+| Intelligent Decision Support Systems and AI in Health       | Health Informatics MSc                   | U of Vic   |
+| Health Information Standards                                | Health Informatics MSc                   | U of Vic   |
+| Health Information Systems Design                           | Health Informatics MSc                   | U of Vic   |
+| Research Project                                            | Health Informatics MSc                   | U of Vic   |
+| Health Informatics Thesis                                   | Health Informatics MSc                   | U of Vic   |
+| Electives                                                   | Health Informatics MSc                   | U of Vic   |
+| Programming for Healthcare                                  | BSc in Health Information Science        | U of Vic   |
+| Introduction to Health Information Analysis                 | BSc in Health Information Science        | U of Vic   |
+| Introduction to Health Information Technology               | BSc in Health Information Science        | U of Vic   |
+| Introduction to the Canadian Health Care Systems            | BSc in Health Information Science        | U of Vic   |
+| Principles of Health Database Design                        | BSc in Health Information Science        | U of Vic   |
+| Database Management and Development for Health Care Systems | BSc in Health Information Science        | U of Vic   |
+| Introduction to Professional Practice                       | BSc in Health Information Science        | U of Vic   |
+| Health Care Delivery Organization                           | BSc in Health Information Science        | U of Vic   |
+| Organizational Behavior and Change Management               | BSc in Health Information Science        | U of Vic   |
+| Human Aspects of Healthcare Information Systems             | BSc in Health Information Science        | U of Vic   |
+| Introduction to Systems Analysis                            | BSc in Health Information Science        | U of Vic   |
+| Project Management                                          | BSc in Health Information Science        | U of Vic   |
+| Health Information Standards                                | BSc in Health Information Science        | U of Vic   |
+| Epidemiology, Population Health and Public Health           | BSc in Health Information Science        | U of Vic   |
+| Electronic Records and Decision Support Systems             | BSc in Health Information Science        | U of Vic   |
+| Legal and Security Issues in Health Informatics             | BSc in Health Information Science        | U of Vic   |
+| Networks, Interoperability and Systems Security             | BSc in Health Information Science        | U of Vic   |
+| Information Technology Procurement                          | BSc in Health Information Science        | U of Vic   |
+| Clinical Methodologies                                      | BSc in Health Information Science        | U of Vic   |
+| Information Management and Technology                       | BSc in Health Information Science        | U of Vic   |
+| Societal and Ethical Implications of Information Technology | BSc in Health Information Science        | U of Vic   |
+| Health Information System Design                            | BSc in Health Information Science        | U of Vic   |
+| System Evaluation and Quality Improvement                   | BSc in Health Information Science        | U of Vic   |
+| Trends in Health Informatics                                | BSc in Health Information Science        | U of Vic   |
+| Artificial Intelligence in Health Care                      | BSc in Health Information Science        | U of Vic   |
+| Fundamentals of Programming                                 | BSc in Health Information Science and CS | U of Vic   |
+| Introduction to the Canadian Health Care Systems            | BSc in Health Information Science and CS | U of Vic   |
+| Introduction to Health Information Technology               | BSc in Health Information Science and CS | U of Vic   |
+| Principles of Health Database Design                        | BSc in Health Information Science and CS | U of Vic   |
+| Organizational Behaviour and Change Management              | BSc in Health Information Science and CS | U of Vic   |
+| Introduction to Professional Practice                       | BSc in Health Information Science and CS | U of Vic   |
+| Software Development Method                                 | BSc in Health Information Science and CS | U of Vic   |
+| Database Management and Development for Health Care Systems | BSc in Health Information Science and CS | U of Vic   |
+| Algorithms and Data Structures                              | BSc in Health Information Science and CS | U of Vic   |
+| Health Information Standards                                | GC Health Terminology Standards          | U of Vic   |
+| Controlled Terminology Standards                            | GC Health Terminology Standards          | U of Vic   |
+| Health Information Exchange Standards                       | GC Health Terminology Standards          | U of Vic   |
+| Field Project in Health Informatics                         | GC Health Terminology Standards          | U of Vic   |
 
 </details>
 
