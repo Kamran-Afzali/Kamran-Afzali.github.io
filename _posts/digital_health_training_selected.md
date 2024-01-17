@@ -116,7 +116,6 @@
 2. **Clinical and Professional Development Courses:**
    - Philosophy for Advanced Practice Nursing
    - Advanced Practice Nursing & Professional Identity
-   - Nursing Ethics for Health System Transformation
    - Introduction to Professional Practice
    - Organizational Behavior and Change Management
 
@@ -127,7 +126,6 @@
    - Health Information System Design
 
 4. **Research and Methodology Courses:**
-   - Research Methods in Health Informatics
    - Research Methods in Health Informatics and Digital Health
    - Disciplinary Research for Advanced Practice Nursing
    - Field Project in Health Informatics
@@ -141,6 +139,8 @@
 6. **Ethical and Legal Considerations:**
    - Legal and Security Issues in Health Informatics
    - Societal and Ethical Implications of Information Technology
+   - Nursing Ethics for Health System Transformation
+
 
 7. **Specialized Topics:**
    - Intelligent Decision Support Systems and AI in Health
@@ -161,16 +161,19 @@
 
 #### McMaster 
 
-- **Departments**: collaboration by three Faculties – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business
+- **Departments**: Collaboration by three Faculties – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business
 - **Programs**: Graduate Diploma, Masters 
   
 - [Master eHealth](https://ehealth.mcmaster.ca/)
-   - McMaster’s eHealth MSc program is a unique healthcare graduate program that immerses you in the world of digital health informatics. Offered through a collaboration by three prestigious McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business – the eHealth MSc builds on theoretical foundations in healthcare, information technology and business. An 8-month internship offers firsthand perspective on how these fields intersect in the transformation of modern healthcare delivery and management. You do not need an information technology degree to enroll in the eHealth MSc. Our interdisciplinary approach to learning lets you identify your area of study and pursue this through elective coursework and research. The program’s flexibility means that your academic experience can be as broad or as focused as you like. Modes of study include full time course-based, full time thesis-based, and part-time options.
-   - Complete at least 5 graduate-level, one-term courses. You must earn at least a B- in each of them. This includes: 4 compulsory (required) courses. At least one approved elective from your area of focus. Complete an 8-month internship. Prepare and orally defend a written thesis.
+  
+   - McMaster’s eHealth MSc program is a unique healthcare graduate program to immerses the participants in the world of digital health informatics. Offered through a collaboration by three McMaster Faculties and Schools – the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business – the eHealth MSc builds on theoretical foundations in healthcare, information technology and business. An 8-month internship offers firsthand perspective on how these fields intersect in the transformation of modern healthcare delivery and management. You do not need an information technology degree to enroll in the eHealth MSc. Our interdisciplinary approach to learning lets you identify your area of study and pursue this through elective coursework and research. The program’s flexibility means that the academic experience can be as broad or as focused as you like. Modes of study include full time course-based, full time thesis-based, and part-time options. Participants should complete at least 5 graduate-level, one-term courses and earn at least a B- in each of them. This includes: 4 compulsory (required) courses and at least one approved elective. Complete an 8-month internship. Prepare and orally defend a written thesis.
+     
    - [Course details](https://ehealth.mcmaster.ca/program-options/program-requirements/compulsary-courses/)
+     
 - [Graduate Diploma in Health Informatics](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-diploma)
-  - Three pillars : The fundamental theories, principles and ethical standards of health informatics, Technical foundations for effective systems analysis design and implementation, Project management, quality control and performance evaluation.
-  -  This educational offering has been approved for the following continuing education credit/professional development credit by the **Canadian Society of Respiratory Therapists**. McMaster University Continuing Education maintains all responsibility for this offering and its content.
+  
+  - This program is built on three specific pillars, the fundamental theories, principles and ethical standards of health informatics, technical foundations for effective systems analysis design and implementation, project management, quality control and performance evaluation. This educational offering has been approved for the following continuing education credit/professional development credit by the **Canadian Society of Respiratory Therapists**. 
+    
   - [Course details](https://continuing.mcmaster.ca/programs/health-social-services/health-informatics/#tab-content-courses)
 
 ##### Anthology of presented courses 
@@ -208,14 +211,9 @@
    - Foundations in Health Informatics
 
 2. **Clinical and Professional Development Courses:**
-   - Management Issues in eHealth
-   - Professionalism, Ethics & Professional Standards
-   - Privacy, Confidentiality, Security
-   - Project Management for the Health Sector
    - Health Informatics Practical Experience
 
-3. **Health Information Management and Systems Design:**
-   - Health Information Management
+3. **Health Information and Systems Design:**
    - Information Systems & Technology
    - Systems Analysis & Evaluation
    - Health Informatics Data Analysis
@@ -230,6 +228,7 @@
 
 6. **Ethical and Legal Considerations:**
    - Information, Privacy, and Security
+   - Professionalism, Ethics & Professional Standards
 
 7. **Specialized Topics:**
    - Virtual Care and Telemedicine
@@ -238,6 +237,7 @@
 
 8. **Management and Leadership Courses:**
    - Project Management for the Health Sector
+   - Management Issues in eHealth
 
 ### Australia
 
