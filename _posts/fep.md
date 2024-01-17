@@ -1,4 +1,4 @@
-The free energy principle and active inference theory, developed by Karl Friston, provide a theoretical framework for understanding perception, action, and learning in biological and artificial systems. The key concepts of these theories can be outlined as follows:
+The free energy principle and active inference theory, developed by Karl Friston, provide a theoretical framework for understanding perception, action, and learning in biological and artificial systems. 
 
 ## Free Energy Principle
 
@@ -73,7 +73,13 @@ Another issue concerns the form of the recognition density encoded by physical a
 
 In summary, the Bayesian brain hypothesis suggests that the brain is an inference engine striving to optimize probabilistic representations of the causes of sensory input. The optimization is facilitated by the variational free-energy principle, which is implemented through various schemes involving message passing or belief propagation among brain areas or units. This connection allows the integration of the free-energy principle with information theory, providing a comprehensive understanding of sensory processing.
 
-### Adaptive Priors and the Hierarchical Brain 
+### Adaptive Priors and the Bayesian Brain 
+
+The adaptive priors in the Bayesian brain hypothesis refer to the question of whether these priors are innate or learned. The hypothesis suggests that the brain is equipped with an internal (or "generative") model of the environment, which specifies a "recipe" for generating sensory observations from hidden states. These priors, whether innate or learned, provide the brain with adapted prior guesses when processing sensory information, enabling it to make predictions and inferences about the environment. The debate over the origin of these priors, whether they are innate or acquired through learning, is an ongoing topic of research and discussion within the framework of the Bayesian brain hypothesis.
+
+The adaptive nature of these priors is essential for the brain to effectively infer sensory contingencies and exhibit adaptive behavior. The Bayesian brain hypothesis, which is closely related to the free energy principle, emphasizes that the brain is constantly updating and refining its internal beliefs to align with the current state of the environment. This process of adaptive inference enables the brain to minimize surprise and uncertainty, ultimately guiding behavior and decision-making in a changing and uncertain world.
+
+Adaptive priors play a crucial role in helping the brain make predictions by providing it with prior expectations that are continuously updated based on sensory input and past experience. These priors, whether innate or learned, enable the brain to form adapted prior guesses when processing sensory information, allowing it to make predictions and inferences about the environment. The adaptive nature of these priors is essential for the brain to effectively infer sensory contingencies and exhibit adaptive behavior. They guide the brain's action-perception cycles toward adaptive and unsurprising states, ultimately contributing to the brain's ability to minimize surprise and uncertainty. Therefore, adaptive priors serve as a foundational component that enables the brain to make accurate predictions and navigate a changing and uncertain world.
 
 Individuals are adapted or optimized to their environment, either through evolution or daily learning, resulting in expectations encoded by neuronal form and activity. While individual expectations may differ, there is a need to inherit some aspect of these expectations to conserve the physical form across generations. The Bayesian prior beliefs play a crucial role in this context, representing expectations about the sensory experiences expected in the world.
 
@@ -122,8 +128,12 @@ Extending beyond social cognition, the FEP has been applied to interpersonal beh
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8871280/
 - https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind
 
-
-
+- https://osf.io/preprints/psyarxiv/vgw6q/download
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7713598/
+- https://www.jpn.ca/content/47/1/E48
+- https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00592
+- https://gershmanlab.com/pubs/free_energy.pdf
+  
 - https://en.wikipedia.org/wiki/Free_energy_principle
 - https://gershmanlab.com/pubs/free_energy.pdf
 - https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf
