@@ -243,23 +243,30 @@
 
 ####  Medical schools 
 
-- The Australian Medical Council (AMC) and the Australian Digital Health Agency (the Agency) formed a partnership in 2020 to engage in a project aimed at understanding how technology impacts the standards of medical education, training and practice in Australia. This was done in alignment with the AMC’s roles as a national standards body for medical education and training, and as the accreditation authority for the medical profession.  AMC completed this work by launching the [framework](https://www.amc.org.au/wp-content/uploads/2021/10/Digital-Health-in-Medicine-Capability-Framework-FINAL-18-Oct-2021.pdf) with medical education providers and other key stakeholders of medicine. As part of this launch, AMC also presented on the capability framework at a number of national medical education and workforce conferences and shared a new look digital health page with their stakeholders.
-
+- The Australian Medical Council (AMC) and the Australian Digital Health Agency formed a partnership in 2020 to engage in a project aimed at understanding how technology impacts the standards of medical education, training and practice in Australia. This was done in alignment with the AMC’s roles as a national standards body for medical education and training, and as the accreditation authority for the medical profession.  AMC completed this work by launching the [framework](https://www.amc.org.au/wp-content/uploads/2021/10/Digital-Health-in-Medicine-Capability-Framework-FINAL-18-Oct-2021.pdf) with medical education providers and other key stakeholders of medicine. As part of this launch, AMC also presented on the capability framework at a number of national medical education and workforce conferences and shared a new look digital health page with their stakeholders.
 
 
 #### University of Sydney
 
-- **Departments**: Faculty of Engineering, Computer sciences 
-- **Programs**: Graduate Certificate, Bachlors, Masters
+- **Departments**: Faculty of Engineering, Computer sciences, Faculty of Medicine and Health 
+- **Programs**:  Bachlors, Masters, Graduate Certificate
 
 - [Bachelor of Advanced Computing and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-health.html)
-  - The Bachelor of Advanced Computing/Bachelor of Science (Health) is a combined undergraduate coursework degree that will develop your technical skills in computing while providing a thorough grounding in health and health systems at the local, national and global level. You will complete core units that cover the skills needed to work as a computing professional, along with a major from the Advanced Computing disciplinary pool and advanced computing elective units. Additionally, you will complete a major in health, with core units in areas such as human biology, psychology and eHealth, ensuring you develop a breadth of knowledge in healthcare and its latest developments.
+  
+  - The Bachelor of Advanced Computing/Bachelor of Science (Health) is a combined undergraduate coursework degree that will develop your technical skills in computing while providing a thorough grounding in health and health systems at the local, national and global level. The participant will complete core units that cover the skills needed to work as a computing professional, along with a major from the Advanced Computing disciplinary pool and advanced computing elective units. Additionally, they will complete a major in health, with core units in areas such as human biology, psychology and eHealth, ensuring you develop a breadth of knowledge in healthcare and its latest developments.
+    
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/782)
+    
 - [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
-  - Our Master of Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
+  
+  -  Master of Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
+    
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1145)
+    
 - [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
-  - Our Graduate Certificate in Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
+  
+  - The Graduate Certificate in Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide the participant with advanced data science skills in the context of healthcare.
+    
   - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1146)
 
 ##### Anthology of presented courses 
@@ -349,20 +356,16 @@
    - Foundations of Data Science
    - Foundations of Digital Health
    - Foundations of Healthcare Data Science
-   - Applied Healthcare Data Science
 
 2. **Clinical and Professional Development Courses:**
-   - Clinical Ethics
-   - Regulatory Affairs in the Medical Industry
    - Introduction to Clinical Epidemiology
    - Usability Engineering
-   - Leadership in Health
    - Foundations Health Technology Assessment
-   - Design Thinking
 
 3. **Health Information Management and Systems Design:**
    - Data & Information Management
    - Enterprise Healthcare Information Systems
+   - Design Thinking
 
 4. **Research and Methodology Courses:**
    - Research and Evaluation Methods in eHealth
@@ -375,12 +378,12 @@
    - Computing 1A Professionalism
    - Computing 1B OS & Network Platforms
    - Computing 2 Usability and Security
-   - Computing 3 Management
-   - Computing 4 Innovation
-   - Innovations in eHealth
+   - Computing Innovation
 
 6. **Ethical and Legal Considerations:**
    - Information, Privacy, and Security
+   - Clinical Ethics
+   - Regulatory Affairs in the Medical Industry
 
 7. **Specialized Topics:**
    - Healthcare Analytics
@@ -390,11 +393,14 @@
    - Visual Analytics
    - Machine Learning and Data Mining
    - Information Technology in Biomedicine
+   - Innovations in eHealth
 
 8. **Management and Leadership Courses:**
    - Project Management for the Health Sector
    - Leadership in Health
-   - Computing 3 Management
+   - Computing Management
+   - Leadership in Health
+
 
 
 ### UK
