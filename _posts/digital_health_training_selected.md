@@ -407,20 +407,23 @@
 
 ####  Medical schools 
 
-- In recent investigations among UK healthcare professionals (HCPs), notable discrepancies in digital literacy within the healthcare field have been identified. These disparities present obstacles to the efficient integration of emerging technologies in clinical practices. Moreover, insufficient training on the ethical considerations related to these technologies poses a potential dilemma for HCPs in safeguarding patient rights. Recognizing these challenges and the evident need for focused education in digital health, a group pf UK medical doctors have recently [advocate for a concentrated effort](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8966807/) on the fundamental component of any healthcare profession—the undergraduate curriculum.
+- In recent investigations among UK healthcare professionals, notable discrepancies in digital literacy within the healthcare field have been identified. These disparities present obstacles to the efficient integration of emerging technologies in clinical practices. Moreover, insufficient training on the ethical considerations related to these technologies poses a potential dilemma for healthcare professionals in safeguarding patient rights. Recognizing these challenges and the evident need for focused education in digital health, a group pf UK medical doctors have recently [advocate for a concentrated effort](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8966807/) on the fundamental component of any healthcare profession—the undergraduate curriculum.
 
 #### University of Oxford ([Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health))
 
 - **Departments**: Oxford Institute of Digital Health, Nuffield Department of Primary Care Health Sciences
-- **Programs**: Masters 
+- **Programs**: Masters, PhD 
 
 - [MSc Applied Digital Health](https://www.phc.ox.ac.uk/study/msc-applied-digital-health)
+  
   -  This applied, interdisciplinary MSc is led by the Nuffield Department of Primary Care Health Sciences (NDPCHS), capitalising on the existing breadth of internationally leading digital health research in the department. In addition, the course draws on the expertise of faculty from across the University to create an interdisciplinary learning experience, spanning medicine, social science, engineering, artificial intelligence and data science. The course is further enriched by linking to the department's Oxford Institute of Digital Health, National Institute for Health Research (NIHR) Oxford & Thames Valley Applied Research Collaboration (ARC), which is hosted by NDPCHS (led by Theme Lead John Powell, Academic Director for this MSc), as well as the NIHR Community Healthcare MedTech and IVD Cooperative and the NIHR Oxford Biomedical Research Center.
+    
   - [Course details](https://www.ox.ac.uk/sites/files/oxford/media_wysiwyg/MSc%20ADH%20Handbook%2022_23.pdf)
 
 - [MSc in Translational Health Sciences](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences)
-  - This MSc is ideal for researchers who want to study scientific and technological innovation in a healthcare setting and research managers looking to run clinical trials or promote the uptake of research findings. It will also assist entrepreneurs (from an industry or clinical background) who seek to improve patient care through innovation and policymakers (local and national) wishing to support research and its translation to improve services. For students interested in undertaking doctoral research, the MSc will prepare them to apply for a DPhil in Translational Health Sciences. We expect all our students to have some relevant past experience in a work environment.
-  - We combine health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. With us you will be actively involved in listening to and informing the informatics and data science agenda for health.
+  
+  - This MSc is ideal for researchers who want to study scientific and technological innovation in a healthcare setting and research managers looking to run clinical trials or promote the uptake of research findings. It will also assist entrepreneurs (from an industry or clinical background) who seek to improve patient care through innovation and policymakers (local and national) wishing to support research and its translation to improve services. For students interested in undertaking doctoral research, the MSc will prepare them to apply for a DPhil in Translational Health Sciences. We expect all our students to have some relevant past experience in a work environment. This program combines health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. With us you will be actively involved in listening to and informing the informatics and data science agenda for health.
+    
   - [Course details](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences) 
 
 
@@ -466,13 +469,13 @@
    - Introduction and Research Methods for Translational Science
    - Behavioural Science and Complex Interventions
    - Economics and Regulation in Translational Science
-   - Ethics and Justice in Translational Science
    - Healthcare Evaluation and Research Impact
    - Translational Science and Global Health
 
 4. **Health Policy, Organizations, and Ethics:**
    - Health Organisations and Policy
    - Patients, Citizens & the Politics of Evidence
+   - Ethics and Justice in Translational Science
 
 
 
@@ -482,10 +485,13 @@
 - **Programs**: Graduate Certificate, Masters
 
 - [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
-  - Created by experienced academics and professionals, our course is designed for both recent graduates and professionals looking to advance their careers. The course will develop your knowledge and understanding of health informatics, health data science techniques, and real-world application of research methods.
+  - Created by experienced academics and professionals, this degree is designed for both recent graduates and professionals looking to advance their careers, develop their knowledge and understanding of health informatics, health data science techniques, and real-world application of research methods.
+    
   -  [Course details](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc#content)
+    
 - [Certificate Health Informatics with Data Science PGCert](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert)
-  - We combine health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. With us, you will be actively involved in listening to, and informing, the informatics and data science agenda for health. 
+  - This degree combines health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. Participants will be actively involved in listening to, and informing, the informatics and data science agenda for health.
+    
   -  [Course details](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert#content)
 
 
@@ -539,15 +545,11 @@
 5. **International Health and Program Evaluation:**
    - Key Issues in International Health
    - Monitoring and Evaluation of Health Programmes
-
-6. **Health Promotion:**
    - Health Promotion
 
-7. **Postgraduate Certificate Courses:**
+6. **Research Courses:**
    - Statistics and Modelling for Health Sciences
-   - Foundations of Health Data
    - Informatics and Data Science in Health Care and Research
-   - Law, Ethics and Governance for Health Data Science
 
 ### France 
 
