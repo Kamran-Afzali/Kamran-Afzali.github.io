@@ -564,8 +564,10 @@
 
 - **Departments**: School of Public Health-- in collaboration with  [McGill University School of Population and Global Health](https://www.mcgill.ca/epi-biostat-occh/) 
 - **Programs**: Masters, PhD, Dual Degree Programs in Public Health Data Science in collaboration with [McGill](https://www.mcgill.ca/epi-biostat-occh/education/grad/dual-degree-programs-public-health-data-science)
+  
 - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
   - The training program aims to equip professionals in the field of data science applied to public health, preparing them for roles in both the industry and public sectors. The objectives include providing foundational skills such as scientific expertise, the ability to manage complex issues, and proficiency in handling informational and technological data. The program also aims to enable participants to seamlessly integrate into a Ph.D. program within a research team. Emphasis is placed on developing knowledge and skills necessary for managing projects or multidisciplinary programs in data science, fostering collaboration with partners and networks. Additionally, participants will gain expertise in conducting research related to public health, spanning from project design to data analysis and presentation of results. The curriculum ensures the acquisition of multidisciplinary skills in epidemiology, computer science, and biostatistics, and emphasizes understanding the strengths and limitations of technologies and digital approaches in the context of public health.
+    
   - [Course details](www.isped.u-bordeaux.fr/Portals/0/TELECHARGEMENT/Rubrique_FORMATIONS/M2_PHDS/M2_PHDS_Programme.pdf?ver=W5KEEUS0-yxdY37kYNBfkg%3d%3d)
 
 
@@ -633,11 +635,15 @@
 
   
 - [Master Informatique - Parcours : Cybersécurité et esanté](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html)
-  - The digital transformation has also given rise to an increasing number of cyberattacks, necessitating a reevaluation of cybersecurity practices within a more stringent regulatory framework. Organizations are compelled to adapt to safeguard users, activities, and assets from evolving cyber threats. Additionally, the professionalization of cybercrime exacerbates risks and threats, revealing a significant gap in the protection levels afforded to companies and institutions. The proliferation of non-targeted cyberattacks, such as ransomware and internet fraud employing social engineering techniques, underscores the vulnerabilities of current security measures. The loss of sensitive data due to embezzlement, risks associated with outsourcing applications and data (cloud computing), and the growing adoption of telemedicine over vulnerable communication networks further compound the challenges. In response to these complexities, the two-year Cybersecurity and e-Health Master's program aims to train experts specializing in the cybersecurity of systems, networks, and data within the realms of connected health (e-Health) and the Internet of Things (IoT). These experts will possess the skills to conduct consulting, analysis, and security audits while developing, implementing, and validating technical security solutions.
+
+  - The digital transformation has given rise to an increasing number of cyberattacks, necessitating a reevaluation of cybersecurity practices within a more stringent regulatory framework. Organizations are compelled to adapt to safeguard users, activities, and assets from evolving cyber threats. Additionally, the professionalization of cybercrime exacerbates risks and threats, revealing a significant gap in the protection levels afforded to companies and institutions. The proliferation of non-targeted cyberattacks, such as ransomware and internet fraud employing social engineering techniques, underscores the vulnerabilities of current security measures. The loss of sensitive data due to embezzlement, risks associated with outsourcing applications and data (cloud computing), and the growing adoption of telemedicine over vulnerable communication networks further compound the challenges. In response to these complexities, the two-year Cybersecurity and e-Health Master's program aims to train experts specializing in the cybersecurity of systems, networks, and data within the realms of connected health (e-Health) and the Internet of Things (IoT). These experts will possess the skills to conduct consulting, analysis, and security audits while developing, implementing, and validating technical security solutions.
     
-  -  [Course details](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html) 
+  -  [Course details](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html)
+    
 - [Diplôme Universitaire de Santé Connectée](https://pums.aphp.fr/diplome-universitaire-de-sante-connectee/)
-  - Connected healthcare, in its broadest sense (telemedicine, connected objects, remote monitoring and e-coaching applications, etc.), offers solutions that are potentially useful, if not indispensable, for tomorrow's optimal medical care. Hardly a day goes by without a patient telling us about a connected application or object. Connected health is not taught in medical school. However, many professionals from other backgrounds are keen to acquire knowledge and skills in connected health, to help them bring their projects to fruition. The DU offers a cross-disciplinary introduction to connected healthcare for all those who understand the imminent digital shift in medicine. This course is aimed  for Healthcare professionals, administrative staff, start-ups, IT specialists and investors who want to acquire the knowledge and skills they need to successfully implement connected healthcare projects.
+  
+  - Connected healthcare, in its broadest sense (telemedicine, connected objects, remote monitoring and e-coaching applications, etc.), offers solutions that are potentially useful, if not indispensable, for tomorrow's optimal medical care. Professionals from different backgrounds are keen to acquire knowledge and skills in connected health, to help them bring their projects to fruition. The DU offers a cross-disciplinary introduction to connected healthcare for all those who understand the imminent digital shift in medicine. This course is aimed  for Healthcare professionals, administrative staff, start-ups, IT specialists and investors who want to acquire the knowledge and skills they need to successfully implement connected healthcare projects.
+    
   - [Course details](https://aphp.aphp.fr/wp-content/blogs.dir/274/files/2020/06/DU-sante-connectee-2021.pdf) 
 
 ##### Anthology of presented courses 
@@ -674,7 +680,8 @@
 </details>
 
 1. **Foundational Health Informatics Courses:**
-   - e-health fundamentals 
+   - e-health fundamentals
+     
 2. **Clinical Courses:**
    - Body sensor networks for healthcare
    - Telemedicine 
@@ -692,15 +699,19 @@
    - Advanced cryptography and blockchain
    - Security Audit, Ethical Hacking, and Penetration Testing
    - Advanced Cybersecurity: Forensic Analysis and Malware
+     
 5. **Research and Methodology Courses:**
-   - Medico-economic evaluations of connected healthcare (University Diploma)
-   - Evaluating connected health: principles (University Diploma)
+   - Medico-economic evaluations of connected healthcare 
+   - Evaluating connected health: principles
+     
 6. **Ethical and Legal Considerations:**
    - Ethics and regulations
-   - Connected health law (University Diploma)
+   - Connected health law
+     
 7. **Specialized Topics:**
-   - Robotics, augmented reality, and virtual reality (University Diploma)
-   - Blockchain and healthcare (University Diploma)
+   - Robotics, augmented reality, and virtual reality 
+   - Blockchain and healthcare
+     
 8. **Management and Leadership Courses:**
    - Project Management
 
