@@ -1315,15 +1315,22 @@
 - **Departments**: School of medicine 
 - **Programs**: Fellowship, Masters, PhD
 
-
 - [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
-  - In our two-year, ACGME-accredited fellowship, you’ll study all facets of clinical informatics, working with leaders in the field to develop and leverage innovations that enhance biomedical research, patient safety and clinical care. Our formal didactics thoroughly prepare you for the board certification exam in clinical informatics. You’ll stay on top of the latest evidence-based trends and findings by participating in — and presenting at — journal club and departmental grand rounds. And if you’re concerned about your clinical skills growing rusty, don’t be: To maintain your clinical skills and enrich your clinical experience, you’ll spend a full 20 percent of your training providing patient care in your specialty area.
+  
+  - The two-year, [ACGME](https://www.acgme.org/about/overview/)-accredited fellowship, to study all facets of clinical informatics, working with leaders in the field to develop and leverage innovations that enhance biomedical research, patient safety and clinical care. Courses thoroughly prepare the participants for the board certification exam in clinical informatics. You’ll stay on top of the latest evidence-based trends and findings by participating in — and presenting at — journal club and departmental grand rounds. Paticipants will spend a full 20 percent of your training providing patient care in their specialty area.
+  
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics/curriculum.html)
+    
 - [MS Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters.html)
-  - The program provide you with the skills you need to manage information in health care, industry and biomedical research settings. You’ll learn how to evaluate and work effectively with the concepts, systems and tools of biomedical informatics — key qualifications for high-level technical, policy or planning positions.
+  
+  - The program provide the participants with the skills required to manage information in health care, industry and biomedical research settings, to evaluate and work effectively with the concepts, systems and tools of biomedical informatics as key qualifications for high-level technical, policy or planning positions.
+    
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters/course-descriptions.html)
+    
 - [PhD Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd.html)
-  - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares you to lead these organizations through complex information management challenges. With your advanced knowledge and skills, you’ll apply sophisticated tools and methods to help design new systems and applications. Best of all, thanks to our close partnerships with regional health care organizations, you don’t have to wait until you’ve earned your PhD to begin making high-level contributions to our field.
+  
+  - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares the participants to lead these organizations through complex information management challenges. With your advanced knowledge and skills, you’ll apply sophisticated tools and methods to help design new systems and applications.
+    
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd/course-descriptions.html)
 
 ##### Anthology of presented courses 
@@ -1369,14 +1376,11 @@
    - Rotation in Outpatient Systems (Fellowship)
 
 2. **Database Design and Standards:**
-   - Database Design (Fellowship)
-   - Employment of Standards (Fellowship)
+   - Database Design 
+   - Employment of Standards 
+   - Quality and Patient Safety 
 
-3. **Quality, Safety:**
-   - Quality and Patient Safety (Fellowship)
-   - Biostatistics (Fellowship)
-
-4. **Foundational Biomedical Informatics Courses:**
+3. **Foundational Biomedical Informatics Courses:**
    - Survey of Biomedical Informatics 
    - Biomedical Informatics Application Domains and Ethics 
    - Systems Databases & Software Development Methods in Biomedical 
@@ -1387,7 +1391,7 @@
    - Biomedical Ontologies
    - Socio-technical & Human-centered Design in Biomedical Informatics 
 
-5. **Advanced Analytics and Methods:**
+4. **Advanced Analytics and Methods:**
    - Advanced Study Design and Data Analytics 
    - Advanced Statistical Analysis 
    - Advanced Data Mining and Cost Analysis Methods 
