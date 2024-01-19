@@ -3,6 +3,7 @@ Mixture modeling is a powerful technique for integrating multiple data generatin
 In this case study I will first introduce how mixture models are implemented in Bayesian inference. I will then discuss the non-identifiability inherent to that construction as well as how the non-identifiability can be tempered with principled prior information. Lastly I will demonstrate how these issues manifest in a simple example, with a final tangent to consider an additional pathology that can arise in Bayesian mixture models.
 
 
+Michael [Betancourt](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/) recently wrote a nice case study describing the problems often encountered with gaussian mixture models, specifically the estimation of parameters of a mixture model and identifiability i.e. the problem with labelling mixtures (http://mc-stan.org/documentation/case-studies/identifying_mixture_models.html). Also there has been suggestions that GMM’s can’t be easily done in Stan. I’ve found various examples online of simple 2d gaussian mixtures, and one (wrong) example of a Multivariate GMM. I wanted to demonstrate that Stan can actually do Multivariate GMM’s and very quickly! But as Mike’s already discussed problems with identifiability are still inherent in the model.
 
 
 Bayesian mixture models can be implemented in Stan, a probabilistic programming language. Mixture models assume that a given measurement can be drawn from one of K data generating processes, each with their own set of parameters. Stan allows for the fitting of Bayesian mixture models using its state-of-the-art Hamiltonian Monte Carlo sampler. The models can be parameterized in several ways and used directly for modeling data with multimodal distributions or as priors for other parameters[1][2]. The implementation of mixture models in Stan involves defining the model, specifying the priors, and marginalizing out the discrete parameters. Several resources provide examples and tutorials on fitting Bayesian mixture models in Stan, demonstrating the practical implementation of these models[3][4][5].
@@ -39,6 +40,11 @@ In this chapter, we learned to fit increasingly complex two-component mixture mo
 The reader interested in a deeper understanding of marginalization is referred to Pullin, Gurrin, and Vukcevic (2021). Betancourt discusses problems of identification in Bayesian mixture models in a case study ( https://mc-stan.org/users/documentation/case-studies/identifying_mixture_models.html). An in-depth treatment of the fast-guess model and other mixture models of response times is provided in Chapter 7 of Luce (1991).
 
 
+
+
+
+- https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/
+- https://jeremy9959.net/Blog/StanMixture/
 - https://mc-stan.org/users/documentation/case-studies/identifying_mixture_models.html
 - https://vasishth.github.io/bayescogsci/book/ch-mixture.html
 - https://macsphere.mcmaster.ca/bitstream/11375/9368/1/fulltext.pdf
