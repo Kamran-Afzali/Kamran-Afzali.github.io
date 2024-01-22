@@ -725,23 +725,31 @@
 
 #### University of Illinois Chicago
 
-- **Departments**: [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+- **Departments**: [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/), College of Applied Health Sciences
 - **Programs**: Bachelor, Post-Baccalaureate Certificate, Master, Post-Master Certificate
 
-
 - [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
-  - Bachelor of Science in Health Information Management (BSHIM) completion program was designed to prepare graduates to take the prestigious Registered Health Information Administrator (RHIA) exam. This dynamic degree program provides skilled instruction in the management and use of information and information systems for healthcare planning and provision, resource allocation, and executive decision making. As you work your way through the curriculum presented online, you will also explore essential topics, such as coding, systems analysis, data quality management and health information research.
+  
+  - Bachelor of Science in Health Information Management (BSHIM) completion program was designed to prepare graduates to take the _Registered Health Information Administrator (RHIA)_ exam. This dynamic degree program provides skilled instruction in the management and use of information and information systems for healthcare planning and provision, resource allocation, and executive decision making. As you work your way through the curriculum presented online, you will also explore essential topics, such as coding, systems analysis, data quality management and health information research.
+    
   - [Course Details](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
 
 - [Post-Baccalaureate Certificate in Health Informatics (PBC HI)](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
-  - Post-Baccalaureate Health Informatics Certificate is 12-13 credit hours and can be completed in 12 months. There are four focus-areas: Health Informatics Fundamentals, Health Data Science Informatics, Leadership in Health Informatics, Mobile Health Informatics, All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+  
+  - Post-Baccalaureate Health Informatics Certificate is 12 credit program and can be completed in 12 months. There are four focus-areas: Health Informatics Fundamentals, Health Data Science Informatics, Leadership in Health Informatics, Mobile Health Informatics, All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
     
   - [Course Details](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
+    
 - [Master of Science in Health Informatics (MSHI)](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
-  - The 100% online asynchronous Master of Science in Health Informatics program encompasses digital health, data science, and leadership. The 38-credit hour program is housed within University of Illinois Chicago (UIC) College of Applied Health Sciences and can be completed in 30 months. The curriculum focuses on social informatics at the population level. Students develop knowledge and skills in: Data collection, storage, extraction, manipulation, network architecture, data analysis and visualization, predictive analytics, healthcare project management, human factors in computer design, ethics, patient experience and healthcare communications. Students in the program often have clinical, business, or computer science backgrounds. They value the online format for flexibility, CAHIIM accreditation, and vast professional network.
+  
+  - The 100% online asynchronous Master of Science in Health Informatics program encompasses digital health, data science, and leadership. The 38-credit program is housed within University of Illinois Chicago (UIC) College of Applied Health Sciences and can be completed in 30 months. The curriculum focuses on social informatics at the population level. Students develop knowledge and skills in: Data collection, storage, extraction, manipulation, network architecture, data analysis and visualization, predictive analytics, healthcare project management, human factors in computer design, ethics, patient experience and healthcare communications. Students in the program often have clinical, business, or computer science backgrounds. They value the online format for flexibility, CAHIIM accreditation, and vast professional network.
+    
   - [Course details](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
+    
 - [Post-Master’s Certificate in Health Informatics (PMC HI)](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/)
-  - Illinois Board of Higher Education (IBHE) approved Post-Master’s Certificate in Health Informatics (PMC HI) is 24 credit hours and can be completed in 18 months. This non-degree program is designed to help build knowledge and skills in accelerated format. All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+  
+  - Illinois Board of Higher Education (IBHE) approved Post-Master’s Certificate in Health Informatics (PMC HI) is a 24 credit hours and can be completed in 18 months. This non-degree program is designed to help build knowledge and skills in accelerated format. All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+    
   - [course details](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/) 
 
 ##### Anthology of presented courses 
@@ -1329,7 +1337,7 @@
     
 - [PhD Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd.html)
   
-  - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares the participants to lead these organizations through complex information management challenges. With your advanced knowledge and skills, you’ll apply sophisticated tools and methods to help design new systems and applications.
+  - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares the participants to lead these organizations through complex information management challenges. With advanced knowledge and skills, graduates will be capble to apply sophisticated tools and methods to help design new systems and applications.
     
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd/course-descriptions.html)
 
@@ -1370,10 +1378,12 @@
 </details>
 
 
-1. **Clinical Rotations and Skills Development:**
+1. **Clinical and professional Skills:**
    - Rotation in Inpatient Clinical Laboratory and Catheter Systems (Fellowship)
    - Rotation in Inpatient Psychiatry and Dialysis Systems (Fellowship)
    - Rotation in Outpatient Systems (Fellowship)
+   - Clinical Population Research and Public Health Informatics 
+   - Clinical Informatics & Decision Making 
 
 2. **Database Design and Standards:**
    - Database Design 
@@ -1386,8 +1396,6 @@
    - Systems Databases & Software Development Methods in Biomedical 
    - Data Analysis 
    - Bioinformatics and Translational Research Informatics 
-   - Clinical Population Research and Public Health Informatics 
-   - Clinical Informatics & Decision Making 
    - Biomedical Ontologies
    - Socio-technical & Human-centered Design in Biomedical Informatics 
 
