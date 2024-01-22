@@ -1233,45 +1233,32 @@
 <details>
 
 
-| Courses | Program                                                        | University                                           |
-|---------|----------------------------------------------------------------|------------------------------------------------------|
-| 273     | Basics of Statistical Inference                                | Masters in Health data science                       |
-| 274     | Introduction to Data Science                                   | Masters in Health data science                       |
-| 275     | Advanced Coding and Statistics for Biomedical Informatics      | Master of Medical Sciences in Biomedical Informatics |
-| 276     | Conduct and Communication of Science                           | Master of Medical Sciences in Biomedical Informatics |
-| 277     | Creating Biomedical Dashboards with R Shiny                    | Master of Medical Sciences in Biomedical Informatics |
-| 278     | Data Visualization for Biomedical Applications                 | Master of Medical Sciences in Biomedical Informatics |
-| 279     | Deep Learning for Biomedical Data.                             | Master of Medical Sciences in Biomedical Informatics |
-| 280     | Design and Execution of Scientific Projects                    | Master of Medical Sciences in Biomedical Informatics |
-| 281     | Foundations of Biomedical Informatics I                        | Master of Medical Sciences in Biomedical Informatics |
-| 282     | Foundations of Biomedical Informatics II                       | Master of Medical Sciences in Biomedical Informatics |
-| 283     | Precision Medicine                                             | Master of Medical Sciences in Biomedical Informatics |
-| 284     | Single-cell analysis for Functional Genomics of Disease.       | Master of Medical Sciences in Biomedical Informatics |
-| 285     | Working with Scientific Literature                             | Master of Medical Sciences in Biomedical Informatics |
-| 286     | Advanced Computer Vision                                       | Masters in Health data science                       |
-| 287     | Advances in Computer Vision                                    | Masters in Health data science                       |
-| 288     | Analysis of Case-Control, Cohort and Other Epidemiologic Data  | Masters in Health data science                       |
-| 289     | Applied Data Structures and Algorithms                         | Masters in Health data science                       |
-| 290     | Artificial Intelligence                                        | Masters in Health data science                       |
-| 291     | Clinical Data Learning, Visualization, and Deployments         | Masters in Health data science                       |
-| 292     | Computing for Big Data                                         | Masters in Health data science                       |
-| 293     | Computing Skills for Biomedical Sciences                       | Masters in Health data science                       |
-| 294     | Data Science for Medical Decision Making                       | Masters in Health data science                       |
-| 295     | Data Systems                                                   | Masters in Health data science                       |
-| 296     | Data Visualization for Biomedical Applications                 | Masters in Health data science                       |
-| 297     | Decision Analysis for Health and Medical Practices             | Masters in Health data science                       |
-| 298     | Decision Analysis Methods in Public Health and Medicine        | Masters in Health data science                       |
-| 299     | Dynamic Programming and Reinforcement Learning                 | Masters in Health data science                       |
-| 300     | Economic Evaluation of Health Policy and Program Management    | Masters in Health data science                       |
-| 301     | Epidemiologic Methods 2: Elements of Epidemiologic Research    | Masters in Health data science                       |
-| 302     | Genomic Data Manipulation                                      | Masters in Health data science                       |
-| 303     | Introduction to Programming                                    | Masters in Health data science                       |
-| 304     | Introduction to Time Series & Prediction                       | Masters in Health data science                       |
-| 305     | Machine Learning for Healthcare                                | Masters in Health data science                       |
-| 306     | Precision Medicine                                             | Masters in Health data science                       |
-| 307     | Quantitative Methods for Natural Language Processing           | Masters in Health data science                       |
-| 308     | Systems Development for Computational Science                  | Masters in Health data science                       |
-| 309     | Visualization                                                  | Masters in Health data science                       |
+| Courses                                                        | Program                       |University|
+|----------------------------------------------------------------|-------------------------------|--------- |
+| Advanced Computer Vision                                       | Masters in Health data science | Harvard |
+| Advances in Computer Vision                                    | Masters in Health data science | Harvard |
+| Analysis of Case-Control, Cohort and Other Epidemiologic Data  | Masters in Health data science | Harvard |
+| Applied Data Structures and Algorithms                         | Masters in Health data science | Harvard |
+| Artificial Intelligence                                        | Masters in Health data science | Harvard |
+| Clinical Data Learning, Visualization, and Deployments         | Masters in Health data science | Harvard |
+| Computing for Big Data                                         | Masters in Health data science | Harvard |
+| Computing Skills for Biomedical Sciences                       | Masters in Health data science | Harvard |
+| Data Science for Medical Decision Making                       | Masters in Health data science | Harvard |
+| Data Systems                                                   | Masters in Health data science | Harvard |
+| Data Visualization for Biomedical Applications                 | Masters in Health data science | Harvard |
+| Decision Analysis for Health and Medical Practices             | Masters in Health data science | Harvard |
+| Decision Analysis Methods in Public Health and Medicine        | Masters in Health data science | Harvard |
+| Dynamic Programming and Reinforcement Learning                 | Masters in Health data science | Harvard |
+| Economic Evaluation of Health Policy and Program Management    | Masters in Health data science | Harvard |
+| Epidemiologic Methods 2: Elements of Epidemiologic Research    | Masters in Health data science | Harvard |
+| Genomic Data Manipulation                                      | Masters in Health data science | Harvard |
+| Introduction to Programming                                    | Masters in Health data science | Harvard |
+| Introduction to Time Series & Prediction                       | Masters in Health data science | Harvard |
+| Machine Learning for Healthcare                                | Masters in Health data science | Harvard |
+| Precision Medicine                                             | Masters in Health data science | Harvard |
+| Quantitative Methods for Natural Language Processing           | Masters in Health data science | Harvard |
+| Systems Development for Computational Science                  | Masters in Health data science | Harvard |
+| Visualization                                                  | Masters in Health data science | Harvard |
 
 </details>
 
