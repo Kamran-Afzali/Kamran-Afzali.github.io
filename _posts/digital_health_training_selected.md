@@ -1037,32 +1037,23 @@
 
 1. **Foundational Health Informatics Courses:**
    - Introduction to Biomedical Data Science Research Methodology
-   - Data Driven Medicine
    - Foundations of Computational Human Genomics
    - Introduction to Biomedical Data Science Research Methodology
    - Data Science for Medicine
    - Translational Bioinformatics
    - Biomedical Data Science
-   - Modeling Biomedical Systems
 
 1. **Clinical and Professional Development Courses:**
    - Digital Health Practicum in a Health Care Delivery System
-   - Quality & Safety in U.S. Healthcare
    - Applied Clinical Informatics Seminar
-   - MCiM Practicum 
+   - Clinical Practicum 
 
 2. **Health Information Management and Systems Design:**
    - Health Information Technology and Strategy
-   - Healthcare Operations Management
    - Modeling Biomedical Systems: Ontology, Terminology, Problem Solving
-   - Principles of Business Strategy
 
 3. **Research and Methodology Courses:**
    - Introduction to Biomedical Data Science Research Methodology
-   - Data Driven Medicine
-   - Precision Practice with Big Data
-   - Informatics in Industry
-   - Computational Methods for Biomedical Image Analysis and Interpretation
    - Medical Scholars Research
 
 4. **Technological Competency Courses:**
@@ -1084,6 +1075,8 @@
    - Modeling Biomedical Systems
    - Computational Methods for Biomedical Image Analysis and Interpretation
    - Seminar in Artificial Intelligence in Healthcare
+   - Precision Practice with Big Data
+   - Computational Methods for Biomedical Image Analysis and Interpretation
 
 7. **Management and Leadership Courses:**
    - Accounting for Managers and Entrepreneurs
@@ -1091,11 +1084,12 @@
    - Marketing Science and Patient Engagement
    - Principles of Business Strategy
    - Quality & Safety in U.S. Healthcare
-
+   - Principles of Business Strategy
+   - Healthcare Operations Management
 
 ####  University of Denver (HIMSS Academic Organizational Affiliate)
 
-- **Departments**: University College (multi disciplinary)
+- **Departments**: [University College](https://universitycollege.du.edu/) (multi disciplinary)
 - **Programs**: Masters with four specialties (Health Data Science, Digital health, analytics, project managment), Certificate
 
 
