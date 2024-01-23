@@ -1,11 +1,10 @@
+### Introduction
+
 Mixture modeling is a powerful technique for integrating multiple data generating processes into a single model. Unfortunately when those data data generating processes are degenerate the resulting mixture model suffers from inherent combinatorial non-identifiabilities that frustrate accurate computation. Consequently, in order to utilize mixture models reliably in practice we need strong and principled prior information to ameliorate these frustrations. 
 
 Bayesian mixture models can be implemented in Stan, a probabilistic programming language. Mixture models assume that a given measurement can be drawn from one of K data generating processes, each with their own set of parameters. Stan allows for the fitting of Bayesian mixture models using its Hamiltonian Monte Carlo sampler. The models can be parameterized in several ways and used directly for modeling data with multimodal distributions or as priors for other parameters. The implementation of mixture models in Stan involves defining the model, specifying the priors, and marginalizing out the discrete parameters. Several resources provide examples and tutorials on fitting Bayesian mixture models in Stan, demonstrating the practical implementation of these models.
 
-In this case study I will first introduce how mixture models are implemented in Bayesian inference. I will then discuss the non-identifiability inherent to that construction as well as how the non-identifiability can be tempered with principled prior information. Lastly I will demonstrate how these issues manifest in a simple example, with a final tangent to consider an additional pathology that can arise in Bayesian mixture models.
-
-
-Michael [Betancourt](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/) recently wrote a nice case study describing the problems often encountered with gaussian mixture models, specifically the estimation of parameters of a mixture model and identifiability i.e. the problem with labelling [mixtures](http://mc-stan.org/documentation/case-studies/identifying_mixture_models.html). Also there has been suggestions that GMM’s can’t be easily done in Stan. I’ve found various examples online of simple 2d gaussian mixtures, and one (wrong) example of a Multivariate GMM. I wanted to demonstrate that Stan can actually do Multivariate GMM’s and very quickly! But as Mike’s already discussed problems with identifiability are still inherent in the model.
+In this post I will first introduce how mixture models are implemented in Bayesian inference. It is noteworthy to take into consideration non-identifiability inherent these models how the non-identifiability can be tempered with principled prior information. [Michael Betancourt](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/) has a blogpost describing the problems often encountered with gaussian mixture models, specifically the estimation of parameters of a mixture model and identifiability i.e. the problem with labelling [mixtures](http://mc-stan.org/documentation/case-studies/identifying_mixture_models.html). Also there has been suggestions that GMM’s can’t be easily done in Stan. 
 
 
 
@@ -23,22 +22,15 @@ In this post, we learned to fit mixture models using Stan. We saw how to evaluat
 
 ### References
 
-- https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/
-- https://jeremy9959.net/Blog/StanMixture/
-- https://mc-stan.org/docs/2_27/stan-users-guide/mixture-modeling-chapter.html
-- https://mc-stan.org/users/documentation/case-studies/identifying_mixture_models.html
-- https://vasishth.github.io/bayescogsci/book/ch-mixture.html
-- https://rpubs.com/kaz_yos/fmm2
-- https://modernstatisticalworkflow.blogspot.com/2016/10/finite-mixture-models-in-stan.html
-- https://vasishth.github.io/bayescogsci/book/ch-mixture.html
-- https://macsphere.mcmaster.ca/bitstream/11375/9368/1/fulltext.pdf
-- https://hal.science/hal-03866434/document
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6459682/
-- https://arxiv.org/abs/2210.14201v2
-- https://vasishth.github.io/bayescogsci/book/ch-mixture.html
-- https://macsphere.mcmaster.ca/bitstream/11375/9368/1/fulltext.pdf
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6459682/
-- https://vasishth.github.io/bayescogsci/book/ch-mixture.html
-- https://inria.hal.science/hal-03100447/document
+- [Multivariate Gaussian Mixture Model done properly ](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/)
+- [Gaussian Mixture in Stan](https://jeremy9959.net/Blog/StanMixture/)
+- [Finite Mixtures](https://mc-stan.org/docs/2_27/stan-users-guide/mixture-modeling-chapter.html) 
+- [Identifying Bayesian Mixture Models](https://mc-stan.org/users/documentation/case-studies/identifying_mixture_models.html) 
+- [Mixture models](https://vasishth.github.io/bayescogsci/book/ch-mixture.html) 
+- [Bayesian Density Estimation (Finite Mixture Model) ](https://rpubs.com/kaz_yos/fmm2)
+- [Finite mixture models in Stan](https://modernstatisticalworkflow.blogspot.com/2016/10/finite-mixture-models-in-stan.html) 
+- [Bayesian mixture models (in)consistency for the number of clusters](https://hal.science/hal-03866434/document)
+- [Abstract: Advantages of a Bayesian Approach for Examining Class Structure in Finite Mixture Models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6459682/) 
+
 
 
