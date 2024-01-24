@@ -23,7 +23,7 @@ In this post, we learned to fit mixture models using Stan. We saw how to evaluat
 ### References
 
 - [Multivariate Gaussian Mixture Model done properly ](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/)
-- [Finite Mixtures](https://mc-stan.org/docs/2_27/stan-users-guide/mixture-modeling-chapter.html) 
+- [Finite Mixtures](https://mc-stan.org/docs/stan-users-guide/mixture-modeling.html) 
 - [Identifying Bayesian Mixture Models](https://mc-stan.org/users/documentation/case-studies/identifying_mixture_models.html) 
 - [Mixture models](https://vasishth.github.io/bayescogsci/book/ch-mixture.html) 
 - [Bayesian Density Estimation (Finite Mixture Model) ](https://rpubs.com/kaz_yos/fmm2)
