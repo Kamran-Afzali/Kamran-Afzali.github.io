@@ -22,12 +22,12 @@ In this post, we learned to fit mixture models using Stan. We saw how to evaluat
 
 ### References
 
+- [Finite mixture models in Stan](https://modernstatisticalworkflow.blogspot.com/2016/10/finite-mixture-models-in-stan.html) 
 - [Multivariate Gaussian Mixture Model done properly ](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/)
 - [Finite Mixtures](https://mc-stan.org/docs/stan-users-guide/mixture-modeling.html) 
 - [Identifying Bayesian Mixture Models](https://mc-stan.org/users/documentation/case-studies/identifying_mixture_models.html) 
 - [Mixture models](https://vasishth.github.io/bayescogsci/book/ch-mixture.html) 
 - [Bayesian Density Estimation (Finite Mixture Model) ](https://rpubs.com/kaz_yos/fmm2)
-- [Finite mixture models in Stan](https://modernstatisticalworkflow.blogspot.com/2016/10/finite-mixture-models-in-stan.html) 
 - [Bayesian mixture models (in)consistency for the number of clusters](https://hal.science/hal-03866434/document)
 - [Advantages of a Bayesian Approach for Examining Class Structure in Finite Mixture Models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6459682/) 
 
