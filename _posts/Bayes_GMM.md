@@ -7,6 +7,89 @@ Bayesian mixture models can be implemented in Stan, a probabilistic programming 
 In this post I will first introduce how mixture models are implemented in Bayesian inference. It is noteworthy to take into consideration non-identifiability inherent these models how the non-identifiability can be tempered with principled prior information. [Michael Betancourt](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/) has a blogpost describing the problems often encountered with gaussian mixture models, specifically the estimation of parameters of a mixture model and identifiability i.e. the problem with labelling [mixtures](http://mc-stan.org/documentation/case-studies/identifying_mixture_models.html). Also there has been suggestions that GMM’s can’t be easily done in Stan. 
 
 
+```
+#first cluster
+mu1=c(0,0,0,0)
+sigma1=matrix(c(0.1,0,0,0,0,0.1,0,0,0,0,0.1,0,0,0,0,0.1),ncol=4,nrow=4, byrow=TRUE)
+norm1=mvrnorm(30, mu1, sigma1)
+
+#second cluster
+mu2=c(7,7,7,7)
+sigma2=sigma1
+norm2=mvrnorm(30, mu2, sigma2)
+
+#third cluster
+mu3=c(3,3,3,3)
+sigma3=sigma1
+norm3=mvrnorm(30, mu3, sigma3)
+
+norms=rbind(norm1,norm2,norm3) #combine the 3 mixtures together
+N=90 #total number of data points 
+Dim=4 #number of dimensions
+y=array(as.vector(norms), dim=c(N,Dim))
+mixture_data=list(N=N, D=4, K=3, y=y)
+```
+
+```
+mixture_model<-'
+data {
+ int D; //number of dimensions
+ int K; //number of gaussians
+ int N; //number of data
+ vector[D] y[N]; //data
+}
+
+parameters {
+ simplex[K] theta; //mixing proportions
+ ordered[D] mu[K]; //mixture component means
+ cholesky_factor_corr[D] L[K]; //cholesky factor of covariance
+}
+
+model {
+ real ps[K];
+ 
+ for(k in 1:K){
+ mu[k] ~ normal(0,3);
+ L[k] ~ lkj_corr_cholesky(4);
+ }
+ 
+
+ for (n in 1:N){
+ for (k in 1:K){
+ ps[k] = log(theta[k])+multi_normal_cholesky_lpdf(y[n] | mu[k], L[k]); //increment log probability of the gaussian
+ }
+ target += log_sum_exp(ps);
+ }
+
+}'
+```
+
+
+
+```
+fit=stan(model_code=mixture_model, data=mixture_data, iter=11000, warmup=1000, chains=1)
+print(fit)
+params=extract(fit)
+#density plots of the posteriors of the mixture means
+par(mfrow=c(2,2))
+plot(density(params$mu[,1,1]), ylab='', xlab='mu[1]', main='')
+lines(density(params$mu[,1,2]), col=rgb(0,0,0,0.7))
+lines(density(params$mu[,1,3]), col=rgb(0,0,0,0.4))
+lines(density(params$mu[,1,4]), col=rgb(0,0,0,0.1))
+abline(v=c(0), lty='dotted', col='red',lwd=2)
+
+plot(density(params$mu[,2,1]), ylab='', xlab='mu[2]', main='')
+lines(density(params$mu[,2,2]), col=rgb(0,0,0,0.7))
+lines(density(params$mu[,2,3]), col=rgb(0,0,0,0.4))
+lines(density(params$mu[,2,4]), col=rgb(0,0,0,0.1))
+abline(v=c(7), lty='dotted', col='red',lwd=2)
+
+plot(density(params$mu[,3,1]), ylab='', xlab='mu[3]', main='')
+lines(density(params$mu[,3,2]), col=rgb(0,0,0,0.7))
+lines(density(params$mu[,3,3]), col=rgb(0,0,0,0.4))
+lines(density(params$mu[,3,4]), col=rgb(0,0,0,0.1))
+abline(v=c(3), lty='dotted', col='red',lwd=2)
+```
 
 ### Advantages and Limitations 
 
