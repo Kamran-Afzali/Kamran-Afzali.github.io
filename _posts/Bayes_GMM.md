@@ -6,6 +6,84 @@ Bayesian mixture models can be implemented in Stan, a probabilistic programming 
 
 In this post I will first introduce how mixture models are implemented in Bayesian inference. It is noteworthy to take into consideration non-identifiability inherent these models how the non-identifiability can be tempered with principled prior information. [Michael Betancourt](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/) has a blogpost describing the problems often encountered with gaussian mixture models, specifically the estimation of parameters of a mixture model and identifiability i.e. the problem with labelling [mixtures](http://mc-stan.org/documentation/case-studies/identifying_mixture_models.html). Also there has been suggestions that GMM’s can’t be easily done in Stan. 
 
+```
+library(dplyr); library(ggplot2); library(ggthemes)
+
+# Number of data points
+N <- 400
+
+# Let's make three states
+mu <- c(3, 6, 9)
+sigma <- c(2, 4, 3)
+
+# with probability
+Theta <- c(.5, .2, .3)
+
+# Draw which model each belongs to
+z <- sample(1:3, size = N, prob = Theta, replace = T)
+
+# Some white noise
+epsilon <- rnorm(N)
+
+# Simulate the data using the fact that y ~ normal(mu, sigma) can be 
+# expressed as y = mu + sigma*epsilon for epsilon ~ normal(0, 1)
+y <- mu[z] + sigma[z]*epsilon
+
+data_frame(y, z = as.factor(z)) %>% 
+  ggplot(aes(x = y, fill = z)) +
+  geom_density(alpha = 0.3) +
+  theme_economist() +
+  ggtitle("Three data generating processes")
+```
+
+
+```
+mixture_model<-'
+
+// saved as finite_mixture_linear_regression.stan
+data {
+  int N;
+  vector[N] y;
+  int n_groups;
+}
+parameters {
+  vector[n_groups] mu;
+  vector<lower = 0>[n_groups] sigma;
+  simplex[n_groups] Theta;
+}
+model {
+  vector[n_groups] contributions;
+  // priors
+  mu ~ normal(0, 10);
+  sigma ~ cauchy(0, 2);
+  Theta ~ dirichlet(rep_vector(2.0, n_groups));
+  
+  
+  // likelihood
+  for(i in 1:N) {
+    for(k in 1:n_groups) {
+      contributions[k] = log(Theta[k]) + normal_lpdf(y[i] | mu[k], sigma[k]);
+    }
+    target += log_sum_exp(contributions);
+  }
+}'
+```
+
+```
+library(rstan)
+options(mc.cores = parallel::detectCores())
+
+compiled_model <- stan_model("finite_mixture_linear_regression.stan")
+
+estimated_model <- sampling(compiled_model, data = list(N= N, y = y, n_groups = 3), iter = 600)
+```
+
+```
+vector[n_groups] mu;
+ordered[n_groups] mu;
+```
+
+
 
 ```
 #first cluster
