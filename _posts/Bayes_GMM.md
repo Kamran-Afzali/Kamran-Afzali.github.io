@@ -7,17 +7,19 @@ Bayesian mixture models can be implemented in Stan, a probabilistic programming 
 In this post I will first introduce how mixture models are implemented in Bayesian inference. It is noteworthy to take into consideration non-identifiability inherent these models how the non-identifiability can be tempered with principled prior information. [Michael Betancourt](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/) has a blogpost describing the problems often encountered with gaussian mixture models, specifically the estimation of parameters of a mixture model and identifiability i.e. the problem with labelling [mixtures](http://mc-stan.org/documentation/case-studies/identifying_mixture_models.html). Also there has been suggestions that GMM’s can’t be easily done in Stan. 
 
 ```
-library(dplyr); library(ggplot2); library(ggthemes)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
 
 # Number of data points
-N <- 400
+N <- 5000
 
 # Let's make three states
-mu <- c(3, 6, 9)
-sigma <- c(2, 4, 3)
+mu <- c(1, 4, 9)
+sigma <- c(2, 2, 2)
 
 # with probability
-Theta <- c(.5, .2, .3)
+Theta <- c(.3, .5, .3)
 
 # Draw which model each belongs to
 z <- sample(1:3, size = N, prob = Theta, replace = T)
@@ -29,7 +31,7 @@ epsilon <- rnorm(N)
 # expressed as y = mu + sigma*epsilon for epsilon ~ normal(0, 1)
 y <- mu[z] + sigma[z]*epsilon
 
-data_frame(y, z = as.factor(z)) %>% 
+data_frame(y= y, z = as.factor(z)) %>% 
   ggplot(aes(x = y, fill = z)) +
   geom_density(alpha = 0.3) +
   theme_economist() +
@@ -73,40 +75,45 @@ model {
 library(rstan)
 options(mc.cores = parallel::detectCores())
 
-compiled_model <- stan_model("finite_mixture_linear_regression.stan")
+fit=stan(model_code=mixture_model, data=list(N= N, y = y, n_groups = 3), iter=3000, warmup=500, chains=3)
 
-estimated_model <- sampling(compiled_model, data = list(N= N, y = y, n_groups = 3), iter = 600)
+
+print(fit)
+params=extract(fit)
+#density plots of the posteriors of the mixture means
+par(mfrow=c(2,2))
+plot(density(params$mu[,1]), ylab='', xlab='mu[1]', main='')
+abline(v=c(0), lty='dotted', col='red',lwd=2)
+
+
+plot(density(params$mu[,2]), ylab='', xlab='mu[1]', main='')
+abline(v=c(0), lty='dotted', col='red',lwd=2)
+
+plot(density(params$mu[,3]), ylab='', xlab='mu[1]', main='')
+abline(v=c(0), lty='dotted', col='red',lwd=2)
+
 ```
 
-```
-vector[n_groups] mu;
-ordered[n_groups] mu;
-```
+### Data Block
+- `N`: Number of observations.
+- `y`: Vector of observed responses.
+- `n_groups`: Number of mixture components or groups.
+
+### Parameters Block
+- `mu`: Vector of means for each mixture component.
+- `sigma`: Vector of standard deviations for each mixture component.
+- `Theta`: Vector of mixing proportions, representing the probability of each group.
+
+### Model Block
+- **Priors**: Normal priors are specified for the means `mu` with a mean of 0 and a standard deviation of 10. Cauchy priors are specified for the standard deviations `sigma` with a location of 0 and a scale of 2. Dirichlet priors are specified for the mixing proportions `Theta` with equal concentration parameters of 2.0 for each group.
+
+- **Likelihood**: The likelihood is constructed within a nested loop. For each observation `i` and each group `k`, it calculates the log-likelihood of the observation given the mean and standard deviation of that group. These log-likelihoods are stored in the `contributions` vector.
+
+- **Log-Sum-Exp Trick**: To avoid numerical instability when dealing with small probabilities, the log-sum-exp trick is used. The `log_sum_exp` function sums up the contributions after exponentiating them. This is done to compute the log-likelihood of the data given the mixture model.
+
+- **Target**: The `target` is incremented by the log of the sum of exponentiated contributions for each observation. The `target` is essentially the log-posterior, and the goal of Stan is to maximize it during sampling.
 
 
-
-```
-#first cluster
-mu1=c(0,0,0,0)
-sigma1=matrix(c(0.1,0,0,0,0,0.1,0,0,0,0,0.1,0,0,0,0,0.1),ncol=4,nrow=4, byrow=TRUE)
-norm1=mvrnorm(30, mu1, sigma1)
-
-#second cluster
-mu2=c(7,7,7,7)
-sigma2=sigma1
-norm2=mvrnorm(30, mu2, sigma2)
-
-#third cluster
-mu3=c(3,3,3,3)
-sigma3=sigma1
-norm3=mvrnorm(30, mu3, sigma3)
-
-norms=rbind(norm1,norm2,norm3) #combine the 3 mixtures together
-N=90 #total number of data points 
-Dim=4 #number of dimensions
-y=array(as.vector(norms), dim=c(N,Dim))
-mixture_data=list(N=N, D=4, K=3, y=y)
-```
 
 ```
 mixture_model<-'
