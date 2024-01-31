@@ -127,16 +127,16 @@ library(MASS)
 
 #first cluster
 mu1=c(0,0,0,0)
-sigma1=matrix(c(0.1,0,0,0,0,0.1,0,0,0,0,0.1,0,0,0,0,0.1),ncol=4,nrow=4, byrow=TRUE)
+sigma1=matrix(c(0.2,0,0,0,0,0.2,0,0,0,0,0.1,0,0,0,0,0.1),ncol=4,nrow=4, byrow=TRUE)
 norm1=mvrnorm(30, mu1, sigma1)
 
 #second cluster
-mu2=c(7,7,7,7)
+mu2=c(10,10,10,10)
 sigma2=sigma1
 norm2=mvrnorm(30, mu2, sigma2)
 
 #third cluster
-mu3=c(3,3,3,3)
+mu3=c(4,4,4,4)
 sigma3=sigma1
 norm3=mvrnorm(30, mu3, sigma3)
 
@@ -178,7 +178,7 @@ model {
 
  for (n in 1:N){
  for (k in 1:K){
- ps[k] = log(theta[k])+multi_normal_cholesky_lpdf(y[n] | mu[k], L[k]); //increment log probability of the gaussian
+ ps[k] = log(theta[k])+multi_normal_cholesky_lpdf(y[n] | mu[k], L[k]); 
  }
  target += log_sum_exp(ps);
  }
@@ -187,13 +187,32 @@ model {
 ```
 
 
+**Data Block**
+- `D`: Number of dimensions.
+- `K`: Number of Gaussian components.
+- `N`: Number of data points.
+- `y`: An array of vectors, each representing a data point in D dimensions.
+
+**Parameters Block**
+- `theta`: Mixing proportions. It is a simplex, ensuring that the proportions sum to 1.
+- `mu`: Mixture component means. These are ordered variables.
+- `L`: Cholesky factors of the covariance matrices for each component.
+
+**Model Block**
+- **Priors**: Priors are specified for the means `mu` and the Cholesky factors `L`. Each mean is drawn from a normal distribution with a mean of 0 and a standard deviation of 3. The Cholesky factor is drawn from a LKJ correlation distribution with shape parameter 4.
+
+- **Log-Probability Calculation**: For each data point `n` and each component `k`, the log-probability `ps[k]` is calculated. This log-probability is the logarithm of the product of the mixing proportion and the multivariate normal density of the data point under the k-th component.
+
+- **Target Increment**: The `target` is incremented by the logarithm of the sum of exponentiated log-probabilities `ps`. This step ensures that the model assigns higher probability to data points that are well-explained by one of the Gaussian components.
+
+
 
 ```
 fit=stan(model_code=mixture_model, data=mixture_data, iter=11000, warmup=1000, chains=1)
 print(fit)
 params=extract(fit)
 #density plots of the posteriors of the mixture means
-par(mfrow=c(2,2))
+par(mfrow=c(1,3))
 plot(density(params$mu[,1,1]), ylab='', xlab='mu[1]', main='')
 lines(density(params$mu[,1,2]), col=rgb(0,0,0,0.7))
 lines(density(params$mu[,1,3]), col=rgb(0,0,0,0.4))
