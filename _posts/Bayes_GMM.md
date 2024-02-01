@@ -15,20 +15,19 @@ library(dplyr)
 library(ggplot2)
 library(ggthemes)
 
-# Number of data points
 N <- 5000
 
-# Let's make three states
+#  three clusters
 mu <- c(1, 4, 9)
 sigma <- c(2, 2, 2)
 
-# with probability
+# probability of each cluster
 Theta <- c(.3, .5, .3)
 
 # Draw which model each belongs to
 z <- sample(1:3, size = N, prob = Theta, replace = T)
 
-# Some white noise
+# white noise
 epsilon <- rnorm(N)
 
 # Simulate the data using the fact that y ~ normal(mu, sigma) can be 
@@ -38,8 +37,7 @@ y <- mu[z] + sigma[z]*epsilon
 data_frame(y= y, z = as.factor(z)) %>% 
   ggplot(aes(x = y, fill = z)) +
   geom_density(alpha = 0.3) +
-  theme_economist() +
-  ggtitle("Three data generating processes")
+  ggtitle("Three clusters")
 ```
 
 
@@ -106,7 +104,7 @@ fit=stan(model_code=mixture_model, data=list(N= N, y = y, n_groups = 3), iter=30
 print(fit)
 params=extract(fit)
 #density plots of the posteriors of the mixture means
-par(mfrow=c(2,2))
+par(mfrow=c(1,3))
 plot(density(params$mu[,1]), ylab='', xlab='mu[1]', main='')
 abline(v=c(0), lty='dotted', col='red',lwd=2)
 
@@ -208,7 +206,7 @@ model {
 
 
 ```
-fit=stan(model_code=mixture_model, data=mixture_data, iter=11000, warmup=1000, chains=1)
+fit=stan(model_code=mixture_model, data=mixture_data, iter=3000, warmup=1000, chains=1)
 print(fit)
 params=extract(fit)
 #density plots of the posteriors of the mixture means
