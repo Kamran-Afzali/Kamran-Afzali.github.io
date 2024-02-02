@@ -57,100 +57,35 @@ Although the free energy principle primarily focuses on system dynamics, it can 
 The free energy principle and predictive processing are interconnected in their descriptions of belief formation concerning learning and perceptual inference. The key distinction lies in the free energy principle providing a foundational method that seeks to dissolve disciplinary boundaries. Together, these approaches not only elucidate optimal prediction and model generation but also consider how contextual cues influence the probabilities of specific states or outcomes. Importantly, they allow exploration of outcomes resulting from decisions, choices, and actions.
 
 
-### Bayesian Brain Hypothesis 
-
-
-The Bayesian brain hypothesis and the free energy principle are closely related. The free energy principle, proposed by Karl Friston, suggests that the brain operates as a prediction machine, constantly minimizing surprise or uncertainty by making and updating predictions based on internal models. This principle integrates Bayesian inference with active inference, where actions are guided by predictions and sensory feedback refines them. The Bayesian brain hypothesis, on the other hand, posits that the brain is equipped with an internal (or "generative") model of the environment, which specifies a "recipe" for generating sensory observations from hidden states. This internal model may not be represented explicitly anywhere in the brain; the claim is that the brain computes "as if" it had an internal model.
-
-In short, the free energy principle subsumes the Bayesian brain hypothesis, and the two are closely aligned in their emphasis on the brain as a prediction machine that seeks to minimize surprise or prediction error. The free energy principle provides a theoretical foundation for understanding the mechanisms underlying the Bayesian brain hypothesis, and both frameworks are concerned with how the brain makes and updates predictions to minimize surprise and uncertainty.
-
-
-The Bayesian brain hypothesis employs Bayesian probability theory to conceptualize perception as a constructive process based on internal or generative models. The fundamental idea is that the brain possesses a model of the world, which it seeks to optimize using sensory inputs. This perspective views the brain as an inference machine actively predicting and explaining sensations. Central to this hypothesis is a probabilistic model that generates predictions, against which sensory samples are tested to update beliefs about their causes. The generative model consists of a likelihood (probability of sensory data given their causes) and a prior (a priori probability of those causes). Perception, in this framework, involves inverting the likelihood model to access the posterior probability of causes given sensory data, a process equivalent to minimizing the difference between recognition and posterior densities to suppress free energy.
-
-The Bayesian brain hypothesis faces questions about the form of the generative model and how it manifests in the brain. Hierarchical generative models address criticisms by optimizing priors within a hierarchical structure. In hierarchical models, causes at one level generate subordinate causes at a lower level, with sensory data generated at the lowest level. The optimization of empirical priors in hierarchical models is informed by sensory data, resulting in an internally consistent representation of sensory causes across multiple levels.
-
-Another issue concerns the form of the recognition density encoded by physical attributes of the brain, such as synaptic activity. The encoding of density by sufficient statistics places constraints on recognition schemes, ranging from free-form schemes to simpler forms like the Gaussian assumption. The Gaussian form, known as the Laplace assumption, aligns with predictive coding, a popular framework for understanding neuronal message passing in cortical hierarchies.
-
-In summary, the Bayesian brain hypothesis suggests that the brain is an inference engine striving to optimize probabilistic representations of the causes of sensory input. The optimization is facilitated by the variational free-energy principle, which is implemented through various schemes involving message passing or belief propagation among brain areas or units. This connection allows the integration of the free-energy principle with information theory, providing a comprehensive understanding of sensory processing.
-
-### Adaptive Priors and the Bayesian Brain 
-
-The adaptive priors in the Bayesian brain hypothesis refer to the question of whether these priors are innate or learned. The hypothesis suggests that the brain is equipped with an internal (or "generative") model of the environment, which specifies a "recipe" for generating sensory observations from hidden states. These priors, whether innate or learned, provide the brain with adapted prior guesses when processing sensory information, enabling it to make predictions and inferences about the environment. The debate over the origin of these priors, whether they are innate or acquired through learning, is an ongoing topic of research and discussion within the framework of the Bayesian brain hypothesis.
-
-The adaptive nature of these priors is essential for the brain to effectively infer sensory contingencies and exhibit adaptive behavior. The Bayesian brain hypothesis, which is closely related to the free energy principle, emphasizes that the brain is constantly updating and refining its internal beliefs to align with the current state of the environment. This process of adaptive inference enables the brain to minimize surprise and uncertainty, ultimately guiding behavior and decision-making in a changing and uncertain world.
-
-Adaptive priors play a crucial role in helping the brain make predictions by providing it with prior expectations that are continuously updated based on sensory input and past experience. These priors, whether innate or learned, enable the brain to form adapted prior guesses when processing sensory information, allowing it to make predictions and inferences about the environment. The adaptive nature of these priors is essential for the brain to effectively infer sensory contingencies and exhibit adaptive behavior. They guide the brain's action-perception cycles toward adaptive and unsurprising states, ultimately contributing to the brain's ability to minimize surprise and uncertainty. Therefore, adaptive priors serve as a foundational component that enables the brain to make accurate predictions and navigate a changing and uncertain world.
-
-Individuals are adapted or optimized to their environment, either through evolution or daily learning, resulting in expectations encoded by neuronal form and activity. While individual expectations may differ, there is a need to inherit some aspect of these expectations to conserve the physical form across generations. The Bayesian prior beliefs play a crucial role in this context, representing expectations about the sensory experiences expected in the world.
-
-The Free Energy Principle (FEP) proposes that species-typical patterns of cognition and behavior can be explained through adaptive priors—inherit expectations about the causal structure of the world shaped by evolution and life's characteristic properties. The FEP posits that living systems must minimize variational free energy to reduce the entropy of sensory and physiological states, ensuring their survival. Variational free energy is an information theoretic quantity limiting the entropy of a generative model entailed by the state of a biological system.
-
-Living systems, as per the FEP, actively avoid surprising phase-transitions by minimizing the entropy of their sensory and physical states, exhibiting local ergodicity. This propensity to minimize surprise is a consequence of natural selection, favoring systems capable of avoiding phase-transitions. The ability to repeatedly return to a limited set of unsurprising states delays the deleterious effects of dissipative processes.
-
-Biological systems indirectly reduce surprise by minimizing free energy, using sensations and predictions based on the hierarchical generative model encoded in internal states. The FEP generalizes the theory of predictive coding, suggesting that living beings can minimize surprise through changes in predictions by altering internal states (perception and learning) or by changing their relation with the environment (action). Action and perception operate reciprocally to maintain homeostasis and optimize an organism's generative model of the world.
-
-Minimizing free energy means inducing an upper bound on surprise through predictions and optimizing brain activity and connectivity, involving action, perception, and learning. This process, mathematically equivalent to maximizing Bayesian model evidence, compels individuals to make Bayesian inferences about their environment. The optimization of world models occurs through evolution, neurodevelopment, and learning. The discussion then transitions to the role of prior beliefs in shaping predictions, behavior, and the hierarchical structure of the brain.
-
-### Implications for Theorizing and Research in Psychology
-
-
-The Hierarchical Mechanistic Mind emphasizes the importance of extending the principle of free-energy minimization across all areas of psychological inquiry. In neuroscience, the focus has traditionally been on fourth-level mechanistic phenomena, such as perception, action, attention, and learning. Support for the Free Energy Principle (FEP) comes from computer simulations, visual system studies, and brain microcircuit analyses. Researchers use simulations, fMRI, and EEG to apply computational dynamic causal models, explaining neural responses to unpredictable stimuli and complex phenomena like insight and curiosity.
-
-While progress has been made in neuroscience, psychologists have been slow to utilize the explanatory power of the FEP. However, some have explored its relevance to various psychological phenomena, such as anxiety, emotion, illusions, delusions, hallucinations, and consciousness. The FEP aligns with ecological psychology principles, emphasizing the reciprocal relationship between organisms and their environment, particularly the concept of affordance.
-
-The FEP also aligns with representationalism, as free-energy is defined in relation to a Bayesian belief about hidden causes in the environment. Active inference, rooted in the FEP, has been applied to reinforcement learning, avoiding circularity issues present in classical approaches. It formulates utility based on adaptive and empirical priors acquired over nested timescales, addressing deep problems in traditional approaches.
-
-At the social psychology level, the FEP has inspired models explaining mentalizing and self- and other-representations. Predictive coding is proposed to explain mentalizing, with estimations used to predict others' behaviors. The FEP has been leveraged to explain self- and other-representations as heuristics reducing uncertainty in social interactions. Beliefs about likely social outcomes are weighted by their precision and updated with experience.
-
-Extending beyond social cognition, the FEP has been applied to interpersonal behaviors like dyadic conversation. Communication is seen as a means to resolve uncertainty by adopting a shared narrative, enabling actors to predict each other's sensations and minimize mutual prediction errors. Finally, the FEP has been applied to large-scale sociocultural phenomena, explaining how shared expectations in social groups become encoded neuronally as high-level priors, guiding cooperative action and reducing uncertainty at individual and group levels.
-
 
 ### Refrences
 
 - https://gershmanlab.com/pubs/free_energy.pdf
 - https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf
 - https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf
-- https://en.wikipedia.org/wiki/Free_energy_principle
 - https://www.fil.ion.ucl.ac.uk/~karl/A%20free%20energy%20principle%20for%20the%20brain.pdf
 
 - https://arxiv.org/pdf/2207.06415.pdf
 - https://www.frontiersin.org/articles/10.3389/frobt.2022.794464
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5167251/
 - https://link.springer.com/article/10.1007/s00422-019-00805-w
-- https://www.amazon.ca/Active-Inference-Energy-Principle-Behavior/dp/0262045354
 
 - https://link.springer.com/article/10.1007/s11229-023-04292-2
-- https://www.fil.ion.ucl.ac.uk/~karl/A%20free%20energy%20principle%20for%20the%20brain.pdf
 - ttps://www.frontiersin.org/articles/10.3389/fnbot.2022.844773
 - https://www.nature.com/articles/nrn2787
 
 - https://mitpress.mit.edu/9780262045353/active-inference/
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8871280/
-- https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind
-
-- https://osf.io/preprints/psyarxiv/vgw6q/download
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7713598/
 - https://www.jpn.ca/content/47/1/E48
 - https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00592
-- https://gershmanlab.com/pubs/free_energy.pdf
   
-- https://en.wikipedia.org/wiki/Free_energy_principle
 - https://gershmanlab.com/pubs/free_energy.pdf
 - https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf
 - https://www.researchgate.net/publication/26293527_Predictive_coding_under_the_free-energy_principle
-- https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf
-
-
 
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5167251/
-- https://en.wikipedia.org/wiki/Free_energy_principle
 - https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind
-- https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf
 - https://link.springer.com/article/10.1007/s10539-022-09864-z
 
 
-- https://en.wikipedia.org/wiki/Free_energy_principle
-- https://gershmanlab.com/pubs/free_energy.pdf
-- https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf
-- https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf
-- https://www.fil.ion.ucl.ac.uk/~karl/A%20free%20energy%20principle%20for%20the%20brain.pdf
