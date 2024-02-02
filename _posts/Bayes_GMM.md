@@ -9,6 +9,7 @@ In this post I will first introduce how mixture models are implemented in Bayesi
 
 #### Single varaible example
 
+##### Data Simulation
 
 ```
 library(dplyr)
@@ -40,6 +41,7 @@ data_frame(y= y, z = as.factor(z)) %>%
   ggtitle("Three clusters")
 ```
 
+##### Stan model
 
 ```
 mixture_model<-'
@@ -94,6 +96,9 @@ model {
 
 - **Target**: The `target` is incremented by the log of the sum of exponentiated contributions for each observation. The `target` is essentially the log-posterior, and the goal of Stan is to maximize it during sampling.
 
+
+##### Fitting and output
+
 ```
 library(rstan)
 options(mc.cores = parallel::detectCores())
@@ -119,6 +124,7 @@ abline(v=c(0), lty='dotted', col='red',lwd=2)
 
 #### Example with multiple variable
 
+##### Data Simulation
 
 ```
 library(MASS)
@@ -149,6 +155,7 @@ lines(density(norms[,2]), col=rgb(0,0,0,0.7))
 lines(density(norms[,3]), col=rgb(0,0,0,0.4))
 lines(density(norms[,4]), col=rgb(0,0,0,0.1))
 ```
+##### Stan model
 
 ```
 mixture_model<-'
@@ -203,7 +210,7 @@ model {
 
 - **Target Increment**: The `target` is incremented by the logarithm of the sum of exponentiated log-probabilities `ps`. This step ensures that the model assigns higher probability to data points that are well-explained by one of the Gaussian components.
 
-
+##### Fitting and output
 
 ```
 fit=stan(model_code=mixture_model, data=mixture_data, iter=3000, warmup=1000, chains=1)
