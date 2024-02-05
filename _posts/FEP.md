@@ -60,32 +60,19 @@ The free energy principle and predictive processing are interconnected in their 
 
 ### Refrences
 
-- https://gershmanlab.com/pubs/free_energy.pdf
-- https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf
-- https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf
-- https://www.fil.ion.ucl.ac.uk/~karl/A%20free%20energy%20principle%20for%20the%20brain.pdf
+- [What does the free energy principle tell us about the brain?](https://gershmanlab.com/pubs/free_energy.pdf)
+- [The free-energy principle: a unified brain theory ](https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf)
+- [The Free-energy principle:a rough guide to the brain?](https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf) 
+- [A free energy principle for the brain](https://www.fil.ion.ucl.ac.uk/~karl/A%20free%20energy%20principle%20for%20the%20brain.pdf)   
+- [Active inference and learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5167251/)
+- [Generalised free energy and active inference](https://link.springer.com/article/10.1007/s00422-019-00805-w)
+- [Active Inference: The Free Energy Principle in Mind, Brain, and Behavior](https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind)
+- [Active-InferenceThe-Free-Energy-Principle-in-Mind](https://direct.mit.edu/books/oa-monograph/5299/) 
+- [Incorporating (variational) free energy models into mechanisms](https://link.springer.com/article/10.1007/s11229-023-04292-2) 
+- [The Problem of Meaning: The Free Energy Principle and Artificial Agency](https://www.frontiersin.org/articles/10.3389/fnbot.2022.844773) 
+- [“Surprise” and the Bayesian Brain: Implications for Psychotherapy Theory and Practice](https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00592) 
+- [Free energy: a user’s guide](https://link.springer.com/article/10.1007/s10539-022-09864-z)
 
-- https://arxiv.org/pdf/2207.06415.pdf
-- https://www.frontiersin.org/articles/10.3389/frobt.2022.794464
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5167251/
-- https://link.springer.com/article/10.1007/s00422-019-00805-w
 
-- https://link.springer.com/article/10.1007/s11229-023-04292-2
-- ttps://www.frontiersin.org/articles/10.3389/fnbot.2022.844773
-- https://www.nature.com/articles/nrn2787
-
-- https://mitpress.mit.edu/9780262045353/active-inference/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8871280/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7713598/
-- https://www.jpn.ca/content/47/1/E48
-- https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00592
-  
-- https://gershmanlab.com/pubs/free_energy.pdf
-- https://www.uab.edu/medicine/cinl/images/KFriston_FreeEnergy_BrainTheory.pdf
-- https://www.researchgate.net/publication/26293527_Predictive_coding_under_the_free-energy_principle
-
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5167251/
-- https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind
-- https://link.springer.com/article/10.1007/s10539-022-09864-z
 
 
