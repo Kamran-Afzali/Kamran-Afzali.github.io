@@ -1,11 +1,10 @@
 ### Introduction
 
-Mixture modeling is a powerful technique for integrating multiple data generating processes into a single model. Unfortunately when those data data generating processes are degenerate the resulting mixture model suffers from inherent combinatorial non-identifiabilities that frustrate accurate computation. Consequently, in order to utilize mixture models reliably in practice we need strong and principled prior information to ameliorate these frustrations. 
+In statistics, a mixture model is a probabilistic model used to represent the presence of subpopulations within an overall population without requiring that an individual belongs to a specific subpopulation. It is a flexible approach that can be used to model complex data containing multiple regions with high probability mass, such as multimodal distributions. A typical finite-dimensional mixture model consists of observed random variables, random latent variables specifying the identity of the mixture component of each observation, mixture weights, and parameters. Mixture models can be used to make statistical inferences about the properties of subpopulations without sub-population identity information. Mixture models are also referred to as latent class models if they assume that some of their parameters differ across unobserved subgroups or classes. 
 
-Bayesian mixture models can be implemented in Stan, a probabilistic programming language. Mixture models assume that a given measurement can be drawn from one of K data generating processes, each with their own set of parameters. Stan allows for the fitting of Bayesian mixture models using its Hamiltonian Monte Carlo sampler. The models can be parameterized in several ways and used directly for modeling data with multimodal distributions or as priors for other parameters. The implementation of mixture models in Stan involves defining the model, specifying the priors, and marginalizing out the discrete parameters. Several resources provide examples and tutorials on fitting Bayesian mixture models in Stan, demonstrating the practical implementation of these models.
+Bayesian mixture models can be implemented in Stan, a probabilistic programming language. Mixture models assume that a given measurement can be drawn from one of K data generating processes, each with their own set of parameters. Stan allows for the fitting of Bayesian mixture models using its Hamiltonian Monte Carlo sampler. The models can be parameterized in several ways (see below) and used directly for modeling data with multimodal distributions or as priors for other parameters. The implementation of mixture models in Stan involves defining the model, specifying the priors, and marginalizing out the discrete parameters. Several resources provide examples and tutorials on fitting Bayesian mixture models in Stan, demonstrating the practical implementation of these models.
 
 In this post I will first introduce how mixture models are implemented in Bayesian inference. It is noteworthy to take into consideration non-identifiability inherent these models how the non-identifiability can be tempered with principled prior information. [Michael Betancourt](https://maggielieu.com/2017/03/21/multivariate-gaussian-mixture-model-done-properly/) has a blogpost describing the problems often encountered with gaussian mixture models, specifically the estimation of parameters of a mixture model and identifiability i.e. the problem with labelling [mixtures](http://mc-stan.org/documentation/case-studies/identifying_mixture_models.html). Also there has been suggestions that GMM’s can’t be easily done in Stan. 
-
 
 #### Single varaible example
 
@@ -41,7 +40,7 @@ data_frame(y= y, z = as.factor(z)) %>%
   ggtitle("Three clusters")
 ```
 
-##### Stan model
+##### Stan model: code and description
 
 ```
 mixture_model<-'
@@ -77,23 +76,20 @@ model {
 
 
 
-### Data Block
+**Data Block**
 - `N`: Number of observations.
 - `y`: Vector of observed responses.
 - `n_groups`: Number of mixture components or groups.
 
-### Parameters Block
+**Parameters Block**
 - `mu`: Vector of means for each mixture component.
 - `sigma`: Vector of standard deviations for each mixture component.
 - `Theta`: Vector of mixing proportions, representing the probability of each group.
 
-### Model Block
+**Model Block**
 - **Priors**: Normal priors are specified for the means `mu` with a mean of 0 and a standard deviation of 10. Cauchy priors are specified for the standard deviations `sigma` with a location of 0 and a scale of 2. Dirichlet priors are specified for the mixing proportions `Theta` with equal concentration parameters of 2.0 for each group.
-
 - **Likelihood**: The likelihood is constructed within a nested loop. For each observation `i` and each group `k`, it calculates the log-likelihood of the observation given the mean and standard deviation of that group. These log-likelihoods are stored in the `contributions` vector.
-
 - **Log-Sum-Exp Trick**: To avoid numerical instability when dealing with small probabilities, the log-sum-exp trick is used. The `log_sum_exp` function sums up the contributions after exponentiating them. This is done to compute the log-likelihood of the data given the mixture model.
-
 - **Target**: The `target` is incremented by the log of the sum of exponentiated contributions for each observation. The `target` is essentially the log-posterior, and the goal of Stan is to maximize it during sampling.
 
 
@@ -155,7 +151,7 @@ lines(density(norms[,2]), col=rgb(0,0,0,0.7))
 lines(density(norms[,3]), col=rgb(0,0,0,0.4))
 lines(density(norms[,4]), col=rgb(0,0,0,0.1))
 ```
-##### Stan model
+##### Stan model: code and description
 
 ```
 mixture_model<-'
@@ -245,7 +241,7 @@ However, the use of Bayesian mixture models comes with certain limitations. Appl
 
 ###  Conclusion 
 
-In this post, we learned to fit mixture models using Stan. We saw how to evaluate model fit using the usual prior and posterior predictive checks, and to investigate parameter recovery. Such mixture models are notoriously difficult to fit, but they have a lot of potential in cognitive science applications, especially in developing computational models of different kinds of cognitive processes. The reader interested in a deeper understanding of potential chllanges in the process can refer to Betancourt discussion of identification problems in Bayesian mixture models in a [case study](https://mc-stan.org/users/documentation/case-studies/identifying_mixture_models.html). 
+In this post, we learned to fit mixture models using Stan. We saw how to evaluate model fit using the usual prior and posterior predictive checks, and to investigate parameter recovery. Such mixture models are notoriously difficult to fit, but they have a lot of potential in cognitive science applications, especially in developing computational models of different kinds of cognitive processes. The reader interested in a deeper understanding of potential challanges in the process can refer to Betancourt discussion of identification problems in Bayesian mixture models in a [case study](https://mc-stan.org/users/documentation/case-studies/identifying_mixture_models.html). 
 
 
 
