@@ -15,11 +15,11 @@ library(dplyr)
 library(ggplot2)
 library(ggthemes)
 
-N <- 5000
+N <- 500
 
 #  three clusters
 mu <- c(1, 4, 9)
-sigma <- c(2, 2, 2)
+sigma <- c(1.2, 1, 0.8)
 
 # probability of each cluster
 Theta <- c(.3, .5, .3)
@@ -39,6 +39,8 @@ data_frame(y= y, z = as.factor(z)) %>%
   geom_density(alpha = 0.3) +
   ggtitle("Three clusters")
 ```
+
+![](/images/gmm_1.png)
 
 ##### Stan model: code and description
 
@@ -107,16 +109,45 @@ params=extract(fit)
 #density plots of the posteriors of the mixture means
 par(mfrow=c(1,3))
 plot(density(params$mu[,1]), ylab='', xlab='mu[1]', main='')
-abline(v=c(0), lty='dotted', col='red',lwd=2)
+abline(v=c(8), lty='dotted', col='red',lwd=2)
 
 
 plot(density(params$mu[,2]), ylab='', xlab='mu[1]', main='')
 abline(v=c(0), lty='dotted', col='red',lwd=2)
 
 plot(density(params$mu[,3]), ylab='', xlab='mu[1]', main='')
-abline(v=c(0), lty='dotted', col='red',lwd=2)
+abline(v=c(4), lty='dotted', col='red',lwd=2)
+
 
 ```
+
+```
+Inference for Stan model: 9c40393d28e90e2c335fff95de690860.
+3 chains, each with iter=3000; warmup=500; thin=1; 
+post-warmup draws per chain=2500, total post-warmup draws=7500.
+
+             mean se_mean   sd     2.5%      25%      50%      75%    97.5% n_eff  Rhat
+mu[1]        6.35    3.06 3.76     0.65     1.21     8.96     9.02     9.11     2 21.87
+mu[2]        3.72    3.05 3.74     0.59     0.94     1.25     8.96     9.09     2 13.86
+mu[3]        4.03    0.00 0.17     3.71     3.92     4.03     4.14     4.36  2575  1.00
+sigma[1]     0.85    0.17 0.23     0.62     0.69     0.73     1.02     1.41     2  2.32
+sigma[2]     1.01    0.19 0.27     0.64     0.73     1.03     1.19     1.60     2  1.76
+sigma[3]     1.13    0.00 0.12     0.92     1.05     1.12     1.20     1.39  3232  1.00
+Theta[1]     0.27    0.00 0.04     0.19     0.25     0.27     0.29     0.34  1186  1.02
+Theta[2]     0.27    0.00 0.05     0.18     0.24     0.26     0.29     0.40  1553  1.00
+Theta[3]     0.47    0.00 0.06     0.32     0.44     0.47     0.51     0.57  1702  1.00
+lp__     -1161.00    0.05 2.18 -1166.34 -1162.15 -1160.64 -1159.40 -1157.91  2064  1.00
+
+Samples were drawn using NUTS(diag_e) at Tue Feb  6 13:03:03 2024.
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).
+```
+
+![](/images/gmm_2.png)
+
+
+
 
 #### Example with multiple variable
 
