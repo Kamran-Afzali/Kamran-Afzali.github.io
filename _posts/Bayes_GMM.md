@@ -177,11 +177,14 @@ Dim=4 #number of dimensions
 y=array(as.vector(norms), dim=c(N,Dim))
 mixture_data=list(N=N, D=4, K=3, y=y)
 
-plot(density(norms[,1]), ylab='Density', xlab='Value', main='Mixture Dirstribution with three clusters')
-lines(density(norms[,2]), col=rgb(0,0,0,0.7))
-lines(density(norms[,3]), col=rgb(0,0,0,0.4))
-lines(density(norms[,4]), col=rgb(0,0,0,0.1))
+as.data.frame(norms)  %>%
+  pivot_longer(colnames(as.data.frame(norms)), names_to = "var", values_to = "value")%>%
+  ggplot( aes(x=value, color=var)) + geom_density() +
+  ggtitle("Three clusters on four variables")
 ```
+
+![](/images/gmm_3.png)
+
 ##### Stan model: code and description
 
 ```
