@@ -245,6 +245,35 @@ model {
 ```
 fit=stan(model_code=mixture_model, data=mixture_data, iter=3000, warmup=1000, chains=1)
 print(fit)
+
+Inference for Stan model: f913dae683b9f29657b0863fec348d71.
+1 chains, each with iter=3000; warmup=1000; thin=1; 
+post-warmup draws per chain=2000, total post-warmup draws=2000.
+
+            mean se_mean   sd    2.5%     25%     50%     75%   97.5% n_eff Rhat
+theta[1]    0.33    0.00 0.05    0.24    0.30    0.33    0.37    0.43  2120 1.00
+theta[2]    0.33    0.00 0.05    0.24    0.30    0.33    0.36    0.44  1740 1.00
+theta[3]    0.33    0.00 0.05    0.24    0.30    0.33    0.37    0.43  1854 1.00
+mu[1,1]     3.80    0.00 0.11    3.55    3.74    3.80    3.86    3.99   632 1.01
+mu[1,2]     3.91    0.01 0.12    3.67    3.84    3.90    3.98    4.15   236 1.00
+mu[1,3]     4.02    0.01 0.13    3.78    3.92    4.02    4.11    4.29   344 1.00
+mu[1,4]     4.09    0.01 0.15    3.82    3.99    4.09    4.20    4.39   259 1.00
+mu[2,1]     9.77    0.01 0.12    9.51    9.70    9.79    9.86    9.98   405 1.00
+mu[2,2]     9.96    0.00 0.11    9.74    9.90    9.96   10.03   10.20   794 1.00
+mu[2,3]    10.09    0.00 0.11    9.91   10.01   10.07   10.15   10.33   518 1.00
+mu[2,4]    10.18    0.01 0.12    9.97   10.09   10.17   10.25   10.43   498 1.00
+mu[3,1]    -0.22    0.01 0.13   -0.49   -0.30   -0.21   -0.14    0.01   409 1.01
+mu[3,2]    -0.10    0.01 0.13   -0.37   -0.17   -0.09   -0.02    0.17   218 1.00
+mu[3,3]     0.07    0.01 0.13   -0.17    0.00    0.07    0.15    0.36    81 1.00
+mu[3,4]     0.16    0.01 0.12   -0.03    0.08    0.15    0.23    0.42   541 1.00
+
+For each parameter, n_eff is a crude measure of effective sample size,
+and Rhat is the potential scale reduction factor on split chains (at 
+convergence, Rhat=1).
+```
+
+```
+
 params=extract(fit)
 #density plots of the posteriors of the mixture means
 par(mfrow=c(1,3))
@@ -252,20 +281,22 @@ plot(density(params$mu[,1,1]), ylab='', xlab='mu[1]', main='')
 lines(density(params$mu[,1,2]), col=rgb(0,0,0,0.7))
 lines(density(params$mu[,1,3]), col=rgb(0,0,0,0.4))
 lines(density(params$mu[,1,4]), col=rgb(0,0,0,0.1))
-abline(v=c(0), lty='dotted', col='red',lwd=2)
+abline(v=c(4), lty='dotted', col='red',lwd=2)
 
 plot(density(params$mu[,2,1]), ylab='', xlab='mu[2]', main='')
 lines(density(params$mu[,2,2]), col=rgb(0,0,0,0.7))
 lines(density(params$mu[,2,3]), col=rgb(0,0,0,0.4))
 lines(density(params$mu[,2,4]), col=rgb(0,0,0,0.1))
-abline(v=c(7), lty='dotted', col='red',lwd=2)
+abline(v=c(10), lty='dotted', col='red',lwd=2)
 
 plot(density(params$mu[,3,1]), ylab='', xlab='mu[3]', main='')
 lines(density(params$mu[,3,2]), col=rgb(0,0,0,0.7))
 lines(density(params$mu[,3,3]), col=rgb(0,0,0,0.4))
 lines(density(params$mu[,3,4]), col=rgb(0,0,0,0.1))
-abline(v=c(3), lty='dotted', col='red',lwd=2)
+abline(v=c(0), lty='dotted', col='red',lwd=2)
+
 ```
+![](/images/gmm_4.png)
 
 ### Advantages and Limitations 
 
