@@ -49,6 +49,7 @@ Here's a breakdown of each step:
 
 - https://github.com/sdv-dev/SDV
 - https://sdv.dev/SDV/user_guides/single_table/tvae.html
+- https://github.com/sdv-dev/SDV/blob/main/sdv/single_table/ctgan.py
 - https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/tvaesynthesizer
 - https://arxiv.org/pdf/1907.00503.pdf
 - https://arxiv.org/abs/1312.6114
