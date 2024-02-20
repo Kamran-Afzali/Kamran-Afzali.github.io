@@ -24,6 +24,26 @@ Here's a breakdown of each step:
 
 ## Clover implementation 
 
+    """
+    Also a wrapper of a data synthesizer available in the SDV package.
+    The synthesizer is TVAE, a VAE for tabular data.
+    https://github.com/sdv-dev
+
+    :param df: the data to synthesize
+    :param metadata: a dictionary containing the list of **continuous** and **categorical** variables
+    :param random_state: for reproducibility purposes
+    :param generator_filepath: the path of the generator to sample from if it exists
+    :param discriminator_steps: the number of discriminator updates to do for each generator update.
+    :param epochs: the number of training epochs.
+    :param batch_size: the batch size for training.
+    :param compress_dims: the size of the hidden layers in the encoder.
+    :param decompress_dims: the size of the hidden layers in the decoder.
+    """
+    Steps include:
+    Preparing the parameters to train the generator.
+    Train the generator and save it.
+    Generate samples using the synthesizer trained on the real data.
+
 
 ### References 
 
