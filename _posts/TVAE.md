@@ -1,3 +1,5 @@
+## Introduction 
+
 Autoencoders are a type of artificial neural network used for learning efficient representations of data. They consist of an encoder network that maps the input data into a latent space representation and a decoder network that reconstructs the input data from the latent space. Variational autoencoders (VAEs) are a specific type of autoencoder that is trained to generate new data samples from the learned latent space in a way that ensures continuity and smoothness of the generated samples.
 
 VAEs can be used for synthetic data generation by sampling from the learned latent space to produce new, artificial data that resembles the original data. This is particularly useful for imbalanced learning, where the VAE can be used to generate synthetic data for the minority class, addressing the imbalance in the dataset.
@@ -12,6 +14,16 @@ Central to the functionality of VAEs is the notion of the latent space represent
 
 In practical applications, VAEs find utility in various domains, including image and text generation, as well as molecular design. In healthcare, for instance, VAEs can learn the statistical distributions of patient data and produce synthetic patient records that preserve key characteristics while safeguarding privacy. Furthermore, VAEs contribute to data augmentation efforts by generating synthetic data points to supplement existing datasets, thereby enhancing the performance of machine learning models. Overall, Variational Autoencoders stand as versatile tools for synthetic data generation, leveraging their ability to capture underlying data distributions to generate realistic and diverse synthetic data across a multitude of applications.
 
+Below is the pseudo code for the Private-PGM algorithm can be outlined as follows:
+
+```python
+
+```
+Here's a breakdown of each step:
+
+
+## Clover implementation 
+
 
 ### References 
 
@@ -21,8 +33,6 @@ In practical applications, VAEs find utility in various domains, including image
 - https://arxiv.org/pdf/1907.00503.pdf
 - https://arxiv.org/abs/1312.6114
 - "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 3rd Edition” chapitre 17 
-
-
 
 - https://ieeexplore.ieee.org/document/8285168
 - https://www.mdpi.com/1999-4893/16/2/121
