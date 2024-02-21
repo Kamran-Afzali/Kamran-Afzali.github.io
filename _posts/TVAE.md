@@ -14,7 +14,21 @@ Central to the functionality of VAEs is the notion of the latent space represent
 
 In practical applications, VAEs find utility in various domains, including image and text generation, as well as molecular design. In healthcare, for instance, VAEs can learn the statistical distributions of patient data and produce synthetic patient records that preserve key characteristics while safeguarding privacy. Furthermore, VAEs contribute to data augmentation efforts by generating synthetic data points to supplement existing datasets, thereby enhancing the performance of machine learning models. Overall, Variational Autoencoders stand as versatile tools for synthetic data generation, leveraging their ability to capture underlying data distributions to generate realistic and diverse synthetic data across a multitude of applications.
 
-Below is the pseudo code for the Private-PGM algorithm can be outlined as follows:
+Variational autoencoder is another neural network generative model. We adapt VAE to tabular data by using the same preprocessing and modifying the loss function. We call this model TVAE. In TVAE, we use two neural networks to model p (rj jzj) and q (zj jrj), and train them using evidence lower-bound (ELBO) loss. 
+
+This code implements the TVAE model for synthetic data generation. TVAE consists of an encoder and a decoder, where the encoder compresses the input data into a lower-dimensional latent space, and the decoder reconstructs the original data from this latent representation.
+
+The `Encoder` class defines the encoder component of the TVAE model. It takes as input the dimensions of the data, the size of each hidden layer (`compress_dims`), and the size of the output vector (`embedding_dim`). The encoder applies a sequence of linear transformations followed by ReLU activation functions to map the input data to the latent space. It then outputs the mean (`mu`), standard deviation (`std`), and logarithm of the variance (`logvar`) of the latent representation.
+
+The `Decoder` class defines the decoder component of the TVAE model. It takes as input the size of the input vector (`embedding_dim`), the size of each hidden layer (`decompress_dims`), and the dimensions of the original data. Similar to the encoder, the decoder applies a sequence of linear transformations followed by ReLU activation functions to reconstruct the original data from the latent space. Additionally, it outputs the standard deviation (`sigma`) of the reconstruction.
+
+The `_loss_function` function calculates the loss function used for training the TVAE model. It computes the reconstruction loss and the Kullback-Leibler divergence loss, which measures the difference between the learned latent distribution and a standard normal distribution.
+
+The `TVAE` class encapsulates the entire TVAE model. It provides methods for fitting the model to training data (`fit`) and sampling synthetic data (`sample`). During training, the encoder and decoder are optimized using the Adam optimizer. The training process minimizes the reconstruction loss and the Kullback-Leibler divergence loss to learn a latent representation of the input data. Finally, the `set_device` method allows users to specify whether to use GPU or CPU for computation.
+
+
+
+Below is the pseudo code for the TVAE algorithm can be outlined as follows:
 
 ```python
 
@@ -50,6 +64,7 @@ Here's a breakdown of each step:
 - https://github.com/sdv-dev/SDV
 - https://sdv.dev/SDV/user_guides/single_table/tvae.html
 - https://github.com/sdv-dev/SDV/blob/main/sdv/single_table/ctgan.py
+- https://github.com/sdv-dev/CTGAN/blob/main/ctgan/synthesizers/tvae.py
 - https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/tvaesynthesizer
 - https://arxiv.org/pdf/1907.00503.pdf
 - https://arxiv.org/abs/1312.6114
