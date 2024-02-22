@@ -28,13 +28,79 @@ The `TVAE` class encapsulates the entire TVAE model. It provides methods for fit
 
 
 
-Below is the pseudo code for the TVAE algorithm can be outlined as follows:
+Below is the pseudo code for the [TVAE algorithm](https://github.com/sdv-dev/CTGAN/blob/main/ctgan/synthesizers/tvae.py) can be outlined as follows:
 
 ```python
+1. Instantiate TVAE with hyperparameters
+2. Fit TVAE model to training data
+3. Generate synthetic data using TVAE model
+
+Initialize TVAE algorithm with hyperparameters:
+- embedding_dim
+- compress_dims
+- decompress_dims
+
+
+Define Encoder class:
+- Initialize with data_dim, compress_dims, embedding_dim
+- Define forward method to encode input data
+
+Define Decoder class:
+- Initialize with embedding_dim, decompress_dims, data_dim
+- Define forward method to decode input data
+
+Define loss_function to compute loss:
+- Compute reconstruction loss and divergence loss
+
+Define TVAE class:
+- Initialize with hyperparameters
+- Define fit method to train the TVAE model:
+  - Transform input data
+  - Initialize Encoder and Decoder
+  - Iterate through epochs:
+    - Iterate through batches:
+      - Compute encoder output
+      - Compute decoder output
+      - Compute loss
+      - Update model parameters
+
+Define sample method to generate synthetic data:
+  - Generate synthetic data based on input samples
 
 ```
 Here's a breakdown of each step:
 
+Breakdown of each step based on the provided pseudo code:
+
+1. **Encoder Class (Initialization and Forward Pass)**:
+   - Initialize the Encoder class with data_dim, compress_dims, and embedding_dim.
+   - Inside the `__init__` method, construct a sequence of linear layers followed by ReLU activation functions based on the compress_dims.
+   - Then, define two linear layers (`fc1` and `fc2`) to produce the mean (mu) and log variance (logvar) of the latent space.
+   - Implement the `forward` method to encode the input data, where the input passes through the sequential layers, and then produces mu, std (standard deviation), and logvar.
+
+2. **Decoder Class (Initialization and Forward Pass)**:
+   - Initialize the Decoder class with embedding_dim, decompress_dims, and data_dim.
+   - Inside the `__init__` method, construct a sequence of linear layers followed by ReLU activation functions based on the decompress_dims.
+   - Add a linear layer at the end to produce the output data.
+   - Additionally, create a sigma parameter to model the uncertainty of the reconstructed data.
+   - Implement the `forward` method to decode the input vector, where the input passes through the sequential layers to produce the reconstructed data and sigma.
+
+3. **Loss Function**:
+   - Define a loss function `_loss_function` to compute the reconstruction loss and Kullback-Leibler divergence loss.
+   - Iterate over the output_info to compute the loss for each column of the data based on whether it has softmax activation or not.
+   - Compute the reconstruction loss and Kullback-Leibler divergence loss, and return their sum.
+
+4. **TVAE Class (Initialization, Fit, Sample, and Set Device)**:
+   - Initialize the TVAE class with various hyperparameters including embedding_dim, compress_dims, decompress_dims, etc.
+   - Define the `fit` method to train the TVAE model on the input data:
+     - Transform the input data using the DataTransformer.
+     - Create a DataLoader for batch training.
+     - Initialize Encoder and Decoder.
+     - Define an optimizer for Encoder and Decoder.
+     - Iterate through epochs and batches, compute encoder and decoder outputs, compute loss, and update model parameters accordingly.
+   - Define the `sample` method to generate synthetic data similar to the training data using the trained Decoder:
+     - Generate noise vectors, pass them through the Decoder, and transform the generated data back to the original space.
+   - Define the `set_device` method to specify the device (GPU or CPU) for computation.
 
 ## Clover implementation 
 
