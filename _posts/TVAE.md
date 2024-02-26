@@ -7,7 +7,7 @@ VAEs can be used for synthetic data generation by sampling from the learned late
 
 Latent space representation is one of the centeral aspects of VAEs that enabels it to capture the underlying structure and variations present in the input data, condensing it into a continuous, low-dimensional space. This latent space has the essential characteristics of the dataset, facilitating the generation of new data points that exhibit similar traits to those observed in the original dataset. By sampling from different regions within the latent space and decoding these samples, VAEs can generate synthetic data points that adhere to the statistical properties of the input data. In practical applications, VAEs find utility in various domains. In healthcare, for instance, VAEs can learn the statistical distributions of patient data and produce synthetic patient records that preserve key characteristics while safeguarding privacy. Furthermore, VAEs contribute to data augmentation efforts by generating synthetic data points to supplement existing datasets, thereby enhancing the performance of machine learning models. 
 
-The implementation that is used here is based on the TVAE model for synthetic data generation. TVAE consists of an encoder and a decoder, where the encoder compresses the input data into a lower-dimensional latent space, and the decoder reconstructs the original data from this latent representation. The `Encoder` class defines the encoder component of the TVAE model. It takes as input the dimensions of the data, the size of each hidden layer (`compress_dims`), and the size of the output vector (`embedding_dim`). The encoder applies a sequence of linear transformations followed by ReLU activation functions to map the input data to the latent space. It then outputs the mean (`mu`), standard deviation (`std`), and logarithm of the variance (`logvar`) of the latent representation. The `Decoder` class defines the decoder component of the TVAE model. It takes as input the size of the input vector (`embedding_dim`), the size of each hidden layer (`decompress_dims`), and the dimensions of the original data. Similar to the encoder, the decoder applies a sequence of linear transformations followed by ReLU activation functions to reconstruct the original data from the latent space. Additionally, it outputs the standard deviation (`sigma`) of the reconstruction. The `_loss_function` function calculates the loss function used for training the TVAE model. It computes the reconstruction loss and the Kullback-Leibler divergence loss, which measures the difference between the learned latent distribution and a standard normal distribution.
+The implementation that is used here is based on the TVAE model for synthetic data generation. TVAE consists of an encoder and a decoder, where the encoder compresses the input data into a lower-dimensional latent space, and the decoder reconstructs the original data from this latent representation. The `Encoder` class defines the encoder component of the TVAE model. It takes as input the dimensions of the data, the size of each hidden layer (`compress_dims`), and the size of the output vector (`embedding_dim`). The encoder applies a sequence of linear transformations followed by ReLU activation functions to map the input data to the latent space. It then outputs the mean (`mu`), standard deviation (`std`), and logarithm of the variance (`logvar`) of the latent representation. The `Decoder` class defines the decoder component of the TVAE model. It takes as input the size of the input vector (`embedding_dim`), the size of each hidden layer (`decompress_dims`), and the dimensions of the original data. Similar to the encoder, the decoder applies a sequence of linear transformations followed by ReLU activation functions to reconstruct the original data from the latent space. Additionally, it outputs the standard deviation (`sigma`) of the reconstruction. The loss function calculates the reconstruction loss and the Kullback-Leibler divergence loss, which measures the difference between the learned latent distribution and a standard normal distribution.
 
 
 
@@ -23,9 +23,9 @@ Initialize TVAE algorithm with hyperparameters:
 - compress_dims
 - decompress_dims
 
-
 Define Encoder class:
 - Initialize with data_dim, compress_dims, embedding_dim
+- Produces mean, standard deviation, and logvariance 
 - Define forward method to encode input data
 
 Define Decoder class:
@@ -33,7 +33,7 @@ Define Decoder class:
 - Define forward method to decode input data
 
 Define loss_function to compute loss:
-- Compute reconstruction loss and divergence loss
+- Compute the reconstruction/divergence loss
 
 Define TVAE class:
 - Initialize with hyperparameters
@@ -53,37 +53,31 @@ Define sample method to generate synthetic data:
 ```
 Here's a breakdown of each step:
 
-Breakdown of each step based on the provided pseudo code:
 
 1. **Encoder Class (Initialization and Forward Pass)**:
    - Initialize the Encoder class with data_dim, compress_dims, and embedding_dim.
-   - Inside the `__init__` method, construct a sequence of linear layers followed by ReLU activation functions based on the compress_dims.
-   - Then, define two linear layers (`fc1` and `fc2`) to produce the mean (mu) and log variance (logvar) of the latent space.
+   - A sequence of linear layers followed by ReLU activation functions based on the compress_dims.
+   - Define linear layers to produce the mean (mu) and log variance (logvar) of the latent space.
    - Implement the `forward` method to encode the input data, where the input passes through the sequential layers, and then produces mu, std (standard deviation), and logvar.
 
 2. **Decoder Class (Initialization and Forward Pass)**:
    - Initialize the Decoder class with embedding_dim, decompress_dims, and data_dim.
-   - Inside the `__init__` method, construct a sequence of linear layers followed by ReLU activation functions based on the decompress_dims.
+   - Construct a sequence of linear layers followed by ReLU activation functions based on the decompress_dims.
    - Add a linear layer at the end to produce the output data.
    - Additionally, create a sigma parameter to model the uncertainty of the reconstructed data.
    - Implement the `forward` method to decode the input vector, where the input passes through the sequential layers to produce the reconstructed data and sigma.
 
 3. **Loss Function**:
-   - Define a loss function `_loss_function` to compute the reconstruction loss and Kullback-Leibler divergence loss.
-   - Iterate over the output_info to compute the loss for each column of the data based on whether it has softmax activation or not.
+   - Define a loss function to compute the reconstruction loss/Kullback-Leibler divergence loss.
+   - Iterate over the output_info to compute the loss for each column of the data.
    - Compute the reconstruction loss and Kullback-Leibler divergence loss, and return their sum.
 
 4. **TVAE Class (Initialization, Fit, Sample, and Set Device)**:
    - Initialize the TVAE class with various hyperparameters including embedding_dim, compress_dims, decompress_dims, etc.
    - Define the `fit` method to train the TVAE model on the input data:
-     - Transform the input data using the DataTransformer.
-     - Create a DataLoader for batch training.
-     - Initialize Encoder and Decoder.
-     - Define an optimizer for Encoder and Decoder.
      - Iterate through epochs and batches, compute encoder and decoder outputs, compute loss, and update model parameters accordingly.
    - Define the `sample` method to generate synthetic data similar to the training data using the trained Decoder:
      - Generate noise vectors, pass them through the Decoder, and transform the generated data back to the original space.
-   - Define the `set_device` method to specify the device (GPU or CPU) for computation.
 
 ## Clover implementation 
 
