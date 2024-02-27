@@ -55,16 +55,16 @@ Here's a breakdown of each step:
 
 
 1. **Encoder Class (Initialization and Forward Pass)**:
-   - Initialize the Encoder class with data_dim, compress_dims, and embedding_dim.
-   - A sequence of linear layers followed by ReLU activation functions based on the compress_dims.
-   - Define linear layers to produce the mean (mu) and log variance (logvar) of the latent space.
-   - Implement the `forward` method to encode the input data, where the input passes through the sequential layers, and then produces mu, std (standard deviation), and logvar.
+   - Initialize the Encoder class with `data_dim`, `compress_dims`, and `embedding_dim`.
+   - A sequence of linear layers followed by ReLU activation functions based on the `compress_dims`.
+   - Define linear layers to produce the mean `mu` and log variance `logvar` of the latent space.
+   - Implement the `forward` method to encode the input data, where the input passes through the sequential layers, and then produces `mu`, `std` (standard deviation), and `logvar`.
 
 2. **Decoder Class (Initialization and Forward Pass)**:
-   - Initialize the Decoder class with embedding_dim, decompress_dims, and data_dim.
-   - Construct a sequence of linear layers followed by ReLU activation functions based on the decompress_dims.
+   - Initialize the Decoder class with `embedding_dim`, `decompress_dims`, and `data_dim`.
+   - Construct a sequence of linear layers followed by ReLU activation functions based on the `decompress_dims`.
    - Add a linear layer at the end to produce the output data.
-   - Additionally, create a sigma parameter to model the uncertainty of the reconstructed data.
+   - Additionally, create a `sigma` parameter to model the uncertainty of the reconstructed data.
    - Implement the `forward` method to decode the input vector, where the input passes through the sequential layers to produce the reconstructed data and sigma.
 
 3. **Loss Function**:
@@ -73,7 +73,7 @@ Here's a breakdown of each step:
    - Compute the reconstruction loss and Kullback-Leibler divergence loss, and return their sum.
 
 4. **TVAE Class (Initialization, Fit, Sample, and Set Device)**:
-   - Initialize the TVAE class with various hyperparameters including embedding_dim, compress_dims, decompress_dims, etc.
+   - Initialize the TVAE class with various hyperparameters including `embedding_dim`, `compress_dims`, `decompress_dims`, etc.
    - Define the `fit` method to train the TVAE model on the input data:
      - Iterate through epochs and batches, compute encoder and decoder outputs, compute loss, and update model parameters accordingly.
    - Define the `sample` method to generate synthetic data similar to the training data using the trained Decoder:
