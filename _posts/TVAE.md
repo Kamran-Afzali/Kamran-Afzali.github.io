@@ -102,13 +102,13 @@ Here's a breakdown of each step:
 ## References 
 
 - https://github.com/sdv-dev/SDV
-- https://sdv.dev/SDV/user_guides/single_table/tvae.html
 - https://github.com/sdv-dev/SDV/blob/main/sdv/single_table/ctgan.py
 - https://github.com/sdv-dev/CTGAN/blob/main/ctgan/synthesizers/tvae.py
-- https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/tvaesynthesizer
-- https://arxiv.org/pdf/1907.00503.pdf
-- https://arxiv.org/abs/1312.6114
-- "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 3rd Edition” chapitre 17 
+- [TVAE Model](https://sdv.dev/SDV/user_guides/single_table/tvae.html)
+- [TVAESynthesizer](https://docs.sdv.dev/sdv/single-table-data/modeling/synthesizers/tvaesynthesizer)
+- [Modeling Tabular data using Conditional GAN](https://arxiv.org/pdf/1907.00503.pdf)
+- [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114)
+- [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 3rd Edition](https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/) 
 
 - https://ieeexplore.ieee.org/document/8285168
 - https://www.mdpi.com/1999-4893/16/2/121
