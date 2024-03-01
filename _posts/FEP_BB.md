@@ -1,5 +1,13 @@
-### Bayesian Brain Hypothesis 
+---
+layout: post
+categories: posts
+title: Free Energy Principle and Bayesian Brain
+featured-image: /images/NIb.jpg
+tags: [Free Energy Principle, Bayesian Brain, Adaptive Priors]
+date-string: February 2024
+---
 
+### Bayesian Brain Hypothesis 
 
 As mentioned in the an earlier post the free energy principle, proposed by Karl Friston, suggests that the brain operates as a prediction machine, constantly minimizing surprise or uncertainty by making and updating predictions based on internal models. This principle integrates Bayesian inference with active inference, where actions are guided by predictions and sensory feedback refines them. The Bayesian brain hypothesis, on the other hand, posits that the brain is equipped with an internal (or "generative") model of the environment, which specifies a recipe for generating sensory observations from hidden states. It is noteworthy that this internal model may not be represented explicitly anywhere in the brain but the brain computes "as if" it had an internal model. 
 
