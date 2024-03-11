@@ -1,3 +1,13 @@
+---
+layout: post
+categories: posts
+title:  Synthetic Data in Health Care 
+featured-image: /images/EHRVAL.jpg
+tags: [Privacy, Synthetic Data, DigitalHealth]
+date-string: March 2024
+---
+
+
 **Why do we need is synthetic data in healthcare?**
 
 The use of health data for innovation and care enhancement has been a longstanding aim within the sector. In recent years, the rise of artificial intelligence (AI) and machine learning (ML) has opened up promising avenues for leveraging health data to provide decision support for clinicians, develop more effective treatments, and enhance overall system efficiency. However, despite the potential of these technologies, their widespread adoption faces significant challenges. One of the primary issues is the accessibility of data, with ML applications heavily relying on to large, high-quality datasets for training and validation. In the healthcare domain, where privacy regulations are tight and data sharing is often restricted, accessing such datasets can be particularly challenging. Privacy protection is another critical concern in the healthcare sector, governed by a set of regulations and ethical considerations. These regulations aim to safeguard the security and confidentiality of patient records by controlling the flow of information and preventing unauthorized access. Violations of these rules, often termed "invasions of privacy" or "privacy breaches," can have serious consequences, including the unauthorized disclosure of personal health information. Privacy threats in healthcare data can take various forms, including identity disclosure, attribute disclosure, and membership disclosure. Adversaries employ a range of techniques to compromise patient privacy, posing significant challenges to health data sharing and access. Privacy concerns have a profound impact on the sharing and accessibility of health data. One consequence of these concerns is the phenomenon known as the _"privacy chill"_ where the reluctance or refusal to share health data due to privacy concerns leads to a slowdown or complete restriction on data sharing initiatives. This phenomenon has been identified to have negative effects on various aspects of healthcare, including the response to health crises such as the COVID-19 pandemic and the recruitment and retention of talented health data scientists. The privacy chill underscores the delicate balance between protecting patient privacy and facilitating data access for research and innovation in healthcare.
@@ -17,3 +27,13 @@ Despite the promise of synthetic data, its widespread adoption in healthcare fac
 **What are the future Directions**
 
 Despite these challenges, synthetic data generation holds great promise for transforming healthcare data infrastructure and research. With a vision to bridge the accountability gap through privacy legislation and regulations that balances innovation and privacy in healthcare, moving forward, it is essential to invest in research and development efforts to advance synthetic data techniques and validation frameworks. By addressing challenges and maximizing the potential of synthetic data, researchers can leverag health data to improve patient care, advance medical research, and drive innovation in healthcare delivery.
+
+
+### References
+
+- [Synthetic data generation for tabular health records: A systematic review. Neurocomputing, 493, 28-45. Advance online publication.](https://doi.org/10.1016/j.neucom.2022.04.053)
+- [Synthetic data in health care: A narrative review](https://doi.org/10.1371/journal.pdig.0000082)
+- [Machine Learning for Synthetic Data Generation](https://arxiv.org/abs/2302.04062) 
+- [Synthetic data generation: State of the art in health care domain](https://www.sciencedirect.com/science/article/abs/pii/S1574013723000138)
+- [Synthetic data as an enabler for machine learning applications in medicine](https://www.cell.com/iscience/fulltext/S2589-0042(22)01603-0_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2589004222016030%3Fshowall%3Dtrue)
+
