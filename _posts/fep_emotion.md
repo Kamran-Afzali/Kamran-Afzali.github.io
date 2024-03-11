@@ -5,6 +5,10 @@ In the process of inferring and learning the causes of their sensations in a dyn
 
 Despite the acknowledged influence of emotions on beliefs and their resistance to change, computational models have largely overlooked or failed to integrate emotional aspects. Emotional valence, representing the positive or negative character of emotion covers aspects such as subjective experiences and expressive behaviors, with valence being considered a core dimension of subjective experiences of moods and emotions. Here we use our understanding of FEP and its relation to uncertainty, combined with the recognition of emotional valence as a critical aspect of subjective experiences, sets the stage for integrating emotions into computational models of adaptive agents. Such integration holds promise for a more comprehensive understanding of human behavior and cognition in dynamic environments.
 
+
+
+
+
 To bridge the gap between the biological principle of minimizing free-energy in agents at equilibrium with their environment and the traditional understanding of human behavior driven by pleasure-seeking and pain-avoidance, we've established a framework that links positive and negative emotional experiences to changes in free-energy over time. In this continuous time domain, the rate of change of free-energy \( F(t) \) is represented by its first time-derivative \( F'(t) \) at time \( t \). We formally define the valence of a state visited by an agent at time \( t \) as the negative first time-derivative of free-energy at that state, or simply \( F'(t) \).
 
 Adaptive agents encode a hierarchical generative model of the causes of their sensations, where states of increasing complexity are encoded in higher levels of the hierarchy and sensory data are encoded at the lowest level. Free-energy is minimized independently for each level of the hierarchy, and \( F_i(t) \) represents the free-energy associated with the hidden state at the \( i \)-th level.
@@ -31,7 +35,10 @@ In dynamic environments where recent information is a better predictor of the wo
 
 We formalize this concept through emotional meta-learning, wherein estimation uncertainty is not solely determined by free-energy but also by the rate of change of free-energy. Specifically, when the free-energy associated with posterior beliefs about states at a particular level in the agent's hierarchical model increases, the posterior certainty about these states decreases. This implies that decreasing evidence for the agent's estimates of states of the world indicates excessive confidence in those states. Emotional regulation of uncertainty is framed as meta-learning to emphasize that learning is influenced by the consequences of learning, particularly the rate of change of variational free-energy. Importantly, this scheme is not tied to any specific generative model, as expectations about states are optimized with respect to variational free-energy either at an evolutionary timescale or during experience-dependent learning.
 
-While this emotionally regularized update scheme may seem ad hoc, it aligns with several key heuristics in optimization literature, particularly regularization schemes. These schemes, such as Levenberg Marquardt Regularization, decrease the learning rate or gradient descent when the objective function being optimized does not change as expected. Typically, this regularization adjusts the relative precision of the data, making more cautious updates in response to adverse changes in the objective function, such as the free energy in our scheme. Importantly, in a hierarchical setting, this adaptation in the rate of optimization or learning at various levels of the hierarchical model can lead to adaptive changes in the agent's behavior and perception.
+
+
+
+The emotional update presented here it aligns with several key heuristics in optimization literature, particularly regularization schemes. These schemes, such as _Levenberg Marquardt Regularization_, decrease the learning rate or gradient descent when the objective function being optimized does not change as expected. Typically, this regularization adjusts the relative precision of the data, making more cautious updates in response to adverse changes in the objective function, such as the free energy in our scheme. Importantly, in a hierarchical setting, this adaptation in the rate of optimization or learning at various levels of the hierarchical model can lead to adaptive changes in the agent's behavior and perception.
 
 
 ### References
