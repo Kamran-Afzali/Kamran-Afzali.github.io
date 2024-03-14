@@ -7,6 +7,15 @@ Moreover, Bayesian methods in Stan allow for the incorporation of uncertainty qu
 
 In conclusion, Bayesian modeling using Stan offers a flexible and powerful framework for handling ordered categorical and multinomial outcomes. By leveraging the capabilities of Stan, researchers can build robust models that capture the complexities of the relationships between predictors and outcomes while incorporating prior information and quantifying uncertainty. Whether fitting ordinal logistic regression models for ordered categorical outcomes or multinomial logistic regression models for multinomial outcomes, Stan provides the tools necessary for rigorous Bayesian analysis, ultimately leading to more accurate and interpretable results in a wide range of applications.
 
+
+
+
+
+The Dirichlet distribution is a family of continuous multivariate probability distributions, parameterized by a vector α of positive real numbers. It is commonly used as a prior distribution for categorical or multinomial variables in Bayesian statistics. The Dirichlet distribution can characterize the random variability of a multinomial distribution and is particularly useful for modeling actual measurements due to its ability to generate a wide variety of shapes based on the parameters α. In the context of dice manufacturing, the Dirichlet distribution can be used to model the random variability in the probabilities of different outcomes, allowing for the creation of fair or loaded dice based on specific parameter values.
+
+
+
+
 In Bayesian modeling using Stan, the Dirichlet distribution plays a crucial role in handling ordered categorical and multinomial outcomes. Within the Stan framework, the Dirichlet distribution offers a versatile tool for modeling categorical data in various applications. One key use case involves multinomial models, where Stan provides a categorical family specifically designed to address multinomial or categorical outcomes. This feature enables the fitting of Bayesian models with multinomial responses, facilitating the automatic generation of categorical contrasts. By incorporating the Dirichlet distribution in these models, researchers can effectively analyze and interpret data with multiple categories or levels, making it a valuable resource for statistical inference.
 
 Moreover, Bayesian regression models benefit significantly from the Dirichlet distribution when dealing with ordered categorical and multinomial outcomes. By utilizing the Dirichlet distribution as a prior distribution for categorical or multinomial variables in Bayesian regression, researchers can introduce prior knowledge or beliefs about the distribution of categorical data into their modeling process. This approach provides a flexible framework for modeling ordered categorical responses while incorporating informative priors based on existing knowledge. Bayesian regression models leveraging the Dirichlet distribution offer a robust methodology for analyzing relationships between predictors and ordered categorical outcomes, allowing for nuanced interpretations and inference based on the underlying data structure.
@@ -20,3 +29,8 @@ In summary, the Dirichlet distribution serves as a powerful tool within Bayesian
 
 - https://mc-stan.org/docs/2_20/stan-users-guide/multi-logit-section.html
 - https://vincentarelbundock.github.io/rethinking2/12.html
+- https://builtin.com/data-science/dirichlet-distribution
+- https://distribution-explorer.github.io/multivariate_continuous/dirichlet.html
+- https://www.statisticshowto.com/dirichlet-distribution/
+- https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/
+
