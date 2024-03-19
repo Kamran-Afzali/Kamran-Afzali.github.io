@@ -30,12 +30,17 @@ We propose a novel mathematical framework that applies free energy dynamics to t
 In conclusion, our proposed framework provides a mathematical understanding of emotions within the dual process, offering quantitative predictions under different conditions. It has implications for designing sensory stimuli to evoke specific emotions and contributes to our fundamental understanding of perception and emotions in the context of cognitive processes.
 
 
+The reduction in free energy during the automatic process induces positive emotions due to the decrease in uncertainty, akin to process fluency as suggested by Joffily and Coricelli (2013). This reduction in free energy is associated with pleasure according to the Pleasure-Interest-Affect (PIA) model proposed by Graf and Landwehr (2015). Consequently, we interpret the reduction in free energy as eliciting positive emotions such as pleasure.
 
+The combination of both decreases and increases in free energy corresponds to positive and negative emotions, respectively. In the PIA model, three emotional states—interest, confusion, and boredom—are proposed during the transition between automatic and controlled processes (Graf & Landwehr, 2015). Successful reduction of disfluency in the controlled process leads to the experience of "interest." Conversely, failure to reduce disfluency results in the perception of "confusion" as a negative emotion. When no disfluency is present, individuals may experience "boredom."
+
+ "Interest" occurs when both an increase in free energy (disfluency) and its subsequent reduction are observed. Greater reduction in free energy corresponds to a higher level of interest. Conversely, "confusion" arises when an increase in free energy occurs without its reduction. "Boredom" occurs when neither an increase nor a reduction in free energy is observed.
 
 ### References
 
 - https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1003094&type=printable
 - https://www.sciencedirect.com/science/article/abs/pii/S0893608022004233
+- https://www.researchgate.net/publication/356396055_Free-Energy_Model_of_Emotion_Potential_Modeling_Arousal_Potential_as_Information_Content_Induced_by_Complexity_and_Novelty
 - https://www.semanticscholar.org/paper/An-Investigation-of-the-Free-Energy-Principle-for-Demekas-Parr/9b167315c4b539824dbfae03d62f7eb9e3fc66cb
 - https://www.semanticscholar.org/paper/Self-supervision%2C-normativity-and-the-free-energy-Hohwy/b86fb21949e2b2a1c57913caf70bbfdf66d780b4
 - https://www.semanticscholar.org/paper/The-Hard-Problem-of-Consciousness-and-the-Free-Solms/b017d5ba90e05de3fd0567b1c47ff7ec63a5580f
