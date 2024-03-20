@@ -69,61 +69,64 @@ In the model block, we define the statistical model.
 
 
 ```stan
-stan_program <- "
 data {
-    int n;
-    int k;
-    int response[n];
+  int<lower=2> K;
+  int<lower=0> N;
+  int<lower=1> D;
+  int<lower=1,upper=K> y[N];
+  row_vector[D] x[N];
 }
 parameters {
-    ordered[k] cutpoints;
+  vector[D] beta;
+  ordered[K-1] c;
 }
 model {
-    for (i in 1:n) {
-        response[i] ~ ordered_logistic(0, cutpoints);
-    }
-    cutpoints ~ normal(0, 15);
+  for (n in 1:N)
+    y[n] ~ ordered_logistic(x[n] * beta, c);
 }
-"
 ```
 
-
-The provided Stan program defines an ordered logistic regression model. Let's break down the code:
+ Let's break down the code:
 
 ### Data Block:
 ```stan
 data {
-    int n;                 // Number of observations
-    int k;                 // Number of categories (levels) for the ordered outcome variable
-    int response[n];       // Array of length n containing the ordered outcome variable
+  int<lower=2> K;               // Number of categories for the ordered outcome variable
+  int<lower=0> N;               // Number of observations
+  int<lower=1> D;               // Number of predictors or features
+  int<lower=1, upper=K> y[N];   // Array of length N containing the ordered outcome variable
+  row_vector[D] x[N];           // Array of length N containing the predictor values for each observation
 }
 ```
-In the data block, we declare the variables used in the model. `n` represents the number of observations, `k` represents the number of categories for the ordered outcome variable, and `response` is an array of length `n` containing the ordered outcome variable.
+In the data block, we declare the variables used in the model. 
+- `K` represents the number of categories for the ordered outcome variable.
+- `N` represents the number of observations.
+- `D` represents the number of predictors or features.
+- `y` is an array of length `N` containing the ordered outcome variable.
+- `x` is an array of length `N` containing the predictor values for each observation.
 
 ### Parameters Block:
 ```stan
 parameters {
-    ordered[k] cutpoints;   // Ordered cutpoints separating the categories
+  vector[D] beta;              // Coefficients for the predictor variables
+  ordered[K-1] c;              // Cutpoints separating the categories
 }
 ```
-In the parameters block, we declare the parameter to be estimated in the model. `cutpoints` is an ordered array of length `k`, representing the cutpoints that separate the categories of the ordered outcome variable.
+In the parameters block, we declare the parameters to be estimated in the model.
+- `beta` is a vector of length `D`, representing the coefficients for the predictor variables.
+- `c` is an ordered array of length `K-1`, representing the cutpoints that separate the categories of the ordered outcome variable.
 
 ### Model Block:
 ```stan
 model {
-    for (i in 1:n) {
-        response[i] ~ ordered_logistic(0, cutpoints);   // Likelihood function
-    }
-    cutpoints ~ normal(0, 15);   // Prior distribution for the cutpoints
+  for (n in 1:N)
+    y[n] ~ ordered_logistic(x[n] * beta, c);   // Likelihood function
 }
 ```
 In the model block, we define the statistical model.
 
-1. **Likelihood Function**: We specify the likelihood function for the ordered outcome variable `response`. The `ordered_logistic` distribution models the outcome as an ordered categorical variable with ordered cutpoints specified by `cutpoints`. For each observation `i`, we model the probability of observing the category specified by `response[i]` given the cutpoints.
+1. **Likelihood Function**: We specify the likelihood function for the ordered outcome variable `y`. The `ordered_logistic` distribution models the outcome as an ordered categorical variable with ordered cutpoints specified by `c`. For each observation `n`, we model the probability of observing the category specified by `y[n]` given the predictor values `x[n]` and the coefficients `beta`.
 
-2. **Prior Distribution**: We specify a prior distribution for the cutpoints. Here, we assume a normal prior distribution with mean 0 and standard deviation 15 for the cutpoints.
-
-Overall, this Stan program defines an ordered logistic regression model where the goal is to estimate the cutpoints that separate the ordered categories of the outcome variable based on the predictor variables.
 
 
 
@@ -136,6 +139,7 @@ The Dirichlet distribution is a family of continuous multivariate probability di
 
 - https://mc-stan.org/docs/2_20/stan-users-guide/multi-logit-section.html
 - https://vincentarelbundock.github.io/rethinking2/12.html
+- https://mc-stan.org/docs/2_18/stan-users-guide/ordered-logistic-section.html
 - https://builtin.com/data-science/dirichlet-distribution
 - https://distribution-explorer.github.io/multivariate_continuous/dirichlet.html
 - https://www.statisticshowto.com/dirichlet-distribution/
