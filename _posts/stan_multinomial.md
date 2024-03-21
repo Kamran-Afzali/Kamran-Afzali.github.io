@@ -68,7 +68,12 @@ In the model block, we define the statistical model.
 3. **Likelihood Function**: We define the likelihood function for the categorical outcome variable `y`. In this case, we use the `categorical_logit` distribution, which models the outcome as a categorical variable with probabilities proportional to the exponential of the linear predictors `x_beta`. The loop iterates over each observation `n` and assigns the corresponding likelihood of observing the category specified by `y[n]`.
 
 
-```stan
+```
+# Load the necessary library
+library(rstan)
+
+# Define the Stan model code
+stan_code <- '
 data {
   int<lower=2> K;
   int<lower=0> N;
@@ -83,7 +88,38 @@ parameters {
 model {
   for (n in 1:N)
     y[n] ~ ordered_logistic(x[n] * beta, c);
-}
+}'
+
+# Compile the Stan model
+stan_model <- stan_model(model_code = stan_code)
+
+# Generate simulated data
+set.seed(123)
+N <- 100
+D <- 2
+K <- 4
+x <- matrix(rnorm(N * D), ncol = D)
+beta_true <- c(1, -1)
+c_true <- c(-1, 0, 1)
+eta <- x %*% beta_true
+y <- apply(eta, 1, function(eta_i) sum(eta_i > c_true))
+y <- pmin(y + 1, K)
+
+# Prepare data for Stan
+stan_data <- list(
+  N = N,
+  D = D,
+  K = K,
+  x = x,
+  y = y
+)
+
+# Fit the Bayesian ordered logistic regression model using Stan
+fit <- sampling(stan_model, data = stan_data)
+
+# Print the summary of the model
+print(fit)
+
 ```
 
  Let's break down the code:
