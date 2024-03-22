@@ -7,7 +7,12 @@ Bayesian methods allow for the incorporation of uncertainty quantification and m
 
 Here we present an example of Stan code defines a multinomial logistic regression model, where the predictor matrix `x` is used to predict the categorical outcome variable `y`. The model estimates a matrix of coefficients `beta`, and the likelihood function relates the predictor variables to the outcome categories.
 
-```stan
+```
+# Load the necessary library
+library(rstan)
+
+# Define the Stan model code
+stan_code <- '
 data {
   int K;
   int N;
@@ -25,7 +30,36 @@ model {
 
   for (n in 1:N)
     y[n] ~ categorical_logit(x_beta[n]');
-}
+}'
+
+# Compile the Stan model
+stan_model <- stan_model(model_code = stan_code)
+
+# Generate simulated data
+set.seed(123)
+N <- 100
+D <- 3
+K <- 5
+x <- matrix(rnorm(N * D), ncol = D)
+beta_true <- matrix(rnorm(D * K), ncol = K)
+eta <- x %*% beta_true
+y <- apply(eta, 1, function(eta_i) sample(1:K, 1, prob = exp(eta_i) / sum(exp(eta_i))))
+
+# Prepare data for Stan
+stan_data <- list(
+  N = N,
+  D = D,
+  K = K,
+  x = x,
+  y = y
+)
+
+# Fit the Bayesian multinomial regression model using Stan
+fit <- sampling(stan_model, data = stan_data)
+
+# Print the summary of the model
+print(fit)
+
 ```
 
 ### Data Block:
