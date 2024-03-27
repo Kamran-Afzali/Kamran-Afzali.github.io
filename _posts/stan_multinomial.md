@@ -1,3 +1,13 @@
+---
+layout: post
+categories: posts
+title: Bayesian Ordinal and Multinomial Regression Models
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: May 2024
+---
+
+### Bayesian Ordinal and Multinomial Regression Models
 
 Bayesian modeling using Stan offers a powerful framework for handling ordered categorical and multinomial outcomes in a variety of contexts. When dealing with ordered categorical outcomes, such as survey responses or Likert scale ratings, Bayesian methods can be applied to fit ordinal logistic regression models. In this approach, the cumulative probabilities of each ordinal category are modeled relative to the predictor variables. By incorporating prior information about these relationships, Bayesian ordinal logistic regression provides a flexible and robust approach for modeling ordered categorical outcomes. Similarly, Bayesian modeling with Stan can also be applied to multinomial outcomes, where the outcome variable has more than two categories. Multinomial logistic regression models can be fitted using Stan, wherein the probabilities of each category relative to a reference category are modeled as a function of the predictor variables. This approach is particularly useful in settings where the outcome variable represents multiple mutually exclusive categories, such as different types of diseases or customer preferences. With Stan, researchers can specify complex multinomial logistic regression models that account for uncertainty in the parameter estimates and incorporate prior beliefs about the relationships between predictors and the outcome categories.
 
