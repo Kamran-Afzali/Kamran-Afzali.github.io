@@ -9,7 +9,7 @@ date-string: May 2024
 
 ### Bayesian Ordinal and Multinomial Regression Models
 
-Bayesian modeling using Stan offers a powerful framework for handling ordered categorical and multinomial outcomes in a variety of contexts. When dealing with ordered categorical outcomes, such as survey responses or Likert scale ratings, Bayesian methods can be applied to fit ordinal logistic regression models. In this approach, the cumulative probabilities of each ordinal category are modeled relative to the predictor variables. By incorporating prior information about these relationships, Bayesian ordinal logistic regression provides a flexible and robust approach for modeling ordered categorical outcomes. Similarly, Bayesian modeling with Stan can also be applied to multinomial outcomes, where the outcome variable has more than two categories. Multinomial logistic regression models can be fitted using Stan, wherein the probabilities of each category relative to a reference category are modeled as a function of the predictor variables. This approach is particularly useful in settings where the outcome variable represents multiple mutually exclusive categories, such as different types of diseases or customer preferences. With Stan, researchers can specify complex multinomial logistic regression models that account for uncertainty in the parameter estimates and incorporate prior beliefs about the relationships between predictors and the outcome categories.
+Bayesian modeling offers a powerful framework for handling ordered categorical and multinomial outcomes in a variety of contexts. When dealing with ordered categorical outcomes, such as survey responses or Likert scale ratings, Bayesian methods can be applied to fit ordinal logistic regression models. In this approach, the cumulative probabilities of each ordinal category are modeled relative to the predictor variables. By incorporating prior information about these relationships, Bayesian ordinal logistic regression provides a flexible and robust approach for modeling ordered categorical outcomes. Similarly, Bayesian modeling with Stan can also be applied to multinomial outcomes, where the outcome variable has more than two categories. Multinomial logistic regression models can be fitted using Stan, wherein the probabilities of each category relative to a reference category are modeled as a function of the predictor variables. This approach is particularly useful in settings where the outcome variable represents multiple mutually exclusive categories, such as different types of diseases or customer preferences. With Stan, researchers can specify complex multinomial logistic regression models that account for uncertainty in the parameter estimates and incorporate prior beliefs about the relationships between predictors and the outcome categories.
 
 Bayesian methods allow for the incorporation of uncertainty quantification and model comparison techniques. Uncertainty quantification is essential in Bayesian modeling as it provides estimates of uncertainty in model parameters, allowing researchers to make more informed decisions and interpretations. Stan facilitates the calculation of credible intervals for model parameters, providing insights into the range of plausible values. Additionally, model comparison techniques such as Bayesian Information Criterion (BIC) or leave-one-out cross-validation (LOO-CV) can be used to compare the fit of different models and aid in model selection. This enables researchers to identify the most appropriate model for their data, considering both goodness-of-fit and model complexity. Here we present two examples of Stan code defines multinomial and ordinal logistic regression models, where a predictor matrix `x` is used to predict the categorical outcome variable `y`. The model estimates a matrix of coefficients `beta`, and the likelihood function relates the predictor variables to the outcome categories.
 
@@ -204,11 +204,11 @@ The Dirichlet distribution is a family of continuous multivariate probability di
 
 ### References
 
-- https://mc-stan.org/docs/2_20/stan-users-guide/multi-logit-section.html
-- https://vincentarelbundock.github.io/rethinking2/12.html
-- https://mc-stan.org/docs/2_18/stan-users-guide/ordered-logistic-section.html
-- https://builtin.com/data-science/dirichlet-distribution
-- https://distribution-explorer.github.io/multivariate_continuous/dirichlet.html
-- https://www.statisticshowto.com/dirichlet-distribution/
-- https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/
+- [Multi-Logit Regression](https://mc-stan.org/docs/2_20/stan-users-guide/multi-logit-section.html)
+- [Statistical Rethinking 2: Chapter 12](https://vincentarelbundock.github.io/rethinking2/12.html)
+- [Ordered Logistic and Probit Regression](https://mc-stan.org/docs/2_18/stan-users-guide/ordered-logistic-section.html)
+- [The Dirichlet Distribution: What Is It and Why Is It Useful?](https://builtin.com/data-science/dirichlet-distribution)
+- [](https://distribution-explorer.github.io/multivariate_continuous/dirichlet.html)
+- [](https://www.statisticshowto.com/dirichlet-distribution/)
+- [](https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/)
 
