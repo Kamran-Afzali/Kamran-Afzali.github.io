@@ -1,3 +1,13 @@
+---
+layout: post
+categories: posts
+title: Free Energy Principle and Emotional Valence
+featured-image: /images/NIb.jpg
+tags: [Free Energy Principle, Bayesian Brain, Emotional Valence]
+date-string: June 2024
+---
+
+### Free Energy Principle and Emotional Valence
 
 This is the third post in our series on Free Energy Principle (FEP) as a unified account of perception, learning, and action, with potential applications in emotion synamics. In this post we are going to discuss porposition by [Joffily (2013)](https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1003094&type=printable) to understand emotional valence in terms of the negative rate of change of free energy over time, suggesting a dynamic interaction between valence and learning rate. As discussed earlier,  according to the free-energy principle, which posits that adaptive agents must minimize their free-energy to resist disorder, biological agents encode probabilistic models of the causes of their sensations. This principle is grounded in the understanding that minimizing free-energy can be interpreted as minimizing the prediction error between actual and predicted sensory inputs, especially under Gaussian assumptions. Adaptive agents achieve this minimization through two main tactics: adjusting their internal states for more accurate predictions and acting on the environment to sample sensations that align with their predictions. Importantly, perceptual inference, perceptual learning, and active inference all rely on the same Bayesian scheme, wherein agents infer the causes of sensory inputs, learn the relationship between inputs and causes, and act on the world to fulfill prior expectations about sensory inputs, respectively. 
 
@@ -22,11 +32,12 @@ The integration of the Free Energy Principle with emotional valence provides a p
 
 ### References
 
-- https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1003094&type=printable
-- https://www.sciencedirect.com/science/article/abs/pii/S0893608022004233
-- https://www.researchgate.net/publication/356396055_Free-Energy_Model_of_Emotion_Potential_Modeling_Arousal_Potential_as_Information_Content_Induced_by_Complexity_and_Novelty
-- https://www.semanticscholar.org/paper/An-Investigation-of-the-Free-Energy-Principle-for-Demekas-Parr/9b167315c4b539824dbfae03d62f7eb9e3fc66cb
-- https://www.semanticscholar.org/paper/Self-supervision%2C-normativity-and-the-free-energy-Hohwy/b86fb21949e2b2a1c57913caf70bbfdf66d780b4
-- https://www.semanticscholar.org/paper/The-Hard-Problem-of-Consciousness-and-the-Free-Solms/b017d5ba90e05de3fd0567b1c47ff7ec63a5580f
-- https://www.semanticscholar.org/paper/Expected-Free-Energy-Formalizes-Conflict-Underlying-Connolly/0905d6d8b3713e5c9b9630f42d7af41daf29203e
-- https://www.researchgate.net/publication/361266307_Metacognitive_Feelings_A_Predictive_Processing_Perspective
+- [Emotional Valence and the Free-Energy Principle](https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1003094&type=printable)
+- [Free energy model of emotional valence in dual-process perceptions](https://www.sciencedirect.com/science/article/abs/pii/S0893608022004233)
+- [Free-Energy Model of Emotion Potential: Modeling Arousal Potential as Information Content Induced by Complexity and Novelty](https://www.researchgate.net/publication/356396055_Free-Energy_Model_of_Emotion_Potential_Modeling_Arousal_Potential_as_Information_Content_Induced_by_Complexity_and_Novelty)
+- [Metacognitive Feelings: A Predictive-Processing Perspective](https://www.researchgate.net/publication/361266307_Metacognitive_Feelings_A_Predictive_Processing_Perspective)
+
+[](https://www.semanticscholar.org/paper/An-Investigation-of-the-Free-Energy-Principle-for-Demekas-Parr/9b167315c4b539824dbfae03d62f7eb9e3fc66cb)
+[](https://www.semanticscholar.org/paper/Self-supervision%2C-normativity-and-the-free-energy-Hohwy/b86fb21949e2b2a1c57913caf70bbfdf66d780b4)
+[](https://www.semanticscholar.org/paper/The-Hard-Problem-of-Consciousness-and-the-Free-Solms/b017d5ba90e05de3fd0567b1c47ff7ec63a5580f)
+[](https://www.semanticscholar.org/paper/Expected-Free-Energy-Formalizes-Conflict-Underlying-Connolly/0905d6d8b3713e5c9b9630f42d7af41daf29203e)
