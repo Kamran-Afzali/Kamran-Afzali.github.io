@@ -198,8 +198,7 @@ In the model block, we define the statistical model.
 
 #### A premiere on Dirichlet distribution
 
-The Dirichlet distribution is a family of continuous multivariate probability distributions, parameterized by a vector `α` of positive real numbers. It is commonly used as a prior distribution for categorical or multinomial variables in Bayesian statistics. The Dirichlet distribution can characterize the random variability of a multinomial distribution and is particularly useful for modeling actual measurements due to its ability to generate a wide variety of shapes based on the parameters `α`. The Dirichlet distribution can be used to model the random variability in the probabilities of different outcomes. Dirichlet distribution offers a versatile tool for modeling categorical data in various applications. One key use case involves multinomial models, where Stan provides a categorical family specifically designed to address multinomial or categorical outcomes. This feature enables the fitting of Bayesian models with multinomial responses, facilitating the automatic generation of categorical contrasts. By utilizing the Dirichlet distribution as a prior distribution for categorical or multinomial variables in Bayesian regression, researchers can introduce prior knowledge or beliefs about the distribution of categorical data into their modeling process. This approach provides a flexible framework for modeling ordered categorical responses while incorporating informative priors based on existing knowledge. Bayesian regression models leveraging the Dirichlet distribution offer a robust methodology for analyzing relationships between predictors and ordered categorical outcomes, allowing for nuanced interpretations and inference based on the underlying data structure.
-
+The Dirichlet distribution is a family of continuous multivariate probability distributions, parameterized by a vector `α` of positive real numbers. It is commonly used as a prior distribution for categorical or multinomial variables in Bayesian statistics. The Dirichlet distribution can characterize the random variability of a multinomial distribution and is particularly useful for modeling actual measurements due to its ability to generate a wide variety of shapes based on the parameters `α`. Dirichlet distribution is useful for modeling categorical data in different applications, such as multinomial models, where Stan provides a categorical family specifically designed to address multinomial or categorical outcomes. This feature enables the fitting of Bayesian models with multinomial responses, facilitating the automatic generation of categorical contrasts (instead of comparing with one reference category). By utilizing the Dirichlet distribution as a prior distribution for categorical or multinomial variables in Bayesian regression, researchers can introduce prior knowledge or beliefs about the distribution of categorical data into their modeling process. 
 
 
 ### References
@@ -208,7 +207,7 @@ The Dirichlet distribution is a family of continuous multivariate probability di
 - [Statistical Rethinking 2: Chapter 12](https://vincentarelbundock.github.io/rethinking2/12.html)
 - [Ordered Logistic and Probit Regression](https://mc-stan.org/docs/2_18/stan-users-guide/ordered-logistic-section.html)
 - [The Dirichlet Distribution: What Is It and Why Is It Useful?](https://builtin.com/data-science/dirichlet-distribution)
-- [](https://distribution-explorer.github.io/multivariate_continuous/dirichlet.html)
-- [](https://www.statisticshowto.com/dirichlet-distribution/)
-- [](https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/)
+- [https://distribution-explorer.github.io/multivariate_continuous/dirichlet.html](https://distribution-explorer.github.io/multivariate_continuous/dirichlet.html)
+- [Dirichlet Distribution: Simple Definition, PDF, Mean](https://www.statisticshowto.com/dirichlet-distribution/)
+- [Guide to understanding the intuition behind the Dirichlet distribution](https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/)
 
