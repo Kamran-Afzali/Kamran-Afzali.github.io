@@ -92,7 +92,7 @@ In terms on the presented courses, Health informatics/Bio informatics/ Digital h
 
 - There is a need to educate family medicine residents in the realm of health informatics, applied data analytics for continuous quality improvement, and general principles of digital health technologies. However, the integration of health informatics concepts into the curricula of Canadian medical schools and residencies is proceeding slowly (see [here](https://www.cfp.ca/content/65/10/683)). There are offeres by medical associations to improve digital health training in medical schools, for instance [OMD](https://www.ontariomd.ca/documents/resource%20library/dig.%20health%20education%20for%20med%20school.pdf) proposes a Digital Health Curriculum that medical schools can leverage to deliver further value to your students. This digital health educational package includes well-defined instructional digital health materials developed by practicing physicians and digital health experts who are university faculty members. Each module in the curriculum is specifically designed to enhance experiential learning and can be easily customized to the learning goals of each university’s medical school and the student’s education year.  
 
-## Selected Universities
+#### Selected Universities
 
 The University of Victoria and McMaster University both offer comprehensive health informatics training programs, each with its own unique focus and approach. At the University of Victoria, the health informatics program is deeply integrated within the Nursing, Faculty of Human and Social Development, and Health Information Science departments. Students have the opportunity to pursue various degrees, including a Graduate Certificate, Bachelor's degree, and Master's degree, with the possibility of continuing to a PhD in health informatics. Additionally, the University of Victoria offers a unique Double Degree Master of Nursing program, combining expertise in both nursing and health informatics. On the other hand, McMaster University collaborates across three faculties—the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business—to offer a multidisciplinary approach to health informatics education. McMaster provides programs leading to a Graduate Diploma and a Master's degree, allowing students to acquire specialized knowledge and skills in this rapidly evolving field. These programs reflect the universities' commitment to preparing graduates for impactful careers in health informatics, leveraging interdisciplinary collaboration and cutting-edge research opportunities.
 
@@ -235,3 +235,308 @@ The University of Victoria and McMaster University both offer comprehensive heal
 8. **Management and Leadership Courses:**
    - Project Management for the Health Sector
    - Management Issues in eHealth
+
+
+### Australia
+
+####  Medical schools 
+
+- The Australian Medical Council (AMC) and the Australian Digital Health Agency formed a partnership in 2020 to engage in a project aimed at understanding how technology impacts the standards of medical education, training and practice in Australia. This was done in alignment with the AMC’s roles as a national standards body for medical education and training, and as the accreditation authority for the medical profession.  AMC completed this work by launching the [framework](https://www.amc.org.au/wp-content/uploads/2021/10/Digital-Health-in-Medicine-Capability-Framework-FINAL-18-Oct-2021.pdf) with medical education providers and other key stakeholders of medicine. As part of this launch, AMC also presented on the capability framework at a number of national medical education and workforce conferences and shared a new look digital health page with their stakeholders.
+
+#### Selected Universities
+
+The University of Sydney offers dynamic health informatics training programs through collaborative efforts between its Faculty of Engineering, Computer Sciences, and the Faculty of Medicine and Health. At the undergraduate level, students can pursue a Bachelor of Advanced Computing/Bachelor of Science (Health), a combined degree that blends technical expertise in computing with a comprehensive understanding of health systems at local, national, and global levels. This program equips students with core computing skills alongside majors in health, covering areas such as human biology, psychology, and eHealth. Moving to postgraduate studies, the university offers a Master of Digital Health and Data Science, a program developed in partnership between the School of Computer Science and the Faculty of Medicine and Health. This master's degree focuses on advanced data science skills within the healthcare context, providing students with specialized training to address the evolving challenges in digital health. Additionally, the Graduate Certificate in Digital Health and Data Science, co-taught by the same faculties, offers participants an opportunity to enhance their expertise in data science specifically tailored for healthcare applications. These programs highlight the University of Sydney's commitment to interdisciplinary education and cutting-edge research in health informatics, preparing graduates to make meaningful contributions to the field.
+
+#### University of Sydney
+
+- **Departments**: Faculty of Engineering, Computer sciences, Faculty of Medicine and Health 
+- **Programs**:  Bachlors, Masters, Graduate Certificate
+
+- [Bachelor of Advanced Computing and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-health.html)
+  
+  - The Bachelor of Advanced Computing/Bachelor of Science (Health) is a combined undergraduate coursework degree that will develop your technical skills in computing while providing a thorough grounding in health and health systems at the local, national and global level. The participant will complete core units that cover the skills needed to work as a computing professional, along with a major from the Advanced Computing disciplinary pool and advanced computing elective units. Additionally, they will complete a major in health, with core units in areas such as human biology, psychology and eHealth, ensuring you develop a breadth of knowledge in healthcare and its latest developments.
+    
+  - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/782)
+    
+- [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
+  
+  -  Master of Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide you with advanced data science skills in the context of healthcare.
+    
+  - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1145)
+    
+- [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
+  
+  - The Graduate Certificate in Digital Health and Data Science is co-designed and co-taught by the School of Computer Science in the Faculty of Engineering, and Biomedical Informatics and Digital Health in the Faculty of Medicine and Health. All units have been specifically developed to provide the participant with advanced data science skills in the context of healthcare.
+    
+  - [Course details](https://cusp.sydney.edu.au/students/view-degree-page/degree_id/1146)
+
+##### Anthology of presented courses 
+
+
+1. **Foundational Health Informatics Courses:**
+   - Foundations of Data Science
+   - Foundations of Digital Health
+   - Foundations of Healthcare Data Science
+
+2. **Clinical and Professional Development Courses:**
+   - Introduction to Clinical Epidemiology
+   - Usability Engineering
+   - Foundations Health Technology Assessment
+
+3. **Health Information Management and Systems Design:**
+   - Data & Information Management
+   - Enterprise Healthcare Information Systems
+   - Design Thinking
+
+4. **Research and Methodology Courses:**
+   - Research and Evaluation Methods in eHealth
+   - Introduction to Statistics
+   - Computational Statistical Methods
+
+5. **Technological Competency Courses:**
+   - Introduction to Programming
+   - Object-Oriented Programming
+   - Computing 1A Professionalism
+   - Computing 1B OS & Network Platforms
+   - Computing 2 Usability and Security
+   - Computing Innovation
+
+6. **Ethical and Legal Considerations:**
+   - Information, Privacy, and Security
+   - Clinical Ethics
+   - Regulatory Affairs in the Medical Industry
+
+7. **Specialized Topics:**
+   - Healthcare Analytics
+   - Biomedical Image Analysis
+   - AI, Data, and Society in Health
+   - Natural Language Processing
+   - Visual Analytics
+   - Machine Learning and Data Mining
+   - Information Technology in Biomedicine
+   - Innovations in eHealth
+
+8. **Management and Leadership Courses:**
+   - Project Management for the Health Sector
+   - Leadership in Health
+   - Computing Management
+   - Leadership in Health
+
+### UK
+
+####  Medical schools 
+
+- In recent investigations among UK healthcare professionals, notable discrepancies in digital literacy within the healthcare field have been identified. These disparities present obstacles to the efficient integration of emerging technologies in clinical practices. Moreover, insufficient training on the ethical considerations related to these technologies poses a potential dilemma for healthcare professionals in safeguarding patient rights. Recognizing these challenges and the evident need for focused education in digital health, a group pf UK medical doctors have recently [advocate for a concentrated effort](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8966807/) on the fundamental component of any healthcare profession—the undergraduate curriculum.
+
+
+#### Selected Universities
+
+The University of Oxford, through its Oxford Institute of Digital Health and the Nuffield Department of Primary Care Health Sciences, offers comprehensive health informatics training programs at both the master's and doctoral levels. The MSc Applied Digital Health program provides an interdisciplinary learning experience led by the NDPCHS, drawing on faculty expertise from various fields including medicine, social science, engineering, artificial intelligence, and data science. This program is enriched by collaborations with prestigious institutions such as the NIHR Oxford & Thames Valley Applied Research Collaboration and the NIHR Oxford Biomedical Research Center, offering students unparalleled opportunities for research and practical application. Additionally, the university offers the MSc in Translational Health Sciences, ideal for researchers, research managers, entrepreneurs, and policymakers seeking to innovate healthcare delivery and promote evidence-based practices. This program not only prepares students for doctoral research but also emphasizes the real-world application of research findings to improve patient care and healthcare services. Moving to the University of Leeds, its School of Medicine provides health informatics training through programs like the MSc Health Informatics with Data Science and the Certificate Health Informatics with Data Science PGCert. These programs, designed by experienced academics and professionals, cater to recent graduates and professionals alike, offering a blend of theoretical knowledge, practical skills, and research methods application in the healthcare domain. Through collaborations with the UK National Institute for Health and Social Care Research (NIHR) Academy, students actively contribute to shaping the informatics and data science agenda for health, reflecting the university's commitment to advancing research capacity in this critical area.
+
+
+#### University of Oxford ([Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health))
+
+- **Departments**: Oxford Institute of Digital Health, Nuffield Department of Primary Care Health Sciences
+- **Programs**: Masters, PhD 
+
+- [MSc Applied Digital Health](https://www.phc.ox.ac.uk/study/msc-applied-digital-health)
+  
+  -  This applied, interdisciplinary MSc is led by the Nuffield Department of Primary Care Health Sciences (NDPCHS), capitalising on the existing breadth of internationally leading digital health research in the department. In addition, the course draws on the expertise of faculty from across the University to create an interdisciplinary learning experience, spanning medicine, social science, engineering, artificial intelligence and data science. The course is further enriched by linking to the department's Oxford Institute of Digital Health, National Institute for Health Research (NIHR) Oxford & Thames Valley Applied Research Collaboration (ARC), which is hosted by NDPCHS (led by Theme Lead John Powell, Academic Director for this MSc), as well as the NIHR Community Healthcare MedTech and IVD Cooperative and the NIHR Oxford Biomedical Research Center.
+    
+  - [Course details](https://www.ox.ac.uk/sites/files/oxford/media_wysiwyg/MSc%20ADH%20Handbook%2022_23.pdf)
+
+- [MSc in Translational Health Sciences](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences)
+  
+  - This MSc is ideal for researchers who want to study scientific and technological innovation in a healthcare setting and research managers looking to run clinical trials or promote the uptake of research findings. It will also assist entrepreneurs (from an industry or clinical background) who seek to improve patient care through innovation and policymakers (local and national) wishing to support research and its translation to improve services. For students interested in undertaking doctoral research, the MSc will prepare them to apply for a DPhil in Translational Health Sciences. We expect all our students to have some relevant past experience in a work environment. This program combines health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. With us you will be actively involved in listening to and informing the informatics and data science agenda for health.
+    
+  - [Course details](https://www.conted.ox.ac.uk/about/msc-in-translational-health-sciences) 
+
+
+##### Anthology of presented courses 
+
+
+
+1. **Foundational Digital Health Courses:**
+   - Foundations of Digital Health
+
+2. **Digital Health Applications and Technologies:**
+   - Clinical Informatics for Trials and Health Surveillance
+   - Harnessing Big Data to Improve Care
+   - Remote Monitoring and Digital Diagnostics
+   - Supporting Health Behavior Change using Digital Tools
+   - Digital Transformation of Primary Care
+   - Technological Innovation and Digital Health
+
+3. **Translational Science and Research Methods:**
+   - Introduction and Research Methods for Translational Science
+   - Behavioural Science and Complex Interventions
+   - Economics and Regulation in Translational Science
+   - Healthcare Evaluation and Research Impact
+   - Translational Science and Global Health
+
+4. **Health Policy, Organizations, and Ethics:**
+   - Health Organisations and Policy
+   - Patients, Citizens & the Politics of Evidence
+   - Ethics and Justice in Translational Science
+
+
+
+#### University of Leeds 
+
+- **Departments**: School of Medicine 
+- **Programs**: Graduate Certificate, Masters
+
+- [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
+  - Created by experienced academics and professionals, this degree is designed for both recent graduates and professionals looking to advance their careers, develop their knowledge and understanding of health informatics, health data science techniques, and real-world application of research methods.
+    
+  -  [Course details](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc#content)
+    
+- [Certificate Health Informatics with Data Science PGCert](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert)
+  - This degree combines health, data and social science expertise with a research focus to develop knowledge, skills and awareness of sources and uses of evidence in healthcare. Developing research capacity in health informatics and data science is a priority area internationally. Staff contribute expertise to the Research Methods Incubator of the UK National Institute for Health and Social Care Research (NIHR) Academy. Participants will be actively involved in listening to, and informing, the informatics and data science agenda for health.
+    
+  -  [Course details](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert#content)
+
+
+##### Anthology of presented courses 
+
+
+
+1. **Foundational Health Data Science Courses:**
+   - Statistics and Modelling for Health Sciences
+   - Foundations of Health Data
+   - Informatics and Data Science in Health Care and Research
+
+2. **Ethical and Legal Considerations in Health Data Science:**
+   - Law, Ethics and Governance for Health Data Science
+
+3. **Advanced Data Science Techniques:**
+   - Artificial Intelligence and Machine Learning in Health
+   - Spatial Analytics and Visualisation for Health
+   - Visualisation for Health Data
+
+4. **Health Economics and Evaluation:**
+   - Principles of Health Economics
+   - Economic Evaluations for Health Technology Assessment
+   - Introduction to Health Economics
+
+5. **International Health and Program Evaluation:**
+   - Key Issues in International Health
+   - Monitoring and Evaluation of Health Programmes
+   - Health Promotion
+
+6. **Research Courses:**
+   - Statistics and Modelling for Health Sciences
+   - Informatics and Data Science in Health Care and Research
+
+### France 
+
+####  Medical schools 
+
+- At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties began teaching digital health to students in their second cycle (4th to 6th year) in 2019. More information can be found in the following articles.
+  - [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure)
+  - [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
+
+
+#### Selected Universities
+
+In France, we selected two universities, Bordeaux and Paris Cité, that offer modern health informatics training programs tailored to meet the evolving needs of the healthcare sector. The Bordeaux program, situated within the School of Public Health and in collaboration with McGill University School of Population and Global Health, provides both Masters and PhD degrees with a focus on Public Health Data Science. This program equips professionals with the necessary skills to navigate the intersection of data science and public health, preparing them for roles in both industry and public sectors. Emphasizing multidisciplinary collaboration, the curriculum covers essential topics such as epidemiology, computer science, and biostatistics, ensuring participants develop a holistic understanding of data management and analysis in the context of public health. Additionally, participants gain expertise in project management, research design, and data presentation, laying a solid foundation for further academic pursuits or professional endeavors. In Paris Cité, the health informatics training programs offered by the Faculty of Biomedical and Fundamental Sciences cater to the growing demand for cybersecurity expertise in the realm of e-Health. The two-year Master's program in Cybersecurity and e-Health addresses the pressing need for professionals capable of safeguarding systems, networks, and data within the context of connected health and the Internet of Things (IoT). With a curriculum designed to cover topics such as security auditing, technical solution development, and regulatory compliance, graduates emerge as proficient experts capable of navigating the complex cybersecurity landscape in healthcare. Additionally, the university offers a University Diploma in Connected Health, providing a cross-disciplinary introduction to connected healthcare for healthcare professionals, administrative staff, IT specialists, and other stakeholders involved in bringing digital healthcare projects to fruition. These programs reflect the universities' commitment to addressing the interdisciplinary challenges of health informatics in an increasingly digital healthcare environment.
+
+
+#### Bordeaux 
+
+- **Departments**: School of Public Health-- in collaboration with  [McGill University School of Population and Global Health](https://www.mcgill.ca/epi-biostat-occh/) 
+- **Programs**: Masters, PhD, Dual Degree Programs in Public Health Data Science in collaboration with [McGill](https://www.mcgill.ca/epi-biostat-occh/education/grad/dual-degree-programs-public-health-data-science)
+  
+- [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
+  - The training program aims to equip professionals in the field of data science applied to public health, preparing them for roles in both the industry and public sectors. The objectives include providing foundational skills such as scientific expertise, the ability to manage complex issues, and proficiency in handling informational and technological data. The program also aims to enable participants to seamlessly integrate into a Ph.D. program within a research team. Emphasis is placed on developing knowledge and skills necessary for managing projects or multidisciplinary programs in data science, fostering collaboration with partners and networks. Additionally, participants will gain expertise in conducting research related to public health, spanning from project design to data analysis and presentation of results. The curriculum ensures the acquisition of multidisciplinary skills in epidemiology, computer science, and biostatistics, and emphasizes understanding the strengths and limitations of technologies and digital approaches in the context of public health.
+    
+  - [Course details](www.isped.u-bordeaux.fr/Portals/0/TELECHARGEMENT/Rubrique_FORMATIONS/M2_PHDS/M2_PHDS_Programme.pdf?ver=W5KEEUS0-yxdY37kYNBfkg%3d%3d)
+
+
+##### Anthology of presented courses 
+
+1. **Foundational Health Informatics Courses:**
+   - Core principles of Biostatistics
+   - Core principles in epidemiology
+   - Basic of digital health communication
+
+2. **Health Information Management and Systems Design:**
+   - Electronic Health Records
+
+3. **Research and Methodology Courses:**
+   - Experiment design and modeling
+   - Regression modeling
+   - Introduction to machine learning
+
+4. **Technological Competency Courses:**
+   - Database design
+   - Unix shell, networks & docker
+   - Notion of object-oriented programming
+   - Parallel programming & reproducible science
+
+5. **Ethical and Legal Considerations:**
+   - Data legislation
+
+6. **Specialized Topics:**
+   - Omics data
+   - Digital Cohorts
+
+7. **Management and Leadership Courses:**
+   - Value creation
+
+#### Paris Cite 
+
+- **Departments**: Faculty of biomedical and fundamental sciences 
+- **Programs**:  Masters, Unversity Diploma
+
+  
+- [Master Informatique - Parcours : Cybersécurité et esanté](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html)
+
+  - The digital transformation has given rise to an increasing number of cyberattacks, necessitating a reevaluation of cybersecurity practices within a more stringent regulatory framework. Organizations are compelled to adapt to safeguard users, activities, and assets from evolving cyber threats. Additionally, the professionalization of cybercrime exacerbates risks and threats, revealing a significant gap in the protection levels afforded to companies and institutions. The proliferation of non-targeted cyberattacks, such as ransomware and internet fraud employing social engineering techniques, underscores the vulnerabilities of current security measures. The loss of sensitive data due to embezzlement, risks associated with outsourcing applications and data (cloud computing), and the growing adoption of telemedicine over vulnerable communication networks further compound the challenges. In response to these complexities, the two-year Cybersecurity and e-Health Master's program aims to train experts specializing in the cybersecurity of systems, networks, and data within the realms of connected health (e-Health) and the Internet of Things (IoT). These experts will possess the skills to conduct consulting, analysis, and security audits while developing, implementing, and validating technical security solutions.
+    
+  -  [Course details](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/informatique-K2NDIF4R/master-informatique-parcours-cybersecurite-et-esante-JT5NZSOS.html)
+    
+- [Diplôme Universitaire de Santé Connectée](https://pums.aphp.fr/diplome-universitaire-de-sante-connectee/)
+  
+  - Connected healthcare, in its broadest sense (telemedicine, connected objects, remote monitoring and e-coaching applications, etc.), offers solutions that are potentially useful, if not indispensable, for tomorrow's optimal medical care. Professionals from different backgrounds are keen to acquire knowledge and skills in connected health, to help them bring their projects to fruition. The DU offers a cross-disciplinary introduction to connected healthcare for all those who understand the imminent digital shift in medicine. This course is aimed  for Healthcare professionals, administrative staff, start-ups, IT specialists and investors who want to acquire the knowledge and skills they need to successfully implement connected healthcare projects.
+    
+  - [Course details](https://aphp.aphp.fr/wp-content/blogs.dir/274/files/2020/06/DU-sante-connectee-2021.pdf) 
+
+##### Anthology of presented courses 
+
+
+1. **Foundational Health Informatics Courses:**
+   - e-health fundamentals
+     
+2. **Clinical Courses:**
+   - Body sensor networks for healthcare
+   - Telemedicine 
+
+3. **Health Information Management and Systems Design:**
+   - Security of IOT networks and medical sensors
+   - Security of mobile networks and cloud computing
+   - Technology Watch and Innovation
+   - TCP/IP networks and operating systems
+
+4. **Technological Competency Courses:**
+   - Cryptography and computer security
+   - Cybersecurity
+   - Network and system security
+   - Advanced cryptography and blockchain
+   - Security Audit, Ethical Hacking, and Penetration Testing
+   - Advanced Cybersecurity: Forensic Analysis and Malware
+     
+5. **Research and Methodology Courses:**
+   - Medico-economic evaluations of connected healthcare 
+   - Evaluating connected health: principles
+     
+6. **Ethical and Legal Considerations:**
+   - Ethics and regulations
+   - Connected health law
+     
+7. **Specialized Topics:**
+   - Robotics, augmented reality, and virtual reality 
+   - Blockchain and healthcare
+     
+8. **Management and Leadership Courses:**
+   - Project Management
