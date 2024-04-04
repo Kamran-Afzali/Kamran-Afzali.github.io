@@ -83,7 +83,11 @@ In terms on the presented courses, Health informatics/Bio informatics/ Digital h
 
 ### Ten Pages
 
+### Introduction:
 
+The field of health informatics stands at the intersection of healthcare, technology, and data science, playing a pivotal role in transforming the delivery of healthcare services and improving patient outcomes worldwide. As healthcare systems evolve to embrace digital technologies, the demand for skilled professionals who can navigate the complexities of health data management, digital health technologies, and informatics principles continues to grow. In response to this demand, academic institutions across the globe have developed a diverse range of health informatics training programs aimed at preparing students for impactful careers in this rapidly evolving field. This document provides an in-depth exploration of health informatics training programs in five countries: Canada, Australia, the United Kingdom, France, and the United States. Spanning various academic levels, including Bachelor's, Master's, PhD, and Fellowships, this comprehensive analysis sheds light on the collective efforts of medical schools and universities to educate healthcare professionals in the realm of health informatics.
+
+The introduction of digital technologies into medical education curricula has become a focal point for many countries, reflecting a recognition of the integral role of informatics in modern healthcare practice. Efforts to integrate health informatics concepts into medical school curricula have varied across countries, with initiatives like the Digital Health Curriculum proposed by the Ontario Medical Association in Canada and collaborative projects between the Australian Medical Council and the Australian Digital Health Agency. Through interdisciplinary collaborations and cutting-edge research opportunities, these programs aim to prepare graduates for impactful careers in health informatics, driving innovation and advancement in healthcare delivery and patient care. This document aims to provide a detailed overview of the diverse range of health informatics training programs available globally, highlighting the efforts of academic institutions to meet the growing demand for skilled professionals in this critical field.
 
 
 ### Canada
