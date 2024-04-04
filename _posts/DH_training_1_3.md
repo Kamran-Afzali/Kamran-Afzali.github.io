@@ -540,3 +540,381 @@ In France, we selected two universities, Bordeaux and Paris Cité, that offer mo
      
 8. **Management and Leadership Courses:**
    - Project Management
+
+### USA
+
+####  Medical schools 
+
+- In the United States, in absence of a centeralized and unfied effort, some medical schools have been reported to offer digital health teachings. This can go from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
+
+#### Selected Universities
+
+In the United States, five universities offer robust health informatics training programs tailored to meet the demands of the evolving healthcare landscape. At the University of Illinois Chicago, housed within the Department of Biomedical and Health Information Sciences in the College of Applied Health Sciences, students can pursue various degrees, including a Bachelor of Science in Health Information Management (BSHIM), a Post-Baccalaureate Certificate, a Master of Science in Health Informatics (MSHI), and a Post-Master’s Certificate in Health Informatics (PMC HI). These programs provide a comprehensive curriculum covering areas such as coding, data quality management, and health information research, preparing graduates for roles in healthcare planning and executive decision-making. Similarly, Stanford University's School of Medicine offers a Master of Science in Clinical Informatics Management (MCiM), Clinical Informatics Fellowship, and MS & PhD in Biomedical Informatics. The MCiM program equips professionals with the skills to drive healthcare transformation through digital innovations, blending expertise in medicine, business, and technology. Meanwhile, the Clinical Informatics Fellowship focuses on integrating information technology into clinical practice, while the Biomedical Informatics programs provide interdisciplinary coursework and research training in computational methods for solving complex problems in biology and medicine. Additionally, the University at Buffalo's School of Medicine offers a Clinical Informatics Fellowship, MS in Biomedical Informatics, and PhD in Biomedical Informatics. These programs emphasize hands-on training and preparation for board certification, providing participants with the skills and knowledge needed to manage health information effectively and lead organizations through the complexities of information management in healthcare. In the United States, the University of Denver and Harvard University offer cutting-edge health informatics training programs tailored to meet the demands of the evolving healthcare landscape. At the University of Denver's University College, participants can pursue a Master of Health Informatics with four specialties: Health Data Science, Digital Health, Project Management, and Analytics, alongside certificate programs. These programs equip students with practical skills and knowledge in areas such as data science, digital health technologies, project management, and healthcare analytics, preparing them for leadership roles in healthcare organizations. Meanwhile, Harvard University, through its Medical School and School of Public Health, offers the Master of Science in Health Data Science and the Master of Medical Sciences in Biomedical Informatics. These programs provide rigorous quantitative training and essential statistical and computing skills needed to manage and analyze health science data, addressing critical questions in public health and biomedical sciences. Additionally, Harvard offers the NLM Biomedical Informatics and Data Science Fellowship, providing postdoctoral researchers with opportunities for collaboration, networking, and professional development in the field of biomedical informatics. At the University of Denver's University College, participants can pursue a Master of Health Informatics with four specialties: Health Data Science, Digital Health, Project Management, and Analytics, alongside certificate programs. These programs equip students with practical skills and knowledge in areas such as data science, digital health technologies, project management, and healthcare analytics, preparing them for leadership roles in healthcare organizations. Meanwhile, Harvard University, through its Medical School and School of Public Health, offers the Master of Science in Health Data Science and the Master of Medical Sciences in Biomedical Informatics. These programs provide rigorous quantitative training and essential statistical and computing skills needed to manage and analyze health science data, addressing critical questions in public health and biomedical sciences. Additionally, Harvard offers the NLM Biomedical Informatics and Data Science Fellowship, providing postdoctoral researchers with opportunities for collaboration, networking, and professional development in the field of biomedical informatics.
+
+#### University of Illinois Chicago
+
+- **Departments**: [The Department of Biomedical and Health Information Sciences (BHIS)](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/), College of Applied Health Sciences
+- **Programs**: Bachelor, Post-Baccalaureate Certificate, Master, Post-Master Certificate
+
+- [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
+  
+  - Bachelor of Science in Health Information Management (BSHIM) completion program was designed to prepare graduates to take the _Registered Health Information Administrator (RHIA)_ exam. This dynamic degree program provides skilled instruction in the management and use of information and information systems for healthcare planning and provision, resource allocation, and executive decision making. As you work your way through the curriculum presented online, you will also explore essential topics, such as coding, systems analysis, data quality management and health information research.
+    
+  - [Course Details](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
+
+- [Post-Baccalaureate Certificate in Health Informatics (PBC HI)](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
+  
+  - Post-Baccalaureate Health Informatics Certificate is 12 credit program and can be completed in 12 months. There are four focus-areas: Health Informatics Fundamentals, Health Data Science Informatics, Leadership in Health Informatics, Mobile Health Informatics, All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+    
+  - [Course Details](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
+    
+- [Master of Science in Health Informatics (MSHI)](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
+  
+  - The 100% online asynchronous Master of Science in Health Informatics program encompasses digital health, data science, and leadership. The 38-credit program is housed within University of Illinois Chicago (UIC) College of Applied Health Sciences and can be completed in 30 months. The curriculum focuses on social informatics at the population level. Students develop knowledge and skills in: Data collection, storage, extraction, manipulation, network architecture, data analysis and visualization, predictive analytics, healthcare project management, human factors in computer design, ethics, patient experience and healthcare communications. Students in the program often have clinical, business, or computer science backgrounds. They value the online format for flexibility, CAHIIM accreditation, and vast professional network.
+    
+  - [Course details](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
+    
+- [Post-Master’s Certificate in Health Informatics (PMC HI)](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/)
+  
+  - Illinois Board of Higher Education (IBHE) approved Post-Master’s Certificate in Health Informatics (PMC HI) is a 24 credit hours and can be completed in 18 months. This non-degree program is designed to help build knowledge and skills in accelerated format. All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+    
+  - [course details](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/) 
+
+##### Anthology of presented courses 
+
+1. **Foundational Health Informatics Courses:**
+   - Introduction to Health Informatics
+   - Principles of Health Information Management
+   - Medical Terminology for Health Information Management
+   - Fundamentals of Health Information Management
+   - Information Systems for Health Information Management
+   - Health Data Structures and Management
+   - Healthcare Data
+   - Information Sources in Biomedical & Health Information Sciences
+
+
+2. **Clinical and Professional Development Courses:**
+   - Clinical Practicum
+   - Medical Sciences and Human Pathophysiology
+   - Coding and Classification Systems
+   - Coding and Reimbursement Systems
+
+3. **Health Information Management and Systems Design:**
+   - Alternative Health Records
+   - Systems Analysis
+   - Management of Healthcare Communication Systems
+   - Health Information Systems Analysis & Design
+
+4. **Research and Methodology Courses:**
+   
+   - Health Information Research
+
+6. **Technological Competency Courses:**
+   - Introduction to Health Informatics
+   - Healthcare Information Systems
+   - Healthcare Data Analytics
+   - Health Informatics Business Intelligence Tools and Applications
+   - Healthcare Data Visualization
+   - Programming for Health Analytics
+   - Artificial Intelligence
+
+7. **Ethical and Legal Considerations:**
+   - Legal Aspects of Health Information Management
+   - Ethics & Legal Issues in Health Informatics
+
+8. **Specialized Topics:**
+   - Mobile Health Informatics
+   - Consumer Health Informatics
+   - Advanced Topics in Mobile Health Technologies
+   - Practical Implementation of Clinical Decision Support Systems
+   - Information Technology and Patient Safety
+   - Health Informatics Product Management
+
+9. **Management and Leadership Courses:**
+   - Management and Business Practices
+   - Human Resources Management
+   - Leadership Development in Health Informatics
+   - Organizational Dynamics and Health Informatics
+
+
+
+#### Stanford 
+
+- **Departments**:[School of Medicine](https://med.stanford.edu/)
+- **Programs**: Masters, PHD, Certificate, Fellowship
+
+
+- [Master of Science in Clinical Informatics Management (MCiM)](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html)
+  
+  -  MCiM is a novel one-year management program for working professionals seeking to harness the power of digital innovations to deliver high-quality, cost-effective health care. Blending Stanford’s renowned expertise across medicine, business, and technology, MCiM prepares managers and senior leaders to drive the transformation of health systems, life sciences businesses, start-ups, and healthcare-focused technology organizations.
+    
+  -  [Course details](https://med.stanford.edu/master-clinical-informatics-management/academics/mcim-curriculum.html)
+    
+- [Clinical Informatics Fellowship](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html)
+  
+  - As the nation’s first accredited clinical informatics fellowship program by the Accreditation Council for Graduate Medical Education, the Stanford Clinical Informatics (CI) Fellowship builds upon Stanford’s longstanding tradition of leadership in clinical informatics. The CI fellowship program is a American Board of Medical Specialties approved Clinical Informatics board-eligible subspecialty fellowship sponsored by the American Board of Preventive Medicine. This program focuses on the understanding, integration and application of information technology to meet clinical objectives.
+    
+  - [fellowship details](https://med.stanford.edu/cifellowship.html)
+    
+- [MS & PhD in Biomedical Informatics](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html)
+  
+  - Biomedical informatics is an interdisciplinary field that combines ideas from computer science and quantitative disciplines (statistics, data science, decision science) to solving challenging problems in biology and medicine. The BMI program provides coursework and mentored research training, with a focus on methods development, drawing heavily on quantitative and computational approaches.
+    
+  - [Curriculum](https://dbds.stanford.edu/for-current-students/#curriculum). MS and PhD candidates take coursework in four areas: (1) core DBDS classes, (2) an individual plan with electives in computer science, statistics, mathematics, engineering, and allied informatics-related disciplines, (3) required coursework in social, legal, and ethical issues, (4) unrestricted electives. In addition, PhD candidates are required to choose electives in some area of biology or medicine. Degree candidates also learn important didactic skills by serving as teaching assistants in our core courses.
+
+- [Biomedical Data Science Graduate Certificate](https://online.stanford.edu/programs/biomedical-data-science)
+  
+  - The Biomedical Data Science Graduate Certificate, previously named "Biomedical Informatics: Data, Modeling and Analysis", explores the design and implementation of novel quantitative and computational methods that solve challenging problems across the entire spectrum of biology and medicine. You will acquire knowledge and skills in bio- and clinical informatics that go beyond the undergraduate level. From recent genomic research to new applications of basic biology, you will develop an in-depth understanding of the techniques used to analyze vast amounts of biological data.
+    
+  - [Course details](https://online.stanford.edu/programs/biomedical-data-science)
+
+
+##### Anthology of presented courses 
+
+
+
+
+1. **Foundational Health Informatics Courses:**
+   - Introduction to Biomedical Data Science Research Methodology
+   - Foundations of Computational Human Genomics
+   - Introduction to Biomedical Data Science Research Methodology
+   - Data Science for Medicine
+   - Translational Bioinformatics
+   - Biomedical Data Science
+
+1. **Clinical and Professional Development Courses:**
+   - Digital Health Practicum in a Health Care Delivery System
+   - Applied Clinical Informatics Seminar
+   - Clinical Practicum 
+
+2. **Health Information Management and Systems Design:**
+   - Health Information Technology and Strategy
+   - Modeling Biomedical Systems: Ontology, Terminology, Problem Solving
+
+3. **Research and Methodology Courses:**
+   - Introduction to Biomedical Data Science Research Methodology
+   - Medical Scholars Research
+
+4. **Technological Competency Courses:**
+   - Data Driven Medicine
+   - Representations and Algorithms for Computational Molecular Biology
+   - Machine Learning Approaches for Data Fusion in Biomedicine
+   - Cloud Computing for Biology and Healthcare
+   - Programming Methodology
+   - Programming Abstractions
+
+5. **Ethical and Legal Considerations:**
+   - Deploying and Evaluating Fair AI in Healthcare
+   - Ethics in Bioengineering
+   - Computers, Ethics, and Public Policy
+   - Ethics, Public Policy, and Technological Change
+   - Bioethical Challenges of New Technology
+
+6. **Specialized Topics:**
+   - Modeling Biomedical Systems
+   - Computational Methods for Biomedical Image Analysis and Interpretation
+   - Seminar in Artificial Intelligence in Healthcare
+   - Precision Practice with Big Data
+   - Computational Methods for Biomedical Image Analysis and Interpretation
+
+7. **Management and Leadership Courses:**
+   - Accounting for Managers and Entrepreneurs
+   - Leading and Managing Health Care Organizations
+   - Marketing Science and Patient Engagement
+   - Principles of Business Strategy
+   - Quality & Safety in U.S. Healthcare
+   - Principles of Business Strategy
+   - Healthcare Operations Management
+
+####  University of Denver (HIMSS Academic Organizational Affiliate)
+
+- **Departments**: [University College](https://universitycollege.du.edu/) (multi disciplinary)
+- **Programs**: Masters with four specialties (Health Data Science, Digital health, analytics, project managment), Certificate
+
+
+- [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594)
+
+  - Leverage health data science tools and applications to achieve business and research outcomes within the health sector. In this master’s degree concentration, participants will work with real hands-on data science projects using de-identified data from a curated health data repository built with industry partners—the first of its kind and learn to optimize data to support evidence- and value-based results. In addition, participants will focus on how to integrate data platforms in the health and healthcare industries, virtual reality, data mining, machine learning, and reporting.
+
+  - [Course details](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#curriculum)
+    
+- [Master of Health Informatics - Digital Health](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/590)
+
+  -  At the cutting-edge of emerging health technology, including telehealth, digital health, and virtual health by learning how technology affects and improves diagnosis, treatment, training, patient records, and financial transactions. In this master’s degree concentration, participants will gain high-level knowledge of the interoperability of healthcare information systems, the benefits and barriers associated with consumer digital health products, and the evolving use of distance medicine.
+
+  - [Course details](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/590#curriculum)
+    
+- [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
+
+  - With advancements in technology, healthcare organizations require leaders that can oversee and manage complex projects. Gain practical experience in project management in healthcare by using the tools and techniques leveraged for large- and small-scale projects. Develop the strategies and skills to ensure teams meet their goals for timeline, scope, and budget while delivering exceptional patient care. The program curriculum aligns with the PMI® Project Management Body of Knowledge.
+    
+  - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634#curriculum)
+ 
+- [Master of Health Informatics - Analytics](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/592)
+
+  - Learn about healthcare delivery in the U.S. within the framework of the “4 Ps”: patients/people, providers, payers, and population. This framework allows participants to understand both informatics and analytics related to the process of transforming data into information, knowledge, and then insight. Compare and contrast the similarities and differences between asking and answering research and business questions, all within the context of healthcare. In this master’s degree concentration, participants will learn how to collaborate, organize projects, and formulate real-life solutions to existing healthcare industry issues.
+    
+  - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/592#curriculum)
+
+##### Anthology of presented courses 
+
+
+
+1. **Foundational Health Informatics Courses:**
+   - Foundations of Digital Health
+   - Experiential Learning in Health Informatics
+   - Digital and Virtual Health
+   - Values and Outcomes in Digital Health
+
+2. **Health Information Management and Systems Design:**
+   - Data Platforms in Healthcare
+   - Healthcare Database Applications
+   - Healthcare Workflow and Gap Analysis
+
+3. **Research and Methodology Courses:**
+   - Healthcare Data Mining, Integration and Interpretation
+   - Healthcare Statistical Dynamics of Machine Learning
+
+4. **Technological Competency Courses:**
+   - Healthcare Cybersecurity
+   - Healthcare Methods and Programming
+   - Healthcare Information Systems
+
+5. **Ethical and Legal Considerations:**
+   - Health Informatics Communication
+   - Healthcare Ethics and Biostatistics
+
+6. **Specialized Topics:**
+   - Health Data Mining
+   - Healthcare Data and Delivery by Perspective
+   - Survey of Health Industry Artificial Intelligence
+   - Digital and Virtual Health
+
+7. **Management and Leadership Courses:**
+   - Healthcare Finance
+   - Healthcare Project Management and Professionalism
+   - Principles of Project Management
+   - Project Contracts and Procurement
+   - Project Management Dynamics
+   - Project Risk and Quality Management
+
+
+####  Harvard
+
+- **Departments**: Medical school, School of public health
+- **Programs**: Fellowship, Masters
+
+
+- [Master of Science in Health Data Science](https://www.hsph.harvard.edu/health-data-science/)
+
+  - The Master of Science in Health Data Science is designed to provide rigorous quantitative training and essential statistical and computing skills needed to manage and analyze health science data to address important questions in public health and biomedical sciences. The 16-month program blends strong statistical and computational training to solve emerging problems in public health and the biomedical sciences. This training will enable students to manage and analyze massive, noisy data sets and learn how to interpret their findings. The program will provide training in three principal pillars of health data science: statistics, computing, and health sciences.
+    
+  - [Course details](https://content.sph.harvard.edu/biostats/publications/hds_handbook/hds_handbook.pdf)
+    
+- [Master of Medical Sciences in Biomedical Informatics](https://dbmi.hms.harvard.edu/education/masters-program)
+  
+  - The Master of Medical Sciences in Biomedical Informatics (MMSc-BMI) program will train students to become contributors to the rapidly evolving use of biomedical data for revolutionary advances in scientific inquiry and technological development. This program is created for students who are looking to develop skills in data science in the context of medicine and biological science to improve human health. Through a rigorous combination of core coursework and a year-long full-time thesis research project, our students will graduate with the computational, methodological, and data science skills to contribute to an ongoing revolution in biomedical discovery. The MMSc in Biomedical Informatics program is a full-time, residential program completed over two academic years of study.
+    
+  - [Course Details](https://dbmi.hms.harvard.edu/education/masters-program/mmsc-bmi-curriculum)
+    
+- [NLM Biomedical Informatics and Data Science Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-fellowship)
+  
+  - The Biomedical Informatics and Data Science Research Training (BIRT) Program is a consortium of leading informatics laboratories at Harvard Medical School. It is supported by a training grant from the National Library of Medicine, National Institutes of Health. This postdoctoral fellowship is available for United States citizens and permanent residents and provides up to two years of funding, including stipend, tuition, travel funds, and training-related expenses. In addition to research training, fellows are provided with many opportunities for collaboration, networking, and professional development. 
+
+##### Anthology of presented courses 
+
+
+
+1. **Foundational Health Informatics Courses:**
+   - Basics of Statistical Inference
+   - Introduction to Data Science
+   - Foundations of Biomedical Informatics I
+   - Foundations of Biomedical Informatics II
+
+
+2. **Clinical and Professional Development Courses:**
+   - Clinical Data Learning, Visualization, and Deployments
+
+3. **Health Information Management and Systems Design:**
+   - Data Systems
+   - Systems Development for Computational Science
+
+4. **Research and Methodology Courses:**
+   - Analysis of Case-Control, Cohort and Other Epidemiologic Data
+   - Epidemiologic Methods 
+
+5. **Technological Competency Courses:**
+   - Computing for Big Data
+   - Computing Skills for Biomedical Sciences
+   - Data Science for Medical Decision Making
+   - Computing Skills for Biomedical Sciences
+   - Introduction to Programming
+   - Machine Learning for Healthcare
+
+
+6. **Ethical and Decision making Considerations:**
+   - Conduct and Communication of Science
+   - Decision Analysis for Health and Medical Practices
+   - Decision Analysis Methods in Public Health and Medicine
+
+7. **Specialized Topics:**
+   - Precision Medicine
+   - Single-cell analysis for Functional Genomics of Disease.
+   - Dynamic Programming and Reinforcement Learning
+   - Quantitative Methods for Natural Language Processing
+   - Advanced Computer Vision
+
+
+####  University at Buffalo (AMIA partner program)
+
+- **Departments**: School of medicine 
+- **Programs**: Fellowship, Masters, PhD
+
+- [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
+  
+  - The two-year, [ACGME](https://www.acgme.org/about/overview/)-accredited fellowship, to study all facets of clinical informatics, working with leaders in the field to develop and leverage innovations that enhance biomedical research, patient safety and clinical care. Courses thoroughly prepare the participants for the board certification exam in clinical informatics. You’ll stay on top of the latest evidence-based trends and findings by participating in — and presenting at — journal club and departmental grand rounds. Paticipants will spend a full 20 percent of your training providing patient care in their specialty area.
+  
+  - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics/curriculum.html)
+    
+- [MS Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters.html)
+  
+  - The program provide the participants with the skills required to manage information in health care, industry and biomedical research settings, to evaluate and work effectively with the concepts, systems and tools of biomedical informatics as key qualifications for high-level technical, policy or planning positions.
+    
+  - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/masters/course-descriptions.html)
+    
+- [PhD Biomedical informatics](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd.html)
+  
+  - Growth in health-related industries, hospitals and other health care systems have spearheaded Buffalo’s recent economic renaissance. A PhD in biomedical informatics from UB prepares the participants to lead these organizations through complex information management challenges. With advanced knowledge and skills, graduates will be capble to apply sophisticated tools and methods to help design new systems and applications.
+    
+  - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/phd/course-descriptions.html)
+
+##### Anthology of presented courses 
+
+
+
+1. **Clinical and professional Skills:**
+   - Rotation in Inpatient Clinical Laboratory and Catheter Systems (Fellowship)
+   - Rotation in Inpatient Psychiatry and Dialysis Systems (Fellowship)
+   - Rotation in Outpatient Systems (Fellowship)
+   - Clinical Population Research and Public Health Informatics 
+   - Clinical Informatics & Decision Making 
+
+2. **Database Design and Standards:**
+   - Database Design 
+   - Employment of Standards 
+   - Quality and Patient Safety 
+
+3. **Foundational Biomedical Informatics Courses:**
+   - Survey of Biomedical Informatics 
+   - Biomedical Informatics Application Domains and Ethics 
+   - Systems Databases & Software Development Methods in Biomedical 
+   - Data Analysis 
+   - Bioinformatics and Translational Research Informatics 
+   - Biomedical Ontologies
+   - Socio-technical & Human-centered Design in Biomedical Informatics 
+
+4. **Advanced Analytics and Methods:**
+   - Advanced Study Design and Data Analytics 
+   - Advanced Statistical Analysis 
+   - Advanced Data Mining and Cost Analysis Methods 
+   - Advanced Evaluation and Cost Analysis Methods 
