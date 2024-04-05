@@ -1,9 +1,20 @@
+SMOTE (Synthetic Minority Over-sampling Technique) is a pivotal tool in addressing class imbalance issues within machine learning datasets. Designed as a form of data augmentation specifically tailored to the minority class, SMOTE aims to rectify the underrepresentation of minority samples by generating synthetic examples. The process involves selecting a random example from the minority class and employing the K Nearest Neighbors algorithm to identify its nearest neighbors, typically set to k=5. Subsequently, SMOTE strategically creates synthetic examples by drawing a line in the feature space between the chosen example and its nearest neighbors, and then generating a new sample at a random point along that line. By iteratively applying this method across the dataset, SMOTE effectively enriches the representation of the minority class, thus mitigating the class imbalance challenge commonly encountered in machine learning tasks.
+
+Through its innovative methodology, the SMOTE algorithm offers a systematic approach to synthesizing data points that effectively bridge the gap in class distribution. Leveraging the principles of proximity and feature space representation, SMOTE dynamically generates synthetic examples by strategically interpolating between existing minority class samples. By selecting random neighbors using K Nearest Neighbors and creating synthetic instances along the line connecting these neighbors, SMOTE ensures that the generated data points closely resemble the characteristics of the minority class while maintaining the integrity of the original dataset. This approach not only enhances the robustness of machine learning models by providing a more balanced training set but also contributes to the overall accuracy and reliability of classification tasks in scenarios where class imbalance poses a significant challenge.
+
+
+
+
 
 
 SMOTE (Synthetic Minority Over-sampling Technique) is a technique used for generating synthetic data in order to address the problem of class imbalance in machine learning. It is a type of data augmentation for the minority class and is used to oversample the minority class by creating synthetic examples. SMOTE works by selecting examples that are close in the feature space, drawing a line between the examples in the feature space, and drawing a new sample at a point along that line. Specifically, a random example from the minority class is chosen, then k of the nearest neighbors for that example are found (typically k=5) and a synthetic example is created at a randomly selected point between the two examples in feature space.
 
 - The algorithm selects a random example from the minority class and selects random neighbors using K Nearest Neighbors. 
 - The synthetic example is created between two examples in the feature space.
+
+
+
+
 
 There are some variations of SMOTE, such as ADASYN (Adaptive Synthetic Sampling Method), which is a modification of SMOTE that generates more synthetic examples near the boundary of the minority class. In the litterature SMOTE is presented as a powerful solution for imbalanced data, but it has a drawback. It does not consider the majority class while creating synthetic examples, which can cause issues where there is a strong overlap between the classes. Therefore, the original SMOTE paper suggests combining oversampling (SMOTE) with the undersampling of the majority class, as SMOTE does not consider the majority class while creating new samples. To better underestand the algorithm below is a pseudocode for the SMOTE (Synthetic Minority Over-sampling Technique) algorithm:
 
