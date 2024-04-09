@@ -6,46 +6,29 @@ SMOTE (Synthetic Minority Over-sampling Technique) is a technique used for gener
 
 SMOTE algorithm offers a systematic approach to synthesizing data points that effectively uses the principles of proximity and feature space representation to generate synthetic examples by strategically interpolating between existing minority class samples. By selecting random neighbors using K Nearest Neighbors and creating synthetic instances along the line connecting these neighbors, SMOTE ensures that the generated data points closely resemble the characteristics of the minority class while maintaining the integrity of the original dataset. This approach not only enhances the robustness of machine learning models by providing a more balanced training set but also contributes to the overall accuracy and reliability of classification tasks in scenarios where class imbalance poses a significant challenge. There are some variations of SMOTE, such as ADASYN (Adaptive Synthetic Sampling Method), which is a modification of SMOTE that generates more synthetic examples near the boundary of the minority class. In the litterature SMOTE is presented as a powerful solution for imbalanced data, but it has a drawback. It does not consider the majority class while creating synthetic examples, which can cause issues where there is a strong overlap between the classes. Therefore, the original SMOTE paper suggests combining oversampling (SMOTE) with the undersampling of the majority class, as SMOTE does not consider the majority class while creating new samples. To better underestand the algorithm below is a pseudocode for the SMOTE (Synthetic Minority Over-sampling Technique) algorithm:
 
-```
-function SMOTE(dataset, minority_class, N, k):
-    synthetic_samples = []
+Here's an example code in R for synthetic data generation using SMOTE:
 
-    for each sample in minority_class:
-        neighbors = k_nearest_neighbors(sample, dataset, k)
-        
-        for i in range(N):
-            neighbor = randomly_select_neighbor(neighbors)
-            synthetic_sample = generate_synthetic_sample(sample, neighbor)
-            synthetic_samples.append(synthetic_sample)
+```R
+# First, install and load the necessary library for SMOTE
+install.packages("DMwR")
+library(DMwR)
 
-    return synthetic_samples
+# Assume 'data' is your original dataset with class imbalance
 
-function k_nearest_neighbors(sample, dataset, k):
-    distances = compute_distances(sample, dataset)
-    sorted_neighbors = sort_by_distance(distances)
-    return sorted_neighbors[:k]
+# Apply SMOTE to generate synthetic data
+synthetic_data <- SMOTE(Class ~ ., data, perc.over = 100, k = 5)
 
-function randomly_select_neighbor(neighbors):
-    return randomly_pick_one_neighbor(neighbors)
+# The 'perc.over' parameter determines the percentage of SMOTE oversampling,
+# while 'k' specifies the number of nearest neighbors to consider during sampling.
 
-function generate_synthetic_sample(sample, neighbor):
-    synthetic_sample = {}
-    
-    for each feature in sample:
-        difference = neighbor[feature] - sample[feature]
-        synthetic_sample[feature] = sample[feature] + random_uniform(0, 1) * difference
-
-    return synthetic_sample
+# Print the dimensions of the original and synthetic datasets
+print("Original dataset dimensions:")
+print(dim(data))
+print("Synthetic dataset dimensions:")
+print(dim(synthetic_data))
 ```
 
-In this pseudocode:
-- `dataset` is the entire dataset.
-- `minority_class` is the class that is in the minority (you apply SMOTE to balance it with the majority class).
-- `N` is the number of synthetic samples to generate for each original minority class sample.
-- `k` is the number of nearest neighbors to consider when generating synthetic samples.
-
-As mentioned above basic steps of SMOTE involve selecting a sample from the minority class, finding its k-nearest neighbors, and creating synthetic samples by combining features from the selected sample and its neighbors.
-
+Replace `"Class"` with the name of your target variable column in the dataset, and `data` with the name of your dataset. Adjust the `perc.over` parameter to control the percentage of oversampling (100% means doubling the minority class size), and set the `k` parameter to specify the number of nearest neighbors to consider during the sampling process. This code will generate synthetic data using SMOTE and print out the dimensions of both the original and synthetic datasets for comparison. Make sure to adjust the parameters and dataset names according to your specific use case.
 
 Primarily SMOTE has been used in medical applications to improve classification performance over imbalanced medical datasets. However, it found applications beyond initial domain for which it is developped. It can be used for synthetic data generation in medical applications, and there are several studies that have used SMOTE for this purpose. For instance, a study used SMOTE to generate synthetic data for predictive models in low-middle-income countries, while study used SMOTE to generate high-fidelity synthetic patient data for assessing machine learning healthcare software. Additionally, a novel algorithm called SMOTE-ENC was proposed to generate synthetic data for nominal and continuous features in medical imbalanced data. Buliding on the SMOTE capabilites, another novel approach called Data Collaboration (DC) analysis has emerged, enabling privacy-conscious joint analysis across diverse institutions. This method aggregates dimensionality-reduced representations and facilitates comprehensive analysis through collaborative representations, all while safeguarding the original data. Typically, each institution contributes a shareable  dataset and consolidates its intermediate representation for this integrated analysis. 
 
