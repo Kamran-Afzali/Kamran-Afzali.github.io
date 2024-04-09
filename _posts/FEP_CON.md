@@ -28,7 +28,7 @@ Overall, the provided sources highlight how the free energy principle has been a
 
 
 
-The enigma of consciousness persists as one of the most confounding puzzles in philosophy and neuroscience. While it is undeniable that certain organisms possess subjective experiences, elucidating how these systems become subjects of experience poses a formidable challenge. Why is it that the engagement of our cognitive faculties with sensory information results in vivid experiences such as the color blue or the sound of a musical note? The underlying physical processes that give rise to consciousness remain elusive, leaving us with a profound mystery to unravel.
+The enigma of **consciousness** persists as one of the most confounding puzzles in philosophy and neuroscience. While it is undeniable that certain organisms possess subjective experiences, elucidating how these systems become subjects of experience poses a formidable challenge. Why is it that the engagement of our cognitive faculties with sensory information results in vivid experiences such as the color blue or the sound of a musical note? The underlying physical processes that give rise to consciousness remain elusive, leaving us with a profound mystery to unravel.
 
 At the heart of this inquiry lies the question: How do neurophysiological activities produce the experience of consciousness? Attempts to address this question often conceptualize the brain as a producer or cause of consciousness, but such formulations may obscure rather than clarify the nature of the problem. The relationship between the brain and the mind defies simplistic causal explanations; likening consciousness to a byproduct of physiological processes fails to capture its essence.
 
@@ -42,13 +42,34 @@ In our pursuit of elucidating the mysteries of consciousness, we encounter not o
 
 
 
-The journey through the intricacies of consciousness leads us to a fundamental realization: the level of consciousness is intricately tied to variational free energy. Drawing parallels between thermodynamic concepts and neurophysiological processes, we discern that arousal, the cornerstone of wakefulness, is underpinned by surprisal and uncertainty. This conceptual framework, rooted in the mathematics of information theory, brings us closer to Helmholtz's ideal of describing consciousness through a physical-mathematical lens.
+The journey through the intricacies of consciousness leads us to a fundamental realization: the level of consciousness is intricately tied to variational **free energy**. Drawing parallels between thermodynamic concepts and neurophysiological processes, we discern that arousal, the cornerstone of wakefulness, is underpinned by surprisal and uncertainty. This conceptual framework, rooted in the mathematics of information theory, brings us closer to Helmholtz's ideal of describing consciousness through a physical-mathematical lens.
 
 The inquiry into the nature of consciousness extends to decorticate animals and children, challenging conventional notions of cortical centrality in consciousness. Observations of emotional and orienting reactions in such beings point to the existence of a basic form of consciousness, rooted in subcortical structures. The efficacy of deep brain stimulation in evoking affective responses further underscores the pivotal role of upper brainstem and limbic circuits in generating subjective states.
 
 Contrary to the prevailing view, which posits the cortex as the seat of consciousness, mounting evidence suggests that consciousness emanates from subcortical regions. The cortex, rather than generating consciousness, may serve as a facilitator or stabilizer of affective arousal, transforming it into conscious cognition. This reinterpretation aligns with the remarkable plasticity of the cortex and the hierarchical dependency between brainstem arousal and cortical consciousness.
 
 In essence, consciousness emerges as fundamentally affective, rooted in the arousal processes of the upper brainstem. This reformulation challenges traditional paradigms and prompts a reevaluation of the functional mechanisms underlying consciousness. While questions persist regarding the inner workings of consciousness, this paradigm shift offers a promising avenue for unraveling its mysteries and shedding light on the essence of subjective experience.
+
+
+
+The question of **why we feel** is a central inquiry in contemporary neuroscience, drawing on foundational work by Damasio, Panksepp, and others. At its core, feeling is understood as the registration of bodily states within a biological scale of values, where pleasurable feelings signal improving chances of survival and reproductive success, while unpleasurable feelings signify deteriorating conditions. Crucially, these feelings are not localized in the cortex but originate in the brainstem and limbic system, encompassing both autonomic and intrinsic brain states.
+
+The shift in focus to the brainstem highlights the primal nature of consciousness, serving as a mechanism for organisms to monitor and regulate deviations from homeostatic equilibrium in unpredictable contexts. Feeling, in this context, enables organisms to prioritize actions and make adaptive choices based on the assessment of relative value attached to different alternatives. Pleasure accompanies a return to homeostasis, while unpleasure signifies deviation from it, prompting the organism to take corrective action.
+
+Affective qualia, or the subjective experiences of pleasure and unpleasure, play a crucial role in this process. These qualia, arising from deviations in homeostatic settling points, serve as signals guiding behavior and learning. By prioritizing needs and opportunities, consciousness emerges as a biological imperative, facilitating survival and adaptation in novel environments.
+
+Anatomically, the realization of consciousness involves a complex interplay between body-monitoring nuclei and higher brain regions, culminating in the processing of affective information in the periaqueductal gray (PAG). Here, ongoing evaluations of environmental events and internal states inform perception and action selection, integrating external and internal uncertainties to guide behavior.
+
+Ultimately, consciousness is quintessentially affective, rooted in the primal imperative of maintaining biological integrity and adapting to the challenges of life. It is through feeling that organisms navigate the uncertainties of existence, ensuring their continued survival and success in the ever-changing landscape of the world.
+
+
+The emergence of **homeostasis**, crucial for the existence and persistence of self-organizing systems like living organisms, is explained by the principle of free-energy minimization. In this framework proposed by Friston (2013), self-organizing systems resist entropy by occupying preferred states, thus maintaining their integrity over time. Three conditions must be met for a system to resist entropy: the presence of a boundary separating internal and external states, a mechanism to register dissipative external forces (sensory states), and a mechanism to counteract these forces (active states).
+
+The concept of a Markov blanket, which establishes boundary conditions and separates the system from the external environment, is central to this explanation. The sensory and active capacities of the blanket allow the system to vicariously infer external states and act upon them based on sensory impressions. This necessitates the incorporation of a model of the world, which serves as the basis for perception and action. Through ongoing processes of hypothesis testing, the system updates its model, optimizing its predictions and minimizing free energy.
+
+In the context of nervous systems, all other bodily systems are considered external, with the nervous system performing meta-homeostatic functions on their behalf. Nervous systems co-evolved with other bodily systems to orchestrate multiple homeostatic demands, thus regulating the organism as a whole.
+
+The mechanisms underlying homeostasis involve both physiological and psychological processes, with abstract concepts like inference, belief, and prediction encompassing both domains. This abstract ontology allows for a unified explanation of homeostasis and its role in the function of consciousness, bridging the gap between physiological and psychological phenomena.
 
 ### References
 - https://philosophymindscience.org/index.php/phimisci/article/view/9152#:~:text=Under%20the%20free%20energy%20principle%2C%20neural%20correlates%20should%20be%20defined,probabilities%20encoded%20by%20neural%20states
