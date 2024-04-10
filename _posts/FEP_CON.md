@@ -1,29 +1,11 @@
 The Free Energy Principle (FEP) has been applied to the hard problem of consciousness, with affect identified as its elemental form and its physiological mechanism located in the upper brainstem (Solms, 2019). This principle has also been used to define neural correlates of consciousness in terms of neural dynamics and computational correlates, which has implications for understanding consciousness in the absence of sensory stimulation and behavior (Wiese, 2021). Furthermore, the FEP has been proposed as a framework for understanding the nature of volition, particularly in relation to the Libet phenomena (Safron, 2021). These studies collectively suggest that the FEP can provide a valuable framework for understanding the relationship between consciousness and the brain.
 
- The FEP framework suggests that the elemental form of consciousness is rooted in affect, the conscious feelings of emotions and drives, which originate from and terminate in the upper brainstem regions. This provides a novel perspective on the physiological underpinnings of consciousness.
-
- The FEP has facilitated the definition of neural correlates of consciousness, shedding light on the neural dynamics and computational processes that contribute to conscious experience, even in the absence of sensory stimulation or observable behavior.
-
-3. Elucidating the Nature of Volition: The FEP framework has been proposed as a means of understanding the nature of volition, particularly in the context of phenomena such as the Libet experiments, which explore the relationship between conscious decisions and brain activity[1][5].
-
-4. Providing a Comprehensive Framework: The FEP is seen as a potentially comprehensive framework for unraveling the intricate relationship between consciousness and the brain, offering valuable insights into the mechanisms underlying these fundamental aspects of human experience[3][4].
-
-Overall, the sources highlight the significant contributions of the FEP in advancing our understanding of consciousness and volition, by relating affect to the elemental form of consciousness, identifying neural correlates, and providing a unifying framework for these complex phenomena.
 
 
-Based on the provided sources, here are some examples of research that have used the free energy principle to study consciousness:
 
-1. The "Inner Screen" Model of Consciousness: The first source[1] presents a model of consciousness that follows directly from the free energy principle. It identifies the elemental form of consciousness as "affect" and locates its physiological mechanism in the upper brainstem.
+ The exploration of consciousness, spanning philosophical, neuroscientific, and computational perspectives, reveals a multifaceted enigma that continues to elude comprehensive understanding. From a dual-aspect monist viewpoint, consciousness emerges not merely as a byproduct of neurophysiological activities but as a profound interplay between mind and body, challenging traditional causal explanations. Memory, as both a psychological and physiological process, underscores the intricate interconnectedness between mental and physical phenomena. Affective states form the bedrock of consciousness, with emotional learning supplementing innate predictions and shaping conscious experiences. The cortex, through stabilizing non-declarative executive processes, facilitates working memory and conscious cognitive functions. This integration of affective and cognitive consciousness underscores the fundamental role of emotions in guiding adaptive behavior and learning, providing a nuanced understanding of the subjective nature of consciousness.
 
-2. Relating Affect and Consciousness: The second and third sources[2][3] explain how the free energy principle can be applied to the "hard problem" of consciousness, suggesting that affect (conscious feelings of emotions and drives) is the elemental form of consciousness and is rooted in the upper brainstem regions.
-
-3. Neural Correlates of Consciousness: The sources indicate that the free energy principle has facilitated the definition of neural correlates of consciousness, shedding light on the neural dynamics and computational processes that contribute to conscious experience, even in the absence of sensory stimulation or observable behavior[2][3].
-
-4. Elucidating the Nature of Volition: The free energy principle framework has been proposed as a means of understanding the nature of volition, particularly in the context of phenomena such as the Libet experiments, which explore the relationship between conscious decisions and brain activity[2][5].
-
-5. Potential for Assessing Artificial Consciousness: The fifth source[5] discusses how the free energy principle can provide a framework for determining whether an artificial system is genuinely conscious, by identifying the computational features that may be necessary for consciousness.
-
-Overall, the provided sources highlight how the free energy principle has been applied to tackle the "hard problem" of consciousness, offering insights into the physiological underpinnings of consciousness, the neural correlates of conscious experience, and the potential for understanding phenomena like volition and artificial consciousness.
+The Free Energy Principle offers a theoretical framework for understanding the emergence of consciousness rooted in neurophysiological dynamics. Markov blankets establish boundary conditions, separating self-organizing systems from the external environment and giving rise to subjective observational perspectives. Consciousness, as a mechanism for monitoring internal states in relation to external forces, is inherently tied to affective processes that guide adaptive behavior. This integration of affective and cognitive consciousness provides insights into the fundamental nature of subjective experience, bridging the gap between philosophical inquiry and empirical findings in neuroscience. Ultimately, the exploration of consciousness invites a deeper understanding of the complex interplay between mind and body, shedding light on one of the most enduring mysteries of human existence.
 
 
 
@@ -70,6 +52,32 @@ The concept of a Markov blanket, which establishes boundary conditions and separ
 In the context of nervous systems, all other bodily systems are considered external, with the nervous system performing meta-homeostatic functions on their behalf. Nervous systems co-evolved with other bodily systems to orchestrate multiple homeostatic demands, thus regulating the organism as a whole.
 
 The mechanisms underlying homeostasis involve both physiological and psychological processes, with abstract concepts like inference, belief, and prediction encompassing both domains. This abstract ontology allows for a unified explanation of homeostasis and its role in the function of consciousness, bridging the gap between physiological and psychological phenomena.
+
+**The emergence of consciousness**, according to Solms (2013, 2014) and further elaborated with Friston (2018), is rooted in the dynamics of free energy minimization and uncertainty. Initially proposed as the basic function of homeostasis, free energy minimization is performed by brainstem nuclei centrally implicated in the generation of consciousness. Thus, the functions of homeostasis and consciousness are physiologically realized in the same brain regions.
+
+Fundamental properties of minds, such as selfhood and intentionality, arise from the dynamics of a Markov blanket, which separates the system from the external environment. The imperative for self-organizing systems to monitor their internal states in relation to external forces leads to the emergence of subjective observational perspectives and active forms of subjectivity. The existence of a Markov blanket also addresses the problem of other minds, as internal states can only be registered vicariously via sensory impressions.
+
+**Consciousness emerges as self-organizing systems monitor their internal states** in relation to potentially annihilatory forces, leading to inherently value-laden processes predicated upon the imperative of survival. While proto-mental dynamics involve the computation of subjective values at the level of autonomic homeostasis, the transition to conscious, qualitative mental states revolves around increasing complexity.
+
+Increasing complexity necessitates compartmentalization and qualitative differentiation between variables, allowing for nuanced prioritization of different survival demands. This process involves the adjustment of precision weighting, where precision represents the confidence or reliability of probabilistic beliefs about the world and actions within it. Precision controls the influence of prediction errors on action and perception, determining how we represent the world and choose our actions.
+
+The transition from unconscious to conscious subjectivity involves the subjective evaluation of uncertainty, where felt uncertainty guides subsequent sensory-motor priorities and expectations. This process of precision optimization is inherently affective, with affect playing a central role in engaging with the outside world and determining subjective engagement.
+
+Qualitative fluctuations in affect arise from continuous comparisons between predicted and actual sensory states, signaling changes in uncertainty and expected consequences of action. Neural plasticity is crucial for adapting to changing environments and novel situations, facilitating the emergence of consciousness as a mechanism for flexibly navigating the world.
+
+
+
+The **emergence of conscious self-states** is fundamentally rooted in affective states, serving as an alarm mechanism guiding self-organizing systems through situations beyond their preferred states. While instinctual behaviors provide innate survival tools, they cannot address the complexities of actual environmental niches. Consequently, innate predictions are supplemented through learning from experience, leading to emotional responses when predictions fail to capture all variance.
+
+Emotional learning aims to automatize acquired predictions, resembling innate ones in functional properties and subcortical anatomical localization. Non-declarative memories, associated with subcortical systems, involve simpler cause-and-effect links and cannot be retrieved as mental images. Declarative memories, processed in cortical systems, readily return long-term memory (LTM) traces to conscious working memory for updating.
+
+Conscious cognitive processes, involving cortical consciousness, delay motor responses to affective demands, enabling thinking. The essential function of cortex is stabilizing non-declarative executive processes, elevating them to a higher cathectic level, i.e., the bound state, characteristic of working memory.
+
+The reversal of consolidation through reconsolidation renders LTM-traces labile, facilitating iterative problem-solving through conscious reconsolidation. Perceptual/cognitive consciousness, activated via attention, is also a product of uncertainty, with cortical memory-traces being more uncertain and plastic than subcortical ones.
+
+Both exteroceptive and interoceptive sensory-motor modalities are flavored by consciousness, facilitating compartmentalization of data and reducing computational complexity while navigating uncertain conditions.
+
+Overall, these formulations provide the foundation for an integrated theory of affective and cognitive consciousness, offering insights into the nature of consciousness and the unconscious.
 
 ### References
 - https://philosophymindscience.org/index.php/phimisci/article/view/9152#:~:text=Under%20the%20free%20energy%20principle%2C%20neural%20correlates%20should%20be%20defined,probabilities%20encoded%20by%20neural%20states
