@@ -738,19 +738,19 @@ In the United States, we selected five universities. At the **University of Illi
 
 - [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594)
 
-  - Leverage health data science tools and applications to achieve business and research outcomes within the health sector. In this master’s degree concentration, participants will work with real hands-on data science projects using de-identified data from a curated health data repository built with industry partners—the first of its kind and learn to optimize data to support evidence- and value-based results. In addition, participants will focus on how to integrate data platforms in the health and healthcare industries, virtual reality, data mining, machine learning, and reporting.
+  - In this master’s degree concentration, participants will work with real hands-on data science projects using de-identified data from a curated health data repository built with industry partners—the first of its kind and learn to optimize data to support evidence- and value-based results. In addition, participants will focus on how to integrate data platforms in the health and healthcare industries, virtual reality, data mining, machine learning, and reporting.
 
   - [Course details](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594#curriculum)
     
 - [Master of Health Informatics - Digital Health](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/590)
 
-  -  At the cutting-edge of emerging health technology, including telehealth, digital health, and virtual health by learning how technology affects and improves diagnosis, treatment, training, patient records, and financial transactions. In this master’s degree concentration, participants will gain high-level knowledge of the interoperability of healthcare information systems, the benefits and barriers associated with consumer digital health products, and the evolving use of distance medicine.
+  -  At the cutting-edge of emerging health technology, including telehealth, digital health, and virtual health, this master’s degree concentration, participants will gain high-level knowledge of the interoperability of healthcare information systems, the benefits and barriers associated with consumer digital health products, and the evolving use of distance medicine.
 
   - [Course details](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/590#curriculum)
     
 - [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
 
-  - With advancements in technology, healthcare organizations require leaders that can oversee and manage complex projects. Gain practical experience in project management in healthcare by using the tools and techniques leveraged for large- and small-scale projects. Develop the strategies and skills to ensure teams meet their goals for timeline, scope, and budget while delivering exceptional patient care. The program curriculum aligns with the PMI® Project Management Body of Knowledge.
+  - With advancements in technology, healthcare organizations require leaders that can oversee and manage complex projects. Gain practical experience in project management in healthcare by using the tools and techniques leveraged for large and small-scale projects. Develop the strategies and skills to ensure teams meet their goals for timeline, scope, and budget while delivering exceptional patient care. The program curriculum aligns with the [PMI](https://www.pmi.org/)'s Project Management Body of Knowledge.
     
   - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634#curriculum)
  
@@ -817,13 +817,13 @@ In the United States, we selected five universities. At the **University of Illi
     
 - [Master of Medical Sciences in Biomedical Informatics](https://dbmi.hms.harvard.edu/education/masters-program)
   
-  - The Master of Medical Sciences in Biomedical Informatics (MMSc-BMI) program will train students to become contributors to the rapidly evolving use of biomedical data for revolutionary advances in scientific inquiry and technological development. This program is created for students who are looking to develop skills in data science in the context of medicine and biological science to improve human health. Through a rigorous combination of core coursework and a year-long full-time thesis research project, our students will graduate with the computational, methodological, and data science skills to contribute to an ongoing revolution in biomedical discovery. The MMSc in Biomedical Informatics program is a full-time, residential program completed over two academic years of study.
+  - The Master of Medical Sciences in Biomedical Informatics (MMSc-BMI) program will train students to become contributors to the use of biomedical data for advances in research and technological development. This program is created for students who are looking to develop skills in data science in the context of medicine and biological science to improve human health. Through a rigorous combination of core coursework and a year-long full-time thesis research project, students will graduate with the computational, methodological, and data science skills to contribute to an ongoing revolution in biomedical discovery. 
     
   - [Course Details](https://dbmi.hms.harvard.edu/education/masters-program/mmsc-bmi-curriculum)
     
 - [NLM Biomedical Informatics and Data Science Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-fellowship)
   
-  - The Biomedical Informatics and Data Science Research Training (BIRT) Program is a consortium of leading informatics laboratories at Harvard Medical School. It is supported by a training grant from the National Library of Medicine, National Institutes of Health. This postdoctoral fellowship is available for United States citizens and permanent residents and provides up to two years of funding, including stipend, tuition, travel funds, and training-related expenses. In addition to research training, fellows are provided with many opportunities for collaboration, networking, and professional development. 
+  - The Biomedical Informatics and Data Science Research Training (BIRT) Program is a consortium of leading informatics laboratories at Harvard Medical School. It is supported by a training grant from the National Library of Medicine, National Institutes of Health. This fellowship is available for United States citizens and permanent residents and provides up to two years of funding, including stipend, tuition, travel funds, and training-related expenses. In addition to research training, fellows are provided with many opportunities for collaboration, networking, and professional development. 
 
 ##### Anthology of presented courses 
 
@@ -876,7 +876,7 @@ In the United States, we selected five universities. At the **University of Illi
 
 - [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
   
-  - The two-year, [ACGME](https://www.acgme.org/about/overview/)-accredited fellowship, to study all facets of clinical informatics, working with leaders in the field to develop and leverage innovations that enhance biomedical research, patient safety and clinical care. Courses thoroughly prepare the participants for the board certification exam in clinical informatics. You’ll stay on top of the latest evidence-based trends and findings by participating in — and presenting at — journal club and departmental grand rounds. Paticipants will spend a full 20 percent of your training providing patient care in their specialty area.
+  - The two-year, [ACGME](https://www.acgme.org/about/overview/)-accredited fellowship, to study all facets of clinical informatics, working with leaders in the field to develop and leverage innovations that enhance biomedical research, patient safety and clinical care. Courses thoroughly prepare the participants for the board certification exam in clinical informatics with aceess to the latest evidence-based trends and findings by participating in journal club and departmental grand rounds. Paticipants will spend a full 20 percent of your training providing patient care in their specialty area.
   
   - [Course details](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics/curriculum.html)
     
