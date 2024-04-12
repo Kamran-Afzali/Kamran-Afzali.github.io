@@ -562,25 +562,25 @@ In the United States, we selected five universities. At the **University of Illi
 
 - [Bachelor of Science in Health Information Management (BSHIM)](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
   
-  - Bachelor of Science in Health Information Management (BSHIM) completion program was designed to prepare graduates to take the _Registered Health Information Administrator (RHIA)_ exam. This dynamic degree program provides skilled instruction in the management and use of information and information systems for healthcare planning and provision, resource allocation, and executive decision making. As you work your way through the curriculum presented online, you will also explore essential topics, such as coding, systems analysis, data quality management and health information research.
+  - Bachelor of Science in Health Information Management (BSHIM) program is designed to prepare graduates to take the **Registered Health Information Administrator (RHIA)** exam. This dynamic degree program provides skilled instruction in the management and use of information and information systems for healthcare planning and provision, resource allocation, and executive decision making.
     
   - [Course Details](https://healthinformatics.uic.edu/online-programs/bachelor-of-science-in-health-information-management-bshim/)
 
 - [Post-Baccalaureate Certificate in Health Informatics (PBC HI)](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
   
-  - Post-Baccalaureate Health Informatics Certificate is 12 credit program and can be completed in 12 months. There are four focus-areas: Health Informatics Fundamentals, Health Data Science Informatics, Leadership in Health Informatics, Mobile Health Informatics, All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+  - Post-Baccalaureate Health Informatics Certificate is a 12 credit program and can be completed in 12 months. There are four focus-areas: Health Informatics Fundamentals, Health Data Science Informatics, Leadership in Health Informatics, Mobile Health Informatics, All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
     
   - [Course Details](https://healthinformatics.uic.edu/online-programs/post-baccalaureate-certificates-in-health-informatics-pbc-hi/)
     
 - [Master of Science in Health Informatics (MSHI)](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
   
-  - The 100% online asynchronous Master of Science in Health Informatics program encompasses digital health, data science, and leadership. The 38-credit program is housed within University of Illinois Chicago (UIC) College of Applied Health Sciences and can be completed in 30 months. The curriculum focuses on social informatics at the population level. Students develop knowledge and skills in: Data collection, storage, extraction, manipulation, network architecture, data analysis and visualization, predictive analytics, healthcare project management, human factors in computer design, ethics, patient experience and healthcare communications. Students in the program often have clinical, business, or computer science backgrounds. They value the online format for flexibility, CAHIIM accreditation, and vast professional network.
+  - The 100% online asynchronous Master of Science in Health Informatics program encompasses digital health, data science, and leadership. The 38-credit program is housed within University of Illinois Chicago (UIC) College of Applied Health Sciences and can be completed in 30 months. The curriculum focuses on social informatics at the population level. Students develop knowledge and skills in: Data collection, storage, extraction, manipulation, network architecture, data analysis and visualization, predictive analytics, healthcare project management, human factors in computer design, ethics, patient experience and healthcare communications. Students in the program often have clinical, business, or computer science backgrounds. They value the online format for flexibility, **CAHIIM accreditation**, and vast professional network.
     
   - [Course details](https://healthinformatics.uic.edu/online-programs/master-of-science-in-health-informatics-mshi/)
     
 - [Post-Master’s Certificate in Health Informatics (PMC HI)](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/)
   
-  - Illinois Board of Higher Education (IBHE) approved Post-Master’s Certificate in Health Informatics (PMC HI) is a 24 credit hours and can be completed in 18 months. This non-degree program is designed to help build knowledge and skills in accelerated format. All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree.
+  - Illinois Board of Higher Education (IBHE) approved Post-Master’s Certificate in Health Informatics (PMC HI) is a 24 credit hours and can be completed in 18 months. This non-degree program is designed to help build knowledge and skills in accelerated format. All courses can be applied to the online Master of Science in Health Informatics (MSHI) degree. The curriculum blends a technical foundation with coursework covering current clinical trends, government regulations, and healthcare-specific best management practices. It equips students with the analytical and managerial expertise sought after in this dynamic field.
     
   - [course details](https://healthinformatics.uic.edu/online-programs/post-masters-certificate-in-health-informatics-pmc-hi/) 
 
@@ -650,33 +650,30 @@ In the United States, we selected five universities. At the **University of Illi
 
 - [Master of Science in Clinical Informatics Management (MCiM)](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-clinical-informatics-management.html)
   
-  -  MCiM is a novel one-year management program for working professionals seeking to harness the power of digital innovations to deliver high-quality, cost-effective health care. Blending Stanford’s renowned expertise across medicine, business, and technology, MCiM prepares managers and senior leaders to drive the transformation of health systems, life sciences businesses, start-ups, and healthcare-focused technology organizations.
+  -  MCiM is a novel one-year management program for working professionals seeking to capitalize on digital innovations to deliver high-quality, cost-effective health care. Blending Stanford’s renowned expertise across medicine, business, and technology, MCiM prepares managers and senior leaders to drive the transformation of health systems, life sciences businesses, start-ups, and healthcare-focused technology organizations.
     
   -  [Course details](https://med.stanford.edu/master-clinical-informatics-management/academics/mcim-curriculum.html)
     
 - [Clinical Informatics Fellowship](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html)
   
-  - As the nation’s first accredited clinical informatics fellowship program by the Accreditation Council for Graduate Medical Education, the Stanford Clinical Informatics (CI) Fellowship builds upon Stanford’s longstanding tradition of leadership in clinical informatics. The CI fellowship program is a American Board of Medical Specialties approved Clinical Informatics board-eligible subspecialty fellowship sponsored by the American Board of Preventive Medicine. This program focuses on the understanding, integration and application of information technology to meet clinical objectives.
+  - As the US's first accredited clinical informatics fellowship program by the **Accreditation Council for Graduate Medical Education**, the Stanford Clinical Informatics (CI) Fellowship builds upon Stanford’s longstanding tradition of leadership in clinical informatics. The CI fellowship program is a American Board of Medical Specialties approved Clinical Informatics board-eligible subspecialty fellowship sponsored by the American Board of Preventive Medicine. This program focuses on the understanding, integration and application of information technology to meet clinical objectives.
     
   - [fellowship details](https://med.stanford.edu/cifellowship.html)
     
 - [MS & PhD in Biomedical Informatics](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/ms-phd-in-biomedical-informatics.html)
   
-  - Biomedical informatics is an interdisciplinary field that combines ideas from computer science and quantitative disciplines (statistics, data science, decision science) to solving challenging problems in biology and medicine. The BMI program provides coursework and mentored research training, with a focus on methods development, drawing heavily on quantitative and computational approaches.
+  - Biomedical informatics is an interdisciplinary field that combines ideas from computer science and quantitative disciplines (statistics, data science, decision science) to solving challenging problems in biology and medicine. The BMI program provides coursework and mentored research training, with a focus on methods development, drawing heavily on quantitative and computational approaches. MS and PhD candidates take coursework in four areas: (1) core DBDS classes, (2) an individual plan with electives in computer science, statistics, mathematics, engineering, and allied informatics-related disciplines, (3) required coursework in social, legal, and ethical issues, (4) unrestricted electives. In addition, PhD candidates are required to choose electives in some area of biology or medicine. Degree candidates also learn important didactic skills by serving as teaching assistants in our core courses.
     
-  - [Curriculum](https://dbds.stanford.edu/for-current-students/#curriculum). MS and PhD candidates take coursework in four areas: (1) core DBDS classes, (2) an individual plan with electives in computer science, statistics, mathematics, engineering, and allied informatics-related disciplines, (3) required coursework in social, legal, and ethical issues, (4) unrestricted electives. In addition, PhD candidates are required to choose electives in some area of biology or medicine. Degree candidates also learn important didactic skills by serving as teaching assistants in our core courses.
+  - [Curriculum](https://dbds.stanford.edu/for-current-students/#curriculum). 
 
 - [Biomedical Data Science Graduate Certificate](https://online.stanford.edu/programs/biomedical-data-science)
   
-  - The Biomedical Data Science Graduate Certificate, previously named "Biomedical Informatics: Data, Modeling and Analysis", explores the design and implementation of novel quantitative and computational methods that solve challenging problems across the entire spectrum of biology and medicine. You will acquire knowledge and skills in bio- and clinical informatics that go beyond the undergraduate level. From recent genomic research to new applications of basic biology, you will develop an in-depth understanding of the techniques used to analyze vast amounts of biological data.
+  - The Biomedical Data Science Graduate Certificate, previously named "Biomedical Informatics: Data, Modeling and Analysis", explores the design and implementation of novel quantitative and computational methods that solve challenging problems across the entire spectrum of biology and medicine. Students will acquire knowledge and skills in bio- and clinical informatics that go beyond the undergraduate level. From recent genomic research to new applications of basic biology, you will develop an in-depth understanding of the techniques used to analyze vast amounts of biological data.
     
   - [Course details](https://online.stanford.edu/programs/biomedical-data-science)
 
 
 ##### Anthology of presented courses 
-
-
-
 
 1. **Foundational Health Informatics Courses:**
    - Introduction to Biomedical Data Science Research Methodology
@@ -761,8 +758,6 @@ In the United States, we selected five universities. At the **University of Illi
   - [Course details](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/592#curriculum)
 
 ##### Anthology of presented courses 
-
-
 
 1. **Foundational Health Informatics Courses:**
    - Foundations of Digital Health
