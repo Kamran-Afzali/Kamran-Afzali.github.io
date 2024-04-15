@@ -7,27 +7,13 @@ The enigma of **consciousness** is one of the most difficult puzzles in philosop
 
 Instead, viewing the body and mind as two facets of the same underlying reality challenges us to reconsider our ontological assumptions. If both body and mind are manifestations of a deeper reality, what substance underpins their existence? Analogous to the relationship between thunder and lightning, this question leads us to ponder the metaphysical equivalent of "electricity" in the realm of consciousness. Clarifying the ontological status of terms like "physical basis" and "neurobiological processes" requires a nuanced understanding of their underlying meaning. Rather than viewing physiological phenomena as distinct from their mental counterparts, we must recognize their interconnectedness. Memory, for instance, is not a tangible entity but a functional process that manifests both psychologically and physiologically. By abstracting underlying functional laws from observable phenomena, we can bridge the apparent gap between conscious experience and its neural correlates.
 
+In our pursuit of elucidating the mysteries of consciousness, we encounter not only conceptual challenges but also epistemological hurdles. Identifying the fundamental causal processess that govern conscious experience necessitates researching the nature of reality itself and how organisms interact with the _reality_ of their environment.
+The journey through the intricacies of consciousness leads us to a fundamental realization: the level of consciousness is tied to **free energy**. Drawing parallels between thermodynamic concepts and neurophysiological processes, we have already claimed the that arousal (yet free energy), is the cornerstone of wakeful interaction with the environment. This latter is underpinned by surprisal and uncertainty. 
+
+Contrary to the view, which posits the cortex as the seat of consciousness, recent evidence suggests that consciousness emanates from subcortical regions. The cortex, rather than generating consciousness, may serve as a facilitator or stabilizer of affective arousal, transforming it into conscious cognition. This reinterpretation aligns with the remarkable plasticity of the cortex and the hierarchical dependency between brainstem arousal and cortical consciousness. Studies of emotional and cognitive reactions in such beings point to the existence of a basic form of consciousness, rooted in subcortical structures. The efficacy of deep brain stimulation in evoking affective responses further highlights the role of upper brainstem and limbic circuits in generating subjective states.In this view, consciousness emerges as fundamentally affective, rooted in the arousal processes of the upper brainstem. This reformulation challenges traditional paradigms and prompts a reevaluation of the functional mechanisms underlying consciousness. 
+
 
 ----->
-
-
-Considerations of short-term and long-term memory reveal the interplay between psychological experiences and physiological processes. Laws governing memory capacity and consolidation arise from both psychological observations and neurophysiological data, highlighting the intricate relationship between mind and body. Ultimately, our quest for understanding consciousness must transcend superficial explanations and delve into the realm of abstract functional laws.
-
-In our pursuit of elucidating the mysteries of consciousness, we encounter not only conceptual challenges but also epistemological hurdles. Identifying the fundamental laws that govern conscious experience necessitates a rigorous inquiry into the nature of reality itself. Yet, it is through such intellectual endeavors that we inch closer to unraveling the enigma of consciousness and unlocking the secrets of the mind.
-
-The journey through the intricacies of consciousness leads us to a fundamental realization: the level of consciousness is intricately tied to variational **free energy**. Drawing parallels between thermodynamic concepts and neurophysiological processes, we discern that arousal, the cornerstone of wakefulness, is underpinned by surprisal and uncertainty. This conceptual framework, rooted in the mathematics of information theory, brings us closer to Helmholtz's ideal of describing consciousness through a physical-mathematical lens.
-
-
-
-
-
-The inquiry into the nature of consciousness extends to decorticate animals and children, challenging conventional notions of cortical centrality in consciousness. Observations of emotional and orienting reactions in such beings point to the existence of a basic form of consciousness, rooted in subcortical structures. The efficacy of deep brain stimulation in evoking affective responses further underscores the pivotal role of upper brainstem and limbic circuits in generating subjective states.
-
-Contrary to the prevailing view, which posits the cortex as the seat of consciousness, mounting evidence suggests that consciousness emanates from subcortical regions. The cortex, rather than generating consciousness, may serve as a facilitator or stabilizer of affective arousal, transforming it into conscious cognition. This reinterpretation aligns with the remarkable plasticity of the cortex and the hierarchical dependency between brainstem arousal and cortical consciousness.
-
-In essence, consciousness emerges as fundamentally affective, rooted in the arousal processes of the upper brainstem. This reformulation challenges traditional paradigms and prompts a reevaluation of the functional mechanisms underlying consciousness. While questions persist regarding the inner workings of consciousness, this paradigm shift offers a promising avenue for unraveling its mysteries and shedding light on the essence of subjective experience.
-
-
 
 The question of **why we feel** is a central inquiry in contemporary neuroscience, drawing on foundational work by Damasio, Panksepp, and others. At its core, feeling is understood as the registration of bodily states within a biological scale of values, where pleasurable feelings signal improving chances of survival and reproductive success, while unpleasurable feelings signify deteriorating conditions. Crucially, these feelings are not localized in the cortex but originate in the brainstem and limbic system, encompassing both autonomic and intrinsic brain states.
 
