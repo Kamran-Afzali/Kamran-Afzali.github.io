@@ -41,8 +41,147 @@ To address this, users can define different epoch ranges based on whether regula
 
 
 
+
+
+
+
+
+This algorithm, known as Tree-structured Parzen Estimator (TPE), is used for hyperparameter optimization in machine learning. It's particularly effective when the objective function is expensive to evaluate and when the hyperparameter space is high-dimensional.
+
+Let's break down the steps:
+
+1. **Initialization **: 
+   - Initially, an empty set D is created to store the evaluated hyperparameter configurations.
+   - Ninit trials are conducted to randomly pick hyperparameter configurations xn and evaluate their performance yn using the objective function f(xn). εn represents noise introduced during evaluation.
+
+2. **Main Loop **:
+   - While there is a budget left for conducting trials:
+   - Compute the top quantile γ (gamma) based on the size of D (line 7).
+   - Split D into two sets, D(l) and D(g), based on whether their performance is above or below γ (line 8).
+   - Compute weights {wn}N+1 for each configuration in D, which determine the importance of each configuration in the optimization process (line 9).
+   - Compute bandwidths b(l) and b(g) for the kernel function based on D(l) and D(g) (line 10).
+   - Build probability distributions p(x|D(l)) and p(x|D(g)) using the Parzen estimator, which models the distribution of hyperparameters given their performance (line 11).
+   - Sample Ns hyperparameter configurations from p(x|D(l)) (line 12).
+   - Select the hyperparameter configuration xN+1 that maximizes the acquisition function r(x|D) among the sampled configurations (line 13).
+   - Evaluate the performance of xN+1 using the objective function to obtain yN+1 (line 14).
+   - Add xN+1 and yN+1 to D.
+
+This process iterates until the budget for trials is exhausted.
+
+In summary, TPE optimizes hyperparameters by iteratively selecting configurations based on their likelihood of improving the objective function's performance. It dynamically adjusts the search space based on past evaluations and allocates resources efficiently to explore promising regions of the hyperparameter space.
+
+
+
+
+
+
+The Tree-structured Parzen Estimator (TPE) algorithm is a method used for hyperparameter optimization in machine learning. It is a type of Bayesian optimization that uses a probabilistic model to guide the search for the best hyperparameters. Here's an explanation of the algorithm based on the provided pseudo code:
+
+1. **Initialization**: The algorithm starts with an empty set $$ D $$ of observed hyperparameter configurations and their corresponding objective function values.
+
+2. **Initial Random Sampling**:
+   - For a predefined number of initial configurations ($$ N_{\text{init}} $$, referred to as `n_startup_trials` in Optuna), the algorithm randomly selects hyperparameter configurations ($$ x_n $$).
+   - It then evaluates the objective function $$ f(x_n) $$ for each configuration, adding a small noise $$ \epsilon_n $$ to account for stochasticity, and stores the results in the set $$ D $$.
+
+3. **Main Optimization Loop**: The algorithm enters a loop that continues as long as the computational budget allows.
+
+4. **Quantile Computation**:
+   - The algorithm computes a quantile $$ \gamma $$ using a function $$ \Gamma $$ based on the number of observations $$ N $$ in $$ D $$. This quantile is used to split the observed data into two groups: one with the best (top $$ \gamma $$) objective function values and the other with the rest.
+
+5. **Data Splitting**:
+   - The set $$ D $$ is split into $$ D(l) $$ containing the best observations and $$ D(g) $$ containing the rest.
+
+6. **Weight Computation**:
+   - Weights $$ \{w_n\}_{n=0}^{N+1} $$ are computed for the observations using a function $$ W $$, which is based on the distribution of the observed data.
+
+7. **Bandwidth Selection**:
+   - Bandwidths $$ b(l) $$ and $$ b(g) $$ are computed for the kernel function $$ k $$ using a function $$ B $$ for both $$ D(l) $$ and $$ D(g) $$.
+
+8. **Model Building**:
+   - Probabilistic models $$ p(x|D(l)) $$ and $$ p(x|D(g)) $$ are built for the likelihood of observing a hyperparameter configuration given the best and the rest of the data, respectively.
+
+9. **Sampling Candidates**:
+   - A set of candidate hyperparameter configurations $$ S $$ is sampled from the model $$ p(x|D(l)) $$.
+
+10. **Acquisition Function Optimization**:
+    - The algorithm selects the next hyperparameter configuration $$ x_{N+1} $$ from the candidates by maximizing the acquisition function $$ r(x|D) $$, which is typically the ratio of the likelihoods $$ p(x|D(l)) $$ to $$ p(x|D(g)) $$.
+
+11. **Objective Function Evaluation**:
+    - The objective function is evaluated at the selected hyperparameter configuration $$ x_{N+1} $$, and the result $$ y_{N+1} $$ is added to the set $$ D $$.
+
+12. **Iteration**:
+    - The algorithm iterates, updating the set $$ D $$ with the new observations and repeating the process until the computational budget is exhausted.
+
+The TPE algorithm effectively balances exploration and exploitation by using the probabilistic models to identify promising areas of the hyperparameter space while also considering the uncertainty in the observations. It is particularly well-suited for optimizing expensive-to-evaluate functions, such as those encountered in machine learning model training.
+
+
+Based on the provided description, here's a pseudo code for the Tree-structured Parzen Estimator (TPE) algorithm:
+
+```python
+# Initialize an empty set D to store observed configurations and their objective function values
+D = {}
+
+# Initial random sampling
+for n in range(N_init):
+    # Randomly select a hyperparameter configuration
+    xn = random_hyperparameter_configuration()
+    
+    # Evaluate the objective function f(xn) with added noise epsilon_n
+    yn = evaluate_objective_function(xn) + epsilon_n
+    
+    # Store the hyperparameter configuration and its objective function value in D
+    D[xn] = yn
+
+# Main optimization loop
+while computational_budget_left():
+    # Compute the quantile gamma based on the number of observations in D
+    gamma = compute_quantile_Gamma(len(D))
+    
+    # Split the observed data into two groups: D(l) containing the best observations and D(g) containing the rest
+    D_l, D_g = split_data_into_groups(D, gamma)
+    
+    # Compute weights for the observations in D
+    weights = compute_weights_W(D)
+    
+    # Compute bandwidths for the kernel function
+    b_l = compute_bandwidth_B(D_l)
+    b_g = compute_bandwidth_B(D_g)
+    
+    # Build probabilistic models for the likelihood of observing a hyperparameter configuration given D(l) and D(g)
+    p_x_given_D_l = build_probabilistic_model(D_l)
+    p_x_given_D_g = build_probabilistic_model(D_g)
+    
+    # Sample a set of candidate hyperparameter configurations from p(x|D(l))
+    S = sample_candidates(p_x_given_D_l, Ns)
+    
+    # Select the next hyperparameter configuration x_N+1 by maximizing the acquisition function
+    x_N_plus_1 = maximize_acquisition_function(S, p_x_given_D_l, p_x_given_D_g, weights)
+    
+    # Evaluate the objective function at x_N+1
+    y_N_plus_1 = evaluate_objective_function(x_N_plus_1)
+    
+    # Add the new observation to D
+    D[x_N_plus_1] = y_N_plus_1
+```
+
+In this pseudo code:
+- `N_init` is the number of initial random configurations.
+- `compute_quantile_Gamma()` computes the quantile gamma based on the number of observations in D.
+- `split_data_into_groups()` splits the observed data into two groups based on the quantile gamma.
+- `compute_weights_W()` computes weights for the observations in D.
+- `compute_bandwidth_B()` computes bandwidths for the kernel function.
+- `build_probabilistic_model()` builds probabilistic models for the likelihood of observing a hyperparameter configuration.
+- `sample_candidates()` samples a set of candidate hyperparameter configurations from the probabilistic model.
+- `maximize_acquisition_function()` selects the next hyperparameter configuration by maximizing the acquisition function, typically the ratio of likelihoods.
+- `evaluate_objective_function()` evaluates the objective function at a given hyperparameter configuration.
+- `computational_budget_left()` checks if there is computational budget left to continue the optimization loop.
+
+This pseudo code captures the main steps of the TPE algorithm for hyperparameter optimization in machine learning.
+
+
 #### References
 
+- https://github.com/optuna/optuna/blob/master/optuna/samplers/_tpe/sampler.py
 
 -  https://pub.aimind.so/a-deep-dive-in-optunas-advance-features-2e495e71435c?gi=5209dbf9b47c
 -  https://optuna.readthedocs.io/en/stable/tutorial/10_key_features/003_efficient_optimization_algorithms.html
