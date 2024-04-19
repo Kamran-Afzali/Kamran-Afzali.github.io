@@ -77,100 +77,43 @@ In summary, TPE optimizes hyperparameters by iteratively selecting configuration
 
 The Tree-structured Parzen Estimator (TPE) algorithm is a method used for hyperparameter optimization in machine learning. It is a type of Bayesian optimization that uses a probabilistic model to guide the search for the best hyperparameters. Here's an explanation of the algorithm based on the provided pseudo code:
 
-1. **Initialization**: The algorithm starts with an empty set $$ D $$ of observed hyperparameter configurations and their corresponding objective function values.
+1. **Initialization**: The algorithm starts with an empty set `D` of observed hyperparameter configurations and their corresponding objective function values.
 
 2. **Initial Random Sampling**:
-   - For a predefined number of initial configurations ($$ N_{\text{init}} $$, referred to as `n_startup_trials` in Optuna), the algorithm randomly selects hyperparameter configurations ($$ x_n $$).
-   - It then evaluates the objective function $$ f(x_n) $$ for each configuration, adding a small noise $$ \epsilon_n $$ to account for stochasticity, and stores the results in the set $$ D $$.
+   - For a predefined number of initial configurations (` N_{\text{init}} `, referred to as `n_startup_trials` in Optuna), the algorithm randomly selects hyperparameter configurations (` x_n `).
+   - It then evaluates the objective function ` f(x_n) ` for each configuration, adding a small noise ` \epsilon_n ` to account for stochasticity, and stores the results in the set ` D `.
 
 3. **Main Optimization Loop**: The algorithm enters a loop that continues as long as the computational budget allows.
 
 4. **Quantile Computation**:
-   - The algorithm computes a quantile $$ \gamma $$ using a function $$ \Gamma $$ based on the number of observations $$ N $$ in $$ D $$. This quantile is used to split the observed data into two groups: one with the best (top $$ \gamma $$) objective function values and the other with the rest.
+   - The algorithm computes a quantile ` \gamma ` using a function ` \Gamma ` based on the number of observations ` N ` in ` D `. This quantile is used to split the observed data into two groups: one with the best (top ` \gamma `) objective function values and the other with the rest.
 
 5. **Data Splitting**:
-   - The set $$ D $$ is split into $$ D(l) $$ containing the best observations and $$ D(g) $$ containing the rest.
+   - The set ` D ` is split into ` D(l) ` containing the best observations and ` D(g) ` containing the rest.
 
 6. **Weight Computation**:
-   - Weights $$ \{w_n\}_{n=0}^{N+1} $$ are computed for the observations using a function $$ W $$, which is based on the distribution of the observed data.
+   - Weights ` \{w_n\}_{n=0}^{N+1} ` are computed for the observations using a function ` W `, which is based on the distribution of the observed data.
 
 7. **Bandwidth Selection**:
-   - Bandwidths $$ b(l) $$ and $$ b(g) $$ are computed for the kernel function $$ k $$ using a function $$ B $$ for both $$ D(l) $$ and $$ D(g) $$.
+   - Bandwidths ` b(l) ` and ` b(g) ` are computed for the kernel function ` k ` using a function ` B ` for both ` D(l) ` and ` D(g) `.
 
 8. **Model Building**:
-   - Probabilistic models $$ p(x|D(l)) $$ and $$ p(x|D(g)) $$ are built for the likelihood of observing a hyperparameter configuration given the best and the rest of the data, respectively.
+   - Probabilistic models ` p(x|D(l)) ` and ` p(x|D(g)) ` are built for the likelihood of observing a hyperparameter configuration given the best and the rest of the data, respectively.
 
 9. **Sampling Candidates**:
-   - A set of candidate hyperparameter configurations $$ S $$ is sampled from the model $$ p(x|D(l)) $$.
+   - A set of candidate hyperparameter configurations ` S ` is sampled from the model ` p(x|D(l)) `.
 
 10. **Acquisition Function Optimization**:
-    - The algorithm selects the next hyperparameter configuration $$ x_{N+1} $$ from the candidates by maximizing the acquisition function $$ r(x|D) $$, which is typically the ratio of the likelihoods $$ p(x|D(l)) $$ to $$ p(x|D(g)) $$.
+    - The algorithm selects the next hyperparameter configuration ` x_{N+1} ` from the candidates by maximizing the acquisition function ` r(x|D) `, which is typically the ratio of the likelihoods ` p(x|D(l)) ` to ` p(x|D(g)) `.
 
 11. **Objective Function Evaluation**:
-    - The objective function is evaluated at the selected hyperparameter configuration $$ x_{N+1} $$, and the result $$ y_{N+1} $$ is added to the set $$ D $$.
+    - The objective function is evaluated at the selected hyperparameter configuration ` x_{N+1} `, and the result ` y_{N+1} ` is added to the set ` D `.
 
 12. **Iteration**:
-    - The algorithm iterates, updating the set $$ D $$ with the new observations and repeating the process until the computational budget is exhausted.
+    - The algorithm iterates, updating the set ` D ` with the new observations and repeating the process until the computational budget is exhausted.
 
 The TPE algorithm effectively balances exploration and exploitation by using the probabilistic models to identify promising areas of the hyperparameter space while also considering the uncertainty in the observations. It is particularly well-suited for optimizing expensive-to-evaluate functions, such as those encountered in machine learning model training.
 
-
-
-
-
-
-
-
-
-The Tree-structured Parzen Estimator (TPE) algorithm is a method used for hyperparameter optimization in machine learning. It is a type of Bayesian optimization that uses a probabilistic model to guide the search for the best hyperparameters. Here's an explanation of the algorithm based on the provided pseudo code:
-
-Initialization: The algorithm starts with an empty set $$ D $$ of observed hyperparameter configurations and their corresponding objective function values.
-
-Initial Random Sampling:
-
-For a predefined number of initial configurations ($$ N_{\text{init}} $$, referred to as n_startup_trials in Optuna), the algorithm randomly selects hyperparameter configurations ($$ x_n $$).
-
-It then evaluates the objective function $$ f(x_n) $$ for each configuration, adding a small noise $$ \epsilon_n $$ to account for stochasticity, and stores the results in the set $$ D $$.
-
-Main Optimization Loop: The algorithm enters a loop that continues as long as the computational budget allows.
-
-Quantile Computation:
-
-The algorithm computes a quantile $$ \gamma $$ using a function $$ \Gamma $$ based on the number of observations $$ N $$ in $$ D $$. This quantile is used to split the observed data into two groups: one with the best (top $$ \gamma $$) objective function values and the other with the rest.
-
-Data Splitting:
-
-The set $$ D $$ is split into $$ D(l) $$ containing the best observations and $$ D(g) $$ containing the rest.
-
-Weight Computation:
-
-Weights $$ \{w_n\}_{n=0}^{N+1} $$ are computed for the observations using a function $$ W $$, which is based on the distribution of the observed data.
-
-Bandwidth Selection:
-
-Bandwidths $$ b(l) $$ and $$ b(g) $$ are computed for the kernel function $$ k $$ using a function $$ B $$ for both $$ D(l) $$ and $$ D(g) $$.
-
-Model Building:
-
-Probabilistic models $$ p(x|D(l)) $$ and $$ p(x|D(g)) $$ are built for the likelihood of observing a hyperparameter configuration given the best and the rest of the data, respectively.
-
-Sampling Candidates:
-
-A set of candidate hyperparameter configurations $$ S $$ is sampled from the model $$ p(x|D(l)) $$.
-
-Acquisition Function Optimization:
-
-The algorithm selects the next hyperparameter configuration $$ x_{N+1} $$ from the candidates by maximizing the acquisition function $$ r(x|D) $$, which is typically the ratio of the likelihoods $$ p(x|D(l)) $$ to $$ p(x|D(g)) $$.
-
-Objective Function Evaluation:
-
-The objective function is evaluated at the selected hyperparameter configuration $$ x_{N+1} $$, and the result $$ y_{N+1} $$ is added to the set $$ D $$.
-
-Iteration:
-
-The algorithm iterates, updating the set $$ D $$ with the new observations and repeating the process until the computational budget is exhausted.
-
-The TPE algorithm effectively balances exploration and exploitation by using the probabilistic models to identify promising areas of the hyperparameter space while also considering the uncertainty in the observations. It is particularly well-suited for optimizing expensive-to-evaluate functions, such as those encountered in machine learning model training.
 
 
 
