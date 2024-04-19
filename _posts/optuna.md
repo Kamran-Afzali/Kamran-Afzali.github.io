@@ -187,18 +187,14 @@ This pseudo code captures the main steps of the TPE algorithm for hyperparameter
 
 #### References
 
-- https://github.com/optuna/optuna/blob/master/optuna/samplers/_tpe/sampler.py
-
--  https://pub.aimind.so/a-deep-dive-in-optunas-advance-features-2e495e71435c?gi=5209dbf9b47c
--  https://optuna.readthedocs.io/en/stable/tutorial/10_key_features/003_efficient_optimization_algorithms.html
--  https://towardsdatascience.com/state-of-the-art-machine-learning-hyperparameter-optimization-with-optuna-a315d8564de1
--  https://odsc.com/blog/optuna-an-automatic-hyperparameter-optimization-framework/
--  https://towardsdatascience.com/optuna-a-flexible-efficient-and-scalable-hyperparameter-optimization-framework-d26bc7a23fff
 -  https://optuna.org
 -  https://optuna.readthedocs.io/en/stable/
--  https://github.com/optuna/optuna 
+-  https://github.com/optuna/optuna
+-  https://github.com/optuna/optuna/blob/master/optuna/samplers/_tpe/sampler.py
 -  https://optuna.readthedocs.io/en/stable/reference/generated/optuna.study.Study.html#optuna.study.Study.optimize
 -  https://optuna.readthedocs.io/en/stable/reference/samplers/generated/optuna.samplers.TPESampler.html#optuna.samplers.TPESampler
+-  https://optuna.readthedocs.io/en/stable/tutorial/10_key_features/003_efficient_optimization_algorithms.html
+-  https://odsc.com/blog/optuna-an-automatic-hyperparameter-optimization-framework/
 -  https://proceedings.neurips.cc/paper_files/paper/2011/file/86e8f7ab32cfd12577bc2619bc635690-Paper.pdf
 -  http://neupy.com/2016/12/17/hyperparameter_optimization_for_neural_networks.html#tree-structured-parzen-estimators-tpe
 
