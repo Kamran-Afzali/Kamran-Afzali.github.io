@@ -22,12 +22,12 @@ The question of **why we feel** is central inquiry in contemporary neuroscience.
  Solms (2013, 2014) and further Friston (2018) claim that the  **The emergence of consciousness** is rooted in the dynamics of free energy minimization and uncertainty. Initially proposed as the basic function of homeostasis, free energy minimization is performed by brainstem nuclei centrally implicated in the generation of consciousness. Fundamental properties of minds, such as selfhood and intentionality, arise from the dynamics of a Markov blanket, which separates the system from the external environment. The imperative for self-organizing systems to monitor their internal states in relation to external forces leads to the emergence of subjective observational perspectives and active forms of subjectivity. The existence of a Markov blanket also addresses the problem of other minds, as internal states can only be registered vicariously via sensory impressions. In other words, **Consciousness emerges as self-organizing systems monitor their internal states** in relation to potentially annihilatory forces, leading to inherently value-laden processes that is predicated upon the imperative of survival. While proto-mental dynamics involve the computation of subjective values at the level of autonomic homeostasis, the transition to conscious, qualitative mental states revolves around increasing complexity. Qualitative fluctuations in affect arise from continuous comparisons between predicted and actual sensory states, signaling changes in uncertainty and expected consequences of action. This process of precision optimization is inherently affective, with affect playing a central role in engaging with the outside world and determining subjective engagement.
 
 
+
+
+The **emergence of conscious self-states** is fundamentally rooted in affective states, serving as an alarm mechanism guiding self-organizing systems through situations that rise the variational FE. While instinctual behaviors provide innate survival tools, they cannot address the complexities of actual environmental niches. Consequently, innate predictions are supplemented through learning from experience, leading to emotional responses when predictions fail to capture all variance. Emotional learning aims to improve predictions. Non-declarative memories, associated with subcortical systems, involve simpler cause-and-effect links and cannot be retrieved as mental images. Declarative memories, processed in cortical systems, readily return long-term memory (LTM) traces to conscious working memory for updating.
+
+
 ------->
-
-
-The **emergence of conscious self-states** is fundamentally rooted in affective states, serving as an alarm mechanism guiding self-organizing systems through situations beyond their preferred states. While instinctual behaviors provide innate survival tools, they cannot address the complexities of actual environmental niches. Consequently, innate predictions are supplemented through learning from experience, leading to emotional responses when predictions fail to capture all variance.
-
-Emotional learning aims to automatize acquired predictions, resembling innate ones in functional properties and subcortical anatomical localization. Non-declarative memories, associated with subcortical systems, involve simpler cause-and-effect links and cannot be retrieved as mental images. Declarative memories, processed in cortical systems, readily return long-term memory (LTM) traces to conscious working memory for updating.
 
 Conscious cognitive processes, involving cortical consciousness, delay motor responses to affective demands, enabling thinking. The essential function of cortex is stabilizing non-declarative executive processes, elevating them to a higher cathectic level, i.e., the bound state, characteristic of working memory.
 
@@ -35,7 +35,7 @@ The reversal of consolidation through reconsolidation renders LTM-traces labile,
 
 Both exteroceptive and interoceptive sensory-motor modalities are flavored by consciousness, facilitating compartmentalization of data and reducing computational complexity while navigating uncertain conditions.
 
-Overall, these formulations provide the foundation for an integrated theory of affective and cognitive consciousness, offering insights into the nature of consciousness and the unconscious.
+
 
 ### References
 - https://philosophymindscience.org/index.php/phimisci/article/view/9152#:~:text=Under%20the%20free%20energy%20principle%2C%20neural%20correlates%20should%20be%20defined,probabilities%20encoded%20by%20neural%20states
