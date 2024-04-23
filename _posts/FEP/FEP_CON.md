@@ -24,16 +24,8 @@ The question of **why we feel** is central inquiry in contemporary neuroscience.
 
 
 
-The **emergence of conscious self-states** is fundamentally rooted in affective states, serving as an alarm mechanism guiding self-organizing systems through situations that rise the variational FE. While instinctual behaviors provide innate survival tools, they cannot address the complexities of actual environmental niches. Consequently, innate predictions are supplemented through learning from experience, leading to emotional responses when predictions fail to capture all variance. Emotional learning aims to improve predictions. Non-declarative memories, associated with subcortical systems, involve simpler cause-and-effect links and cannot be retrieved as mental images. Declarative memories, processed in cortical systems, readily return long-term memory (LTM) traces to conscious working memory for updating.
+The **emergence of conscious self-states** is fundamentally rooted in affective states, serving as an alarm mechanism guiding self-organizing systems through situations that rise the variational FE. While instinctual behaviors provide innate survival tools, they cannot address the complexities of actual environmental niches. Consequently, innate predictions are supplemented through learning from experience, leading to emotional responses when predictions fail to capture all variance. Emotional learning aims to improve predictions. Non-declarative memories, associated with subcortical systems, involve simpler cause-and-effect links and cannot be retrieved as mental images. Declarative memories, processed in cortical systems, readily return long-term memory (LTM) traces to conscious working memory for updating. Conscious cognitive processes, involving cortical consciousness, delay motor responses to affective demands, enabling through thinking. The essential function of cortex is stabilizing non-declarative executive processes, elevating them to a higher cogntive level, i.e., the bound state, referring to working memory. Perceptual/cognitive consciousness, activated via attention, is also a product of uncertainty, with cortical memory-traces being more uncertain and plastic than subcortical ones.
 
-
-------->
-
-Conscious cognitive processes, involving cortical consciousness, delay motor responses to affective demands, enabling thinking. The essential function of cortex is stabilizing non-declarative executive processes, elevating them to a higher cathectic level, i.e., the bound state, characteristic of working memory.
-
-The reversal of consolidation through reconsolidation renders LTM-traces labile, facilitating iterative problem-solving through conscious reconsolidation. Perceptual/cognitive consciousness, activated via attention, is also a product of uncertainty, with cortical memory-traces being more uncertain and plastic than subcortical ones.
-
-Both exteroceptive and interoceptive sensory-motor modalities are flavored by consciousness, facilitating compartmentalization of data and reducing computational complexity while navigating uncertain conditions.
 
 
 
