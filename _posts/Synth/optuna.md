@@ -8,40 +8,9 @@ Optuna is an open-source optimization software introduces new design techniques 
 To initiate the TPE algorithm, a warm-up phase is required, which involves collecting preliminary data. This is typically achieved through a few iterations of Random Search, with the number of iterations being a user-defined parameter within the TPE algorithm. Once sufficient data is collected, TPE divides the observations (i.e. candidate hyperparameter values) into two groups: one containing the observations with the best perfomance scores and the other comprising all remaining observations. The objective is to identify a set of hyperparameters that are more likely to fall within the first group and less likely to be in the second. The proportion of top observations used to define this "best" group is another parameter set by the user, usually ranging from 10% to 25% of all observations. Unlike methods that focus on the best single observation, TPE utilizes the distribution of the best observations. The more iterations conducted during the Random Search phase, the more refined the initial distribution will be. TPE then models the likelihood probability for each group, which is a departure from the Gaussian Process approach that models the posterior probability. Using the likelihood probability from the group of best observations, TPE samples a set of candidate hyperparameters. The goal is to find a candidate that is more likely to be associated with the first group and less likely with the second. This is achieved by defining a Gaussian distribution for each sample, characterized by a mean (the value of the hyperparameter) and a standard deviation. 
  Despite its advantages, TPE has its drawbacks. One significant limitation is that it selects parameters independently, without considering potential interactions between them. For instance, there is a known relationship between regularization and the number of training epochs; more epochs can be beneficial with regularization but may lead to overfitting without it. TPE's independent parameter selection may appear arbitrary if it does not account for such relationships.
 
-------->
+The Tree-structured Parzen Estimator uses a probabilistic model to guide the search for the best hyperparameters. The TPE algorithm effectively balances exploration and exploitation by using the probabilistic models to identify promising areas of the hyperparameter space while also considering the uncertainty in the observations. It is particularly well-suited for optimizing expensive-to-evaluate functions, such as those encountered in machine learning model training. It's particularly effective when the objective function is expensive to evaluate and when the hyperparameter space is high-dimensional. Below is the outline of the algorithm
 
-This algorithm, known as Tree-structured Parzen Estimator (TPE), is used for hyperparameter optimization in machine learning. It's particularly effective when the objective function is expensive to evaluate and when the hyperparameter space is high-dimensional.
-
-Let's break down the steps:
-
-1. **Initialization **: 
-   - Initially, an empty set D is created to store the evaluated hyperparameter configurations.
-   - Ninit trials are conducted to randomly pick hyperparameter configurations xn and evaluate their performance yn using the objective function f(xn). εn represents noise introduced during evaluation.
-
-2. **Main Loop **:
-   - While there is a budget left for conducting trials:
-   - Compute the top quantile γ (gamma) based on the size of D (line 7).
-   - Split D into two sets, D(l) and D(g), based on whether their performance is above or below γ (line 8).
-   - Compute weights {wn}N+1 for each configuration in D, which determine the importance of each configuration in the optimization process (line 9).
-   - Compute bandwidths b(l) and b(g) for the kernel function based on D(l) and D(g) (line 10).
-   - Build probability distributions p(x|D(l)) and p(x|D(g)) using the Parzen estimator, which models the distribution of hyperparameters given their performance (line 11).
-   - Sample Ns hyperparameter configurations from p(x|D(l)) (line 12).
-   - Select the hyperparameter configuration xN+1 that maximizes the acquisition function r(x|D) among the sampled configurations (line 13).
-   - Evaluate the performance of xN+1 using the objective function to obtain yN+1 (line 14).
-   - Add xN+1 and yN+1 to D.
-
-This process iterates until the budget for trials is exhausted.
-
-In summary, TPE optimizes hyperparameters by iteratively selecting configurations based on their likelihood of improving the objective function's performance. It dynamically adjusts the search space based on past evaluations and allocates resources efficiently to explore promising regions of the hyperparameter space.
-
-
-
-
-
-
-The Tree-structured Parzen Estimator (TPE) algorithm is a method used for hyperparameter optimization in machine learning. It is a type of Bayesian optimization that uses a probabilistic model to guide the search for the best hyperparameters. Here's an explanation of the algorithm based on the provided pseudo code:
-
-1. **Initialization**: The algorithm starts with an empty set `D` of observed hyperparameter configurations and their corresponding objective function values.
+1. **Initialization**: The algorithm starts with an empty set `D` of observed hyperparameter configurations and their corresponding objective function (i.e. perfomance) values.
 
 2. **Initial Random Sampling**:
    - For a predefined number of initial configurations (` N_{\text{init}} `, referred to as `n_startup_trials` in Optuna), the algorithm randomly selects hyperparameter configurations (` x_n `).
@@ -76,7 +45,7 @@ The Tree-structured Parzen Estimator (TPE) algorithm is a method used for hyperp
 12. **Iteration**:
     - The algorithm iterates, updating the set ` D ` with the new observations and repeating the process until the computational budget is exhausted.
 
-The TPE algorithm effectively balances exploration and exploitation by using the probabilistic models to identify promising areas of the hyperparameter space while also considering the uncertainty in the observations. It is particularly well-suited for optimizing expensive-to-evaluate functions, such as those encountered in machine learning model training.
+------->
 
 
 
@@ -85,7 +54,6 @@ The TPE algorithm effectively balances exploration and exploitation by using the
 
 
 
-Based on the provided description, here's a pseudo code for the Tree-structured Parzen Estimator (TPE) algorithm:
 
 ```python
 # Initialize an empty set D to store observed configurations and their objective function values
