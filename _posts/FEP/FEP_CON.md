@@ -3,6 +3,19 @@ Here we discuss the Free Energy Principle (FEP) has been applied to the hard pro
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 The enigma of **consciousness** is one of the most difficult puzzles in philosophy and neuroscience. While it is undeniable that certain organisms possess subjective experiences, description of how these systems become subjects of experience is a challenge. Why is it that the engagement of our cognitive faculties with sensory information results in vivid experiences such as the color blue or the sound of a musical note? The underlying physical processes that give rise to consciousness remain unclear. How do neurophysiological activities produce the experience of consciousness? Attempts to address this question often conceptualize the brain as a producer or cause of consciousness, but such formulations may further complicate rather than clarify the nature of the problem. The relationship between the brain and the mind is not that of a simplistic causal explanations and presenting consciousness to a byproduct of physiological processes fails to capture its essence.
 
 Instead, viewing the body and mind as two facets of the same underlying reality challenges us to reconsider our ontological assumptions. If both body and mind are manifestations of a deeper reality, what substance underpins their existence? Analogous to the relationship between thunder and lightning, this question leads us to ponder the metaphysical equivalent of "electricity" in the realm of consciousness. Clarifying the ontological status of terms like "physical basis" and "neurobiological processes" requires a nuanced understanding of their underlying meaning. Rather than viewing physiological phenomena as distinct from their mental counterparts, we must recognize their interconnectedness. Memory, for instance, is not a tangible entity but a functional process that manifests both psychologically and physiologically. By abstracting underlying functional laws from observable phenomena, we can bridge the apparent gap between conscious experience and its neural correlates.
@@ -27,7 +40,15 @@ The question of **why we feel** is central inquiry in contemporary neuroscience.
 The **emergence of conscious self-states** is fundamentally rooted in affective states, serving as an alarm mechanism guiding self-organizing systems through situations that rise the variational FE. While instinctual behaviors provide innate survival tools, they cannot address the complexities of actual environmental niches. Consequently, innate predictions are supplemented through learning from experience, leading to emotional responses when predictions fail to capture all variance. Emotional learning aims to improve predictions. Non-declarative memories, associated with subcortical systems, involve simpler cause-and-effect links and cannot be retrieved as mental images. Declarative memories, processed in cortical systems, readily return long-term memory (LTM) traces to conscious working memory for updating. Conscious cognitive processes, involving cortical consciousness, delay motor responses to affective demands, enabling through thinking. The essential function of cortex is stabilizing non-declarative executive processes, elevating them to a higher cogntive level, i.e., the bound state, referring to working memory. Perceptual/cognitive consciousness, activated via attention, is also a product of uncertainty, with cortical memory-traces being more uncertain and plastic than subcortical ones.
 
 
+------->
 
+In the Free Energy Principle framework, a Markov blanket serves as a mathematical construct representing the separation and interaction between a system and its surroundings. It encapsulates all the information available to an external observer about the system, but does not provide a complete description due to the inherent unknowability of the states concealed behind it. This includes information about internal states as well as nested Markov blankets within the system. Each level of the brain's neuronal hierarchy functions as a processing stage, capturing relevant information about the environment and the self. The dynamic interdependencies between these layers can be conceptualized as a Markov blanket separating them. This perspective allows us to view the flow of predictions and prediction errors as a process of interacting with nested holographic screens. Ascending prediction errors correspond to retrieving information from a stage, akin to reading from a screen, while actions on the environment involve providing information to the surroundings, akin to writing to a screen. Only the information processed on the Markov blanket is classical and can contribute to conscious experience, with the underlying processing potentially resembling a form of quantum computation. The hierarchical organization of the brain facilitates efficient processing of vast amounts of information through a process of coarse-graining, the process in which information is processed across successive stages of the brain's hierarch. Lower-level details are abstracted and integrated into higher-level summaries as information is processed across successive stages of the hierarchy. Representations towards sensory levels are domain-specific, while those deeper within the hierarchy are domain-general and encompass both interoception and exteroception. This hierarchical arrangement allows for the encoding of increasingly long-term and global features of the environment and the self. Overall, this nested structure of processing stages can be envisioned as successively nested holographic screens, each contributing to the construction of a comprehensive representation of the world at varying levels of abstraction.
+
+
+
+
+
+------->
 
 ### References
 - https://philosophymindscience.org/index.php/phimisci/article/view/9152#:~:text=Under%20the%20free%20energy%20principle%2C%20neural%20correlates%20should%20be%20defined,probabilities%20encoded%20by%20neural%20states
