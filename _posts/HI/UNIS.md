@@ -12,4 +12,10 @@
     - [Master of Medical Sciences in Biomedical Informatics Degree Program](https://dbmi.hms.harvard.edu/education/masters-program)
     - [PhD in Biomedical Informatics](https://bmiphd.hms.harvard.edu//) 
 
-
+## Bordeaux
+- [Formation par composante](https://formations.u-bordeaux.fr/#/par-composante)
+  - [Digital public health](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph)
+  - [Numerics](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/numerics)
+  - [DU Technologies au service de la santé](https://www.iut.u-bordeaux.fr/general/du-technologies-au-service-de-la-sante/)
+  - [Systèmes d'information et technologies informatiques pour la santé (SITIS)](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Syst%C3%A8mes-dinformation-et-technologies-informatiques-pour-la-sant%C3%A9)
+ 
