@@ -7,6 +7,9 @@
   - [Harvard John A. Paulson School of Engineering and Applied Sciences (SEAS)](https://seas.harvard.edu/)
   - [Harvard Kennedy School](https://www.hks.harvard.edu/educational-programs)
   - [Harvard T.H. Chan School of Public Health](https://www.hsph.harvard.edu/about/departments/)
+    - [PhD in Biological Sciences in Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/doctoral-degrees/phd-in-biological-sciences-and-public-health/)
+    - [Master of Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-45-credit/)
+    - [Master of Public Health in Epidemiology](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-in-epidemiology/ )
   - [Harvard Medical School](https://hms.harvard.edu/)
     - [Safety, Quality, Informatics, and Leadership Certificate](https://postgraduateeducation.hms.harvard.edu/certificate-programs/safety-quality-informatics-leadership)
     - [Master of Medical Sciences in Biomedical Informatics Degree Program](https://dbmi.hms.harvard.edu/education/masters-program)
@@ -17,5 +20,7 @@
   - [Digital public health](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph)
   - [Numerics](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/numerics)
   - [DU Technologies au service de la santé](https://www.iut.u-bordeaux.fr/general/du-technologies-au-service-de-la-sante/)
+  - [Master : Santé](https://formations.u-bordeaux.fr/#/details-formation?type=formation&id=136)
+  - [Master : Pharmacologie](https://formations.u-bordeaux.fr/#/details-formation?type=formation&id=133)
   - [Systèmes d'information et technologies informatiques pour la santé (SITIS)](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Syst%C3%A8mes-dinformation-et-technologies-informatiques-pour-la-sant%C3%A9)
  
