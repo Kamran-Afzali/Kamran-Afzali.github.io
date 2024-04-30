@@ -13,7 +13,7 @@ Here we discuss the Free Energy Principle (FEP) has been applied to the hard pro
 
 
 
-
+**Bayesian global workspace** theories are a set of theories that reframe global workspace theory through a Bayesian lens. They explore how information is processed and integrated in the brain, particularly focusing on attentional processes and their connection to consciousness. These theories suggest that consciousness arises from the availability of information within a "global workspace" in the brain, where various brain networks can share information, leading to coherent activity and the integration of information across different brain regions and modalities. Global workspace theory proposes that consciousness is associated with the ability of the brain to broadcast information within this global workspace. It suggests that consciousness emerges from the aggregation of concurrent processes in the brain, allowing for self-organization into larger-scale networks. This framework provides a scientific explanation for how information is projected and integrated in the brain, enabling the formation of integrated representations of the external world. Neuroscientific models based on global workspace theory, such as global neuronal workspace theory (GNWT), propose that consciousness arises from "ignition events" where information is aggregated and broadcast across distributed networks in the brain. Empirical studies using neuroimaging techniques have supported these ideas, showing widespread activation of specific brain regions during conscious perception. Overall, Bayesian global workspace theories offer insights into the neural mechanisms underlying consciousness and its relation to attentional processes.
 
 
 
