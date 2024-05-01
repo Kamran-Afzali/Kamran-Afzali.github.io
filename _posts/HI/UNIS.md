@@ -1,11 +1,16 @@
 
 ## Harvard
 - [Harvard's Schools and Departments](https://hr.harvard.edu/harvards-schools-and-departments) 
-  - [Harvard College](https://college.harvard.edu/academics/liberal-arts-sciences/concentrations)
   - [Harvard Kenneth C. Griffin Graduate School of Arts and Sciences](https://gsas.harvard.edu/programs?f%5B0%5D=areas_of_study%3A50&f%5B1%5D=areas_of_study%3A173&f%5B2%5D=areas_of_study%3A174&f%5B3%5D=areas_of_study%3A175&f%5B4%5D=areas_of_study%3A177&f%5B5%5D=areas_of_study%3A178
 ) 
+    - [Biological Sciences in Public Health](https://gsas.harvard.edu/program/biological-sciences-public-health)
+    - [Biomedical Informatics](https://gsas.harvard.edu/program/biomedical-informatics)
+    - [Biostatistics](https://gsas.harvard.edu/program/biostatistics)
   - [Harvard John A. Paulson School of Engineering and Applied Sciences (SEAS)](https://seas.harvard.edu/)
+    - [Bioengineering undergraduate](https://seas.harvard.edu/bioengineering/undergraduate-program)
+    - [Bioengineering masters](https://seas.harvard.edu/bioengineering/graduate-program)
   - [Harvard Kennedy School](https://www.hks.harvard.edu/educational-programs)
+    - [Data and Research Methods track for public policy](https://www.hks.harvard.edu/admissions-blog/data-research-methods-track) 
   - [Harvard T.H. Chan School of Public Health](https://www.hsph.harvard.edu/about/departments/)
     - [PhD in Biological Sciences in Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/doctoral-degrees/phd-in-biological-sciences-and-public-health/)
     - [Master of Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-45-credit/)
@@ -17,10 +22,12 @@
 
 ## Bordeaux
 - [Formation par composante](https://formations.u-bordeaux.fr/#/par-composante)
-  - [Digital public health](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph)
-  - [Numerics](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/numerics)
-  - [DU Technologies au service de la santé](https://www.iut.u-bordeaux.fr/general/du-technologies-au-service-de-la-sante/)
-  - [Master : Santé](https://formations.u-bordeaux.fr/#/details-formation?type=formation&id=136)
-  - [Master : Pharmacologie](https://formations.u-bordeaux.fr/#/details-formation?type=formation&id=133)
-  - [Systèmes d'information et technologies informatiques pour la santé (SITIS)](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Syst%C3%A8mes-dinformation-et-technologies-informatiques-pour-la-sant%C3%A9)
+  - [l’IUT de Bordeaux](https://www.iut.u-bordeaux.fr/general/decouvrez-liut/) 
+    - [DU Technologies au service de la santé](https://www.iut.u-bordeaux.fr/general/du-technologies-au-service-de-la-sante/)
+  - [UFR des Sciences médicales: Collège Sciences de la santé](https://sante.u-bordeaux.fr/Composantes/UFR-Sciences-medicales)
+    - [Master : Santé](https://formations.u-bordeaux.fr/#/details-formation?type=formation&id=136)
+    - [Master : Pharmacologie](https://formations.u-bordeaux.fr/#/details-formation?type=formation&id=133)
+  - [ISPED](https://www.isped.u-bordeaux.fr/)
+    - [Systèmes d'information et technologies informatiques pour la santé (SITIS)](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Syst%C3%A8mes-dinformation-et-technologies-informatiques-pour-la-sant%C3%A9)
+    - [Digital public health](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph)
  
