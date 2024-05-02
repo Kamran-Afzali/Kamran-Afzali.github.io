@@ -13,12 +13,14 @@
     - [Data and Research Methods track for public policy](https://www.hks.harvard.edu/admissions-blog/data-research-methods-track) 
   - [Harvard T.H. Chan School of Public Health](https://www.hsph.harvard.edu/about/departments/)
     - [PhD in Biological Sciences in Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/doctoral-degrees/phd-in-biological-sciences-and-public-health/)
+    - [Master of Science in Health Data Science](https://www.hsph.harvard.edu/health-data-science/)
     - [Master of Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-45-credit/)
     - [Master of Public Health in Epidemiology](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-in-epidemiology/ )
   - [Harvard Medical School](https://hms.harvard.edu/)
     - [Safety, Quality, Informatics, and Leadership Certificate](https://postgraduateeducation.hms.harvard.edu/certificate-programs/safety-quality-informatics-leadership)
     - [Master of Medical Sciences in Biomedical Informatics Degree Program](https://dbmi.hms.harvard.edu/education/masters-program)
-    - [PhD in Biomedical Informatics](https://bmiphd.hms.harvard.edu//) 
+    - [PhD in Biomedical Informatics](https://bmiphd.hms.harvard.edu//)
+    - [NLM Biomedical Informatics and Data Science Postdoctoral Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-postdoctoral-fellowship)
 
 ## Bordeaux
 - [Formation par composante](https://formations.u-bordeaux.fr/#/par-composante)
