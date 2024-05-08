@@ -41,24 +41,27 @@
 
 ## Paris Cite
 
-PAGE 5 https://odf.u-paris.fr/fr/catalogue-des-diplomes-nationaux.html#nav
-
+- [Formation](https://odf.u-paris.fr/fr/catalogue-des-diplomes-nationaux.html#nav) 
 - [Communauté Université Paris Cité](https://u-paris.fr/les-facultes/)
-- Master Santé Publique - Parcours : Evaluation et Décisions en santé
-https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-evaluation-et-decisions-en-sante-LEIP9F3O.html
-
-Master Santé publique - Parcours : Informatique biomédicale
-https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-informatique-biomedicale-K168NOR5.html
-
-[Master Santé publique - Parcours : Données massives en santé
+- [Master Santé Publique - Parcours : Evaluation et Décisions en santé](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-evaluation-et-decisions-en-sante-LEIP9F3O.html)
+- [Master Santé publique - Parcours : Informatique biomédicale](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-informatique-biomedicale-K168NOR5.html)
+- [Master Santé publique - Parcours : Données massives en santé
 ](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-donnees-massives-en-sante-K168SJQL.html)
-
-[Master Santé Publique - Parcours : Statistique, modélisation et sciences des données en santé](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-statistique-modelisation-et-sciences-des-donnees-en-sante-JS4OQ8D8.html)
-
-[Master Mathématiques, données et apprentissage - Parcours : Ingénierie mathématiques et biostatistique](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/mathematiques-donnees-et-apprentissage-K2NDJEIF//master-mathematiques-donnees-et-apprentissage-parcours-ingenierie-mathematiques-et-biostatistique-JT5O7QE9.html)
-
-[Double licence Sciences de la vie - Parcours : Informatique/Biologie](https://odf.u-paris.fr/fr/offre-de-formation/double-licence-XAA/sciences-technologies-sante-STS/sciences-de-la-vie-KJWRGQN1//double-licence-sciences-de-la-vie-parcours-informatique-biologie-KJWRHYNK.html)
-
-[Double Licence Sciences biomédicales / Mathématiques et applications](https://odf.u-paris.fr/fr/offre-de-formation/double-licence-XAA/sciences-technologies-sante-STS/sciences-biomedicales-KIU43QFF.html)
+- [Master Santé Publique - Parcours : Statistique, modélisation et sciences des données en santé](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-statistique-modelisation-et-sciences-des-donnees-en-sante-JS4OQ8D8.html)
+- [Master Mathématiques, données et apprentissage - Parcours : Ingénierie mathématiques et biostatistique](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/mathematiques-donnees-et-apprentissage-K2NDJEIF//master-mathematiques-donnees-et-apprentissage-parcours-ingenierie-mathematiques-et-biostatistique-JT5O7QE9.html)
+- [Double licence Sciences de la vie - Parcours : Informatique/Biologie](https://odf.u-paris.fr/fr/offre-de-formation/double-licence-XAA/sciences-technologies-sante-STS/sciences-de-la-vie-KJWRGQN1//double-licence-sciences-de-la-vie-parcours-informatique-biologie-KJWRHYNK.html)
+- [Double Licence Sciences biomédicales / Mathématiques et applications](https://odf.u-paris.fr/fr/offre-de-formation/double-licence-XAA/sciences-technologies-sante-STS/sciences-biomedicales-KIU43QFF.html)
+- [Master Santé Publique - Parcours : Statistique, modélisation et sciences des données en santé
+](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-statistique-modelisation-et-sciences-des-donnees-en-sante-JS4OQ8D8.html)
+- [Master Santé publique - Parcours : Données massives en santé](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-donnees-massives-en-sante-K168SJQL.html)
+- [Master Santé publique - Parcours : Informatique biomédicale](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-informatique-biomedicale-K168NOR5.html)
+- [Master Santé Publique - Parcours : Evaluation et Décisions en santé](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-evaluation-et-decisions-en-sante-LEIP9F3O.html)
+- [Master Bioinformatique - Parcours : Biologie informatique](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/bio-informatique-K2VO60MU//master-bioinformatique-parcours-biologie-informatique-IJTUMHHO.html)
+- [Master Bioinformatique - Parcours : Ingénierie de plateforme en biologie](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/bio-informatique-K2VO60MU//master-bioinformatique-parcours-ingenierie-de-plateforme-en-biologie-JS0EW8X6.html)
+- [Licence Accès Santé (LAS) - Mathématiques](https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/sciences-technologies-sante-STS/mathematiques-K2VO7KGX//licence-acces-sante-las-mathematiques-KQQFUSF4.html)
+- [Licence Accès Santé (LAS) - MIASHS](https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/sciences-technologies-sante-STS/mathematiques-et-informatique-appliquees-aux-sciences-humaines-et-sociales-miashs-K2VOC9SI//licence-acces-sante-las-miashs-KQQG06P0.html)
+- [Double licence Informatique / Biologie](https://odf.u-paris.fr/fr/offre-de-formation/double-licence-XAA/sciences-technologies-sante-STS/informatique-K44IT15H//double-licence-informatique-biologie-JRMBO7ZQ.html)
+- [Licence Sciences de la vie - Parcours : Biologie/Informatique (BI)](https://odf.u-paris.fr/fr/offre-de-formation/licence-XA/sciences-technologies-sante-STS/sciences-de-la-vie-K2VOD4MO//licence-sciences-de-la-vie-parcours-biologie-informatique-bi-JRM9ZHZ9.html)
+- [Master Droit du numérique - Parcours : Protection de données personnelles](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/droit-economie-gestion-DEG/droit-du-numerique-K2NDGLX0//master-droit-du-numerique-parcours-protection-de-donnees-personnelles-JT8I2IYS.html)
 
 
