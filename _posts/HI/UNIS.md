@@ -70,5 +70,20 @@
   - [Double Licence Sciences biomédicales / Mathématiques et applications](https://odf.u-paris.fr/fr/offre-de-formation/double-licence-XAA/sciences-technologies-sante-STS/sciences-biomedicales-KIU43QFF.html)
  
 
-
+- E[cole Doctorale Pierre Louis de Santé Publique : Epidémiologie et Sciences de l'Information Biomédicale](https://ed393.sorbonne-universite.fr/lecole-doctorale-393/presentation-de-led-393)
+  - Spécialités des thèses :
+    - Bioinformatique
+    - Biomathématiques
+    - Biostatistique
+    - Biostatistique et Biomathématiques
+    - Économie de la santé
+    - Épidémiologie
+    - Épidémiologie clinique
+    - Épidémiologie génétique
+    - Épidémiologie sociale
+    - Imagerie biomédicale
+    - Informatique médicale
+    - Recherches sur les services de santé
+    - Science des données
+    - Prévention et promotion de la santé 
 
