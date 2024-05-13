@@ -1,3 +1,19 @@
+## University of Victoria
+
+- [Faculties, divisions & services](https://www.uvic.ca/academics/faculties-schools-and-services/index.php)
+- [Undergraduate programs](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/faculty.php#faculty-engineeringAndComputerScience-hdr)
+- [Graduate programs](https://www.uvic.ca/graduate/programs/graduate-programs/index.php)
+- [Health Information Science](https://www.uvic.ca/hsd/hinf/)
+  - [Health Informatics (MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-msc.php)
+  - [Health Informatics (PhD)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-phd.php)
+  - [Health Terminology Standards (GCE)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-terminology-standards-gce.php)
+  - [Nursing and Health Informatics Double Degree (MN + MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/nursing-and-health-informatics-double-degree-mn-msc.php)
+- [School of Public Health & Social Policy ](https://www.uvic.ca/hsd/publichealthsocialpolicy/ )
+  - [Public Health (DipPH)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/public-health-and-social-policy-cred/public-health-dipph.php)
+  - [Public Health (MPH)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/public-health-and-social-policy-cred/public-health-mph.php)
+- [Faculty of Engineering and Computer Science](https://www.uvic.ca/graduate/programs/graduate-programs/pages/biomedical-engineering.php)
+  - [Biomedical Systems (MEng)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/biomedical-engineering-cred/biomedical-systems-meng.php)
+
 
 ## Harvard
 - [Harvard's Schools and Departments](https://hr.harvard.edu/harvards-schools-and-departments) 
