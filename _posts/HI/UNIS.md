@@ -1,3 +1,13 @@
+## McMaster University 
+- [Faculties](https://discover.mcmaster.ca/faculties/)  
+- [Undergraduate programs](https://future.mcmaster.ca/programs/)
+- [Graduate programs](https://gs.mcmaster.ca/programs/)
+
+https://healthsci.mcmaster.ca/education-admissions/undergraduate-health-sciences-programs/integrated-biomedical-engineering-and-health-sciences/
+https://healthinnovation.mcmaster.ca/degree-programs/mbi/
+https://ehealth.mcmaster.ca/
+https://mph.healthsci.mcmaster.ca/
+
 ## University of Victoria
 
 - [Faculties, divisions & services](https://www.uvic.ca/academics/faculties-schools-and-services/index.php)
