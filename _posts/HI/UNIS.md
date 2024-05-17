@@ -3,9 +3,11 @@
 - [Undergraduate programs](https://future.mcmaster.ca/programs/)
 - [Graduate programs](https://gs.mcmaster.ca/programs/)
 
-  - [Integrated Biomedical Engineering & Health Sciences](https://healthsci.mcmaster.ca/education-admissions/undergraduate-health-sciences-programs/integrated-biomedical-engineering-and-health-sciences/) 
+  - [Integrated Biomedical Engineering & Health Sciences (BHSc)](https://healthsci.mcmaster.ca/education-admissions/undergraduate-health-sciences-programs/integrated-biomedical-engineering-and-health-sciences/)
+  - [Health Sciences (BHSc Honours)](https://future.mcmaster.ca/programs/health-sciences/#tab-10)
   - [Master of Biomedical Innovation]( https://healthinnovation.mcmaster.ca/degree-programs/mbi/)
   - [Master of E-Health](https://ehealth.mcmaster.ca/)
+  - [Master ofHealth Management](https://gs.mcmaster.ca/program/health-management/)
   - [Master of Public Health (MPH)](https://mph.healthsci.mcmaster.ca/)
 
 ## University of Victoria
