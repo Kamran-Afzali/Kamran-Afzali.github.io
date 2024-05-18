@@ -4,11 +4,14 @@
 - [Graduate programs](https://gs.mcmaster.ca/programs/)
 - Faculties of Engineering and Health Sciences
   - [Integrated Biomedical Engineering & Health Sciences (BHSc)](https://healthsci.mcmaster.ca/education-admissions/undergraduate-health-sciences-programs/integrated-biomedical-engineering-and-health-sciences/)
+- Faculty of Health Sciences
+  - [Master of Public Health (MPH)](https://mph.healthsci.mcmaster.ca/)
   - [Health Sciences (BHSc Honours)](https://future.mcmaster.ca/programs/health-sciences/#tab-10)
   - [Master of Biomedical Innovation]( https://healthinnovation.mcmaster.ca/degree-programs/mbi/)
+- Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business 
   - [Master of E-Health](https://ehealth.mcmaster.ca/)
-  - [Master ofHealth Management](https://gs.mcmaster.ca/program/health-management/)
-  - [Master of Public Health (MPH)](https://mph.healthsci.mcmaster.ca/)
+- DeGroote School of Business and the Faculty of Health Sciences 
+  - [Master of Health Management](https://gs.mcmaster.ca/program/health-management/)
 
 ## University of Victoria
 
