@@ -2,7 +2,7 @@
 - [Faculties](https://discover.mcmaster.ca/faculties/)  
 - [Undergraduate programs](https://future.mcmaster.ca/programs/)
 - [Graduate programs](https://gs.mcmaster.ca/programs/)
-
+- Faculties of Engineering and Health Sciences
   - [Integrated Biomedical Engineering & Health Sciences (BHSc)](https://healthsci.mcmaster.ca/education-admissions/undergraduate-health-sciences-programs/integrated-biomedical-engineering-and-health-sciences/)
   - [Health Sciences (BHSc Honours)](https://future.mcmaster.ca/programs/health-sciences/#tab-10)
   - [Master of Biomedical Innovation]( https://healthinnovation.mcmaster.ca/degree-programs/mbi/)
