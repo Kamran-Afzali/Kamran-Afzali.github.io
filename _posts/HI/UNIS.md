@@ -26,15 +26,17 @@
 - [Undergraduate programs](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/faculty.php#faculty-engineeringAndComputerScience-hdr)
 - [Graduate programs](https://www.uvic.ca/graduate/programs/graduate-programs/index.php)
 -  [Department of Mathematics](https://www.uvic.ca/science/math-statistics/)
-  -  [Biology and Mathematics and Statistics Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology-and-mathematics-and-statistics.php) 
+  
+  -  [Biology and Mathematics and Statistics Bachelor of Science (BSc)] (https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology-and-mathematics-and-statistics.php) in collaboration with Department of Biology
+     
 - [Health Information Science](https://www.uvic.ca/hsd/hinf/)
-  - [Computer Science and Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science-and-health-information-science.php)
+  - [Computer Science and Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science-and-health-information-science.php) in collaboration with Department of Computer Science
   - [Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/health-information-science.php)
   - [Health Informatics (MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-msc.php)
   - [Health Informatics (PhD)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-phd.php)
   - [Health Terminology Standards (GCE)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-terminology-standards-gce.php)
   - [Nursing and Health Informatics Double Degree (MN + MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/nursing-and-health-informatics-double-degree-mn-msc.php)
-- [School of Public Health & Social Policy ](https://www.uvic.ca/hsd/publichealthsocialpolicy/ )
+- [School of Public Health & Social Policy ](https://www.uvic.ca/hsd/publichealthsocialpolicy/ ) in collaboration with School of Nursing
   - [Public Health Bachelor of Arts (BA) ](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/public-health.php)
   - [Public Health (DipPH)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/public-health-and-social-policy-cred/public-health-dipph.php)
   - [Public Health (MPH)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/public-health-and-social-policy-cred/public-health-mph.php)
