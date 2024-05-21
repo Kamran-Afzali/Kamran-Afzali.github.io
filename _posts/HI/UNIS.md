@@ -4,6 +4,15 @@
 - [Master of Biomedical Science (Genomics and Precision Medicine)](https://www.sydney.edu.au/courses/courses/pc/master-of-biomedical-science-genomics-and-precision-medicine.html)
 - [Bachelor of Advanced Computing and Bachelor of Science (Medical Science)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-medical-science.html)
 
+- Bachelor of Engineering Honours (Biomedical) and Bachelor of Science (Health) https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-biomedical-and-bachelor-of-science-health.html
+
+- Master of Public Health https://www.sydney.edu.au/courses/courses/pc/master-of-public-health0.html
+
+- Master of Global Health https://www.sydney.edu.au/courses/courses/pc/master-of-global-health.html
+
+- Master of Science in Medicine (Pharmaceutical and Medical Device Development) https://www.sydney.edu.au/courses/courses/pc/master-of-science-in-medicine-pharmaceutical-and-medical-device-development.html
+
+-  Master of Digital Health and Data Science https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html
 
 ## McMaster University 
 - [Faculties](https://discover.mcmaster.ca/faculties/)  
