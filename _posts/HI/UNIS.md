@@ -1,3 +1,10 @@
+## McMaster Sydney 
+- [Faculties](https://www.sydney.edu.au/about-us/faculties-and-schools.html)
+- [Programs](https://www.sydney.edu.au/courses/search.html?search-type=course&years=2024)
+- [Master of Biomedical Science (Genomics and Precision Medicine)](https://www.sydney.edu.au/courses/courses/pc/master-of-biomedical-science-genomics-and-precision-medicine.html)
+- [Bachelor of Advanced Computing and Bachelor of Science (Medical Science)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-medical-science.html)
+
+
 ## McMaster University 
 - [Faculties](https://discover.mcmaster.ca/faculties/)  
 - [Undergraduate programs](https://future.mcmaster.ca/programs/)
