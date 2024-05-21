@@ -27,7 +27,7 @@
 - [Graduate programs](https://www.uvic.ca/graduate/programs/graduate-programs/index.php)
 -  [Department of Mathematics](https://www.uvic.ca/science/math-statistics/)
   
-  -  [Biology and Mathematics and Statistics Bachelor of Science (BSc)] (https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology-and-mathematics-and-statistics.php) in collaboration with Department of Biology
+  -  [Biology and Mathematics and Statistics Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology-and-mathematics-and-statistics.php) in collaboration with Department of Biology
      
 - [Health Information Science](https://www.uvic.ca/hsd/hinf/)
   - [Computer Science and Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science-and-health-information-science.php) in collaboration with Department of Computer Science
