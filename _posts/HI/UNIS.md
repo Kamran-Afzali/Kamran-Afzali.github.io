@@ -1,20 +1,24 @@
 ## McMaster Sydney 
 - [Faculties](https://www.sydney.edu.au/about-us/faculties-and-schools.html)
 - [Programs](https://www.sydney.edu.au/courses/search.html?search-type=course&years=2024)
-- [Master of Biomedical Science (Genomics and Precision Medicine)](https://www.sydney.edu.au/courses/courses/pc/master-of-biomedical-science-genomics-and-precision-medicine.html)
-- [Bachelor of Advanced Computing and Bachelor of Science (Medical Science)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-medical-science.html)
-- [Bachelor of Engineering Honours (Biomedical) and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-biomedical-and-bachelor-of-science-health.html)
-- [Master of Public Health](https://www.sydney.edu.au/courses/courses/pc/master-of-public-health0.html)
-- [Master of Global Health](https://www.sydney.edu.au/courses/courses/pc/master-of-global-health.html)
-- [Master of Science in Medicine (Pharmaceutical and Medical Device Development)](https://www.sydney.edu.au/courses/courses/pc/master-of-science-in-medicine-pharmaceutical-and-medical-device-development.html)
-- [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
-- [Master of Biostatistics](https://www.sydney.edu.au/courses/courses/pc/master-of-biostatistics.html)
-- [Graduate Diploma in Biostatistics](https://www.sydney.edu.au/courses/courses/pc/graduate-diploma-in-biostatistics.html)
-- [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
-- [Graduate Certificate in Health Policy and Planning](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-health-policy-and-planning.html)
-- [Sydney Professional Certificate in Leadership in Health](https://www.sydney.edu.au/courses/courses/pc/sydney-professional-certificate-in-leadership-in-health.html)
-- [Sydney Professional Certificate in Biostatistics in Health](https://www.sydney.edu.au/courses/courses/pc/sydney-professional-certificate-in-biostatistics-in-health.html)
-- [Sydney Professional Certificate in Data Literacy for Health Policymakers](https://www.sydney.edu.au/courses/courses/pc/sydney-professional-certificate-in-data-literacy-for-health-policymakers.html)
+- Faculty of Medicine and Health
+  - [Master of Biomedical Science (Genomics and Precision Medicine)](https://www.sydney.edu.au/courses/courses/pc/master-of-biomedical-science-genomics-and-precision-medicine.html)
+  - [Master of Public Health](https://www.sydney.edu.au/courses/courses/pc/master-of-public-health0.html)
+  - [Master of Global Health](https://www.sydney.edu.au/courses/courses/pc/master-of-global-health.html)
+  - [Master of Science in Medicine (Pharmaceutical and Medical Device Development)](https://www.sydney.edu.au/courses/courses/pc/master-of-science-in-medicine-pharmaceutical-and-medical-device-development.html)
+  - [Master of Biostatistics](https://www.sydney.edu.au/courses/courses/pc/master-of-biostatistics.html)
+  - [Graduate Diploma in Biostatistics](https://www.sydney.edu.au/courses/courses/pc/graduate-diploma-in-biostatistics.html)
+  - [Graduate Certificate in Health Policy and Planning](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-health-policy-and-planning.html)
+- School of Computer Science
+  - [Bachelor of Advanced Computing and Bachelor of Science (Medical Science)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-medical-science.html)
+  - [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
+  - [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
+- Faculty of Engineering
+  - [Bachelor of Engineering Honours (Biomedical) and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-biomedical-and-bachelor-of-science-health.html)
+- Interdisciplinary Studies
+  - [Sydney Professional Certificate in Leadership in Health](https://www.sydney.edu.au/courses/courses/pc/sydney-professional-certificate-in-leadership-in-health.html)
+  - [Sydney Professional Certificate in Biostatistics in Health](https://www.sydney.edu.au/courses/courses/pc/sydney-professional-certificate-in-biostatistics-in-health.html)
+  - [Sydney Professional Certificate in Data Literacy for Health Policymakers](https://www.sydney.edu.au/courses/courses/pc/sydney-professional-certificate-in-data-literacy-for-health-policymakers.html)
 
 ## McMaster University 
 - [Faculties](https://discover.mcmaster.ca/faculties/)  
