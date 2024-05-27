@@ -2,7 +2,16 @@
 - [Faculties](https://www.ox.ac.uk/about/divisions-and-departments)
 - [Undergraduate programs](https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing)
 - [Graduate programs](https://www.ox.ac.uk/admissions/graduate/courses/courses-by-department)
-- [Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health) 
+- [Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health)
+- [MSc in Modelling for Global Health](https://www.ox.ac.uk/admissions/graduate/courses/msc-modelling-for-global-health)
+- [MSc in Translational Health Sciences](https://www.ox.ac.uk/admissions/graduate/courses/msc-translational-health-sciences)
+- [DPhil in Translational Health Sciences](https://www.ox.ac.uk/admissions/graduate/courses/dphil-translational-health-sciences)
+- [DPhil in Translational Health Sciences ](https://www.ox.ac.uk/admissions/graduate/courses/dphil-translational-health-sciences)
+- [MSc in Evidence-Based Health Care (Medical Statistics)](https://www.ox.ac.uk/admissions/graduate/courses/msc-evidence-based-health-care-medical-statistics )
+- [MSc in Applied Digital Health](https://www.ox.ac.uk/admissions/graduate/courses/msc-applied-digital-health)
+- [PGCert in Statistics and Epidemiology](https://www.ox.ac.uk/admissions/graduate/courses/pgcert-statistics-epidemiology)
+- [MSc in Global Health Science and Epidemiology](https://www.ox.ac.uk/admissions/graduate/courses/msc-global-health-science-and-epidemiology   )
+
 ## University of Sydney 
 - [Faculties](https://www.sydney.edu.au/about-us/faculties-and-schools.html)
 - [Programs](https://www.sydney.edu.au/courses/search.html?search-type=course&years=2024)
