@@ -6,7 +6,9 @@
 - School of Medicine 
   - [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
   - [Certificate Health Informatics with Data Science PGCert](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert)
+        
 -  School of Computing
+
   - [Data Science and Analytics for Health MRes](https://courses.leeds.ac.uk/i927/data-science-and-analytics-for-health-mres#overview)
   - [Computing in Biology, Medicine and Health](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
   - [Computational medicine](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
