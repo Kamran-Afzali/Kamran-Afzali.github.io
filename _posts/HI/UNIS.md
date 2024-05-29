@@ -9,9 +9,9 @@
         
 -  School of Computing
 
-  - [Data Science and Analytics for Health MRes](https://courses.leeds.ac.uk/i927/data-science-and-analytics-for-health-mres#overview)
-  - [Computing in Biology, Medicine and Health](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
-  - [Computational medicine](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
+    - [Data Science and Analytics for Health MRes](https://courses.leeds.ac.uk/i927/data-science-and-analytics-for-health-mres#overview)
+    - [Computing in Biology, Medicine and Health](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
+    - [Computational medicine](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
 
 ## University of Oxford 
 - [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
