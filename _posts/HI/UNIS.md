@@ -1,6 +1,6 @@
 ## University of Leeds 
-- [Faculties](https://www.ox.ac.uk/about/divisions-and-departments)
-- [Undergraduate programs](https://www.ox.ac.uk/admissions/undergraduate/courses/course-listing)
+- [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
+- [Undergraduate programs](https://courses.leeds.ac.uk/course-search/undergraduate-courses)
 - [Graduate programs](https://www.ox.ac.uk/admissions/graduate/courses/courses-by-department)
 - https://phd.leeds.ac.uk/search?num_ranks=20&clive=leeds-pgr-web-research-area&query=&collection=leeds-pgr-meta&start_rank=81
 
