@@ -2,7 +2,14 @@
 - [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
 - [Undergraduate programs](https://courses.leeds.ac.uk/course-search/undergraduate-courses)
 - [Graduate programs](https://courses.leeds.ac.uk/course-search/masters-courses)
-- https://phd.leeds.ac.uk/search?num_ranks=20&clive=leeds-pgr-web-research-area&query=&collection=leeds-pgr-meta&start_rank=81
+- [PhD and Research](https://phd.leeds.ac.uk/search?num_ranks=20&clive=leeds-pgr-web-research-area&query=&collection=leeds-pgr-meta&start_rank1)
+- School of Medicine 
+  - [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
+  - [Certificate Health Informatics with Data Science PGCert](https://courses.leeds.ac.uk/j525/health-informatics-with-data-science-pgcert)
+-  School of Computing
+  - [Data Science and Analytics for Health MRes](https://courses.leeds.ac.uk/i927/data-science-and-analytics-for-health-mres#overview)
+  - [Computing in Biology, Medicine and Health](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
+  - [Computational medicine](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
 
 ## University of Oxford 
 - [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
