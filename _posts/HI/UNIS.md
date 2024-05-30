@@ -10,8 +10,8 @@
 -  School of Computing
 
     - [Data Science and Analytics for Health MRes](https://courses.leeds.ac.uk/i927/data-science-and-analytics-for-health-mres#overview)
-    - [Computing in Biology, Medicine and Health](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
-    - [Computational medicine](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
+    - [Computing in Biology, Medicine and Health, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
+    - [Computational medicine, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
 
 ## University of Oxford 
 - [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
@@ -76,9 +76,10 @@
 - [Faculties, divisions & services](https://www.uvic.ca/academics/faculties-schools-and-services/index.php)
 - [Undergraduate programs](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/faculty.php#faculty-engineeringAndComputerScience-hdr)
 - [Graduate programs](https://www.uvic.ca/graduate/programs/graduate-programs/index.php)
+
 -  [Department of Mathematics](https://www.uvic.ca/science/math-statistics/)
   
-  -  [Biology and Mathematics and Statistics Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology-and-mathematics-and-statistics.php) in collaboration with Department of Biology
+    -  [Biology and Mathematics and Statistics Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/biology-and-mathematics-and-statistics.php) in collaboration with Department of Biology
      
 - [Health Information Science](https://www.uvic.ca/hsd/hinf/)
   - [Computer Science and Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science-and-health-information-science.php) in collaboration with Department of Computer Science
