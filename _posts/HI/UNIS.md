@@ -1,3 +1,13 @@
+## University of Stanford 
+- [Departments](https://www.stanford.edu/list/academic/#)
+- [Programs](https://bulletin.stanford.edu/programs?page=1&pq=)
+[BMDS-MS - Biomedical Data Science (MS)](https://bulletin.stanford.edu/programs/BMDS-MS)
+[BMDS-PHD - Biomedical Data Science (PhD)](https://bulletin.stanford.edu/programs/BMDS-PHD)
+[BIOM-MS - Biomedical Informatics (MS)](https://bulletin.stanford.edu/programs/BIOM-MS)
+[BIOM-PHD - Biomedical Informatics (PhD)](https://bulletin.stanford.edu/programs/BIOM-PHD) 
+
+
+
 ## University of Leeds 
 - [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
 - [Undergraduate programs](https://courses.leeds.ac.uk/course-search/undergraduate-courses)
