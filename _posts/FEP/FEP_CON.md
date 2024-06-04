@@ -65,18 +65,14 @@ Therefore, **emergence of conscious self-states** is fundamentally rooted in aff
 ### References
  - https://philosophymindscience.org/index.php/phimisci/article/view/9152#:~:text=Under%20the%20free%20energy%20principle%2C%20neural%20correlates%20should%20be%20defined,probabilities%20encoded%20by%20neural%20states
 
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6363942/
-
-- https://osf.io/m2p6g
-
 - https://www.lidsen.com/journals/neurobiology/neurobiology-05-03-103
 - https://www.researchgate.net/publication/354961263_The_neural_correlates_of_consciousness_under_the_free_energy_principle_From_computational_correlates_to_computational_explanation
 - https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1173653/full
 - https://link.springer.com/article/10.1007/s13164-021-00579-w
 - https://selfawarepatterns.com/2021/02/25/mark-solms-theory-of-consciousness/
+- [The inner screen model of consciousness: applying the free energy principle directly to the study of conscious experience](https://www.researchgate.net/publication/370494846_The_inner_screen_model_of_consciousness_applying_the_free_energy_principle_directly_to_the_study_of_conscious_experience) 
+- [The Hard Problem of Consciousness and the Free Energy Principle](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6363942/)
+- [The Hard Problem of Consciousness and the Free Energy Principle ](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.02714/full)
+- [Artificial consciousness: A perspective from the free energy principle](https://philarchive.org/archive/WIECLL) 
+- [Integrated world modeling theory expanded: Implications for the future of consciousness](https://www.frontiersin.org/articles/10.3389/fncom.2022.642397/full)
 
-- https://www.researchgate.net/publication/370494846_The_inner_screen_model_of_consciousness_applying_the_free_energy_principle_directly_to_the_study_of_conscious_experience
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6363942/
-- https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.02714/full
-- https://www.youtube.com/watch?v=mdL4zEeQJis
-- https://philarchive.org/archive/WIECLL
