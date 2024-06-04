@@ -1,10 +1,13 @@
 ## University of Stanford 
 - [Departments](https://www.stanford.edu/list/academic/#)
 - [Programs](https://bulletin.stanford.edu/programs?page=1&pq=)
-[BMDS-MS - Biomedical Data Science (MS)](https://bulletin.stanford.edu/programs/BMDS-MS)
-[BMDS-PHD - Biomedical Data Science (PhD)](https://bulletin.stanford.edu/programs/BMDS-PHD)
-[BIOM-MS - Biomedical Informatics (MS)](https://bulletin.stanford.edu/programs/BIOM-MS)
-[BIOM-PHD - Biomedical Informatics (PhD)](https://bulletin.stanford.edu/programs/BIOM-PHD) 
+- [BMDS-MS - Biomedical Data Science (MS)](https://bulletin.stanford.edu/programs/BMDS-MS)
+- [BMDS-PHD - Biomedical Data Science (PhD)](https://bulletin.stanford.edu/programs/BMDS-PHD)
+- [BIOM-MS - Biomedical Informatics (MS)](https://bulletin.stanford.edu/programs/BIOM-MS)
+- [BIOM-PHD - Biomedical Informatics (PhD)](https://bulletin.stanford.edu/programs/BIOM-PHD)
+- [CIMGT-MS - Clinical Informatics Management (MS)](https://bulletin.stanford.edu/programs/CIMGT-MS)
+- [Clinical Informatics Fellowship](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html)
+
 
 
 
