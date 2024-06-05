@@ -1,3 +1,26 @@
+
+## University of Stanford 
+- [Departments](https://catalog.uic.edu/ucat/colleges-depts/)
+- [Undergraduate programs](https://catalog.uic.edu/ucat/degree-programs/degree-minors/)
+- [Graduate programs](https://catalog.uic.edu/gcat/degree-programs/grad-prof-degree-programs/)
+- College of Applied Health Sciences
+- [BS in Health Information Management](https://catalog.uic.edu/ucat/colleges-depts/applied-health-sciences/bhis/bs/)
+- [MS PhD Health Informatics](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+- [MS Health Information Management](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/health-info-mgmt/)
+- College of Engineering
+- [BS in Data Science with Bioinformatics Concentration](https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/bs-data-science-bioinformatics/) 
+- [BS in Data Science with Health Data Science Concentration](https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/bs-data-science-health-data-science/)
+- [BS in Biomedical Engineering](https://catalog.uic.edu/ucat/colleges-depts/engineering/bme/bs/)
+- [MS PhD Bioinformatics](https://catalog.uic.edu/gcat/colleges-schools/engineering/bioi/)
+- [MS PhD Biomedical Engineering](https://catalog.uic.edu/gcat/colleges-schools/engineering/bme/)
+-  
+
+- School of Public Health
+- [BS in Public Health](https://catalog.uic.edu/ucat/colleges-depts/public-health/bs-pubh/)
+-[MS PhD Public Health Sciences](https://catalog.uic.edu/gcat/colleges-schools/public-health/ph-sci/) 
+- [MS PhD Biostatistics](https://catalog.uic.edu/gcat/colleges-schools/public-health/biostatistics/) 
+
+
 ## University of Stanford 
 - [Departments](https://www.stanford.edu/list/academic/#)
 - [Programs](https://bulletin.stanford.edu/programs?page=1&pq=)
