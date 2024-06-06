@@ -1,5 +1,5 @@
 
-## University of Stanford 
+## University of Illinois Chicago 
 - [Departments](https://catalog.uic.edu/ucat/colleges-depts/)
 - [Undergraduate programs](https://catalog.uic.edu/ucat/degree-programs/degree-minors/)
 - [Graduate programs](https://catalog.uic.edu/gcat/degree-programs/grad-prof-degree-programs/)
