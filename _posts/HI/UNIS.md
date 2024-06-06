@@ -1,3 +1,8 @@
+## University at Buffalo
+- [Departments](https://arts-sciences.buffalo.edu/faculty-staff/department-program-directory.html)
+- [Undergraduate programs](https://www.buffalo.edu/undergrad-programs.html)
+- [Graduate programs](https://www.buffalo.edu/grad/explore/about/programs.html)
+
 
 ## University of Illinois Chicago 
 - [Departments](https://catalog.uic.edu/ucat/colleges-depts/)
