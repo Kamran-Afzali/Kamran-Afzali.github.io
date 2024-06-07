@@ -4,20 +4,25 @@
 - [Graduate programs](https://www.buffalo.edu/grad/explore/about/programs.html)
 - Jacobs School of Medicine and Biomedical Sciences/School of Engineering and Applied Sciences
   - [Biomedical Informatics and Computational Biology BS](https://www.buffalo.edu/undergrad-programs/bioinformatics-and-computational-biology.html)
+  -  [Biomedical Informatics PhD ](https://www.buffalo.edu/grad/programs/biomedical-informatics-phd.html)
+  -  [Biomedical Informatics MS ](https://www.buffalo.edu/grad/programs/biomedical-informatics-ms.html)
 - School of Engineering and Applied Sciences
   - [Biomedical Engineering BS ](https://www.buffalo.edu/undergrad-programs/biomedical-engineering.html)
 - Jacobs School of Medicine and Biomedical Sciences
-  -  [Biomedical Informatics PhD ](https://www.buffalo.edu/grad/programs/biomedical-informatics-phd.html)
-  -  [Biomedical Informatics MS ](https://www.buffalo.edu/grad/programs/biomedical-informatics-ms.html)
-  -  [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)  
--  School of Pharmacy and Pharmaceutical Sciences 
+  -  [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)
+    
+-  School of Pharmacy and Pharmaceutical Sciences
+
   - [PharmD/Biomedical Informatics MS ](https://www.buffalo.edu/grad/programs/biomedical-informatics-pharmd-ms.html)
+    
 -  School of Public Health
+  
   - [Public Health BS](https://www.buffalo.edu/undergrad-programs/public-health.html)
   - [Public Health  MPH](https://www.buffalo.edu/grad/programs/public-health-bs-mph.html)
   - [Public Health (Biostatistics) MPH](https://www.buffalo.edu/grad/programs/public-health-biostatistics-mph.html)
   - [Biostatistics MA](https://www.buffalo.edu/grad/programs/biostatistics-ma.html)
-  - [Biostatistical Informatics Advanced Certificate](https://www.buffalo.edu/grad/programs/biostatistical-informatics-ac.html)      
+  - [Biostatistical Informatics Advanced Certificate](https://www.buffalo.edu/grad/programs/biostatistical-informatics-ac.html)
+    
 ## University of Illinois Chicago 
 - [Departments](https://catalog.uic.edu/ucat/colleges-depts/)
 - [Undergraduate programs](https://catalog.uic.edu/ucat/degree-programs/degree-minors/)
