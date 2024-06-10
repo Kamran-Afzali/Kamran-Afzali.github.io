@@ -25,12 +25,12 @@
     
 -  School of Public Health
   
-  - [Public Health BS](https://www.buffalo.edu/undergrad-programs/public-health.html)
-  - [Public Health  MPH](https://www.buffalo.edu/grad/programs/public-health-bs-mph.html)
-  - [Public Health (Biostatistics) MPH](https://www.buffalo.edu/grad/programs/public-health-biostatistics-mph.html)
-  - [Biostatistics MA](https://www.buffalo.edu/grad/programs/biostatistics-ma.html)
-  - [Biostatistical Informatics Advanced Certificate](https://www.buffalo.edu/grad/programs/biostatistical-informatics-ac.html)
-    
+    - [Public Health BS](https://www.buffalo.edu/undergrad-programs/public-health.html)
+    - [Public Health  MPH](https://www.buffalo.edu/grad/programs/public-health-bs-mph.html)
+    - [Public Health (Biostatistics) MPH](https://www.buffalo.edu/grad/programs/public-health-biostatistics-mph.html)
+    - [Biostatistics MA](https://www.buffalo.edu/grad/programs/biostatistics-ma.html)
+    - [Biostatistical Informatics Advanced Certificate](https://www.buffalo.edu/grad/programs/biostatistical-informatics-ac.html)
+        
 ## University of Illinois Chicago 
 - [Departments](https://catalog.uic.edu/ucat/colleges-depts/)
 - [Undergraduate programs](https://catalog.uic.edu/ucat/degree-programs/degree-minors/)
