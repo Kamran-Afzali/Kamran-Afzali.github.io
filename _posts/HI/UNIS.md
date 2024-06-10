@@ -1,3 +1,11 @@
+## University of Denver
+- [Schools](https://www.du.edu/academics/schools-colleges)
+- [Undergraduate programs](https://www.du.edu/academics/undergraduate-programs)
+  - [Undergraduate programs](https://universitycollege.du.edu/bachelors/)
+- [Graduate programs](https://www.du.edu/academics/graduate-programs)
+  - [Graduate programs](https://universitycollege.du.edu/masters/)
+
+
 ## University at Buffalo
 - [Departments](https://arts-sciences.buffalo.edu/faculty-staff/department-program-directory.html)
 - [Undergraduate programs](https://www.buffalo.edu/undergrad-programs.html)
