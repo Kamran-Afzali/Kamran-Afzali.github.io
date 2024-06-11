@@ -1,9 +1,17 @@
 ## University of Denver
 - [Schools](https://www.du.edu/academics/schools-colleges)
 - [Undergraduate programs](https://www.du.edu/academics/undergraduate-programs)
-  - [Undergraduate programs](https://universitycollege.du.edu/bachelors/)
 - [Graduate programs](https://www.du.edu/academics/graduate-programs)
-  - [Graduate programs](https://universitycollege.du.edu/masters/)
+- [University College](https://universitycollege.du.edu/) (multi disciplinary)
+
+  - [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594)
+  - [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
+  - [Master of Health Informatics Telehealth and Virtual Care](https://universitycollege.du.edu/hinf/telehealth-and-virtual-care-masters-concentration/)
+  - [Digital Health Certificate](https://universitycollege.du.edu/hinf/digital-health-graduate-certificate/)
+  - [Health Data Informatics and Analytics Certificate](https://universitycollege.du.edu/hinf/health-data-informatics-and-analytics-graduate-certificate/)
+  - [Health Data Science Certificate](https://universitycollege.du.edu/hinf/health-data-science-graduate-certificate/)
+
+
 
 
 ## University at Buffalo
