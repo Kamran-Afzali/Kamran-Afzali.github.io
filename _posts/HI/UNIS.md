@@ -2,7 +2,7 @@
 - [Schools](https://www.du.edu/academics/schools-colleges)
 - [Undergraduate programs](https://www.du.edu/academics/undergraduate-programs)
 - [Graduate programs](https://www.du.edu/academics/graduate-programs)
-- [University College](https://universitycollege.du.edu/) (multi disciplinary)
+- [University College](https://universitycollege.du.edu/) 
 
   - [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594)
   - [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
