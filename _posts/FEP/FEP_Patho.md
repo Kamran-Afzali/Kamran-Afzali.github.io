@@ -22,12 +22,10 @@ In summary, by casting psychiatric conditions as disorders of inference about st
 - [Self-supervision, normativity and the free energy principle ](https://link.springer.com/article/10.1007/s11229-020-02622-2)
 - [Reframing PTSD for computational psychiatry with the active inference framework](https://pubmed.ncbi.nlm.nih.gov/31564212/)
 - [Adaptive behaviour and predictive processing accounts of autism](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/abs/adaptive-behaviour-and-predictive-processing-accounts-of-autism/C2F79877753DEAF8A06E14686263AF3C)
-- [1] https://www.frontiersin.org/articles/10.3389/fncom.2022.988977/full
-- [2] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9731232/
-- [3] https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2015.00153/full
-- [4] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961115/
-- [5] https://www.frontiersin.org/articles/10.3389/fnhum.2022.929940/full
-- [6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9559819/
-- [7] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9345684/
-- [8] https://www.mdpi.com/1099-4300/23/12/1619
+- [Active inference, morphogenesis, and computational psychiatry ](https://www.frontiersin.org/articles/10.3389/fncom.2022.988977/full)
+- [Unifying treatments for depression: an application of the Free Energy Principle](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2015.00153/full)
+- [Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961115/)
+- [Psychoanalytic psychotherapies and the free energy principle](https://www.frontiersin.org/articles/10.3389/fnhum.2022.929940/full) 
+- [Friston's free energy principle: new life for psychoanalysis?](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9345684/)
+- [Affect-Logic, Embodiment, Synergetics, and the Free Energy Principle: New Approaches to the Understanding and Treatment of Schizophrenia](https://www.mdpi.com/1099-4300/23/12/1619) 
 
