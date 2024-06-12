@@ -228,6 +228,7 @@
 ](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-donnees-massives-en-sante-K168SJQL.html)
   - [Master Santé Publique - Parcours : Statistique, modélisation et sciences des données en santé](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-statistique-modelisation-et-sciences-des-donnees-en-sante-JS4OQ8D8.html)
   - [Master Santé Publique - Parcours : Evaluation et Décisions en santé](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-evaluation-et-decisions-en-sante-LEIP9F3O.html)
+  - [Diplôme Universitaire de Santé Connectée](https://pums.aphp.fr/diplome-universitaire-de-sante-connectee/) 
       
 - [UFR de Mathématiques et informatique](https://math-info.u-paris.fr/)
   - [Master Mathématiques, données et apprentissage - Parcours : Ingénierie mathématiques et biostatistique](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/mathematiques-donnees-et-apprentissage-K2NDJEIF//master-mathematiques-donnees-et-apprentissage-parcours-ingenierie-mathematiques-et-biostatistique-JT5O7QE9.html)
