@@ -1,4 +1,6 @@
-## University of Denver
+## US
+
+### University of Denver
 - [Schools](https://www.du.edu/academics/schools-colleges)
 - [Undergraduate programs](https://www.du.edu/academics/undergraduate-programs)
 - [Graduate programs](https://www.du.edu/academics/graduate-programs)
@@ -14,7 +16,7 @@
 
 
 
-## University at Buffalo
+### University at Buffalo
 - [Departments](https://arts-sciences.buffalo.edu/faculty-staff/department-program-directory.html)
 - [Undergraduate programs](https://www.buffalo.edu/undergrad-programs.html)
 - [Graduate programs](https://www.buffalo.edu/grad/explore/about/programs.html)
@@ -39,7 +41,7 @@
     - [Biostatistics MA](https://www.buffalo.edu/grad/programs/biostatistics-ma.html)
     - [Biostatistical Informatics Advanced Certificate](https://www.buffalo.edu/grad/programs/biostatistical-informatics-ac.html)
         
-## University of Illinois Chicago 
+### University of Illinois Chicago 
 - [Departments](https://catalog.uic.edu/ucat/colleges-depts/)
 - [Undergraduate programs](https://catalog.uic.edu/ucat/degree-programs/degree-minors/)
 - [Graduate programs](https://catalog.uic.edu/gcat/degree-programs/grad-prof-degree-programs/)
@@ -62,7 +64,7 @@
   - [MS PhD Biostatistics](https://catalog.uic.edu/gcat/colleges-schools/public-health/biostatistics/) 
 
 
-## University of Stanford 
+### University of Stanford 
 - [Departments](https://www.stanford.edu/list/academic/#)
 - [Programs](https://bulletin.stanford.edu/programs?page=1&pq=)
 - Stanford Medicine 
@@ -73,10 +75,32 @@
   - [CIMGT-MS - Clinical Informatics Management (MS)](https://bulletin.stanford.edu/programs/CIMGT-MS)
   - [Clinical Informatics Fellowship](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html)
 
+### Harvard
+- [Harvard's Schools and Departments](https://hr.harvard.edu/harvards-schools-and-departments) 
+  - [Harvard Kenneth C. Griffin Graduate School of Arts and Sciences](https://gsas.harvard.edu/programs?f%5B0%5D=areas_of_study%3A50&f%5B1%5D=areas_of_study%3A173&f%5B2%5D=areas_of_study%3A174&f%5B3%5D=areas_of_study%3A175&f%5B4%5D=areas_of_study%3A177&f%5B5%5D=areas_of_study%3A178
+) 
+    - [Biological Sciences in Public Health](https://gsas.harvard.edu/program/biological-sciences-public-health)
+    - [Biomedical Informatics](https://gsas.harvard.edu/program/biomedical-informatics)
+    - [Biostatistics](https://gsas.harvard.edu/program/biostatistics)
+  - [Harvard John A. Paulson School of Engineering and Applied Sciences (SEAS)](https://seas.harvard.edu/)
+    - [Bioengineering undergraduate](https://seas.harvard.edu/bioengineering/undergraduate-program)
+    - [Bioengineering masters](https://seas.harvard.edu/bioengineering/graduate-program)
+  - [Harvard Kennedy School](https://www.hks.harvard.edu/educational-programs)
+    - [Data and Research Methods track for public policy](https://www.hks.harvard.edu/admissions-blog/data-research-methods-track) 
+  - [Harvard T.H. Chan School of Public Health](https://www.hsph.harvard.edu/about/departments/)
+    - [PhD in Biological Sciences in Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/doctoral-degrees/phd-in-biological-sciences-and-public-health/)
+    - [Master of Science in Health Data Science](https://www.hsph.harvard.edu/health-data-science/)
+    - [Master of Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-45-credit/)
+    - [Master of Public Health in Epidemiology](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-in-epidemiology/ )
+  - [Harvard Medical School](https://hms.harvard.edu/)
+    - [Safety, Quality, Informatics, and Leadership Certificate](https://postgraduateeducation.hms.harvard.edu/certificate-programs/safety-quality-informatics-leadership)
+    - [Master of Medical Sciences in Biomedical Informatics Degree Program](https://dbmi.hms.harvard.edu/education/masters-program)
+    - [PhD in Biomedical Informatics](https://bmiphd.hms.harvard.edu//)
+    - [NLM Biomedical Informatics and Data Science Postdoctoral Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-postdoctoral-fellowship)
 
+## UK
 
-
-## University of Leeds 
+### University of Leeds 
 - [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
 - [Undergraduate programs](https://courses.leeds.ac.uk/course-search/undergraduate-courses)
 - [Graduate programs](https://courses.leeds.ac.uk/course-search/masters-courses)
@@ -91,7 +115,7 @@
     - [Computing in Biology, Medicine and Health, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
     - [Computational medicine, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
 
-## University of Oxford 
+### University of Oxford 
 - [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
 - [Undergraduate programs](https://courses.leeds.ac.uk/course-search/undergraduate-courses)
 - [Graduate programs](https://courses.leeds.ac.uk/course-search/masters-courses)
@@ -112,7 +136,9 @@
   - [PGCert in Statistics and Epidemiology](https://www.ox.ac.uk/admissions/graduate/courses/pgcert-statistics-epidemiology)
   - [MSc in Global Health Science and Epidemiology](https://www.ox.ac.uk/admissions/graduate/courses/msc-global-health-science-and-epidemiology   )
 
-## University of Sydney 
+## Australia 
+
+### University of Sydney 
 - [Faculties](https://www.sydney.edu.au/about-us/faculties-and-schools.html)
 - [Programs](https://www.sydney.edu.au/courses/search.html?search-type=course&years=2024)
 - Faculty of Medicine and Health
@@ -134,7 +160,9 @@
   - [Sydney Professional Certificate in Biostatistics in Health](https://www.sydney.edu.au/courses/courses/pc/sydney-professional-certificate-in-biostatistics-in-health.html)
   - [Sydney Professional Certificate in Data Literacy for Health Policymakers](https://www.sydney.edu.au/courses/courses/pc/sydney-professional-certificate-in-data-literacy-for-health-policymakers.html)
 
-## McMaster University 
+## Canada
+
+### McMaster University 
 - [Faculties](https://discover.mcmaster.ca/faculties/)  
 - [Undergraduate programs](https://future.mcmaster.ca/programs/)
 - [Graduate programs](https://gs.mcmaster.ca/programs/)
@@ -149,7 +177,7 @@
 - DeGroote School of Business and the Faculty of Health Sciences 
   - [Master of Health Management](https://gs.mcmaster.ca/program/health-management/)
 
-## University of Victoria
+### University of Victoria
 
 - [Faculties, divisions & services](https://www.uvic.ca/academics/faculties-schools-and-services/index.php)
 - [Undergraduate programs](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/faculty.php#faculty-engineeringAndComputerScience-hdr)
@@ -175,30 +203,9 @@
   - [Biomedical Systems (MEng)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/biomedical-engineering-cred/biomedical-systems-meng.php)
 
 
-## Harvard
-- [Harvard's Schools and Departments](https://hr.harvard.edu/harvards-schools-and-departments) 
-  - [Harvard Kenneth C. Griffin Graduate School of Arts and Sciences](https://gsas.harvard.edu/programs?f%5B0%5D=areas_of_study%3A50&f%5B1%5D=areas_of_study%3A173&f%5B2%5D=areas_of_study%3A174&f%5B3%5D=areas_of_study%3A175&f%5B4%5D=areas_of_study%3A177&f%5B5%5D=areas_of_study%3A178
-) 
-    - [Biological Sciences in Public Health](https://gsas.harvard.edu/program/biological-sciences-public-health)
-    - [Biomedical Informatics](https://gsas.harvard.edu/program/biomedical-informatics)
-    - [Biostatistics](https://gsas.harvard.edu/program/biostatistics)
-  - [Harvard John A. Paulson School of Engineering and Applied Sciences (SEAS)](https://seas.harvard.edu/)
-    - [Bioengineering undergraduate](https://seas.harvard.edu/bioengineering/undergraduate-program)
-    - [Bioengineering masters](https://seas.harvard.edu/bioengineering/graduate-program)
-  - [Harvard Kennedy School](https://www.hks.harvard.edu/educational-programs)
-    - [Data and Research Methods track for public policy](https://www.hks.harvard.edu/admissions-blog/data-research-methods-track) 
-  - [Harvard T.H. Chan School of Public Health](https://www.hsph.harvard.edu/about/departments/)
-    - [PhD in Biological Sciences in Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/doctoral-degrees/phd-in-biological-sciences-and-public-health/)
-    - [Master of Science in Health Data Science](https://www.hsph.harvard.edu/health-data-science/)
-    - [Master of Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-45-credit/)
-    - [Master of Public Health in Epidemiology](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-in-epidemiology/ )
-  - [Harvard Medical School](https://hms.harvard.edu/)
-    - [Safety, Quality, Informatics, and Leadership Certificate](https://postgraduateeducation.hms.harvard.edu/certificate-programs/safety-quality-informatics-leadership)
-    - [Master of Medical Sciences in Biomedical Informatics Degree Program](https://dbmi.hms.harvard.edu/education/masters-program)
-    - [PhD in Biomedical Informatics](https://bmiphd.hms.harvard.edu//)
-    - [NLM Biomedical Informatics and Data Science Postdoctoral Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-postdoctoral-fellowship)
+## France 
 
-## Bordeaux
+### Bordeaux
 - [Formation par composante](https://formations.u-bordeaux.fr/#/par-composante)
   - [l’IUT de Bordeaux](https://www.iut.u-bordeaux.fr/general/decouvrez-liut/) 
     - [DU Technologies au service de la santé](https://www.iut.u-bordeaux.fr/general/du-technologies-au-service-de-la-sante/)
@@ -210,12 +217,8 @@
     - [Systèmes d'information et technologies informatiques pour la santé (SITIS)](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Syst%C3%A8mes-dinformation-et-technologies-informatiques-pour-la-sant%C3%A9)
     - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
     - [Digital public health](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph)
- 
 
-
-
-
-## Paris Cite
+### Paris Cite
 
 - [Formation](https://odf.u-paris.fr/fr/catalogue-des-diplomes-nationaux.html#nav) 
 - [Communauté Université Paris Cité](https://u-paris.fr/les-facultes/)
