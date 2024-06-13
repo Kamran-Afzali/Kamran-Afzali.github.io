@@ -1,0 +1,394 @@
+The review reveals a generally positive attitude towards Precision
+Medicine (PM) among both healthcare professionals (HCPs) and patients,
+though professionals exhibit more skepticism regarding its actual
+benefits. This skepticism is attributed to the limited evidence
+supporting PM compared to conventional medicine, due in part to the
+smaller scale of PM clinical trials. HCPs, trained in evidence-based
+medicine, often feel underprepared to interpret genomic data and select
+appropriate therapies. While machine learning can aid in data
+interpretation, reliance on technology without proper verification is
+cautioned against, highlighting the need for enhanced training in
+medical informatics. Interdisciplinary collaboration, involving
+bioinformaticians and genetic counselors, is deemed essential for
+effective PM implementation.
+
+Patient education on PM is crucial for informed decision-making,
+necessitating personalized approaches that account for varying levels of
+health and genetic literacy. Ethnic minorities and individuals with
+disabilities, who often exhibit greater distrust or face additional
+barriers, require special consideration. Traditional text-based
+education methods are insufficient; innovative formats like short,
+accessible video sequences are suggested, especially given the
+widespread use of smartphones. However, personal consultations with
+professionals must complement these educational tools.
+
+Access to PM remains a significant ethical concern, with many
+professionals doubting equitable access for all patients who could
+benefit. The ethical principle of justice demands that PM be available
+regardless of insurance status, ethnicity, age, or location. However,
+national and international disparities in healthcare funding pose
+challenges to this ideal. Recruitment biases, predominantly involving
+Northern European genetic data, further exacerbate inequities, leaving
+other population groups with uncertain benefits from PM. Additionally,
+socio-economic factors, such as travel distance to medical centers and
+digital competence, can hinder access.
+
+The cost-benefit ratio of PM is another contentious issue. Some
+professionals argue that other health interventions might offer greater
+benefits and deserve better funding. Critics suggest reallocating
+resources towards improving living conditions and health-related
+behaviors, which could potentially yield more significant health
+benefits. Despite these concerns, some studies indicate that PM is at
+least as cost-effective as conventional care, warranting further
+investigation into its economic viability.
+
+Data security and privacy are paramount, given the risks of genetic
+information misuse by insurance companies and employers, leading to
+potential genetic discrimination. Integrating genetic data into
+electronic health records increases vulnerability to cyber-attacks and
+human error. Limiting data collection to essential information and
+ensuring patients are aware of potential data breaches are recommended.
+Patients' preferences regarding genetic information disclosure must be
+respected to avoid undue stress or missed opportunities for preventive
+care. Informed consent processes should clearly address the implications
+of incidental findings and ensure patients understand their options.
+
+PM also raises concerns about changes in the doctor-patient
+relationship. The focus on genetic data might overshadow the patient's
+personal history and values, risking a reductionist view of patients as
+mere genetic entities. The potential alienation due to increased
+digitalization and reliance on omics-based data calls for empirical
+research to understand its impact on patient care.
+
+Despite these challenges, both patients and professionals show a high
+willingness to participate in PM research, though some patients desire
+compensation for their contributions, particularly if their data or
+biospecimens result in significant profits for pharmaceutical companies.
+The concept of reciprocity in data donation is explored, emphasizing the
+need to respect patients' wishes regarding their genetic information.
+
+Lastly, the continuous monitoring and optimization encouraged by PM,
+facilitated by smartphone apps and wearables, can place additional
+psychological pressure on patients. This phenomenon, described as
+"patient work" or "bio-citizenship," underscores the need for further
+research into the psychological effects of sustained self-monitoring and
+health optimization.
+
+------------------------------------------
+
+This systematic review investigates patients' perspectives on the
+ethical issues and risks associated with precision medicine, analyzing
+24 articles from an initial pool of 914. The review highlights key
+patient concerns and extends understanding of how precision medicine is
+perceived in terms of ethics and potential risks.
+
+The most prevalent concern among patients is privacy, confidentiality,
+and data security. Patients across various ethnic groups express worries
+about the misuse of personal data, which could lead to commercial
+exploitation or impact insurance eligibility and employment
+opportunities. Substance abuse patients, in particular, fear their data
+might be used to resolve unsolved crimes, discouraging participation in
+precision medicine research. Younger individuals focus more on data
+accessibility than privacy breaches, while some patients support wider
+genomic data sharing, although this may be influenced by participation
+bias.
+
+Economic implications are another significant concern, including the
+costs of medical treatments and the impact on insurance. Patients worry
+about the affordability of precision medicine tests and the potential
+loss of insurance coverage due to genetic conditions. The Genetic
+Information Nondiscrimination Act (GINA) in the US addresses some of
+these concerns, but issues around insurance eligibility and employment
+persist.
+
+Psychosocial harms and the necessity for genetic counseling are also
+prominent themes. Patients experience psychological distress from
+frequent diagnostic scans and receiving genetic test results indicating
+increased disease risks. This distress can affect their quality of life
+and adherence to treatments. Specific concerns include unexpected
+paternity revelations and fears of human cloning. Moreover, there is a
+worry that knowing one's genetic predispositions might lead to
+neglecting personal health responsibilities, emphasizing the need for
+patient education.
+
+Equitable access to precision medicine is another critical issue.
+Patients fear racial discrimination and the misuse of their genetic
+information against them. Historical instances, such as the Tuskegee
+Syphilis Study, contribute to mistrust among certain ethnic groups.
+
+Informed consent processes raise additional concerns. Patients are wary
+of sharing their genetic information without clear communication and
+understanding of future uses. The need for simple language in consent
+forms is emphasized, particularly in clinical trials. Some patients do
+not see the necessity for separate consents for biospecimens,
+highlighting the importance of clear communication following ethical
+guidelines.
+
+Trust in research varies significantly, influenced by the origin of
+studies and patients' ethnic backgrounds. While Canadian patients show
+trust in researchers, Latino patients in the US exhibit mistrust due to
+unfamiliarity with the healthcare system. Diagnostic accuracy concerns
+also emerge, with patients apprehensive about the potential for
+uncertain results leading to psychological distress and a loss of trust
+in the medical system.
+
+Technological advancements, particularly involving AI, are viewed
+negatively by patients who fear these could undermine patient-doctor
+relationships. Parents, acting as proxies for their children, express
+concerns that AI could complicate decision-making and conflict with
+medical experts.
+
+Despite these concerns, some studies indicate that the potential
+benefits of precision medicine outweigh the risks. However, more
+comprehensive research is needed to fully understand the risk/benefit
+relationships.
+
+The review underscores the need for patient education and transparency
+regarding privacy, data protection, and economic concerns. Policies to
+address insurability and the effectiveness of precision medicine
+applications are crucial for building trust and obtaining informed
+consent. Educational programs incorporating support groups and
+healthcare professionals can empower patients, enabling informed
+decisions and advocacy for their interests. Psychological support and
+clear communication from physicians are essential to avoid
+miscommunication. Maintaining a strong patient-doctor relationship is
+fundamental to practicing medicine. Further research across diverse
+populations is necessary to identify and address emerging ethical issues
+and risks associated with precision medicine.
+
+------------------------------------------
+
+As the responsible for an ethics committee in a health research center,
+it is crucial to address a range of ethical concerns and systematically
+ask pertinent questions to ensure that digital health and precision
+medicine projects adhere to ethical standards. Here are the main ethical
+concerns and systematic questions to consider:
+
+## Main Ethical Concerns
+
+1.  **Privacy and Confidentiality**: Ensuring the protection of patient
+    data from unauthorized access and breaches.
+2.  **Informed Consent**: Guaranteeing that patients fully understand
+    the implications of their participation, including potential risks
+    and benefits.
+3.  **Data Governance**: Establishing clear policies for data storage,
+    sharing, and usage.
+4.  **Equity and Access**: Ensuring that precision medicine and digital
+    health interventions are accessible to all populations, including
+    underprivileged and minority groups.
+5.  **Psychosocial Impact**: Considering the potential psychological and
+    social effects on patients, such as anxiety from genetic
+    information.
+6.  **Discrimination and Stigmatization**: Preventing the misuse of
+    genetic information by employers, insurers, or other entities.
+7.  **Doctor-Patient Relationship**: Maintaining the quality of the
+    doctor-patient relationship amidst the increasing focus on data.
+8.  **Cost and Economic Impact**: Addressing the financial burden on
+    patients and ensuring cost-effectiveness.
+9.  **Autonomy and Decision-Making**: Respecting patients' autonomy and
+    their right to make informed decisions about their health.
+10. **Ethical Use of AI and Algorithms**: Ensuring transparency and
+    fairness in the use of AI and machine learning in healthcare
+    decisions.
+
+## Systematic Questions
+
+### Privacy and Confidentiality
+
+-   How will patient data be protected from unauthorized access and
+    breaches?
+-   What measures are in place to ensure data confidentiality?
+
+### Informed Consent
+
+-   How will informed consent be obtained and documented?
+-   Are patients provided with comprehensive information about the
+    potential risks and benefits of the study?
+
+### Data Governance
+
+-   What are the policies for data storage, sharing, and usage?
+-   How will data be anonymized or de-identified to protect patient
+    privacy?
+
+### Equity and Access
+
+-   How will the project ensure equitable access to precision medicine
+    and digital health interventions?
+-   Are there strategies to include underprivileged and minority groups
+    in the study?
+
+### Psychosocial Impact
+
+-   What are the potential psychological and social effects on patients?
+-   How will the project address and mitigate these effects?
+
+### Discrimination and Stigmatization
+
+-   What safeguards are in place to prevent the misuse of genetic
+    information by employers, insurers, or other entities?
+-   How will the project address concerns about potential discrimination
+    and stigmatization?
+
+### Doctor-Patient Relationship
+
+-   How will the project maintain the quality of the doctor-patient
+    relationship?
+-   What steps are taken to ensure that the focus on data does not
+    undermine patient care?
+
+### Cost and Economic Impact
+
+-   What is the financial burden on patients participating in the study?
+-   How will the project ensure cost-effectiveness and avoid unnecessary
+    expenses?
+
+### Autonomy and Decision-Making
+
+-   How will the project respect patients' autonomy and their right to
+    make informed decisions?
+-   Are there mechanisms to support patients in understanding their
+    options and making informed choices?
+
+### Ethical Use of AI and Algorithms
+
+-   How will AI and machine learning be used in the project?
+-   What measures are in place to ensure transparency, fairness, and
+    accountability in the use of AI?
+
+By addressing these ethical concerns and systematically asking these
+questions, the ethics committee can help ensure that digital health and
+precision medicine projects are conducted responsibly and ethically,
+safeguarding the rights and well-being of patients.
+
+References: - [1] Ethical issues and risks in precision medicine from
+patients' perspectives. - [2] Ethical challenges in precision medicine
+from patients' and professionals' views. - [3] Practical challenges for
+commercial enterprises in digital health ethics. - [4] Key indicators of
+ethical challenges in digital healthcare. - [5] Ethical considerations
+in precision medicine and genetic testing.
+
+Citations:
+
+-   [1] [Patients' perspectives related to ethical issues and risks in
+    precision medicine: a systematic
+    review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10310545/)
+-   [2] [Patients' and professionals' views related to ethical issues in
+    precision medicine: a mixed research
+    synthesis](https://bmcmedethics.biomedcentral.com/articles/10.1186/s12910-021-00682-8)
+-   [3] [Practical Challenges for Commercial Enterprises in the Ethics Review Process for Digital Health Research: Document Analysis and Interview Study](
+  https://www.medrxiv.org/content/10.1101/2024.01.28.24301885v1.full)
+-   [4]
+    <https://pure.coventry.ac.uk/ws/portalfiles/portal/55935126/Binder3.pdf>
+-   [5] <https://www.acpjournals.org/doi/10.7326/M22-0743>
+-   [6] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7612237/>
+-   [7] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6636063/>
+-   [8]
+    <https://bioethics.pitt.edu/sites/default/files/MesserSlides/2020/LSParker%20-%20Ethical%20Issues%20in%20Precision%20Medicine%20-%202020.pdf>
+-   [9]
+    <https://academic.oup.com/eurpub/article/29/Supplement_3/18/5628045>
+-   [10]
+    <https://www.sciencedirect.com/science/article/abs/pii/S0040162521001566>
+-   [11] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8214390/>
+-   [12]
+    <https://www.thelancet.com/journals/lanhl/article/PIIS2666-7568%2823%2900236-2/fulltext>
+-   [13]
+    <https://conflictandhealth.biomedcentral.com/articles/10.1186/s13031-018-0163-z>
+-   [14] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4856186/>
+-   [15]
+    <https://journalofethics.ama-assn.org/issue/ethics-precision-health>
+
+------------------------------------------------------------------------
+
+As the head of the ethics committee in a health research center focusing
+on digital health and precision medicine, there are several key ethical
+concerns and systematic questions that must be addressed to ensure that
+research projects are conducted responsibly and ethically. Here are the
+main areas of concern and the questions that should be asked:
+
+### Ethical Concerns
+
+1.  **Privacy and Confidentiality**
+    -   **Data Security:** How will patient data be protected from
+        unauthorized access, breaches, or leaks?
+    -   **Anonymity:** Are there adequate measures in place to anonymize
+        or de-identify patient data?
+2.  **Informed Consent**
+    -   **Transparency:** Are participants fully informed about the
+        nature of the research, the data being collected, and how it
+        will be used?
+    -   **Comprehension:** Are consent forms written in clear,
+        understandable language appropriate for the participants?
+3.  **Data Ownership and Control**
+    -   **Participant Rights:** Do participants have the right to
+        access, amend, or delete their data?
+    -   **Data Usage:** How will data be used beyond the current study?
+        Are there plans for data sharing with third parties?
+4.  **Bias and Equity**
+    -   **Representation:** Are the study participants representative of
+        the broader population, including underrepresented groups?
+    -   **Bias Mitigation:** What steps are being taken to identify and
+        mitigate biases in data collection and analysis?
+5.  **Impact on Patient Care**
+    -   **Clinical Relevance:** How will the research findings be
+        translated into clinical practice?
+    -   **Risk-Benefit Analysis:** Are the potential benefits to
+        patients greater than the risks involved in the research?
+6.  **Transparency and Accountability**
+    -   **Reporting:** How will the results of the research be reported
+        to the scientific community and the public?
+    -   **Oversight:** What mechanisms are in place for ongoing
+        monitoring and evaluation of the research project?
+
+### Systematic Questions
+
+1.  **Study Design and Purpose**
+    -   What are the primary objectives of the study?
+    -   How will the study contribute to the advancement of digital
+        health and precision medicine?
+2.  **Participant Recruitment**
+    -   How will participants be recruited, and what criteria will be
+        used for inclusion and exclusion?
+    -   What measures are in place to ensure voluntary participation?
+3.  **Data Collection and Management**
+    -   What types of data will be collected (e.g., genomic, clinical,
+        behavioral)?
+    -   How will data integrity be maintained throughout the study?
+4.  **Risk Assessment**
+    -   What are the potential risks to participants, including
+        physical, psychological, and social risks?
+    -   How will these risks be minimized and managed?
+5.  **Ethical Review and Approval**
+    -   Has the study been reviewed and approved by an independent
+        ethics committee?
+    -   Are there provisions for periodic ethical review during the
+        study?
+6.  **Regulatory Compliance**
+    -   Does the study comply with relevant laws, regulations, and
+        guidelines (e.g., GDPR, HIPAA)?
+    -   What steps are being taken to ensure ongoing compliance?
+7.  **Participant Rights and Welfare**
+    -   How will participant rights be protected, including the right to
+        withdraw from the study at any time?
+    -   What support will be available to participants in case of
+        adverse events?
+8.  **Data Analysis and Interpretation**
+    -   How will data be analyzed, and what statistical methods will be
+        used?
+    -   Are there plans to validate findings through replication or peer
+        review?
+9.  **Impact on Health Disparities**
+    -   How might the research affect existing health disparities or
+        inequities?
+    -   What steps are being taken to ensure equitable access to the
+        benefits of the research?
+10. **Communication and Dissemination**
+    -   How will the results be communicated to participants,
+        stakeholders, and the broader community?
+    -   Are there plans for public engagement or education regarding the
+        research findings?
+
+By systematically addressing these ethical concerns and questions, the
+ethics committee can help ensure that digital health and precision
+medicine projects are conducted in a manner that respects and protects
+the rights and well-being of all participants.
