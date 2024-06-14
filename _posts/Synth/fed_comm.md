@@ -65,15 +65,14 @@ In summary, enhancing communication efficiency in FL involves several strategies
 These examples highlight various operational strategies and technical approaches aimed at reducing the communication overhead in federated learning, enabling more efficient and scalable distributed training.
 
 Citations:
-- [1] https://risingwave.com/blog/enhance-communication-efficiency-in-federated-learning/
-- [2] https://arxiv.org/abs/2107.10996
-- [3] https://www.sciencedirect.com/science/article/pii/S2542660523000653
-- [4] https://www.pnas.org/doi/full/10.1073/pnas.2024789118
-- [5] https://ieeexplore.ieee.org/document/9546506
+- [2] [Communication Efficiency in Federated Learning: Achievements and Challenges](https://arxiv.org/abs/2107.10996) 
+- [3] [Communication and computation efficiency in Federated Learning: A survey](https://www.sciencedirect.com/science/article/pii/S2542660523000653)
+- [4] [Communication-efficient federated learning](https://www.pnas.org/doi/full/10.1073/pnas.2024789118)
+- [5] [Communication-Efficient Federated Learning with Adaptive Parameter Freezing](https://ieeexplore.ieee.org/document/9546506)
 
 
 
----------------------------->
+_______________________________________________
 
 
 
@@ -97,11 +96,10 @@ By splitting the neural network architecture across clients and server, this wor
 These examples showcase the successful application of various communication-efficient federated learning techniques in healthcare scenarios, enabling privacy-preserving and scalable distributed learning while addressing the communication bottleneck inherent in federated settings.
 
 Citations:
-- [1] https://www.researchgate.net/figure/Communication-efficient-federated-learning-methods-Existing-research-on-improving_fig2_346526433
-- [2] https://www.mdpi.com/2076-3417/13/9/5270
-- [3] https://arxiv.org/abs/2107.10996
-- [4] https://arxiv.org/pdf/2107.10996.pdf
-- [5] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10490700/
+- [1] [Federated Learning for Healthcare Informatics](https://www.researchgate.net/publication/346526433_Federated_Learning_for_Healthcare_Informatics)
+- [2] [Communication-Efficient Federated Learning with Adaptive Consensus ADMM ](https://www.mdpi.com/2076-3417/13/9/5270)
+- [3] [Communication Efficiency in Federated Learning: Achievements and Challenges](https://arxiv.org/abs/2107.10996) 
+- [5] [Limitations and Future Aspects of Communication Costs in Federated Learning: A Survey](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10490700/) 
 
 
 ---------------------------->
