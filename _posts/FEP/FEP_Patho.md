@@ -35,7 +35,20 @@ According to the active inference framework, symptoms like hallucinations or del
 The active inference view suggests that the core deficit in autism may be a failure to attenuate or suppress the precision of sensory evidence for self-produced actions (sensory attenuation) [1][2]. This could explain symptoms like hypersensitivity to sensory stimuli and difficulties with coherence and integration of information in autism.
 
 #### Depression
-The free energy principle has been proposed as a unifying framework for understanding depression [3]. Within this view, depression emerges from a collection of depressive beliefs or distorted representations of the world, particularly related to reward representation. Antidepressants may help by correcting these distorted representations, while psychotherapy attempts to optimize actions to break cycles of self-defeating behavior stemming from the depressive beliefs.
+The free energy principle has been proposed as a unifying framework for understanding depression. Within this view, depression emerges from a collection of depressive beliefs or distorted representations of the world, particularly related to reward representation. Antidepressants may help by correcting these distorted representations, while psychotherapy attempts to optimize actions to break cycles of self-defeating behavior stemming from the depressive beliefs.
+
+Rumination involves repetitive and often unproductive thoughts about one’s mood, problems, and their origins, which typically leads to a depressed mood and hampers problem-solving. This persistent mental state can lead to mental disorders like major depression (MDD). Despite extensive research and various models explaining rumination, its exact function remains unclear. The article suggests a new approach using the active inference framework from theoretical neuroscience to understand rumination, particularly in relation to depression.
+
+The active inference framework, linked to the Bayesian brain hypothesis, posits that the brain functions to minimize prediction errors by combining prior predictions with new information to update its understanding. This framework helps explain how rumination, a key aspect of MDD and a marker for comorbidity between depression and anxiety, can lead to pathologies by disrupting the brain's ability to minimize uncertainty.
+
+Rumination's process is explained through the brain's use of hierarchical generative models. These models are structured in layers, where lower layers process immediate sensory input and higher layers integrate this information to form broader predictions. This hierarchical structure allows the brain to make predictions about state transitions over time. Mental simulation, or "running imaginary actions," plays a crucial role in this process, enabling the brain to optimize generative models without overt action. This involves evaluating policies (sequences of actions) based on their expected ability to reduce uncertainty and make accurate predictions.
+
+In the context of rumination, distortions in mental simulation can lead to excessive and maladaptive thinking patterns. The process of mental simulation is divided into three steps: generating candidates for simulation from possible experiences, choosing a candidate to focus on, and utilizing the chosen candidate to reduce prediction errors through mental problem-solving. Distortions in any of these steps can result in depressive rumination.
+
+Active inference suggests that the brain constructs internal models to predict vital parameters essential for survival, creating "self-fulfilling prophecies" through its actions. For instance, an agent might act to maintain its body temperature within a certain range by predicting and regulating its environment accordingly. When this process is disrupted, as in the case of rumination, the brain fails to update its models adaptively, leading to persistent uncertainty and anxiety.
+
+This framework emphasizes the importance of understanding rumination not just as a maladaptive cognitive process but as a disruption in the brain’s ability to optimize its generative models. By focusing on the mechanisms of mental simulation and the hierarchical structure of generative models, this perspective provides a comprehensive explanation for how rumination develops and persists, leading to depression and other mental disorders. Understanding these processes could improve therapeutic approaches for MDD and other conditions characterized by excessive rumination.
+
 
 #### Post-Traumatic Stress Disorder (PTSD)
 Active inference has been used to model the pathophysiology of PTSD [4]. The core idea is that in PTSD, sparse sensory samples confirm an overly strong prior belief about threat, inducing a sustained stress response state. This corresponds to the notion of "underfitting" in machine learning, where sensory data is given insufficient weight compared to prior beliefs.
@@ -45,7 +58,9 @@ In summary, by casting psychiatric conditions as disorders of inference about st
 
 
 - References
-- [Learned uncertainty: The free energy principle in anxiety](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9559819/#:~:text=Under%20the%20free%20energy%20principle,et%20al.%2C%202012
+- https://www.sciencedirect.com/science/article/pii/S0149763422003621
+- https://www.taylorfrancis.com/chapters/edit/10.4324/9781003084082-3/deep-neurophenomenology-maxwell-ramstead-wanja-wiese-mark-miller-karl-friston
+-  [Learned uncertainty: The free energy principle in anxiety](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9559819/#:~:text=Under%20the%20free%20energy%20principle,et%20al.%2C%202012
 )
 - [Self-supervision, normativity and the free energy principle ](https://link.springer.com/article/10.1007/s11229-020-02622-2)
 - [Reframing PTSD for computational psychiatry with the active inference framework](https://pubmed.ncbi.nlm.nih.gov/31564212/)
