@@ -336,10 +336,9 @@ Citations:
 -   [2] [Patients' and professionals' views related to ethical issues in
     precision medicine: a mixed research
     synthesis](https://bmcmedethics.biomedcentral.com/articles/10.1186/s12910-021-00682-8)
--   [3] [Practical Challenges for Commercial Enterprises in the Ethics Review Process for Digital Health Research: Document Analysis and Interview Study](
-  https://www.medrxiv.org/content/10.1101/2024.01.28.24301885v1.full)
--   [6] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7612237/>
--   [7] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6636063/>
+-   [3] [Practical Challenges for Commercial Enterprises in the Ethics Review Process for Digital Health Research: Document Analysis and Interview Study](https://www.medrxiv.org/content/10.1101/2024.01.28.24301885v1.full)
+-   [6] [The ethical challenges facing the widespread adoption of digital healthcare technology](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7612237)
+-   [7] [Building the case for actionable ethics in digital health research supported by artificial intelligence](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6636063/)
 -   [8]
     <https://bioethics.pitt.edu/sites/default/files/MesserSlides/2020/LSParker%20-%20Ethical%20Issues%20in%20Precision%20Medicine%20-%202020.pdf>
 -   [9]
