@@ -387,20 +387,13 @@ Citations:
 -   [3] [Practical Challenges for Commercial Enterprises in the Ethics Review Process for Digital Health Research: Document Analysis and Interview Study](https://www.medrxiv.org/content/10.1101/2024.01.28.24301885v1.full)
 -   [6] [The ethical challenges facing the widespread adoption of digital healthcare technology](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7612237)
 -   [7] [Building the case for actionable ethics in digital health research supported by artificial intelligence](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6636063/)
--   [8]
-    <https://bioethics.pitt.edu/sites/default/files/MesserSlides/2020/LSParker%20-%20Ethical%20Issues%20in%20Precision%20Medicine%20-%202020.pdf>
--   [9]
-    <https://academic.oup.com/eurpub/article/29/Supplement_3/18/5628045>
--   [10]
-    <https://www.sciencedirect.com/science/article/abs/pii/S0040162521001566>
--   [11] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8214390/>
--   [12]
-    <https://www.thelancet.com/journals/lanhl/article/PIIS2666-7568%2823%2900236-2/fulltext>
--   [13]
-    <https://conflictandhealth.biomedcentral.com/articles/10.1186/s13031-018-0163-z>
--   [14] <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4856186/>
--   [15]
-    <https://journalofethics.ama-assn.org/issue/ethics-precision-health>
+-   [8] [Ethical Issues in Precision Medicine](
+    https://bioethics.pitt.edu/sites/default/files/MesserSlides/2020/LSParker%20-%20Ethical%20Issues%20in%20Precision%20Medicine%20-%202020.pdf)
+-   [11] [Ethical issues in biomedical research using electronic health records: a systematic review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8214390)
+-   [13] [Using digital health to enable ethical health research in conflict and other humanitarian settings](
+  https://conflictandhealth.biomedcentral.com/articles/10.1186/s13031-018-0163-z)
+-   [14] [Emerging ethical issues regarding digital health data. On the World Medical Association Draft Declaration on Ethical Considerations Regarding Health Databases and Biobanks](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4856186)
+
 
 ------------------------------------------------------------------------
 
