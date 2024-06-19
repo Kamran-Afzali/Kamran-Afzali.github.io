@@ -65,6 +65,14 @@ Depression also distorts both experiential and narrative self-perceptions, leadi
 
 In summary, the article presents a comprehensive model explaining how imprecise generative models lead to rumination by hindering effective mental problem-solving and perpetuating a cycle of repetitive and unproductive thought patterns. This understanding provides insights into the mechanisms behind rumination and its role in depression, highlighting potential areas for therapeutic intervention.
 
+To avoid repetitive sampling, treatments should consider the context, mood, or bodily states during problem-solving. Activities like endurance training can reduce rumination by promoting neurogenesis, and experimental treatments like ketamine or psilocybin may increase brain signal entropy. Additionally, integrating the emotional flanker task with CBT helps patients shift attention away from negative thought patterns.
+
+Transforming rumination into an adaptive process involves selecting problems with a beneficial trade-off between resource investment and potential benefits. Metacognitive and acceptance and commitment therapies have shown promise by guiding cognitive processes and goal setting based on personal values. Explicitly incorporating problem complexity estimations and analyzing the costs and benefits of mental engagement can further refine treatments. Patients should learn to predict the time and benefits of solving problems through mental simulation compared to overt actions.
+
+For those who have ceased mental problem-solving, debiasing generalized negative expectations about the value of deep problem-solving can help. This can be achieved through problem-solving tasks with high success rates and positive reinforcements. Classical CBT tools can also help structure the process and reduce overpruning, particularly in early stages of major depressive disorder (MDD).
+
+The text also highlights the shared etiology between MDD and anxiety disorders, with rumination being a common factor. Thus, the proposed improvements for treating rumination in MDD could be beneficial for other psychiatric conditions, such as social anxiety disorder and generalized anxiety disorder. Preventing excessive rumination should be a key therapeutic target across various psychological disorders.
+
 #### Post-Traumatic Stress Disorder (PTSD)
 Active inference has been used to model the pathophysiology of PTSD [4]. The core idea is that in PTSD, sparse sensory samples confirm an overly strong prior belief about threat, inducing a sustained stress response state. This corresponds to the notion of "underfitting" in machine learning, where sensory data is given insufficient weight compared to prior beliefs.
 
@@ -72,9 +80,9 @@ In summary, by casting psychiatric conditions as disorders of inference about st
 
 
 
-- References
-- https://www.sciencedirect.com/science/article/pii/S0149763422003621
-- https://www.taylorfrancis.com/chapters/edit/10.4324/9781003084082-3/deep-neurophenomenology-maxwell-ramstead-wanja-wiese-mark-miller-karl-friston
+#### References
+- [Oversampled and undersolved: Depressive rumination from an active inference perspective](https://www.sciencedirect.com/science/article/pii/S0149763422003621) 
+- [An Active Inference Account of Some Features of Conscious Experience and of Their Disturbance in Major Depressive Disorder](https://www.taylorfrancis.com/chapters/edit/10.4324/9781003084082-3/deep-neurophenomenology-maxwell-ramstead-wanja-wiese-mark-miller-karl-friston) 
 -  [Learned uncertainty: The free energy principle in anxiety](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9559819/#:~:text=Under%20the%20free%20energy%20principle,et%20al.%2C%202012
 )
 - [Self-supervision, normativity and the free energy principle ](https://link.springer.com/article/10.1007/s11229-020-02622-2)
