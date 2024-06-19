@@ -17,12 +17,6 @@ Another principal challange the trade-off between communication and computation 
 ________________________________________
 
 
-To address these challenges, FL must find ways to optimize communication and computation processes. Strategies such as structured updates and restricted space learning can help reduce communication overhead by prioritizing essential information and minimizing redundant data exchange. Ensuring efficient use of communication bandwidth and enhancing the computational capabilities of edge devices are critical for the success of FL. Additionally, techniques to manage statistical heterogeneity and synchronize model updates can mitigate delays and improve overall system efficiency.
-
-In conclusion, while Federated Learning offers significant advantages in terms of data privacy and decentralized model training, it faces substantial communication and computational challenges. Addressing these issues requires continuous optimization and innovative solutions to ensure that FL can be effectively implemented in real-world scenarios.
-
-In a Federated Learning (FL) environment, efficient communication is crucial due to the decentralized nature of the data and the need to update a global machine learning (ML) model across potentially millions of devices. The process involves three main steps: the central server shares the global model with all participating devices, each device trains the model on its local dataset, and the updated model is then uploaded back to the server for aggregation.
-
 Several methods have been researched to improve communication efficiency in FL environments:
 
 1. **Local Updating**: This involves training the ML model locally on each device before sending updates to the central server. However, challenges such as device dropouts and network synchronization issues can impact efficiency. Techniques like primal-dual methods offer flexibility, allowing local devices to use local parameters to train the global model, which helps in solving problems in parallel during each communication round. Despite unevenly distributed data across devices (non-iid), maintaining high testing accuracy of local models is critical for the overall performance of the global model.
