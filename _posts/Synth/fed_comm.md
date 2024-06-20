@@ -14,6 +14,7 @@ Statistical heterogeneity further complicates communication in FL. The data on o
 
 Another principal challange the trade-off between communication and computation efficiency. Improvements in one area often lead to drawbacks in the other, making it essential to find a balance that optimizes both aspects. This delicate balance is crucial for the practical deployment of FL systems, especially in environments with constrained resources.
 
+Techniques like adaptive drift management allow models to be trained efficiently through different phases, reducing communication without sacrificing performance. Another approach is Partitioned Variational Inference (PVI) for probabilistic models, which supports both synchronous and asynchronous updates, making it suitable for federated data. Moreover, a one-shot communication approach, where only a single round of communication occurs between the central server and devices, can be employed. This method involves training local models to completion and then using ensemble methods to integrate device-specific models, potentially outperforming traditional averaging techniques.
 ________________________________________
 
 
