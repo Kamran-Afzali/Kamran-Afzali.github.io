@@ -3,7 +3,7 @@ The digital revolution is transforming the landscape of health research and heal
 
 The governance of digital health research is currently a "wild west," with various stakeholders involved, including technology developers, funders, researchers, participants, and journal editors. There is a lack of regulatory controls or common standards to guide this convergence in the health ecosystem. It is crucial to evaluate whether these technologies are clinically effective, measure what they claim to measure, and improve access to those at highest risk of health disparities. Several gaps and opportunities exist in the digital health research landscape. Firstly, there are disciplinary and sector challenges, as technology makers may not understand patients' needs, computational scientists may train AI on unrepresentative datasets, and clinicians may struggle to manage granular data and AI-driven decisions. Secondly, there is a need to improve digital and technology literacy among various stakeholders, including policymakers, educators, regulators, clinicians, patients, and caregivers. Research is needed to understand their knowledge levels and develop targeted educational resources. Thirdly, there is a lack of consistent ethical and regulatory standards for evaluating and testing new digital health technologies and AI systems. Regulatory bodies and technologists may lack the necessary expertise or training to conduct appropriate risk assessments and ensure ethical practices. Likewise, many stakeholders lack the expertise to properly vet these technologies. Not all undergo rigorous scientific testing before deployment, putting the public at risk of using unproven or flawed products. Demonstrating real-world value through research should be a prerequisite before any digital health technology claiming clinical benefits can be used.
 
-To address these gaps, several initiatives have emerged, such as the Connected and Open Research Ethics (CORE) initiative, the Pervasive Data Ethics for Computational Research (PERVADE) program, and the Mobile Health ELSI (mHealthELSI) project. These initiatives aim to inform policy and governance in this largely unregulated space.
+To address these gaps, several initiatives have emerged to examine the ethical, legal, and social implications (ELSI) of digital health and AI technologies. Groups like the Connected and Open Research Ethics (CORE) initiative, Pervasive Data Ethics for Computational Research (PERVADE), and Mobile Health ELSI (mHealthELSI) project aim to inform policy and governance in this largely unregulated space. However, many of these efforts are broad in scope and may lack specificity for digital health applications.
 
 **This document**
 
@@ -13,14 +13,6 @@ While regulations are slowly emerging, stakeholders must recognize their ethical
 
 
 
-
-__________________________________________
-
-The digital health revolution is rapidly transforming research and clinical practice, but these technologies are being integrated without appropriate vetting or governance. There is a concerning lack of transparency and accountability around how consumer data is being collected, used, and monetized by companies. 
-
-The common refrain "if the product is free, then you're the product" refers to how our online activities like searches, clicks, and keystrokes generate data that companies use to train algorithms and improve their products and services. Consumers unknowingly allow this data harvesting by mindlessly accepting dense terms and conditions that are designed to be confusing.
-
-While some personalized recommendations or targeted ads enabled by this data may seem convenient, there are serious privacy implications. Algorithms can make mistakes or misinterpret our data in ways that invade our privacy or even put us at risk of harm. For example, Facebook's AI has mistakenly interpreted innocuous posts as indicating self-harm, leading to unwarranted wellness checks or police visits. 
 
 
 _______
@@ -33,7 +25,7 @@ Another gap is the need for improved digital and technology literacy across vari
 
 Perhaps the most significant gap is the lack of consistent ethical and regulatory standards for evaluating new digital health technologies, especially those involving AI. Institutional review boards may lack the expertise to properly assess the risks and potential harms. Tech developers may not receive training on ethics, privacy, and regulatory requirements for protecting human research participants. The data used to train AI algorithms is often not considered human subjects research, bypassing safety reviews.
 
-To address these gaps, several initiatives have emerged to examine the ethical, legal, and social implications (ELSI) of digital health and AI technologies. Groups like the Connected and Open Research Ethics (CORE) initiative, Pervasive Data Ethics for Computational Research (PERVADE), and Mobile Health ELSI (mHealthELSI) project aim to inform policy and governance in this largely unregulated space. However, many of these efforts are broad in scope and may lack specificity for digital health applications.
+
 
 As new health technologies proliferate, with an increasing number of stakeholders involved, the gap between known and unknown risks poses a fundamental challenge in evaluating the potential harms versus benefits. There is an urgent need to develop a robust infrastructure for vetting these technologies before widespread deployment in healthcare systems.
 
