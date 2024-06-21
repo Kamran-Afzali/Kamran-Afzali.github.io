@@ -4,7 +4,6 @@ One significant issue with FL is the increased communication overhead due to the
 
 To address these challenges, substantial research efforts have focused on enhancing the communication and computational efficiency of FL. Various strategies have been proposed to optimize the communication process, such as structured updates and restricted space learning, which aim to minimize redundant information exchange and prioritize critical updates. Additionally, there is ongoing research into improving the computational efficiency of FL by optimizing resource allocation and employing lightweight models suitable for devices with limited processing power. More,specifically, Federated Learning presents unique communication challenges due to its distributed nature, involving numerous devices and rounds of communication between these devices and a central server. In an FL environment, the central server shares a global model with all participating devices. These devices then download the model, train it on their local datasets, and upload the updated model parameters back to the server. This process involves continuous downlink and uplink activities that can be hindered by limited bandwidth, power constraints, and unstable network connections.
 
-
 One of the primary challenges is the number of participating devices. While a large number of devices can enhance model performance by providing diverse data, it also creates a significant communication bottleneck. Each device must communicate with the central server during multiple rounds of training, which can be slow and inefficient if the bandwidth is limited. Additionally, a high number of clients can increase the overall computational cost, further complicating the training process.
 
 Network bandwidth is another critical issue. Although FL reduces the need for massive data transfers compared to traditional centralized ML approaches, it still requires efficient use of communication bandwidth. Participating devices may not always have adequate bandwidth and may operate under unreliable network conditions. Discrepancies in upload and download speeds can cause delays in model updates, disrupting the FL environment. Maintaining communication efficiency is crucial to prevent bottlenecks and ensure smooth operation.
@@ -17,6 +16,14 @@ Another principal challange the trade-off between communication and computation 
 Techniques like adaptive drift management allow models to be trained efficiently through different phases, reducing communication without sacrificing performance. Another approach is Partitioned Variational Inference (PVI) for probabilistic models, which supports both synchronous and asynchronous updates, making it suitable for federated data. Moreover, a one-shot communication approach, where only a single round of communication occurs between the central server and devices, can be employed. This method involves training local models to completion and then using ensemble methods to integrate device-specific models, potentially outperforming traditional averaging techniques.
 ________________________________________
 
+The healthcare domain has seen significant advancements in the application of communication-efficient federated learning techniques. One example is the FedHealth framework, which has been applied to healthcare tasks such as medical named entity recognition and adverse drug reaction detection. FedHealth employs a federated learning approach for fine-tuning BERT language models in a privacy-preserving manner. By utilizing techniques like secure aggregation and gradient compression, FedHealth achieves competitive performance while dramatically reducing communication costs - in some cases by up to 99.9%. This significant reduction in data transfer not only improves efficiency but also enhances privacy protection by minimizing the exposure of sensitive medical information.
+
+
+In the field of medical imaging, split learning techniques have shown promise for collaborative analysis without compromising patient privacy. One successful implementation focused on brain tumor segmentation, where the neural network architecture was split across clients and a central server. This approach allowed multiple healthcare institutions to collaborate on improving tumor segmentation accuracy without sharing raw patient data. By reducing the size of exchanged updates, split learning improved communication efficiency while maintaining high segmentation performance.
+
+These implementations demonstrate the versatility and effectiveness of communication-efficient federated learning techniques across various healthcare applications. The success of these implementations highlights several key advantages of communication-efficient federated learning in healthcare. Firstly, they address the critical need for data privacy in medical settings. By keeping sensitive patient data localized and only sharing model updates or distilled knowledge, these approaches significantly reduce the risk of data breaches or unauthorized access to personal health information. Secondly, the reduction in communication costs makes these approaches more feasible for real-world deployment in healthcare systems. Many healthcare institutions, especially in remote or resource-constrained areas, may have limited bandwidth or network capabilities. By minimizing data transfer requirements, these efficient federated learning techniques enable broader participation in collaborative learning efforts, potentially leading to more robust and generalizable models. Furthermore, the ability to incorporate heterogeneous data sources and model architectures, as demonstrated in some of these implementations, is particularly valuable in the healthcare domain. Different institutions may have varying data formats, collection methods, or preferred model architectures. Communication-efficient federated learning approaches that can accommodate this heterogeneity facilitate more inclusive and comprehensive collaborative learning efforts.
+
+__________________________________________
 
 Several methods have been researched to improve communication efficiency in FL environments:
 
@@ -89,7 +96,17 @@ Citations:
 - [3] [Communication Efficiency in Federated Learning: Achievements and Challenges](https://arxiv.org/abs/2107.10996) 
 - [5] [Limitations and Future Aspects of Communication Costs in Federated Learning: A Survey](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10490700/) 
 
-
+Citations:
+- [1] https://arxiv.org/abs/1907.09173
+- [2] https://pubmed.ncbi.nlm.nih.gov/37610908/
+- [3] https://link.springer.com/chapter/10.1007/978-3-031-18523-6_5
+- [4] https://arxiv.org/abs/2208.10553
+- [5] https://www.microsoft.com/en-us/research/publication/fedkd-communication-efficient-federated-learning-via-knowledge-distillation-communication-efficient-federated-learning-via-knowledge-distillation/
+- [6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9823596/
+- [7] https://www.mdpi.com/1424-8220/24/11/3632
+- [8] https://www.nature.com/articles/s42256-020-0186-1
+- [9] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10107558/
+- [10] https://ieeexplore.ieee.org/document/9076082
 ---------------------------->
 
 
