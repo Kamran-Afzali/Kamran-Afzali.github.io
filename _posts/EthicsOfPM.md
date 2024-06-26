@@ -12,27 +12,21 @@ __________________________________________________________________
 
 **Ethical Commitments in Care**
 
-The Research Ethics Committees (RECs) emphasize the importance of inclusivity and equity in digital health studies. They inquire about the availability of necessary digital tools like smartphones and internet access, ensuring these are provided where needed. Concerns are raised about the potential withdrawal of these services post-study, which could impede continued care and participation. Compensation must be fair and consistent across all participants. The RECs also scrutinize software compatibility with various operating systems and physical adaptability of devices to different body shapes and features. They advocate for inclusive questionnaire options, especially regarding gender and Body Mass Index (BMI) criteria, ensuring a diverse participant pool. Non-English speakers and special patient populations require appropriate translation services and justifications for their inclusion or exclusion in studies. RECs encourage applicants to be as inclusive as possible and support them constructively through these complex ethical discussions.
+The Research Ethics Committees (RECs) emphasize the importance of inclusivity and equity in digital health studies. Here we discuss some of he points that could be brought up RECs.
 
 **Autonomy**
-
-**Autonomy**, a relatively new concept in digital healthcare, is crucial for protecting patient independence and dignity. Challenges related to autonomy include freedom of choice in treatment, informed consent, awareness of data collection and usage, and the right to know medical results. Privacy, one of the most critical ethical challenges, involves data protection, confidentiality, data sharing, and intended or unintended data uses.
+Autonomy, a relatively new concept in digital healthcare, is crucial for protecting patient independence and dignity. Challenges related to autonomy include freedom of choice in treatment, informed consent, awareness of data collection and usage, and the right to know medical results. Privacy, one of the most critical ethical challenges, involves data protection, confidentiality, data sharing, and intended or unintended data uses.
 
 **Equity** 
-**Equity** is defined by equal access to digital technology and healthcare, equity in treatment, non-discrimination, data ownership, and empowerment. Security, another significant factor, involves protecting patients' private information from unauthorized access, ensuring data storage safety, and safeguarding information during data transfers.
-
+Equity is defined by equal access to digital technology and healthcare, equity in treatment, non-discrimination, data ownership, and empowerment. 
 
 **Participant Safety and Support**
 
-A significant portion of discussions revolves around public and patient involvement (PPI) in study design and the development of comprehensible materials. Many applicants engage the public, but those who do not receive recommendations to do so. This involvement helps mitigate concerns about participant burden and frustration with the technology. Amendments to recruitment protocols are often requested to reduce participant pressure and ensure voluntary participation. Safety measures for control groups and sensitive populations are critically examined, with well-considered arrangements required. Clear and user-friendly instructions for technology usage are essential, and studies involving high-risk devices must undergo safety checks before approval.
+A significant portion of discussions revolves around public and patient involvement (PPI) in study design and the development of comprehensible materials. This involvement helps mitigate concerns about participant burden and frustration with the technology. Amendments to recruitment protocols are often requested to reduce participant pressure and ensure voluntary participation. Safety measures for control groups and sensitive populations are critically examined, with well-considered arrangements required. Clear and user-friendly instructions for technology usage are essential, and studies involving high-risk devices must undergo safety checks before approval.
 
 **Conflict of Interest**
 
-Conflicts of interest, though affecting a minority of applications, are meticulously addressed. Applicants must disclose all affiliations with sponsors and ensure that financially affiliated researchers do not consent patients. RECs place emphasis on clarifying relationships between researchers, organizations, and study locations, especially when submitted to Higher Education Institution (HEI) RECs.
-
-**Study Design**
-
-Issues in study design often stem from inconsistent recruitment methods and gaps in participant information. For example, recruiting from accident and emergency departments for studies requiring healthy volunteers necessitates clear medical exclusion criteria. RECs demand detailed justifications for participant inclusion and exclusion, ensuring that all necessary consent forms and information sheets are provided. The qualifications of clinicians involved in patient assessment and recruitment are scrutinized, and researchers must provide robust justifications for their sampling and recruitment methods.
+Applicants must disclose all affiliations with sponsors and ensure that financially affiliated researchers do not consent patients. RECs place emphasis on clarifying relationships between researchers, organizations, and study locations, especially when submitted to Higher Education Institution RECs.
 
 **Protocol Robustness**
 
@@ -42,14 +36,105 @@ The adequacy of study protocols frequently requires intricate discussions, parti
 
 Harm prevention is critical, with most applications encountering barriers related to unforeseen events such as participant non-adherence or emergencies. Mechanisms must be in place to detect and address these issues swiftly, with constant contact maintained for high-risk patients. Clear reaction protocols for unexpected events, such as device failures, are essential. Proper training for staff and clinicians, sterilization of materials, and listing device contraindications are emphasized to avert potential risks.
 
-**Digital Health Research Peculiarities**
-
-The necessity and value of research goals are scrutinized, particularly in the context of digital health interventions. RECs ensure that research objectives align with traditional healthcare outcomes and have practical implications. Remote encounters, although infrequent in causing action points, present unique challenges such as maintaining accuracy and privacy during assessments.
-
 **Data Governance**
 
 Data management, including storage, access, and transfer, is a significant focus. Applicants must de-identify data, clarify device ownership, and justify unconventional storage methods. Clear procedures for handling data upon participant withdrawal are required, along with secure data transfer protocols, especially in international collaborations. Anonymization and confidentiality strategies must be detailed, distinguishing between pseudonymous and anonymous data. Video and audio recording justifications are necessary, particularly regarding the duration of storage and sharing with sponsors.
 
+___________________________________________
+
+
+
+## Main Ethical Concerns
+
+1.  **Privacy and Confidentiality**: Ensuring the protection of patient
+    data from unauthorized access and breaches.
+2.  **Informed Consent**: Guaranteeing that patients fully understand
+    the implications of their participation, including potential risks
+    and benefits.
+3.  **Data Governance**: Establishing clear policies for data storage,
+    sharing, and usage.
+4.  **Equity and Access**: Ensuring that precision medicine and digital
+    health interventions are accessible to all populations, including
+    underprivileged and minority groups.
+5.  **Psychosocial Impact**: Considering the potential psychological and
+    social effects on patients, such as anxiety from genetic
+    information.
+6.  **Discrimination and Stigmatization**: Preventing the misuse of
+    genetic information by employers, insurers, or other entities.
+7.  **Doctor-Patient Relationship**: Maintaining the quality of the
+    doctor-patient relationship amidst the increasing focus on data.
+8.  **Cost and Economic Impact**: Addressing the financial burden on
+    patients and ensuring cost-effectiveness.
+9.  **Autonomy and Decision-Making**: Respecting patients' autonomy and
+    their right to make informed decisions about their health.
+10. **Ethical Use of AI and Algorithms**: Ensuring transparency and
+    fairness in the use of AI and machine learning in healthcare
+    decisions.
+
+## Systematic Questions
+
+### Privacy and Confidentiality
+
+-   How will patient data be protected from unauthorized access and
+    breaches?
+-   What measures are in place to ensure data confidentiality?
+
+### Informed Consent
+
+-   How will informed consent be obtained and documented?
+-   Are patients provided with comprehensive information about the
+    potential risks and benefits of the study?
+
+### Data Governance
+
+-   What are the policies for data storage, sharing, and usage?
+-   How will data be anonymized or de-identified to protect patient
+    privacy?
+
+### Equity and Access
+
+-   How will the project ensure equitable access to precision medicine
+    and digital health interventions?
+-   Are there strategies to include underprivileged and minority groups
+    in the study?
+
+### Psychosocial Impact
+
+-   What are the potential psychological and social effects on patients?
+-   How will the project address and mitigate these effects?
+
+### Discrimination and Stigmatization
+
+-   What safeguards are in place to prevent the misuse of genetic
+    information by employers, insurers, or other entities?
+-   How will the project address concerns about potential discrimination
+    and stigmatization?
+
+### Doctor-Patient Relationship
+
+-   How will the project maintain the quality of the doctor-patient
+    relationship?
+-   What steps are taken to ensure that the focus on data does not
+    undermine patient care?
+
+### Cost and Economic Impact
+
+-   What is the financial burden on patients participating in the study?
+-   How will the project ensure cost-effectiveness and avoid unnecessary
+    expenses?
+
+### Autonomy and Decision-Making
+
+-   How will the project respect patients' autonomy and their right to
+    make informed decisions?
+-   Are there mechanisms to support patients in understanding their
+    options and making informed choices?
+
+### Ethical Use of AI and Algorithms
+
+-   How will AI and machine learning be used in the project?
+-   What measures are in place to ensure transparency, fairness, and
+    accountability in the use of AI?
 
 
 
@@ -213,102 +298,6 @@ miscommunication. Maintaining a strong patient-doctor relationship is
 fundamental to practicing medicine. Further research across diverse
 populations is necessary to identify and address emerging ethical issues
 and risks associated with precision medicine.
-
-___________________________________________
-
-
-
-## Main Ethical Concerns
-
-1.  **Privacy and Confidentiality**: Ensuring the protection of patient
-    data from unauthorized access and breaches.
-2.  **Informed Consent**: Guaranteeing that patients fully understand
-    the implications of their participation, including potential risks
-    and benefits.
-3.  **Data Governance**: Establishing clear policies for data storage,
-    sharing, and usage.
-4.  **Equity and Access**: Ensuring that precision medicine and digital
-    health interventions are accessible to all populations, including
-    underprivileged and minority groups.
-5.  **Psychosocial Impact**: Considering the potential psychological and
-    social effects on patients, such as anxiety from genetic
-    information.
-6.  **Discrimination and Stigmatization**: Preventing the misuse of
-    genetic information by employers, insurers, or other entities.
-7.  **Doctor-Patient Relationship**: Maintaining the quality of the
-    doctor-patient relationship amidst the increasing focus on data.
-8.  **Cost and Economic Impact**: Addressing the financial burden on
-    patients and ensuring cost-effectiveness.
-9.  **Autonomy and Decision-Making**: Respecting patients' autonomy and
-    their right to make informed decisions about their health.
-10. **Ethical Use of AI and Algorithms**: Ensuring transparency and
-    fairness in the use of AI and machine learning in healthcare
-    decisions.
-
-## Systematic Questions
-
-### Privacy and Confidentiality
-
--   How will patient data be protected from unauthorized access and
-    breaches?
--   What measures are in place to ensure data confidentiality?
-
-### Informed Consent
-
--   How will informed consent be obtained and documented?
--   Are patients provided with comprehensive information about the
-    potential risks and benefits of the study?
-
-### Data Governance
-
--   What are the policies for data storage, sharing, and usage?
--   How will data be anonymized or de-identified to protect patient
-    privacy?
-
-### Equity and Access
-
--   How will the project ensure equitable access to precision medicine
-    and digital health interventions?
--   Are there strategies to include underprivileged and minority groups
-    in the study?
-
-### Psychosocial Impact
-
--   What are the potential psychological and social effects on patients?
--   How will the project address and mitigate these effects?
-
-### Discrimination and Stigmatization
-
--   What safeguards are in place to prevent the misuse of genetic
-    information by employers, insurers, or other entities?
--   How will the project address concerns about potential discrimination
-    and stigmatization?
-
-### Doctor-Patient Relationship
-
--   How will the project maintain the quality of the doctor-patient
-    relationship?
--   What steps are taken to ensure that the focus on data does not
-    undermine patient care?
-
-### Cost and Economic Impact
-
--   What is the financial burden on patients participating in the study?
--   How will the project ensure cost-effectiveness and avoid unnecessary
-    expenses?
-
-### Autonomy and Decision-Making
-
--   How will the project respect patients' autonomy and their right to
-    make informed decisions?
--   Are there mechanisms to support patients in understanding their
-    options and making informed choices?
-
-### Ethical Use of AI and Algorithms
-
--   How will AI and machine learning be used in the project?
--   What measures are in place to ensure transparency, fairness, and
-    accountability in the use of AI?
 
 
 
