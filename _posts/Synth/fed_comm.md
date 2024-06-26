@@ -25,7 +25,12 @@ These implementations demonstrate the versatility and effectiveness of communica
 - [Communication-Efficient Federated Learning with Adaptive Consensus ADMM ](https://www.mdpi.com/2076-3417/13/9/5270)
 - [Communication Efficiency in Federated Learning: Achievements and Challenges](https://arxiv.org/abs/2107.10996) 
 - [Limitations and Future Aspects of Communication Costs in Federated Learning: A Survey](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10490700/) 
-
+- [A Comprehensive Survey on Federated Learning Techniques for Healthcare Informatics](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9995203/)
+- [Open problems in medical federated learning](https://www.emerald.com/insight/content/doi/10.1108/IJWIS-04-2022-0080/full/html)
+- [In the Pursuit of Privacy: The Promises and Predicaments of Federated Learning in Healthcare](https://www.frontiersin.org/articles/10.3389/frai.2021.746497/full)
+- [Fairness and Privacy in Federated Learning and Their Implications in Healthcare](https://arxiv.org/abs/2308.07805)
+- [Federated learning-based AI approaches in smart healthcare: concepts, taxonomies, challenges and open issues](https://link.springer.com/article/10.1007/s10586-022-03658-4)
+- [The future of digital health with federated learning](https://www.nature.com/articles/s41746-020-00323-1)
 
 _______________________________________
 
@@ -55,10 +60,4 @@ Addressing these operational coordination challenges requires a multifaceted app
 
 The successful implementation of federated learning in healthcare has the potential to revolutionize medical research and patient care. By enabling collaborative learning across institutions while preserving data privacy, FL can lead to more robust and generalizable AI models in healthcare. However, overcoming the operational coordination challenges discussed here is crucial for realizing the full potential of federated learning in healthcare and ensuring its widespread adoption in the medical field.
 
-Citations:
-- [1] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9995203/
-- [2] https://www.emerald.com/insight/content/doi/10.1108/IJWIS-04-2022-0080/full/html
-- [3] https://www.frontiersin.org/articles/10.3389/frai.2021.746497/full
-- [4] https://arxiv.org/abs/2308.07805
-- [5] https://link.springer.com/article/10.1007/s10586-022-03658-4
-- [6] https://www.nature.com/articles/s41746-020-00323-1
+
