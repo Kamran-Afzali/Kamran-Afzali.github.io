@@ -1,4 +1,7 @@
-The free energy principle and active inference framework provide a computational account for understanding various psychiatric disorders as disorders of inference. Here are some examples from the scientific literature on how this framework can be applied to psychiatric disorders:
+
+
+The free energy principle and active inference framework offer a novel computational perspective for understanding psychiatric disorders, framing them as disorders of inference. This framework provides a unified explanation of how maladaptive beliefs and perceptions can lead to conditions like anxiety and depression by disrupting the brain's ability to minimize uncertainty. In this context here we outline FEP accounts of anxiety and depression. For anxiety, traditional models have emphasized cognitive biases and learned responses, but the free energy principle suggests that anxiety stems from a persistent mismatch between expected and actual outcomes, leading to irreducible uncertainty. Similarly, in depression, the framework explains rumination as a failure in the brain's generative models to effectively reduce uncertainty, leading to persistent negative thought patterns and maladaptive problem-solving strategies. By integrating insights from biological, behavioral, and cognitive theories, the free energy principle and active inference framework provide a comprehensive approach to understanding and treating these mental health conditions, highlighting the importance of addressing learned uncertainty and maladaptive cognitive processes in therapeutic interventions.
+
 
 #### Anxiety
 
@@ -26,12 +29,6 @@ Persistent uncertainty is a well-documented precursor to anxiety. Research shows
 
 Distinguishing between accurately modeling a truly uncertain world and inaccurately modeling a certain world is crucial. In some cases, the world genuinely is uncertain, and modeling this accurately does not necessarily lead to anxiety. However, anxiety arises when the brain inaccurately models the world as uncertain even when it is not. This misalignment occurs when the brain's models persistently expect uncertainty due to prior experiences, leading to a new state of homeostasis based on learned uncertainty. This pathological state causes the individual to behave as if the world is uncertain, even when it becomes more predictable. Although the model described simplifies the complex processes involved in anxiety formation, it highlights the importance of how the brain differentiates between internal and external states. This differentiation, known as the Markov blanket, is crucial for understanding how the brain's internal models interact with external realities. Future research will need to delve deeper into these interoceptive aspects to fully understand anxiety.
 
-#### Schizophrenia
-According to the active inference framework, symptoms like hallucinations or delusions in schizophrenia can be explained as resulting from false inferences about the causes of sensory inputs [1][2]. Specifically, an aberrant regulation of the precision parameter, which weights sensory evidence against prior beliefs, can lead to hallucinations if unreliable sensory data is given too much precision compared to prior beliefs [2].
-
-#### Autism Spectrum Disorder  
-The active inference view suggests that the core deficit in autism may be a failure to attenuate or suppress the precision of sensory evidence for self-produced actions (sensory attenuation) [1][2]. This could explain symptoms like hypersensitivity to sensory stimuli and difficulties with coherence and integration of information in autism.
-
 #### Depression
 The free energy principle has been proposed as a unifying framework where depression emerges from a collection of depressive beliefs or distorted representations of the world, particularly related to reward representation. Rumination involves repetitive and often unproductive thoughts about one’s mood, problems, and their origins, which typically leads to a depressed mood and hampers problem-solving. This persistent mental state can lead to mental disorders like major depression. Despite extensive research and various models explaining rumination, its exact function remains unclear. 
 
@@ -47,6 +44,19 @@ Long-term rumination has several negative consequences such opportunity costs it
 
 
 As a treatment framework along these lines to avoid repetitive sampling, therapists should consider the context, mood, or bodily states during problem-solving. Activities like endurance training can reduce rumination by promoting neurogenesis, integrating the emotional flanker task with CBT helps patients shift attention away from negative thought patterns. Along the same lines, metacognitive and acceptance and commitment therapies have shown promise by guiding cognitive processes and goal setting based on personal values. Explicitly incorporating problem complexity estimations and analyzing the costs and benefits of mental engagement can further refine treatments. Patients should learn to predict the time and benefits of solving problems through mental simulation compared to overt actions. It is also important to highlight the shared etiology between MDD and anxiety disorders, with rumination being a common factor. Thus, the proposed improvements for treating rumination in MDD could be beneficial for other psychiatric conditions, such as social anxiety disorder and generalized anxiety disorder. Preventing excessive rumination should be a key therapeutic target across various psychological disorders.
+
+
+
+
+The free energy principle and active inference framework provide a computational account for understanding various psychiatric disorders as disorders of inference. Here are some examples from the scientific literature on how this framework can be applied to psychiatric disorders:
+
+
+#### Schizophrenia
+According to the active inference framework, symptoms like hallucinations or delusions in schizophrenia can be explained as resulting from false inferences about the causes of sensory inputs [1][2]. Specifically, an aberrant regulation of the precision parameter, which weights sensory evidence against prior beliefs, can lead to hallucinations if unreliable sensory data is given too much precision compared to prior beliefs [2].
+
+#### Autism Spectrum Disorder  
+The active inference view suggests that the core deficit in autism may be a failure to attenuate or suppress the precision of sensory evidence for self-produced actions (sensory attenuation) [1][2]. This could explain symptoms like hypersensitivity to sensory stimuli and difficulties with coherence and integration of information in autism.
+
 
 #### Post-Traumatic Stress Disorder (PTSD)
 Active inference has been used to model the pathophysiology of PTSD [4]. The core idea is that in PTSD, sparse sensory samples confirm an overly strong prior belief about threat, inducing a sustained stress response state. This corresponds to the notion of "underfitting" in machine learning, where sensory data is given insufficient weight compared to prior beliefs.
