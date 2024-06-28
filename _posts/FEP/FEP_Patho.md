@@ -59,9 +59,36 @@ The active inference view suggests that the core deficit in autism may be a fail
 
 
 #### Post-Traumatic Stress Disorder (PTSD)
-Active inference has been used to model the pathophysiology of PTSD [4]. The core idea is that in PTSD, sparse sensory samples confirm an overly strong prior belief about threat, inducing a sustained stress response state. This corresponds to the notion of "underfitting" in machine learning, where sensory data is given insufficient weight compared to prior beliefs.
 
-In summary, by casting psychiatric conditions as disorders of inference about states of the world or body, the free energy principle and active inference allow for a unified computational understanding linking symptoms to putative underlying mechanisms like aberrant precision weighting. This formal framework provides a way to connect empirical findings across different disorders.
+The free energy principle and active inference framework offer valuable insights into understanding trauma and PTSD from a computational perspective. These approaches conceptualize psychiatric disorders as disorders of inference, providing a unified computational understanding that links symptoms to underlying mechanisms.
+
+In the context of PTSD, the free energy principle suggests that traumatic experiences lead to maladaptive predictions and heightened stress responses. One key aspect is the concept of aberrant precision weighting, where individuals with PTSD tend to overestimate the precision of threat-related predictions. This results in persistent and exaggerated fear responses even in safe environments, explaining the characteristic hypervigilance and re-experiencing symptoms of PTSD.
+
+Active inference extends this framework by emphasizing the role of action in minimizing free energy. In PTSD, this can manifest as maladaptive explore-exploit dynamics. Individuals may exhibit impaired ability to update their beliefs about environmental safety, leading to either excessive avoidance (over-exploitation of perceived safe behaviors) or risky behaviors (maladaptive exploration) as coping mechanisms.
+
+Similar to anxiety, the concept of learned uncertainty is another important aspect explained by the free energy principle. Traumatic experiences can lead to a heightened state of uncertainty and unpredictability, causing the brain to overestimate the likelihood of future threats. This learned uncertainty perpetuates anxiety and stress responses, contributing to the development and maintenance of PTSD symptoms.
+
+Stress habituation can also be understood using the free energy principle. Repeated exposure to stressors can lead to changes in the brain's predictive models, resulting in either habituation or sensitization to stress. In PTSD, the failure to habituate to stress may be due to an inability to update predictive models appropriately, leading to persistent stress responses and maladaptive coping strategies.
+
+The strength of applying the free energy principle and active inference to PTSD lies in their ability to recontextualize and integrate a range of empirical evidence. These frameworks offer a predictive model of how sensory-perceptual and cognitive aspects of anxiety may arise, going beyond static belief/filter models often applied in traditional cognitive-behavioral approaches.
+
+Furthermore, these approaches can generate predictions about future behaviors, specifically in relation to how anxiety will interact with the processes of minimizing free energy. This may point to new treatment options and provide a more comprehensive understanding of PTSD's underlying mechanisms. By focusing on maladaptive inference processes, aberrant precision weighting, and impaired explore-exploit dynamics, these frameworks offer valuable insights into the mechanisms underlying PTSD and potential avenues for therapeutic intervention. This approach not only aligns with existing empirical evidence but also provides a unifying theoretical framework that can guide future research and treatment strategies in the field of trauma and PTSD.
+
+Citations:
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961115/
+- https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.943785/full
+- https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.865203/full
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6816477/
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9345684/
+- https://pubmed.ncbi.nlm.nih.gov/31830495/
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9559819/
+- https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2022.955558/full
+- https://www.linkedin.com/posts/briandrivera_flow-tbi-ptsd-activity-7097216073946603522-yiX5?trk=public_profile_like_view
+- https://home.hellodriven.com/articles/the-neuroscience-of-adversity-vs-fristons-free-energy-principle/
+- https://academic.oup.com/nc/article/2024/1/niae011/7631817
+- https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2823%2900283-8
+- https://www.frontiersin.org/journals/neural-circuits/articles/10.3389/fncir.2024.1283372/full
+- https://www.tandfonline.com/doi/full/10.1080/13546805.2019.1665994
 
 
 
