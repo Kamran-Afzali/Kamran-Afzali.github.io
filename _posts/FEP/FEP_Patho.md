@@ -60,24 +60,22 @@ The active inference view suggests that the core deficit in autism may be a fail
 
 #### Post-Traumatic Stress Disorder (PTSD)
 
-The free energy principle and active inference framework offer valuable insights into understanding trauma and PTSD from a computational perspective. These approaches conceptualize psychiatric disorders as disorders of inference, providing a unified computational understanding that links symptoms to underlying mechanisms.
+In the context of PTSD, the free energy principle suggests that traumatic experiences lead to maladaptive predictions and heightened stress responses. One key aspect is the concept of aberrant precision weighting, where individuals with PTSD tend to overestimate the precision of threat-related predictions. This results in persistent and exaggerated fear responses even in safe environments, explaining the characteristic hypervigilance and re-experiencing symptoms of PTSD. The strength of applying the free energy principle and active inference to PTSD lies in their ability to recontextualize and integrate a range of empirical evidence. These frameworks offer a predictive model of how sensory-perceptual and cognitive aspects of anxiety may arise, going beyond static belief/filter models often applied in traditional cognitive-behavioral approaches.
 
-In the context of PTSD, the free energy principle suggests that traumatic experiences lead to maladaptive predictions and heightened stress responses. One key aspect is the concept of aberrant precision weighting, where individuals with PTSD tend to overestimate the precision of threat-related predictions. This results in persistent and exaggerated fear responses even in safe environments, explaining the characteristic hypervigilance and re-experiencing symptoms of PTSD.
 
 Active inference extends this framework by emphasizing the role of action in minimizing free energy. In PTSD, this can manifest as maladaptive explore-exploit dynamics. Individuals may exhibit impaired ability to update their beliefs about environmental safety, leading to either excessive avoidance (over-exploitation of perceived safe behaviors) or risky behaviors (maladaptive exploration) as coping mechanisms.
 
-Similar to anxiety, the concept of learned uncertainty is another important aspect explained by the free energy principle. Traumatic experiences can lead to a heightened state of uncertainty and unpredictability, causing the brain to overestimate the likelihood of future threats. This learned uncertainty perpetuates anxiety and stress responses, contributing to the development and maintenance of PTSD symptoms.
+Similar to anxiety, traumatic experiences can lead to a heightened state of uncertainty and unpredictability, causing the brain to overestimate the likelihood of future threats. This learned uncertainty perpetuates anxiety and stress responses, contributing to the development and maintenance of PTSD symptoms.
 
 Stress habituation can also be understood using the free energy principle. Repeated exposure to stressors can lead to changes in the brain's predictive models, resulting in either habituation or sensitization to stress. In PTSD, the failure to habituate to stress may be due to an inability to update predictive models appropriately, leading to persistent stress responses and maladaptive coping strategies.
 
-The strength of applying the free energy principle and active inference to PTSD lies in their ability to recontextualize and integrate a range of empirical evidence. These frameworks offer a predictive model of how sensory-perceptual and cognitive aspects of anxiety may arise, going beyond static belief/filter models often applied in traditional cognitive-behavioral approaches.
 
-Furthermore, these approaches can generate predictions about future behaviors, specifically in relation to how anxiety will interact with the processes of minimizing free energy. This may point to new treatment options and provide a more comprehensive understanding of PTSD's underlying mechanisms. By focusing on maladaptive inference processes, aberrant precision weighting, and impaired explore-exploit dynamics, these frameworks offer valuable insights into the mechanisms underlying PTSD and potential avenues for therapeutic intervention. This approach not only aligns with existing empirical evidence but also provides a unifying theoretical framework that can guide future research and treatment strategies in the field of trauma and PTSD.
+
+
 
 Citations:
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961115/
-- https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.943785/full
-- https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.865203/full
+- [Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961115/) 
+- [How Stress Can Change Our Deepest Preferences: Stress Habituation Explained Using the Free Energy Principle](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.865203/full) 
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6816477/
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9345684/
 - https://pubmed.ncbi.nlm.nih.gov/31830495/
