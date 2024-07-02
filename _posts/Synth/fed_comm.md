@@ -30,7 +30,7 @@ The successful implementation of federated learning in healthcare has the potent
 - [Fairness and Privacy in Federated Learning and Their Implications in Healthcare](https://arxiv.org/abs/2308.07805)
 - [Federated learning-based AI approaches in smart healthcare: concepts, taxonomies, challenges and open issues](https://link.springer.com/article/10.1007/s10586-022-03658-4)
 - [The future of digital health with federated learning](https://www.nature.com/articles/s41746-020-00323-1)
-
+- [Medical Imaging Applications of Federated Learning](https://www.mdpi.com/2075-4418/13/19/3140)
 _______________________________________
 
 
