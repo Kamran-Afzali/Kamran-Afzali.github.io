@@ -12,35 +12,35 @@ The Research Ethics Committees (RECs) emphasize the importance of inclusivity an
 
 **Autonomy**
 
-Autonomy, a relatively new concept in digital healthcare, is crucial for protecting patient independence and dignity. Challenges related to autonomy include freedom of choice in treatment, informed consent, awareness of data collection and usage, and the right to know medical results. Privacy, one of the most critical ethical challenges, involves data protection, confidentiality, data sharing, and intended or unintended data uses. In the same vein, Informed Consent guarantees that patients fully understand the implications of their participation, including potential risks and benefits.
+- Autonomy, a relatively new concept in digital healthcare, is crucial for protecting patient independence and dignity. Challenges related to autonomy include freedom of choice in treatment, informed consent, awareness of data collection and usage, and the right to know medical results. Privacy, one of the most critical ethical challenges, involves data protection, confidentiality, data sharing, and intended or unintended data uses. In the same vein, Informed Consent guarantees that patients fully understand the implications of their participation, including potential risks and benefits.
 
 **Equity** 
 
-Equity is defined by equal access to digital technology and healthcare, equity in treatment, non-discrimination, data ownership, and empowerment. Here the aim is to ensure that precision medicine and digital health interventions are accessible to all populations, including underprivileged and minority groups.
+- Equity is defined by equal access to digital technology and healthcare, equity in treatment, non-discrimination, data ownership, and empowerment. Here the aim is to ensure that precision medicine and digital health interventions are accessible to all populations, including underprivileged and minority groups.
 
 **Participant Safety and Support**
 
-A significant portion of discussions revolves around public and patient involvement (PPI) in study design and the development of comprehensible materials. This involvement helps mitigate concerns about participant burden and frustration with the technology. Amendments to recruitment protocols are often requested to reduce participant pressure and ensure voluntary participation. Safety measures for control groups and sensitive populations are critically examined, with well-considered arrangements required. Clear and user-friendly instructions for technology usage are essential, and studies involving high-risk devices must undergo safety checks before approval.
+- A significant portion of discussions revolves around public and patient involvement (PPI) in study design and the development of comprehensible materials. This involvement helps mitigate concerns about participant burden and frustration with the technology. Amendments to recruitment protocols are often requested to reduce participant pressure and ensure voluntary participation. Safety measures for control groups and sensitive populations are critically examined, with well-considered arrangements required. Clear and user-friendly instructions for technology usage are essential, and studies involving high-risk devices must undergo safety checks before approval.
 
 
 **Psychosocial Impact**
 
-Similar to the point mentioned above considering the potential psychological and social effects on patients, such as anxiety from genetic information. Preventing the misuse of genetic information by employers, insurers, or other entities. Psychosocial harms and the necessity for genetic counseling are also prominent themes. Patients experience psychological distress from frequent diagnostic scans and receiving genetic test results indicating increased disease risks. This distress can affect their quality of life and adherence to treatments. 
+- Similar to the point mentioned above considering the potential psychological and social effects on patients, such as anxiety from genetic information. Preventing the misuse of genetic information by employers, insurers, or other entities. Psychosocial harms and the necessity for genetic counseling are also prominent themes. Patients experience psychological distress from frequent diagnostic scans and receiving genetic test results indicating increased disease risks. This distress can affect their quality of life and adherence to treatments. 
 
 **Conflict of Interest**
 
-Applicants must disclose all affiliations with sponsors and ensure that financially affiliated researchers do not consent patients. RECs place emphasis on clarifying relationships between researchers, organizations, and study locations, especially when submitted to Higher Education Institution RECs.
+- Applicants must disclose all affiliations with sponsors and ensure that financially affiliated researchers do not consent patients. RECs place emphasis on clarifying relationships between researchers, organizations, and study locations, especially when submitted to Higher Education Institution RECs.
 
-The cost-benefit ratio of PM is another contentious issue. Some professionals argue that other health interventions might offer greater
+- The cost-benefit ratio of PM is another contentious issue. Some professionals argue that other health interventions might offer greater
 benefits and deserve better funding. Reallocating resources towards improving living conditions and health-related behaviors, could potentially yield more significant health benefits. Despite these concerns, some studies indicate that PM is at least as cost-effective as conventional care, warranting further investigation into its economic viability.
 
 **Harm Prevention**
 
-Harm prevention is critical, with most applications encountering barriers related to unforeseen events such as participant non-adherence or emergencies. Mechanisms must be in place to detect and address these issues swiftly, with constant contact maintained for high-risk patients. Clear reaction protocols for unexpected events, such as device failures, are essential. Proper training for staff and clinicians, sterilization of materials, and listing device contraindications are emphasized to avert potential risks.
+- Harm prevention is critical, with most applications encountering barriers related to unforeseen events such as participant non-adherence or emergencies. Mechanisms must be in place to detect and address these issues swiftly, with constant contact maintained for high-risk patients. Clear reaction protocols for unexpected events, such as device failures, are essential. Proper training for staff and clinicians, sterilization of materials, and listing device contraindications are emphasized to avert potential risks.
 
 **Data Governance**
 
-Data management, including storage, access, and transfer, is a significant focus. Applicants must de-identify data, clarify device ownership, and justify unconventional storage methods. Clear procedures for handling data upon participant withdrawal are required, along with secure data transfer protocols, especially in international collaborations. Anonymization and confidentiality strategies must be detailed, distinguishing between pseudonymous and anonymous data. Video and audio recording justifications are necessary, particularly regarding the duration of storage and sharing with sponsors.
+- Data management, including storage, access, and transfer, is a significant focus. Applicants must de-identify data, clarify device ownership, and justify unconventional storage methods. Clear procedures for handling data upon participant withdrawal are required, along with secure data transfer protocols, especially in international collaborations. Anonymization and confidentiality strategies must be detailed, distinguishing between pseudonymous and anonymous data. Video and audio recording justifications are necessary, particularly regarding the duration of storage and sharing with sponsors.
 
 
 ### Questions
