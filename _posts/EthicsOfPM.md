@@ -45,74 +45,68 @@ Data management, including storage, access, and transfer, is a significant focus
 
 ### Questions
 
-### Privacy and Confidentiality
+**Privacy and Confidentiality**
 
 -   How will patient data be protected from unauthorized access and
     breaches?
 -   What measures are in place to ensure data confidentiality?
 
-### Informed Consent
+**Informed Consent**
 
 -   How will informed consent be obtained and documented?
 -   Are patients provided with comprehensive information about the potential risks and benefits of the study?
 
-### Data Governance
+**Data Governance**
 
 -   What are the policies for data storage, sharing, and usage?
 -   How will data be anonymized or de-identified to protect patient privacy?
 
-### Equity and Access
+**Equity and Access**
 
 -   How will the project ensure equitable access to precision medicine and digital health interventions?
 -   Are there strategies to include underprivileged and minority groups in the study?
 
-### Psychosocial Impact
+**Psychosocial Impact**
 
 -   What are the potential psychological and social effects on patients?
 -   How will the project address and mitigate these effects?
 
-### Discrimination and Stigmatization
+**Discrimination and Stigmatization**
 
 -   What safeguards are in place to prevent the misuse information by employers, insurers, or other entities?
 -   How will the project address concerns about potential discrimination and stigmatization?
 
-### Doctor-Patient Relationship
+**Doctor-Patient Relationship**
 
 -   How will the project maintain the quality of the doctor-patient relationship?
 -   What steps are taken to ensure that the focus on data does not undermine patient care?
 
-### Cost and Economic Impact
+**Cost and Economic Impact**
 
 -   What is the financial burden on patients participating in the study?
 -   How will the project ensure cost-effectiveness and avoid unnecessary expenses?
 
-### Autonomy and Decision-Making
+**Autonomy and Decision-Making**
 
 -   How will the project respect patients' autonomy and their right to make informed decisions?
 -   Are there mechanisms to support patients in understanding their options and making informed choices?
 
-### Ethical Use of AI and Algorithms
+**Ethical Use of AI and Algorithms**
 
 -   What measures are in place to ensure transparency, fairness, and accountability in the use of AI?
 
 
 
-Citations:
+### References:
 
--   [1] [Patients' perspectives related to ethical issues and risks in
-    precision medicine: a systematic
-    review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10310545/)
--   [2] [Patients' and professionals' views related to ethical issues in
-    precision medicine: a mixed research
-    synthesis](https://bmcmedethics.biomedcentral.com/articles/10.1186/s12910-021-00682-8)
--   [3] [Practical Challenges for Commercial Enterprises in the Ethics Review Process for Digital Health Research: Document Analysis and Interview Study](https://www.medrxiv.org/content/10.1101/2024.01.28.24301885v1.full)
--   [6] [The ethical challenges facing the widespread adoption of digital healthcare technology](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7612237)
--   [7] [Building the case for actionable ethics in digital health research supported by artificial intelligence](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6636063/)
--   [8] [Ethical Issues in Precision Medicine](
-    https://bioethics.pitt.edu/sites/default/files/MesserSlides/2020/LSParker%20-%20Ethical%20Issues%20in%20Precision%20Medicine%20-%202020.pdf)
--   [11] [Ethical issues in biomedical research using electronic health records: a systematic review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8214390)
--   [13] [Using digital health to enable ethical health research in conflict and other humanitarian settings](
-  https://conflictandhealth.biomedcentral.com/articles/10.1186/s13031-018-0163-z)
--   [14] [Emerging ethical issues regarding digital health data. On the World Medical Association Draft Declaration on Ethical Considerations Regarding Health Databases and Biobanks](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4856186)
+- [Patients' perspectives related to ethical issues and risks in precision medicine: a systematic review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10310545/)
+- [Patients' and professionals' views related to ethical issues in precision medicine: a mixed research synthesis](https://bmcmedethics.biomedcentral.com/articles/10.1186/s12910-021-00682-8)
+- [Practical Challenges for Commercial Enterprises in the Ethics Review Process for Digital Health Research: Document Analysis and Interview Study](https://www.medrxiv.org/content/10.1101/2024.01.28.24301885v1.full)
+- [The ethical challenges facing the widespread adoption of digital healthcare technology](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7612237)
+- [Building the case for actionable ethics in digital health research supported by artificial intelligence](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6636063/)
+- [Ethical Issues in Precision Medicine](https://bioethics.pitt.edu/sites/default/files/MesserSlides/2020/LSParker%20-%20Ethical%20Issues%20in%20Precision%20Medicine%20-%202020.pdf)
+- [Ethical issues in biomedical research using electronic health records: a systematic review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8214390)
+- [Using digital health to enable ethical health research in conflict and other humanitarian settings](https://conflictandhealth.biomedcentral.com/articles/10.1186/s13031-018-0163-z)
+- [Emerging ethical issues regarding digital health data. On the World Medical Association Draft Declaration on Ethical Considerations Regarding Health Databases and Biobanks](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4856186)
 
 
