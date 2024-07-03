@@ -60,6 +60,40 @@ The active inference view suggests that the core deficit in autism may be a fail
 
 #### Post-Traumatic Stress Disorder (PTSD)
 
+Post-traumatic stress disorder (PTSD) significantly impacts individuals who have experienced traumatic events, such as combat veterans, first responders, and abuse survivors. This disorder is characterized by its heterogeneous nature, with varying causes and effects, making it complex to understand and treat. Traditional models often focus narrowly on specific disciplines like neurobiology or behavioral psychology. However, a novel approach using the active inference framework aims to unify these perspectives. This framework reinterprets neuropsychological dysfunctions, including PTSD, by recasting concepts like executive control, attention, and contextual processing in terms of active inference.
+
+The active inference framework builds on computational psychiatry's success, proposing that PTSD results from maladaptive behavior emerging from a normally functioning system. It suggests that PTSD can be viewed as a quasi-lesion leading to pathological behavior, emphasizing the need for a generative model that explains PTSD through message passing and belief updating. This model is grounded in the Bayesian principles and seeks to relate clinical constructs to empirical studies, aiming to provide a comprehensive understanding of PTSD's electrophysiological and psychophysical responses.
+
+The framework's explanatory approach involves four interacting levels: embodied-embedded behavioral dynamics, neurobiological substrates, hierarchical Bayesian models of interactions, and psychophysical/phenomenological observations. For instance, under active inference, reward is seen as minimizing expected free energy, with the "fight or flight" response as a survival strategy involving high metabolic expenditure. This response must balance energy allocation to ensure survival against perceived threats.
+
+Overall, this approach views PTSD as a maladaptive stress response from an evolutionary perspective, aligning with broader theories of stress and emotion. It emphasizes self-preservation through active inference, where the organism must allocate metabolic resources to avoid existential danger. This comprehensive model aims to link PTSD's physical and psychological manifestations, offering a more integrated understanding of the disorder.
+
+
+We propose an alternative perspective on PTSD by reinterpreting traditional concepts of top-down executive control, bottom-up sensory control, and attention within an embodied and environmentally embedded neuronal framework. This new perspective also redefines neurocognitive functions such as reality testing, fear generalization, fear extinction, and safety learning.
+
+Our analysis introduces a multilevel explanatory model. PTSD may cause individuals to adopt maladaptive priors, favoring "fight or flight" or "freeze" responses over exploratory behaviors. These maladaptive priors hinder the usual reality-testing process, preventing the continuous reassessment of the world and reinforcing pathological responses.
+
+Physiologically, this impaired belief updating is seen as a form of sensory attenuation, where the precision of sensory signals is covertly reduced. This conserves metabolic energy by limiting sensory processing to higher cortical areas, leading to weakened effective connectivity due to neurochemical imbalances.
+
+In essence, the PTSD response prioritizes safety, often resulting in a state of heightened threat preparedness. This physiological state change is characterized by a reluctance to explore and confirm an "all clear" signal, perpetuating a self-maintaining threat state. This perspective aligns with known neurobiological, psychological, and behavioral patterns associated with PTSD, offering predictive and construct validity.
+
+
+
+
+PTSD can be understood through two main dysfunctions: a heightened bias for interpreting sensory stimuli as existential threats and a compromised ability to reassess these threats. Individuals with PTSD are more likely to perceive neutral stimuli as threats and maintain this perception even when the threat no longer exists. This results in a prolonged threat-response state, which can explain the hyperarousal and low cortisol levels observed in PTSD patients.
+
+The neurobiological basis for these dysfunctions involves abnormal neuromodulation, where the brain's mechanisms for encoding sensory precision and processing prediction errors are impaired. Stress can weaken synaptic efficacy and network connectivity in the prefrontal cortex (PFC), leading to a reduced ability to process sensory information accurately. This results in a reliance on strong top-down biases, where the brain defaults to threat responses due to inadequate sensory evidence processing.
+
+Healthy brain function is associated with gamma-frequency rhythms that facilitate efficient neuronal communication. In PTSD, stress-induced impairments prevent the brain from achieving these rhythms, leading to lower information transfer and a stronger attraction to the threat-response state. This state inhibits the neurochemical mechanisms necessary to escape the stress response, resulting in a persistent threat perception.
+
+Simulation studies support this model, showing that effective neuronal communication relies on synchronized activity, which is disrupted in PTSD. This disruption leads to imprecise sensory processing and an overreliance on threat priors. The amygdala, which is crucial for processing fear and threat-related stimuli, becomes overactive and inhibits the PFC, further impairing the ability to reassess and mitigate perceived threats.
+
+Experiments have shown that PTSD flashbacks are associated with reduced visuospatial processing, highlighting the impaired sensory sampling and integration in PTSD patients. This integrative model aligns with clinical observations of PTSD and offers a comprehensive understanding of its neurobiological and cognitive underpinnings, bridging the gap between biology and behavioral phenomena.
+
+
+
+
+
 In the context of PTSD, the free energy principle suggests that traumatic experiences lead to maladaptive predictions and heightened stress responses. One key aspect is the concept of aberrant precision weighting, where individuals with PTSD tend to overestimate the precision of threat-related predictions. This results in persistent and exaggerated fear responses even in safe environments, explaining the characteristic hypervigilance and re-experiencing symptoms of PTSD. The strength of applying the free energy principle and active inference to PTSD lies in their ability to recontextualize and integrate a range of empirical evidence. These frameworks offer a predictive model of how sensory-perceptual and cognitive aspects of anxiety may arise, going beyond static belief/filter models often applied in traditional cognitive-behavioral approaches.
 
 
@@ -76,17 +110,8 @@ Stress habituation can also be understood using the free energy principle. Repea
 Citations:
 - [Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961115/) 
 - [How Stress Can Change Our Deepest Preferences: Stress Habituation Explained Using the Free Energy Principle](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.865203/full) 
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6816477/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9345684/
-- https://pubmed.ncbi.nlm.nih.gov/31830495/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9559819/
-- https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2022.955558/full
-- https://www.linkedin.com/posts/briandrivera_flow-tbi-ptsd-activity-7097216073946603522-yiX5?trk=public_profile_like_view
-- https://home.hellodriven.com/articles/the-neuroscience-of-adversity-vs-fristons-free-energy-principle/
-- https://academic.oup.com/nc/article/2024/1/niae011/7631817
-- https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613%2823%2900283-8
-- https://www.frontiersin.org/journals/neural-circuits/articles/10.3389/fncir.2024.1283372/full
-- https://www.tandfonline.com/doi/full/10.1080/13546805.2019.1665994
+- [Reframing PTSD for computational psychiatry with the active inference framework](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6816477/)
+
 
 
 
