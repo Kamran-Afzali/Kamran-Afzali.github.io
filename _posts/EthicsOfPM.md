@@ -10,29 +10,23 @@ The Research Ethics Committees (RECs) emphasize the importance of inclusivity an
 
 ### Considerations
 
-**Autonomy**
-
-- Autonomy, a relatively new concept in digital healthcare, is crucial for protecting patient independence and dignity. Challenges related to autonomy include freedom of choice in treatment, informed consent, awareness of data collection and usage, and the right to know medical results. Privacy, one of the most critical ethical challenges, involves data protection, confidentiality, data sharing, and intended or unintended data uses. In the same vein, Informed Consent guarantees that patients fully understand the implications of their participation, including potential risks and benefits.
 
 **Equity** 
 
-- Equity is defined by equal access to digital technology and healthcare, equity in treatment, non-discrimination, data ownership, and empowerment. Here the aim is to ensure that precision medicine and digital health interventions are accessible to all populations, including underprivileged and minority groups.
+- Equity is defined by equal access to digital technology and healthcare, equity in treatment, non-discrimination, data ownership, and empowerment. Here the aim is to ensure that precision medicine and digital health solutions are accessible to all populations, including underprivileged and minority groups.
 
 **Participant Safety and Support**
 
 - A significant portion of discussions revolves around public and patient involvement (PPI) in study design and the development of comprehensible materials. This involvement helps mitigate concerns about participant burden and frustration with the technology. Amendments to recruitment protocols are often requested to reduce participant pressure and ensure voluntary participation. Safety measures for control groups and sensitive populations are critically examined, with well-considered arrangements required. Clear and user-friendly instructions for technology usage are essential, and studies involving high-risk devices must undergo safety checks before approval.
 
 
-**Psychosocial Impact**
-
-- Similar to the point mentioned above considering the potential psychological and social effects on patients, such as anxiety from genetic information. Preventing the misuse of genetic information by employers, insurers, or other entities. Psychosocial harms and the necessity for genetic counseling are also prominent themes. Patients experience psychological distress from frequent diagnostic scans and receiving genetic test results indicating increased disease risks. This distress can affect their quality of life and adherence to treatments. 
-
 **Conflict of Interest**
 
 - Applicants must disclose all affiliations with sponsors and ensure that financially affiliated researchers do not consent patients. RECs place emphasis on clarifying relationships between researchers, organizations, and study locations, especially when submitted to Higher Education Institution RECs.
 
-- The cost-benefit ratio of PM is another contentious issue. Some professionals argue that other health interventions might offer greater
-benefits and deserve better funding. Reallocating resources towards improving living conditions and health-related behaviors, could potentially yield more significant health benefits. Despite these concerns, some studies indicate that PM is at least as cost-effective as conventional care, warranting further investigation into its economic viability.
+**cost-benefit**
+
+- The cost-benefit ratio of digital health solutions is another contentious issue. Some professionals argue that other health interventions might offer greater benefits and deserve better funding. Reallocating resources towards improving living conditions and health-related behaviors, could potentially yield more significant health benefits. Despite these concerns, some studies indicate that the digital health solution is at least as cost-effective as conventional care, warranting further investigation into its economic viability.
 
 **Harm Prevention**
 
@@ -42,13 +36,15 @@ benefits and deserve better funding. Reallocating resources towards improving li
 
 - Data management, including storage, access, and transfer, is a significant focus. Applicants must de-identify data, clarify device ownership, and justify unconventional storage methods. Clear procedures for handling data upon participant withdrawal are required, along with secure data transfer protocols, especially in international collaborations. Anonymization and confidentiality strategies must be detailed, distinguishing between pseudonymous and anonymous data. Video and audio recording justifications are necessary, particularly regarding the duration of storage and sharing with sponsors.
 
+**fairness of AI and algorithms**
+
+- Concerns about the fairness of AI and algorithms in digital health primarily revolve around bias, accessibility, and transparency. AI systems can inherit biases from the data they are trained on, potentially leading to unequal treatment of different patient groups. This bias can exacerbate existing health disparities, particularly affecting marginalized communities. Along the same lines, transparency in how algorithms make decisions is crucial, yet many AI models are "black boxes," making it difficult for healthcare providers and patients to understand and trust their outputs. Furthermore, the lack of clear regulatory guidelines and accountability mechanisms for AI in healthcare raises concerns about the ethical use and oversight of these technologies.
 
 ### Questions
 
 **Privacy and Confidentiality**
 
--   How will patient data be protected from unauthorized access and
-    breaches?
+-   How will patient data be protected from unauthorized access and breaches?
 -   What measures are in place to ensure data confidentiality?
 
 **Informed Consent**
@@ -63,13 +59,13 @@ benefits and deserve better funding. Reallocating resources towards improving li
 
 **Equity and Access**
 
--   How will the project ensure equitable access to precision medicine and digital health interventions?
+-   How will the project ensure equitable access to precision medicine and digital health solutions?
 -   Are there strategies to include underprivileged and minority groups in the study?
 
 **Psychosocial Impact**
 
 -   What are the potential psychological and social effects on patients?
--   How will the project address and mitigate these effects?
+-   How will the project address and mitigate potential negative effects?
 
 **Discrimination and Stigmatization**
 
@@ -91,7 +87,7 @@ benefits and deserve better funding. Reallocating resources towards improving li
 -   How will the project respect patients' autonomy and their right to make informed decisions?
 -   Are there mechanisms to support patients in understanding their options and making informed choices?
 
-**Ethical Use of AI and Algorithms**
+**Fairness of AI and Algorithms**
 
 -   What measures are in place to ensure transparency, fairness, and accountability in the use of AI?
 
