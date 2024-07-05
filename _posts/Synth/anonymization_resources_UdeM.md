@@ -1,0 +1,16 @@
+- https://www.ipc.on.ca/en/resources-and-decisions/de-identification-guidelines-structured-data
+- https://iapp.org/media/pdf/resource_center/Guide_to_Anonymisation.pdf
+- https://ico.org.uk/media/about-the-ico/documents/4018606/chapter-2-anonymisation-draft.pdf
+- https://www.youtube.com/playlist?list=PLfMfJihLOASUMZwKQ32OQkOfTEv20spmH
+- https://wiki.umontreal.ca/pages/viewpage.action?pageId=310510436
+- https://wiki.umontreal.ca/pages/viewpage.action?pageId=310510434
+- https://wiki.umontreal.ca/display/gouvernancedesdonnees/Ressources+web+-+utilisation+logiciel+ARX
+- https://wiki.umontreal.ca/pages/viewpage.action?pageId=310510430
+- https://www.ipc.on.ca/en/resources-and-decisions/de-identification-guidelines-structured-data
+- https://iapp.org/media/pdf/resource_center/Guide_to_Anonymisation.pdf
+- https://ico.org.uk/media/about-the-ico/documents/4018606/chapter-2-anonymisation-draft.pdf
+- https://www.youtube.com/playlist?list=PLfMfJihLOASUMZwKQ32OQkOfTEv20spmH
+- https://www.youtube.com/watch?v=7y3ZFKSWiX0
+- https://ukdataservice.ac.uk/app/uploads/introtoanonymisation2024-06-11.pdf
+- Anne-Sophie Charest de l'Université Laval. https://iid.ulaval.ca/equipes/anne-sophie-charest/
+- Khaled El Eman de l'Université d'Ottawa. https://www.linkedin.com/in/kelemam/
