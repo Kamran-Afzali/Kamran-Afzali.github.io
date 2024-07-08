@@ -22,5 +22,5 @@
   
 ### Experts 
 - [Anne-Sophie Charest](https://iid.ulaval.ca/equipes/anne-sophie-charest/) de l'Université Laval. 
-- [Khaled El Eman](https://www.linkedin.com/in/kelemam/) de l'Université d'Ottawa.
+- [Khaled El Emam](https://www.linkedin.com/in/kelemam/) de l'Université d'Ottawa.
 - [Damien Desfontaines](https://desfontain.es/serious.html) consultant francophone privé.  
