@@ -57,6 +57,60 @@ According to the active inference framework, symptoms like hallucinations or del
 #### Autism Spectrum Disorder  
 The active inference view suggests that the core deficit in autism may be a failure to attenuate or suppress the precision of sensory evidence for self-produced actions (sensory attenuation) [1][2]. This could explain symptoms like hypersensitivity to sensory stimuli and difficulties with coherence and integration of information in autism.
 
+The free energy principle and active inference framework offer valuable insights into understanding autism spectrum disorder (ASD) from a computational perspective. These approaches conceptualize ASD as a disorder of inference, providing a unified computational understanding that links symptoms to underlying mechanisms.
+
+One key application of this framework to autism is in explaining sensory atypicalities. According to Lawson et al. (2017), adults with autism tend to overestimate the volatility of the sensory environment[1]. This can be understood through the lens of active inference as an aberrant precision weighting of sensory inputs. In autism, there may be an overestimation of the unreliability or changeability of sensory information, leading to a constant state of surprise and difficulty in forming stable predictions about the environment.
+
+The concept of precision weighting is central to understanding autism within this framework. Precision refers to the reliability or confidence assigned to different sources of information, whether sensory inputs or prior beliefs. In autism, there may be an imbalance in how precision is allocated, with sensory inputs potentially being given too much weight relative to prior beliefs. This can result in a reduced ability to filter out irrelevant sensory information, leading to sensory overload and difficulties in extracting meaningful patterns from the environment[2].
+
+Another important aspect is the idea of context-sensitive modulation of prediction errors. Research suggests that individuals with autism may have difficulties in flexibly adjusting their predictions based on context[3]. This could explain why autistic individuals often struggle with changes in routine or unexpected events, as their predictive models may be less adaptable to changing circumstances.
+
+The free energy principle also provides insights into the motor and behavioral aspects of autism. Arthur et al. (2023) used computational modeling based on active inference to explore sensorimotor atypicalities in autism[5]. Their findings suggest that differences in how autistic individuals process and respond to sensory information can lead to distinctive patterns of movement and behavior.
+
+Furthermore, this framework can help explain the social difficulties often observed in autism. The process of inferring others' mental states and intentions, crucial for social interaction, can be viewed as a form of active inference. Difficulties in this area could be related to atypical precision weighting of social cues or challenges in flexibly updating social predictions.
+
+It's important to note that while the free energy principle and active inference offer a promising framework for understanding autism, they do not suggest that autism is a deficit or disorder in the traditional sense. Instead, they provide a way to understand the different information processing strategies that may be employed by autistic individuals.
+
+In conclusion, the free energy principle and active inference framework provide a powerful computational approach to understanding autism. By focusing on processes such as precision weighting, prediction error modulation, and adaptive inference, these frameworks offer valuable insights into the mechanisms underlying the diverse manifestations of autism spectrum disorder. This approach not only aligns with existing empirical evidence but also provides a unifying theoretical framework that can guide future research and potentially inform intervention strategies for individuals with autism.
+
+The free energy principle (FEP) and active inference framework provide a comprehensive computational model to understand social interactions in autism spectrum disorder (ASD). These frameworks conceptualize ASD as a disorder of inference, where the brain's ability to predict and respond to social stimuli is altered due to atypical precision weighting and predictive coding mechanisms.
+
+Aberrant Precision Weighting
+One of the central tenets of applying the FEP to autism is the concept of aberrant precision weighting. Precision refers to the reliability or confidence assigned to different sources of information, whether sensory inputs or prior beliefs. In autism, there may be an imbalance in how precision is allocated, with sensory inputs potentially being given too much weight relative to prior beliefs. This can result in difficulties in filtering out irrelevant sensory information, leading to sensory overload and challenges in social interactions. For instance, Pellicano and Burr (2012) suggest that individuals with autism might overestimate the volatility of the sensory environment, which could lead to a constant state of surprise and difficulty in forming stable predictions about social cues and interactions[5].
+
+Social Cognition and Predictive Coding
+The FEP posits that the brain operates as a Bayesian inference machine, constantly updating its internal models to minimize prediction errors. In the context of social cognition, this means accurately predicting others' behaviors and intentions based on social cues. However, individuals with autism may have difficulties in this predictive coding process. They might struggle with the flexible adjustment of predictions based on social context, leading to challenges in interpreting and responding to social cues. This can manifest as difficulties in understanding and predicting others' mental states, a core aspect of social interactions[1][4].
+
+Enactive-Dynamic Social Cognition
+The enactive-dynamic approach to social cognition, which is compatible with active inference, emphasizes the real-time, fluid, and contextual nature of social interactions. This perspective suggests that social cognition is not just about internal representations but involves continuous interaction with the environment. For individuals with autism, this dynamic interaction may be disrupted due to atypical sensorimotor processing and difficulties in synchronizing with social partners. The enactive-dynamic model highlights how these disruptions can lead to challenges in social understanding and engagement[4].
+
+Empirical Evidence and Computational Models
+Empirical studies and computational models support the application of the FEP and active inference to autism. For example, research by Lawson et al. (2017) indicates that adults with autism overestimate the volatility of sensory environments, which can explain their heightened sensitivity to sensory stimuli and difficulties in social interactions. Additionally, computational models based on active inference have been used to explore sensorimotor atypicalities in autism, suggesting that differences in processing and responding to sensory information can lead to distinctive patterns of social behavior[3][5].
+
+Implications for Social Interaction
+The FEP and active inference framework provide a robust theoretical basis for understanding the social difficulties observed in autism. By focusing on the processes of precision weighting, prediction error modulation, and adaptive inference, these frameworks offer valuable insights into the mechanisms underlying social interactions in autism. They suggest that social difficulties in autism may arise from an inability to appropriately balance sensory inputs and prior beliefs, leading to challenges in predicting and responding to social cues.
+
+In conclusion, the free energy principle and active inference framework offer a powerful computational approach to understanding social interactions in autism. By addressing the atypical inference processes and precision weighting mechanisms, these frameworks provide a comprehensive explanation for the social challenges faced by individuals with autism. This approach not only aligns with existing empirical evidence but also offers a unifying theoretical framework that can guide future research and potentially inform intervention strategies to improve social functioning in individuals with autism.
+
+- https://direct.mit.edu/neco/article-abstract/36/5/963/119791/An-Overview-of-the-Free-Energy-Principle-and?redirectedFrom=fulltext
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7189749/
+- https://ndsa.uk/content/the-autistic-enactivist/
+- https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.855074/full
+- https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2014.00302/full
+- https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf
+- https://www.researchgate.net/publication/361283485_PSITA_A_Protracted_Sensory_Integration_Theory_of_Autism_based_on_Primary_Intersubjectivity_and_the_Free_Energy_Principle
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8514518/
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7189749/
+- https://www.youtube.com/watch?v=OwhuncNwzAc
+- https://www.nature.com/articles/s41598-021-99864-y
+- https://www.wired.com/story/karl-friston-free-energy-principle-artificial-intelligence/
+- https://www.researchgate.net/publication/361283485_PSITA_A_Protracted_Sensory_Integration_Theory_of_Autism_based_on_Primary_Intersubjectivity_and_the_Free_Energy_Principle
+- https://www.nature.com/articles/s41598-022-18207-7
+- https://en.wikipedia.org/wiki/Free_energy_principle
+- https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1011473
+- https://direct.mit.edu/books/book-pdf/2246566/book_9780262369978.pdf
+- https://www.sciencedirect.com/science/article/pii/S0893608021003610
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10529610/
 
 #### Post-Traumatic Stress Disorder (PTSD)
 
