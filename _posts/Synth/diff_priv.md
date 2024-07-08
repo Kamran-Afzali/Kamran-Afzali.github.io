@@ -429,12 +429,9 @@ As the field continues to evolve, addressing the challenges and limitations of d
 - [Global or Local Differential Privacy?](https://blog.openmined.org/basics-local-differential-privacy-vs-global-differential-privacy/) 
 - [6 Personal Data Anonymization Techniques You Should Know About](https://blog.pangeanic.com/6-personal-data-anonymization-techniques) 
 - [Synthetic Data vs Anonymized Data](https://blog.pangeanic.com/synthetic-data-vs-anonymized-data) 
-- https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-023-02082-5
-- https://clanx.ai/glossary/differential-privacy-in-ai
-- https://corporatefinanceinstitute.com/resources/business-intelligence/data-anonymization/
-- https://cs-people.bu.edu/gaboardi/publication/GaboardiEtAll13popl.pdf
-- https://desfontain.es/blog/friendly-intro-to-differential-privacy.html
-- https://desfontain.es/blog/local-global-differential-privacy.html
+- [Data Anonymization](https://corporatefinanceinstitute.com/resources/business-intelligence/data-anonymization/)
+- [A friendly, non-technical introduction to differential privacy](https://desfontain.es/blog/friendly-intro-to-differential-privacy.html) 
+- [Local vs. central differential privacy ](https://desfontain.es/blog/local-global-differential-privacy.html)
 - https://dualitytech.com/blog/what-is-differential-privacy/
 - https://enlitic.com/blogs/deidentifying-and-anonymizing-healthcare-data/
 - https://geninvo.com/importance-and-examples-of-usage-of-data-anonymization-in-healthcare-other-sectors/
