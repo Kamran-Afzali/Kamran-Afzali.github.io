@@ -6,7 +6,7 @@
 - [Guide to basic data anonymisation techniques](https://iapp.org/media/pdf/resource_center/Guide_to_Anonymisation.pdf) 
 - [How do we ensure anonymisation is effective?](https://ico.org.uk/media/about-the-ico/documents/4018606/chapter-2-anonymisation-draft.pdf) 
 
-### Wiki de l'UdeM
+### [Wiki de l'UdeM](https://wiki.umontreal.ca/pages/viewpage.action?pageId=310510357)
 - [Dépersonnalisation et anonymisation de données sur wiki de l'UdeM](https://wiki.umontreal.ca/pages/viewpage.action?pageId=310510436) 
 - [Dépersonnalisation et anonymisation de données sur wiki de l'UdeM Ressources web Microsoft & Oracle ](https://wiki.umontreal.ca/pages/viewpage.action?pageId=310510434)
 - [Dépersonnalisation et anonymisation de données sur wiki de l'UdeM Vidéos Youtube sur l'anonymisation de données](https://wiki.umontreal.ca/pages/viewpage.action?pageId=310510430) 
