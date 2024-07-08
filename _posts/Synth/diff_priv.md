@@ -423,12 +423,12 @@ As the field continues to evolve, addressing the challenges and limitations of d
 
 ### References 
 
-- http://www.tdp.cat/issues11/tdp.a129a13.pdf
-- https://becominghuman.ai/what-is-differential-privacy-1fd7bf507049?gi=47f4ffff5342
-- https://blog.cloudflare.com/have-your-data-and-hide-it-too-an-introduction-to-differential-privacy
-- https://blog.openmined.org/basics-local-differential-privacy-vs-global-differential-privacy/
-- https://blog.pangeanic.com/6-personal-data-anonymization-techniques
-- https://blog.pangeanic.com/synthetic-data-vs-anonymized-data
+- [Practicing Differential Privacy in Health Care: A Review ](http://www.tdp.cat/issues11/tdp.a129a13.pdf)
+- [What is Differential Privacy?](https://becominghuman.ai/what-is-differential-privacy-1fd7bf507049?gi=47f4ffff5342) 
+- [Have your data and hide it too: an introduction to differential privacy](https://blog.cloudflare.com/have-your-data-and-hide-it-too-an-introduction-to-differential-privacy) 
+- [Global or Local Differential Privacy?](https://blog.openmined.org/basics-local-differential-privacy-vs-global-differential-privacy/) 
+- [6 Personal Data Anonymization Techniques You Should Know About](https://blog.pangeanic.com/6-personal-data-anonymization-techniques) 
+- [Synthetic Data vs Anonymized Data](https://blog.pangeanic.com/synthetic-data-vs-anonymized-data) 
 - https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-023-02082-5
 - https://clanx.ai/glossary/differential-privacy-in-ai
 - https://corporatefinanceinstitute.com/resources/business-intelligence/data-anonymization/
