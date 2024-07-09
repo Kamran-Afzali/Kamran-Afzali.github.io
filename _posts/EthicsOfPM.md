@@ -106,3 +106,80 @@ The Research Ethics Committees (RECs) emphasize the importance of inclusivity an
 - [Emerging ethical issues regarding digital health data. On the World Medical Association Draft Declaration on Ethical Considerations Regarding Health Databases and Biobanks](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4856186)
 
 
+L'essor des technologies de santé numérique a conduit à la génération de "big data" qualitatives et quantitatives, y compris les traces numériques de nos comportements quotidiens. Ces données contiennent des informations précieuses qui pourraient potentiellement bénéficier aux patients et aux soignants. Cependant, l'intégration rapide des technologies de santé numérique et de l'intelligence artificielle (IA) dans la recherche et la pratique clinique soulève d'importantes préoccupations éthiques qui doivent être abordées.
+
+La littérature suggère que la gouvernance de la recherche numérique en matière de santé est actuellement un "Far West" avec diverses parties prenantes impliquées, y compris les développeurs de technologies, les bailleurs de fonds, les chercheurs, les participants et les rédacteurs de journaux. Les contrôles et les normes réglementaires ne sont actuellement pas à la hauteur pour guider cette convergence dans l'écosystème de la santé. Le paysage de la recherche en santé numérique présente plusieurs lacunes et opportunités. Tout d'abord, il existe des défis disciplinaires et sectoriels, car les fabricants de technologies peuvent ne pas comprendre les besoins des patients, les informaticiens peuvent former l'IA sur des ensembles de données non représentatifs, et les cliniciens peuvent avoir du mal à donner un sens aux décisions prises par l'IA. Deuxièmement, il est nécessaire d'améliorer la culture numérique et technologique des différentes parties prenantes, notamment les décideurs politiques, les éducateurs, les régulateurs, les cliniciens, les patients et les soignants. Troisièmement, il n'existe pas de normes éthiques et réglementaires cohérentes pour évaluer et tester les nouvelles technologies de santé numérique et les systèmes d'IA. Les organismes de réglementation et les technologues peuvent ne pas disposer de l'expertise ou de la formation nécessaire pour procéder à des évaluations des risques appropriées et garantir des pratiques éthiques.
+
+Pour combler ces lacunes, plusieurs initiatives ont vu le jour afin d'examiner les implications éthiques, juridiques et sociales (ELSI) de la santé numérique et des technologies de l'IA. Des groupes tels que l'initiative Connected and Open Research Ethics (CORE), Pervasive Data Ethics for Computational Research (PERVADE) et le projet Mobile Health ELSI (mHealthELSI) visent à informer les politiques et la gouvernance dans cet espace largement non réglementé. Toutefois, nombre de ces efforts ont une portée générale et peuvent manquer de spécificité pour les applications de santé numérique. Alors que les réglementations émergent lentement, les parties prenantes doivent reconnaître leur obligation éthique de maintenir l'intégrité de la recherche en santé numérique dans cet espace non réglementé. Pour relever ces défis, la littérature s'oriente vers un cadre décisionnel en matière de santé numérique comprenant cinq domaines principaux : Vie privée des participants, Risques et avantages, Accès et facilité d'utilisation, Gestion des données et Principes éthiques. Dans cette optique, la mise en œuvre d'outils de santé numérique nécessite un examen attentif des principes éthiques, de l'évaluation des risques et des avantages, de la protection de la vie privée, de l'accès équitable et de la facilité d'utilisation, ainsi que des pratiques saines de gestion des données. Une action collective est nécessaire pour établir des normes éthiques et des mesures de responsabilisation afin de garantir le développement et l'utilisation responsables des technologies numériques de santé. Ce document est un premier effort pour obtenir un aperçu des considérations éthiques dans les projets de recherche en santé numérique et en médecine de précision.
+
+Les comités d'éthique de la recherche (CER) soulignent l'importance de l'inclusivité et de l'équité dans les études sur la santé numérique, nous énumérons ci-dessous certains des points qui pourraient être soulevés par les CER.
+
+### Considérations
+
+
+**L'équité** 
+
+- L'équité est définie par l'égalité d'accès à la technologie numérique et aux soins de santé, l'égalité de traitement, la non-discrimination, la propriété des données et l'autonomisation. Il s'agit ici de s'assurer que la médecine de précision et les solutions de santé numérique sont accessibles à toutes les populations, y compris les groupes défavorisés et minoritaires.
+
+**Sécurité et soutien des participants**
+
+- Une part importante des discussions porte sur la participation du public et des patients (PPI) à la conception de l'étude et à l'élaboration de documents compréhensibles. Cette participation permet d'atténuer les inquiétudes concernant la charge de travail des participants et leur frustration face à la technologie. Des modifications des protocoles de recrutement sont souvent demandées pour réduire la pression exercée sur les participants et garantir leur participation volontaire. Les mesures de sécurité pour les groupes de contrôle et les populations sensibles font l'objet d'un examen critique, et des dispositions réfléchies sont nécessaires. Des instructions claires et conviviales pour l'utilisation de la technologie sont essentielles, et les études impliquant des dispositifs à haut risque doivent faire l'objet de contrôles de sécurité avant d'être approuvées.
+
+**Conflit d'intérêts**
+
+- Les candidats doivent divulguer toutes les affiliations avec des sponsors et s'assurer que les chercheurs affiliés financièrement ne consentent pas à des patients. Les CER mettent l'accent sur la clarification des relations entre les chercheurs, les organisations et les lieux d'étude, en particulier lorsqu'ils sont soumis aux CER des établissements d'enseignement supérieur.
+
+**Coût-bénéfice**
+
+- Le rapport coût-bénéfice des solutions de santé numérique est une autre question controversée. Certains professionnels affirment que d'autres interventions sanitaires pourraient offrir des avantages plus importants et mériteraient un meilleur financement. La réaffectation des ressources à l'amélioration des conditions de vie et des comportements liés à la santé pourrait avoir des effets bénéfiques plus importants sur la santé. Malgré ces préoccupations, certaines études indiquent que la solution de santé numérique est au moins aussi rentable que les soins conventionnels, ce qui justifie un examen plus approfondi de sa viabilité économique.
+
+**Prévention des dommages**
+
+- La prévention des dommages est essentielle, la plupart des applications se heurtant à des obstacles liés à des événements imprévus tels que la non-adhésion des participants ou des situations d'urgence. Des mécanismes doivent être mis en place pour détecter et traiter rapidement ces problèmes, en maintenant un contact permanent avec les patients à haut risque. Des protocoles de réaction clairs en cas d'événements inattendus, tels que des défaillances d'appareils, sont essentiels. Une formation adéquate du personnel et des cliniciens, la stérilisation du matériel et l'établissement d'une liste des contre-indications des dispositifs sont des éléments essentiels pour prévenir les risques potentiels.
+  
+### Questions
+
+**Protection de la vie privée et de la confidentialité**
+
+- Comment les données des patients seront-elles protégées contre les accès non autorisés et les violations ?
+- Quelles sont les mesures mises en place pour garantir la confidentialité des données ?
+
+**Consentement éclairé**
+
+- Comment le consentement éclairé sera-t-il obtenu et documenté ?
+- Les patients reçoivent-ils des informations complètes sur les risques et les avantages potentiels de l'étude ?
+
+**Gouvernance des données**
+
+- Quelles sont les politiques en matière de stockage, de partage et d'utilisation des données ?
+- Comment les données seront-elles anonymisées ou dépersonnalisées pour protéger la vie privée des patients ?
+
+**Équité et accès**
+
+- Comment le projet garantira-t-il un accès équitable à la médecine de précision et aux solutions de santé numérique ?
+- Existe-t-il des stratégies pour inclure les groupes défavorisés et minoritaires dans l'étude ?
+
+**Impact psychosocial**
+
+- Quels sont les effets psychologiques et sociaux potentiels sur les patients ?
+- Comment le projet abordera-t-il et atténuera-t-il les effets négatifs potentiels ?
+
+**Discrimination et stigmatisation**
+
+- Quelles sont les garanties mises en place pour empêcher l'utilisation abusive des informations par les employeurs, les assureurs ou d'autres entités ?
+- Comment le projet répondra-t-il aux préoccupations concernant la discrimination et la stigmatisation potentielles ?
+
+**Relation médecin-patient**
+
+- Comment le projet préservera-t-il la qualité de la relation médecin-patient ?
+- Quelles sont les mesures prises pour garantir que l'accent mis sur les données ne porte pas atteinte aux soins prodigués aux patients ?
+
+**Autonomie et prise de décision**
+
+- Comment le projet respectera-t-il l'autonomie des patients et leur droit à prendre des décisions en connaissance de cause ?
+- Existe-t-il des mécanismes pour aider les patients à comprendre les options qui s'offrent à eux et à faire des choix éclairés ?
+
+**Équité de l'IA et des algorithmes**
+
+- Quelles sont les mesures mises en place pour garantir la transparence, l'équité et la responsabilité dans l'utilisation de l'IA ?
+
