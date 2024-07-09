@@ -432,10 +432,9 @@ As the field continues to evolve, addressing the challenges and limitations of d
 - [Data Anonymization](https://corporatefinanceinstitute.com/resources/business-intelligence/data-anonymization/)
 - [A friendly, non-technical introduction to differential privacy](https://desfontain.es/blog/friendly-intro-to-differential-privacy.html) 
 - [Local vs. central differential privacy ](https://desfontain.es/blog/local-global-differential-privacy.html)
-- https://dualitytech.com/blog/what-is-differential-privacy/
-- https://enlitic.com/blogs/deidentifying-and-anonymizing-healthcare-data/
-- https://geninvo.com/importance-and-examples-of-usage-of-data-anonymization-in-healthcare-other-sectors/
-- https://geninvo.com/the-what-and-why-of-clinical-data-anonymization/
+- [Deidentifying and Anonymizing Healthcare Data](https://enlitic.com/blogs/deidentifying-and-anonymizing-healthcare-data/) 
+- [Importance and examples of usage of Data Anonymization in Healthcare & Other sectors](https://geninvo.com/importance-and-examples-of-usage-of-data-anonymization-in-healthcare-other-sectors/) 
+- [The “What” and “Why” of Clinical Data Anonymization](https://geninvo.com/the-what-and-why-of-clinical-data-anonymization/)
 - https://huazhengwang.github.io/papers/RecSys2020_DPCoLin_Wang.pdf
 - https://impactethics.ca/2023/10/23/benefits-risks-of-using-anonymized-health-data-in-research/
 - https://medinform.jmir.org/2021/10/e29871/
@@ -467,10 +466,10 @@ As the field continues to evolve, addressing the challenges and limitations of d
 - https://www.k2view.com/what-is-data-anonymization/
 - https://www.liebertpub.com/doi/10.1089/big.2021.0169
 - https://www.nature.com/articles/s41598-021-93030-0
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10020182/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10257172/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6658290/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8449619/
+- [An anonymization-based privacy-preserving data collection protocol for digital health data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10020182/)
+- [A Survey on Differential Privacy for Medical Data Analysis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10257172/)
+- [Use and Understanding of Anonymization and De-Identification in the Biomedical Literature: Scoping Review ](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6658290/)
+- [Differential privacy in health research: A scoping review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8449619/)
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9815524/
 - https://www.oreilly.com/library/view/anonymizing-health-data/9781449363062/ch01.html
 - https://www.ornl.gov/news/quietly-making-noise-measuring-differential-privacy-could-balance-meaningful-analytics-and
