@@ -42,11 +42,7 @@ Likewise, depressed individuals might overestimate losses and prematurely discar
 
 Long-term rumination has several negative consequences such opportunity costs it brings about, as neither pragmatic nor epistemic value is mined during depressive rumination. This leads to a decline in behavioral output and general model fit, creating a vicious cycle where biases intensify over time. The brain’s continuous optimization of its knowledge structure can make ruminative states a default response, hindering effective problem-solving and reducing intrinsic motivation. Rumination also distorts both experiential and narrative self-perceptions, making it difficult to update with new information and perpetuating negative self-perceptions. This distorted narrative self influences hyperpriors over candidates for thought, further entrenching ruminative patterns.
 
-
 As a treatment framework along these lines to avoid repetitive sampling, therapists should consider the context, mood, or bodily states during problem-solving. Activities like endurance training can reduce rumination by promoting neurogenesis, integrating the emotional flanker task with CBT helps patients shift attention away from negative thought patterns. Along the same lines, metacognitive and acceptance and commitment therapies have shown promise by guiding cognitive processes and goal setting based on personal values. Explicitly incorporating problem complexity estimations and analyzing the costs and benefits of mental engagement can further refine treatments. Patients should learn to predict the time and benefits of solving problems through mental simulation compared to overt actions. It is also important to highlight the shared etiology between MDD and anxiety disorders, with rumination being a common factor. Thus, the proposed improvements for treating rumination in MDD could be beneficial for other psychiatric conditions, such as social anxiety disorder and generalized anxiety disorder. Preventing excessive rumination should be a key therapeutic target across various psychological disorders.
-
-
-
 
 The free energy principle and active inference framework provide a computational account for understanding various psychiatric disorders as disorders of inference. Here are some examples from the scientific literature on how this framework can be applied to psychiatric disorders:
 
@@ -61,9 +57,6 @@ The free energy principle (FEP) and active inference framework provide a compreh
 
 The free energy principle and active inference framework offer valuable insights into understanding autism spectrum disorder (ASD) from a computational perspective. These approaches conceptualize ASD as a disorder of inference, providing a unified computational understanding that links symptoms to underlying mechanisms. The concept of precision weighting is central to understanding autism within this framework. Precision refers to the reliability or confidence assigned to different sources of information, whether sensory inputs or prior beliefs. In autism, there may be an imbalance in how precision is allocated, with sensory inputs potentially being given too much weight relative to prior beliefs. This can result in a reduced ability to filter out irrelevant sensory information, leading to sensory overload and difficulties in extracting meaningful patterns from the environment. One key application of this framework to autism is in explaining sensory atypicalities. According to Lawson et al. (2017), adults with autism tend to overestimate the volatility of the sensory environment. This can be understood through the lens of active inference as an aberrant precision weighting of sensory inputs. In autism, there may be an overestimation of the unreliability or changeability of sensory information, leading to a constant state of surprise and difficulty in forming stable predictions about the environment. Another important aspect is the idea of context-sensitive modulation of prediction errors. Research suggests that individuals with autism may have difficulties in flexibly adjusting their predictions based on context. This could explain why autistic individuals often struggle with changes in routine or unexpected events, as their predictive models may be less adaptable to changing circumstances.
 
-
-
-
 Aberrant Precision Weighting
 One of the central tenets of applying the FEP to autism is the concept of aberrant precision weighting. Precision refers to the reliability or confidence assigned to different sources of information, whether sensory inputs or prior beliefs. In autism, there may be an imbalance in how precision is allocated, with sensory inputs potentially being given too much weight relative to prior beliefs. This can result in difficulties in filtering out irrelevant sensory information, leading to sensory overload and challenges in social interactions. For instance, Pellicano and Burr (2012) suggest that individuals with autism might overestimate the volatility of the sensory environment, which could lead to a constant state of surprise and difficulty in forming stable predictions about social cues and interactions.
 
@@ -77,25 +70,14 @@ The enactive-dynamic approach to social cognition, which is compatible with acti
 
 It's important to note that while the free energy principle and active inference offer a promising framework for understanding autism, they do not suggest that autism is a deficit or disorder in the traditional sense. Instead, they provide a way to understand the different information processing strategies that may be employed by autistic individuals. By focusing on processes such as precision weighting, prediction error modulation, and adaptive inference, these frameworks offer valuable insights into the mechanisms underlying the diverse manifestations of autism spectrum disorder. This approach not only aligns with existing empirical evidence but also provides a unifying theoretical framework that can guide future research and potentially inform intervention strategies for individuals with autism.
 
-- https://direct.mit.edu/neco/article-abstract/36/5/963/119791/An-Overview-of-the-Free-Energy-Principle-and?redirectedFrom=fulltext
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7189749/
-- https://ndsa.uk/content/the-autistic-enactivist/
-- https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.855074/full
-- https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2014.00302/full
-- https://www.fil.ion.ucl.ac.uk/~karl/The%20free-energy%20principle%20-%20a%20rough%20guide%20to%20the%20brain.pdf
-- https://www.researchgate.net/publication/361283485_PSITA_A_Protracted_Sensory_Integration_Theory_of_Autism_based_on_Primary_Intersubjectivity_and_the_Free_Energy_Principle
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8514518/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7189749/
-- https://www.youtube.com/watch?v=OwhuncNwzAc
-- https://www.nature.com/articles/s41598-021-99864-y
-- https://www.wired.com/story/karl-friston-free-energy-principle-artificial-intelligence/
-- https://www.researchgate.net/publication/361283485_PSITA_A_Protracted_Sensory_Integration_Theory_of_Autism_based_on_Primary_Intersubjectivity_and_the_Free_Energy_Principle
-- https://www.nature.com/articles/s41598-022-18207-7
-- https://en.wikipedia.org/wiki/Free_energy_principle
-- https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1011473
-- https://direct.mit.edu/books/book-pdf/2246566/book_9780262369978.pdf
-- https://www.sciencedirect.com/science/article/pii/S0893608021003610
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10529610/
+- [An Investigation of the Free Energy Principle for Emotion Recognition](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7189749/)
+- [The Autistic Enactivist](https://ndsa.uk/content/the-autistic-enactivist/)
+- [Enactive-Dynamic Social Cognition and Active Inference](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.855074/full)
+- [An aberrant precision account of autism](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2014.00302/full)
+- ["PSITA": A Protracted Sensory Integration Theory of Autism, based on Primary Intersubjectivity and the Free Energy Principle](https://europepmc.org/article/ppr/ppr506016) 
+- [An examination of active inference in autistic adults using immersive virtual reality](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8514518/)
+- [An Investigation of the Free Energy Principle for Emotion Recognition](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7189749/)
+
 
 #### Post-Traumatic Stress Disorder (PTSD)
 
