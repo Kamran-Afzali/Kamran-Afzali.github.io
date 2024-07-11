@@ -123,7 +123,7 @@ Les comités d'éthique de la recherche (CER) soulignent l'importance de l'inclu
 
 **Sécurité et soutien des participants**
 
-- Une part importante des discussions porte sur la participation du public et des patients (PPI) à la conception de l'étude et à l'élaboration de documents compréhensibles. Cette participation permet d'atténuer les inquiétudes concernant la charge de travail des participants et leur frustration face à la technologie. Des modifications des protocoles de recrutement sont souvent demandées pour réduire la pression exercée sur les participants et garantir leur participation volontaire. Les mesures de sécurité pour les groupes de contrôle et les populations sensibles font l'objet d'un examen critique, et des dispositions réfléchies sont nécessaires. Des instructions claires et conviviales pour l'utilisation de la technologie sont essentielles, et les études impliquant des dispositifs à haut risque doivent faire l'objet de contrôles de sécurité avant d'être approuvées.
+- La participation du public et des patients (PPI) à la conception de l'étude et à l'élaboration de documents compréhensibles est un autre aspect important. Cette participation permet d'atténuer les fardeaux potentiels sur les participants et leur frustration face à la technologie. Des modifications des protocoles de recrutement sont souvent demandées pour réduire tout type de stress sur les participants et garantir leur participation volontaire. Les mesures de sécurité pour les groupes de contrôle et les populations sensibles font l'objet d'un examen critique. Des instructions claires pour l'utilisation de la technologie sont essentielles, et les études impliquant des dispositifs à haut risque doivent faire l'objet de contrôles de sécurité avant d'être approuvées.
 
 **Conflit d'intérêts**
 
@@ -131,11 +131,11 @@ Les comités d'éthique de la recherche (CER) soulignent l'importance de l'inclu
 
 **Coût-bénéfice**
 
-- Le rapport coût-bénéfice des solutions de santé numérique est une autre question controversée. Certains professionnels affirment que d'autres interventions sanitaires pourraient offrir des avantages plus importants et mériteraient un meilleur financement. La réaffectation des ressources à l'amélioration des conditions de vie et des comportements liés à la santé pourrait avoir des effets bénéfiques plus importants sur la santé. Malgré ces préoccupations, certaines études indiquent que la solution de santé numérique est au moins aussi rentable que les soins conventionnels, ce qui justifie un examen plus approfondi de sa viabilité économique.
+- La réaffectation des ressources à l'amélioration des conditions de vie et des comportements liés à la santé pourrait avoir des effets bénéfiques plus importants sur la santé. Ainsi, le rapport coût-bénéfice des solutions de santé numérique est une autre question controversée.  Certaines études indiquent que les solutions de santé numérique sont moins rentable que les soins conventionnels, ce qui justifie un examen plus approfondi de leurs viabilité économique.
 
-**Prévention des dommages**
+**Prévention des risques/dommages**
 
-- La prévention des dommages est essentielle, la plupart des applications se heurtant à des obstacles liés à des événements imprévus tels que la non-adhésion des participants ou des situations d'urgence. Des mécanismes doivent être mis en place pour détecter et traiter rapidement ces problèmes, en maintenant un contact permanent avec les patients à haut risque. Des protocoles de réaction clairs en cas d'événements inattendus, tels que des défaillances d'appareils, sont essentiels. Une formation adéquate du personnel et des cliniciens, la stérilisation du matériel et l'établissement d'une liste des contre-indications des dispositifs sont des éléments essentiels pour prévenir les risques potentiels.
+- Des mécanismes doivent être mis en place pour détecter et traiter rapidement des pontentiels risques/dommages. Des protocoles de réaction clairs en cas d'événements inattendus, tels que des défaillances d'appareils ou fausses prédictions d'un modèle d'IA, sont essentiels. Une formation adéquate du personnel et des cliniciens et l'établissement d'une liste des contre-indications des dispositifs, outils, ou models sont des éléments essentiels pour prévenir les risques potentiels.
   
 ### Questions
 
