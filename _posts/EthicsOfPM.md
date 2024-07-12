@@ -141,17 +141,17 @@ Les comités d'éthique de la recherche (CER) soulignent l'importance de l'inclu
 
 **Protection de la vie privée et de la confidentialité**
 
-- Comment les données des patients seront-elles protégées contre les accès non autorisés et les violations ?
+- Comment les données des patients seront-elles protégées?
 - Quelles sont les mesures mises en place pour garantir la confidentialité des données ?
 
 **Consentement éclairé**
 
 - Comment le consentement éclairé sera-t-il obtenu et documenté ?
-- Les patients reçoivent-ils des informations complètes sur les risques et les avantages potentiels de l'étude ?
+- Les patients reçoivent-ils des informations complètes sur les risques et les bénéfices potentiels de l'étude ?
 
 **Gouvernance des données**
 
-- Quelles sont les politiques en matière de stockage, de partage et d'utilisation des données ?
+- Quelles sont les politiques en matière de stockage, de partage et d'utilisation secondaire des données ?
 - Comment les données seront-elles anonymisées ou dépersonnalisées pour protéger la vie privée des patients ?
 
 **Équité et accès**
@@ -166,13 +166,12 @@ Les comités d'éthique de la recherche (CER) soulignent l'importance de l'inclu
 
 **Discrimination et stigmatisation**
 
-- Quelles sont les garanties mises en place pour empêcher l'utilisation abusive des informations par les employeurs, les assureurs ou d'autres entités ?
-- Comment le projet répondra-t-il aux préoccupations concernant la discrimination et la stigmatisation potentielles ?
+- Comment le projet répondra-t-il aux préoccupations concernant les bias, la discrimination et la stigmatisation potentielles ?
 
 **Relation médecin-patient**
 
-- Comment le projet préservera-t-il la qualité de la relation médecin-patient ?
-- Quelles sont les mesures prises pour garantir que l'accent mis sur les données ne porte pas atteinte aux soins prodigués aux patients ?
+- Comment le projet affecte la qualité de la relation médecin-patient ?
+- Quelles sont les mesures prises pour garantir que l'accent mis sur les données ne porte pas atteinte à la qualité des soins?
 
 **Autonomie et prise de décision**
 
