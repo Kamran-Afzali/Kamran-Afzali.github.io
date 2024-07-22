@@ -131,21 +131,57 @@ The free energy principle (FEP) and active inference framework provide a powerfu
 ### Maladaptive Decision-Making
 One of the central insights from applying the FEP to addiction is the understanding of maladaptive decision-making processes. According to Schwartenbeck et al. (2015), addiction can be seen as a shift from goal-directed to habitual behavior. Initially, substance use may be driven by seeking hedonic pleasure (goal-directed behavior), but over time, it transitions to automatic, habitual behavior. This shift can be explained by a change in the brain's inference mechanisms, where the control of behavior moves from action-outcome associations to stimulus-response patterns. This transition is marked by a loss of flexibility and an increase in compulsive drug-seeking behavior, even in the face of negative consequences.
 
-### Precision Weighting and Reward Processing
+Precision Weighting and Reward Processing
 The FEP posits that the brain constantly updates its internal models to minimize prediction errors, which involves assigning precision (confidence) to different sources of information. In the context of SUD, there may be an aberrant precision weighting of reward-related cues. Individuals with addiction might overestimate the precision of drug-related rewards while underestimating the precision of non-drug rewards. This imbalance can lead to a heightened sensitivity to drug-related stimuli and a diminished response to other rewarding experiences. Imaging studies support this by showing changes in reward processing and a loss of phasic dopaminergic responses in addicted individuals, aligning with the reward-deficiency hypothesis.
 
-### Impulsive and Compulsive Behaviors
+Impulsive and Compulsive Behaviors
 Active inference models suggest that addiction is associated with characteristic patterns of impulsive and compulsive behaviors. Impulsivity in addiction can be understood as a failure to appropriately weigh the long-term consequences of actions, leading to a preference for immediate rewards despite potential negative outcomes. Compulsivity, on the other hand, emerges as a repetitive, habitual response to drug-related cues. These behaviors can be framed within the FEP as maladaptive strategies to minimize free energy, where the brain's predictions and actions become increasingly rigid and less responsive to changing environmental contingencies.
 
-### Learning and Adaptation
+Learning and Adaptation
 Research by Da Costa et al. (2020) using active inference models indicates that individuals with SUD show impairments in learning from both positive and negative outcomes. They exhibit less precise action selection mechanisms and a lower learning rate from losses, which could explain difficulties in adjusting behavior and maintaining optimal decision-making during and after treatment. This suggests that the brain's ability to update its internal models based on new information is compromised in addiction, leading to persistent maladaptive behaviors.
 
-### Habit Formation and Maintenance
+Habit Formation and Maintenance
 The FEP also provides a framework for understanding how habits form and are maintained in addiction. Habits are learned by observing one's own goal-directed behavior and are selected online during active inference. In addiction, the repeated use of substances reinforces habitual responses, making it difficult to break the cycle of addiction. This process involves both explorative (epistemic) and exploitative (pragmatic) behaviors, where the brain seeks to resolve ambiguity and maximize rewards. Over time, the habitual use of substances becomes a dominant strategy for minimizing free energy, even when it is no longer adaptive.
 
-### Conclusion
+Conclusion
 The free energy principle and active inference framework offer a comprehensive computational model for understanding substance use disorder. By focusing on maladaptive decision-making processes, aberrant precision weighting, and the transition from goal-directed to habitual behaviors, these frameworks provide valuable insights into the mechanisms underlying addiction. This approach not only aligns with existing empirical evidence but also offers a unifying theoretical framework that can guide future research and inform intervention strategies to address the complex nature of addiction.
 
+
+Based on the search results, active inference provides a valuable framework for understanding decision-making processes in individuals with substance use disorders (SUDs). Here are some key insights:
+
+1. Maladaptive decision-making: Active inference models suggest that addiction involves a shift from goal-directed to habitual behavior. Initially, substance use may be driven by seeking pleasure, but over time it transitions to automatic, habitual behavior. This is explained as a change in the brain's inference mechanisms, where behavior control moves from action-outcome associations to stimulus-response patterns, resulting in a loss of flexibility and increase in compulsive drug-seeking behavior.
+
+2. Aberrant precision weighting: In SUDs, there may be an imbalance in how precision (confidence) is assigned to different information sources. Individuals with addiction might overestimate the precision of drug-related rewards while underestimating non-drug rewards. This can lead to heightened sensitivity to drug-related stimuli and diminished response to other rewarding experiences.
+
+3. Impaired learning processes: Research using active inference models indicates that individuals with SUDs show impairments in learning from both positive and negative outcomes. Specifically:
+
+   - They exhibit less precise action selection mechanisms
+   - They have a lower learning rate from losses
+   - They have a greater learning rate from gains
+
+4. Inconsistent behavior patterns: The findings suggest a pattern of inconsistent behavior in response to positive outcomes in SUDs, combined with a tendency to attribute negative outcomes to chance. Individuals with SUDs fail to settle on a behavior strategy despite sufficient evidence of its success.
+
+5. Difficulty in adjusting behavior: These learning impairments could help account for difficulties in adjusting behavior and maintaining optimal decision-making during and after treatment.
+
+6. Exploration-exploitation balance: Active inference models suggest that addiction may involve maladaptive exploration and exploitation behaviors, due to an impaired ability to update beliefs about the safety or value of different choices.
+
+In summary, active inference provides a computational framework for understanding how SUDs affect decision-making processes, highlighting issues with learning rates, precision weighting of rewards, and the balance between habitual and goal-directed behaviors. This approach offers insights into the mechanisms underlying addiction and could potentially inform intervention strategies to address the complex nature of substance use disorders.
+
+Citations:
+- https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2013.00598/full
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7502502/
+- https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind
+- https://samayele.com/introduction-to-active-inference-the-very-basics/
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5167251/
+- https://www.nature.com/articles/s41598-022-21766-4
+- https://www.sciencedirect.com/science/article/pii/S0306987714004423
+- https://www.ncbi.nlm.nih.gov/books/NBK424849/
+- https://direct.mit.edu/neco/article-abstract/29/1/1/8207/Active-Inference-A-Process-Theory?redirectedFrom=fulltext
+- https://www.sciencedirect.com/science/article/abs/pii/S0376871620303732
+- https://karger.com/nps/article/81/5/451/825538/The-Treatment-of-Substance-Use-Disorders-Recent
+- https://www.sciencedirect.com/science/article/pii/S0278262619304063
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4312353/
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2430678/
 
 - [Optimal inference with suboptimal models: Addiction and active Bayesian inference](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4312353/)
 - [Pathologies of precision: A Bayesian account of goals, habits, and episodic foresight in addiction](https://www.sciencedirect.com/science/article/abs/pii/S027826262200001X) 
