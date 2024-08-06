@@ -21,20 +21,24 @@ Faculty of medicine offers four types of graduate degrees
 - Clinical informatics fellowship for MD
 
 #### Harvard
+
+Harvard University offers comprehensive health informatics programs through three distinct faculties. The School of Public Health provides an MSc in Health Data Science, focusing on advanced statistical and computational skills for analyzing health-related data. The Faculty of Medicine, in collaboration with the Institute for Biomedical Informatics, offers an MSc in Medical Sciences in Biomedical Informatics, aimed at integrating biomedical data for medical advancements. Additionally, the Faculty of Medicine offers a unique postdoctoral fellowship funded by the National Library of Medicine, available to doctorate holders (MD or PhD), for specialized training in biomedical informatics. Moreover, a collaborative program between the Faculty of Medicine and the Faculty of Arts & Sciences offers a PhD in Biomedical Informatics, with tracks in Artificial Intelligence in Medicine and Bioinformatics & Genomics, preparing students for innovative research in these cutting-edge areas.
+
 Three faculties are involved to offer  different types of programs 
-School of of Public Health : MSc in health data science
-Faculty of Medicine (with the Institute Biomedical informatics) 
-MSc in medical sciences in biomedical informatics
-Unique postdoctoral fellowship, accessible to doctorate degree holders (MD or PhD),  funded by National Library of Medicine  
-Faculty of Medicine + the Faculty of Arts & Sciences: 
-PhD in biomedical informatics (AI in medicine track or Bioinformatics & genomic tracks) 
+- School of of Public Health : MSc in health data science
+- Faculty of Medicine (with the Institute Biomedical informatics) :
+- MSc in medical sciences in biomedical informatics
+- Unique postdoctoral fellowship, accessible to doctorate degree holders (MD or PhD),  funded by National Library of Medicine  
+- Faculty of Medicine + the Faculty of Arts & Sciences: PhD in biomedical informatics (AI in medicine track or Bioinformatics & genomic tracks) 
 
 #### Buffalo
-Research oriented training in biomedical informatics, jointly offered by the School of engineering + School of medicine 
-Msc and PhD in biomedical informatics AMIA recognized 
-Specialized training for healthcare professionals also possible through two  faculties 
-School of Medicine: Clinical informatics Fellowship ACGME accredited (medical education) 
-School of Pharmacy : PharmD + MS in biomedical informatics double degree
+
+The University at Buffalo offers diverse health informatics programs emphasizing both research and specialized professional training. The School of Engineering and the School of Medicine jointly provide research-oriented training in Biomedical Informatics, offering MSc and PhD degrees recognized by the American Medical Informatics Association (AMIA). Healthcare professionals can pursue specialized training through two faculties. The School of Medicine offers an ACGME-accredited Clinical Informatics Fellowship, focusing on medical education. Additionally, the School of Pharmacy offers a dual degree program, combining a Doctor of Pharmacy (PharmD) with an MS in Biomedical Informatics, equipping graduates with a unique blend of pharmaceutical and informatics expertise.
+
+- Research oriented training in biomedical informatics, jointly offered by the School of engineering and School of medicine (Msc and PhD in biomedical informatics AMIA recognized) 
+- Specialized training for healthcare professionals also possible through two faculties 
+- School of Medicine: Clinical informatics Fellowship ACGME accredited (medical education) 
+- School of Pharmacy : PharmD + MS in biomedical informatics double degree
 #### Illinois 
 Two undergraduate programs, in distinct Faculties
 Applied sciences: BSc in health information management (CAHIIM accredited) 
