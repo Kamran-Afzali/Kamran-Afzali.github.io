@@ -29,6 +29,63 @@ Despite its effectiveness in addressing class imbalance, SMOTE is not without it
 
 
 
+
+
+
+
+The `diffpriv` package in R provides tools for implementing differential privacy.
+
+
+```r
+install.packages("diffpriv")
+```
+
+#### **Code Example**
+
+```r
+library(diffpriv)
+
+# Example data
+data <- c(10, 20, 30, 40, 50)
+
+# Define the privacy budget (epsilon)
+epsilon <- 1.0
+
+# Define the sensitivity of the query
+sensitivity <- 1
+
+# Create a differentially private sum function
+dp_sum <- function(x) {
+  dp_mechanism <- DPMechLaplace(epsilon = epsilon, sensitivity = sensitivity)
+  dp_release <- releaseResponse(dp_mechanism, x)
+  return(dp_release$response)
+}
+
+# Compute the differentially private sum
+dp_result <- dp_sum(data)
+
+print(paste("Differentially Private Sum:", dp_result))
+```
+
+### **Explanation**
+
+1. **Installation**: Install the `diffpriv` package using `install.packages()`.
+2. **Data Preparation**: Prepare a list of numeric data.
+3. **Define Privacy Budget and Sensitivity**: Set the privacy budget (epsilon) and the sensitivity of the query.
+4. **Create DP Sum Function**: Define a function that computes the differentially private sum using the Laplace mechanism.
+5. **Compute DP Sum**: Use the function to compute the differentially private sum of the data.
+
+## **Conclusion**
+
+Both synthetic data generation and differential privacy are crucial techniques in data science for ensuring data privacy and security. The examples provided above demonstrate how to implement these techniques using R libraries:
+
+- **Synthetic Data**: Using `synthpop` to generate data that mimics the statistical properties of the original dataset.
+- **Differential Privacy**: Using `diffpriv` to compute differentially private statistics, ensuring individual data privacy.
+
+These methods can be adapted and extended based on specific requirements and datasets.
+
+
+
 ## References
 
 - [Synthesizing Electronic Health Records for Predictive Models in Low-Middle-Income Countries (LMICs)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10295936/) 
@@ -39,3 +96,5 @@ Despite its effectiveness in addressing class imbalance, SMOTE is not without it
 - [How to Use SMOTE for an Imbalanced Dataset](https://www.turing.com/kb/smote-for-an-imbalanced-dataset)
 - [The harm of class imbalance corrections for risk prediction models: illustration and simulation using logistic regression](https://academic.oup.com/jamia/article/29/9/1525/6605096)
 - [Overcoming Class Imbalance with SMOTE ](https://www.blog.trainindata.com/overcoming-class-imbalance-with-smote/)
+- [diffpriv](https://github.com/brubinstein/diffpriv)
+- [diffpriv: An R Package for Easy Differential Privacy](https://cran.r-project.org/web/packages/diffpriv/vignettes/diffpriv.pdf) 
