@@ -11,11 +11,15 @@ The national professional association HIMSS also recognize official educational 
 Moreover, the academic association AMIA formally recognize the Buffalo university’s programs in biomedical informatics
 
 #### Stanford
+
+Stanford University's Faculty of Medicine offers a comprehensive suite of graduate degrees in health informatics designed to cater to diverse professional and academic interests. The Biomedical Data Sciences program provides both MSc and PhD options, focusing on advanced data analysis and computational methods to tackle complex biomedical challenges. Similarly, the Biomedical Informatics program, available as MSc and PhD degrees, combines interdisciplinary coursework and research to develop innovative solutions in medicine and biology. The MSc in Clinical Informatics is a professional, one-year intensive program aimed at equipping participants with the skills to leverage digital innovations in healthcare management. Additionally, Stanford offers a Clinical Informatics Fellowship for MDs, providing in-depth training in integrating information technology with clinical practice to improve patient care and health outcomes.
+
 Faculty of medicine offers four types of graduate degrees
-Biomedical data sciences (Msc + PhD) 
-Biomedical informatics (MSc + PhD) 
-MSc Clinical informatics (professional one year intensive) 
-Clinical informatics fellowship for MD 
+- Biomedical data sciences (Msc + PhD) 
+- Biomedical informatics (MSc + PhD) 
+- MSc Clinical informatics (professional one year intensive) 
+- Clinical informatics fellowship for MD
+
 #### Harvard
 Three faculties are involved to offer  different types of programs 
 School of of Public Health : MSc in health data science
