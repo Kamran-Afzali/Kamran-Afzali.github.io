@@ -6,9 +6,17 @@ It should be noted that training in digital health refers to several fields, inc
 
 
 ### USA 
+
+####  Medical schools 
+
+In the United States, in absence of a centeralized and unfied effort, some medical schools have been reported to offer digital health teachings. This can go from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
+
 One accreditation body for health informatics and health information management programs was found: CAHIIM: 3 types (health informatics, health information management, digital health depuis 2023) (Illinois) 
 The national professional association HIMSS also recognize official educational affiliate organizations across the country. The Denver University is an HIMSS official educational organization for their three graduate programs (health data science, project management et health informatics, telehealth and virtual care) 
 Moreover, the academic association AMIA formally recognize the Buffalo university’s programs in biomedical informatics
+#### Selected Universities
+
+In the United States, we selected five universities. 
 
 #### Stanford
 
@@ -65,7 +73,18 @@ Offers the HIMSS recognized Health informatics masters, with three concentration
 - Master of Health Informatics Telehealth and Virtual Care
 
 ### Canada 
+
+
+
 No formal Canadian accreditation body was found 
+
+####  Medical schools 
+
+- There is a need to educate family medicine residents in the realm of health informatics, data analytics, and general principles of digital health technologies. However, the integration of health informatics concepts into the curricula of Canadian medical schools and residencies is proceeding slowly (see [here](https://www.cfp.ca/content/65/10/683)). There are offeres by medical associations to improve digital health training in medical schools, for instance [OMD](https://www.ontariomd.ca/documents/resource%20library/dig.%20health%20education%20for%20med%20school.pdf) proposes a Digital Health Curriculum that medical schools can leverage to deliver further value to your students. This digital health educational package includes well-defined instructional digital health materials developed by practicing physicians and digital health experts who are university faculty members. Each module in the curriculum is specifically designed to enhance experiential learning and can be easily customized to the learning goals of each university’s medical school and the student’s education year.  
+
+#### Selected Universities
+
+We selected two Canadian with comprehensive health informatics training programs, each with its own unique focus and approach. 
 
 #### Victoria 
 
@@ -86,6 +105,12 @@ McMaster University offers a unique MSc in eHealth, a program distinct from trad
 
 ### Australia 
 
+####  Medical schools 
+
+- The Australian Medical Council (AMC) and the Australian Digital Health Agency formed a partnership in 2020 to engage in a project aimed at understanding how technology impacts the standards of medical education, training and practice in Australia. This was done in alignment with the AMC’s roles as a national standards body for medical education and training, and as the accreditation authority for the medical profession.  AMC completed this work by launching the [framework](https://www.amc.org.au/wp-content/uploads/2021/10/Digital-Health-in-Medicine-Capability-Framework-FINAL-18-Oct-2021.pdf) with medical education providers and other key stakeholders of medicine. As part of this launch, AMC also presented on the capability framework at a number of national medical education and workforce conferences and shared a new look digital health page with their stakeholders.
+
+#### Selected Universities
+
 #### Sydney 
 
 The University of Sydney offers innovative health informatics programs, integrating health education within computer science and engineering undergraduate degrees. Students can pursue a Bachelor of Advanced Computing and Medical Sciences, blending core computing skills with comprehensive health system knowledge, or a Bachelor of Biomedical Engineering and Health, combining engineering principles with health applications. At the graduate level, the Faculty of Computer Sciences offers an MSc in Digital Health and Data Science, focusing on advanced data science skills tailored to address challenges in digital health. These programs prepare students for interdisciplinary roles in the digital health landscape.
@@ -98,9 +123,20 @@ Graduate
 -Faculty of Computer sciences offers a MSc in Digital health and Data science
 
 ### France 
+
+####  Medical schools 
+
+- At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties began teaching digital health to students in their second cycle (4th to 6th year) in 2019. More information can be found in the following articles.
+  - [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure)
+  - [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
+
 Graduated programs emerging from public health faculties.
 
 A national approach to digital health training for professionals is underway. 
+
+#### Selected Universities
+
+In France, we selected two universities, Bordeaux and Paris Cité for their unique health informatics training programs.
 
 #### Bordeaux 
 
@@ -123,6 +159,17 @@ Pierre Louis Doctoral School of Public Health (Sorbonne)
   - Data sciences
 
 ### UK 
+
+
+####  Medical schools 
+
+- In recent investigations among UK healthcare professionals, notable discrepancies in digital literacy within the healthcare field have been identified. These disparities present obstacles to the efficient integration of emerging technologies in clinical practices. Moreover, insufficient training on the ethical considerations related to these technologies poses a potential dilemma for healthcare professionals in safeguarding patient rights. Recognizing these challenges and the evident need for focused education in digital health, a group pf UK medical doctors have recently [advocate for a concentrated effort](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8966807/) on the fundamental component of any healthcare profession—the undergraduate curriculum.
+
+
+#### Selected Universities
+
+In the UK, we selected two universities of Oxford and Leeds.
+
 
 #### Oxford
 
