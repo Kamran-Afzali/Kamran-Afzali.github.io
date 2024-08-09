@@ -47,23 +47,7 @@ library(diffpriv)
 # Example data
 data <- c(10, 20, 30, 40, 50)
 
-# Define the privacy budget (epsilon)
-epsilon <- 1.0
-
-# Define the sensitivity of the query
-sensitivity <- 1
-
-# Create a differentially private sum function
-dp_sum <- function(x) {
-  dp_mechanism <- DPMechLaplace(epsilon = epsilon, sensitivity = sensitivity)
-  dp_release <- releaseResponse(dp_mechanism, x)
-  return(dp_release$response)
-}
-
-# Compute the differentially private sum
-dp_result <- dp_sum(data)
-
-print(paste("Differentially Private Sum:", dp_result))
+.....
 ```
 
 ### **Explanation**
