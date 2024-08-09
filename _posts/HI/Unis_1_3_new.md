@@ -26,6 +26,16 @@ Faculty of medicine offers four types of graduate degrees
 - MSc Clinical informatics (professional one year intensive) 
 - Clinical informatics fellowship for MD
 
+- [Departments](https://www.stanford.edu/list/academic/#)
+- [Programs](https://bulletin.stanford.edu/programs?page=1&pq=)
+- Stanford Medicine 
+  - [BMDS-MS - Biomedical Data Science (MS)](https://bulletin.stanford.edu/programs/BMDS-MS)
+  - [BMDS-PHD - Biomedical Data Science (PhD)](https://bulletin.stanford.edu/programs/BMDS-PHD)
+  - [BIOM-MS - Biomedical Informatics (MS)](https://bulletin.stanford.edu/programs/BIOM-MS)
+  - [BIOM-PHD - Biomedical Informatics (PhD)](https://bulletin.stanford.edu/programs/BIOM-PHD)
+  - [CIMGT-MS - Clinical Informatics Management (MS)](https://bulletin.stanford.edu/programs/CIMGT-MS)
+  - [Clinical Informatics Fellowship](https://med.stanford.edu/master-clinical-informatics-management/stanford-clinical-informatics/clinical-informatics-fellowship.html)
+
 #### Harvard
 
 Harvard University offers several graduate programs through three distinct faculties. The School of Public Health provides an MSc in Health Data Science, focusing on advanced statistical and computational skills for analyzing health-related data. The Faculty of Medicine, in collaboration with the Institute for Biomedical Informatics, offers an MSc in Medical Sciences in Biomedical Informatics, aimed at integrating biomedical data for medical advancements. Additionally, the Faculty of Medicine offers a unique postdoctoral fellowship funded by the National Library of Medicine, available to doctorate holders (MD or PhD), for specialized training in biomedical informatics. Moreover, a collaborative program between the Faculty of Medicine and the Faculty of Arts & Sciences offers a PhD in Biomedical Informatics, with tracks in Artificial Intelligence in Medicine and Bioinformatics & Genomics, preparing students for innovative research in these areas.
@@ -37,6 +47,30 @@ Three faculties are involved to offer different types of programs
 - Unique postdoctoral fellowship, accessible to doctorate degree holders (MD or PhD),  funded by National Library of Medicine  
 - Faculty of Medicine + the Faculty of Arts & Sciences: PhD in biomedical informatics (AI in medicine track or Bioinformatics & genomic tracks) 
 
+
+- [Harvard's Schools and Departments](https://hr.harvard.edu/harvards-schools-and-departments) 
+  - [Harvard Kenneth C. Griffin Graduate School of Arts and Sciences](https://gsas.harvard.edu/programs?f%5B0%5D=areas_of_study%3A50&f%5B1%5D=areas_of_study%3A173&f%5B2%5D=areas_of_study%3A174&f%5B3%5D=areas_of_study%3A175&f%5B4%5D=areas_of_study%3A177&f%5B5%5D=areas_of_study%3A178
+) 
+    - [Biological Sciences in Public Health](https://gsas.harvard.edu/program/biological-sciences-public-health)
+    - [Biomedical Informatics](https://gsas.harvard.edu/program/biomedical-informatics)
+    - [Biostatistics](https://gsas.harvard.edu/program/biostatistics)
+  - [Harvard John A. Paulson School of Engineering and Applied Sciences (SEAS)](https://seas.harvard.edu/)
+    - [Bioengineering undergraduate](https://seas.harvard.edu/bioengineering/undergraduate-program)
+    - [Bioengineering masters](https://seas.harvard.edu/bioengineering/graduate-program)
+  - [Harvard Kennedy School](https://www.hks.harvard.edu/educational-programs)
+    - [Data and Research Methods track for public policy](https://www.hks.harvard.edu/admissions-blog/data-research-methods-track) 
+  - [Harvard T.H. Chan School of Public Health](https://www.hsph.harvard.edu/about/departments/)
+    - [PhD in Biological Sciences in Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/doctoral-degrees/phd-in-biological-sciences-and-public-health/)
+    - [Master of Science in Health Data Science](https://www.hsph.harvard.edu/health-data-science/)
+    - [Master of Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-45-credit/)
+    - [Master of Public Health in Epidemiology](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-in-epidemiology/ )
+  - [Harvard Medical School](https://hms.harvard.edu/)
+    - [Safety, Quality, Informatics, and Leadership Certificate](https://postgraduateeducation.hms.harvard.edu/certificate-programs/safety-quality-informatics-leadership)
+    - [Master of Medical Sciences in Biomedical Informatics Degree Program](https://dbmi.hms.harvard.edu/education/masters-program)
+    - [PhD in Biomedical Informatics](https://bmiphd.hms.harvard.edu//)
+    - [NLM Biomedical Informatics and Data Science Postdoctoral Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-postdoctoral-fellowship)
+   
+      
 #### Buffalo
 
 The University at Buffalo offers graduate programs emphasizing both research and specialized professional training. The School of Engineering and the School of Medicine jointly provide research-oriented training in Biomedical Informatics, offering MSc and PhD degrees recognized by the American Medical Informatics Association (AMIA). Healthcare professionals can pursue specialized training through two faculties. The School of Medicine offers an ACGME-accredited Clinical Informatics Fellowship, focusing on medical education. Additionally, the School of Pharmacy offers a dual degree program, combining a Doctor of Pharmacy (PharmD) with an MS in Biomedical Informatics, equipping graduates with a unique blend of pharmaceutical and informatics expertise.
@@ -45,8 +79,22 @@ The University at Buffalo offers graduate programs emphasizing both research and
 - Specialized training for healthcare professionals also possible through two faculties 
 - School of Medicine: Clinical informatics Fellowship ACGME accredited (medical education) 
 - School of Pharmacy : PharmD + MS in biomedical informatics double degree
+
+- [Departments](https://arts-sciences.buffalo.edu/faculty-staff/department-program-directory.html)
+- [Undergraduate programs](https://www.buffalo.edu/undergrad-programs.html)
+- [Graduate programs](https://www.buffalo.edu/grad/explore/about/programs.html)
+- Jacobs School of Medicine and Biomedical Sciences/School of Engineering and Applied Sciences
+  -  [Biomedical Informatics PhD ](https://www.buffalo.edu/grad/programs/biomedical-informatics-phd.html)
+  -  [Biomedical Informatics Msc ](https://www.buffalo.edu/grad/programs/biomedical-informatics-ms.html)
+- Jacobs School of Medicine and Biomedical Sciences
+  -  [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)    
+-  School of Pharmacy and Pharmaceutical Sciences
+  - [PharmD/Biomedical Informatics MS ](https://www.buffalo.edu/grad/programs/biomedical-informatics-pharmd-ms.html)
+    
+
+
   
-#### Illinois 
+#### University of Illinois Chicago  
 
 
 The University of Illinois offers both undergraduate and graduate programs across differentfaculties. At the undergraduate level, the Faculty of Applied Sciences provides a CAHIIM-accredited Bachelor of Science in Health Information Management, while the Faculty of Engineering offers a Bachelor of Science in Data Sciences with a concentration in Health Data Science. Graduate students can choose from three CAHIIM-accredited programs: a Master of Science in Health Information Management, a fully online Master of Science in Health Informatics, and a PhD in Biomedical and Health Informatics. Additionally, there is a dual degree program for health professionals combining a PharmD with an MSc in Health Informatics, similar to the program at Buffalo, which is also CAHIIM-accredited.
@@ -61,6 +109,22 @@ Three types of graduate programs
 - PhD in biomedical and health informatics (CAHIIM accredited)
 A double program for health professionals
 - PharmD + MSc in health informatics (like Buffalo) (CAHIIM accredited)
+ 
+- [Departments](https://catalog.uic.edu/ucat/colleges-depts/)
+- [Undergraduate programs](https://catalog.uic.edu/ucat/degree-programs/degree-minors/)
+- [Graduate programs](https://catalog.uic.edu/gcat/degree-programs/grad-prof-degree-programs/)
+  
+- College of Applied Health Sciences
+  - [BS in Health Information Management](https://catalog.uic.edu/ucat/colleges-depts/applied-health-sciences/bhis/bs/)
+  - [MS PhD Health Informatics](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+  - [MS Health Information Management](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/health-info-mgmt/)
+    
+- College of Engineering
+
+  - [BS in Data Science with Health Data Science Concentration](https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/bs-data-science-health-data-science/)
+  - [BS in Biomedical Engineering](https://catalog.uic.edu/ucat/colleges-depts/engineering/bme/bs/)
+  - [MS PhD Bioinformatics](https://catalog.uic.edu/gcat/colleges-schools/engineering/bioi/)
+  - [MS PhD Biomedical Engineering](https://catalog.uic.edu/gcat/colleges-schools/engineering/bme/)
 
 #### Denver
 
@@ -70,6 +134,16 @@ Offers the HIMSS recognized Health informatics masters, with three concentration
 - Master of Health Informatics - Health Data Science
 - Master of Health Informatics - Project Management
 - Master of Health Informatics Telehealth and Virtual Care
+
+- [Schools](https://www.du.edu/academics/schools-colleges)
+- [Undergraduate programs](https://www.du.edu/academics/undergraduate-programs)
+- [Graduate programs](https://www.du.edu/academics/graduate-programs)
+- [University College](https://universitycollege.du.edu/) 
+
+  - [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594)
+  - [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
+  - [Master of Health Informatics Telehealth and Virtual Care](https://universitycollege.du.edu/hinf/telehealth-and-virtual-care-masters-concentration/)
+
 
 ### Canada 
 
@@ -141,6 +215,14 @@ School of public health
 - Master Public health data science
 - MSc and PhD Digital Public Health (formerly joint with McGill for the PhD) 
 
+- [Formation par composante](https://formations.u-bordeaux.fr/#/par-composante)
+  - [ISPED](https://www.isped.u-bordeaux.fr/)
+    - [Systèmes d'information et technologies informatiques pour la santé (SITIS)](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Syst%C3%A8mes-dinformation-et-technologies-informatiques-pour-la-sant%C3%A9)
+    - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
+    - [Digital public health](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph)
+
+
+
 #### Paris Cité 
 
 The University of Paris Cité's School of Public Health three graduate programs. Students can pursue a Master's degree in Public Health with two specialized tracks: Massive Data in Health and Biomedical Informatics, focusing on the utilization and management of large health data sets and the application of informatics in biomedical research. Additionally, the Pierre Louis Doctoral School of Public Health, in collaboration with Sorbonne, offers two PhD specializations: Medical Informatics and Data Sciences, providing rigorous training in health data analysis and informatics for addressing complex public health challenges.
@@ -149,6 +231,22 @@ School of Public Health
 - Master's degree in public health, two related courses: Massive data in health; Biomedical informatics 
 Pierre Louis Doctoral School of Public Health (Sorbonne) 
 - Two PhD specializations in public health 
+  - Medical Informatics 
+  - Data sciences
+
+### Paris Cite
+
+- [Formation](https://odf.u-paris.fr/fr/catalogue-des-diplomes-nationaux.html#nav) 
+- [Communauté Université Paris Cité](https://u-paris.fr/les-facultes/)
+
+  
+- [UFR de Médecine](https://u-paris.fr/medecine/)
+  - [Master Santé publique - Parcours : Informatique biomédicale](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-informatique-biomedicale-K168NOR5.html)
+  - [Master Santé publique - Parcours : Données massives en santé
+](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-donnees-massives-en-sante-K168SJQL.html)
+
+- [Ecole Doctorale Pierre Louis de Santé Publique : Epidémiologie et Sciences de l'Information Biomédicale](https://ed393.sorbonne-universite.fr/lecole-doctorale-393/presentation-de-led-393)
+  - Two PhD specializations in public health 
   - Medical Informatics 
   - Data sciences
 
