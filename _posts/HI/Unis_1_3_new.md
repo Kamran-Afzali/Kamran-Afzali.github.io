@@ -73,8 +73,6 @@ Offers the HIMSS recognized Health informatics masters, with three concentration
 
 ### Canada 
 
-
-
 No formal Canadian accreditation body was found 
 
 ####  Medical schools 
@@ -83,7 +81,7 @@ No formal Canadian accreditation body was found
 
 #### Selected Universities
 
-We selected two Canadian with comprehensive health informatics training programs, each with its own unique focus and approach. 
+We selected two Canadian Universities each with its own unique focus and approach. 
 
 #### Victoria 
 
@@ -97,7 +95,7 @@ The first and only School of health information sciences in Canada
 
 #### McMaster 
 
-McMaster University offers a unique MSc in eHealth, a program distinct from traditional health informatics or health information management. This interdisciplinary program is jointly provided by the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business. The MSc in eHealth equips students with the expertise to integrate health sciences, advanced engineering solutions, and business strategies, preparing them for leadership roles in the evolving field of digital health.
+McMaster University offers a unique MSc in eHealth, a program distinct from traditional health informatics or health information management. This interdisciplinary program is jointly provided by the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business. The MSc in eHealth equips students with the expertise to integrate health sciences, data solutions, and management strategies, preparing them for different roles in the evolving field of digital health.
 
 - MSc of eHealth (not health informatics or health information management) offered jointly  by three faculties as follows Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business
  
@@ -169,14 +167,14 @@ In the UK, we selected two universities of Oxford and Leeds.
 
 #### Oxford
 
-The University of Oxford has established the Oxford Institute for Digital Health within its Division of Medical Sciences, specifically in the Department of Primary Care. This initiative underscores Oxford's commitment to advancing healthcare through digital innovation. The Division of Medical Sciences offers a one-year MSc in Applied Digital Health, designed to equip students with the skills and knowledge needed to integrate digital technologies into healthcare practice effectively. This program focuses on the practical application of digital health tools to improve patient outcomes and streamline healthcare delivery.
+The University of Oxford has established the Oxford Institute for Digital Health within its Division of Medical Sciences, specifically in the Department of Primary Care. The Institute offers a one-year MSc in Applied Digital Health, designed to equip students with the skills and knowledge needed to integrate digital technologies into healthcare practice effectively. This program focuses on the practical application of digital health tools to improve patient outcomes and streamline healthcare delivery.
 
 The university has created the Oxford Institute for Digital Health within the Division of Medical Science, Department of Primary care. 
 - Medical Science division offers a Msc in Applied Digital health (one year program)
 
 #### Leeds
 
-The University of Leeds offers specialized health informatics programs through its Faculty of Engineering and Physical Sciences and the Faculty of Medicine. The School of Computing provides a Master’s in Data Sciences and Analytics for Health, which is exclusively accessible to NHS Digital staff, ensuring alignment with current field needs. Additionally, the School offers PhD programs in Computational Medicine and Computing in Biology, Medicine, and Health, focusing on advanced research at the intersection of computing and healthcare. Within the Faculty of Medicine, Leeds offers an MSc in Health Informatics with Data Sciences, preparing students to address complex health data challenges with cutting-edge informatics solutions.
+The University of Leeds offers specialized health informatics programs through its Faculty of Engineering and Physical Sciences and the Faculty of Medicine. The School of Computing provides a Master’s in Data Sciences and Analytics for Health, which is exclusively accessible to NHS Digital staff, ensuring alignment with current field needs. Additionally, the School offers PhD programs in Computational Medicine and Computing in Biology, Medicine, and Health, focusing on advanced research at the intersection of computing and healthcare. Within the Faculty of Medicine, Leeds offers an MSc in Health Informatics with Data Sciences.
 
 Faculty of Engineering and physical sciences / School of Computing 
 - Master in Data sciences and analytics for health accessible to the NHS Digital staff only (strongly aligned with needs in the field) 
