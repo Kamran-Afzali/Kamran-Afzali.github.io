@@ -167,12 +167,30 @@ The first and only School of health information sciences in Canada
 - Double MSc nursing and health informatics 
 - Reseach oriented MSc followed by PhD in health informatics 
 
+- [Faculties, divisions & services](https://www.uvic.ca/academics/faculties-schools-and-services/index.php)
+- [Undergraduate programs](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/faculty.php#faculty-engineeringAndComputerScience-hdr)
+- [Graduate programs](https://www.uvic.ca/graduate/programs/graduate-programs/index.php)
+
+- [Health Information Science](https://www.uvic.ca/hsd/hinf/)
+  - [Computer Science and Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science-and-health-information-science.php) in collaboration with Department of Computer Science
+  - [Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/health-information-science.php)
+  - [Health Informatics (MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-msc.php)
+  - [Health Informatics (PhD)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-phd.php)
+  - [Nursing and Health Informatics Double Degree (MN + MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/nursing-and-health-informatics-double-degree-mn-msc.php) in collaboration with School of Nursing
+
+
 #### McMaster 
 
 McMaster University offers a unique MSc in eHealth, a program distinct from traditional health informatics or health information management. This interdisciplinary program is jointly provided by the Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business. The MSc in eHealth equips students with the expertise to integrate health sciences, data solutions, and management strategies, preparing them for different roles in the evolving field of digital health.
 
 - MSc of eHealth (not health informatics or health information management) offered jointly  by three faculties as follows Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business
- 
+
+ ### McMaster University 
+- [Faculties](https://discover.mcmaster.ca/faculties/)  
+- [Undergraduate programs](https://future.mcmaster.ca/programs/)
+- [Graduate programs](https://gs.mcmaster.ca/programs/)
+- Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business 
+  - [Master of E-Health](https://ehealth.mcmaster.ca/)
 
 ### Australia 
 
