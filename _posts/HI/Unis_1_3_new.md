@@ -9,22 +9,24 @@ This document provides an in-depth exploration of academic programs in health in
 
 In the United States, in absence of a centeralized and unfied effort, some medical schools have been reported to offer digital health teachings. This can go from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
 
-One accreditation body for health informatics and health information management programs was found: CAHIIM: 3 types (health informatics, health information management, digital health depuis 2023) (Illinois) 
-The national professional association HIMSS also recognize official educational affiliate organizations across the country. The Denver University is an HIMSS official educational organization for their three graduate programs (health data science, project management et health informatics, telehealth and virtual care) 
-Moreover, the academic association AMIA formally recognize the Buffalo university’s programs in biomedical informatics
+
 #### Selected Universities
 
 In the United States, we selected five universities. 
+
+CAHIIM (The Commission on Accreditation for Health Informatics & Information Management Education) is the accreditation body for health informatics and health information management programs that covers three domains (health informatics, health information management, digital health) and recognizes some of the programs presented below. The Healthcare Information and Management Systems Society (HIMSS) also recognize official educational affiliate organizations across the US. The Denver University is an HIMSS official educational organization for their three graduate programs (health data science, project management et health informatics, telehealth and virtual care). Moreover, the American Medical Informatics Association (AMIA) which is an academic association formally recognize the Buffalo university’s programs in biomedical informatics
+
+
 
 #### Stanford
 
 Stanford University's Faculty of Medicine offers four graduate degrees designed to cater to different professional and academic interests. The Biomedical Data Sciences program provides both MSc and PhD options, focusing on advanced data analysis and computational methods. Similarly, the Biomedical Informatics program, available as MSc and PhD degrees. The MSc in Clinical Informatics is a professional, one-year intensive program aimed at equipping field professionals with the skills to use digital innovations in healthcare management. Additionally, Stanford offers a Clinical Informatics Fellowship for MDs, providing in-depth training in integrating information technology with clinical practice to improve patient care and health outcomes.
 
-Faculty of medicine offers four types of graduate degrees
-- Biomedical data sciences (Msc + PhD) 
-- Biomedical informatics (MSc + PhD) 
-- MSc Clinical informatics (professional one year intensive) 
-- Clinical informatics fellowship for MD
+- Faculty of medicine offers four types of graduate degrees
+  - Biomedical data sciences (Msc + PhD) 
+  - Biomedical informatics (MSc + PhD) 
+  - MSc Clinical informatics (professional one year intensive) 
+  - Clinical informatics fellowship for MD
 
 - [Departments](https://www.stanford.edu/list/academic/#)
 - [Programs](https://bulletin.stanford.edu/programs?page=1&pq=)
@@ -41,31 +43,20 @@ Faculty of medicine offers four types of graduate degrees
 Harvard University offers several graduate programs through three distinct faculties. The School of Public Health provides an MSc in Health Data Science, focusing on advanced statistical and computational skills for analyzing health-related data. The Faculty of Medicine, in collaboration with the Institute for Biomedical Informatics, offers an MSc in Medical Sciences in Biomedical Informatics, aimed at integrating biomedical data for medical advancements. Additionally, the Faculty of Medicine offers a unique postdoctoral fellowship funded by the National Library of Medicine, available to doctorate holders (MD or PhD), for specialized training in biomedical informatics. Moreover, a collaborative program between the Faculty of Medicine and the Faculty of Arts & Sciences offers a PhD in Biomedical Informatics, with tracks in Artificial Intelligence in Medicine and Bioinformatics & Genomics, preparing students for innovative research in these areas.
 
 Three faculties are involved to offer different types of programs 
-- School of of Public Health : MSc in health data science
+- School of of Public Health 
+  - MSc in health data science
 - Faculty of Medicine (with the Institute Biomedical informatics) :
-- MSc in medical sciences in biomedical informatics
-- Unique postdoctoral fellowship, accessible to doctorate degree holders (MD or PhD),  funded by National Library of Medicine  
-- Faculty of Medicine + the Faculty of Arts & Sciences: PhD in biomedical informatics (AI in medicine track or Bioinformatics & genomic tracks) 
+  - MSc in medical sciences in biomedical informatics
 
+- Faculty of Medicine + the Faculty of Arts & Sciences
+  -PhD in biomedical informatics (AI in medicine track or Bioinformatics & genomic tracks) 
+- Unique postdoctoral fellowship, accessible to doctorate degree holders (MD or PhD),  funded by National Library of Medicine  
 
 - [Harvard's Schools and Departments](https://hr.harvard.edu/harvards-schools-and-departments) 
-  - [Harvard Kenneth C. Griffin Graduate School of Arts and Sciences](https://gsas.harvard.edu/programs?f%5B0%5D=areas_of_study%3A50&f%5B1%5D=areas_of_study%3A173&f%5B2%5D=areas_of_study%3A174&f%5B3%5D=areas_of_study%3A175&f%5B4%5D=areas_of_study%3A177&f%5B5%5D=areas_of_study%3A178
-) 
-    - [Biological Sciences in Public Health](https://gsas.harvard.edu/program/biological-sciences-public-health)
-    - [Biomedical Informatics](https://gsas.harvard.edu/program/biomedical-informatics)
-    - [Biostatistics](https://gsas.harvard.edu/program/biostatistics)
-  - [Harvard John A. Paulson School of Engineering and Applied Sciences (SEAS)](https://seas.harvard.edu/)
-    - [Bioengineering undergraduate](https://seas.harvard.edu/bioengineering/undergraduate-program)
-    - [Bioengineering masters](https://seas.harvard.edu/bioengineering/graduate-program)
-  - [Harvard Kennedy School](https://www.hks.harvard.edu/educational-programs)
-    - [Data and Research Methods track for public policy](https://www.hks.harvard.edu/admissions-blog/data-research-methods-track) 
+
   - [Harvard T.H. Chan School of Public Health](https://www.hsph.harvard.edu/about/departments/)
-    - [PhD in Biological Sciences in Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/doctoral-degrees/phd-in-biological-sciences-and-public-health/)
     - [Master of Science in Health Data Science](https://www.hsph.harvard.edu/health-data-science/)
-    - [Master of Public Health](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-45-credit/)
-    - [Master of Public Health in Epidemiology](https://www.hsph.harvard.edu/admissions/degree-programs/master-of-public-health-in-epidemiology/ )
   - [Harvard Medical School](https://hms.harvard.edu/)
-    - [Safety, Quality, Informatics, and Leadership Certificate](https://postgraduateeducation.hms.harvard.edu/certificate-programs/safety-quality-informatics-leadership)
     - [Master of Medical Sciences in Biomedical Informatics Degree Program](https://dbmi.hms.harvard.edu/education/masters-program)
     - [PhD in Biomedical Informatics](https://bmiphd.hms.harvard.edu//)
     - [NLM Biomedical Informatics and Data Science Postdoctoral Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-postdoctoral-fellowship)
