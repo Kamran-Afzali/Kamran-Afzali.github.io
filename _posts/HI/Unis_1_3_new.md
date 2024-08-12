@@ -22,11 +22,15 @@ CAHIIM (The Commission on Accreditation for Health Informatics & Information Man
 
 Stanford University's Faculty of Medicine offers four graduate degrees designed to cater to different professional and academic interests. The Biomedical Data Sciences program provides both MSc and PhD options, focusing on advanced data analysis and computational methods. Similarly, the Biomedical Informatics program, available as MSc and PhD degrees. The MSc in Clinical Informatics is a professional, one-year intensive program aimed at equipping field professionals with the skills to use digital innovations in healthcare management. Additionally, Stanford offers a Clinical Informatics Fellowship for MDs, providing in-depth training in integrating information technology with clinical practice to improve patient care and health outcomes.
 
+##### Outline
+
 - Faculty of medicine offers four types of graduate degrees
   - Biomedical data sciences (Msc + PhD) 
   - Biomedical informatics (MSc + PhD) 
   - MSc Clinical informatics (professional one year intensive) 
   - Clinical informatics fellowship for MD
+
+##### links
 
 - [Departments](https://www.stanford.edu/list/academic/#)
 - [Programs](https://bulletin.stanford.edu/programs?page=1&pq=)
@@ -42,15 +46,23 @@ Stanford University's Faculty of Medicine offers four graduate degrees designed 
 
 Harvard University offers several graduate programs through three distinct faculties. The School of Public Health provides an MSc in Health Data Science, focusing on advanced statistical and computational skills for analyzing health-related data. The Faculty of Medicine, in collaboration with the Institute for Biomedical Informatics, offers an MSc in Medical Sciences in Biomedical Informatics, aimed at integrating biomedical data for medical advancements. Additionally, the Faculty of Medicine offers a unique postdoctoral fellowship funded by the National Library of Medicine, available to doctorate holders (MD or PhD), for specialized training in biomedical informatics. Moreover, a collaborative program between the Faculty of Medicine and the Faculty of Arts & Sciences offers a PhD in Biomedical Informatics, with tracks in Artificial Intelligence in Medicine and Bioinformatics & Genomics, preparing students for innovative research in these areas.
 
+
+##### Outline
+
 Three faculties are involved to offer different types of programs 
+
 - School of of Public Health 
   - MSc in health data science
-- Faculty of Medicine (with the Institute Biomedical informatics) :
+    
+- Faculty of Medicine (with the Institute Biomedical informatics)
   - MSc in medical sciences in biomedical informatics
 
-- Faculty of Medicine + the Faculty of Arts & Sciences
-  -PhD in biomedical informatics (AI in medicine track or Bioinformatics & genomic tracks) 
-- Unique postdoctoral fellowship, accessible to doctorate degree holders (MD or PhD),  funded by National Library of Medicine  
+- Faculty of Medicine and the Faculty of Arts & Sciences
+  - PhD in biomedical informatics (AI in medicine track or Bioinformatics & genomic tracks)
+    
+- Unique postdoctoral fellowship, accessible to doctorate degree holders (MD or PhD), funded by National Library of Medicine  
+
+##### links
 
 - [Harvard's Schools and Departments](https://hr.harvard.edu/harvards-schools-and-departments) 
 
