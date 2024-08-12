@@ -30,7 +30,7 @@ Stanford University's Faculty of Medicine offers four graduate degrees designed 
   - MSc Clinical informatics (professional one year intensive) 
   - Clinical informatics fellowship for MD
 
-##### links
+##### Links
 
 - [Departments](https://www.stanford.edu/list/academic/#)
 - [Programs](https://bulletin.stanford.edu/programs?page=1&pq=)
@@ -62,7 +62,7 @@ Three faculties are involved to offer different types of programs
     
 - Unique postdoctoral fellowship, accessible to doctorate degree holders (MD or PhD), funded by National Library of Medicine  
 
-##### links
+##### Links
 
 - [Harvard's Schools and Departments](https://hr.harvard.edu/harvards-schools-and-departments) 
 
@@ -89,7 +89,7 @@ The University at Buffalo offers graduate programs emphasizing both research and
 - School of Pharmacy 
   - PharmD + MS in biomedical informatics double degree
 
-##### links
+##### Links
 
 - [Departments](https://arts-sciences.buffalo.edu/faculty-staff/department-program-directory.html)
 - [Undergraduate programs](https://www.buffalo.edu/undergrad-programs.html)
@@ -143,19 +143,24 @@ A double program for health professionals
 
 The University of Denver offers a HIMSS-recognized Master of Health Informatics with three professional-oriented concentrations. The Master of Health Informatics - Health Data Science equips students with advanced data science tools to optimize health outcomes. The Master of Health Informatics - Project Management focuses on developing leadership skills to manage complex healthcare projects effectively. The Master of Health Informatics - Telehealth and Virtual Care prepares students to leverage emerging technologies in telehealth and virtual health, improving patient care and healthcare delivery.
 
-Offers the HIMSS recognized Health informatics masters, with three concentrations that are very professionnal oriented
-- Master of Health Informatics - Health Data Science
-- Master of Health Informatics - Project Management
-- Master of Health Informatics Telehealth and Virtual Care
+
+##### Outline
+
+- A HIMSS recognized Health informatics masters, with three professionnally oriented concentrations 
+  - Master of Health Informatics - Health Data Science
+  - Master of Health Informatics - Project Management
+  - Master of Health Informatics Telehealth and Virtual Care
 
 - [Schools](https://www.du.edu/academics/schools-colleges)
 - [Undergraduate programs](https://www.du.edu/academics/undergraduate-programs)
 - [Graduate programs](https://www.du.edu/academics/graduate-programs)
-- [University College](https://universitycollege.du.edu/) 
 
+##### Links
+
+- [University College](https://universitycollege.du.edu/) 
   - [Master of Health Informatics - Health Data Science](https://universitycollege.du.edu/hinf/degree/masters/health-data-science-online/degreeid/594)
   - [Master of Health Informatics - Project Management](https://universitycollege.du.edu/hinf/degree/masters/project-management-online/degreeid/634)
-  - [Master of Health Informatics Telehealth and Virtual Care](https://universitycollege.du.edu/hinf/telehealth-and-virtual-care-masters-concentration/)
+  - [Master of Health Informatics - Telehealth and Virtual Care](https://universitycollege.du.edu/hinf/telehealth-and-virtual-care-masters-concentration/)
 
 
 ### Canada 
@@ -217,12 +222,34 @@ McMaster University offers a unique MSc in eHealth, a program distinct from trad
 
 The University of Sydney offers three innovative programs, integrating health education within computer science and engineering undergraduate degrees. Students can pursue a Bachelor of Advanced Computing and Medical Sciences, blending core computing skills with comprehensive health system knowledge, or a Bachelor of Biomedical Engineering and Health, combining engineering principles with health applications. At the graduate level, the Faculty of Computer Sciences offers an MSc in Digital Health and Data Science, focusing on advanced data science skills applied to the domain of digital health that prepare students for interdisciplinary roles in the digital health landscape.
 
-Undergraduate interesting approach where health is embedded in computer science or engineering baccalaureate
-- Computer Science: Bachelor of advanced computing and medical sciences
-- Engineering: Bachelor biomedical engineering and health 
+##### Outline
+
+Undergraduate 
+
+- Faculty of Computer Science
+  - Bachelor of advanced computing and medical sciences
+-  Faculty of Engineering
+  - Bachelor biomedical engineering and health 
 
 Graduate
--Faculty of Computer sciences offers a MSc in Digital health and Data science
+- Faculty of Computer sciences 
+  - MSc in Digital health and Data science
+
+##### Links
+
+- [Faculties](https://www.sydney.edu.au/about-us/faculties-and-schools.html)
+  
+- [Programs](https://www.sydney.edu.au/courses/search.html?search-type=course&years=2024)
+
+- School of Computer Science
+  
+  - [Bachelor of Advanced Computing and Bachelor of Science (Medical Science)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-medical-science.html)
+  - [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
+  - [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
+    
+- Faculty of Engineering
+  - [Bachelor of Engineering Honours (Biomedical) and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-biomedical-and-bachelor-of-science-health.html)
+
 
 ### France 
 
