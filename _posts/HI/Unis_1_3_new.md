@@ -245,7 +245,6 @@ Graduate
   
   - [Bachelor of Advanced Computing and Bachelor of Science (Medical Science)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-advanced-computing-and-bachelor-of-science-medical-science.html)
   - [Master of Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/master-of-digital-health-and-data-science.html)
-  - [Graduate Certificate in Digital Health and Data Science](https://www.sydney.edu.au/courses/courses/pc/graduate-certificate-in-digital-health-and-data-science.html)
     
 - Faculty of Engineering
   - [Bachelor of Engineering Honours (Biomedical) and Bachelor of Science (Health)](https://www.sydney.edu.au/courses/courses/uc/bachelor-of-engineering-honours-biomedical-and-bachelor-of-science-health.html)
