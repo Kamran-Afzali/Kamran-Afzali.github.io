@@ -76,19 +76,29 @@ Three faculties are involved to offer different types of programs
       
 #### Buffalo
 
-The University at Buffalo offers graduate programs emphasizing both research and specialized professional training. The School of Engineering and the School of Medicine jointly provide research-oriented training in Biomedical Informatics, offering MSc and PhD degrees recognized by the American Medical Informatics Association (AMIA). Healthcare professionals can pursue specialized training through two faculties. The School of Medicine offers an ACGME-accredited Clinical Informatics Fellowship, focusing on medical education. Additionally, the School of Pharmacy offers a dual degree program, combining a Doctor of Pharmacy (PharmD) with an MS in Biomedical Informatics, equipping graduates with a unique blend of pharmaceutical and informatics expertise.
+The University at Buffalo offers graduate programs emphasizing both research and specialized professional training. The School of Engineering and the School of Medicine jointly provide research-oriented training in Biomedical Informatics, offering MSc and PhD degrees recognized by the American Medical Informatics Association (AMIA). Healthcare professionals can pursue specialized training through two faculties. The School of Medicine offers an Accreditation Council for Graduate Medical Education (ACGME) accredited Clinical Informatics Fellowship, focusing on medical education. Additionally, the School of Pharmacy offers a dual degree program, combining a Doctor of Pharmacy (PharmD) with an MS in Biomedical Informatics, equipping graduates with a unique blend of pharmaceutical and informatics expertise.
 
-- Research oriented training in biomedical informatics, jointly offered by the School of engineering and School of medicine (Msc and PhD in biomedical informatics AMIA recognized) 
-- Specialized training for healthcare professionals also possible through two faculties 
-- School of Medicine: Clinical informatics Fellowship ACGME accredited (medical education) 
-- School of Pharmacy : PharmD + MS in biomedical informatics double degree
+##### Outline
+
+- Research oriented training in biomedical informatics, jointly offered by the School of engineering and School of medicine 
+  - Msc and PhD in biomedical informatics, AMIA recognized 
+
+- School of Medicine
+  - Clinical informatics Fellowship ACGME accredited (medical education) 
+
+- School of Pharmacy 
+  - PharmD + MS in biomedical informatics double degree
+
+##### links
 
 - [Departments](https://arts-sciences.buffalo.edu/faculty-staff/department-program-directory.html)
 - [Undergraduate programs](https://www.buffalo.edu/undergrad-programs.html)
 - [Graduate programs](https://www.buffalo.edu/grad/explore/about/programs.html)
+  
 - Jacobs School of Medicine and Biomedical Sciences/School of Engineering and Applied Sciences
   -  [Biomedical Informatics PhD ](https://www.buffalo.edu/grad/programs/biomedical-informatics-phd.html)
   -  [Biomedical Informatics Msc ](https://www.buffalo.edu/grad/programs/biomedical-informatics-ms.html)
+    
 - Jacobs School of Medicine and Biomedical Sciences
   -  [Clinical Informatics Fellowship](https://medicine.buffalo.edu/departments/biomedical-informatics/education/clinical-informatics.html)    
 -  School of Pharmacy and Pharmaceutical Sciences
