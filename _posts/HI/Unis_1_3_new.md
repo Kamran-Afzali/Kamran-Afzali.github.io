@@ -125,7 +125,7 @@ Three types of graduate programs
 College of  Applied sciences
   - MSc in health information managements (CAHIIM accredited) 
   - MSc in health informatics (online) (CAHIIM accredited)
-  - PharmD + MSc in health informatics 
+  - PharmD and MSc in health informatics 
   - PhD in biomedical and health informatics 
 
 ##### Links
@@ -143,7 +143,7 @@ College of  Applied sciences
 - College of Engineering
 
   - [BS in Data Science with Health Data Science Concentration](https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/bs-data-science-health-data-science/)
-  - [MS PhD Bioinformatics](https://catalog.uic.edu/gcat/colleges-schools/engineering/bioi/)
+
 
 #### Denver
 
