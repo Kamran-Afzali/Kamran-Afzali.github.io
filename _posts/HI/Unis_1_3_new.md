@@ -74,9 +74,9 @@ Three faculties are involved to offer different types of programs
     - [NLM Biomedical Informatics and Data Science Postdoctoral Fellowship](https://dbmi.hms.harvard.edu/education/nlm-biomedical-informatics-data-science-postdoctoral-fellowship)
    
       
-#### Buffalo
+#### University of Buffalo
 
-The University at Buffalo offers graduate programs emphasizing both research and specialized professional training. The School of Engineering and the School of Medicine jointly provide research-oriented training in Biomedical Informatics, offering MSc and PhD degrees recognized by the American Medical Informatics Association (AMIA). Healthcare professionals can pursue specialized training through two faculties. The School of Medicine offers an Accreditation Council for Graduate Medical Education (ACGME) accredited Clinical Informatics Fellowship, focusing on medical education. Additionally, the School of Pharmacy offers a dual degree program, combining a Doctor of Pharmacy (PharmD) with an MS in Biomedical Informatics, equipping graduates with a unique blend of pharmaceutical and informatics expertise.
+The University of Buffalo offers graduate programs emphasizing both research and specialized professional training. The School of Engineering and the School of Medicine jointly provide research-oriented training in Biomedical Informatics, offering MSc and PhD degrees recognized by the American Medical Informatics Association (AMIA). Healthcare professionals can pursue specialized training through two faculties. The School of Medicine offers an Accreditation Council for Graduate Medical Education (ACGME) accredited Clinical Informatics Fellowship, focusing on medical education. Additionally, the School of Pharmacy offers a dual degree program, combining a Doctor of Pharmacy (PharmD) with an MS in Biomedical Informatics, equipping graduates with a unique blend of pharmaceutical and informatics expertise.
 
 ##### Outline
 
@@ -112,32 +112,38 @@ The University at Buffalo offers graduate programs emphasizing both research and
 
 The University of Illinois offers both undergraduate and graduate programs across differentfaculties. At the undergraduate level, the Faculty of Applied Sciences provides a CAHIIM-accredited Bachelor of Science in Health Information Management, while the Faculty of Engineering offers a Bachelor of Science in Data Sciences with a concentration in Health Data Science. Graduate students can choose from three CAHIIM-accredited programs: a Master of Science in Health Information Management, a fully online Master of Science in Health Informatics, and a PhD in Biomedical and Health Informatics. Additionally, there is a dual degree program for health professionals combining a PharmD with an MSc in Health Informatics, similar to the program at Buffalo, which is also CAHIIM-accredited.
 
-Two undergraduate programs, in distinct Faculties
-- Faculty of Applied sciences: BSc in health information management (CAHIIM accredited) 
-- Faculty of Engineering: BSc in data sciences with  in health data science concentration
+##### Outline
 
-Three types of graduate programs  
-- MSc in health information managements (CAHIIM accredited) 
-- MSc in health informatics (online) (CAHIIM accredited)
-- PhD in biomedical and health informatics (CAHIIM accredited)
-A double program for health professionals
-- PharmD + MSc in health informatics (like Buffalo) (CAHIIM accredited)
- 
+Two undergraduate programs, in distinct Faculties
+- College of  Applied sciences
+  - BSc in health information management (CAHIIM accredited) 
+- College of Engineering
+  - BSc in data sciences with  in health data science concentration
+
+Three types of graduate programs
+
+College of  Applied sciences
+  - MSc in health information managements (CAHIIM accredited) 
+  - MSc in health informatics (online) (CAHIIM accredited)
+  - PharmD + MSc in health informatics 
+  - PhD in biomedical and health informatics 
+
+##### Links
+
 - [Departments](https://catalog.uic.edu/ucat/colleges-depts/)
 - [Undergraduate programs](https://catalog.uic.edu/ucat/degree-programs/degree-minors/)
 - [Graduate programs](https://catalog.uic.edu/gcat/degree-programs/grad-prof-degree-programs/)
   
 - College of Applied Health Sciences
   - [BS in Health Information Management](https://catalog.uic.edu/ucat/colleges-depts/applied-health-sciences/bhis/bs/)
-  - [MS PhD Health Informatics](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
+  - [PharmD/MS Health Informatics](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/him/)
   - [MS Health Information Management](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/health-info-mgmt/)
-    
+  - [PhD in Biomedical and Health Informatics](https://catalog.uic.edu/gcat/colleges-schools/applied-health-sciences/bhi/phd/)
+
 - College of Engineering
 
   - [BS in Data Science with Health Data Science Concentration](https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/bs-data-science-health-data-science/)
-  - [BS in Biomedical Engineering](https://catalog.uic.edu/ucat/colleges-depts/engineering/bme/bs/)
   - [MS PhD Bioinformatics](https://catalog.uic.edu/gcat/colleges-schools/engineering/bioi/)
-  - [MS PhD Biomedical Engineering](https://catalog.uic.edu/gcat/colleges-schools/engineering/bme/)
 
 #### Denver
 
