@@ -29,33 +29,24 @@ Despite its effectiveness in addressing class imbalance, SMOTE is not without it
 
 
 
-Differential privacy has rapidly become an essential framework for ensuring data privacy when sharing analysis results with untrusted third parties. Its popularity stems from a set of general mechanisms that can privatize various non-private data functions such as statistics, estimation procedures, and learners. These mechanisms require knowing and bounding the sensitivity of the target function to changes in the dataset. However, determining these sensitivity bounds can be extremely complex except for the simplest analyses. Here we introduce the `diffpriv` R package, which implements these generic differential privacy mechanisms and includes a recent sensitivity sampler that uses empirical estimates instead of exact sensitivity bounds. `diffpriv` can privatize different data types automatically, without the need for extensive mathematical analysis, aiming for achieving high utility. The `diffpriv` package is available under an open-source license at https://github.com/brubinstein/diffpriv.
+Differential privacy has rapidly become an essential framework for ensuring data privacy when sharing analysis results with untrusted third parties. Its popularity stems from a set of general mechanisms that can privatize various non-private data functions such as statistics, estimation procedures, and learners.  The R package DPpack offers a comprehensive toolkit for performing differentially private analyses. The current version of DPpack includes three widely-used mechanisms for ensuring differential privacy: Laplace, Gaussian, and exponential. In addition, DPpack provides a range of privacy-preserving descriptive statistical functions, such as mean, variance, covariance, quantiles, histograms, and contingency tables. It also features user-friendly implementations of privacy-preserving logistic regression, support vector machines (SVM), and linear regression, along with differentially private hyperparameter tuning for these models. This broad array of differentially private statistics and models allows users to easily apply differential privacy principles to routine statistical analyses. Future development of DPpack aims to expand its capabilities by incorporating more differentially private machine learning techniques, statistical modeling, and inference methods.
 
 
-
-To run mech on a dataset we must first determine the sensitivity of target to small changes to input dataset. One avenue is to analytically bound sensitivity and supply it via the sensitivity argument of mechanism construction: in this case, it is not hard if we assume bounded data, but in general sensitivity can be very non-trivial to calculate manually. The other approach, which we follow in this example, is sensitivity sampling: repeated probing of `target` to estimate sensitivity automatically. We need only specify a distribution for generating random probe datasets; `sensitivitySampler()` takes care of the rest. The price we pay for this convenience is the weaker form of random differential privacy.
 
 ```r
-install.packages("diffpriv")
+install.packages("DPpack")
 ```
 
 #### **Code Example**
 
 ```r
-library(diffpriv)
+library("DPpack")
 
 # Example data
 data <- c(10, 20, 30, 40, 50)
 
 .....
 ```
-
-### **Explanation**
-
-2. **Data Preparation**: Prepare a list of numeric data.
-3. **Define Privacy Budget and Sensitivity**: Set the privacy budget (epsilon) and the sensitivity of the query.
-4. **Create DP Sum Function**: Define a function that computes the differentially private sum using the Laplace mechanism.
-5. **Compute DP Sum**: Use the function to compute the differentially private sum of the data.
 
 
 
