@@ -298,6 +298,8 @@ The University of Bordeaux's School of Public Health offers comprehensive three 
 
 The University of Paris Cité's School of Public Health three graduate programs. Students can pursue a Master's degree in Public Health with two specialized tracks: Massive Data in Health and Biomedical Informatics, focusing on the utilization and management of large health data sets and the application of informatics in biomedical research. Additionally, the Pierre Louis Doctoral School of Public Health, in collaboration with Sorbonne, offers two PhD specializations: Medical Informatics and Data Sciences, providing rigorous training in health data analysis and informatics for addressing complex public health challenges.
 
+##### Outline
+
 School of Public Health 
 - Master's degree in public health, two related courses: Massive data in health; Biomedical informatics 
 Pierre Louis Doctoral School of Public Health (Sorbonne) 
@@ -305,11 +307,10 @@ Pierre Louis Doctoral School of Public Health (Sorbonne)
   - Medical Informatics 
   - Data sciences
 
-### Paris Cite
+##### Links
 
 - [Formation](https://odf.u-paris.fr/fr/catalogue-des-diplomes-nationaux.html#nav) 
 - [Communauté Université Paris Cité](https://u-paris.fr/les-facultes/)
-
   
 - [UFR de Médecine](https://u-paris.fr/medecine/)
   - [Master Santé publique - Parcours : Informatique biomédicale](https://odf.u-paris.fr/fr/offre-de-formation/master-XB/sciences-technologies-sante-STS/sante-publique-K2NDGZO3//master-sante-publique-parcours-informatique-biomedicale-K168NOR5.html)
@@ -318,8 +319,8 @@ Pierre Louis Doctoral School of Public Health (Sorbonne)
 
 - [Ecole Doctorale Pierre Louis de Santé Publique : Epidémiologie et Sciences de l'Information Biomédicale](https://ed393.sorbonne-universite.fr/lecole-doctorale-393/presentation-de-led-393)
   - Two PhD specializations in public health 
-  - Medical Informatics 
-  - Data sciences
+    - Medical Informatics 
+    - Data sciences
 
 ### UK 
 
@@ -338,8 +339,20 @@ In the UK, we selected two universities of Oxford and Leeds.
 
 The University of Oxford has established the Oxford Institute for Digital Health within its Division of Medical Sciences, specifically in the Department of Primary Care. The Institute offers a one-year MSc in Applied Digital Health, designed to equip students with the skills and knowledge needed to integrate digital technologies into healthcare practice effectively. This program focuses on the practical application of digital health tools to improve patient outcomes and streamline healthcare delivery.
 
-The university has created the Oxford Institute for Digital Health within the Division of Medical Science, Department of Primary care. 
-- Medical Science division offers a Msc in Applied Digital health (one year program)
+##### Outline
+
+- Oxford Institute for Digital Health/Division of Medical Science, Department of Primary care 
+  - Msc in Applied Digital health (one year program)
+
+##### Links
+
+- [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
+- [Undergraduate programs](https://courses.leeds.ac.uk/course-search/undergraduate-courses)
+- [Graduate programs](https://courses.leeds.ac.uk/course-search/masters-courses)
+  
+- Nuffield Department of Primary Care Health Sciences/[Oxford Institute of Digital Health](https://www.phc.ox.ac.uk/research/institutes-units/oxford-institute-of-digital-health)
+  - [MSc in Applied Digital Health](https://www.ox.ac.uk/admissions/graduate/courses/msc-applied-digital-health)
+
 
 #### Leeds
 
