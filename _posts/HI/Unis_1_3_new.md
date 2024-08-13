@@ -263,7 +263,7 @@ Graduate
 
 ####  Medical schools 
 
-- At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties began teaching digital health to students in their second cycle (4th to 6th year) in 2019. More information can be found in the following articles.
+At the start of the 2024 academic year, digital health will make its appearance on the curriculum of the first cycle of health studies, as well as in university paramedical training courses. This is a logical next step, as medical faculties began teaching digital health to students in their second cycle (4th to 6th year) in 2019. More information can be found in the following articles.
   - [Les Facultés de Médecine passent à la vitesse supérieure pour former les étudiants à la santé numérique](https://telemedaction.org/think-tank/les-facult-s-de-m-decine-passent-la-vitesse-sup-rieure)
   - [Pourquoi les facs de médecine s'intéressent si peu ou pas du tout au développement de la télémédecine ?](https://telemedaction.org/422016875/que-fait-donc-la-fac)
 
@@ -276,16 +276,21 @@ In France, we selected two universities, Bordeaux and Paris Cité for their uniq
 
 The University of Bordeaux's School of Public Health offers comprehensive three graduate programs. Students can pursue a Master in Health Information Systems and Technologies, focusing on the implementation and management of health information systems, or a Master in Public Health Data Science, emphasizing the analysis and application of data skills for public health improvement. Additionally, the university offers an MSc and PhD in Digital Public Health, equipping students with advanced skills in digital health technologies and public health research, with the PhD program formerly offered in partnership with McGill University.
 
-School of public health 
-- Master Health information systems and technologies
-- Master Public health data science
-- MSc and PhD Digital Public Health (formerly joint with McGill for the PhD) 
+##### Outline 
+
+- School of public health 
+  - Master Health information systems and technologies
+  - Master Public health data science
+  - MSc and PhD Digital Public Health (formerly joint with McGill for the PhD) 
+
+##### Links
 
 - [Formation par composante](https://formations.u-bordeaux.fr/#/par-composante)
-  - [ISPED](https://www.isped.u-bordeaux.fr/)
-    - [Systèmes d'information et technologies informatiques pour la santé (SITIS)](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Syst%C3%A8mes-dinformation-et-technologies-informatiques-pour-la-sant%C3%A9)
-    - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
-    - [Digital public health](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph)
+  
+- [ISPED](https://www.isped.u-bordeaux.fr/)
+  - [Systèmes d'information et technologies informatiques pour la santé (SITIS)](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Syst%C3%A8mes-dinformation-et-technologies-informatiques-pour-la-sant%C3%A9)
+  - [Master 2 Public Health Data Science](https://www.isped.u-bordeaux.fr/FORMATION/Formations-propos%C3%A9es/Les-Masters/Master-2-Public-Health-Data-Science-On-site)
+  - [Digital public health](https://doctorat.u-bordeaux.fr/avant-le-doctorat/graduate-programs/dph)
 
 
 
