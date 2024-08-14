@@ -187,10 +187,10 @@ The University of Victoria is home to Canada's first School of Health Informatio
 
 ##### Outline
 
-The first and only School of health information sciences in Canada 
-- Double undergrad program in computer sciences and health informatics 
-- Double MSc nursing and health informatics 
-- Reseach oriented MSc followed by PhD in health informatics 
+- The first School of Health Information Sciences in Canada 
+  - Double undergrad program in computer sciences and health informatics 
+  - Double MSc nursing and health informatics 
+  - Reseach oriented MSc followed by PhD in health informatics 
 
 ##### Links
 
@@ -362,12 +362,29 @@ The University of Oxford has established the Oxford Institute for Digital Health
 
 The University of Leeds offers specialized health informatics programs through its Faculty of Engineering and Physical Sciences and the Faculty of Medicine. The School of Computing provides a Master’s in Data Sciences and Analytics for Health, which is exclusively accessible to NHS Digital staff, ensuring alignment with current field needs. Additionally, the School offers PhD programs in Computational Medicine and Computing in Biology, Medicine, and Health, focusing on advanced research at the intersection of computing and healthcare. Within the Faculty of Medicine, Leeds offers an MSc in Health Informatics with Data Sciences.
 
-Faculty of Engineering and physical sciences / School of Computing 
-- Master in Data sciences and analytics for health accessible to the NHS Digital staff only (strongly aligned with needs in the field) 
-- PhD in computational medicine 
-- PhD in Computing in Biology, Medicine and Health
-Faculty of medicine 
-- Msc health informatics with data sciences 
+##### Outline
+
+- Faculty of Engineering and physical sciences / School of Computing 
+  - Master in Data sciences and analytics for health accessible to the NHS Digital staff only (strongly aligned with needs in the field) 
+  - PhD in computational medicine 
+  - PhD in Computing in Biology, Medicine and Health
+- Faculty of medicine 
+  - Msc health informatics with data sciences 
+
+##### Links
+
+
+- [Faculties](https://www.leeds.ac.uk/about/doc/faculties-contacts)
+- [Undergraduate programs](https://courses.leeds.ac.uk/course-search/undergraduate-courses)
+- [Graduate programs](https://courses.leeds.ac.uk/course-search/masters-courses)
+- [PhD and Research](https://phd.leeds.ac.uk/search?num_ranks=20&clive=leeds-pgr-web-research-area&query=&collection=leeds-pgr-meta&start_rank1)
+- School of Medicine 
+  - [MSc Health Informatics with Data Science](https://courses.leeds.ac.uk/j140/health-informatics-with-data-science-msc)
+-  School of Computing
+    - [Data Science and Analytics for Health MRes](https://courses.leeds.ac.uk/i927/data-science-and-analytics-for-health-mres#overview)
+    - [Computing in Biology, Medicine and Health, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
+    - [Computational medicine, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
+
 
 
 
