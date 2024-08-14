@@ -185,17 +185,21 @@ We selected two Canadian Universities each with its own unique focus and approac
 
 The University of Victoria is home to Canada's first School of Health Information Science, offering a range of innovative programs. The double undergraduate program in Computer Sciences and Health Informatics provides a comprehensive foundation in both fields. The unique double MSc in Nursing and Health Informatics integrates clinical expertise with informatics skills. For those pursuing research, the university offers a research-oriented MSc followed by a PhD in Health Informatics, preparing graduates for advanced roles in academia and industry.
 
+##### Outline
 
 The first and only School of health information sciences in Canada 
 - Double undergrad program in computer sciences and health informatics 
 - Double MSc nursing and health informatics 
 - Reseach oriented MSc followed by PhD in health informatics 
 
+##### Links
+
 - [Faculties, divisions & services](https://www.uvic.ca/academics/faculties-schools-and-services/index.php)
 - [Undergraduate programs](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/faculty.php#faculty-engineeringAndComputerScience-hdr)
 - [Graduate programs](https://www.uvic.ca/graduate/programs/graduate-programs/index.php)
 
 - [Health Information Science](https://www.uvic.ca/hsd/hinf/)
+  
   - [Computer Science and Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/computer-science-and-health-information-science.php) in collaboration with Department of Computer Science
   - [Health Information Science Bachelor of Science (BSc)](https://www.uvic.ca/undergraduate/programs/undergraduate-programs/pages/health-information-science.php)
   - [Health Informatics (MSc)](https://www.uvic.ca/graduate/programs/graduate-programs/credential-pages/health-information-science-cred/health-informatics-msc.php)
