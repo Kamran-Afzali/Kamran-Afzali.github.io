@@ -43,9 +43,53 @@ install.packages("DPpack")
 library("DPpack")
 
 # Example data
-data <- c(10, 20, 30, 40, 50)
+install.packages("DPpack")
 
-.....
+library("DPpack")
+
+
+D <- rnorm(500, mean=3, sd=2) 
+lower.bound =-3 # 3 standard deviations below mean 
+upper.bound = 9 # 3 standard deviations above mean
+
+
+private.mean <- meanDP(D, 1, lower.bound, upper.bound) 
+cat("Privacy preserving mean: ", private.mean, "\nTrue mean: ", mean(D)) 
+
+ private.var <- varDP(D, 0.5, lower.bound, upper.bound, which.sensitivity = "unbounded", mechanism = "Gaussian", delta = 0.01) 
+ cat("Privacy preserving variance: ", private.var, "\nTrue variance: ", var(D)) 
+ 
+private.sd <- sdDP(D, 0.5, lower.bound, upper.bound, mechanism="Gaussian", delta=0.01, type.DP="pDP") 
+cat("Privacy preserving standard deviation: ", private.sd, "\nTrue standard deviation: ", sd(D)) 
+
+
+
+
+D1 <- sort(rnorm(500, mean=3, sd=2))
+D2 <- sort(rnorm(500, mean=-1, sd=0.5)) 
+lb1 <--3 
+# 3 std devs below mean 
+lb2 <--2.5 
+# 3 std devs below mean
+ub1 <- 9 
+# 3 std devs above mean 
+ub2 <- .5 
+# 3 std devs above mean
+
+
+private.cov <- covDP(D1, D2, 1, lb1, ub1, lb2, ub2) 
+
+cat("Privacy preserving covariance: ", private.cov, "\nTrue covariance: ", cov(D1, D2))
+
+
+D3 <- sort(rnorm(200, mean=3, sd=2)) 
+D4 <- sort(rnorm(200, mean=-1, sd=0.5)) 
+M1 <- matrix(c(D1, D2), ncol=2) 
+M2 <- matrix(c(D3, D4), ncol=2)
+
+
+private.pooled.cov <- pooledCovDP(M1, M2, eps = 1, lower.bound1 = lb1, lower.bound2 = lb2, upper.bound1 = ub1, upper.bound2 = ub2)
+
 ```
 
 
