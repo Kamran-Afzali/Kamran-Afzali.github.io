@@ -1,13 +1,13 @@
 ## Summary by jurisdictions and universities 
 
-This document provides an in-depth exploration of academic programs in health informatics across five countries: Canada, Australia, the United Kingdom, France, and the United States. It spans various academic levels, including Bachelor’s, Master’s, PhD, and Fellowships. Twelve universities were selected to present inspiring programs, in a diversity of settings. With digital health training being closely aligned with jurisdictional and local configurations, examples here are presented to highlight institutional trajectories and choices toward creating new programs at the confluence of disciplines. This document is not an exhaustive repertory of programs, only a select group of universities are featured, each offering specialized degrees aimed at meeting the increasing demand for skilled professionals in health information management and digital healthcare. It should be noted that training in digital health refers to several fields, including health informatics (also known as biomedical informatics), health data science, health information management, virtual care and telehealth. The training courses presented here therefore cover all these fields, but exclude bioinformatics and engineering training, although several overlaps also exist at certain universities. In addition, several certificates or short certification programs also exist, but have not been included in this document. 
+This document provides an in-depth exploration of academic programs in health informatics across five countries: Canada, Australia, the United Kingdom, France, and the United States. It spans various academic levels, including Bachelor’s, Master’s, PhD, and Fellowships. Twelve universities were selected to present inspiring programs in a diversity of settings. With digital health training being closely aligned with jurisdictional and local configurations, examples here are presented to highlight institutional trajectories and choices toward creating new programs at the confluence of disciplines. This document is not an exhaustive repertory of programs, only a select group of universities are featured, each offering specialized degrees aimed at meeting the increasing demand for skilled professionals in health information management and digital healthcare. It should be noted that training in digital health refers to several fields, including health informatics (also known as biomedical informatics), health data science, health information management, virtual care and telehealth. The training courses presented here therefore cover all these fields, but exclude bioinformatics and engineering training, although several overlaps also exist at certain universities. In addition, several certificates or short certification programs also exist, but have not been included in this document. 
 
 
 ### USA 
 
 ####  Medical schools 
 
-In the United States, in absence of a centeralized and unfied effort, some medical schools have been reported to offer digital health teachings. This can go from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
+In the United States, in absence of a centeralized and unfied effort, some medical schools have been reported to offer digital health courses. This can go from support for individual research and development projects to formal curricular integration as a “digital health track”. Several studies have been published (see [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6971961/)) on the subject and some universities have begun introducing a new component of the medical education curriculum to current medical students to enhance the instruction in [Digital Health and Data Science](https://www.feinberg.northwestern.edu/md-education/curriculum/components/index.html).
 
 
 #### Selected Universities
@@ -44,7 +44,7 @@ Stanford University's Faculty of Medicine offers four graduate degrees designed 
 
 #### Harvard
 
-Harvard University offers several graduate programs through three distinct faculties. The School of Public Health provides an MSc in Health Data Science, focusing on advanced statistical and computational skills for analyzing health-related data. The Faculty of Medicine, in collaboration with the Institute for Biomedical Informatics, offers an MSc in Medical Sciences in Biomedical Informatics, aimed at integrating biomedical data for medical advancements. Additionally, the Faculty of Medicine offers a unique postdoctoral fellowship funded by the National Library of Medicine, available to doctorate holders (MD or PhD), for specialized training in biomedical informatics. Moreover, a collaborative program between the Faculty of Medicine and the Faculty of Arts & Sciences offers a PhD in Biomedical Informatics, with tracks in Artificial Intelligence in Medicine and Bioinformatics & Genomics, preparing students for innovative research in these areas.
+Harvard University offers several graduate programs through three different faculties. The School of Public Health provides an MSc in Health Data Science, focusing on advanced statistical and computational skills for analyzing health-related data. The Faculty of Medicine, in collaboration with the Institute for Biomedical Informatics, offers an MSc in Medical Sciences in Biomedical Informatics, aimed at integrating biomedical data for medical advancements. Additionally, the Faculty of Medicine offers a unique postdoctoral fellowship funded by the National Library of Medicine, available to doctorate holders (MD or PhD), for specialized training in biomedical informatics. Moreover, a collaborative program between the Faculty of Medicine and the Faculty of Arts & Sciences offers a PhD in Biomedical Informatics, with tracks in Artificial Intelligence in Medicine and Bioinformatics & Genomics, preparing students for innovative research in these areas.
 
 
 ##### Outline
@@ -104,13 +104,9 @@ The University of Buffalo offers graduate programs emphasizing both research and
 -  School of Pharmacy and Pharmaceutical Sciences
   - [PharmD/Biomedical Informatics MS ](https://www.buffalo.edu/grad/programs/biomedical-informatics-pharmd-ms.html)
     
-
-
-  
 #### University of Illinois Chicago  
 
-
-The University of Illinois offers both undergraduate and graduate programs across differentfaculties. At the undergraduate level, the Faculty of Applied Sciences provides a CAHIIM-accredited Bachelor of Science in Health Information Management, while the Faculty of Engineering offers a Bachelor of Science in Data Sciences with a concentration in Health Data Science. Graduate students can choose from three CAHIIM-accredited programs: a Master of Science in Health Information Management, a fully online Master of Science in Health Informatics, and a PhD in Biomedical and Health Informatics. Additionally, there is a dual degree program for health professionals combining a PharmD with an MSc in Health Informatics, similar to the program at Buffalo, which is also CAHIIM-accredited.
+The University of Illinois offers both undergraduate and graduate programs across different faculties. At the undergraduate level, the Faculty of Applied Sciences provides a CAHIIM-accredited Bachelor of Science in Health Information Management, while the Faculty of Engineering offers a Bachelor of Science in Data Sciences with a concentration in Health Data Science. Graduate students can choose from three CAHIIM-accredited programs: a Master of Science in Health Information Management, a fully online Master of Science in Health Informatics, and a PhD in Biomedical and Health Informatics. Additionally, there is a dual degree program for health professionals combining a PharmD with an MSc in Health Informatics, similar to the program at Buffalo, which is also CAHIIM-accredited.
 
 ##### Outline
 
@@ -233,7 +229,7 @@ McMaster University offers a unique MSc in eHealth, a program distinct from trad
 
 #### Sydney 
 
-The University of Sydney offers three innovative programs, integrating health education within computer science and engineering undergraduate degrees. Students can pursue a Bachelor of Advanced Computing and Medical Sciences, blending core computing skills with comprehensive health system knowledge, or a Bachelor of Biomedical Engineering and Health, combining engineering principles with health applications. At the graduate level, the Faculty of Computer Sciences offers an MSc in Digital Health and Data Science, focusing on advanced data science skills applied to the domain of digital health that prepare students for interdisciplinary roles in the digital health landscape.
+The University of Sydney offers three innovative programs, integrating health education within computer science and engineering undergraduate and graduate degrees. Students can pursue a Bachelor of Advanced Computing and Medical Sciences, blending core computing skills with comprehensive health system knowledge, or a Bachelor of Biomedical Engineering and Health, combining engineering principles with health applications. At the graduate level, the Faculty of Computer Sciences offers an MSc in Digital Health and Data Science, focusing on advanced data science skills applied to the domain of digital health that prepare students for interdisciplinary roles in the digital health landscape.
 
 ##### Outline
 
