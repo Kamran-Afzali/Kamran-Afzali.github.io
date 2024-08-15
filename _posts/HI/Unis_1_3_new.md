@@ -385,7 +385,7 @@ The University of Leeds offers specialized health informatics programs through i
     - [Computing in Biology, Medicine and Health, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
     - [Computational medicine, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
 
-_____________________________________________________________________________
+___________________________________Fellowship__________________________________________
 
 
 | Nb | Country | University            | Faculty/department                      | Health professional programs                           | Length /Credits | Modality  | miscellaneous                                                |
@@ -395,7 +395,7 @@ _____________________________________________________________________________
 | 12 | USA     | University of Buffalo | Department of Biomedical Informatics    | Clinical Informatics Fellowship                        | 2 year          | In Person | ACGME-accredited fellowship                                  |
 
 
-_____________________________________________________________________________
+_________________________________Undergraduate____________________________________________
 
 
 | Nb | Country   | University                     | Faculty/department                                                                          | Undergraduate programs                                                                                                                         | Length /Credits    | Modality  | miscellaneous     |
@@ -404,7 +404,7 @@ _____________________________________________________________________________
 | 3  | Australia | University of Sydney           | Faculty of Engineering, Computer sciences, Faculty of Medicine and Health                   | Bachelor of Advanced Computing and Bachelor of Science (Health), Bachelor of Engineering Honours (Biomedical) and Bachelor of Science (Health) | 5 years            | In Person | Multi-department  |
 | 8  | USA       | University of Chicago Illinois | The Department of Biomedical and Health Information Sciences (BHIS), College of engineering | Bachelor of Science in Health Information Management (BSHIM), BS in Data Science with Health Data Science Concentration                        | 2 years            | Online    | CAHIIM Accredited |
 
-_____________________________________________________________________________
+____________________________________MSc_________________________________________
 
 
 | Nb | Country   | University                     | Faculty/department                                                                                                                 | Masters programs                                                                                                              | Length /Credits | Modality         | miscellaneous                           |
@@ -423,18 +423,16 @@ _____________________________________________________________________________
 | 12 | USA       | University of Buffalo          | Department of Biomedical Informatics                                                                                               | MS Biomedical informatics                                                                                                     | 2 years         | Online-In person | AMIA partner program                    |
 
 
-_____________________________________________________________________________
+________________________________PhD_____________________________________________
 
 
-
-| Nb | Country   | University                     | Faculty/department                                                                                      | Doctorate programs                                                                    | Length /Credits | Modality         | miscellaneous                     |              |
-|----|-----------|--------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|-----------------|------------------|-----------------------------------|--------------|
-| 1  | Canada/BC | University of Victoria         | Health Information Science                                                                              | PhD in health informatics                                                             | 4 - 7  years    | Online-In person | ------------                      | ------------ |
-| 4  | UK        | University of Leeds            | School of Computing                                                                                     | Computational medicine, Computing in Biology, Medicine and Health                     | 4 years         | ------------     | ------------                      | ------------ |
-| 6  | France    | Université de Bordeaux         | School of Public Health– in collaboration with McGill University School of Population and Global Health | PhD Digital public health                                                             | 3 years         | In person        | Former co-supervision with McGill |              |
-| 7  | France    | Université Paris Cité          | Ecole Doctorale Pierre Louis de Santé Publique                                                          | Medical Informatics, Data sciences                                                    | 3 years         | ------------     | ------------                      | ------------ |
-| 8  | USA       | University of Chicago Illinois | The Department of Biomedical and Health Information Sciences (BHIS),                                    | MS in Health Informatics/Doctor of Pharmacy, PhD in Biomedical and Health Informatics | 4 years         | Online-In person | ------------                      | ------------ |
-| 9  | USA       | Stanford                       | School of Medicine                                                                                      | BIOM-PHD - Biomedical Informatics (PhD), BMDS-PHD - Biomedical Data Science (PhD)     | 5 years         | Online-In person | ------------                      | ------------ |
-| 11 | USA       | Harvard                        | Harvard Medical School                                                                                  | PhD in Biomedical Informatics                                                         | ------------    | ------------     | ------------                      | ------------ |
-| 12 | USA       | University of Buffalo          | Department of Biomedical Informatics, School of Pharmacy                                                | PhD Biomedical informatics, PharmD/Biomedical Informatics MS                          | 5 years         | Online-In person | AMIA partner program              |              |
-
+| Nb | Country   | University                     | Faculty/department                                                                                      | Doctorate programs                                                                    | Length /Credits | Modality         | miscellaneous                     |
+|----|-----------|--------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|-----------------|------------------|-----------------------------------|
+| 1  | Canada/BC | University of Victoria         | Health Information Science                                                                              | PhD in health informatics                                                             | 4 - 7  years    | Online-In person | ------------                      |
+| 4  | UK        | University of Leeds            | School of Computing                                                                                     | Computational medicine, Computing in Biology, Medicine and Health                     | 4 years         | ------------     | ------------                      |
+| 6  | France    | Université de Bordeaux         | School of Public Health– in collaboration with McGill University School of Population and Global Health | PhD Digital public health                                                             | 3 years         | In person        | Former co-supervision with McGill |
+| 7  | France    | Université Paris Cité          | Ecole Doctorale Pierre Louis de Santé Publique                                                          | Medical Informatics, Data sciences                                                    | 3 years         | ------------     | ------------                      |
+| 8  | USA       | University of Chicago Illinois | The Department of Biomedical and Health Information Sciences (BHIS),                                    | MS in Health Informatics/Doctor of Pharmacy, PhD in Biomedical and Health Informatics | 4 years         | Online-In person | ------------                      |
+| 9  | USA       | Stanford                       | School of Medicine                                                                                      | BIOM-PHD - Biomedical Informatics (PhD), BMDS-PHD - Biomedical Data Science (PhD)     | 5 years         | Online-In person | ------------                      |
+| 11 | USA       | Harvard                        | Harvard Medical School                                                                                  | PhD in Biomedical Informatics                                                         | ------------    | ------------     | ------------                      |
+| 12 | USA       | University of Buffalo          | Department of Biomedical Informatics, School of Pharmacy                                                | PhD Biomedical informatics, PharmD/Biomedical Informatics MS                          | 5 years         | Online-In person | AMIA partner program              |
