@@ -90,6 +90,21 @@ M2 <- matrix(c(D3, D4), ncol=2)
 
 private.pooled.cov <- pooledCovDP(M1, M2, eps = 1, lower.bound1 = lb1, lower.bound2 = lb2, upper.bound1 = ub1, upper.bound2 = ub2)
 
+
+n <- 100 
+c0 <- 5 
+c1 <- 10 
+D <- runif(n, c0, c1) 
+f <- function(D) c(mean(D), var(D)) 
+sensitivities <- c((c1-c0)/n, (c1-c0)^2/n)
+epsilon <- 1
+private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities) 
+cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
+
+
+# Here, privacy budget is split so that 25% is given to the mean and 75% is given to the variance 
+private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities, alloc.proportions = c(0.25, 0.75)) 
+cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
 ```
 
 
