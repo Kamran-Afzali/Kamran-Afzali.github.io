@@ -167,7 +167,7 @@ The University of Denver offers a HIMSS-recognized Master of Health Informatics 
 
 ### Canada 
 
-No formal Canadian accreditation body was found 
+
 
 ####  Medical schools 
 
@@ -209,7 +209,8 @@ McMaster University offers a unique MSc in eHealth, a program distinct from trad
 
 ##### Outline 
 
-- MSc of eHealth (not health informatics or health information management) offered jointly  by three faculties as follows Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business
+- Offered jointly  by three faculties as follows Faculty of Health Sciences, the Faculty of Engineering, and the DeGroote School of Business.
+  - MSc of eHealth (not health informatics or health information management 
 
 ##### Links 
 
@@ -296,16 +297,18 @@ The University of Bordeaux's School of Public Health offers comprehensive three 
 
 #### Paris Cité 
 
-The University of Paris Cité's School of Public Health three graduate programs. Students can pursue a Master's degree in Public Health with two specialized tracks: Massive Data in Health and Biomedical Informatics, focusing on the utilization and management of large health data sets and the application of informatics in biomedical research. Additionally, the Pierre Louis Doctoral School of Public Health, in collaboration with Sorbonne, offers two PhD specializations: Medical Informatics and Data Sciences, providing rigorous training in health data analysis and informatics for addressing complex public health challenges.
+The University of Paris Cité's School of Public Health three graduate programs. Students can pursue a Master's degree in Public Health with two specialized tracks: Big Data in Health and Biomedical Informatics, focusing on the utilization and management of large health data sets and the application of informatics in biomedical research. Additionally, the Pierre Louis Doctoral School of Public Health, in collaboration with Sorbonne, offers two PhD specializations: Medical Informatics and Data Sciences, providing rigorous training in health data analysis and informatics for addressing complex public health challenges.
 
 ##### Outline
 
-School of Public Health 
-- Master's degree in public health, two related courses: Massive data in health; Biomedical informatics 
-Pierre Louis Doctoral School of Public Health (Sorbonne) 
-- Two PhD specializations in public health 
-  - Medical Informatics 
-  - Data sciences
+- School of Public Health 
+  - Master's degree in public health, two related courses:
+    - Massive data in health
+    - Biomedical informatics 
+- Pierre Louis Doctoral School of Public Health (Sorbonne) 
+  - Two PhD specializations in public health: 
+    - Medical Informatics 
+    - Data sciences
 
 ##### Links
 
