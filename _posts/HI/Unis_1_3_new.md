@@ -384,7 +384,6 @@ The University of Leeds offers specialized health informatics programs through i
     - [Computing in Biology, Medicine and Health, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computing-biology-medicine-health)
     - [Computational medicine, PhD track](https://eps.leeds.ac.uk/computing-research-groups/doc/computational-medicine) 
 
-                               |
 
 
 ### Undergraduate
