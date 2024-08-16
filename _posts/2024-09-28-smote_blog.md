@@ -33,21 +33,101 @@ Differential privacy has rapidly become an essential framework for ensuring data
 
 
 
-```r
-install.packages("DPpack")
-```
-
 #### **Code Example**
 
 ```r
-library("DPpack")
 
-# Example data
 install.packages("DPpack")
 
 library("DPpack")
+n <- 100 
+c0 <- 5 
+c1 <- 10 
+D <- runif(n, c0, c1) 
+f <- function(D) c(mean(D), var(D)) 
+sensitivities <- c((c1-c0)/n, (c1-c0)^2/n)
+epsilon <- 1
+private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities) 
+cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
 
 
+# Here, privacy budget is split so that 25% is given to the mean and 75% is given to the variance 
+private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities, alloc.proportions = c(0.25, 0.75)) 
+cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
+```
+
+
+1. **Initialization of Variables:**
+   ```R
+   n <- 100 
+   c0 <- 5 
+   c1 <- 10 
+   ```
+   - `n` is set to 100, representing the number of data points.
+   - `c0` and `c1` are set to 5 and 10, respectively. These values are the bounds for generating random numbers, defining the range `[5, 10]`.
+
+2. **Generating Data:**
+   ```R
+   D <- runif(n, c0, c1)
+   ```
+   - `D` is a vector of `n` (100) uniformly distributed random numbers between `c0` (5) and `c1` (10).
+
+3. **Defining a Function `f`:**
+   ```R
+   f <- function(D) c(mean(D), var(D))
+   ```
+   - `f` is a function that takes the dataset `D` as input and returns a vector containing the mean and variance of `D`.
+
+4. **Calculating Sensitivities:**
+   ```R
+   sensitivities <- c((c1-c0)/n, (c1-c0)^2/n)
+   ```
+   - `sensitivities` is a vector containing the sensitivities of the mean and variance functions. 
+   - Sensitivity is a measure of how much the output of a function can change when a single data point in the dataset is modified. Here:
+     - The sensitivity of the mean is calculated as `(c1-c0)/n`.
+     - The sensitivity of the variance is calculated as `(c1-c0)^2/n`.
+
+5. **Setting Privacy Parameter (Epsilon):**
+   ```R
+   epsilon <- 1
+   ```
+   - `epsilon` is set to 1, which is a parameter that controls the privacy level. Lower values of `epsilon` indicate stronger privacy guarantees.
+
+6. **Applying the Laplace Mechanism:**
+   ```R
+   private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities) 
+   ```
+   - `LaplaceMechanism` is applied to the function `f(D)`. This mechanism adds noise drawn from the Laplace distribution to the true values (mean and variance) to ensure differential privacy.
+   - `private.vals` contains the privacy-preserving values of the mean and variance after noise has been added.
+
+7. **Displaying Results:**
+   ```R
+   cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
+   ```
+   - This line prints the privacy-preserving values (with added noise) and the true values (without noise) for comparison.
+
+8. **Splitting the Privacy Budget:**
+   ```R
+   private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities, alloc.proportions = c(0.25, 0.75))
+   ```
+   - Here, the privacy budget `epsilon` is split between the mean and variance calculations. 
+   - `alloc.proportions = c(0.25, 0.75)` means that 25% of `epsilon` is used for the mean and 75% for the variance.
+   - The `LaplaceMechanism` is then reapplied with this adjusted privacy budget allocation.
+
+9. **Displaying Results Again:**
+   ```R
+   cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
+   ```
+   - This line prints the new privacy-preserving values after the budget has been split, along with the true values.
+
+- The code demonstrates how to apply differential privacy to statistical calculations (mean and variance) using the Laplace mechanism.
+- The privacy budget (`epsilon`) is adjusted to provide different levels of privacy for the mean and variance.
+- The sensitivities of the mean and variance are calculated to determine the appropriate amount of noise to add.
+
+
+
+
+```r
 D <- rnorm(500, mean=3, sd=2) 
 lower.bound =-3 # 3 standard deviations below mean 
 upper.bound = 9 # 3 standard deviations above mean
@@ -61,10 +141,10 @@ cat("Privacy preserving mean: ", private.mean, "\nTrue mean: ", mean(D))
  
 private.sd <- sdDP(D, 0.5, lower.bound, upper.bound, mechanism="Gaussian", delta=0.01, type.DP="pDP") 
 cat("Privacy preserving standard deviation: ", private.sd, "\nTrue standard deviation: ", sd(D)) 
+```
 
 
-
-
+``` r
 D1 <- sort(rnorm(500, mean=3, sd=2))
 D2 <- sort(rnorm(500, mean=-1, sd=0.5)) 
 lb1 <--3 
@@ -89,22 +169,6 @@ M2 <- matrix(c(D3, D4), ncol=2)
 
 
 private.pooled.cov <- pooledCovDP(M1, M2, eps = 1, lower.bound1 = lb1, lower.bound2 = lb2, upper.bound1 = ub1, upper.bound2 = ub2)
-
-
-n <- 100 
-c0 <- 5 
-c1 <- 10 
-D <- runif(n, c0, c1) 
-f <- function(D) c(mean(D), var(D)) 
-sensitivities <- c((c1-c0)/n, (c1-c0)^2/n)
-epsilon <- 1
-private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities) 
-cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
-
-
-# Here, privacy budget is split so that 25% is given to the mean and 75% is given to the variance 
-private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities, alloc.proportions = c(0.25, 0.75)) 
-cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
 ```
 
 
