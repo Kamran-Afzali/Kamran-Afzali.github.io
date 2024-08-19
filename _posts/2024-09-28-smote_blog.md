@@ -97,10 +97,9 @@ cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
 9. **Displaying Results Again:**
 
    - This line prints the new privacy-preserving values after the budget has been split, along with the true values.
-
-- The code demonstrates how to apply differential privacy to statistical calculations (mean and variance) using the Laplace mechanism.
-- The privacy budget (`epsilon`) is adjusted to provide different levels of privacy for the mean and variance.
-- The sensitivities of the mean and variance are calculated to determine the appropriate amount of noise to add.
+   - The code demonstrates how to apply differential privacy to statistical calculations (mean and variance) using the Laplace mechanism.
+   - The privacy budget (`epsilon`) is adjusted to provide different levels of privacy for the mean and variance.
+   - The sensitivities of the mean and variance are calculated to determine the appropriate amount of noise to add.
 
 
 
@@ -121,6 +120,38 @@ private.sd <- sdDP(D, 0.5, lower.bound, upper.bound, mechanism="Gaussian", delta
 cat("Privacy preserving standard deviation: ", private.sd, "\nTrue standard deviation: ", sd(D)) 
 ```
 
+1. **Generating Data:**
+   - `D` is a dataset of 500 random numbers generated from a normal distribution with a mean of 3 and a standard deviation of 2.
+2. **Defining Bounds:**
+   - `lower.bound` is set to -3, which is 3 standard deviations below the mean (3 - 3*2 = -3).
+   - `upper.bound` is set to 9, which is 3 standard deviations above the mean (3 + 3*2 = 9).
+3. **Differentially Private Mean:**
+   - `meanDP` computes a differentially private estimate of the mean of `D`.
+   - Parameters:
+     - `D`: The dataset.
+     - `1`: The privacy budget `epsilon` (with a value of 1).
+     - `lower.bound` and `upper.bound`: The bounds within which the data lies.
+   - `private.mean` stores the privacy-preserving mean.
+4. **Differentially Private Variance:**
+   - `varDP` computes a differentially private estimate of the variance of `D`.
+   - Parameters:
+     - `D`: The dataset.
+     - `0.5`: The privacy budget `epsilon` (with a value of 0.5).
+     - `lower.bound` and `upper.bound`: The bounds within which the data lies.
+     - `which.sensitivity = "unbounded"`: Indicates that the sensitivity is computed assuming no bounds on the data.
+     - `mechanism = "Gaussian"`: Specifies the use of the Gaussian mechanism (as opposed to the Laplace mechanism).
+     - `delta = 0.01`: A parameter for the Gaussian mechanism related to the probability of breaching privacy.
+   - `private.var` stores the privacy-preserving variance.
+5. **Differentially Private Standard Deviation:**
+   - `sdDP` computes a differentially private estimate of the standard deviation of `D`.
+   - Parameters:
+     - `D`: The dataset.
+     - `0.5`: The privacy budget `epsilon`.
+     - `lower.bound` and `upper.bound`: The bounds within which the data lies.
+     - `mechanism = "Gaussian"`: Specifies the use of the Gaussian mechanism.
+     - `delta = 0.01`: A parameter for the Gaussian mechanism.
+     - `type.DP = "pDP"`: Specifies the type of differential privacy, in this case, "pure Differential Privacy" (pDP).
+   - `private.sd` stores the privacy-preserving standard deviation.
 
 ``` r
 D1 <- sort(rnorm(500, mean=3, sd=2))
@@ -150,6 +181,34 @@ private.pooled.cov <- pooledCovDP(M1, M2, eps = 1, lower.bound1 = lb1, lower.bou
 ```
 
 
+1. **Generating Data for Covariance:**
+   - `D1` and `D2` are two datasets each containing 500 random numbers generated from normal distributions.
+     - `D1` is generated with a mean of 3 and a standard deviation of 2.
+     - `D2` is generated with a mean of -1 and a standard deviation of 0.5.
+2. **Defining Bounds for Covariance:**
+   - `lb1` and `ub1` are the lower and upper bounds for `D1`, calculated as 3 standard deviations below and above the mean, respectively.
+   - `lb2` and `ub2` are the lower and upper bounds for `D2`, also based on 3 standard deviations below and above the mean.
+3. **Calculating Differentially Private Covariance:**
+   - `covDP` computes a differentially private estimate of the covariance between `D1` and `D2`.
+   - Parameters:
+     - `D1`, `D2`: The datasets between which covariance is calculated.
+     - `1`: The privacy budget `epsilon` (with a value of 1).
+     - `lb1`, `ub1`, `lb2`, `ub2`: The lower and upper bounds for `D1` and `D2`.
+   - `private.cov` stores the privacy-preserving covariance.
+4. **Generating Additional Data for Pooled Covariance:**
+   - `D3` and `D4` are additional datasets, each containing 200 random numbers generated from normal distributions.
+     - `D3` has a mean of 3 and a standard deviation of 2.
+     - `D4` has a mean of -1 and a standard deviation of 0.5.
+   - `M1` is a matrix with two columns: `D1` and `D2`.
+   - `M2` is a matrix with two columns: `D3` and `D4`.
+5. **Calculating Differentially Private Pooled Covariance:**
+   - `pooledCovDP` computes a differentially private estimate of the pooled covariance matrix between the two matrices `M1` and `M2`.
+   - Parameters:
+     - `M1`, `M2`: The matrices containing the datasets for which pooled covariance is calculated.
+     - `eps = 1`: The privacy budget `epsilon`.
+     - `lower.bound1`, `upper.bound1`: The lower and upper bounds for the first column of data in the matrices.
+     - `lower.bound2`, `upper.bound2`: The lower and upper bounds for the second column of data in the matrices.
+   - `private.pooled.cov` stores the privacy-preserving pooled covariance.
 
 
 ## References
