@@ -36,9 +36,7 @@ Differential privacy has rapidly become an essential framework for ensuring data
 #### **Code Example**
 
 ```r
-
 install.packages("DPpack")
-
 library("DPpack")
 n <- 100 
 c0 <- 5 
@@ -49,9 +47,6 @@ sensitivities <- c((c1-c0)/n, (c1-c0)^2/n)
 epsilon <- 1
 private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities) 
 cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
-
-
-# Here, privacy budget is split so that 25% is given to the mean and 75% is given to the variance 
 private.vals <- LaplaceMechanism(f(D), epsilon, sensitivities, alloc.proportions = c(0.25, 0.75)) 
 cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
 ```
@@ -61,48 +56,30 @@ cat("Privacy preserving values: ", private.vals, "\nTrue values: ", f(D))
    - `n` is set to 100, representing the number of data points.
    - `c0` and `c1` are set to 5 and 10, respectively. These values are the bounds for generating random numbers, defining the range `[5, 10]`.
 2. **Generating Data:**
-
    - `D` is a vector of `n` (100) uniformly distributed random numbers between `c0` (5) and `c1` (10).
-
 3. **Defining a Function `f`:**
-
    - `f` is a function that takes the dataset `D` as input and returns a vector containing the mean and variance of `D`.
-
 4. **Calculating Sensitivities:**
-
    - `sensitivities` is a vector containing the sensitivities of the mean and variance functions. 
    - Sensitivity is a measure of how much the output of a function can change when a single data point in the dataset is modified. Here:
      - The sensitivity of the mean is calculated as `(c1-c0)/n`.
      - The sensitivity of the variance is calculated as `(c1-c0)^2/n`.
-
 5. **Setting Privacy Parameter (Epsilon):**
-
    - `epsilon` is set to 1, which is a parameter that controls the privacy level. Lower values of `epsilon` indicate stronger privacy guarantees.
-
 6. **Applying the Laplace Mechanism:**
-
    - `LaplaceMechanism` is applied to the function `f(D)`. This mechanism adds noise drawn from the Laplace distribution to the true values (mean and variance) to ensure differential privacy.
    - `private.vals` contains the privacy-preserving values of the mean and variance after noise has been added.
-
 7. **Displaying Results:**
-
    - This line prints the privacy-preserving values (with added noise) and the true values (without noise) for comparison.
-
 8. **Splitting the Privacy Budget:**
-
    - Here, the privacy budget `epsilon` is split between the mean and variance calculations. 
    - `alloc.proportions = c(0.25, 0.75)` means that 25% of `epsilon` is used for the mean and 75% for the variance.
    - The `LaplaceMechanism` is then reapplied with this adjusted privacy budget allocation.
-
 9. **Displaying Results Again:**
-
    - This line prints the new privacy-preserving values after the budget has been split, along with the true values.
    - The code demonstrates how to apply differential privacy to statistical calculations (mean and variance) using the Laplace mechanism.
    - The privacy budget (`epsilon`) is adjusted to provide different levels of privacy for the mean and variance.
    - The sensitivities of the mean and variance are calculated to determine the appropriate amount of noise to add.
-
-
-
 
 ```r
 D <- rnorm(500, mean=3, sd=2) 
