@@ -11,6 +11,8 @@ date-string: July 2024
 
 SMOTE (Synthetic Minority Over-sampling Technique) is a technique used for generating synthetic data in order to address the problem of class imbalance in machine learning. It is a type of data augmentation for the minority class and is used to oversample the minority class by creating synthetic examples. SMOTE works by selecting examples that are close in the feature space, drawing a line between the examples in the feature space, and drawing a new sample at a point along that line. Specifically, a random example from the minority class is chosen, then k of the nearest neighbors for that example are found (typically k=5) and a synthetic example is created at a randomly selected point between the two examples in feature space. The algorithm, first, selects a random example from the minority class and selects random neighbors using K Nearest Neighbors and a synthetic example is created between two examples in the feature space. SMOTE algorithm offers a systematic approach to synthesizing data points that effectively uses the principles of proximity and feature space representation to generate synthetic examples by strategically interpolating between existing minority class samples. By selecting random neighbors using K Nearest Neighbors and creating synthetic instances along the line connecting these neighbors, SMOTE ensures that the generated data points closely resemble the characteristics of the minority class while maintaining the integrity of the original dataset. This approach not only improves the robustness of machine learning models by providing a more balanced training set but also contributes to the overall accuracy and reliability of classification tasks in scenarios where class imbalance is a challenge. There are some variations of SMOTE, such as Adaptive Synthetic Sampling Method, a modification of SMOTE that generates more synthetic examples near the boundary of the minority class. In the litterature SMOTE is presented as a widely used solution for imbalanced data, but it has a drawback. It does not consider the majority class while creating synthetic examples, which can cause issues where there is a strong overlap between the classes. Therefore, the original SMOTE paper suggests combining oversampling (SMOTE) with the undersampling of the majority class, as SMOTE does not consider the majority class while creating new samples. To better underestand the use of this algorithm below is an example code in R for synthetic data generation using SMOTE:
 
+#### **Code Example**
+
 ```R
 # First, install and load the necessary library for SMOTE
 install.packages("DMwR")
@@ -200,7 +202,6 @@ private.pooled.cov <- pooledCovDP(M1, M2, eps = 1, lower.bound1 = lb1, lower.bou
 
 ## References
 
-- [Synthesizing Electronic Health Records for Predictive Models in Low-Middle-Income Countries (LMICs)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10295936/) 
 - [Generating high-fidelity synthetic patient data for assessing machine learning healthcare software](https://www.nature.com/articles/s41746-020-00353-9)
 - [SMOTE-ENC: A Novel SMOTE-Based Method to Generate Synthetic Data for Nominal and Continuous Features](https://www.mdpi.com/2571-5577/4/1/18)
 - [RSMOTE: improving classification performance over imbalanced medical datasets](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7292850/)
@@ -208,7 +209,5 @@ private.pooled.cov <- pooledCovDP(M1, M2, eps = 1, lower.bound1 = lb1, lower.bou
 - [How to Use SMOTE for an Imbalanced Dataset](https://www.turing.com/kb/smote-for-an-imbalanced-dataset)
 - [The harm of class imbalance corrections for risk prediction models: illustration and simulation using logistic regression](https://academic.oup.com/jamia/article/29/9/1525/6605096)
 - [Overcoming Class Imbalance with SMOTE ](https://www.blog.trainindata.com/overcoming-class-imbalance-with-smote/)
-- [diffpriv](https://github.com/brubinstein/diffpriv)
-- [diffpriv: An R Package for Easy Differential Privacy](https://cran.r-project.org/web/packages/diffpriv/vignettes/diffpriv.pdf) 
 - [DPpack: An R Package for Differentially Private Statistical Analysis and Machine Learning ](https://arxiv.org/pdf/2309.10965)
 - [Issues in Differential Privacy](https://www.r-bloggers.com/2021/08/issues-in-differential-privacy/)
