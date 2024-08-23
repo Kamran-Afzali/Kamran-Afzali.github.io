@@ -4,7 +4,7 @@ categories: posts
 title:  Synthetic Data Generation and Differential Privacy in R 
 featured-image: /images/EHRVAL.jpg
 tags: [Differential Privacy, Synthetic Data, DigitalHealth]
-date-string: July 2024
+date-string: September 2024
 ---
 
 ## Synthetic Data Generation and Differential Privacy in R 
