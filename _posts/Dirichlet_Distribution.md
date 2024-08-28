@@ -346,25 +346,22 @@ The Dirichlet distribution in this context provides a flexible way to model prob
 
 
 
-Citations:
-[1] https://stackoverflow.com/questions/45700667/the-multinomial-model-in-stan-how-to-fit-dirichlet-distribution-parameters
-[2] https://discourse.mc-stan.org/t/dirichlet-distribution-example-not-working/27968
-[3] https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/
-[4] http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf
-[5] https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html
-[6] https://www.mithilaguha.com/post/lda-model-simulated-data-generation-in-r-parameter-recovery-study-in-rstan
-[7] https://mc-stan.org/docs/2_27/functions-reference/dirichlet-distribution.html
-[8] https://lse-me314.github.io/lecturenotes/ME314_day11.pdf
+### References
 
-
-
-Citations:
-[1] http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf
-[2] https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html
-[3] https://lse-me314.github.io/lecturenotes/ME314_day11.pdf
-[4] https://builtin.com/data-science/dirichlet-distribution
-[5] https://rpubs.com/JanpuHou/295096
-[6] http://r-statistics.co/Dirichlet-Regression-With-R.html
+- https://stackoverflow.com/questions/45700667/the-multinomial-model-in-stan-how-to-fit-dirichlet-distribution-parameters
+- https://discourse.mc-stan.org/t/dirichlet-distribution-example-not-working/27968
+- https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/
+- http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf
+- https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html
+- https://www.mithilaguha.com/post/lda-model-simulated-data-generation-in-r-parameter-recovery-study-in-rstan
+- https://mc-stan.org/docs/2_27/functions-reference/dirichlet-distribution.html
+- https://lse-me314.github.io/lecturenotes/ME314_day11.pdf
+- http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf
+- https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html
+- https://lse-me314.github.io/lecturenotes/ME314_day11.pdf
+- https://builtin.com/data-science/dirichlet-distribution
+- https://rpubs.com/JanpuHou/295096
+- http://r-statistics.co/Dirichlet-Regression-With-R.html
 
 
 
