@@ -76,16 +76,15 @@ In the context of machine learning, DP can be applied at various stages:
 
 Machine learning with differential privacy is crucial for preserving individual privacy in an era of big data. By incorporating differential privacy into the machine learning pipeline, it is possible to leverage the power of data-driven models while respecting the privacy of individuals. The `DPpack` package in R provides practical tools for implementing differential privacy in various statistical and machine learning tasks, making it accessible for researchers and practitioners to adopt these privacy-preserving techniques.
 
-Citations:
-[1] https://www.borealisai.com/research-blogs/tutorial-13-differential-privacy-ii-machine-learning-and-data-generation/
-[2] https://arxiv.org/pdf/2303.00654.pdf
-[3] https://differentialprivacy.org/how-to-deploy-ml-with-dp/
-[4] https://www.sciencedirect.com/science/article/abs/pii/S0167739X23002315
-[5] https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy
-[6] https://pair.withgoogle.com/explorables/private-and-fair/
+### References
 
-Citations:
-[1] https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy
-[2] https://cran.r-project.org/web/packages/diffpriv/vignettes/diffpriv.pdf
-[3] https://2021.ai/machine-learning-differential-privacy-overview/
-[4] https://cran.r-project.org/web/packages/DPpack/DPpack.pdf
+- https://www.borealisai.com/research-blogs/tutorial-13-differential-privacy-ii-machine-learning-and-data-generation/
+- https://arxiv.org/pdf/2303.00654.pdf
+- https://differentialprivacy.org/how-to-deploy-ml-with-dp/
+- https://www.sciencedirect.com/science/article/abs/pii/S0167739X23002315
+- https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy
+- https://pair.withgoogle.com/explorables/private-and-fair/
+- https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy
+- https://cran.r-project.org/web/packages/diffpriv/vignettes/diffpriv.pdf
+- https://2021.ai/machine-learning-differential-privacy-overview/
+- https://cran.r-project.org/web/packages/DPpack/DPpack.pdf
