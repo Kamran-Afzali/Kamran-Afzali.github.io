@@ -4,17 +4,25 @@ The Dirichlet distribution is a family of continuous multivariate probability di
 
 #### Understanding the Dirichlet Distribution
 
-The Dirichlet distribution can be thought of as a generalization of the Beta distribution. While the Beta distribution is used to model a probability distribution over two possible outcomes (e.g., success and failure), the Dirichlet distribution models the probability distribution over multiple outcomes. For example, if we are interested in modeling the distribution of probabilities across three categories (e.g., the probability of a person being in one of three age groups), the Dirichlet distribution is appropriate.
+The Dirichlet distribution is defined over a probability simplex,
+meaning that it deals with vectors of probabilities that sum to 1. If we
+have $K$ categories, then a Dirichlet distribution is defined over a
+vector $\mathbf{p} = (p_1, p_2, \ldots, p_K)$, where each $p_i \geq 0$
+and $\sum_{i=1}^{K} p_i = 1$. The distribution is governed by a
+parameter vector
+$\mathbf{\alpha} = (\alpha_1, \alpha_2, \ldots, \alpha_K)$, where each
+$\alpha_i > 0$.
 
-The Dirichlet distribution is defined over a probability simplex, meaning that it deals with vectors of probabilities that sum to 1. If we have \( K \) categories, then a Dirichlet distribution is defined over a vector \( \mathbf{p} = (p_1, p_2, \ldots, p_K) \), where each \( p_i \geq 0 \) and \( \sum_{i=1}^{K} p_i = 1 \). The distribution is governed by a parameter vector \( \mathbf{\alpha} = (\alpha_1, \alpha_2, \ldots, \alpha_K) \), where each \( \alpha_i > 0 \).
+The density function of the Dirichlet distribution for a $K$-dimensional
+vector $\mathbf{p}$ is given by:
 
-The density function of the Dirichlet distribution for a \( K \)-dimensional vector \( \mathbf{p} \) is given by:
-
-\[
+$$
 f(\mathbf{p} \mid \mathbf{\alpha}) = \frac{1}{B(\mathbf{\alpha})} \prod_{i=1}^{K} p_i^{\alpha_i - 1}
-\]
+$$
 
-where \( B(\mathbf{\alpha}) \) is the multinomial beta function, acting as a normalization constant to ensure the distribution integrates to 1.
+where $B(\mathbf{\alpha})$ is the multinomial beta function, acting as a
+normalization constant to ensure the distribution integrates to 1.
+
 
 #### Applications of the Dirichlet Distribution
 
