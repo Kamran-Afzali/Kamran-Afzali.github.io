@@ -1,4 +1,4 @@
-### Essay on Dirichlet Distribution
+### Dirichlet Distribution in R and RStan
 
 The Dirichlet distribution is a family of continuous multivariate probability distributions parameterized by a vector of positive reals. It is often used as a prior distribution in Bayesian statistics, particularly in the context of categorical and multinomial distributions. Named after Johann Peter Gustav Lejeune Dirichlet, this distribution plays a crucial role in various fields, including machine learning, natural language processing, and population genetics.
 
