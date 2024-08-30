@@ -1,15 +1,7 @@
 ## Machine Learning with Differential Privacy
-Differential privacy (DP) can enhance the generalization of machine learning models, which is a somewhat counterintuitive yet well-documented phenomenon. Generalization refers to a model's ability to perform well on unseen data, not just the data it was trained on. 
+Differential privacy (DP) can enhance the generalization of machine learning models, which is a counterintuitive yet well-documented phenomenon. As Machine learning (ML) systems increasingly rely on large and sensitive datasets, concerns about privacy have grown. Differential privacy offers a robust framework to address these concerns by ensuring that the inclusion or exclusion of a single data point does not significantly affect the outcome of an analysis. Here we explore the integration of differential privacy in machine learning, highlighting examples from the R package **DPpack**.
 
-Machine learning (ML) has become a cornerstone of modern technology, offering powerful tools for data analysis and prediction. However, as ML systems increasingly rely on large datasets, concerns about privacy have grown. Differential privacy (DP) offers a robust framework to address these concerns by ensuring that the inclusion or exclusion of a single data point does not significantly affect the outcome of an analysis. This essay explores the integration of differential privacy in machine learning, highlighting examples from the R package **DPpack**.
-
-### **Understanding Differential Privacy**
-
-Differential privacy is a mathematical framework that provides strong privacy guarantees by adding noise to the data or the analysis process. This noise ensures that the output of a computation does not reveal sensitive information about any individual in the dataset. The essence of differential privacy is that it limits what an adversary can learn about any individual, even with access to auxiliary information[3].
-
-### **Machine Learning with Differential Privacy**
-
-Incorporating differential privacy into machine learning involves modifying algorithms to respect privacy constraints while maintaining model utility. Two common approaches are:
+Differential privacy is a mathematical framework that provides strong privacy guarantees by adding noise to the data or the analysis process. This noise ensures that the output of a computation does not reveal sensitive information about any individual in the dataset. The essence of differential privacy is that it limits what an adversary can learn about any individual, even with access to auxiliary information. Incorporating differential privacy into machine learning involves modifying algorithms to respect privacy constraints while maintaining model utility. Two common approaches are:
 
 1. **Differentially Private Stochastic Gradient Descent (DP-SGD):** This method adds noise to the gradients during the training process, ensuring that the updates to the model parameters do not compromise individual privacy. DP-SGD can be integrated into existing ML frameworks like TensorFlow and PyTorch[1].
 
