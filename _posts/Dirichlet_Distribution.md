@@ -23,6 +23,12 @@ $$
 where $B(\mathbf{\alpha})$ is the multinomial beta function, acting as a
 normalization constant to ensure the distribution integrates to 1.
 
+#### Properties and Characteristics
+
+- **Support**: The Dirichlet distribution is defined over the simplex, meaning that the components of a random vector drawn from a Dirichlet distribution are positive and sum to one.
+- **Parameters**: The parameter vector $$\alpha$$ influences the shape and concentration of the distribution. Each component of $$\alpha$$ can be thought of as a prior count or concentration parameter for the corresponding component of the probability vector.
+- **Mean and Variance**: The mean of each component of a Dirichlet-distributed vector is given by the ratio of the corresponding $$\alpha$$ parameter to the sum of all $$\alpha$$ parameters. The variance and covariance of the components are also functions of the $$\alpha$$ parameters, reflecting the distribution's flexibility in modeling different levels of uncertainty and correlation among components.
+
 
 #### Applications of the Dirichlet Distribution
 
@@ -102,24 +108,6 @@ This code visualizes samples from a Dirichlet distribution using a ternary plot,
 
 
 
-
-## Dirichlet Distribution
-
-The Dirichlet distribution is a family of continuous multivariate probability distributions parameterized by a vector of positive reals, denoted as $$\alpha$$. It is often used in Bayesian statistics as the conjugate prior for the parameters of categorical and multinomial distributions. This distribution is particularly useful in scenarios where the outcome is a probability vector, such as in the case of modeling proportions or probabilities that must sum to one[2][4].
-
-### Properties and Characteristics
-
-- **Support**: The Dirichlet distribution is defined over the simplex, meaning that the components of a random vector drawn from a Dirichlet distribution are positive and sum to one[3].
-- **Parameters**: The parameter vector $$\alpha$$ influences the shape and concentration of the distribution. Each component of $$\alpha$$ can be thought of as a prior count or concentration parameter for the corresponding component of the probability vector[4].
-- **Mean and Variance**: The mean of each component of a Dirichlet-distributed vector is given by the ratio of the corresponding $$\alpha$$ parameter to the sum of all $$\alpha$$ parameters. The variance and covariance of the components are also functions of the $$\alpha$$ parameters, reflecting the distribution's flexibility in modeling different levels of uncertainty and correlation among components[2].
-
-### Applications
-
-The Dirichlet distribution is widely used in various fields, including:
-
-- **Natural Language Processing (NLP)**: It is used in topic models like Latent Dirichlet Allocation (LDA), where it helps to model the distribution of topics in documents and words in topics[3].
-- **Genetics**: It models the distribution of allele frequencies in populations.
-- **Machine Learning**: It serves as a prior in Bayesian models for classification and clustering tasks.
 
 ## Implementation in R
 
