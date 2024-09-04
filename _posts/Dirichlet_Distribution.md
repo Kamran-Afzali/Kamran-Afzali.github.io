@@ -40,13 +40,11 @@ normalization constant to ensure the distribution integrates to 1.
 
 ### Examples of Dirichlet Distribution in R
 
-Here are a few examples of how the Dirichlet distribution can be implemented in R using the `gtools` package:
+Dirichlet distribution can be implemented in R using the `gtools` package and the `LaplacesDemon` package. Here are some examples of how to implement and use the Dirichlet distribution in R::
 
-#### 1. Generating Samples from a Dirichlet Distribution
+#### Generating Samples from a Dirichlet Distribution
 
 ```r
-# Install the gtools package if not already installed
-install.packages("gtools")
 
 # Load the gtools package
 library(gtools)
@@ -63,7 +61,7 @@ print(samples)
 
 This code snippet generates 10 samples from a Dirichlet distribution with parameters \( \alpha = (2, 3, 5) \). Each sample is a probability vector of three elements, and the rows of the output matrix represent different samples.
 
-#### 2. Using the Dirichlet Distribution as a Prior
+#### Using the Dirichlet Distribution as a Prior
 
 ```r
 # Example observed data (counts in 3 categories)
@@ -103,19 +101,9 @@ ggtern(data = data, aes(x = X1, y = X2, z = X3)) +
   labs(title = "Dirichlet Distribution Visualization")
 ```
 
-This code visualizes samples from a Dirichlet distribution using a ternary plot, which is useful for understanding the distribution of probabilities across three categories.
 
 
-
-
-
-## Implementation in R
-
-R provides functions to work with the Dirichlet distribution, particularly through the `LaplacesDemon` package. Here are some examples of how to implement and use the Dirichlet distribution in R:
-
-### Example 1: Density Function
-
-To calculate the density of a Dirichlet distribution for a given vector:
+### Density Function
 
 ```r
 library(LaplacesDemon)
@@ -129,7 +117,7 @@ density <- ddirichlet(prob_vector, alpha)
 print(density)
 ```
 
-### Example 2: Random Generation
+### Random Generation
 
 To generate random samples from a Dirichlet distribution:
 
@@ -144,11 +132,10 @@ samples <- rdirichlet(10, alpha)
 print(samples)
 ```
 
-These examples demonstrate how the Dirichlet distribution can be utilized in R for statistical modeling and analysis, particularly in Bayesian frameworks where it acts as a prior for multinomial distributions[2][5].
+
+### Examples of Dirichlet Distribution in Stan
 
 To implement the Dirichlet distribution using Stan and RStan, you can follow the example below. This example demonstrates how to define a simple Stan model with a Dirichlet distribution and run it using RStan in R.
-
-### Stan Model
 
 First, create a Stan model file (e.g., `dirichlet_model.stan`) with the following content:
 
