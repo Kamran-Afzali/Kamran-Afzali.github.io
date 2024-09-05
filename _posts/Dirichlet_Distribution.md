@@ -316,20 +316,18 @@ ggplot(theta_samples, aes(x = theta_3)) +
 
 ### References
 
-- https://stackoverflow.com/questions/45700667/the-multinomial-model-in-stan-how-to-fit-dirichlet-distribution-parameters
-- https://discourse.mc-stan.org/t/dirichlet-distribution-example-not-working/27968
-- https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/
-- http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf
-- https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html
-- https://www.mithilaguha.com/post/lda-model-simulated-data-generation-in-r-parameter-recovery-study-in-rstan
-- https://mc-stan.org/docs/2_27/functions-reference/dirichlet-distribution.html
-- https://lse-me314.github.io/lecturenotes/ME314_day11.pdf
-- http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf
-- https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html
-- https://lse-me314.github.io/lecturenotes/ME314_day11.pdf
-- https://builtin.com/data-science/dirichlet-distribution
-- https://rpubs.com/JanpuHou/295096
-- http://r-statistics.co/Dirichlet-Regression-With-R.html
+- [The multinomial model in stan - fit dirichlet distribution parameters](https://stackoverflow.com/questions/45700667/the-multinomial-model-in-stan-how-to-fit-dirichlet-distribution-parameters)
+- [Dirichlet distribution example stan](https://discourse.mc-stan.org/t/dirichlet-distribution-example-not-working/27968)
+- [Guide to understanding the intuition behind the Dirichlet distribution](https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/)
+- [Introduction to the Dirichlet Distribution and Related Processes](http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf)
+- [LDA Model: Simulated Data Generation in R & Parameter Recovery Study in RStan](https://www.mithilaguha.com/post/lda-model-simulated-data-generation-in-r-parameter-recovery-study-in-rstan)
+- [](https://mc-stan.org/docs/2_27/functions-reference/dirichlet-distribution.html)
+- [](https://lse-me314.github.io/lecturenotes/ME314_day11.pdf)
+- [](http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf)
+- [](https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html)
+- [](https://lse-me314.github.io/lecturenotes/ME314_day11.pdf)
+- [The Dirichlet Distribution: What Is It and Why Is It Useful?](https://builtin.com/data-science/dirichlet-distribution)
+- [Dirichlet Distribution Example](https://rpubs.com/JanpuHou/295096)
 
 
 
