@@ -29,13 +29,12 @@ The **DPpack** R package provides tools for implementing differentially private 
 
 ### References
 
-- https://www.borealisai.com/research-blogs/tutorial-13-differential-privacy-ii-machine-learning-and-data-generation/
-- https://arxiv.org/pdf/2303.00654.pdf
-- https://differentialprivacy.org/how-to-deploy-ml-with-dp/
-- https://www.sciencedirect.com/science/article/abs/pii/S0167739X23002315
-- https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy
-- https://pair.withgoogle.com/explorables/private-and-fair/
-- https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy
-- https://cran.r-project.org/web/packages/diffpriv/vignettes/diffpriv.pdf
-- https://2021.ai/machine-learning-differential-privacy-overview/
-- https://cran.r-project.org/web/packages/DPpack/DPpack.pdf
+- [Differential privacy II: machine learning and data generation](https://www.borealisai.com/research-blogs/tutorial-13-differential-privacy-ii-machine-learning-and-data-generation/)
+- [How to DP-fy ML: A Practical Guide to Machine Learning with Differential Privacy](https://arxiv.org/pdf/2303.00654.pdf)
+- [How to deploy machine learning with differential privacy?](https://differentialprivacy.org/how-to-deploy-ml-with-dp/)
+- [Differential privacy in deep learning: Privacy and beyond](https://www.sciencedirect.com/science/article/abs/pii/S0167739X23002315)
+- [](https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy)
+- [](https://pair.withgoogle.com/explorables/private-and-fair/)
+- [](https://www.nist.gov/blogs/cybersecurity-insights/how-deploy-machine-learning-differential-privacy)
+- [Machine Learning and differential privacy: overview](https://2021.ai/machine-learning-differential-privacy-overview/)
+- [Package ‘DPpack’](https://cran.r-project.org/web/packages/DPpack/DPpack.pdf)
