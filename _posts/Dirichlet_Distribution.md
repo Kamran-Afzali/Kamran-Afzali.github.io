@@ -321,11 +321,8 @@ ggplot(theta_samples, aes(x = theta_3)) +
 - [Guide to understanding the intuition behind the Dirichlet distribution](https://www.andrewheiss.com/blog/2023/09/18/understanding-dirichlet-beta-intuition/)
 - [Introduction to the Dirichlet Distribution and Related Processes](http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf)
 - [LDA Model: Simulated Data Generation in R & Parameter Recovery Study in RStan](https://www.mithilaguha.com/post/lda-model-simulated-data-generation-in-r-parameter-recovery-study-in-rstan)
-- [](https://mc-stan.org/docs/2_27/functions-reference/dirichlet-distribution.html)
-- [](https://lse-me314.github.io/lecturenotes/ME314_day11.pdf)
-- [](http://mayagupta.org/publications/FrigyikKapilaGuptaIntroToDirichlet.pdf)
-- [](https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html)
-- [](https://lse-me314.github.io/lecturenotes/ME314_day11.pdf)
+- [Dirichlet distribution in Stan](https://mc-stan.org/docs/2_27/functions-reference/dirichlet-distribution.html)
+- [Dirichlet Distribution R LaplacesDemon](https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html)
 - [The Dirichlet Distribution: What Is It and Why Is It Useful?](https://builtin.com/data-science/dirichlet-distribution)
 - [Dirichlet Distribution Example](https://rpubs.com/JanpuHou/295096)
 
