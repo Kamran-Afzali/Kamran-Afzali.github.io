@@ -25,7 +25,7 @@ The DPpack package in R is an example of how differential privacy can be practic
 
 The **DPpack** R package provides tools for implementing differentially private statistical analyses and machine learning models. 
 
-- **Differentially Private Linear Regression and SVM:** The package includes implementations of machine learning algorithms such as linear regression and support vector machines (SVM) with differential privacy guarantees. For example, the `svmDP` function allows users to fit a privacy-preserving SVM model, ensuring that the model's coefficients do not reveal sensitive information about the training data.
+- **Differentially Private Regression and SVM:** The package includes implementations of machine learning algorithms such as regression and support vector machines (SVM) with differential privacy guarantees. 
 
 ### References
 
