@@ -25,7 +25,7 @@ genData_2$syn_data
 
 **Code Explanation**
 
-- *Load the smotefamily library
+- Load the `smotefamily` library
 - `sample_generator()` is a function from `smotefamily` that generates a synthetic imbalanced dataset.
 - `data_example` is now a synthetic dataset with 10,000 samples and an 80:20 imbalance between majority and minority classes.
 - `SMOTE()` is a function used to apply the SMOTE technique to the data, generating new synthetic samples of the minority class.
