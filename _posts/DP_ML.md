@@ -27,6 +27,39 @@ The **DPpack** R package provides tools for implementing differentially private 
 
 - **Differentially Private Regression and SVM:** The package includes implementations of machine learning algorithms such as regression and support vector machines (SVM) with differential privacy guarantees. 
 
+```r
+set.seed(0)
+
+# Create 9 predictor variables
+predictors <- matrix(rnorm(900), nrow = 100, ncol = 9)
+colnames(predictors) <- paste0("Predictor_", 1:9)
+
+# Create coefficients for the linear relationship
+coefficients <- runif(9)
+
+# Generate the outcome variable with some added noise
+outcome <- predictors %*% coefficients + rnorm(100, sd = 0.5)
+
+# Combine predictors and outcome into a single dataframe
+data <- data.frame(predictors, Outcome = outcome)
+
+# View the first few rows of the dataframe
+head(data)
+
+
+
+# Fit linear regression model
+model <- lm(Outcome ~ ., data = data)
+
+# View model summary
+summary(model)
+
+# Get coefficients and intercept
+coef(model)
+```
+
+
+
 ### References
 
 - [Differential privacy II: machine learning and data generation](https://www.borealisai.com/research-blogs/tutorial-13-differential-privacy-ii-machine-learning-and-data-generation/)
