@@ -5,7 +5,7 @@ Differential privacy is a mathematical framework that provides strong privacy gu
 
 By incorporating differential privacy into the machine learning pipeline, it is possible to leverage the power of data-driven models while respecting the privacy of individuals. The `DPpack` package in R provides practical tools for implementing differential privacy in various statistical and machine learning tasks, making it accessible for researchers and practitioners to adopt these privacy-preserving techniques.Incorporating differential privacy into machine learning involves modifying algorithms to respect privacy constraints while maintaining model utility. Two common approaches are:
 
-1. **Differentially Private Stochastic Gradient Descent (DP-SGD):** This method adds noise to the gradients during the training process, ensuring that the updates to the model parameters do not compromise individual privacy. DP-SGD can be integrated into existing ML frameworks like TensorFlow and PyTorch[1].
+1. **Differentially Private Stochastic Gradient Descent (DP-SGD):** This method adds noise to the gradients during the training process, ensuring that the updates to the model parameters do not compromise individual privacy. DP-SGD can be integrated into existing ML frameworks like TensorFlow and PyTorch.
 
 2. **Model Agnostic Private Learning:** This approach involves training multiple models on different subsets of data and using a differentially private mechanism to aggregate their predictions. This aggregation prevents any single model from revealing private information[1].
 
@@ -30,31 +30,38 @@ The **DPpack** R package provides tools for implementing differentially private 
 ```r
 set.seed(0)
 
-# Create 9 predictor variables
 predictors <- matrix(rnorm(900), nrow = 100, ncol = 9)
 colnames(predictors) <- paste0("Predictor_", 1:9)
 
-# Create coefficients for the linear relationship
 coefficients <- runif(9)
 
-# Generate the outcome variable with some added noise
 outcome <- predictors %*% coefficients + rnorm(100, sd = 0.5)
 
-# Combine predictors and outcome into a single dataframe
 data <- data.frame(predictors, Outcome = outcome)
-
-# View the first few rows of the dataframe
 head(data)
 
 
-
-# Fit linear regression model
 model <- lm(Outcome ~ ., data = data)
-
-# View model summary
 summary(model)
+```
 
-# Get coefficients and intercept
+
+```r
+regularizer <- 'l1' # Alternatively, function(coeff) coeff%*%coeff/2
+eps <- 1
+delta <- 0 # Indicates to use pure eps-DP
+gamma <- 1
+regularizer.gr <- function(coeff) coeff
+
+lrdp <- LinearRegressionDP$new('l2', eps, delta, gamma, regularizer.gr)
+
+# Fit with data
+# We must assume y is a matrix with values between -p and p (-2 and 2
+#   for this example)
+upper.bounds <- c(rep(3,9),5 ) # Bounds for X and y
+lower.bounds <- c(rep(-3,9),-5) # Bounds for X and y
+lrdp$fit(as.data.frame(predictors), as.data.frame(outcome), upper.bounds, lower.bounds, add.bias=F)
+lrdp$coeff # Gets private coefficients
 coef(model)
 ```
 
