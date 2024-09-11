@@ -166,8 +166,6 @@ D3 <- sort(rnorm(200, mean=3, sd=2))
 D4 <- sort(rnorm(200, mean=-1, sd=0.5)) 
 M1 <- matrix(c(D1, D2), ncol=2) 
 M2 <- matrix(c(D3, D4), ncol=2)
-
-
 private.pooled.cov <- pooledCovDP(M1, M2, eps = 1, lower.bound1 = lb1, lower.bound2 = lb2, upper.bound1 = ub1, upper.bound2 = ub2)
 
 ```
