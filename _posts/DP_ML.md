@@ -28,39 +28,28 @@ The **DPpack** R package provides tools for implementing differentially private 
 - **Differentially Private Regression and SVM:** The package includes implementations of machine learning algorithms such as regression and support vector machines (SVM) with differential privacy guarantees. 
 
 ```r
-set.seed(0)
-
-predictors <- matrix(rnorm(900), nrow = 100, ncol = 9)
-colnames(predictors) <- paste0("Predictor_", 1:9)
-
-coefficients <- runif(9)
-
-outcome <- predictors %*% coefficients + rnorm(100, sd = 0.5)
-
-data <- data.frame(predictors, Outcome = outcome)
-head(data)
-
-
-model <- lm(Outcome ~ ., data = data)
-summary(model)
-```
-
-
-```r
-regularizer <- 'l2' 
-eps <- 1
+n <- 500
+X <- data.frame(X1=rnorm(n, mean=0, sd=0.3),X2=rnorm(n, mean=0, sd=0.3),X3=rnorm(n, mean=0, sd=0.3))
+true.theta <- c(-.3,.5,.8,.2) # First element is bias term
+p <- length(true.theta)
+y <- true.theta[1] + as.matrix(X)%*%true.theta[2:p] + stats::rnorm(n=n,sd=.1)
+summary(y)
+# Construct object for linear regression
+regularizer <- 'l2' # Alternatively, function(coeff) coeff%*%coeff/2
+eps <- 10
 delta <- 0 # Indicates to use pure eps-DP
-gamma <- 1
+gamma <- 0
 regularizer.gr <- function(coeff) coeff
 
 lrdp <- LinearRegressionDP$new('l2', eps, delta, gamma, regularizer.gr)
 
-
-upper.bounds <- c(rep(3,9),5 ) 
-lower.bounds <- c(rep(-3,9),-5) 
-lrdp$fit(as.data.frame(predictors), as.data.frame(outcome), upper.bounds, lower.bounds, add.bias=F)
+# Fit with data
+# We must assume y is a matrix with values between -p and p (-2 and 2
+#   for this example)
+upper.bounds <- c(1,1,1, 2) # Bounds for X and y
+lower.bounds <- c(-1,-1,-1,-2) # Bounds for X and y
+lrdp$fit(X, y, upper.bounds, lower.bounds, add.bias=TRUE)
 lrdp$coeff # Gets private coefficients
-coef(model)
 ```
 
 
