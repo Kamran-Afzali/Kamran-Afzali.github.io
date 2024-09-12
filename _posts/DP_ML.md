@@ -47,19 +47,17 @@ summary(model)
 
 
 ```r
-regularizer <- 'l1' # Alternatively, function(coeff) coeff%*%coeff/2
+regularizer <- 'l1' 
 eps <- 1
 delta <- 0 # Indicates to use pure eps-DP
 gamma <- 1
 regularizer.gr <- function(coeff) coeff
 
-lrdp <- LinearRegressionDP$new('l2', eps, delta, gamma, regularizer.gr)
+lrdp <- LinearRegressionDP$new('l1', eps, delta, gamma, regularizer.gr)
 
-# Fit with data
-# We must assume y is a matrix with values between -p and p (-2 and 2
-#   for this example)
-upper.bounds <- c(rep(3,9),5 ) # Bounds for X and y
-lower.bounds <- c(rep(-3,9),-5) # Bounds for X and y
+
+upper.bounds <- c(rep(3,9),5 ) 
+lower.bounds <- c(rep(-3,9),-5) 
 lrdp$fit(as.data.frame(predictors), as.data.frame(outcome), upper.bounds, lower.bounds, add.bias=F)
 lrdp$coeff # Gets private coefficients
 coef(model)
