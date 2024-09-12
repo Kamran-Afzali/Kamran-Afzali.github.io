@@ -47,13 +47,13 @@ summary(model)
 
 
 ```r
-regularizer <- 'l1' 
+regularizer <- 'l2' 
 eps <- 1
 delta <- 0 # Indicates to use pure eps-DP
 gamma <- 1
 regularizer.gr <- function(coeff) coeff
 
-lrdp <- LinearRegressionDP$new('l1', eps, delta, gamma, regularizer.gr)
+lrdp <- LinearRegressionDP$new('l2', eps, delta, gamma, regularizer.gr)
 
 
 upper.bounds <- c(rep(3,9),5 ) 
