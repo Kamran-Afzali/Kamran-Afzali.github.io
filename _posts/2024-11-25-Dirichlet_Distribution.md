@@ -1,6 +1,16 @@
-### Dirichlet Distribution in R and RStan
+---
+layout: post
+categories: posts
+title: Dirichlet Distribution in R and Stan
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: November 2024
+---
 
-The Dirichlet distribution is a family of continuous multivariate probability distributions parameterized by a vector of positive reals. It is often used as a prior distribution in Bayesian statistics, particularly in the context of categorical and multinomial distributions. Named after Johann Peter Gustav Lejeune Dirichlet, this distribution is used in fields, including machine learning, natural language processing, and population genetics.
+
+### Dirichlet Distribution in R and Stan
+
+The Dirichlet distribution is a family of continuous multivariate probability distributions parameterized by a vector of positive reals. It is often used as a prior distribution in Bayesian statistics, particularly in the context of categorical and multinomial distributions. Named after _Johann Peter Gustav Lejeune Dirichlet_, this distribution is used in fields such as machine learning, natural language processing, and population genetics.
 
 #### Understanding the Dirichlet Distribution
 
