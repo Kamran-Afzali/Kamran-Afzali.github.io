@@ -48,7 +48,7 @@ normalization constant to ensure the distribution integrates to 1.
 
 3. **Mixture Models:** The Dirichlet distribution is also used in mixture models, such as the Dirichlet Process Mixture Model (DPMM), which is useful for clustering data when the number of clusters is unknown a priori.
 
-### Examples of Dirichlet Distribution in R
+### Dirichlet Distribution in R
 
 Dirichlet distribution can be implemented in R using the `gtools` package and the `LaplacesDemon` package. Here are some examples of how to implement and use the Dirichlet distribution in R::
 
@@ -56,17 +56,13 @@ Dirichlet distribution can be implemented in R using the `gtools` package and th
 
 ```r
 
-# Load the gtools package
 library(gtools)
-
-# Define the alpha parameters
 alpha <- c(2, 3, 5)
-
-# Generate a sample of size 10 from the Dirichlet distribution
-samples <- rdirichlet(10, alpha)
-
-# Print the generated samples
+n=1000
+samples <- rdirichlet(n, alpha)
 print(samples)
+colMeans(samples)
+print(posterior_mean)
 ```
 
 This code snippet generates 10 samples from a Dirichlet distribution with parameters \( \alpha = (2, 3, 5) \). Each sample is a probability vector of three elements, and the rows of the output matrix represent different samples.
@@ -74,19 +70,14 @@ This code snippet generates 10 samples from a Dirichlet distribution with parame
 #### Using the Dirichlet Distribution as a Prior
 
 ```r
-# Example observed data (counts in 3 categories)
 observed_data <- c(10, 15, 25)
 
-# Define the prior (Dirichlet distribution with parameters)
 prior_alpha <- c(2, 3, 5)
 
-# Update the prior with observed data to get the posterior
 posterior_alpha <- prior_alpha + observed_data
 
-# Draw samples from the posterior distribution
 posterior_samples <- rdirichlet(1000, posterior_alpha)
 
-# Summary of posterior samples
 posterior_mean <- colMeans(posterior_samples)
 print(posterior_mean)
 ```
@@ -113,34 +104,8 @@ ggtern(data = data, aes(x = X1, y = X2, z = X3)) +
 
 
 
-### Density Function
 
-```r
-library(LaplacesDemon)
 
-# Define a probability vector and alpha parameters
-prob_vector <- c(0.1, 0.3, 0.6)
-alpha <- c(1, 1, 1)
-
-# Calculate the density
-density <- ddirichlet(prob_vector, alpha)
-print(density)
-```
-
-### Random Generation
-
-To generate random samples from a Dirichlet distribution:
-
-```r
-library(LaplacesDemon)
-
-# Define alpha parameters
-alpha <- c(1, 1, 1)
-
-# Generate 10 random samples
-samples <- rdirichlet(10, alpha)
-print(samples)
-```
 
 
 ### Examples of Dirichlet Distribution in Stan
