@@ -84,16 +84,11 @@ print(posterior_mean)
 
 This example shows how the Dirichlet distribution can be used as a prior in a Bayesian framework. The prior parameters are updated with observed data, and samples are drawn from the posterior distribution to estimate the mean probabilities of each category.
 
-#### 3. Visualizing the Dirichlet Distribution
+#### Visualizing the Dirichlet Distribution
 
 ```r
-# Define the alpha parameters
-alpha <- c(1, 1, 1)
-
-# Generate a large number of samples
+alpha <- c(2, 3, 5)
 samples <- rdirichlet(10000, alpha)
-
-# Plotting a ternary plot to visualize the distribution
 library(ggtern)
 data <- as.data.frame(samples)
 colnames(data) <- c("X1", "X2", "X3")
@@ -101,11 +96,6 @@ ggtern(data = data, aes(x = X1, y = X2, z = X3)) +
   geom_point(alpha = 0.1) +
   labs(title = "Dirichlet Distribution Visualization")
 ```
-
-
-
-
-
 
 
 ### Examples of Dirichlet Distribution in Stan
