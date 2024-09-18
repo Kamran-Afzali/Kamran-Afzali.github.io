@@ -104,8 +104,8 @@ To implement the Dirichlet distribution using Stan and RStan, you can follow the
 
 First, create a Stan model file (e.g., `dirichlet_model.stan`) with the following content:
 
-```stan
-data {
+```r
+stan_model <-'data {
   int<lower=1> K; // Number of categories
   vector<lower=0>[K] alpha; // Dirichlet parameters
 }
@@ -116,7 +116,7 @@ parameters {
 
 model {
   theta ~ dirichlet(alpha); // Dirichlet prior
-}
+}'
 ```
 
 ### R Code
@@ -124,22 +124,13 @@ model {
 Next, use RStan to compile and run the Stan model. Here is an example of how to do this in R:
 
 ```r
-# Load the rstan package
 library(rstan)
-
-# Define the data
 K <- 3
-alpha <- c(2, 2, 2) # Dirichlet parameters
+alpha <- c(2, 3, 5) # Dirichlet parameters
 data_list <- list(K = K, alpha = alpha)
-
-# Compile the Stan model
-stan_model <- stan_model(file = "dirichlet_model.stan")
-
-# Fit the model
-fit <- sampling(stan_model, data = data_list, iter = 2000, chains = 4)
-
-# Print the results
+fit <- stan(model_code=stan_model, data = data_list, iter = 2000, chains = 4)
 print(fit)
+
 ```
 
 ### Explanation
