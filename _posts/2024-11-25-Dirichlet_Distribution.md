@@ -98,7 +98,7 @@ ggtern(data = data, aes(x = X1, y = X2, z = X3)) +
 ```
 
 
-### Examples of Dirichlet Distribution in Stan
+### Dirichlet Distribution in Stan
 
 To implement the Dirichlet distribution using Stan and RStan, you can follow the example below. This example demonstrates how to define a simple Stan model with a Dirichlet distribution and run it using RStan in R.
 
@@ -119,8 +119,6 @@ model {
 }'
 ```
 
-### R Code
-
 Next, use RStan to compile and run the Stan model. Here is an example of how to do this in R:
 
 ```r
@@ -133,47 +131,21 @@ print(fit)
 
 ```
 
-### Explanation
-
 - **Data Block**: The data block in the Stan model specifies the number of categories `K` and the Dirichlet parameters `alpha`. These are provided as inputs to the model.
 - **Parameters Block**: The parameters block defines `theta` as a simplex, which ensures that the elements of `theta` are non-negative and sum to one, making it suitable for modeling probabilities.
 - **Model Block**: The model block specifies that `theta` follows a Dirichlet distribution with parameters `alpha`.
 
-### Running the Model
-
 - **RStan**: The R code uses the `rstan` package to compile the Stan model and perform sampling. The `sampling` function runs the Markov Chain Monte Carlo (MCMC) to generate samples from the posterior distribution of `theta`.
 - **Output**: The `print` function outputs the summary of the posterior samples, including estimates for the components of `theta`.
 
-This example provides a basic framework for using the Dirichlet distribution in Stan and RStan, which can be extended or modified for more complex models or different applications.
 
+### Bayesian Model with Dirichlet Prior in Stan 
 
-To use the Dirichlet distribution in a Bayesian model with `Stan` and `rstan` in R, you'll typically write a Stan model that includes a Dirichlet prior, compile it, and then sample from the posterior distribution using `rstan`. Below is an example that demonstrates how to implement this.
-
-### Example: Bayesian Model with Dirichlet Prior using `Stan` and `rstan`
-
-#### Step 1: Install and Load Required Packages
-
-First, ensure you have `rstan` and `ggplot2` installed. If not, install them as follows:
-
-```r
-install.packages("rstan")
-install.packages("ggplot2")
-```
-
-Then, load the libraries:
 
 ```r
 library(rstan)
 library(ggplot2)
-```
 
-#### Step 2: Write the Stan Model
-
-In this example, we assume you are working with categorical data where the probabilities of each category follow a Dirichlet distribution. We will model the probabilities with a Dirichlet prior and update them using observed data.
-
-Here’s a simple Stan model:
-
-```r
 dirichlet_model_code <- "
 data {
   int<lower=1> K;            // Number of categories
@@ -195,14 +167,10 @@ generated quantities {
 "
 ```
 
-This model includes:
-
 - **Data Block**: Specifies the number of categories `K`, the number of observations `N`, the observed data `y`, and the Dirichlet prior parameters `alpha`.
 - **Parameters Block**: Defines `theta`, a vector representing the probabilities for each category, which is constrained to be a simplex (i.e., sums to 1).
 - **Model Block**: Applies the Dirichlet prior to `theta` and models the observed data `y` using a categorical distribution.
 - **Generated Quantities Block**: Computes the posterior mean of `theta`.
-
-#### Step 3: Prepare the Data in R
 
 Now, prepare some synthetic data to fit the model:
 
@@ -223,8 +191,6 @@ alpha <- c(2, 2, 2)
 data_list <- list(K = K, N = N, y = y, alpha = alpha)
 ```
 
-#### Step 4: Compile and Run the Stan Model
-
 Compile and run the Stan model using the `stan` function:
 
 ```r
@@ -237,8 +203,6 @@ fit <- sampling(dirichlet_model, data = data_list, iter = 2000, chains = 4, seed
 # Print a summary of the results
 print(fit)
 ```
-
-#### Step 5: Analyze the Results
 
 Extract and visualize the posterior distributions:
 
