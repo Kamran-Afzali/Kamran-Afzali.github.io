@@ -179,7 +179,7 @@ Now, prepare some synthetic data to fit the model:
 K <- 3
 
 # Observed data (e.g., 1, 2, 3 corresponds to categories)
-y <- c(1, 2, 3, 1, 1, 2, 3, 3, 2, 1)
+y <- c(rep(1,20),rep(2,30),rep(3,50))
 
 # Number of observations
 N <- length(y)
@@ -218,18 +218,6 @@ print(posterior_mean)
 theta_samples <- as.data.frame(posterior_samples$theta)
 colnames(theta_samples) <- paste0("theta_", 1:K)
 
-# Use ggplot2 to visualize the posterior distributions
-ggplot(theta_samples, aes(x = theta_1)) +
-  geom_density(fill = "blue", alpha = 0.3) +
-  labs(title = "Posterior Distribution of theta_1", x = "theta_1", y = "Density")
-
-ggplot(theta_samples, aes(x = theta_2)) +
-  geom_density(fill = "green", alpha = 0.3) +
-  labs(title = "Posterior Distribution of theta_2", x = "theta_2", y = "Density")
-
-ggplot(theta_samples, aes(x = theta_3)) +
-  geom_density(fill = "red", alpha = 0.3) +
-  labs(title = "Posterior Distribution of theta_3", x = "theta_3", y = "Density")
 ```
 
 
