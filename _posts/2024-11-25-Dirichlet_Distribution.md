@@ -228,6 +228,7 @@ colnames(theta_samples) <- paste0("theta_", 1:K)
 - [Dirichlet Distribution R LaplacesDemon](https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/dist.Dirichlet.html)
 - [The Dirichlet Distribution: What Is It and Why Is It Useful?](https://builtin.com/data-science/dirichlet-distribution)
 - [Dirichlet Distribution Example](https://rpubs.com/JanpuHou/295096)
+- [Bayesian Regression for a Dirichlet Distributed Response using Stan](https://arxiv.org/pdf/1808.06399)
 
 
 
