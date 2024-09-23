@@ -194,13 +194,10 @@ data_list <- list(K = K, N = N, y = y, alpha = alpha)
 Compile and run the Stan model using the `stan` function:
 
 ```r
-# Compile the model
 dirichlet_model <- stan_model(model_code = dirichlet_model_code)
 
-# Fit the model with the data
 fit <- sampling(dirichlet_model, data = data_list, iter = 2000, chains = 4, seed = 123)
 
-# Print a summary of the results
 print(fit)
 ```
 
@@ -210,11 +207,9 @@ Extract and visualize the posterior distributions:
 # Extract the posterior samples
 posterior_samples <- extract(fit)
 
-# Summary statistics of the posterior mean (p_hat)
 posterior_mean <- apply(posterior_samples$p_hat, 2, mean)
 print(posterior_mean)
 
-# Plot the posterior distributions of theta
 theta_samples <- as.data.frame(posterior_samples$theta)
 colnames(theta_samples) <- paste0("theta_", 1:K)
 
