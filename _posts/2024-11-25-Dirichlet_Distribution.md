@@ -215,7 +215,7 @@ colnames(theta_samples) <- paste0("theta_", 1:K)
 
 ```
 
-The Dirichlet distribution is used in Bayesian statistics and machine learning for modeling probabilities over multiple categories. Its utility as a conjugate prior for multinomial distributions makes it ideal for applications such as topic modeling (LDA), clustering, and Bayesian inference. It is possbile to implement and explore Dirichlet models, both for simulation and for real-world data analysis in R and Stan . The examples in this blog demonstrate how to generate samples from the Dirichlet distribution, use it as a prior in Bayesian modeling, and apply it using RStan for more complex models. 
+The Dirichlet distribution is used in Bayesian statistics and machine learning for modeling probabilities over multiple categories. More specifically, it has utility as a conjugate prior for multinomial distributions in applications such as topic modeling, clustering, and Bayesian inference. It is possbile to implement and explore Dirichlet models, both for simulation and for real-world data analysis in R and Stan . The examples in this blog demonstrate how to generate samples from the Dirichlet distribution, use it as a prior in Bayesian modeling, and apply it using RStan for more complex models. 
 
 ### References
 
