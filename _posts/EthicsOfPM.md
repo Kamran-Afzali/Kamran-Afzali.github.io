@@ -14,7 +14,7 @@ To address these gaps, several initiatives have emerged to examine the [ethical,
 
 **Participant Safety and Support**
 
-- A significant portion of discussions revolves around public and patient involvement (PPI) in study design and the development of comprehensible materials. This involvement helps mitigate concerns about participant burden and frustration with the technology. Amendments to recruitment protocols are often requested to reduce participant pressure and ensure voluntary participation. Safety measures for control groups and sensitive populations are critically examined, with well-considered arrangements required. Clear and user-friendly instructions for technology usage are essential, and studies involving high-risk devices must undergo safety checks before approval.
+- A significant portion of discussions revolves around public and patient involvement (PPI) in study design and the development of comprehensible materials. This involvement helps address concerns about participant burden and frustration with the technology. Amendments to recruitment protocols are often requested to reduce participant pressure and ensure voluntary participation. Safety measures for control groups and sensitive populations, with well-considered arrangements, are required. Clear and user-friendly instructions for technology usage are essential, and studies involving high-risk devices must undergo safety checks before approval.
 
 
 **Conflict of Interest**
