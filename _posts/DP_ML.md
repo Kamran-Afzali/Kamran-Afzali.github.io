@@ -44,13 +44,6 @@ lrdp$fit(X, y, upper.bounds, lower.bounds, add.bias=TRUE)
 lrdp$coeff # Gets private coefficients
 ```
 
-
-This code implements a differentially private linear regression using the `DPpack` R package. It ensures that the linear regression model provides privacy guarantees according to differential privacy (DP), which protects sensitive data from being reverse-engineered from the model's parameters.
-
-Here’s an explanation of the code:
-
-### Step-by-Step Breakdown
-
 **Generate Data:**
 
    - `n <- 500` sets the number of data points to 500.
@@ -86,11 +79,6 @@ Here’s an explanation of the code:
 **Retrieve the Private Coefficients:**
 
    - This retrieves the differentially private coefficients of the regression model, which have been trained using the DP mechanism.
-
-### Summary
-
-The code performs linear regression with differential privacy guarantees, using the `DPpack` package. It generates synthetic data and applies a differentially private linear regression method (`LinearRegressionDP`) to ensure that the regression coefficients are privacy-preserving. Noise is added to the training process in such a way that even with access to the model’s coefficients, it is difficult to reverse-engineer the original data, ensuring individual data privacy. The privacy parameters (`eps`, `delta`) control the balance between privacy and accuracy, with the bounding of inputs being essential to maintain control over the added noise.
-
 
 
 ### **conclusion**
