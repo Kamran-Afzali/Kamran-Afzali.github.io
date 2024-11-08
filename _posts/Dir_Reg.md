@@ -31,11 +31,9 @@ res <- DirichReg(Y ~ depth + I(depth^2), data)
 Here, `depth` and its square are predictors for the proportions of sand, silt, and clay in the soil. The package returns summary statistics, including coefficient estimates and goodness-of-fit measures like AIC, which help assess model performance.
 
 
-
-________________________________________________________________________
 ### Dirichlet clustering in Practice
 
-Dirichlet process clustering is a powerful Bayesian nonparametric method for unsupervised learning that allows for flexible and adaptive clustering of data. The R package 'dirichletprocess' provides a comprehensive set of tools for implementing Dirichlet process mixture models, including clustering applications. Here's a brief example of how to perform clustering on the classic 'faithful' dataset using the 'dirichletprocess' package:
+Here's a brief example of how to perform clustering on the classic 'faithful' dataset using the 'dirichletprocess' package:
 
 ```r
 library(dirichletprocess)
@@ -53,21 +51,7 @@ dpCluster <- Fit(dpCluster, 2000, progressBar = FALSE)
 plot(dpCluster)
 ```
 
-One of the key advantages of using Dirichlet process clustering is that it automatically determines the number of clusters based on the data, unlike traditional clustering methods that often require specifying the number of clusters in advance. This feature makes it particularly useful for exploratory data analysis where the underlying cluster structure is unknown. The 'dirichletprocess' package also provides functions for assessing model convergence, calculating cluster probabilities, and performing predictions on new data. These features allow for a comprehensive analysis of the clustering results and their uncertainty.
-
-### Step-by-step Example: Dirichlet Process Clustering
-
-```r
-# Install the package if it's not already installed
-if (!require("dirichletprocess")) {
-  install.packages("dirichletprocess")
-}
-
-# Load the package
-library(dirichletprocess)
-```
-
-#### 2. Load the Dataset
+##### Load the Dataset
 
 We'll use the `faithful` dataset, which is built into R:
 
@@ -77,7 +61,7 @@ data("faithful")
 head(faithful)  # Display the first few rows
 ```
 
-#### 3. Create and Fit a Dirichlet Process Mixture Model
+##### Create and Fit a Dirichlet Process Mixture Model
 
 We'll use the **multivariate normal distribution** for clustering the two-dimensional data (eruption times and waiting times).
 
@@ -89,7 +73,7 @@ dp <- DirichletProcessMvnormal(faithful)
 dp <- Fit(dp, 1000)  # Number of iterations can be increased if needed
 ```
 
-#### 4. Visualize the Clustering Results
+##### Visualize the Clustering Results
 
 After fitting the model, we can visualize the clusters formed by the Dirichlet process.
 
@@ -100,7 +84,7 @@ plot(dp)
 
 The plot will display the original data points, with each cluster assigned a different color based on the Dirichlet process clustering.
 
-#### 5. Extract Cluster Assignments
+##### Extract Cluster Assignments
 
 You can also extract the cluster labels for each observation:
 
@@ -112,7 +96,7 @@ clusters <- ClusterLabels(dp)
 print(clusters)
 ```
 
-##### 6. Summary and Further Analysis
+##### Summary and Further Analysis
 
 ```r
 # Summary of the Dirichlet process model
@@ -122,9 +106,6 @@ summary(dp)
 posterior_sizes <- table(clusters)
 print(posterior_sizes)
 ```
-1. **Dirichlet Process Mixture Model**: We model the data with a Dirichlet process mixture of multivariate normal distributions. This allows us to perform clustering without specifying the number of clusters.
-2. **Fit**: The `Fit` function runs a Markov Chain Monte Carlo (MCMC) to estimate the parameters and determine the number of clusters.
-3. **Plot**: The `plot(dp)` function provides a quick visual representation of the clustering result, showing how the data is grouped.
 
 ### Conclusion
 
