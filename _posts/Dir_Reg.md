@@ -18,15 +18,9 @@ Both the **`DirichletReg`** and **`dirichletprocess`** packages highlight the po
 _________________________
 
 
-### Dirichlet Regression in Practice
+### Dirichlet Regression in Practice: Example of Arctic Lake Data
 
-The package simplifies the process of performing Dirichlet regression, starting from transforming data into appropriate compositional form using the `DR_data()` function. For example, in a dataset where we are interested in proportions of different components (e.g., the sand, silt, and clay composition of soil), `DirichletReg` helps estimate how predictor variables (like soil depth) influence these proportions.
-
-Certainly! I'll provide an example of Dirichlet regression using the DirichletReg package in R, along with explanations for each step of the code.
-
-## Example: Dirichlet Regression with Arctic Lake Data
-
-Let's use the ArcticLake dataset, which is included in the DirichletReg package. This dataset contains information about sediment composition in an Arctic lake at different depths.
+Let's use the ArcticLake dataset, which is included in the `DirichletReg` package. This dataset contains information about sediment composition in an Arctic lake at different depths.
 
 ```r
 # Load the DirichletReg package
@@ -65,29 +59,24 @@ legend("topleft", legend = c("Sand", "Silt", "Clay"), lwd = 2,
        col = c("#E495A5", "#86B875", "#7DB0DD"), pt.bg = c("#E495A5", "#86B875", "#7DB0DD"), 
        pch = 21, bty = "n")
 ```
+1. We start by loading the DirichletReg package and the ArcticLake dataset.
 
-Now, let's break down the code and explain each step:
+2. The `DR_data()` function is used to prepare the compositional data for Dirichlet regression. It takes the first three columns of ArcticLake (sand, silt, and clay proportions) and ensures they sum to 1.
 
-1. We start by loading the DirichletReg package and the ArcticLake dataset[1].
+3. We fit a Dirichlet regression model using `DirichReg()`. The formula `AL ~ depth` specifies that we're using depth as the predictor for the compositional outcome (AL).
 
-2. The `DR_data()` function is used to prepare the compositional data for Dirichlet regression. It takes the first three columns of ArcticLake (sand, silt, and clay proportions) and ensures they sum to 1[1].
-
-3. We fit a Dirichlet regression model using `DirichReg()`. The formula `AL ~ depth` specifies that we're using depth as the predictor for the compositional outcome (AL)[1].
-
-4. The `summary()` function provides detailed information about the fitted model, including coefficient estimates and their significance[1].
+4. The `summary()` function provides detailed information about the fitted model, including coefficient estimates and their significance.
 
 5. We create a new dataset (`new_data`) with a sequence of depth values to make predictions across the entire range of depths in the original data.
 
-6. The `predict()` function is used to generate predictions from our model for the new depth values[1].
+6. The `predict()` function is used to generate predictions from our model for the new depth values.
 
 7. Finally, we create a plot to visualize the results:
-   - We plot the original data points using different colors for sand, silt, and clay.
+   - We plot the original data points using different colors.
    - We add lines representing the model predictions for each component.
-   - A legend is added to identify each sediment type[1][2].
+   - A legend is added to identify each sediment type.
 
-This example demonstrates how Dirichlet regression can be used to model compositional data that sum to 1 (in this case, the proportions of sand, silt, and clay) as a function of a predictor variable (depth). The model allows us to understand how the composition of sediments changes with depth in the Arctic lake[1][2].
-
-The resulting plot will show the observed proportions of sand, silt, and clay at different depths, along with the model's predictions for how these proportions change with depth. This can provide insights into the sedimentation processes in the lake over time[2].
+This example demonstrates how Dirichlet regression can be used to model compositional data that sum to 1 (in this case, the proportions of sand, silt, and clay) as a function of a predictor variable (depth). The model allows us to understand how the composition of sediments changes with depth in the Arctic lake. The resulting plot will show the observed proportions of sand, silt, and clay at different depths, along with the model's predictions for how these proportions change with depth. This can provide insights into the sedimentation processes in the lake over time.
 
 
 ### Dirichlet clustering in Practice
