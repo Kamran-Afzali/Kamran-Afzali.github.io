@@ -97,56 +97,55 @@ To help researchers answer the questions related to data management, security, a
 
 ### Data Management and Security Guidelines
 
-**Canadian Institutes of Health Research (CIHR)**
+- **Canadian Institutes of Health Research (CIHR)**
 CIHR provides comprehensive [guidelines on research data management](https://cihr-irsc.gc.ca/e/50727.html), including security considerations for health data.
-**Tri-Agency Research Data Management Policy**
+- **Tri-Agency Research Data Management Policy**
 This policy outlines requirements for data management in research funded by Canada's federal research agencies: [Tri-Agency Research Data Management Policy](https://science.gc.ca/site/science/en/interagency-research-funding/policies-and-guidelines/research-data-management/tri-agency-research-data-management-policy)
-**Digital Research Alliance of Canada (Alliance)**: The Alliance provides training, resources, and guidelines for advanced research computing and secure data management in Canada. [Alliance Resources and Services](https://alliancecan.ca/en)  
-**DMP Assistant (Canada)**: A Canadian tool for creating data management plans with guidance on privacy, storage, and access. [DMP Assistant](https://assistant.portagenetwork.ca/)  
-**U.S. DMPTool**: A tool for creating data management plans in the U.S., useful for international collaborators. [DMPTool](https://dmptool.org/)  
+- **Digital Research Alliance of Canada (Alliance)**: The Alliance provides training, resources, and guidelines for advanced research computing and secure data management in Canada. [Alliance Resources and Services](https://alliancecan.ca/en)  
+- **DMP Assistant (Canada)**: A Canadian tool for creating data management plans with guidance on privacy, storage, and access. [DMP Assistant](https://assistant.portagenetwork.ca/)  
+- **U.S. DMPTool**: A tool for creating data management plans in the U.S., useful for international collaborators. [DMPTool](https://dmptool.org/)  
 
 ### Health Data Compliance and Privacy Regulations
-**Office of the Privacy Commissioner of Canada (PIPEDA)**: Information on Canada’s federal privacy law, PIPEDA, applicable to private-sector organizations handling personal data. [PIPEDA Information](https://www.priv.gc.ca/en/)  
-**HIPAA (U.S. Department of Health and Human Services)**: Resources for HIPAA compliance, which may be required for international collaborations involving U.S. data. [HIPAA Guidance](https://www.hhs.gov/hipaa/for-professionals/index.html)  
-**GDPR (European Commission)**: Guidelines on GDPR compliance, relevant for collaborations with European researchers. [GDPR Compliance Overview](https://ec.europa.eu/info/law/law-topic/data-protection_en)  
-**Quebec's Law 25**: Information about Quebec’s privacy law, including requirements for data security and incident response. [Commission d’accès à l’information du Québec](https://www.cai.gouv.qc.ca/)  
-**Health Canada's Best Practices for Protecting Individual Privacy in Conducting Survey Research**
+- **Office of the Privacy Commissioner of Canada (PIPEDA)**: Information on Canada’s federal privacy law, PIPEDA, applicable to private-sector organizations handling personal data. [PIPEDA Information](https://www.priv.gc.ca/en/)  
+- **HIPAA (U.S. Department of Health and Human Services)**: Resources for HIPAA compliance, which may be required for international collaborations involving U.S. data. [HIPAA Guidance](https://www.hhs.gov/hipaa/for-professionals/index.html)  
+- **GDPR (European Commission)**: Guidelines on GDPR compliance, relevant for collaborations with European researchers. [GDPR Compliance Overview](https://ec.europa.eu/info/law/law-topic/data-protection_en)  
+- **Quebec's Law 25**: Information about Quebec’s privacy law, including requirements for data security and incident response. [Commission d’accès à l’information du Québec](https://www.cai.gouv.qc.ca/)  
+- **Health Canada's Best Practices for Protecting Individual Privacy in Conducting Survey Research**
 While focused on surveys, this resource provides valuable insights on data protection:
 [Health Canada's Best Practices for Protecting Individual Privacy in Conducting Survey Research](https://www.canada.ca/en/health-canada/services/science-research/science-advice-decision-making/research-ethics-board/privacy-confidentiality/best-practices-protecting-individual-privacy-conducting-survey-research.html) 
 
 
 ### Regulatory Compliance
 
-**Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans ([TCPS 2](https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2018.html))**
+- **Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans ([TCPS 2](https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2018.html))**
 This policy statement provides ethical guidelines for research involving humans, including health research:
 [TCPS 2](https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2018.html)
 
-**[Personal Health Information Protection Act (PHIPA) in Ontario](https://www.ontario.ca/laws/statute/04p03)**
+- **[Personal Health Information Protection Act (PHIPA) in Ontario](https://www.ontario.ca/laws/statute/04p03)**
 For researchers in Ontario, this act governs the collection, use, and disclosure of personal health information: [Personal Health Information Protection Act (PHIPA) in Ontario](https://www.ontario.ca/laws/statute/04p03)
 
 
 ### Data Sharing and Open Science
 
-**Open Science at CIHR**
+- **Open Science at CIHR**
 [CIHR's open science policy and resources](https://cihr-irsc.gc.ca/e/50068.html)
 
 
-**Portage Network**
+- **Portage Network**
 A national research data management network that provides resources and tools for Canadian researchers:
 [Portage Network](https://portagenetwork.ca/) 
 
-These resources can help researchers navigate the complex landscape of health data management, security, and compliance. They provide guidelines, tools, and policies that can inform the development of robust data management plans and ensure adherence to best practices in handling sensitive health research data.
 
 ### Incident Response and Data Breach Protocols 
-**Government of Canada - Data Breach Guidelines**: Best practices for managing data breaches, including notification requirements and incident response plans. [Government of Canada - Data Breach Guidelines](https://www.priv.gc.ca/en/privacy-topics/privacy-breaches/)  
+- **Government of Canada - Data Breach Guidelines**: Best practices for managing data breaches, including notification requirements and incident response plans. [Government of Canada - Data Breach Guidelines](https://www.priv.gc.ca/en/privacy-topics/privacy-breaches/)  
 
-**Commission d’accès à l’information du Québec (CAI)**: Provides specific protocols for managing breaches of sensitive data in Quebec. [CAI Incident Response](https://www.cai.gouv.qc.ca/)  
+- **Commission d’accès à l’information du Québec (CAI)**: Provides specific protocols for managing breaches of sensitive data in Quebec. [CAI Incident Response](https://www.cai.gouv.qc.ca/)  
 
 
 ### Anonymization and De-identification Resources 
-**Canadian Institutes of Health Research (CIHR)**: Guidelines on managing health data, including best practices for de-identification to meet Canadian privacy standards. [CIHR Ethical Guidelines for Health Research](https://cihr-irsc.gc.ca/e/29134.html)  
+- **Canadian Institutes of Health Research (CIHR)**: Guidelines on managing health data, including best practices for de-identification to meet Canadian privacy standards. [CIHR Ethical Guidelines for Health Research](https://cihr-irsc.gc.ca/e/29134.html)  
 
-**ISO Standards for Anonymization**: Guidelines from the International Organization for Standardization on anonymizing data. [ISO/IEC 20889:2018 Anonymization Techniques](https://www.iso.org/standard/69373.html)  
+- **ISO Standards for Anonymization**: Guidelines from the International Organization for Standardization on anonymizing data. [ISO/IEC 20889:2018 Anonymization Techniques](https://www.iso.org/standard/69373.html)  
 
 
 
