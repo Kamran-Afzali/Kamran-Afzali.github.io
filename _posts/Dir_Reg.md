@@ -76,8 +76,6 @@ legend("topleft", legend = c("Sand", "Silt", "Clay"), lwd = 2,
    - We add lines representing the model predictions for each component.
    - A legend is added to identify each sediment type.
 
-This example demonstrates how Dirichlet regression can be used to model compositional data that sum to 1 (in this case, the proportions of sand, silt, and clay) as a function of a predictor variable (depth). The model allows us to understand how the composition of sediments changes with depth in the Arctic lake. The resulting plot will show the observed proportions of sand, silt, and clay at different depths, along with the model's predictions for how these proportions change with depth. This can provide insights into the sedimentation processes in the lake over time.
-
 
 ### Dirichlet clustering in Practice
 
