@@ -1,12 +1,12 @@
-When planning secure data storage solutions for health research, it’s important to understand the specific security, compliance, and operational needs of the data to create a tailored solution that aligns with both analytical requirements and stringent regulatory standards. Therefore, it’s helpful to categorize the discussion into eight key areas. First, **Data Sensitivity and Classification** helps assess the level of protection needed based on the data's nature and risks. **Compliance and Regulatory Requirements** identify any legal standards that govern data handling, particularly with health-related information. **Data Access and User Permissions** clarify who will access the data and under what conditions, while **Data Encryption and Protection** addresses safeguarding the data in storage and transit. **Data Retention, Archival, and Disposal** requirements guide how long data should be kept and protocols for eventual deletion. Understanding **Data Processing and Analysis Requirements** ensures that the storage solution can support the anticipated computational needs. **Audit and Monitoring Needs** help establish accountability and track data usage, and finally, **Incident Response and Breach Notification** protocols outline response plans for any data security incidents. Together, these categories provide a comprehensive framework to address the unique storage and security demands of health research data.
+When planning secure data storage solutions for health research, it’s important to understand the specific security, compliance, and operational needs of the data to create a tailored solution that aligns with both analytical requirements and stringent regulatory standards. Therefore, it’s helpful to categorize the discussion into eight key areas. First, **Data Characteristics** helps assess the level of protection needed based on the data's nature and risks. **Compliance and Regulatory Requirements** identify any legal standards that govern data handling, particularly with health-related information. **Data Access and User Permissions** clarify who will access the data and under what conditions, while **Data Encryption and Protection** addresses safeguarding the data in storage and transit. **Data Retention, Archival, and Disposal** requirements guide how long data should be kept and protocols for eventual deletion. Understanding **Data Processing and Analysis Requirements** ensures that the storage solution can support the anticipated computational needs. **Audit and Monitoring Needs** help establish accountability and track data usage, and finally, **Incident Response and Breach Notification** protocols outline response plans for any data security incidents. Together, these categories provide a comprehensive framework to address the unique storage and security demands of health research data.
 Following questions should cover aspects of data sensitivity, access control, regulatory compliance, and data lifecycle management to ensure the solution aligns with legal, ethical, and technical requirements.
 
 Here are key questions to guide this understanding:
 
-### 1. **Data Sensitivity and Classification**
-   - **What types of data will be stored?** (e.g., Personally Identifiable Information [PII], Protected Health Information [PHI], genomic data, anonymized or de-identified data)
-   - **Is the data anonymized or pseudonymized?** If yes, ask for details on the anonymization or pseudonymization techniques they have used or plan to use.
+### 1. **Data Characteristics**
    - **Data Volume and Format** (What is the expected volume of data to be stored?, In what file formats will the data be stored?, Are there any specific software requirements for data analysis?)
+   - **What types of sensetive data will be stored?** (e.g., Personally Identifiable Information [PII], Protected Health Information [PHI], genomic data)
+   - **Is the data anonymized or pseudonymized?** If yes, ask for details on the anonymization or pseudonymization techniques they have used or plan to use.
    - **Are there any specific risks associated with this data?** For example, would unauthorized access lead to any critical personal, financial, or institutional harm?
 
 ### 2. **Data Compliance and Regulatory Requirements**
@@ -16,9 +16,9 @@ Here are key questions to guide this understanding:
 
 ### 3. **Data Access and User Permissions**
    - **Who will need access to this data?** Gather details about users, their roles, and their access levels (e.g., read-only, write, administrative).
-   - **What access control measures are needed?** For example, are multi-factor authentication (MFA), VPN access, or IP whitelisting required?
-   - **Will data be shared with collaborators outside your institution or country?** If yes, clarify the security and compliance requirements for cross-institutional or cross-border data sharing. What level of access control and anonymization will be required for sharing?
+   - **What access control measures are needed?** For example, are multi-factor authentication (MFA), VPN access, etc.?
    - **How often will this data be accessed, and by how many users?** This can influence storage capacity and performance requirements.
+   - **Will data be shared with collaborators outside your institution or country?** If yes, clarify the security and compliance requirements for cross-institutional or cross-border data sharing. What level of access control and anonymization will be required for sharing?
 
 ### 4. **Data Encryption and Protection**
    - **Is data encryption required at rest and in transit?** If yes, ask if there are specific encryption standards they must follow (e.g., AES-256).
