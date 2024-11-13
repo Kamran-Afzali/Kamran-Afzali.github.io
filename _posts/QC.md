@@ -147,9 +147,110 @@ A national research data management network that provides resources and tools fo
 
 - **ISO Standards for Anonymization**: Guidelines from the International Organization for Standardization on anonymizing data. [ISO/IEC 20889:2018 Anonymization Techniques](https://www.iso.org/standard/69373.html)  
 
+_________________________________________________________________
 
 
+Lors de la planification de solutions de stockage de données sécurisées pour la recherche en santé, il est important de comprendre les besoins spécifiques en matière de sécurité, de conformité et d’opérations pour créer une solution adaptée qui respecte à la fois les exigences analytiques et les normes réglementaires strictes. Il est donc utile de diviser cette discussion en huit domaines clés. Tout d’abord, les **caractéristiques des données** permettent d’évaluer le niveau de protection nécessaire en fonction de la nature et des risques des données. Les **exigences de conformité et réglementaires** identifient les normes légales qui régissent le traitement des données, en particulier dans le domaine de la santé. **L’accès aux données et les autorisations des utilisateurs** précisent qui aura accès aux données et dans quelles conditions, tandis que **le chiffrement et la protection des données** traitent de la sécurisation des données en stockage et en transit. Les exigences de **conservation, archivage et élimination des données** orientent la durée de conservation des données et les protocoles de suppression. Comprendre les **besoins de traitement et d’analyse des données** garantit que la solution de stockage peut supporter les besoins informatiques prévus. Les **besoins d’audit et de surveillance** aident à établir la responsabilité et à suivre l’utilisation des données, et enfin, les **protocoles de réponse aux incidents et de notification de violation** définissent les plans d’intervention en cas d’incident de sécurité des données. Ensemble, ces catégories fournissent un cadre complet pour répondre aux besoins uniques de stockage et de sécurité des données de recherche en santé.
 
+Les questions suivantes doivent aborder les aspects de sensibilité des données, de contrôle d’accès, de conformité réglementaire et de gestion du cycle de vie des données pour garantir que la solution respecte les exigences légales, éthiques et techniques.
+
+Voici des questions clés pour guider cette compréhension :
+
+### 1. **Caractéristiques des Données**
+   - **Volume et Format des Données** (Quel est le volume attendu de données à stocker ?, Sous quels formats de fichiers les données seront-elles stockées ?, Y a-t-il des exigences logicielles spécifiques pour l’analyse des données ?)
+   - **Quels types de données sensibles seront stockés ?** (par ex., informations personnellement identifiables [PII], informations de santé protégées [PHI], données génomiques)
+   - **Les données sont-elles anonymisées ou pseudonymisées ?** Si oui, demandez des détails sur les techniques d’anonymisation ou de pseudonymisation utilisées ou prévues.
+   - **Y a-t-il des risques spécifiques associés à ces données ?** Par exemple, un accès non autorisé causerait-il des dommages personnels, financiers ou institutionnels critiques ?
+
+### 2. **Exigences de Conformité et Réglementaires**
+   - **Quelles normes réglementaires s’appliquent à vos données ?** (par ex., HIPAA, LPRPDE, RGPD, directives des IRSC pour la recherche canadienne, lois provinciales sur la confidentialité des données de santé comme la Loi 25 du Québec sur la vie privée)
+   - **Y a-t-il des exigences spécifiques de résidence des données ?** Par exemple, les données doivent-elles rester au Québec, au Canada, ou dans une juridiction spécifique ?
+   - **Y a-t-il des exigences de sécurité des données imposées par une institution ou une subvention ?** Certaines subventions ou institutions peuvent imposer des normes supplémentaires pour la gestion des données.
+
+### 3. **Accès aux Données et Permissions des Utilisateurs**
+   - **Qui aura besoin d’accéder à ces données ?** Rassemblez des détails sur les utilisateurs, leurs rôles et leurs niveaux d’accès (par ex., lecture seule, écriture, administration).
+   - **Quelles mesures de contrôle d’accès sont nécessaires ?** Par exemple, une authentification multifacteur (MFA), un accès VPN, etc. sont-ils requis ?
+   - **À quelle fréquence et par combien d’utilisateurs ces données seront-elles consultées ?** Cela peut influencer la capacité de stockage et les exigences de performance.
+   - **Les données seront-elles partagées avec des collaborateurs extérieurs à votre institution ou pays ?** Si oui, clarifiez les exigences de sécurité et de conformité pour le partage de données interinstitutionnel ou transfrontalier. Quel niveau de contrôle d’accès et d’anonymisation sera nécessaire pour le partage ?
+
+### 4. **Chiffrement et Protection des Données**
+   - **Un chiffrement des données au repos et en transit est-il nécessaire ?** Si oui, demandez s’il y a des normes de chiffrement spécifiques à respecter (par ex., AES-256).
+   - **Des couches de sécurité supplémentaires, telles que des configurations de pare-feu spécifiques, la détection d'intrusions ou la surveillance, seront-elles nécessaires ?**
+   - **Le projet nécessite-t-il des options de sauvegarde et de récupération sécurisées ?** Si oui, déterminez la fréquence préférée et la période de conservation des sauvegardes.
+
+### 5. **Cycle de Vie des Données**
+   - **Collecte et Transfert des Données** (Comment les données seront-elles collectées et transférées vers les serveurs de Calcul Québec ?, Y a-t-il des mesures de sécurité nécessaires pendant le transfert ?)
+   - **Quelles sont les exigences de conservation des données ?** (par ex., stockage à court terme, à long terme, ou indéfini en fonction du cycle de vie du projet)
+   - **Y a-t-il un besoin de stockage archivistique ?** Certaines données de recherche peuvent nécessiter une solution de stockage à long terme et à faible coût après la fin du projet.
+   - **Quelles sont les exigences d’élimination des données ?** Demandez si les données doivent être supprimées de manière sécurisée ou s’il y a des protocoles spécifiques de nettoyage des données à suivre en fin de période de stockage.
+
+### 6. **Exigences de Traitement et d’Analyse des Données**
+   - **Quels types d’analyses seront effectuées sur ces données ?** (par ex., apprentissage machine, modélisation statistique, séquençage génétique)
+   - **Y a-t-il des exigences de performance ou de calcul pour l’analyse des données ?** Par exemple, certaines applications peuvent nécessiter des vitesses I/O élevées ou des configurations à haute mémoire.
+   - **Le processus d’analyse nécessitera-t-il le déplacement de données entre différents systèmes de stockage ou de calcul ?** Si oui, demandez les exigences en matière de sécurité de transfert de données et de bande passante.
+
+### 7. **Besoins en Audit et Surveillance**
+   - **L’audit de l’accès et des modifications aux données est-il requis ?** Déterminez s’ils ont besoin de journaux d’événements d’accès, de modifications de fichiers ou d’actions administratives.
+   - **À quelle fréquence les journaux d’audit doivent-ils être examinés, et qui doit y avoir accès ?**
+   - **Y a-t-il des besoins spécifiques en matière de rapports pour les audits de conformité ou les revues internes ?**
+
+### 8. **Réponse aux Incidents et Notification de Violation**
+   - **Quel est le protocole pour les incidents de sécurité ou les violations impliquant ces données ?** Clarifiez s’il existe des délais ou des procédures spécifiques pour notifier les parties prenantes en cas de violation.
+   - **Le projet nécessite-t-il un plan de réponse aux incidents formel ?** Celui-ci peut inclure les étapes de confinement, d'enquête et de mitigation en cas d'incident.
+
+Ces questions vous aideront à évaluer les exigences techniques, les obligations de conformité et les besoins opérationnels pour stocker et gérer les données de recherche en santé de manière sécurisée au sein de l’infrastructure de Calcul Québec. Après avoir recueilli ces informations, vous pourrez concevoir une solution de stockage qui répond à leurs besoins analytiques et réglementaires, garantissant le contrôle des informations sensibles tout au long du cycle de vie des données.
+
+### Directives de Gestion et Sécurité des Données
+
+- **Instituts de recherche en santé du Canada (IRSC)**
+Les IRSC fournissent des [directives complètes sur la gestion des données de recherche](https://cihr-irsc.gc.ca/e/50727.html), y compris des considérations de sécurité pour les données de santé.
+- **Politique de gestion des données de recherche des trois organismes**
+Cette politique décrit les exigences de gestion des données dans les recherches financées par les organismes fédéraux de recherche du Canada : [Politique de gestion des données de recherche des trois organismes](https://science.gc.ca/site/science/fr/financement-interorganismes-recherche/politiques-et-directives/gestion-donnees-recherche/politique-gestion-donnees-recherche-trois-organismes)
+- **Alliance de la recherche numérique du Canada (Alliance)** : L'Alliance fournit des formations, des ressources et des directives pour le calcul informatique avancé et la gestion sécurisée des données au Canada. [Ressources et services de l'Alliance](https://alliancecan.ca/en)  
+- **Assistant PGD (Canada)** : Un outil canadien pour créer des plans de gestion des données avec des indications sur la confidentialité, le stockage et l'accès. [Assistant PGD](https://assistant.portagenetwork.ca/)  
+- **DMPTool des États-Unis** : Un outil pour créer des plans de gestion des données aux États-Unis, utile pour les collaborateurs internationaux. [DMPTool](https://dmptool.org/)  
+
+### Conformité des Données de Santé et Règlements sur la Confidentialité
+- **Commissariat à la protection de la vie privée du Canada (LPRPDE)** : Informations sur la loi fédérale canadienne sur la vie privée, LPRPDE, applicable aux organisations du secteur privé traitant des données personnelles. [Informations sur la LPRPDE](https://www.priv.gc.ca/en/)  
+- **HIPAA (Département de la Santé et des Services sociaux des États-Unis)** : Ressources pour la conformité HIPAA, qui peut être requise pour les collaborations internationales impliquant des données américaines. [Guide HIPAA](https://www.hhs.gov/hipaa/for-professionals/index.html)  
+- **RGPD (Commission Européenne)** : Directives sur la conformité au RGPD, pertinentes pour les collaborations avec des chercheurs européens. [Aperçu de la conformité au RGPD](https://ec.europa.eu/info/law/law-topic/data-protection_en)  
+- **Loi 25 du Québec** : Informations sur la loi québécoise sur la vie privée, y compris les exigences de sécurité des données et de réponse aux incidents. [Commission d’accès à l’information du Québec](https://www.cai.gouv.qc.ca/)  
+- **Pratiques exemplaires de Santé Canada pour protéger la vie privée individuelle dans la réalisation de recherches par sondage**
+Bien que centrée sur les sondages, cette ressource fournit des informations précieuses sur la protection des données :
+[Pratiques exemplaires de Santé Canada pour protéger la vie privée individuelle dans la réalisation de recherches par sondage](https://www.canada.ca/en/health-canada/services/science-research/science-advice-decision-making/research-ethics-board/privacy-confidentiality/best-practices-protecting-individual-privacy-conducting-survey-research.html) 
+
+
+### Conformité Règlementaire
+
+- **Énoncé de politique des trois Conseils : Éthique de la recherche avec des êtres humains ([EPTC 2](https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2018.html))**
+Cet énoncé de politique fournit des directives éthiques pour la recherche impliquant des humains, y compris la recherche en santé :
+[EPTC 2](https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2018.html)
+
+- **[Loi sur la protection des renseignements personnels sur la santé (LPRPS) en Ontario](https://www.ontario.ca/laws/statute/04p03)**
+Pour les chercheurs en Ontario, cette loi régit la collecte, l'utilisation et la divulgation des renseignements personnels sur la santé : [Loi sur la protection des renseignements personnels sur la santé (LPRPS) en Ontario](https://www.ontario.ca/laws/statute/04p03)
+
+
+### Partage de Données et Science Ouverte
+
+- **Science ouverte aux IRSC**
+[Politique et ressources des IRSC sur la science ouverte](https://cihr-irsc.gc.ca/e/50068.html)
+
+
+- **Réseau Portage**
+Un réseau national de gestion des données de recherche qui fournit des ressources et des outils pour les chercheurs canadiens :
+[Réseau Portage](https://portagenetwork.ca/) 
+
+
+### Réponse aux Incidents et Protocoles de Violation de Données 
+- **Gouvernement du Canada - Directives sur les violations de données** : Pratiques exemplaires pour gérer les violations de données, y compris les exigences de notification et les plans de réponse aux incidents. [Directives du gouvernement du Canada sur les violations de données](https://www.priv.gc.ca/en/privacy-topics/privacy-breaches/)  
+
+- **Commission d’accès à l’information du Québec (CAI)** : Fournit des protocoles spécifiques pour gérer les violations de données sensibles au Québec. [Réponse aux incidents de la CAI](https://www.cai.gouv.qc.ca/)  
+
+
+### Ressources sur l'Anonymisation et la Dé-identification 
+- **Instituts de recherche en santé du Canada (IRSC)** : Directives sur la gestion des données de santé, y compris les pratiques exemplaires de dé-identification pour répondre aux normes canadiennes de confidentialité. [Directives éthiques des IRSC pour la recherche en santé](https://cihr-irsc.gc.ca/e/29134.html)  
+
+- **Normes ISO pour l'anonymisation** : Directives de l'Organisation internationale de normalisation sur l'anonymisation des données. [ISO/IEC 20889:2018 Techniques d'anonymisation](https://www.iso.org/standard/69373.html)  
 
 
 
