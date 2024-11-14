@@ -20,7 +20,11 @@ _________________________
 
 ### Dirichlet Regression in Practice: Example of Arctic Lake Data
 
-Let's use the ArcticLake dataset, which is included in the `DirichletReg` package. This dataset contains information about sediment composition in an Arctic lake at different depths.
+Here's the example reorganized in a text-code-text-code format, as requested:
+
+##### Load the Package and Dataset
+
+First, we load the **DirichletReg** package, which is designed for modeling compositional data, and the built-in **ArcticLake** dataset. 
 
 ```r
 # Load the DirichletReg package
@@ -31,75 +35,89 @@ data(ArcticLake)
 
 # View the first few rows of the dataset
 head(ArcticLake)
+```
 
+##### Prepare the Data for Dirichlet Regression
+
+We use the `DR_data()` function to prepare the data for Dirichlet regression. This function processes the first three columns of **ArcticLake** (representing proportions of sand, silt, and clay) and ensures that each row sums to 1, a requirement for compositional data.
+
+```r
 # Prepare the data for Dirichlet regression
 AL <- DR_data(ArcticLake[, 1:3])
+```
 
+##### Fit a Dirichlet Regression Model
+
+Using the `DirichReg()` function, we fit a Dirichlet regression model. In the formula `AL ~ depth`, **depth** is specified as the predictor for the compositional outcome **AL** (sand, silt, and clay proportions).
+
+```r
 # Fit a Dirichlet regression model
 model <- DirichReg(AL ~ depth, ArcticLake)
+```
 
+##### Display Model Summary
+
+The `summary()` function provides a detailed overview of the fitted model, including coefficient estimates, significance levels, and diagnostics.
+
+```r
 # Display the model summary
 summary(model)
+```
 
-# Make predictions
+##### Create New Data for Predictions
+
+To make predictions across a range of depth values, we create a new dataset (`new_data`) with a sequence of depth values spanning the full range of depths in the original data.
+
+```r
+# Create a sequence of depth values for predictions
 new_data <- data.frame(depth = seq(min(ArcticLake$depth), max(ArcticLake$depth), length.out = 100))
-predictions <- predict(model, new_data)
+```
 
-# Plot the results
+##### Make Predictions
+
+Using the `predict()` function, we generate predictions from the model for the new depth values, allowing us to examine how the composition changes with depth.
+
+```r
+# Make predictions based on the fitted model
+predictions <- predict(model, new_data)
+```
+
+##### Plot the Results
+
+Finally, we visualize the results:
+- We plot the original data points for sand, silt, and clay proportions in different colors.
+- We add lines showing the predicted proportions for each sediment type over depth.
+- A legend identifies each sediment component.
+
+```r
+# Plot the original data points and predictions
 plot(rep(ArcticLake$depth, 3), as.numeric(AL), pch = 21, 
      bg = rep(c("#E495A5", "#86B875", "#7DB0DD"), each = nrow(ArcticLake)),
      xlab = "Depth (m)", ylab = "Proportion", ylim = 0:1,
      main = "Sediment Composition in Arctic Lake")
 
+# Add lines for each component prediction
 for (i in 1:3) {
   lines(new_data$depth, predictions[, i], col = c("#E495A5", "#86B875", "#7DB0DD")[i], lwd = 2)
 }
 
+# Add a legend
 legend("topleft", legend = c("Sand", "Silt", "Clay"), lwd = 2, 
        col = c("#E495A5", "#86B875", "#7DB0DD"), pt.bg = c("#E495A5", "#86B875", "#7DB0DD"), 
        pch = 21, bty = "n")
 ```
-1. We start by loading the DirichletReg package and the ArcticLake dataset.
 
-2. The `DR_data()` function is used to prepare the compositional data for Dirichlet regression. It takes the first three columns of ArcticLake (sand, silt, and clay proportions) and ensures they sum to 1.
 
-3. We fit a Dirichlet regression model using `DirichReg()`. The formula `AL ~ depth` specifies that we're using depth as the predictor for the compositional outcome (AL).
-
-4. The `summary()` function provides detailed information about the fitted model, including coefficient estimates and their significance.
-
-5. We create a new dataset (`new_data`) with a sequence of depth values to make predictions across the entire range of depths in the original data.
-
-6. The `predict()` function is used to generate predictions from our model for the new depth values.
-
-7. Finally, we create a plot to visualize the results:
-   - We plot the original data points using different colors.
-   - We add lines representing the model predictions for each component.
-   - A legend is added to identify each sediment type.
 
 
 ### Dirichlet clustering in Practice
 
-Here's a brief example of how to perform clustering on the classic 'faithful' dataset using the 'dirichletprocess' package:
+This example demonstrates how to perform Dirichlet process clustering on the **faithful** dataset, which contains two variables: eruption duration and waiting time for Old Faithful geyser eruptions. Here’s a breakdown of each step in the text-code-text-code format to help you understand the process.
 
-```r
-library(dirichletprocess)
-
-# Prepare data
-faithfulTrans <- scale(faithful)
-
-# Create Dirichlet process object with Multivariate Normal kernel
-dpCluster <- DirichletProcessMvnormal(faithfulTrans)
-
-# Fit the model
-dpCluster <- Fit(dpCluster, 2000, progressBar = FALSE)
-
-# Plot the results
-plot(dpCluster)
-```
 
 ##### Load the Dataset
 
-We'll use the `faithful` dataset, which is built into R:
+The **faithful** dataset is built into R, so we start by loading it and viewing the first few rows.
 
 ```r
 # Load the faithful dataset
@@ -107,32 +125,39 @@ data("faithful")
 head(faithful)  # Display the first few rows
 ```
 
+##### Standardize the Data
+
+Since we're clustering with a multivariate approach, we scale the data to standardize the eruption and waiting times.
+
+```r
+# Standardize the data
+faithfulTrans <- scale(faithful)
+```
+
 ##### Create and Fit a Dirichlet Process Mixture Model
 
-We'll use the **multivariate normal distribution** for clustering the two-dimensional data (eruption times and waiting times).
+We create a **Dirichlet Process Mixture Model** with a multivariate normal kernel, well-suited for clustering continuous data. The Dirichlet process groups similar observations based on probabilistic clustering without requiring a fixed number of clusters.
 
 ```r
 # Create a Dirichlet process object using multivariate normal distribution
-dp <- DirichletProcessMvnormal(faithful)
+dp <- DirichletProcessMvnormal(faithfulTrans)
 
-# Fit the model using MCMC sampling
-dp <- Fit(dp, 1000)  # Number of iterations can be increased if needed
+# Fit the model using MCMC sampling for 1000 iterations
+dp <- Fit(dp, 1000)
 ```
 
 ##### Visualize the Clustering Results
 
-After fitting the model, we can visualize the clusters formed by the Dirichlet process.
+After fitting, we can visualize the clusters. Each color in the plot represents a different cluster assignment.
 
 ```r
 # Plot the data points, colored by their cluster assignments
 plot(dp)
 ```
 
-The plot will display the original data points, with each cluster assigned a different color based on the Dirichlet process clustering.
-
 ##### Extract Cluster Assignments
 
-You can also extract the cluster labels for each observation:
+You can obtain the cluster labels for each data point to see which observations belong to which clusters.
 
 ```r
 # Get the cluster assignments
@@ -144,6 +169,8 @@ print(clusters)
 
 ##### Summary and Further Analysis
 
+A summary of the Dirichlet process model provides details on the clustering results, while the posterior distribution shows the size of each cluster.
+
 ```r
 # Summary of the Dirichlet process model
 summary(dp)
@@ -152,6 +179,8 @@ summary(dp)
 posterior_sizes <- table(clusters)
 print(posterior_sizes)
 ```
+
+
 
 ### Conclusion
 
