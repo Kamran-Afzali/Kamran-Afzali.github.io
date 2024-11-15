@@ -1,4 +1,11 @@
-
+---
+layout: post
+categories: posts
+title: Dirichlet Regression and Clustering in
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: November 2024
+---
 
 The Dirichlet distribution can be used in both regression and clustering models, especially when analyzing compositional data—data that represents proportions summing to 1, such as percentages of burden or time allocations. In the R programming environment, two powerful packages, **`DirichletReg`** for regression and **`dirichletprocess`** for clustering, offer versatile tools for analyzing such data through Bayesian approaches.
 
@@ -15,12 +22,10 @@ In contrast, Dirichlet process clustering focuses on unsupervised learning, offe
 To perform clustering using the 'dirichletprocess' package, users typically follow these steps, where the data should be scaled or normalized as appropriate for the chosen kernel distribution. Selecting a pre-built model or create a custom one. For clustering, the Multivariate Normal kernel is often used for continuous multivariate data. To run the Markov Chain Monte Carlo (MCMC) sampling algorithm, which estimates the posterior distribution of the model parameters.Finally after fitting, the package provides methods to extract cluster assignments and visualize the results.
 
 Both the **`DirichletReg`** and **`dirichletprocess`** packages highlight the power and flexibility of the Dirichlet distribution in handling a variety of data structures, from compositional to clustered. These tools allow researchers to approach their analyses in a Bayesian framework, providing more natural inferences about uncertainty and the data-generating process. As such, they have become essential in domains where proportions and clustering play central roles.
-_________________________
 
+### Dirichlet Regression in Practice
 
-### Dirichlet Regression in Practice: Example of Arctic Lake Data
-
-Here's the example reorganized in a text-code-text-code format, as requested:
+Here's the example of Arctic Lake Data as in package's vignette:
 
 ##### Load the Package and Dataset
 
@@ -107,13 +112,9 @@ legend("topleft", legend = c("Sand", "Silt", "Clay"), lwd = 2,
        pch = 21, bty = "n")
 ```
 
-
-
-
 ### Dirichlet clustering in Practice
 
 This example demonstrates how to perform Dirichlet process clustering on the **faithful** dataset, which contains two variables: eruption duration and waiting time for Old Faithful geyser eruptions. Here’s a breakdown of each step in the text-code-text-code format to help you understand the process.
-
 
 ##### Load the Dataset
 
