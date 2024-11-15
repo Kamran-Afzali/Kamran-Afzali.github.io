@@ -50,7 +50,7 @@ normalization constant to ensure the distribution integrates to 1.
 
 ### Dirichlet Distribution in R
 
-Dirichlet distribution can be implemented in R using the `gtools` package and the `LaplacesDemon` package. Here are some examples of how to implement and use the Dirichlet distribution in R::
+Dirichlet distribution can be implemented in R using the `gtools` package and the `LaplacesDemon` package:
 
 #### Generating Samples from a Dirichlet Distribution
 
@@ -65,7 +65,7 @@ colMeans(samples)
 print(posterior_mean)
 ```
 
-This code snippet generates 10 samples from a Dirichlet distribution with parameters \( \alpha = (2, 3, 5) \). Each sample is a probability vector of three elements, and the rows of the output matrix represent different samples.
+Code generates 10 samples from a Dirichlet distribution with parameters \( \alpha = (2, 3, 5) \). Each sample is a probability vector of three elements, and the rows of the output matrix represent different samples.
 
 #### Using the Dirichlet Distribution as a Prior
 
@@ -82,7 +82,7 @@ posterior_mean <- colMeans(posterior_samples)
 print(posterior_mean)
 ```
 
-This example shows how the Dirichlet distribution can be used as a prior in a Bayesian framework. The prior parameters are updated with observed data, and samples are drawn from the posterior distribution to estimate the mean probabilities of each category.
+Dirichlet distribution can be used as a prior in a Bayesian framework with the prior parameters are updated with observed data, and samples are drawn from the posterior distribution to estimate the mean probabilities of each category.
 
 #### Visualizing the Dirichlet Distribution
 
