@@ -42,11 +42,7 @@ normalization constant to ensure the distribution integrates to 1.
 
 #### Applications of the Dirichlet Distribution
 
-1. **Bayesian Inference:** The Dirichlet distribution is often used as a conjugate prior for the multinomial distribution. This means that if the prior distribution of the probabilities is Dirichlet and the likelihood function is multinomial, the posterior distribution is also Dirichlet. This property simplifies the process of updating beliefs in light of new evidence.
-
-2. **Latent Dirichlet Allocation (LDA):** In topic modeling, LDA uses the Dirichlet distribution to model the distribution of topics in documents and the distribution of words in topics. This allows LDA to discover the underlying topics in a collection of documents.
-
-3. **Mixture Models:** The Dirichlet distribution is also used in mixture models, such as the Dirichlet Process Mixture Model (DPMM), which is useful for clustering data when the number of clusters is unknown a priori.
+The Dirichlet distribution is widely used in Bayesian inference, topic modeling, and clustering. In Bayesian inference, it acts as a conjugate prior for the multinomial distribution, meaning that updates based on new data produce another Dirichlet distribution. This property makes calculations simpler and is especially useful when working with categorical data. In natural language processing, the Dirichlet distribution is foundational for Latent Dirichlet Allocation (LDA), a method used to uncover hidden topics within a collection of texts. By modeling the distribution of topics in documents and the distribution of words within topics, LDA helps reveal the underlying thematic structure of large datasets. The Dirichlet distribution also plays a crucial role in clustering, particularly in Dirichlet Process Mixture Models (DPMMs). These models are powerful for cases where the number of clusters isn’t known in advance, allowing for adaptive and flexible grouping of data. Whether simplifying complex computations or uncovering patterns in diverse datasets, the Dirichlet distribution proves itself a cornerstone of modern statistical and machine learning methods.
 
 ### Dirichlet Distribution in R
 
@@ -65,7 +61,7 @@ colMeans(samples)
 print(posterior_mean)
 ```
 
-Code generates 10 samples from a Dirichlet distribution with parameters \( \alpha = (2, 3, 5) \). Each sample is a probability vector of three elements, and the rows of the output matrix represent different samples.
+Code generates 10 samples from a Dirichlet distribution with parameters \( {\alpha} = (2, 3, 5) \). Each sample is a probability vector of three elements, and the rows of the output matrix represent different samples.
 
 #### Using the Dirichlet Distribution as a Prior
 
