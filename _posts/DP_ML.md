@@ -1,3 +1,13 @@
+---
+layout: post
+categories: posts
+title: Data Anonymization in Health Care 
+featured-image: /images/EHRVAL.jpg
+tags: [Differential Privacy, Machine Learning, DigitalHealth]
+date-string: December 2024
+---
+
+
 ## Machine Learning with Differential Privacy
 [Differential Privacy](https://kamran-afzali.github.io/posts/2024-09-28/smote_blog.html) (DP) can enhance the generalization of machine learning models, which is a counterintuitive yet well-documented phenomenon. As Machine learning (ML) systems increasingly rely on large and sensitive datasetsdifferential privacy offers a robust framework to address these concerns by ensuring that the inclusion or exclusion of a single data point does not significantly affect the outcome of an analysis. Here we explore the integration of differential privacy in machine learning, highlighting examples from the R package **DPpack**.
 
