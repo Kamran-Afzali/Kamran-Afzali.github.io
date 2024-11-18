@@ -61,7 +61,7 @@ colMeans(samples)
 print(posterior_mean)
 ```
 
-Code generates 10 samples from a Dirichlet distribution with parameters \( {\alpha} = (2, 3, 5) \). Each sample is a probability vector of three elements, and the rows of the output matrix represent different samples.
+Code generates 10 samples from a Dirichlet distribution with parameters \( $\alpha$ = (2, 3, 5) \). Each sample is a probability vector of three elements, and the rows of the output matrix represent different samples.
 
 #### Using the Dirichlet Distribution as a Prior
 
