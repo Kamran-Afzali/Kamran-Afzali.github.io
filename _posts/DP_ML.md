@@ -4,7 +4,7 @@ categories: posts
 title: Data Anonymization in Health Care 
 featured-image: /images/EHRVAL.jpg
 tags: [Differential Privacy, Machine Learning, DigitalHealth]
-date-string: December 2024
+date-string: January 2025
 ---
 
 
