@@ -82,6 +82,8 @@ Dirichlet distribution can be used as a prior in a Bayesian framework with the p
 
 #### Visualizing the Dirichlet Distribution
 
+You can visualize the Dirichlet distribution using `ggtern` in R. The code below generates 10,000 random samples from a Dirichlet distribution with parameters \($\alpha$ = (2, 3, 5)\), then plots the samples in a ternary diagram with proportions across three variables in a compositional space.
+
 ```r
 alpha <- c(2, 3, 5)
 samples <- rdirichlet(10000, alpha)
@@ -98,7 +100,7 @@ ggtern(data = data, aes(x = X1, y = X2, z = X3)) +
 
 To implement the Dirichlet distribution using Stan and RStan, you can follow the example below. This example demonstrates how to define a simple Stan model with a Dirichlet distribution and run it using RStan in R.
 
-First, create a Stan model file (e.g., `dirichlet_model.stan`) with the following content:
+First, create a Stan model file (e.g., `dirichlet_model.stan`):
 
 ```r
 stan_model <-'data {
@@ -115,7 +117,7 @@ model {
 }'
 ```
 
-Next, use RStan to compile and run the Stan model. Here is an example of how to do this in R:
+Use RStan to compile and run the Stan model:
 
 ```r
 library(rstan)
