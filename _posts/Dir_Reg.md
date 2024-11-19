@@ -1,11 +1,14 @@
 ---
 layout: post
 categories: posts
-title: Dirichlet Regression and Clustering in
+title: Dirichlet Regression and Clustering in R
 featured-image: /images/stan.png
 tags: [STAN, R, Bayes]
-date-string: November 2024
+date-string: January 2025
 ---
+
+
+## Dirichlet Regression and Clustering in R
 
 The Dirichlet distribution can be used in both regression and clustering models, especially when analyzing compositional data—data that represents proportions summing to 1, such as percentages of burden or time allocations. In the R programming environment, two powerful packages, **`DirichletReg`** for regression and **`dirichletprocess`** for clustering, offer versatile tools for analyzing such data through Bayesian approaches.
 
@@ -189,25 +192,21 @@ The Dirichlet distribution is a useful tool for both regression and clustering a
 
 ### References
 
-- https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/237323/8f51c76b-3392-4c04-83c7-4bb9e568a7aa/paste.txt
-- https://cran.r-project.org/web/packages/DirichletReg/DirichletReg.pdf
-- http://r-statistics.co/Dirichlet-Regression-With-R.html
-- http://cran.nexr.com/web/packages/DirichletReg/vignettes/DirichletReg-vig.pdf
-- https://research.wu.ac.at/ws/portalfiles/portal/17761231/Report125.pdf
-- https://cran.r-project.org/package=DirichletReg
-- https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/237323/8f51c76b-3392-4c04-83c7-4bb9e568a7aa/paste.txt
-- https://dm13450.github.io/2018/05/30/Clustering.html
-- https://www.rdocumentation.org/packages/dirichletprocess/versions/0.4.2
-- https://cran.r-project.org/web/packages/dirichletprocess/vignettes/dirichletprocess.pdf
-- https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=case155752396390554&disposition=inline
-- https://www.iieta.org/download/file/fid/12006
-- https://discourse.mc-stan.org/t/dirichlet-regression/2747/9
-- https://discourse.mc-stan.org/t/r-package-dirreg-beta-an-attempt-to-use-stan-for-improving-softmax-regression-inference-please-test-if-you-wish-for-feedback/2831
-- https://cran.r-project.org/web/packages/DirichletReg/DirichletReg.pdf
-- https://cran.r-project.org/web/packages/zoid/zoid.pdf
-- https://r-statistics.co/Dirichlet-Regression-With-R.html
-- https://arxiv.org/pdf/1808.06399
-- https://dm13450.github.io/2018/05/30/Clustering.html
-- https://cran.r-project.org/web/packages/dirichletprocess/vignettes/dirichletprocess.pdf
-- https://github.com/dm13450/dirichletprocess
-- https://cran.r-project.org/web/packages/dirichletprocess/dirichletprocess.pdf
+
+- [Package DirichletReg: Regression Analysis with Dirichlet Distributions](https://cran.r-project.org/web/packages/DirichletReg/DirichletReg.pdf)
+- [Dirichlet Regression With R](http://r-statistics.co/Dirichlet-Regression-With-R.html)
+- [DirichletReg Vignette](http://cran.nexr.com/web/packages/DirichletReg/vignettes/DirichletReg-vig.pdf)
+- [Austrian Research Report - Dirichlet Analysis](https://research.wu.ac.at/ws/portalfiles/portal/17761231/Report125.pdf)
+- [CRAN R Package: DirichletReg](https://cran.r-project.org/package=DirichletReg)
+- [Data Science Tutorials: Clustering](https://dm13450.github.io/2018/05/30/Clustering.html)
+- [R Documentation: Dirichlet Process](https://www.rdocumentation.org/packages/dirichletprocess/versions/0.4.2)
+- [Dirichlet Process: A CRAN Vignette](https://cran.r-project.org/web/packages/dirichletprocess/vignettes/dirichletprocess.pdf)
+- [OhioLink Thesis - Dirichlet Regression](https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=case155752396390554&disposition=inline)
+- [Iieta Research Report - Dirichlet Processes](https://www.iieta.org/download/file/fid/12006)
+- [Dirichlet Regression Discussion on Stan Forum](https://discourse.mc-stan.org/t/dirichlet-regression/2747/9)
+- [R Package DirReg - Beta Discussion on Stan Forum](https://discourse.mc-stan.org/t/r-package-dirreg-beta-an-attempt-to-use-stan-for-improving-softmax-regression-inference-please-test-if-you-wish-for-feedback/2831)
+- [ZOID R Package Documentation](https://cran.r-project.org/web/packages/zoid/zoid.pdf)
+- [ArXiv Preprint: Dirichlet Regression Models](https://arxiv.org/pdf/1808.06399)
+- [GitHub: Dirichlet Process](https://github.com/dm13450/dirichletprocess)
+- [Dirichlet Process CRAN Documentation](https://cran.r-project.org/web/packages/dirichletprocess/dirichletprocess.pdf)
+
