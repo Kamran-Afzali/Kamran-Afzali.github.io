@@ -170,7 +170,7 @@ generated quantities {
 - **Model Block**: Applies the Dirichlet prior to `theta` and models the observed data `y` using a categorical distribution.
 - **Generated Quantities Block**: Computes the posterior mean of `theta`.
 
-Now, prepare some synthetic data to fit the model:
+Now lets generate some data to fit the model:
 
 ```r
 # Number of categories
