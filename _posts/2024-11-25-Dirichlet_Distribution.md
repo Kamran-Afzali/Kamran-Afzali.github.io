@@ -98,9 +98,7 @@ ggtern(data = data, aes(x = X1, y = X2, z = X3)) +
 
 ### Dirichlet Distribution in Stan
 
-To implement the Dirichlet distribution using Stan and RStan, you can follow the example below. This example demonstrates how to define a simple Stan model with a Dirichlet distribution and run it using RStan in R.
-
-First, create a Stan model file (e.g., `dirichlet_model.stan`):
+To implement the Dirichlet distribution using Stan and RStan first, create a Stan model string or text file:
 
 ```r
 stan_model <-'data {
@@ -117,7 +115,7 @@ model {
 }'
 ```
 
-Use RStan to compile and run the Stan model:
+Then it is possbile RStan to compile and run the Stan model:
 
 ```r
 library(rstan)
@@ -132,7 +130,6 @@ print(fit)
 - **Data Block**: The data block in the Stan model specifies the number of categories `K` and the Dirichlet parameters `alpha`. These are provided as inputs to the model.
 - **Parameters Block**: The parameters block defines `theta` as a simplex, which ensures that the elements of `theta` are non-negative and sum to one, making it suitable for modeling probabilities.
 - **Model Block**: The model block specifies that `theta` follows a Dirichlet distribution with parameters `alpha`.
-
 - **RStan**: The R code uses the `rstan` package to compile the Stan model and perform sampling. The `sampling` function runs the Markov Chain Monte Carlo (MCMC) to generate samples from the posterior distribution of `theta`.
 - **Output**: The `print` function outputs the summary of the posterior samples, including estimates for the components of `theta`.
 
