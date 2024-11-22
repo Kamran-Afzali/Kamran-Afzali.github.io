@@ -34,22 +34,6 @@ true.theta <- c(-.3,.5,.8,.2) # First element is bias term
 p <- length(true.theta)
 y <- true.theta[1] + as.matrix(X)%*%true.theta[2:p] + stats::rnorm(n=n,sd=.1)
 summary(y)
-# Construct object for linear regression
-regularizer <- 'l2' # Alternatively, function(coeff) coeff%*%coeff/2
-eps <- 10
-delta <- 0 # Indicates to use pure eps-DP
-gamma <- 0
-regularizer.gr <- function(coeff) coeff
-
-lrdp <- LinearRegressionDP$new('l2', eps, delta, gamma, regularizer.gr)
-
-# Fit with data
-# We must assume y is a matrix with values between -p and p (-2 and 2
-#   for this example)
-upper.bounds <- c(1,1,1, 2) # Bounds for X and y
-lower.bounds <- c(-1,-1,-1,-2) # Bounds for X and y
-lrdp$fit(X, y, upper.bounds, lower.bounds, add.bias=TRUE)
-lrdp$coeff # Gets private coefficients
 ```
 
 **Generate Data:**
@@ -67,6 +51,18 @@ lrdp$coeff # Gets private coefficients
    - `y` is the response variable (target). It is generated using the linear equation `y = bias + X1*0.5 + X2*0.8 + X3*0.2 + noise`, where noise is added using a normal distribution with a small standard deviation of 0.1 to simulate real-world variance.
    - The `summary(y)` function provides a summary of the generated `y` values, such as min, max, median, etc.
 
+```r
+# Construct object for linear regression
+regularizer <- 'l2' # Alternatively, function(coeff) coeff%*%coeff/2
+eps <- 10
+delta <- 0 # Indicates to use pure eps-DP
+gamma <- 0
+regularizer.gr <- function(coeff) coeff
+
+lrdp <- LinearRegressionDP$new('l2', eps, delta, gamma, regularizer.gr)
+```
+
+
 **Setup Differential Privacy Parameters:**
 
    - `regularizer <- 'l2'`: Specifies that L2 regularization (a method to prevent overfitting by penalizing large coefficients) will be used.
@@ -78,6 +74,16 @@ lrdp$coeff # Gets private coefficients
 **Create the Differentially Private Linear Regression Object:**
 
    - `lrdp` creates an instance of the `LinearRegressionDP` class, which is used to perform differentially private linear regression with L2 regularization, the specified epsilon, delta, and the regularization gradient function.
+
+```r
+# Fit with data
+# We must assume y is a matrix with values between -p and p (-2 and 2
+#   for this example)
+upper.bounds <- c(1,1,1, 2) # Bounds for X and y
+lower.bounds <- c(-1,-1,-1,-2) # Bounds for X and y
+lrdp$fit(X, y, upper.bounds, lower.bounds, add.bias=TRUE)
+lrdp$coeff # Gets private coefficients
+```
 
 **Fit the Model:**
 
