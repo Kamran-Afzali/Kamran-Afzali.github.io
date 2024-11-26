@@ -117,17 +117,6 @@ This guide has introduced the key concepts and techniques in anomaly detection, 
 
 ---
 
-### References
-
-- [CRAN isotree Package](https://cran.r-project.org/web/packages/isotree/index.html)
-- [CRAN mclust Package](https://cran.r-project.org/web/packages/mclust/index.html)
-- [CRAN forecast Package](https://cran.r-project.org/web/packages/forecast/index.html)
-- [CRAN DMwR Package](https://cran.r-project.org/web/packages/DMwR/index.html)
-- [CRAN anomalize Package](https://cran.r-project.org/web/packages/anomalize/index.html)
-- [CRAN FactoMineR Package](https://cran.r-project.org/web/packages/FactoMineR/index.html)
-- [CRAN keras Package](https://cran.r-project.org/web/packages/keras/index.html)
-- [CRAN igraph Package](https://cran.r-project.org/web/packages/igraph/index.html)
-
 
 ____________________________________________________________
 
@@ -257,3 +246,11 @@ By leveraging these tools and techniques, data scientists can uncover hidden pat
 14. [anomaly Package](https://cran.r-project.org/web/packages/anomaly/index.html) - Detects anomalies in univariate data, with a focus on changepoint detection methods.
 
 15. [netstat Package](https://cran.r-project.org/web/packages/netstat/index.html) - Enables the analysis of network statistics, including anomaly detection in network traffic data.
+
+- [CRAN isotree Package](https://cran.r-project.org/web/packages/isotree/index.html)
+- [CRAN mclust Package](https://cran.r-project.org/web/packages/mclust/index.html)
+- [CRAN forecast Package](https://cran.r-project.org/web/packages/forecast/index.html)
+- [CRAN DMwR Package](https://cran.r-project.org/web/packages/DMwR/index.html)
+- [CRAN anomalize Package](https://cran.r-project.org/web/packages/anomalize/index.html)
+- [CRAN FactoMineR Package](https://cran.r-project.org/web/packages/FactoMineR/index.html)
+
