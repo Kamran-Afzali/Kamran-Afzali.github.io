@@ -1,5 +1,8 @@
 
-**Anomaly Detection with Isolation Forests: A Detailed Guide with R Examples**
+
+## Anomaly Detection with Isolation Forests in R
+
+Anomaly detection, also known as outlier or novelty detection, is a critical task in data analysis, where the goal is to identify rare items, events, or observations that deviate significantly from the majority of the data. This process is crucial across various domains such as fraud detection, network security, fault detection in industrial systems, and more. One powerful method for anomaly detection is the Isolation Forest algorithm.
 
 Anomaly detection, also known as outlier detection, is a critical task in data science, identifying rare events, deviations, or errors in datasets. These anomalies can indicate fraud in financial transactions, network intrusions, or even equipment malfunctions. One of the most efficient and robust techniques for anomaly detection is the *Isolation Forest*. This article will guide you through the concept, implementation, and application of isolation forests, with code examples in R, leveraging the `isotree` package.
 
@@ -8,6 +11,18 @@ Anomaly detection, also known as outlier detection, is a critical task in data s
 The Isolation Forest algorithm, first introduced by Liu et al. in 2008, is a tree-based, unsupervised learning algorithm. It operates on the principle of isolating anomalies, leveraging the fact that anomalies are few and different compared to normal data points. The algorithm achieves this by randomly partitioning the dataset into isolation trees (iTrees). 
 
 Anomalies are isolated faster due to their uniqueness, requiring fewer splits to separate them from the rest of the data. The shorter the path length in these trees, the higher the anomaly score of a point. In contrast, normal points require more splits due to their denser distribution.
+
+Isolation Forests are an ensemble-based algorithm specifically designed for anomaly detection. Unlike traditional methods that focus on profiling normal instances, Isolation Forests work by isolating anomalies. The key idea is that anomalies are 'few and different'; thus, they are easier to isolate compared to normal data points[2].
+
+#### **How Isolation Forests Work**
+
+1. **Isolation Trees**: The algorithm constructs multiple isolation trees (iTrees) using random subsets of the data. Each tree is built by randomly selecting a feature and then randomly selecting a split value between the minimum and maximum values of that feature.
+   
+2. **Recursive Partitioning**: This process of random splitting continues recursively until each data point is isolated or a predefined depth is reached.
+
+3. **Anomaly Scoring**: The path length from the root node to the terminating node of a tree represents how easy it is to isolate a point. Anomalies tend to have shorter paths because they are isolated quickly.
+
+4. **Ensemble Averaging**: The final anomaly score for each data point is calculated by averaging the path lengths across all trees. Points with short average path lengths are considered anomalies[3].
 
 ### Why Use Isolation Forests?
 
@@ -152,6 +167,14 @@ Isolation Forests are versatile, applicable to various domains:
 3. **Healthcare:** Spotting anomalous patterns in patient data.
 4. **IoT and Manufacturing:** Detecting equipment faults or outlier sensor readings.
 
+
+- **Fraud Detection**: Identifying fraudulent transactions in financial systems.
+- **Network Security**: Detecting unusual patterns that may indicate security breaches.
+- **Industrial Monitoring**: Monitoring machinery for signs of failure or malfunction.
+- **Environmental Monitoring**: Detecting unusual climate patterns or sensor faults[4][5].
+
+### **Conclusion**
+
 ### Practical Tips
 
 - **Feature Scaling:** While isolation forests are robust to feature scales, transforming skewed data (e.g., log transformation) may improve results.
@@ -164,31 +187,13 @@ Isolation Forests are a powerful tool for anomaly detection, offering efficiency
 
 By following this guide, you now have a strong foundation in applying isolation forests to detect anomalies in your datasets. Experiment with different configurations, datasets, and evaluation techniques to refine your understanding.
 
-### References
 
-- [Isolation Forest Paper (Liu et al., 2008)](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf)
-- [CRAN isotree Package Documentation](https://cran.r-project.org/web/packages/isotree/index.html)
-- [Introduction to Isolation Forests in isotree](https://cran.r-project.org/web/packages/isotree/vignettes/An_Introduction_to_Isolation_Forests.html)
+
 _________________________________________________________
 
 
-## Anomaly Detection with Isolation Forests in R
 
-Anomaly detection, also known as outlier or novelty detection, is a critical task in data analysis, where the goal is to identify rare items, events, or observations that deviate significantly from the majority of the data. This process is crucial across various domains such as fraud detection, network security, fault detection in industrial systems, and more[1]. One powerful method for anomaly detection is the Isolation Forest algorithm.
 
-### **Understanding Isolation Forests**
-
-Isolation Forests are an ensemble-based algorithm specifically designed for anomaly detection. Unlike traditional methods that focus on profiling normal instances, Isolation Forests work by isolating anomalies. The key idea is that anomalies are 'few and different'; thus, they are easier to isolate compared to normal data points[2].
-
-#### **How Isolation Forests Work**
-
-1. **Isolation Trees**: The algorithm constructs multiple isolation trees (iTrees) using random subsets of the data. Each tree is built by randomly selecting a feature and then randomly selecting a split value between the minimum and maximum values of that feature.
-   
-2. **Recursive Partitioning**: This process of random splitting continues recursively until each data point is isolated or a predefined depth is reached.
-
-3. **Anomaly Scoring**: The path length from the root node to the terminating node of a tree represents how easy it is to isolate a point. Anomalies tend to have shorter paths because they are isolated quickly.
-
-4. **Ensemble Averaging**: The final anomaly score for each data point is calculated by averaging the path lengths across all trees. Points with short average path lengths are considered anomalies[3].
 
 ### **Implementation in R**
 
@@ -259,24 +264,10 @@ To implement Isolation Forests in R, we can use the `isotree` package, which pro
    auc(roc_curve) # Area under the curve
    ```
 
-### **Applications of Isolation Forests**
 
-Isolation Forests are versatile and can be applied across various domains:
 
-- **Fraud Detection**: Identifying fraudulent transactions in financial systems.
-- **Network Security**: Detecting unusual patterns that may indicate security breaches.
-- **Industrial Monitoring**: Monitoring machinery for signs of failure or malfunction.
-- **Environmental Monitoring**: Detecting unusual climate patterns or sensor faults[4][5].
 
-### **Conclusion**
 
-Isolation Forests provide an efficient and effective approach for anomaly detection in high-dimensional datasets without requiring labeled data. By leveraging random partitioning and ensemble learning techniques, they offer robust performance across various applications.
-
-For further reading and resources on anomaly detection and Isolation Forests:
-
-- [TechTarget's Overview on Anomaly Detection](https://www.techtarget.com/searchenterpriseai/definition/anomaly-detection)
-- [Spot Intelligence's Tutorial on Isolation Forest](https://spotintelligence.com/2024/05/21/isolation-forest/)
-- [GitHub Repository for Isolation Forest in R](https://github.com/gravesee/isofor)
 
 ### References
 
@@ -298,5 +289,12 @@ For further reading and resources on anomaly detection and Isolation Forests:
 
 9. https://cran.r-project.org/web/packages/isotree/vignettes/An_Introduction_to_Isolation_Forests.html
 
-
 10. [Outlier Detection with Isolation Forest in R](https://www.kaggle.com/code/norealityshows/outlier-detection-with-isolation-forest-in-r) - A Kaggle notebook demonstrating the use of Isolation Forest for detecting anomalies in R. 
+
+
+- [Isolation Forest Paper (Liu et al., 2008)](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf)
+- [CRAN isotree Package Documentation](https://cran.r-project.org/web/packages/isotree/index.html)
+- [Introduction to Isolation Forests in isotree](https://cran.r-project.org/web/packages/isotree/vignettes/An_Introduction_to_Isolation_Forests.html)
+- [TechTarget's Overview on Anomaly Detection](https://www.techtarget.com/searchenterpriseai/definition/anomaly-detection)
+- [Spot Intelligence's Tutorial on Isolation Forest](https://spotintelligence.com/2024/05/21/isolation-forest/)
+- [GitHub Repository for Isolation Forest in R](https://github.com/gravesee/isofor)
