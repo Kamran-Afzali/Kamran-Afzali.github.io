@@ -16,21 +16,23 @@ Isolation Forests are an ensemble-based algorithm specifically designed for anom
 
 #### **How Isolation Forests Work**
 
-1. **Isolation Trees**: The algorithm constructs multiple isolation trees (iTrees) using random subsets of the data. Each tree is built by randomly selecting a feature and then randomly selecting a split value between the minimum and maximum values of that feature.
-   
-2. **Recursive Partitioning**: This process of random splitting continues recursively until each data point is isolated or a predefined depth is reached.
+Isolation trees form the foundation of isolation forest algorithms, designed to efficiently identify anomalies by exploiting their tendency to be more easily isolated than normal points. The method begins by constructing multiple isolation trees (iTrees) using random subsets of the dataset. Each tree is built through recursive partitioning, where a feature is randomly selected, and a split value is chosen randomly within the feature’s range. This process continues until every data point is isolated or a maximum tree depth is reached.
 
-3. **Anomaly Scoring**: The path length from the root node to the terminating node of a tree represents how easy it is to isolate a point. Anomalies tend to have shorter paths because they are isolated quickly.
+The ease of isolating a data point is reflected in its path length—the number of splits required to separate it from the rest of the data. Anomalies, being distinct and rare, generally require fewer splits and thus have shorter path lengths. This characteristic underpins the algorithm's ability to score anomalies effectively. For each data point, its anomaly score is derived by averaging the normalized path lengths across all isolation trees in the ensemble. Points with shorter average path lengths are flagged as potential anomalies, while those with longer paths are deemed normal.
 
-4. **Ensemble Averaging**: The final anomaly score for each data point is calculated by averaging the path lengths across all trees. Points with short average path lengths are considered anomalies[3].
+By leveraging random feature selection and partitioning, isolation forests are robust against high-dimensional data and can handle both large datasets and complex feature interactions. Their computational efficiency and simplicity make them a popular choice for various anomaly detection applications, from fraud detection to network monitoring.
 
 ### Why Use Isolation Forests?
 
-Isolation Forests offer several advantages:
-1. They are computationally efficient, scaling well to large datasets.
-2. They work directly with numerical and categorical data.
-3. They do not require explicit data standardization.
-4. They are highly interpretable, with results represented as anomaly scores.
+Isolation Forests are a powerful tool for anomaly detection, offering distinct advantages that make them well-suited for various data-driven applications. One of their primary strengths lies in their computational efficiency, allowing them to scale seamlessly to large datasets without significant resource demands. This efficiency is achieved through their unique approach of isolating data points via random partitioning, which simplifies the process of identifying anomalies.
+
+Another advantage is their versatility in handling both numerical and categorical data directly, eliminating the need for extensive preprocessing or transformations. This flexibility makes Isolation Forests applicable to a wide range of datasets, from structured numerical databases to mixed-format inputs.
+
+Unlike many other machine learning models, Isolation Forests do not require explicit data standardization or normalization. They rely on the randomness of feature selection and partitioning, which inherently accommodates varying data scales and distributions. This feature reduces the preprocessing overhead, making the algorithm more user-friendly and accessible.
+
+Moreover, Isolation Forests provide clear and interpretable results through anomaly scores. Each data point is assigned a score that quantifies its degree of anomaly, enabling straightforward decision-making. This transparency allows practitioners to understand the basis of anomaly detection, fostering trust in the model's predictions and facilitating communication with stakeholders.
+
+With their combination of efficiency, versatility, and interpretability, Isolation Forests are a robust choice for detecting anomalies across diverse domains, from fraud detection to system monitoring, where identifying rare and unusual patterns is critical.
 
 ### Prerequisites for Using Isolation Forests
 
