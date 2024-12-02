@@ -266,30 +266,19 @@ To implement Isolation Forests in R, we can use the `isotree` package, which pro
 
 ### References
 
-1. [Anomaly Detection Definition](https://www.techtarget.com/searchenterpriseai/definition/anomaly-detection) - TechTarget provides an overview of anomaly detection, its types, and applications across industries.
 
-2. [Isolation Forest Explanation](https://spotintelligence.com/2024/05/21/isolation-forest/) - Spot Intelligence discusses the Isolation Forest algorithm in detail, highlighting its advantages and use cases.
-
-3. [GitHub Repository for Isolation Forest](https://github.com/gravesee/isofor) - A repository showcasing an implementation of Isolation Forest, including example code and documentation.
-
-4. [An Introduction to Isolation Forests](https://cran.r-project.org/web/packages/isotree/vignettes/An_Introduction_to_Isolation_Forests.html) - The CRAN vignette for the `isotree` package, which explains the use of Isolation Forests in R.
-
-5. [Resources on Anomaly Detection](https://www.reddit.com/r/MachineLearning/comments/ko2ij5/p_looking_for_resources_on_anomaly_detection/) - A Reddit thread sharing valuable resources and insights on anomaly detection techniques.
-
-6. [Isolation Forest Variants](https://arxiv.org/abs/2111.11639) - An academic paper on advancements and variants of the Isolation Forest algorithm.
-
-7. [Anomaly Detection with Isolation Forest](https://www.geeksforgeeks.org/anomaly-detection-using-isolation-forest/) - A GeeksforGeeks article providing an implementation of Isolation Forest for anomaly detection.
-
-8. [DigitalOcean Guide on Isolation Forest](https://www.digitalocean.com/community/tutorials/anomaly-detection-isolation-forest) - A tutorial on DigitalOcean covering the theory and application of Isolation Forests.
-
-9. https://cran.r-project.org/web/packages/isotree/vignettes/An_Introduction_to_Isolation_Forests.html
-
-10. [Outlier Detection with Isolation Forest in R](https://www.kaggle.com/code/norealityshows/outlier-detection-with-isolation-forest-in-r) - A Kaggle notebook demonstrating the use of Isolation Forest for detecting anomalies in R. 
-
-
-- [Isolation Forest Paper (Liu et al., 2008)](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf)
-- [CRAN isotree Package Documentation](https://cran.r-project.org/web/packages/isotree/index.html)
-- [Introduction to Isolation Forests in isotree](https://cran.r-project.org/web/packages/isotree/vignettes/An_Introduction_to_Isolation_Forests.html)
-- [TechTarget's Overview on Anomaly Detection](https://www.techtarget.com/searchenterpriseai/definition/anomaly-detection)
-- [Spot Intelligence's Tutorial on Isolation Forest](https://spotintelligence.com/2024/05/21/isolation-forest/)
-- [GitHub Repository for Isolation Forest in R](https://github.com/gravesee/isofor)
+1. [Anomaly Detection Definition](https://www.techtarget.com/searchenterpriseai/definition/anomaly-detection) - TechTarget provides an overview of anomaly detection, its types, and applications across industries.  
+2. [Isolation Forest Explanation](https://spotintelligence.com/2024/05/21/isolation-forest/) - Spot Intelligence discusses the Isolation Forest algorithm in detail, highlighting its advantages and use cases.  
+3. [GitHub Repository for Isolation Forest](https://github.com/gravesee/isofor) - A repository showcasing an implementation of Isolation Forest, including example code and documentation.  
+4. [An Introduction to Isolation Forests](https://cran.r-project.org/web/packages/isotree/vignettes/An_Introduction_to_Isolation_Forests.html) - The CRAN vignette for the `isotree` package, which explains the use of Isolation Forests in R.  
+5. [Resources on Anomaly Detection](https://www.reddit.com/r/MachineLearning/comments/ko2ij5/p_looking_for_resources_on_anomaly_detection/) - A Reddit thread sharing valuable resources and insights on anomaly detection techniques.  
+6. [Isolation Forest Variants](https://arxiv.org/abs/2111.11639) - An academic paper on advancements and variants of the Isolation Forest algorithm.  
+7. [Anomaly Detection with Isolation Forest](https://www.geeksforgeeks.org/anomaly-detection-using-isolation-forest/) - A GeeksforGeeks article providing an implementation of Isolation Forest for anomaly detection.  
+8. [DigitalOcean Guide on Isolation Forest](https://www.digitalocean.com/community/tutorials/anomaly-detection-isolation-forest) - A tutorial on DigitalOcean covering the theory and application of Isolation Forests.  
+9. [Outlier Detection with Isolation Forest in R](https://www.kaggle.com/code/norealityshows/outlier-detection-with-isolation-forest-in-r) - A Kaggle notebook demonstrating the use of Isolation Forest for detecting anomalies in R.  
+10. [Isolation Forest Paper (Liu et al., 2008)](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf) - The foundational paper introducing the Isolation Forest algorithm, authored by Liu et al.  
+11. [CRAN isotree Package Documentation](https://cran.r-project.org/web/packages/isotree/index.html) - Official documentation for the `isotree` R package, which implements Isolation Forests.  
+12. [Introduction to Isolation Forests in isotree](https://cran.r-project.org/web/packages/isotree/vignettes/An_Introduction_to_Isolation_Forests.html) - A detailed introduction to Isolation Forests using the `isotree` R package.  
+13. [TechTarget's Overview on Anomaly Detection](https://www.techtarget.com/searchenterpriseai/definition/anomaly-detection) - An in-depth explanation of anomaly detection, including its methods and real-world applications.  
+14. [Spot Intelligence's Tutorial on Isolation Forest](https://spotintelligence.com/2024/05/21/isolation-forest/) - A guide to Isolation Forests, covering their implementation and practical examples.  
+15. [GitHub Repository for Isolation Forest in R](https://github.com/gravesee/isofor) - Source code and examples for applying Isolation Forest in R, hosted on GitHub.  
