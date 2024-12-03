@@ -2,17 +2,11 @@
 
 ## Anomaly Detection with Isolation Forests in R
 
-Anomaly detection, also known as outlier or novelty detection, is a critical task in data analysis, where the goal is to identify rare items, events, or observations that deviate significantly from the majority of the data. This process is crucial across various domains such as fraud detection, network security, fault detection in industrial systems, and more. One powerful method for anomaly detection is the Isolation Forest algorithm.
-
-Anomaly detection, also known as outlier detection, is a critical task in data science, identifying rare events, deviations, or errors in datasets. These anomalies can indicate fraud in financial transactions, network intrusions, or even equipment malfunctions. One of the most efficient and robust techniques for anomaly detection is the *Isolation Forest*. This article will guide you through the concept, implementation, and application of isolation forests, with code examples in R, leveraging the `isotree` package.
+Anomaly detection, also known as outlier or novelty detection, is a task in data analysis where the goal is to identify rare items, events, or observations that deviate significantly from the majority of the data. This process is used in various domains such as fraud detection, network security, etc. One powerful method for anomaly detection is the Isolation Forest algorithm. This post will guide you through the concept, implementation, and application of isolation forests, with code examples in R, with the `isotree` package.
 
 ### Introduction to Isolation Forests
 
-The Isolation Forest algorithm, first introduced by Liu et al. in 2008, is a tree-based, unsupervised learning algorithm. It operates on the principle of isolating anomalies, leveraging the fact that anomalies are few and different compared to normal data points. The algorithm achieves this by randomly partitioning the dataset into isolation trees (iTrees). 
-
-Anomalies are isolated faster due to their uniqueness, requiring fewer splits to separate them from the rest of the data. The shorter the path length in these trees, the higher the anomaly score of a point. In contrast, normal points require more splits due to their denser distribution.
-
-Isolation Forests are an ensemble-based algorithm specifically designed for anomaly detection. Unlike traditional methods that focus on profiling normal instances, Isolation Forests work by isolating anomalies. The key idea is that anomalies are 'few and different'; thus, they are easier to isolate compared to normal data points[2].
+The Isolation Forest algorithm, first introduced by Liu et al. in 2008, is a tree-based, unsupervised learning algorithm. It operates on the principle of isolating anomalies, leveraging the fact that anomalies are few and different compared to normal data points. The algorithm achieves this by randomly partitioning the dataset into isolation trees (iTrees). Anomalies are isolated faster due to their uniqueness, requiring fewer splits to separate them from the rest of the data. The shorter the path length in these trees, the higher the anomaly score of a point. This is in contrast, normal points require more splits due to their denser distribution.
 
 #### **How Isolation Forests Work**
 
