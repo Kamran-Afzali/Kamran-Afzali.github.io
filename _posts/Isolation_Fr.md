@@ -171,12 +171,7 @@ By adapting Isolation Forests to diverse health-related challenges, practitioner
 
 ### **Conclusion**
 
-Isolation Forests are a versatile and efficient method for anomaly detection, capable of handling diverse datasets with minimal preprocessing. Although the algorithm is robust to varying feature scales, applying transformations such as log scaling to address skewed data can enhance performance in some cases. Fine-tuning parameters like the number of trees (ntrees), sample size, and the number of dimensions (ndim) allows practitioners to strike a balance between computational efficiency and detection accuracy, adapting the model to specific use cases.
-
-Interpreting anomaly scores requires a contextual approach, as these scores serve as relative indicators rather than absolute measures of anomalies. Domain expertise plays a crucial role in determining appropriate thresholds, ensuring meaningful and actionable insights. The isotree package in R simplifies the implementation of isolation forests, offering an accessible and customizable framework for users to integrate this powerful technique into their workflows.
-
-Armed with these practical tips and an understanding of the algorithm, you are well-equipped to apply isolation forests to detect anomalies in diverse datasets. Experimentation is key to mastery—adjust configurations, analyze results, and explore datasets to refine your approach. With its combination of efficiency, flexibility, and interpretability, isolation forests are an invaluable tool in the anomaly detection toolkit.
-
+Isolation Forests are an efficient method for anomaly detection, capable of handling diverse datasets with minimal preprocessing. Although the algorithm is robust to varying feature scales, applying transformations such as log scaling to address skewed data can enhance performance in some cases. Fine-tuning parameters like the number of trees (ntrees), sample size, and the number of dimensions (ndim) allows practitioners to find the balance between computational efficiency and detection accuracy, adapting the model to specific use cases. The isotree package in R simplifies the implementation of isolation forests, offering an accessible and customizable framework for users to integrate this powerful technique into their workflows. However, interpreting anomaly scores requires a contextual approach, as these scores serve as relative indicators rather than absolute measures of anomalies. Domain expertise plays an important role in determining appropriate thresholds, ensuring meaningful and actionable insights. 
 
 _________________________________________________________
 
