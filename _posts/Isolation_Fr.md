@@ -20,18 +20,8 @@ Moreover, Isolation Forests provide clear and interpretable results through anom
 
 With their combination of efficiency, versatility, and interpretability, Isolation Forests are a robust choice for detecting anomalies across diverse domains, from fraud detection to system monitoring, where identifying rare and unusual patterns is critical.
 
-### Prerequisites for Using Isolation Forests
-
-Before diving into the implementation, ensure you have the `isotree` package installed. This package provides a robust implementation of isolation forests, with additional features like extended isolation forests and customizable settings.
-
-To install the `isotree` package, use the following command:
-```R
-install.packages("isotree")
-```
 
 ### Implementing Isolation Forests in R
-
-To demonstrate the capabilities of isolation forests, we will explore a synthetic dataset. The dataset will contain two features, one with a normal distribution and another deliberately containing anomalies.
 
 #### Step 1: Generating Synthetic Data
 We generate a dataset with 500 points where most points are sampled from a normal distribution, and a few are sampled as outliers.
@@ -149,17 +139,10 @@ plot(roc_curve, col = "darkgreen", main = "ROC Curve for Isolation Forest")
 
 ### Use Cases of Isolation Forests
 
-Isolation Forests are a versatile anomaly detection method with impactful applications across various fields, especially in healthcare. Their ability to isolate anomalies effectively makes them invaluable for identifying rare but critical patterns in medical datasets. 
+Isolation Forests are a versatile anomaly detection method with impactful applications across various fields, especially in healthcare. Their ability to isolate anomalies effectively makes them invaluable for identifying rare but critical patterns in medical datasets.  In healthcare, Isolation Forests can identify anomalous patient data that may indicate underlying issues requiring immediate attention. For example, they can detect sudden spikes in heart rate, irregularities in glucose levels, or deviations in vital signs that might signal the onset of critical conditions like sepsis or arrhythmias. In hospital settings, they are used to monitor ICU equipment, identifying anomalies in sensor readings that could suggest malfunctions or false alarms, ensuring timely interventions and reducing risks. In public health, Isolation Forests play a role in detecting anomalies in epidemiological data, such as unusual spikes in emergency room visits or reported symptoms. These insights can help identify early signs of disease outbreaks, enabling preventive measures and resource allocation before the situation escalates. 
 
-In healthcare, Isolation Forests can identify anomalous patient data that may indicate underlying issues requiring immediate attention. For example, they can detect sudden spikes in heart rate, irregularities in glucose levels, or deviations in vital signs that might signal the onset of critical conditions like sepsis or arrhythmias. In hospital settings, they are used to monitor ICU equipment, identifying anomalies in sensor readings that could suggest malfunctions or false alarms, ensuring timely interventions and reducing risks.
+Beyond healthcare, Isolation Forests are applied in other domains like manufacturing and IoT. For instance, in pharmaceutical production, they can identify deviations in equipment performance that may compromise drug quality. Similarly, wearable health devices equipped with anomaly detection capabilities use Isolation Forests to monitor user health, flagging irregularities like abnormal sleep patterns or activity levels, prompting users to seek medical advice. In cybersecurity, Isolation Forests detect unusual access patterns or data breaches in systems handling sensitive health records, preventing unauthorized access and safeguarding patient privacy. 
 
-In public health, Isolation Forests play a role in detecting anomalies in epidemiological data, such as unusual spikes in emergency room visits or reported symptoms. These insights can help identify early signs of disease outbreaks, enabling preventive measures and resource allocation before the situation escalates. 
-
-Beyond healthcare, Isolation Forests are applied in other domains like manufacturing and IoT. For instance, in pharmaceutical production, they can identify deviations in equipment performance that may compromise drug quality. Similarly, wearable health devices equipped with anomaly detection capabilities use Isolation Forests to monitor user health, flagging irregularities like abnormal sleep patterns or activity levels, prompting users to seek medical advice.
-
-In cybersecurity, Isolation Forests detect unusual access patterns or data breaches in systems handling sensitive health records, preventing unauthorized access and safeguarding patient privacy. 
-
-By adapting Isolation Forests to diverse health-related challenges, practitioners can enhance patient care, optimize medical systems, and preemptively address potential issues. Their scalability and efficiency allow them to analyze high-dimensional data effectively, making them a cornerstone in advancing modern healthcare analytics.
 
 ### **Conclusion**
 
