@@ -11,17 +11,7 @@ Anomalies are rare occurrences that deviate significantly from typical patterns 
 
 ### Statistical Approaches
 
-Statistical methods are some of the earliest techniques used for anomaly detection. These methods assume that normal data follows a specific distribution, and deviations from this distribution are considered anomalies. They are particularly useful for small or well-structured datasets.
-
-One of the fundamental approaches to anomaly detection is rooted in statistical methods. These techniques often rely on the assumption that data follows a certain distribution, and anomalies are identified as data points that deviate significantly from this expected distribution.
-
-
-**Z-Score Analysis** is one of the simplest statistical techniques. Here, anomalies are identified by measuring how far a data point deviates from the mean, scaled by the standard deviation. R's `stats` package provides the necessary tools for this approach. The `outliers` package extends this functionality by offering functions like `grubbs.test` for detecting single outliers and `dixon.test` for multiple outliers.
-Z-Score Analysis is one of the simplest statistical methods for detecting outliers. It measures how many standard deviations a data point is from the mean. In R, this can be easily implemented using base functions, but packages like 'outliers' provide more sophisticated tools for Z-score based anomaly detection[1].
-
-Another statistical approach is Grubbs' Test, which is used to detect outliers in a univariate dataset. The 'outliers' package in R implements this test, allowing users to identify anomalies in their data with a sound statistical foundation[1].
-
-For multivariate data, Mahalanobis distance is a popular metric used to detect outliers. The 'mvoutlier' package in R provides functions to calculate Mahalanobis distances and identify multivariate outliers[2].
+Statistical methods are some of the earliest techniques used for anomaly detection. These methods assume that "normal" data follows a specific distribution, and deviations from this distribution are considered anomalies. They are particularly useful for small or well-structured datasets. **Z-Score Analysis** is one of the simplest statistical techniques. Here, anomalies are identified by measuring how far a data point deviates from the mean, scaled by the standard deviation. R's `stats` package provides the necessary tools for this approach. The `outliers` package extends this functionality by offering functions like `grubbs.test` for detecting single outliers and `dixon.test` for multiple outliers. For multivariate data, Mahalanobis distance is a popular metric used to detect outliers. The 'mvoutlier' package in R provides functions to calculate Mahalanobis distances and identify multivariate outliers.
 
 
 ### Clustering-Based Approaches
@@ -65,11 +55,7 @@ Another interesting approach is the use of Random Forests for anomaly detection.
 
 ### Density-Based Approaches
 
-Density-based methods are another powerful category for anomaly detection. These techniques assess the density of data points and flag points in sparse regions as anomalies.
-
-**Local Outlier Factor (LOF)** is a popular density-based technique available in the `DMwR` package. LOF compares the density of a point to its neighbors, assigning higher anomaly scores to points in sparsely populated regions.
-
-For datasets with continuous features, **Gaussian Mixture Models (GMM)**, available in the `mclust` package, model the data as a mixture of Gaussian distributions. Observations with low probabilities under the fitted model are identified as anomalies.
+Density-based methods assess the density of data points and flag points in sparse regions as anomalies. **Local Outlier Factor (LOF)** is a popular density-based technique available in the `DMwR` package. LOF compares the density of a point to its neighbors, assigning higher anomaly scores to points in sparsely populated regions. For datasets with continuous features, **Gaussian Mixture Models (GMM)**, available in the `mclust` package, model the data as a mixture of Gaussian distributions. Observations with low probabilities under the fitted model are identified as anomalies.
 
 
 
