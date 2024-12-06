@@ -16,13 +16,7 @@ Statistical methods are some of the earliest techniques used for anomaly detecti
 
 ### Clustering-Based Approaches
 
-Clustering-based methods leverage the notion that normal data points form dense clusters, whereas anomalies are far from any cluster. These methods are well-suited for multi-dimensional data.
-
-**k-Means Clustering**, implemented in the `stats` package, partitions data into clusters. Observations far from the centroids of these clusters can be flagged as anomalies. A more robust variant, **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**, is implemented in the `dbscan` package. DBSCAN does not require a predefined number of clusters and can identify anomalies as points that do not belong to any cluster.
-
-The **clValid** package provides tools for assessing clustering validity, which can be useful for determining whether a clustering-based anomaly detection approach is suitable for your data.
-
-
+Clustering-based methods leverage the notion that normal data points form dense clusters, whereas anomalies are far from any cluster. These methods are well-suited for multi-dimensional data. **k-Means Clustering**, implemented in the `stats` package, partitions data into clusters. Observations far from the centroids of these clusters can be flagged as anomalies. A more robust variant, **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**, is implemented in the `dbscan` package. DBSCAN does not require a predefined number of clusters and can identify anomalies as points that do not belong to any cluster. The **clValid** package provides tools for assessing clustering validity, which can be useful for determining whether a clustering-based anomaly detection approach is suitable for your data.
 
 ### Machine Learning Approaches
 
@@ -78,15 +72,6 @@ The `anomalize` package builds on the popular `tidyverse` suite, offering a pipe
 
 Deep learning methods for time series, such as Long Short-Term Memory (LSTM) networks, can be implemented using the `keras` package. These models learn temporal patterns and identify anomalies as sequences that deviate significantly from learned behaviors.
 
-
-
-### Graph-Based Approaches
-
-Graph-based approaches are particularly useful for detecting anomalies in structured data, such as social networks or transportation systems. These methods analyze the connectivity and relationships between entities.
-
-The `igraph` package provides tools for analyzing network structures, including community detection and centrality measures. Anomalies can be identified as nodes or edges with unusual connectivity patterns.
-
-Random walk-based methods, implemented in the `RWeka` package, simulate random traversals of the graph to assess the likelihood of each node. Nodes with low probabilities of being visited are flagged as anomalies.
 
 
 
