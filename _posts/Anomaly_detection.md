@@ -20,31 +20,10 @@ Clustering-based methods leverage the notion that normal data points form dense 
 
 ### Machine Learning Approaches
 
-Machine learning techniques have gained prominence due to their ability to handle complex, high-dimensional data. These methods can be broadly classified into supervised, semi-supervised, and unsupervised approaches.
+Machine learning techniques can be broadly classified into supervised, semi-supervised, and unsupervised approaches. **Supervised Learning** requires labeled data with known anomalies. These labels are used to train a classification model to distinguish anomalies from normal observations. R packages like `caret` and `mlr3` provide a suite of tools for building and evaluating supervised anomaly detection models. In practice, labeled data is often unavailable, making **unsupervised learning** a more common choice for anomaly detection. Unsupervised methods aim to identify patterns in the data without explicit labels. For example,  **Isolation Forests** are a tree-based ensemble method designed for anomaly detection.  It works on the principle that anomalies are 'few and different' and thus easier to isolate than normal points. The `isotree` package in R offers an efficient implementation of isolation forests, allowing for the detection of anomalies by isolating data points through random partitioning.  Another popular unsupervised method is **Principal Component Analysis (PCA)**, which reduces the dimensionality of the data to identify variations. The `FactoMineR` and `princomp` packages in R enable PCA-based anomaly detection. Observations with high reconstruction errors after dimensionality reduction are flagged as anomalies. Another popular machine learning approach is the Local Outlier Factor (LOF) algorithm. LOF compares the local density of a point to the local densities of its neighbors, identifying points that have a substantially lower density than their neighbors as potential outliers. The 'Rlof' package in R implements this algorithm[4]. Ensemble methods, which combine multiple models or algorithms, can often provide more robust and accurate anomaly detection than single methods. The idea is that by aggregating the results of multiple detectors, we can reduce the impact of individual model biases and improve overall detection accuracy. The 'anomalyDetection' package in R implements several ensemble methods for anomaly detection. It combines multiple base detectors using various fusion strategies to produce a final anomaly score.
 
-**Supervised Learning** requires labeled data with known anomalies. These labels are used to train a classification model to distinguish anomalies from normal observations. R packages like `caret` and `mlr3` provide a comprehensive suite of tools for building and evaluating supervised anomaly detection models.
 
-In practice, labeled data is often unavailable, making **unsupervised learning** a more common choice for anomaly detection. Unsupervised methods aim to identify patterns in the data without explicit labels.
 
-**Isolation Forests** are a tree-based ensemble method designed for anomaly detection. The `isotree` package in R offers an efficient implementation of isolation forests, allowing for the detection of anomalies by isolating data points through random partitioning. Extended isolation forests, available in the same package, handle high-dimensional data more effectively by projecting it onto random hyperplanes.
-
-Another popular unsupervised method is **Principal Component Analysis (PCA)**, which reduces the dimensionality of the data to identify variations. The `FactoMineR` and `princomp` packages in R enable PCA-based anomaly detection. Observations with high reconstruction errors after dimensionality reduction are flagged as anomalies.
-
-Semi-supervised approaches, such as **autoencoders**, are implemented in R via the `keras` package. Autoencoders learn a compressed representation of the data and reconstruct it. Data points with high reconstruction errors are likely to be anomalies. These methods are especially effective for complex datasets, including images and time series.
-
-As we move beyond traditional statistical methods, machine learning techniques offer powerful tools for anomaly detection, especially when dealing with high-dimensional and complex datasets.
-
-Isolation Forest is a particularly effective algorithm for anomaly detection. It works on the principle that anomalies are 'few and different' and thus easier to isolate than normal points. The 'isotree' package in R provides an efficient implementation of Isolation Forest[3]. This algorithm is especially useful for high-dimensional datasets where traditional methods may struggle.
-
-Another popular machine learning approach is the Local Outlier Factor (LOF) algorithm. LOF compares the local density of a point to the local densities of its neighbors, identifying points that have a substantially lower density than their neighbors as potential outliers. The 'Rlof' package in R implements this algorithm[4].
-
-Support Vector Machines (SVM) can also be adapted for anomaly detection through one-class SVM. This technique learns a decision boundary that encompasses the normal data points and identifies points outside this boundary as anomalies. The 'e1071' package in R provides functions for one-class SVM[5].
-
-Ensemble methods, which combine multiple models or algorithms, can often provide more robust and accurate anomaly detection than single methods. The idea is that by aggregating the results of multiple detectors, we can reduce the impact of individual model biases and improve overall detection accuracy.
-
-The 'anomalyDetection' package in R implements several ensemble methods for anomaly detection. It combines multiple base detectors using various fusion strategies to produce a final anomaly score.
-
-Another interesting approach is the use of Random Forests for anomaly detection. While Random Forests are typically used for classification or regression tasks, they can be adapted for anomaly detection. The 'randomForest' package in R can be used to implement this approach.
 
 
 ### Density-Based Approaches
