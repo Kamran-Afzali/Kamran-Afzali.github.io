@@ -77,16 +77,7 @@ Scalability is also a significant concern, especially when dealing with large da
 
 ### Evaluating Anomaly Detection Models
 
-Choosing the best anomaly detection approach depends on the nature of your data and the problem you're solving. For small datasets with well-understood distributions, statistical methods may suffice. For large, complex, or high-dimensional datasets, machine learning techniques, including isolation forests and autoencoders, offer superior performance.
-
-Combining multiple methods often yields the best results. Ensemble techniques, such as stacking or voting, can improve robustness by leveraging the strengths of different approaches.
-
-
-Evaluating the performance of anomaly detection models presents unique challenges. Unlike in supervised learning tasks, we often don't have labeled data indicating which points are truly anomalous. Even when such labels are available, the extreme class imbalance can make traditional evaluation metrics misleading.
-
-The 'ROCR' package in R provides tools for visualizing the performance of binary classifiers, which can be adapted for anomaly detection tasks. It allows for the creation of ROC curves and the calculation of AUC (Area Under the Curve) scores.
-
-For time series anomaly detection, the 'anomaly' package provides functions for evaluating detection accuracy using metrics specifically designed for time series data.
+Choosing the best anomaly detection approach depends on the nature of the data and the problem you're solving. For small datasets with well-understood distributions, statistical methods are sufficient. But for large or high-dimensional datasets, machine learning techniques, including isolation forests and autoencoders, offer superior performance. Combining multiple methods often yields the best results. Ensemble techniques, such as stacking or voting, can improve robustness by leveraging the strengths of different approaches. When the lables are avaialble and for supervised models, the 'ROCR' package in R provides tools for visualizing the performance of binary classifiers, which can be adapted for anomaly detection tasks. It allows for the creation of ROC curves and the calculation of AUC (Area Under the Curve) scores. For time series anomaly detection, the 'anomaly' package provides functions for evaluating detection accuracy using metrics specifically designed for time series data.
 
 
 ### Future Directions in Anomaly Detection
