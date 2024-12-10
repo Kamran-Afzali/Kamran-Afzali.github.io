@@ -33,3 +33,32 @@ Citations:
 - [Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961115/) 
 - [How Stress Can Change Our Deepest Preferences: Stress Habituation Explained Using the Free Energy Principle](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.865203/full) 
 - [Reframing PTSD for computational psychiatry with the active inference framework](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6816477/)
+
+
+1. "Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context" by Linson et al.
+[https://pubmed.ncbi.nlm.nih.gov/31830495/]
+
+2. "Reframing PTSD for computational psychiatry with the active inference framework" by Linson et al.
+[https://pubmed.ncbi.nlm.nih.gov/31564212/]
+
+3. "Active inference, stressors, and psychological trauma" by Linson et al.
+[https://pmc.ncbi.nlm.nih.gov/articles/PMC6961115/]
+
+4. "Trauma, PTSD, and the Disruption of Active Inference: Implications for Playfulness" by the Playfulness Institute
+[https://www.playfulnessinstitute.org/2024/06/03/trauma-ptsd-and-the-disruption-of-active-inference-implications-for-playfulness/]
+
+
+1. [Trauma or Drama: A Predictive Processing Perspective on the Continuum of Stress](https://www.frontiersin.org/articles/10.3389/fpsyg.2022.792828/full) (Frontiers in Psychology).
+
+2. [Active Inference, Morphogenesis, and Computational Psychiatry](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.646165/full) (Frontiers in Psychology).
+
+
+
+[1] https://www.playfulnessinstitute.org/2024/06/03/trauma-ptsd-and-the-disruption-of-active-inference-implications-for-playfulness/
+[2] https://pubmed.ncbi.nlm.nih.gov/31830495/
+[3] https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1345480/full
+[4] https://pubmed.ncbi.nlm.nih.gov/31564212/
+[5] https://pmc.ncbi.nlm.nih.gov/articles/PMC6961115/
+[6] https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2022.988977/full
+[7] https://www.mdpi.com/1099-4300/26/10/833
+[8] https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2022.955558/full
