@@ -29,36 +29,34 @@ Social interaction, one of the most uncertain and complex aspects of perception,
 In summary, the aberrant encoding of precision in predictive coding can explain many features of autistic sensation, perception, and action. The heightened sensory precision relative to prior beliefs leads to difficulties in contextualizing sensory information, resulting in behaviors like sensory overload, repetitive actions, and social-communication challenges. This perspective integrates functional and neurobiological insights, offering a comprehensive understanding of autism's core characteristics and providing a basis for future research and interventions.
 
 
-Citations:
+### References
+
 - [Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6961115/) 
 - [How Stress Can Change Our Deepest Preferences: Stress Habituation Explained Using the Free Energy Principle](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.865203/full) 
 - [Reframing PTSD for computational psychiatry with the active inference framework](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6816477/)
 
-
-1. "Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context" by Linson et al.
+-  "Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context" by Linson et al.
 [https://pubmed.ncbi.nlm.nih.gov/31830495/]
 
-2. "Reframing PTSD for computational psychiatry with the active inference framework" by Linson et al.
+-  "Reframing PTSD for computational psychiatry with the active inference framework" by Linson et al.
 [https://pubmed.ncbi.nlm.nih.gov/31564212/]
 
-3. "Active inference, stressors, and psychological trauma" by Linson et al.
+-  "Active inference, stressors, and psychological trauma" by Linson et al.
 [https://pmc.ncbi.nlm.nih.gov/articles/PMC6961115/]
 
-4. "Trauma, PTSD, and the Disruption of Active Inference: Implications for Playfulness" by the Playfulness Institute
+-  "Trauma, PTSD, and the Disruption of Active Inference: Implications for Playfulness" by the Playfulness Institute
 [https://www.playfulnessinstitute.org/2024/06/03/trauma-ptsd-and-the-disruption-of-active-inference-implications-for-playfulness/]
 
+-  [Trauma or Drama: A Predictive Processing Perspective on the Continuum of Stress](https://www.frontiersin.org/articles/10.3389/fpsyg.2022.792828/full) (Frontiers in Psychology).
+-  [Active Inference, Morphogenesis, and Computational Psychiatry](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.646165/full) (Frontiers in Psychology).
+- [Active inference, stressors, and psychological trauma: A neuroethological model of (mal)adaptive explore-exploit dynamics in ecological context](https://pubmed.ncbi.nlm.nih.gov/31830495/)
+- [Simulating Emotions: An Active Inference Model of Emotional State Conceptualization](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1345480/full)
+- [Reframing PTSD for computational psychiatry with the active inference framework](https://pubmed.ncbi.nlm.nih.gov/31564212/)
+- [Active inference, stressors, and psychological trauma](https://pmc.ncbi.nlm.nih.gov/articles/PMC6961115/)
 
-1. [Trauma or Drama: A Predictive Processing Perspective on the Continuum of Stress](https://www.frontiersin.org/articles/10.3389/fpsyg.2022.792828/full) (Frontiers in Psychology).
+- [Active inference and interoceptive inference for pain: A computational neuroaesthetic approach to fibromyalgia](https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2022.988977/full)
 
-2. [Active Inference, Morphogenesis, and Computational Psychiatry](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.646165/full) (Frontiers in Psychology).
+- [Toward an Active Inference Theory of Emotion](https://www.mdpi.com/1099-4300/26/10/833)
 
+- [The Active Inference Model of Coherence Therapy](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2022.955558/full)
 
-
-[1] https://www.playfulnessinstitute.org/2024/06/03/trauma-ptsd-and-the-disruption-of-active-inference-implications-for-playfulness/
-[2] https://pubmed.ncbi.nlm.nih.gov/31830495/
-[3] https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1345480/full
-[4] https://pubmed.ncbi.nlm.nih.gov/31564212/
-[5] https://pmc.ncbi.nlm.nih.gov/articles/PMC6961115/
-[6] https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2022.988977/full
-[7] https://www.mdpi.com/1099-4300/26/10/833
-[8] https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2022.955558/full
