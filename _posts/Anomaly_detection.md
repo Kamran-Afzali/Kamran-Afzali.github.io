@@ -34,25 +34,7 @@ Density-based methods assess the density of data points and flag points in spars
 
 ### Time Series Anomaly Detection
 
-Time series data presents unique challenges for anomaly detection due to its temporal nature and potential seasonality. Several R packages are specifically designed to handle anomaly detection in time series data.
-
-The 'anomalize' package is a powerful tool for detecting anomalies in time series data. It implements a tidy workflow, making it easy to use within the tidyverse ecosystem. The package offers multiple methods for decomposing time series and detecting anomalies, including STL decomposition and IQR (Interquartile Range) methods.
-
-Another notable package is 'tsoutliers', which provides functions for detecting and handling outliers in time series data. It implements several methods, including innovative outlier, additive outlier, and level shift detection.
-
-The 'forecast' package, while primarily focused on time series forecasting, also includes functions for detecting and handling outliers in time series data. Its 'tsoutliers()' function is particularly useful for identifying and replacing outliers before forecasting.
-
-For more complex scenarios, **time-series analysis** can be applied using the `forecast` package. This is particularly useful for identifying anomalies in sequential data, such as stock prices or temperature readings. Methods like the Seasonal and Trend decomposition using Loess (STL) can help isolate anomalies by analyzing seasonal patterns.
-Time series data presents unique challenges for anomaly detection due to temporal dependencies. Detecting anomalies in such data often involves identifying sudden deviations from trends or unexpected changes in seasonality.
-
-The `forecast` package in R is a robust tool for handling time series data. Methods like ARIMA and Exponential Smoothing can be used to predict future values and compare them to observed values, flagging deviations as anomalies.
-
-The `anomalize` package builds on the popular `tidyverse` suite, offering a pipeline for detecting anomalies in time series data. It integrates seamlessly with `dplyr` and `ggplot2`, making it a convenient choice for exploratory data analysis.
-
-Deep learning methods for time series, such as Long Short-Term Memory (LSTM) networks, can be implemented using the `keras` package. These models learn temporal patterns and identify anomalies as sequences that deviate significantly from learned behaviors.
-
-
-
+Time series data anomaly detection is different to other data types because of its temporal nature and potential seasonality. Several R packages are specifically designed to handle anomaly detection in time series data. The 'anomalize' package is a powerful tool for detecting anomalies in time series data. It implements a tidy workflow, making it easy to use within the 'tidyverse' ecosystem. The package offers multiple methods for decomposing time series and detecting anomalies, including STL decomposition and IQR (Interquartile Range) methods. Another notable package is 'tsoutliers', which provides functions for detecting and handling outliers in time series data. It implements several methods, including innovative outlier, additive outlier, and level shift detection. For more complex scenarios, **time-series analysis** can be applied using the `forecast` package. The `forecast` package in R is a robust tool for handling time series data. Methods like ARIMA and Exponential Smoothing can be used to predict future values and compare them to observed values, flagging deviations as anomalies. This is particularly useful for identifying anomalies in sequential data. Methods like the Seasonal and Trend decomposition using Loess (STL) can help isolate anomalies by analyzing seasonal patterns.
 
 ### Challenges in Anomaly Detection
 
