@@ -1,5 +1,14 @@
+---
+layout: post
+categories: posts
+title: Free Energy Principle and Active Inference Framework Account of Post-Traumatic Stress Disorder 
+featured-image: /images/NIb.jpg
+tags: [Free Energy Principle, Affect, Consciousness]
+date-string: December 2024
+---
 
-#### Post-Traumatic Stress Disorder (PTSD)
+
+#### Free Energy Principle and Active Inference Framework Account of Post-Traumatic Stress Disorder 
 
 Post-traumatic stress disorder (PTSD) significantly impacts individuals who have experienced traumatic events, such as combat veterans, first responders, and abuse survivors. Traditional models often focus narrowly on specific dysfunctions in neurobiology or behavioral patterns. However, a more recent approach using the active inference framework aims to unify these perspectives by reinterpreting neuropsychological dysfunctions, by recasting concepts like executive control, attention, and contextual processing in terms of active inference. The active inference framework puts forward tye need for a generative model that explains PTSD through message passing and belief updating. The framework's explanatory approach involves four interacting levels: embodied-embedded behavioral dynamics, neurobiological substrates, hierarchical Bayesian models of interactions, and psychophysical/phenomenological observations. For instance, under active inference, reward is seen as minimizing expected free energy, with the "fight or flight" response as a survival strategy involving high metabolic expenditure. This response must balance energy allocation to ensure survival against perceived threats.
 
