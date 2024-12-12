@@ -38,9 +38,7 @@ Time series data anomaly detection is different to other data types because of i
 
 ### Challenges in Anomaly Detection
 
-Anomaly detection is inherently challenging due to several fundamental issues that complicate the process. One significant obstacle is the imbalance of data, as anomalies are, by definition, rare occurrences. This scarcity can bias detection methods, which may become overly focused on common patterns, leading to missed anomalies or an excessive number of false positives. 
-
-The challenge intensifies with high-dimensional data, where the number of features complicates the identification of subtle anomalies. As the dimensionality increases, the data becomes sparser, making it harder to distinguish between normal and anomalous patterns effectively. This "curse of dimensionality" demands advanced techniques that can reduce complexity without losing critical information.
+Anomaly detection challenging because of some issues that complicate the process, such as the imbalance of data, as anomalies are by definition, rare occurrences. This imbalance can bias detection methods, which may become overly focused on common patterns, leading to missed anomalies or an excessive number of false positives. More specifically for high-dimensional data, as the dimensionality increases, the data becomes sparser, making it harder to distinguish between normal and anomalous patterns effectively. This "curse of dimensionality" demands advanced techniques that can reduce complexity without losing critical information. Within this context, scalability is also a significant concern, especially when dealing with large datasets or streaming data. However, some methods, like Isolation Forests, are particularly well-suited for large-scale anomaly detection due to their computational efficiency.
 
 Context-dependent anomalies pose another layer of difficulty. In these cases, anomalies are only detectable within specific contexts, requiring domain knowledge to identify and interpret effectively. For instance, a medical condition might appear normal in one demographic but highly anomalous in another.
 
@@ -48,13 +46,7 @@ Dynamic or streaming data adds real-time constraints to anomaly detection. Unlik
 
 Overcoming these challenges necessitates a holistic approach. Careful preprocessing to address imbalances, feature engineering to manage high dimensionality, and selecting algorithms tailored to the data's nature are essential. With these strategies, anomaly detection systems can become robust and adaptable to complex real-world scenarios.
 
-While numerous methods and tools are available for anomaly detection, it's important to note that there's no one-size-fits-all solution. The choice of method depends heavily on the nature of the data, the type of anomalies expected, and the specific requirements of the application.
-
-One major challenge in anomaly detection is the inherent imbalance in the data. By definition, anomalies are rare, which can lead to issues with model training and evaluation. Techniques like oversampling, undersampling, or synthetic data generation (e.g., SMOTE) can be used to address this imbalance. The 'ROSE' package in R provides functions for dealing with imbalanced data.
-
-Another consideration is the interpretability of the results. While some methods (like statistical approaches) provide clear interpretations, others (like deep learning methods) may act as black boxes. In many real-world applications, it's crucial not just to detect anomalies but also to understand why they were flagged as anomalous.
-
-Scalability is also a significant concern, especially when dealing with large datasets or streaming data. Some methods, like Isolation Forests, are particularly well-suited for large-scale anomaly detection due to their computational efficiency.
+Another consideration is the interpretability of the results. While some methods (like statistical approaches) provide clear interpretations, others (like deep learning methods) may act as black boxes. In many real-world applications, it's crucial not just to detect anomalies but also to understand why they were flagged as anomalous. Finally, it is noteworthy that, while numerous methods and tools are available for anomaly detection, it's important to note that there's no one-size-fits-all solution. The choice of method depends heavily on the nature of the data, the type of anomalies expected, and the specific requirements of the application.
 
 
 ### Evaluating Anomaly Detection Models
