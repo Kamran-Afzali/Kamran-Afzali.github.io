@@ -1,3 +1,7 @@
+
+
+
+
 #### Autism Spectrum Disorder  
 
 
@@ -25,7 +29,9 @@ Social interaction presents the greatest uncertainty for individuals with autism
 
 Cecilia Heyes' concept of Cognitive Gadgets, learned rather than innate cognitive processes, is used to argue that social cognition, including mindreading, is culturally acquired. She supports this with research showing that genetic influence on theory of mind is minimal. Evidence from studies on blindness and childhood maltreatment further suggests that social cognition is heavily dependent on sensory input and environmental factors. Blind children and those who experience maltreatment show higher rates of autism-like symptoms, indicating the importance of sensory and social learning environments in developing social cognition. Thereby, autism might be fundamentally linked to an atypical sensorimotor system, aligning with enactivist views that emphasize the role of sensorimotor processes in cognitive development. Enactivism, therefore, not only offers insights into the autistic experience but also benefits from understanding autism, reinforcing the significance of the sensorimotor system in the broader cognitive landscape.
 
+In summary, the free energy principle and active inference framework offer a fresh lens for understanding autism spectrum disorder (ASD). These approaches emphasize unique ways autistic individuals process sensory and social information, highlighting differences in precision weighting and predictive coding rather than framing autism as a deficit. By integrating sensory challenges, social cognition, and adaptive behaviors, this model captures the complexity of autistic experiences. It provides a foundation for respectful, individualized interventions that align with the diverse ways autistic people navigate and interpret the world.
 
+### References
 
 - [An Investigation of the Free Energy Principle for Emotion Recognition](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7189749/)
 - [The Autistic Enactivist](https://ndsa.uk/content/the-autistic-enactivist/)
