@@ -1,4 +1,3 @@
-
 ---
 layout: post
 categories: posts
@@ -9,8 +8,7 @@ date-string: December 2024
 ---
 
 
-### Autism Spectrum Disorder  
-
+### Autism Spectrum Disorder and Free Energy Principle  
 
 The free energy principle (FEP) and active inference framework provide a comprehensive computational model to understand autism spectrum disorder (ASD). These frameworks conceptualize ASD as a disorder of inference, where the brain's ability to predict and respond to sensorial and social stimuli is altered due to atypical precision weighting and predictive coding mechanisms. Orthodox autism research often suggests that autistic individuals have an impaired theory of mind, which refers to the ability to infer others' mental states. This theory of mind is divided into Theory Theory and Simulation Theory. However, phenomenological perspectives, such as enactivism, critique these views as overly cognitive and not accounting for the embodied and ecological nature of cognition. Enactivism posits that social understanding arises from direct sensorimotor interactions rather than abstract cognitive processes. It views the brain, body, and environment as a unified system in which the brain acts as a mediating organ. Predictive Processing framework is based on Bayesian probability, puts that the brain continuously generates predictions that are compared with actual sensory data, with discrepancies termed prediction errors. In autistic individuals, the integration of these predictions and sensory signals is atypical, leading to experiences of sensory overload in environments like supermarkets. In other words, in autistic experiences, such as meltdowns or shutdowns, the autopoietic system is overwhelmed by prediction errors. 
 
