@@ -3,7 +3,7 @@ layout: post
 categories: posts
 title: Autism Spectrum Disorder and Free Energy Principle   
 featured-image: /images/NIb.jpg
-tags: [Free Energy Principle, Affect, Consciousness]
+tags: [Free Energy Principle, Autism Spectrum Disorder, Consciousness]
 date-string: December 2024
 ---
 
