@@ -3,7 +3,7 @@ layout: post
 categories: posts
 title: Free Energy Principle and Active Inference Framework Account of Post-Traumatic Stress Disorder 
 featured-image: /images/NIb.jpg
-tags: [Free Energy Principle, Affect, Consciousness]
+tags: [Free Energy Principle, PTSD, Active Inference]
 date-string: December 2024
 ---
 
