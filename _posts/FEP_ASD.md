@@ -1,14 +1,21 @@
 
+---
+layout: post
+categories: posts
+title: Autism Spectrum Disorder and Free Energy Principle   
+featured-image: /images/NIb.jpg
+tags: [Free Energy Principle, Affect, Consciousness]
+date-string: December 2024
+---
 
 
-
-#### Autism Spectrum Disorder  
+### Autism Spectrum Disorder  
 
 
 The free energy principle (FEP) and active inference framework provide a comprehensive computational model to understand autism spectrum disorder (ASD). These frameworks conceptualize ASD as a disorder of inference, where the brain's ability to predict and respond to sensorial and social stimuli is altered due to atypical precision weighting and predictive coding mechanisms. Orthodox autism research often suggests that autistic individuals have an impaired theory of mind, which refers to the ability to infer others' mental states. This theory of mind is divided into Theory Theory and Simulation Theory. However, phenomenological perspectives, such as enactivism, critique these views as overly cognitive and not accounting for the embodied and ecological nature of cognition. Enactivism posits that social understanding arises from direct sensorimotor interactions rather than abstract cognitive processes. It views the brain, body, and environment as a unified system in which the brain acts as a mediating organ. Predictive Processing framework is based on Bayesian probability, puts that the brain continuously generates predictions that are compared with actual sensory data, with discrepancies termed prediction errors. In autistic individuals, the integration of these predictions and sensory signals is atypical, leading to experiences of sensory overload in environments like supermarkets. In other words, in autistic experiences, such as meltdowns or shutdowns, the autopoietic system is overwhelmed by prediction errors. 
 
 
-**Aberrant Precision Weighting**
+#### Aberrant Precision Weighting
 
 The concept of precision weighting refers to the reliability or confidence assigned to different sources of information, whether sensory inputs or prior beliefs. From a Bayesian perspective, the brain constantly generates hypotheses about the causes of sensory evidence, which can be seen as prior expectations formed over various timescales and hierarchical levels, from basic visual patterns to complex facial expressions. Predictive coding theories suggest that higher brain areas generate top-down predictions that meet bottom-up signals in lower sensory areas. The mismatch between sensory input and predictions, called prediction error, informs higher-level expectations to generate better predictions and reduce future errors. The influence of prior beliefs versus sensory evidence is modulated by precision, or the confidence in prediction errors at each hierarchical level. High sensory precision amplifies the influence of ascending prediction errors, while low sensory precision biases perception towards prior beliefs. The challenge of optimal perception involves inferring the causes of sensory inputs. This task is complicated by the inherent ambiguity in sensory inputs, where different causes can generate identical sensations, leading to the "inverse problem" of perception. Resolving this problem requires prior beliefs about the generation of sensations. Additionally, it is necessary to estimate the confidence placed in sensory evidence relative to these prior beliefs. Inaccurate confidence estimation compromises perceptual inference, similar to statistical inference without a proper estimate of standard error. It has been proposed that in autism, high-level prior precision may be attenuated relative to sensory precision, leading to an overemphasis on sensory input and impaired contextualization of sensory information. This suggests that individuals with autism may give disproportionate weight to sensory evidence, driving their beliefs excessively.
 
@@ -17,7 +24,7 @@ In autism, there may be an imbalance in how precision is allocated, with sensory
 Autistic individuals often report both hypersensitivity and hyposensitivity to sensory stimuli. Coping strategies, including withdrawal from sensory stimulation, can be seen as efforts to avoid excessive prediction errors. This withdrawal resembles the “dark room problem” in predictive coding, where minimizing sensory input can reduce prediction errors. Alternatively, withdrawal might result from the failure to develop internal models necessary for interacting with the world, particularly in social contexts. These behaviors align with neurodevelopmental theories of autism, suggesting that atypical behaviors arise from attempts to balance sensory evidence and top-down beliefs.
 
 
-**Social Cognition and Predictive Coding**
+#### Social Cognition and Predictive Coding
 
 According to FEP the brain operates as a Bayesian inference machine, constantly updating its internal models to minimize prediction errors. In the context of social cognition, this means accurately predicting others' behaviors and intentions based on social cues. However, individuals with autism may have difficulties in this predictive coding process. They might struggle with the flexible adjustment of predictions based on social context, leading to challenges in interpreting and responding to social cues. This can manifest as difficulties in understanding and predicting others' mental states, a core aspect of social interactions. Furthermore, this framework can help explain the social difficulties often observed in autism. The process of inferring others' mental states and intentions, crucial for social interaction, can be viewed as a form of active inference. Difficulties in this area could be related to atypical precision weighting of social cues or challenges in flexibly updating social predictions.
 
@@ -29,7 +36,10 @@ Social interaction presents the greatest uncertainty for individuals with autism
 
 Cecilia Heyes' concept of Cognitive Gadgets, learned rather than innate cognitive processes, is used to argue that social cognition, including mindreading, is culturally acquired. She supports this with research showing that genetic influence on theory of mind is minimal. Evidence from studies on blindness and childhood maltreatment further suggests that social cognition is heavily dependent on sensory input and environmental factors. Blind children and those who experience maltreatment show higher rates of autism-like symptoms, indicating the importance of sensory and social learning environments in developing social cognition. Thereby, autism might be fundamentally linked to an atypical sensorimotor system, aligning with enactivist views that emphasize the role of sensorimotor processes in cognitive development. Enactivism, therefore, not only offers insights into the autistic experience but also benefits from understanding autism, reinforcing the significance of the sensorimotor system in the broader cognitive landscape.
 
-In summary, the free energy principle and active inference framework offer a fresh lens for understanding autism spectrum disorder (ASD). These approaches emphasize unique ways autistic individuals process sensory and social information, highlighting differences in precision weighting and predictive coding rather than framing autism as a deficit. By integrating sensory challenges, social cognition, and adaptive behaviors, this model captures the complexity of autistic experiences. It provides a foundation for respectful, individualized interventions that align with the diverse ways autistic people navigate and interpret the world.
+
+#### Conclusion 
+
+The free energy principle and active inference framework offer a fresh lens for understanding autism spectrum disorder (ASD). These approaches emphasize unique ways autistic individuals process sensory and social information, highlighting differences in precision weighting and predictive coding rather than framing autism as a deficit. By integrating sensory challenges, social cognition, and adaptive behaviors, this model captures the complexity of autistic experiences. It provides a foundation for respectful, individualized interventions that align with the diverse ways autistic people navigate and interpret the world.
 
 ### References
 
