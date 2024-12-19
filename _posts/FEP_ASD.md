@@ -37,7 +37,7 @@ Cecilia Heyes' concept of Cognitive Gadgets, learned rather than innate cognitiv
 
 #### Conclusion 
 
-The free energy principle and active inference framework offer a fresh lens for understanding autism spectrum disorder (ASD). These approaches emphasize unique ways autistic individuals process sensory and social information, highlighting differences in precision weighting and predictive coding rather than framing autism as a deficit. By integrating sensory challenges, social cognition, and adaptive behaviors, this model captures the complexity of autistic experiences. It provides a foundation for respectful, individualized interventions that align with the diverse ways autistic people navigate and interpret the world.
+The free energy principle and active inference framework provide a valuable perspective for understanding autism spectrum disorder (ASD). These approaches emphasize unique ways autistic individuals process sensory and social information, focusing on precision weighting and predictive coding rather than viewing autism as a deficit. By integrating sensory challenges, social cognition, and adaptive behaviors, this model captures the complexity of autistic experiences. Future research should explore practical applications of these insights, such as developing interventions that support sensory modulation and improve social adaptability, respecting the diversity of autistic individuals' experiences.
 
 ### References
 
