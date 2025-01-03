@@ -186,3 +186,20 @@ Les comités d'éthique de la recherche (CER) soulignent l'importance de l'inclu
 
 - Quelles sont les mesures mises en place pour garantir la transparence, l'équité et la responsabilité dans l'utilisation de l'IA ?
 
+
+
+**References**  
+
+Centers for Disease Control and Prevention. (2024). Equity in digital health: Addressing disparities through technology. Retrieved from [https://www.cdc.gov/pcd/issues/2024/24_0245.htm](https://www.cdc.gov/pcd/issues/2024/24_0245.htm)  
+
+Digital Health Australia. (2024). Ethical frameworks reduce risk and improve safety when implementing AI in healthcare. Retrieved from [https://digitalhealth.org.au/blog/ethical-frameworks-reduce-risk-and-improve-safety-when-implementing-ai-in-healthcare/](https://digitalhealth.org.au/blog/ethical-frameworks-reduce-risk-and-improve-safety-when-implementing-ai-in-healthcare/)  
+
+HITRUST Alliance. (2024). The ethics of AI in healthcare. Retrieved from [https://hitrustalliance.net/blog/the-ethics-of-ai-in-healthcare](https://hitrustalliance.net/blog/the-ethics-of-ai-in-healthcare)  
+
+National Center for Biotechnology Information. (2023). Addressing safety and usability in digital health interventions. Retrieved from [https://pmc.ncbi.nlm.nih.gov/articles/PMC8826344/](https://pmc.ncbi.nlm.nih.gov/articles/PMC8826344/)  
+
+National Center for Biotechnology Information. (2022). Conflict of interest in digital health research: Ethical considerations. Retrieved from [https://pmc.ncbi.nlm.nih.gov/articles/PMC7138421/](https://pmc.ncbi.nlm.nih.gov/articles/PMC7138421/)  
+
+Nature Communications. (2024). Algorithmic fairness in digital health: Challenges and solutions. Retrieved from [https://www.nature.com/articles/s41599-024-02894-w](https://www.nature.com/articles/s41599-024-02894-w)  
+
+World Health Organization. (2023). Ethics and governance of artificial intelligence for health. Retrieved from [https://www.who.int/publications/i/item/9789240029200](https://www.who.int/publications/i/item/9789240029200)  
