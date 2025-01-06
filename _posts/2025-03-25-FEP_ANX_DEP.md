@@ -4,7 +4,7 @@ categories: posts
 title: Reconceptualizing Anxiety and Depression within the Free Energy Principle and Active Inference Framework
 featured-image: /images/NIb.jpg
 tags: [Free Energy Principle, Affect, Consciousness]
-date-string: December 2024
+date-string: March 2025
 ---
 
 ### Reconceptualizing Anxiety and Depression: Insights from the Free Energy Principle and Active Inference Framework
