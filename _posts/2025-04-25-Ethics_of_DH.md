@@ -1,3 +1,12 @@
+---
+layout: post
+categories: posts
+title: Ethical Challenges and Governance in the Integration of Digital Health Technologies and AI
+featured-image: /images/RAI.png
+tags: [Artificial intelligence, Digital Health, Ethics]
+date-string: July 2023
+---
+
 ### Ethical Challenges and Governance in the Integration of Digital Health Technologies and AI
 
 The rise of digital health technologies has led to the generation of both qualitative and quantitative "big data" including digital traces of our everyday behaviors. This data holds valuable information that could potentially benefit patients and caregivers. However, the rapid integration of digital health technologies and artificial intelligence (AI) into research and clinical practice raises significant ethical concerns that need to be addressed.
