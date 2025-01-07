@@ -4,7 +4,7 @@ categories: posts
 title: Ethical Challenges and Governance in the Integration of Digital Health Technologies and AI
 featured-image: /images/RAI.png
 tags: [Artificial intelligence, Digital Health, Ethics]
-date-string: July 2023
+date-string: April 2025
 ---
 
 ### Ethical Challenges and Governance in the Integration of Digital Health Technologies and AI
