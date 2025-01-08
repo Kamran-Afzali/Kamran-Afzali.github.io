@@ -226,21 +226,20 @@ Anonymization is crucial in sectors like healthcare, finance, and marketing, whe
 
 ### References:
 
-1. <a href="https://www.snowflake.com/trending/data-anonymization-sensitive-data/">Data Anonymization for Responsible Use of Sensitive Data</a>
+- <a href="https://www.snowflake.com/trending/data-anonymization-sensitive-data/">Data Anonymization for Responsible Use of Sensitive Data</a>
 
-2. <a href="https://www.k2view.com/blog/data-anonymization-techniques/">Data Anonymization Techniques: 12 Keys to Compliance</a>
+- <a href="https://www.k2view.com/blog/data-anonymization-techniques/">Data Anonymization Techniques: 12 Keys to Compliance</a>
 
-3. <a href="https://www.k2view.com/what-is-data-anonymization/">What is Data Anonymization | Techniques, Pros, Cons, and Use Cases</a>
+- <a href="https://www.k2view.com/what-is-data-anonymization/">What is Data Anonymization | Techniques, Pros, Cons, and Use Cases</a>
 
-4. <a href="https://www.rdocumentation.org/packages/anonymizer/versions/0.2.0">anonymizer package - RDocumentation</a>
+- <a href="https://www.rdocumentation.org/packages/anonymizer/versions/0.2.0">anonymizer package - RDocumentation</a>
 
-5. <a href="https://www.r-bloggers.com/2014/11/data-anonymization-in-r/">Data anonymization in R - R-bloggers</a>
+- <a href="https://www.r-bloggers.com/2014/11/data-anonymization-in-r/">Data anonymization in R - R-bloggers</a>
 
-Citations:
-[1] https://www.snowflake.com/trending/data-anonymization-sensitive-data/
-[2] https://www.k2view.com/blog/data-anonymization-techniques/
-[3] https://www.k2view.com/what-is-data-anonymization/
-[4] https://www.rdocumentation.org/packages/anonymizer/versions/0.2.0
-[5] https://www.r-bloggers.com/2014/11/data-anonymization-in-r/
-[6] https://pmc.ncbi.nlm.nih.gov/articles/PMC7411532/
-[7] https://pubmed.ncbi.nlm.nih.gov/29726422/
+- https://www.snowflake.com/trending/data-anonymization-sensitive-data/
+- https://www.k2view.com/blog/data-anonymization-techniques/
+- https://www.k2view.com/what-is-data-anonymization/
+- https://www.rdocumentation.org/packages/anonymizer/versions/0.2.0
+- https://www.r-bloggers.com/2014/11/data-anonymization-in-r/
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC7411532/
+- https://pubmed.ncbi.nlm.nih.gov/29726422/
