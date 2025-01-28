@@ -2,7 +2,7 @@
 
 ## Anomaly Detection with Isolation Forests in R
 
-Anomaly detection, also known as outlier or novelty detection, is a task in data analysis where the goal is to identify rare items, events, or observations that deviate significantly from the majority of the data. This process is used in various domains such as fraud detection, network security, etc. One powerful method for anomaly detection is the Isolation Forest algorithm. This post will guide you through the concept, implementation, and application of isolation forests, with code examples in R, with the `isotree` package.
+Anomaly detection, also known as outlier or novelty detection, is a task in data analysis where the goal is to identify rare items, events, or observations that deviate significantly from the majority of the data. This process is used in various domains such as fraud detection. Following up on an earlier post this post will guide you through the concept, implementation, and application of isolation forests, with code examples in R, with the `isotree` package.
 
 ### Introduction to Isolation Forests
 
