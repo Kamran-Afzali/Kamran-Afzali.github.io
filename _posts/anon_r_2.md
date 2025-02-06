@@ -563,67 +563,24 @@ These resources provide deeper insights into additional functionalities, allowin
 ### References
 
 
-- https://cran.r-project.org/web/packages/sdcMicro/vignettes/sdcMicro.html
-- https://github.com/vectranetworks/anonym
-- https://github.com/sdcTools/sdcMicro
-- https://sdcpractice.readthedocs.io/en/latest/sdcMicro.html
-- https://www.rdocumentation.org/packages/anonymizer/versions/0.2.0
-- https://www.jstatsoft.org/article/download/v067i04/934
-- https://www.r-bloggers.com/2014/11/data-anonymization-in-r/
-- https://guides.library.jhu.edu/protecting_identifiers/software
-- http://cran.nexr.com/web/packages/sdcMicro/vignettes/sdc_guidelines.pdf
-- http://cran.nexr.com/web/packages/anonymizer/anonymizer.pdf
-- https://readthedocs.org/projects/sdcpractice/downloads/pdf/latest/
-- https://centre.humdata.org/learning-path/disclosure-risk-assessment-overview/statistical-disclosure-control-tutorial/
-- https://stackoverflow.com/questions/61220289/data-anonymization-in-r
-- https://www.researchgate.net/publication/282618398_Statistical_Disclosure_Control_for_Micro-Data_Using_the_R_Package_sdcMicro
-- http://www.tdp.cat/issues/tdp.a004a08.pdf
-- https://aircloak.com/top-5-free-data-anonymization-tools/
-- http://www.ihsn.org/projects/sdc
-- https://docs.cosmian.com/anonymize/data_anonymization/
-- https://cran.r-project.org/web/packages/sdcMicro/sdcMicro.pdf
-- https://sdcpractice.readthedocs.io/en/latest/anon_methods.html
-- https://sdcpractice.readthedocs.io/en/latest/anon_methods.html
-- https://www.r-bloggers.com/2014/11/data-anonymization-in-r/
-- https://sdcpractice.readthedocs.io/en/latest/sdcMicro.html
-- https://cran.r-project.org/web/packages/sdcMicro/sdcMicro.pdf
-- https://github.com/paulhendricks/anonymizer
-- https://www.rdocumentation.org/packages/sdcMicro/versions/5.7.8
-- http://www.ihsn.org/software/disclosure-control-toolbox
-- http://cran.nexr.com/web/packages/anonymizer/index.html
-- https://www.jstatsoft.org/article/download/v067i04/934
-- https://bookdown.org/martin_monkman/DataScienceResources_book/anonymity-and-confidentiality.html
-- https://bookdown.org/martin_monkman/DataScienceResources_book/anonymity-and-confidentiality.html
-- http://www.ihsn.org/software/disclosure-control-toolbox
-- http://cran.nexr.com/web/packages/anonymizer/index.html
-- https://www.imperva.com/learn/data-security/anonymization/
-- https://cran.r-project.org/web/packages/sdcMicro/sdcMicro.pdf
-- https://rdrr.io/cran/anonymizer/
-- https://alliancecan.ca/sites/default/files/2022-05/ReducingRisk-PortageWebinar.pdf
-- https://cran.r-project.org/web/packages/sdcMicro/index.html
-- https://github.com/paulhendricks/anonymizer/blob/master/README.Rmd
-- https://blogs.ed.ac.uk/georgekinnear/2022/05/12/anonymising-data-using-r/
-- https://sdctools.github.io/sdcMicro/
-- http://cran.nexr.com/web/packages/anonymizer/anonymizer.pdf
-- https://rpubs.com/jsmccid/anondata
-- https://www.youtube.com/watch?v=xA2vaUdvxNY
-- https://cran.r-project.org/web/packages/sdcMicro/vignettes/sdcMicro.html
-- https://stackoverflow.com/questions/54466053/function-which-will-anonymise-data-with-text-instead-of-numbers
-- https://stackoverflow.com/questions/61220289/data-anonymization-in-r
-- https://github.com/sdcTools/sdcMicro
-- https://sdctools.github.io/sdcMicro/reference/sdcMicro-package.html
-- https://github.com/sunitparekh/data-anonymization
-- http://cran.nexr.com/web/packages/sdcMicro/index.html
-- https://iapp.org/resources/article/guide-to-basic-data-anonymization-techniques/
-- https://ubc-mds.github.io/sanityzeR/
-- https://researchdata.library.ubc.ca/deposit/anonymize-and-de-identify/data-anonymization/
-- https://www.youtube.com/watch?v=IAmxErXPvHU
-- https://rdrr.io/cran/sdcMicro/man/sdcMicro-package.html
-- https://mostly.ai/blog/data-anonymization-tools
-- https://psychbrief.wordpress.com/2019/05/29/anonymous-data-r/
-- https://joss.theoj.org/papers/10.21105/joss.07157.pdf
-- https://www.jstatsoft.org/article/download/v067i04/934
-- https://rdrr.io/cran/anonymizer/man/anonymize.html
-- https://centre.humdata.org/learning-path/disclosure-risk-assessment-overview/statistical-disclosure-control-tutorial/
-- https://github.com/sdcTools/sdcMicro/blob/master/R/sdcMicro-package.R
-- https://www.rdocumentation.org/packages/anonymizer/versions/0.2.0/topics/anonymize
+
+1. [sdcMicro: A Tool for Statistical Disclosure Control in R](https://cran.r-project.org/web/packages/sdcMicro/vignettes/sdcMicro.html)
+
+2. [anonym: Data Anonymization Library](https://github.com/vectranetworks/anonym)
+
+3. [sdcMicro: Statistical Disclosure Control Methods for Anonymization of Microdata and Risk Estimation](https://github.com/sdcTools/sdcMicro)
+
+4. [sdcMicro - Statistical Disclosure Control for Microdata](https://sdcpractice.readthedocs.io/en/latest/sdcMicro.html)
+
+5. [anonymizer package - RDocumentation](https://www.rdocumentation.org/packages/anonymizer/versions/0.2.0)
+
+6. [Statistical Disclosure Control for Microdata Using the R Package sdcMicro](https://www.jstatsoft.org/article/download/v067i04/934)
+
+7. [Data Anonymization in R](https://www.r-bloggers.com/2014/11/data-anonymization-in-r/)
+
+8. [Software for Protecting Identifiers - Johns Hopkins University](https://guides.library.jhu.edu/protecting_identifiers/software)
+
+9. [Guidelines for the checking of output based on microdata research](http://cran.nexr.com/web/packages/sdcMicro/vignettes/sdc_guidelines.pdf)
+
+10. [anonymizer: Anonymize Data Containing Personally Identifiable Information](http://cran.nexr.com/web/packages/anonymizer/anonymizer.pdf)
+
