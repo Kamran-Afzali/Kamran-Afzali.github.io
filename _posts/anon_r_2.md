@@ -102,7 +102,72 @@ install.packages("sdcMicro")
 ##### Graphical Interface  
 sdcMicro includes a Shiny-based GUI (`sdcApp()`) for users preferring point-and-click workflows[7].
 
+---
 
+##### Advanced sdcMicro Workflow with Synthetic Data
+This example demonstrates a complete anonymization pipeline with risk/utility tradeoff analysis.
+
+```r
+# Install and load
+install.packages("sdcMicro")
+library(sdcMicro)
+library(ggplot2)
+
+# Generate synthetic sensitive data
+set.seed(123)
+n <- 10000
+synth_data <- data.frame(
+  id = 1:n,
+  age = sample(18:90, n, replace = TRUE),
+  gender = sample(c("M","F","NB"), n, replace = TRUE),
+  postal_code = sample(paste0("PC-",1000:9999), n, replace = TRUE),
+  income = rlnorm(n, meanlog = 10, sdlog = 0.5),
+  health_score = rnorm(n, mean = 50, sd = 10),
+  hiv_status = rbinom(n, 1, 0.03)
+)
+
+# Initialize sdcMicro object with stratification
+sdc <- createSdcObj(
+  dat = synth_data,
+  keyVars = c("age", "gender", "postal_code"),  # Quasi-identifiers
+  numVars = c("income", "health_score"),        # Sensitive numericals
+  weightVar = NULL,
+  hhId = NULL,
+  strataVar = "gender",                         # Stratify by gender
+  sensibleVar = "hiv_status"                    # Highly sensitive
+)
+
+# Comprehensive risk assessment
+risk_report <- print(sdc, "risk") 
+cat("Risk metrics:\n")
+cat("- Individual risk > 0.1:", sum(risk_report$risk$individual[,2] > 0.1), "\n")
+cat("- Hierarchical risk:", risk_report$risk$hierarchical, "\n")
+cat("- k-anonymity violations:", sum(risk_report$fkAnon[,2] < 3), "\n")
+
+# Multi-stage anonymization
+sdc <- microaggregation(sdc, method = "cluster", aggr = 3)    # Cluster-based
+sdc <- addNoise(sdc, noise = 0.1)                             # Numerical noise
+sdc <- localSuppression(sdc, threshold = 0.05)                # 5% risk threshold
+
+# Evaluate utility loss
+original <- synth_data$income
+anonymized <- extractManipData(sdc)$income
+mse <- mean((original - anonymized)^2)
+correlation <- cor(original, anonymized)
+
+# Visualize impact
+ggplot() +
+  geom_density(aes(x = original), fill = "blue", alpha = 0.5) +
+  geom_density(aes(x = anonymized), fill = "red", alpha = 0.5) +
+  labs(title = "Income Distribution Before/After Anonymization")
+```
+
+**Key Features Demonstrated** [1][3][6]:
+- Stratified risk analysis by gender
+- Cluster-based microaggregation
+- Combined noise addition and suppression
+- Quantitative utility metrics (MSE, correlation)
+- Visual distribution comparison
 
 ### Anonymizer
 
@@ -171,96 +236,9 @@ install.packages("anonymizer")
    )
    customers[, name := anonymize(name)]
    ```
-
 ---
 
-## Choosing Between sdcMicro and Anonymizer  
-| **Feature**               | **sdcMicro**                          | **Anonymizer**                |
-|---------------------------|---------------------------------------|--------------------------------|
-| **Scope**                 | Comprehensive SDC for microdata      | PII hashing and salting        |
-| **Techniques**            | Microaggregation, suppression, PRAM  | Hashing with optional salting  |
-| **Use Case**              | Census/survey data                    | Simple identifier anonymization|
-| **Learning Curve**        | Moderate                              | Low                            |
-| **GUI Support**           | Yes                                   | No                             |
-
----
-
-## Best Practices and Considerations  
-1. **Evaluate Utility Loss**: Use metrics like mean squared error (MSE) to assess the impact of anonymization[9].  
-2. **Combine Methods**: Pair hashing (anonymizer) with perturbation (sdcMicro) for layered protection.  
-3. **Audit Risks**: Regularly recompute disclosure risks after modifications[3].  
-
-
----
-
-## Advanced sdcMicro Workflow with Synthetic Data
-This example demonstrates a complete anonymization pipeline with risk/utility tradeoff analysis.
-
-```r
-# Install and load
-install.packages("sdcMicro")
-library(sdcMicro)
-library(ggplot2)
-
-# Generate synthetic sensitive data
-set.seed(123)
-n <- 10000
-synth_data <- data.frame(
-  id = 1:n,
-  age = sample(18:90, n, replace = TRUE),
-  gender = sample(c("M","F","NB"), n, replace = TRUE),
-  postal_code = sample(paste0("PC-",1000:9999), n, replace = TRUE),
-  income = rlnorm(n, meanlog = 10, sdlog = 0.5),
-  health_score = rnorm(n, mean = 50, sd = 10),
-  hiv_status = rbinom(n, 1, 0.03)
-)
-
-# Initialize sdcMicro object with stratification
-sdc <- createSdcObj(
-  dat = synth_data,
-  keyVars = c("age", "gender", "postal_code"),  # Quasi-identifiers
-  numVars = c("income", "health_score"),        # Sensitive numericals
-  weightVar = NULL,
-  hhId = NULL,
-  strataVar = "gender",                         # Stratify by gender
-  sensibleVar = "hiv_status"                    # Highly sensitive
-)
-
-# Comprehensive risk assessment
-risk_report <- print(sdc, "risk") 
-cat("Risk metrics:\n")
-cat("- Individual risk > 0.1:", sum(risk_report$risk$individual[,2] > 0.1), "\n")
-cat("- Hierarchical risk:", risk_report$risk$hierarchical, "\n")
-cat("- k-anonymity violations:", sum(risk_report$fkAnon[,2] < 3), "\n")
-
-# Multi-stage anonymization
-sdc <- microaggregation(sdc, method = "cluster", aggr = 3)    # Cluster-based
-sdc <- addNoise(sdc, noise = 0.1)                             # Numerical noise
-sdc <- localSuppression(sdc, threshold = 0.05)                # 5% risk threshold
-
-# Evaluate utility loss
-original <- synth_data$income
-anonymized <- extractManipData(sdc)$income
-mse <- mean((original - anonymized)^2)
-correlation <- cor(original, anonymized)
-
-# Visualize impact
-ggplot() +
-  geom_density(aes(x = original), fill = "blue", alpha = 0.5) +
-  geom_density(aes(x = anonymized), fill = "red", alpha = 0.5) +
-  labs(title = "Income Distribution Before/After Anonymization")
-```
-
-**Key Features Demonstrated** [1][3][6]:
-- Stratified risk analysis by gender
-- Cluster-based microaggregation
-- Combined noise addition and suppression
-- Quantitative utility metrics (MSE, correlation)
-- Visual distribution comparison
-
----
-
-## Enterprise-Grade Anonymizer Implementation
+##### Enterprise-Grade Anonymizer Implementation
 For PII handling in large datasets with GDPR compliance:
 
 ```r
@@ -318,7 +296,25 @@ merged_data <- merge(v1, v2, by = "pseudo_id", suffixes = c("_v1", "_v2")) %>%
 
 ---
 
-## Combined Workflow for Medical Data
+## Choosing Between sdcMicro and Anonymizer  
+| **Feature**               | **sdcMicro**                          | **Anonymizer**                |
+|---------------------------|---------------------------------------|--------------------------------|
+| **Scope**                 | Comprehensive SDC for microdata      | PII hashing and salting        |
+| **Techniques**            | Microaggregation, suppression, PRAM  | Hashing with optional salting  |
+| **Use Case**              | Census/survey data                    | Simple identifier anonymization|
+| **Learning Curve**        | Moderate                              | Low                            |
+| **GUI Support**           | Yes                                   | No                             |
+
+---
+
+## Best Practices and Considerations  
+1. **Evaluate Utility Loss**: Use metrics like mean squared error (MSE) to assess the impact of anonymization[9].  
+2. **Combine Methods**: Pair hashing (anonymizer) with perturbation (sdcMicro) for layered protection.  
+3. **Audit Risks**: Regularly recompute disclosure risks after modifications[3].  
+
+---
+
+##### Combined Workflow for Medical Data
 Integrating both packages for HIPAA-compliant processing:
 
 ```r
@@ -359,18 +355,6 @@ final_data <- extractManipData(sdc_medical) %>%
 
 ---
 
-## References & Resources
-- [sdcMicro Official Documentation](https://cran.r-project.org/web/packages/sdcMicro/) [1][3]
-- [Anonymizer CRAN Vignette](https://cran.r-project.org/web/packages/anonymizer/) [5][10]  
-- [SDC Best Practices Guide](http://cran.nexr.com/web/packages/sdcMicro/vignettes/sdc_guidelines.pdf) [9][11]
-- [Journal of Statistical Software: sdcMicro Deep Dive](https://doi.org/10.18637/jss.v067.i04) [6]
-
-This expanded implementation guide provides enterprise-ready patterns while maintaining statistical utility. Always validate against your specific compliance requirements.
-
-_____________________________________________________________________________
-
-
-Here’s a more comprehensive blog post on **data anonymization in R**, specifically using the **sdcMicro** and **anonymizer** packages, along with detailed R code examples.  
 
 ---
 
@@ -518,27 +502,7 @@ print(data)
 
 Each name and email address is replaced with a **unique, consistent** but **randomized identifier**. If the same function is applied to different datasets with identical values, the same anonymized output will be produced, maintaining relationships between datasets.  
 
----
 
-## **Final Thoughts on Data Anonymization in R**  
-
-Data anonymization is essential for **privacy-preserving data sharing** while maintaining the dataset’s analytical value.  
-
-- **sdcMicro** is best suited for anonymizing structured datasets with **numerical** and **categorical** data, applying techniques like **microaggregation, noise addition, and suppression** to reduce the risk of re-identification.  
-- **anonymizer** provides an effective way to **mask personal identifiers**, replacing them with **consistent pseudonyms** while preserving the relationships within the data.  
-
-Using these tools, organizations and researchers can confidently share and analyze sensitive data without compromising individuals' privacy.  
-
----
-
-## **Further Reading**  
-
-For more details on these R packages, check out their documentation:  
-
-- **sdcMicro**: [CRAN Documentation](https://cran.r-project.org/web/packages/sdcMicro/sdcMicro.pdf)  
-- **anonymizer**: [CRAN Documentation](https://cran.r-project.org/web/packages/anonymizer/anonymizer.pdf)  
-
-These resources provide deeper insights into additional functionalities, allowing you to explore advanced anonymization techniques.
 
 ### References
 
