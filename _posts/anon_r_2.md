@@ -296,7 +296,7 @@ merged_data <- merge(v1, v2, by = "pseudo_id", suffixes = c("_v1", "_v2")) %>%
 
 ---
 
-## Choosing Between sdcMicro and Anonymizer  
+##### Choosing Between sdcMicro and Anonymizer  
 | **Feature**               | **sdcMicro**                          | **Anonymizer**                |
 |---------------------------|---------------------------------------|--------------------------------|
 | **Scope**                 | Comprehensive SDC for microdata      | PII hashing and salting        |
@@ -305,12 +305,6 @@ merged_data <- merge(v1, v2, by = "pseudo_id", suffixes = c("_v1", "_v2")) %>%
 | **Learning Curve**        | Moderate                              | Low                            |
 | **GUI Support**           | Yes                                   | No                             |
 
----
-
-## Best Practices and Considerations  
-1. **Evaluate Utility Loss**: Use metrics like mean squared error (MSE) to assess the impact of anonymization[9].  
-2. **Combine Methods**: Pair hashing (anonymizer) with perturbation (sdcMicro) for layered protection.  
-3. **Audit Risks**: Regularly recompute disclosure risks after modifications[3].  
 
 ---
 
@@ -354,153 +348,6 @@ final_data <- extractManipData(sdc_medical) %>%
 5. Temporal data hashing
 
 ---
-
-
----
-
-# **Data Anonymization in R with sdcMicro and anonymizer**
-
-With the increasing importance of data privacy regulations like **GDPR** (General Data Protection Regulation) and **CCPA** (California Consumer Privacy Act), organizations must ensure that their data handling processes comply with stringent privacy requirements. **Data anonymization** plays a crucial role in protecting individuals’ identities while preserving data utility for analysis, research, and machine learning applications.  
-
-In R, two powerful packages for data anonymization are **sdcMicro** and **anonymizer**. The **sdcMicro** package specializes in **statistical disclosure control (SDC)**, helping users apply transformations like **microaggregation, data suppression, perturbation, and local suppression** to anonymize datasets. On the other hand, **anonymizer** is particularly useful for **generating consistent yet randomized identifiers**, ensuring that sensitive categorical data like names, addresses, or emails are effectively anonymized while preserving relationships in the data.  
-
-This post will walk you through complete, **real-world examples** of using these two packages to anonymize a dataset containing sensitive personal information.  
-
----
-
-## **1. Anonymizing Data with sdcMicro**  
-
-The **sdcMicro** package provides a robust framework for anonymizing **numerical and categorical data** while ensuring compliance with privacy regulations. Let’s explore a **detailed example** of anonymizing a dataset containing **personal details** and **financial data**.  
-
-### **Step 1: Load Necessary Packages and Create Sample Data**  
-
-We start by loading the required package and creating a dataset that contains sensitive information such as age, gender, income, and credit score.  
-
-```r
-# Install and load required packages
-install.packages("sdcMicro")
-library(sdcMicro)
-
-# Sample dataset containing personal and financial data
-data <- data.frame(
-  id = 1:10,
-  name = c("Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Ian", "Julia"),
-  age = c(28, 35, 40, 29, 31, 42, 50, 33, 45, 38),
-  gender = c("F", "M", "M", "M", "F", "M", "F", "F", "M", "F"),
-  income = c(50000, 65000, 72000, 48000, 55000, 78000, 90000, 62000, 86000, 70000),
-  credit_score = c(680, 720, 690, 710, 730, 650, 770, 740, 690, 725)
-)
-
-# Print the original dataset
-print(data)
-```
-
-### **Step 2: Define Key Variables and Create an sdcMicro Object**  
-
-We need to define **key variables** that could be used to re-identify individuals and pass them into an `sdcMicro` object.  
-
-```r
-# Define key variables that could be used for re-identification
-keyVars <- c("age", "gender", "income", "credit_score")
-
-# Create an sdcMicro object
-sdc_obj <- createSdcObj(
-  dat = data,
-  keyVars = keyVars,
-  numVars = c("income", "credit_score")
-)
-
-# Print initial risk report before anonymization
-print(sdc_obj)
-```
-
-### **Step 3: Apply Anonymization Techniques**  
-
-We now apply different anonymization techniques to ensure privacy while maintaining the dataset’s utility.  
-
-```r
-# Apply microaggregation (groups similar records and replaces them with averages)
-sdc_obj <- microaggregation(sdc_obj, method = "mdav", aggr = 3)
-
-# Apply local suppression (removes or masks identifying information)
-sdc_obj <- localSuppression(sdc_obj, k = 2)
-
-# Apply noise addition (introduces small random changes to numerical values)
-sdc_obj <- addNoise(sdc_obj, noise = 0.1)
-
-# Apply top-coding (limits the maximum value of a variable)
-sdc_obj <- topCoding(sdc_obj, value = 85000, column = "income")
-
-# Extract and print the anonymized dataset
-anonymized_data <- extractManipData(sdc_obj)
-print(anonymized_data)
-```
-
-This anonymized dataset now contains:  
-- **Microaggregated values**, where groups of individuals have their values averaged to prevent individual identification.  
-- **Suppressed data**, removing unique identifiers that could re-identify individuals.  
-- **Noise-added values**, ensuring that numerical values are slightly modified without losing statistical properties.  
-- **Top-coded values**, limiting income values to 85,000 to prevent outlier identification.  
-
-### **Step 4: Evaluate Anonymization Effectiveness**  
-
-To assess how well our anonymization techniques have worked, we can generate a risk report:  
-
-```r
-# Generate a risk report
-print(risk(sdc_obj))
-
-# Generate an anonymization summary
-summary(sdc_obj)
-```
-
-If the risk remains high, additional anonymization techniques may be applied iteratively.  
-
----
-
-## **2. Anonymizing Categorical Data with anonymizer**  
-
-The **anonymizer** package is useful when working with **categorical data**, such as **names, email addresses, or location data**. It allows us to create consistent yet fictitious identifiers to replace sensitive information.  
-
-### **Step 1: Load Package and Create Sample Data**  
-
-We create a dataset containing personal identifiers such as names and email addresses.  
-
-```r
-# Install and load anonymizer package
-install.packages("anonymizer")
-library(anonymizer)
-
-# Sample dataset with names and email addresses
-data <- data.frame(
-  id = 1:10,
-  name = c("Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Ian", "Julia"),
-  email = c("alice@email.com", "bob@email.com", "charlie@email.com", 
-            "david@email.com", "emma@email.com", "frank@email.com", 
-            "grace@email.com", "hannah@email.com", "ian@email.com", "julia@email.com")
-)
-
-# Print original data
-print(data)
-```
-
-### **Step 2: Anonymize Sensitive Fields**  
-
-Now, we apply **anonymization** to the name and email fields.  
-
-```r
-# Set a seed for reproducibility
-set.seed(123)
-
-# Apply anonymization to the 'name' and 'email' fields
-data$anon_name <- anonymize(data$name)
-data$anon_email <- anonymize(data$email)
-
-# Print anonymized dataset
-print(data)
-```
-
-Each name and email address is replaced with a **unique, consistent** but **randomized identifier**. If the same function is applied to different datasets with identical values, the same anonymized output will be produced, maintaining relationships between datasets.  
 
 
 
