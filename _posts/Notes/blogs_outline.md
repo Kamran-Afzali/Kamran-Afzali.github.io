@@ -10,6 +10,14 @@
 
 [Bayesian Multilevel models in brms](https://kamran-afzali.github.io/posts/2023-01-28/brms.html)
 
+[Bayesian Regularized Regression](https://kamran-afzali.github.io/posts/2022-12-28/stan-regul.html) 
+
+[Bayesian Robust t-regression for Non-Normal residuals](https://kamran-afzali.github.io/posts/2022-09-29/robust_regression.html) 
+
+[Bayesian Regression Models for Non-Normal Data](https://kamran-afzali.github.io/posts/2022-06-27/stan_2.html) 
+
+[Bayesian Modeling in R and Stan ](https://kamran-afzali.github.io/posts/2022-04-25/STAN.html)
+
 ## Free Energy Principal 
 
 [Hard Problem of Consciousness, Affective and Subcortical theories](https://kamran-afzali.github.io/posts/2024-12-25/con_fep_3.html)
@@ -48,6 +56,13 @@
 
 [Quantile regression](https://kamran-afzali.github.io/posts/2023-05-23/Q_Reg.html)
 
+[H2O AutoML ](https://kamran-afzali.github.io/posts/2022-10-25/automl.html )
+
+[Time series clustering](https://kamran-afzali.github.io/posts/2022-08-24/TS_clustering.html) 
+
+[Forecsting Optimization and FB prophet Hyperparameter Tuning](https://kamran-afzali.github.io/posts/2022-05-28/FB_PRPHT_HPT.html) 
+
+[Forecsting with FB prophet](https://kamran-afzali.github.io/posts/2022-03-25/FB_PRPHT.html)
 
 ## Neuroimaging 
 
@@ -56,3 +71,5 @@
 [Tools for Neuroimaging Data Processing](https://kamran-afzali.github.io/posts/2023-04-28/NIMG_B.html)
 
 [Neuro-Imaging Data An Introduction](https://kamran-afzali.github.io/posts/2023-02-28/NIMG.html)
+
+[Brain Imaging Data Structure (BIDS)](https://kamran-afzali.github.io/posts/2022-07-19/BIDS.html) 
