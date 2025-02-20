@@ -83,12 +83,46 @@ The psychoanalytic approach considers that dreams express unconscious desires an
 
 -------
 
+##### Desire
+The alignment between active inference, the Free Energy Principle (FEP), and the concept of desire in psychoanalysis creates a framework for understanding motivation, affect, and the interactions between internal states and external actions. Within this synthesis, **desire is an active force, shaping perception, cognition, and behavior**, not a passive feeling.
+
+Psychoanalysis understands the mind as a system influenced by unconscious desires and conflicts. Freud's work explored psychic energy and how mental processes reduce tension and seek pleasure. The FEP provides a lens to revisit these concepts with a quantifiable, information-theoretic approach to psychic energy.
+
+Active inference, based on the FEP, suggests that organisms reduce free energy by inferring the causes of sensations. This minimization involves:
+*   **Action:** Changing the external world to match internal expectations.
+*   **Perception:** Updating internal models to better predict sensory input.
+
+Desire drives both action and perception, guiding the organism toward predictable states.
+
+One way to view **desire is through a linguistic model, where individuals are signifiers in a chain of meaning**. Desire drives individuals to seek the signified object, creating an interplay between subjects. Complexity theory suggests this is a process of partial synchronization where individuals influence internal states.
+
+Affect is key in active inference, serving as an intrinsic motivator. **Free energy is aversive, like mental pain, while reducing it is rewarding**, so positive and negative affects drive the organism to minimize free energy, shaping behavior.
+
+**Expected free energy** formally describes action selection, where the likelihood of choosing an action decreases with the expected free energy. An organism experiencing thirst seeks water because that action is predicted to result in the lowest expected free energy, aligning with the psychoanalytic idea that gratifying an instinct reduces free energy.
+
+Some researchers note the role of **"first priors,"** prioritized predictions related to the body's internal states and the organism's lifestyle. These underpin habits, skills, and social/cultural norms, shaping sense-making.
+
+Motivation and desire are the divergence between an individual's current state and their anticipated future state achieved through action. Expected prediction errors, which quantify the difference between expected and preferred outcomes, drive individuals to reduce this divergence.
+
+**The environment is experienced through desire, presenting "inviting affordances."** Desire drives improving one's "grip" on these affordances, guiding action and shaping interaction with the world.
+
+Psychoanalysis emphasizes unconscious processes, while the FEP highlights the brain's hierarchical organization. The default mode network (DMN) mediates between primary and secondary processes, integrating internal and external information. This integration is essential for symbolization, transforming sensations and emotions into thinkable contents.
+
+**Psychotherapeutic procedures enhance interpersonal satisfaction and challenge self-fulfilling priors**. Therapy creates a supportive environment to explore unconscious desires and revise maladaptive beliefs.
+
+The FEP integrates subcortical emotions with cortical predictive models. The mind maintains homeostasis, and predictions are motivated by desires and wishes, supporting the idea that "all thinking is wishful-thinking".
+
+Within active inference, **desire links to action and exploration**. Active inference is enhanced by seeking help and collaboration, a process where individuals refine their understanding of the world. Blocked explorations to reduce free energy may be responsible for psychological illness. Psychoanalysis evokes and then quiets trauma-related unbound energy through free association, dream analysis, and transference analysis.
+
+Synthesizing active inference, the FEP, and psychoanalytic concepts, the relationship between desire, affect, and subjective experience can be appreciated. This interdisciplinary approach provides a framework for understanding the human mind and offers new avenues for therapeutic intervention.
+
+________
 
 The FEP thus offers a potentially unifying framework for understanding a wide array of psychological processes, spanning from perception and attention to action. Crucially, it provides a bridge between mind and brain, allowing for a formalization of psychoanalytic concepts within a neuroscientific framework. The integration of the FEP and active inference allows psychoanalysis to gain a robust scientific grounding, while psychoanalysis offers valuable insights into the psychotherapeutic process. Future research could investigate how the therapeutic relationship influences free energy computations, and how computational models of active inference could simulate psychotherapeutic processes and validate existing hypotheses. Though the FEP has immense power as a framework for understanding the mind, there are also limits to the epistemological approach to psychic states. Some aspects of the unconscious as it emerges in the free associative process might remain inaccessible to direct representation, and more work is needed in order to determine how to best integrate the subjective experience of the therapeutic process with formal models of the mind.
 
 In conclusion, the relationship between the FEP, active inference, and psychoanalysis represents a promising avenue for integrating the theoretical depth of psychoanalysis with the scientific rigor of computational neuroscience. The FEP provides a unique lens through which to understand diverse psychological functions, the processes underlying psychotherapeutic change, and the complex interplay between the brain and the mind.
 
-References
+#### References
 
  Cieri, F., Carhart-Harris, R. L., Mathys, C., Turnbull, O., & Solms, M. (2023). Editorial: Frontiers in psychodynamic neuroscience. *Frontiers in Human Neuroscience, 17*, 1170480.
 
@@ -126,3 +160,33 @@ References
 
  McParlin, Z., Cerritelli, F., Friston, K., & Esteves, J. E. (2022). The role of touch in developing therapeutic alliances and synchrony using active inference. *Frontiers in Human Neuroscience, 16*, 924171.
 
+
+ Cieri F, Carhart-Harris RL, Mathys C, Turnbull O and Solms M (2023) Editorial: Frontiers in psychodynamic neuroscience.
+ 
+ Hasson, U., & Frith, C. D. (2016). Mirroring and beyond: coupled dynamics as a generalized framework for modelling social interactions. Philosophical Transactions of the Royal Society B: Biological Sciences, 371(1693), 20150366.
+ 
+ Connolly P. Expected free energy formalizes conflict underlying defense in Freudian psychoanalysis. Front Psychol 2018; 9: 1264.
+ 
+ K. J. Friston, T. FitzGerald, F. Rigoli, P. Schwartenbeck, and G. Pezzulo, “Active inference: A process theory,” Neural computation, vol. 29, pp. 1– 49, 2016.
+ 
+ Nabil Bouizegarene 1,2, Maxwell J. D. Ramstead 3,4, Axel Constant 5,6,7, Karl J. Friston 3,4 and Laurence J. Kirmayer 6,7* (2024) Narrative as active inference: an integrative account of cognitive and social functions in adaptation.
+ 
+ Chamberlin DE (2023) The Active Inference Model of Coherence Therapy. Front. Hum. Neurosci. 16:955558.
+ 
+ Ecker, B., and Hulley, L. (1996). Depth-oriented brief therapy: How to be brief when you were trained to be dee–and vice versa. San Francisco, CA: Jossey-Bass Publishers.
+ 
+ Lynn McVey, Greg Nolan & John Lees (2020) The predictive moment: reverie, connection and predictive processing, British Journal of Guidance & Counselling, 48:4, 511-523
+ Bion, W. R. (1962a). Learning from experience. Maresfield Library.
+ 
+ Friston, K. (2010). The free-energy principle: A unified brain theory? Nature Reviews: Neuroscience, 11(2), 127–138.
+ 
+ Filippo Cieri1* and Roberto Esposito2* (2019) Psychoanalysis and Neuroscience: The Bridge Between Mind and Brain.
+ 
+ Buckner, R. L., Andrews-Hanna, J. R., and Schacter, D. L. (2008). The brain’s default network: anatomy, function, and relevance to disease. Ann. N. Y. Acad. Sci. 1124, 1–38.
+ Bringmann L, Helmich M, Eronen M, Voelkle M. Complex Systems Approaches to Psychopathology. 2023. p. 103-22.
+ 
+ J. Kiverstein et al. (2024) How should we model affect, valence and arousal in ecological-enactive predictive processing?
+ 
+ J. Kiverstein et al. (2024) How should we model affect, valence and arousal in ecological-enactive predictive processing?
+ 
+ Ramstead, M.J.D., A.K. Seth, C. Hesp, L. Sandved-Smith, J. Mago, M. Lifshitz, G. Pagnoni, R. Smith, G. Dumas, A. Lutz, K. Friston, and A. Constant. 2022. From generative models to generative passages: A computational approach to (neuro) phenomenology. Review of Philosophy and Psychology 13 (4): 829–857.
