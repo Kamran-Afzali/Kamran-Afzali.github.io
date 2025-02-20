@@ -56,7 +56,7 @@ The implications of this framework extend beyond theoretical understanding. By p
 In conclusion, the shared generative model is a central concept in the framework of collective active inference and group-level free energy minimization. It provides a foundation for understanding how individual agents coordinate and interact to produce coherent collective behavior, learn from their environment, and adapt to changing circumstances. By continuing to explore the emergence and dynamics of shared generative models, researchers can gain valuable insights into the nature of collective intelligence and its potential for addressing some of the most pressing challenges facing society today.
 
 
-#### References
+References
 • Heins, C., Ramstead, M. J. D., et al. “Collective behavior from surprise minimization.”
 • Kastel, N., Hesp, C., Ridderinkhof, K. R., Friston, K. J. "Small Steps for Mankind: Modeling the Emergence of Cumulative Culture from Joint Active Inference Communication." Frontiers in Neurorobotics, December 2022.
 • Kauf, R., et al. “Using Active Inference to Model the Interplay between Cognition and Collective Intelligence”. Entropy 2021, 23(7), 830.
@@ -66,7 +66,7 @@ In conclusion, the shared generative model is a central concept in the framework
 • Friston, K. J., et al. "Federated inference and belief sharing." Neuroscience and Biobehavioral Reviews 156 (2024) 105500.
 
 _______________
-##### Collective intelligence
+### Collective intelligence
 
 
 Collective intelligence, as an emergent phenomenon, describes a system where interacting agents achieve performance levels exceeding the sum of their individual capabilities. Within the framework of collective active inference and group-level free energy minimization, this intelligence arises from the dynamic interplay of individual agents striving to minimize their surprise and uncertainty about the world. This essay explores how collective intelligence emerges within this framework, emphasizing the importance of shared generative models, belief sharing, and the multi-scale nature of active inference.
@@ -106,6 +106,7 @@ Collective intelligence within the collective active inference framework emerges
 *   Buskell, A. (2020). Normativity, social change, and the epistemological framing of culture. *Behavioral and Brain Sciences, 43*.
 
 _____________________
+### Federated inference and learning
 
 **Federated inference and learning** represent a sophisticated approach to distributed cognition, enabling agents to collaboratively enhance their understanding of a shared world. Within the frameworks of **collective active inference** and **group-level free energy minimization**, federated inference and learning emerge as natural consequences of agents striving to minimize surprise and maximize model evidence. This essay explores the principles and mechanisms underlying federated inference and learning, emphasizing the roles of shared generative models, belief sharing, active learning, and the emergence of complexity in multi-agent systems.
 
