@@ -205,6 +205,186 @@ In summary, **language and communication** are central to the emergence of colle
 *   Bruineberg, J., Rietveld, E., Parr, T., van Maanen, L., & Friston, K. J. (2018b). Free-energy minimization in joint agent-environment systems: a niche construction perspective. *Journal of theoretical biology, 455*, 161–178.
 *   Buskell, A. (2020). Normativity, social change, and the epistemological framing of culture. *Behavioral and Brain Sciences, 43*.
 *   Parr, T.; Pezzulo, G.; Friston, K.J. Active Inference: The Free Energy Principle in Mind, Brain, and Behavior; The MIT Press: Cambridge, MA, USA, 2022.
+
+
+________________________________
+
+**System-level free energy** is a critical concept within the frameworks of **collective active inference** and **group-level free energy minimization**, offering a way to understand how individual interactions and behaviors aggregate to produce coherent, adaptive dynamics at the scale of the entire system. This essay will explore the meaning of system-level free energy, how it relates to individual agent behavior, and how it facilitates understanding collective intelligence and coordinated action.
+
+To fully appreciate **system-level free energy**, one must first understand the basic principles of the **free energy principle (FEP)** and **active inference**. The FEP suggests that any self-organizing system that maintains itself in a non-equilibrium steady-state does so by minimizing its **variational free energy**. **Variational free energy** is an information-theoretic measure that bounds the surprise or unexpectedness of sensory inputs, given the system's internal model of the world.
+
+**Active inference** extends the FEP by proposing that organisms actively seek to minimize free energy through perception and action. Perception involves updating internal models to better predict sensory inputs, while action involves changing the environment to match the predictions of the internal model. In other words, agents act to create the world they expect to experience, thereby minimizing surprise and maintaining their integrity.
+
+In a collective setting, these principles extend to multiple interacting agents. **Collective active inference** suggests that groups of agents can also be understood as self-organizing systems that minimize free energy at a collective level. This means that the interactions and behaviors of individual agents contribute to an overall system-level drive to reduce surprise and maintain stability.
+
+**System-level free energy** is not simply the sum of the individual free energies of the agents within the system. Instead, it reflects the overall coherence and predictability of the system's behavior as a whole. It captures the extent to which the system's dynamics align with a generative model that represents the expected behavior of the collective.
+
+One way to conceptualize **system-level free energy** is through the lens of **hierarchical systems**. Multi-scale formulations of the FEP rest upon the formal tools that underwrite the study of adiabatic processes and the renormalisation group. Nature manifests a nested, multiscale organization: with small, fast things coalescing into progressively larger, and slower things. Stable dynamics at one scale can be treated as random fluctuations at the next, superordinate scale.
+
+In such systems, individual agents can be seen as nested within a larger collective, with each level operating to minimize its free energy. The actions of individual agents influence the state of the collective, and the state of the collective, in turn, influences the behavior of individual agents. This creates a feedback loop where individual and collective dynamics are deeply intertwined.
+
+**Communication** plays a critical role in shaping **system-level free energy**. By exchanging information, agents can coordinate their actions and align their internal models, leading to more coherent and predictable collective behavior. When agents share a common understanding of the environment and each other's intentions, they can act more effectively as a unit, reducing overall surprise and minimizing system-level free energy.
+
+However, achieving **efficient communication** and coordination is not always straightforward. Agents may have incomplete or inaccurate information, conflicting goals, or limited cognitive resources. These factors can lead to misunderstandings, errors, and suboptimal collective outcomes.
+
+One approach to modeling **system-level free energy** involves creating computational models with multiple interacting agents. In these models, each agent is endowed with a generative model and acts to minimize its free energy through perception and action. The interactions between agents are then simulated, and the resulting system-level dynamics are analyzed to assess the overall free energy of the collective.
+
+For example, one can construct a simple 1D search task in which two **active inference** agents interact as they pursue individual and shared goals. By endowing agents with cognitive abilities such as Theory of Mind and Goal Alignment and varying these abilities systematically, the effects on individual and **system-level free energy** can be measured.
+
+One such simulation involves an ensemble of M identical copies of a two-agent subsystem, each in its own independent environment. From this vantage point, each of the 2M agents is now a “point particle” described only by its position. The tuple is then the set of internal states of the system as a whole. The model allows analysis of both agent level and system level performance.
+
+The behavior of such systems can then be analyzed at multiple levels, such as:
+*   The agent level, examining individual strategies and adaptation
+*   The subsystem level, describing local interaction and coordination
+*   The system level, measuring the aggregate behavior of all agents
+
+Simulations show that improvements in global-scale inference are greatest when local-scale performance optima of individuals align with the system’s global expected state. Crucially, the system-level inference emerges as a product of self-organizing **active inference** agents endowed with simple social cognitive mechanisms.
+
+Another way to analyze **system-level free energy** is by drawing on the concept of a **Markov blanket**. A Markov blanket is a statistical boundary that separates a system from its environment. It consists of a set of states that render the internal states of the system conditionally independent of the external states. In other words, the Markov blanket shields the system from direct influence from the environment, allowing it to maintain its integrity and autonomy.
+
+In a collective of **active inference** agents, the group itself can be seen as having a **Markov blanket**, with the individual agents forming the internal states of the system and the environment surrounding the group forming the external states. The interactions and communication between agents serve as the blanket states, mediating the flow of information between the group and its environment.
+
+By minimizing **system-level free energy**, the collective can maintain its **Markov blanket** and ensure its continued survival and adaptation. This perspective highlights the importance of social interaction and communication in creating a robust and resilient collective.
+
+Moreover, **cultural evolution** is closely tied to communication. Through dialogue, individual mental models are modified, and distinct representations converge to a shared narrative. This attunement of interlocutors translates over time into collective free energy minimization. In cases where divergent beliefs exist, communication can become intractable, and communicative isolation between incongruent groups may emerge as a strategy to minimize expected free energy.
+
+The proper selection of actions and policies is a critical component of free energy minimization. Action selection and planning then consists of choosing the action policy associated with the lowest expected free energy, given the expected trajectory of states and observations. Actions are chosen that are expected to lead to observations which are informative about the environment but also similar to prior preferences, with the balance between the two being controlled by the precision of prior preferences.
+
+The approach of minimizing free energy can be used to model distributed scientific cognition at multiple scales, where active inference enables significant progress in finding the artificial neural correlates of scientific cognition. This can enhance our understanding of both human scientific cognition and the capabilities of artificial intelligence systems.
+
+Importantly, the **FEP naturally offers scale-free heuristics to make sense of complex, self-organising dynamics at different scales**. The areas of concern of agents can grow via higher-order pattern formation, with community formation enabling the extension of an area of concern. The process of scientific investigation can be seen as a process of cumulative knowledge and technology construction, which can be seen as extending the area of concern of human agents to a nearly unlimited scope.
+
+In summary, **system-level free energy** is a powerful concept for understanding how individual interactions and behaviors give rise to coherent, adaptive dynamics at the collective level. By minimizing **system-level free energy**, collectives can maintain their integrity, coordinate their actions, and adapt to changing environments. Further research into the dynamics of **system-level free energy** promises to yield valuable insights into the nature of collective intelligence and the potential for creating more cooperative and resilient societies.
+
+**References**
+*   Heins, C., Ramstead, M. J. D., et al. “Collective behavior from surprise minimization.”
+*   Kastel, N., Hesp, C., Ridderinkhof, K. R., Friston, K. J. "Small Steps for Mankind: Modeling the Emergence of Cumulative Culture from Joint Active Inference Communication." *Frontiers in Neurorobotics*, December 2022.
+*   Kaufmann, R., et al. “Using Active Inference to Model the Interplay between Cognition and Collective Intelligence”. *Entropy* 2021, *23*(7), 830.
+*   Levchuk, G., et al. "Active Inference in Multi-Agent Systems: Context-Driven Collaboration and Decentralized Purpose-Driven Team Adaptation." *2018 AAAI Spring Symposium Series*, AAAI: Menlo Park, CA, USA, 2018, pp. 157–165.
+*   Allen, M. Unravelling the Neurobiology of Interoceptive Inference. Trends Cogn. Sci. 2020, 24, 265–266.
+*   Waade, P. T., et al. "As One and Many: Relating Individual and Emergent Group-Level Generative Models in Active Inference." *Entropy* 2025, *27*, 143.
+*   Friston, K. J., et al. "Federated inference and belief sharing." *Neuroscience and Biobehavioral Reviews* 156 (2024) 105500.
+*   Bruineberg, J., Rietveld, E., Parr, T., van Maanen, L., & Friston, K. J. (2018b). Free-energy minimization in joint agent-environment systems: a niche construction perspective. *Journal of theoretical biology, 455*, 161–178.
+*   Buskell, A. (2020). Normativity, social change, and the epistemological framing of culture. *Behavioral and Brain Sciences, 43*.
+*   Parr, T.; Pezzulo, G.; Friston, K.J. Active Inference: The Free Energy Principle in Mind, Brain, and Behavior; The MIT Press: Cambridge, MA, USA, 2022.
+*   Friston, K.; FitzGerald, T.; Rigoli, F.; Schwartenbeck, P.; Pezzulo, G. Active inference: A process theory. Neural Comput. 2017, 29, 1–49.
+*   Friston, K. A free energy principle for a particular physics. arXiv 2019, arXiv:1906.10184.
+*   Constant, A., et al., 2019. Thinking through other minds: A variational approach to cognition and culture. Behav. Brain Sci. 43, e90.
+*   Heyes, 2018. A world unto itself: human communication as active inference. Front. Psychol. 11, 417.
+*    Ramstead, M.J.D.; Badcock, P.B.; Friston, K.J. Answering Schrödinger’s question: A free-energy formulation. Phys. Life Rev. 2018, 24, 1–16.
+*   Kirchhoff, M.D.; Parr, T.; Palacios, E.; Friston, K.; Kiverstein, J. The markov blankets of life: Autonomy, active inference and the free energy principle. J. R. Soc. Interface 2018, 15.
+*   Hesp, C.; Ramstead, M.; Constant, A.; Badcock, P.; Kirchhoff, M.; Friston, K. A multi-scale view of the emergent complexity of life: A free-energy proposal. In Evolution, Development and Complexity; Springer: Berlin/Heidelberg, Germany, 2019; pp. 195–227.
+*   Veissière et al., 2019. Thinking through other minds: A variational approach to cognition and culture. Behav. Brain Sci. 43, e90.
+*   Giere, R. N. (2015). Scientific Cognition as Distributed Cognition.
+
+
+
+_______________________________________
+
+
+**Belief Sharing within the Collective Active Inference and Group-Level Free Energy Minimization Framework**
+
+The natural world abounds with examples of collective behavior, where groups of animals exhibit complex patterns such as coordinated movement, milling, and swarming. These macroscopic patterns typically emerge from decentralized, local interactions among individual members of the group. In recent years, the active inference framework has arisen as a robust tool for modeling such behaviors, suggesting that behavior is fundamentally driven by a single imperative: **to minimize surprise**. This framework posits that collective phenomena, including cohesion, milling, and directed motion, can naturally arise from active Bayesian inference without the need to explicitly program behavioral rules or goals into individual agents. This essay explores the critical role of belief sharing within the collective active inference and group-level free energy minimization framework, examining its theoretical underpinnings, cognitive mechanisms, and implications for understanding collective intelligence and social behavior.
+
+### Active Inference and Collective Behavior
+
+Active inference frames behavior as a consequence of minimizing surprise or prediction error, thereby blending cognitive and physics-based approaches. This perspective is particularly salient when seeking to understand collective behaviors exhibited by animal groups. The framework offers a testable model for studies of biological collective motion, facilitating empirical investigation and validation.
+
+**Collective intelligence**, which can be defined as the capacity of a group to act in ways that appear intelligent and which cannot be explained by individual intelligence, can be effectively operationalized using active inference. Within this framework, collective intelligence is understood as a composite system's ability to minimize free energy or perform approximate Bayesian inference at the collective level. This approach is broadly applicable to any composite system, extending beyond just human collectives.
+
+At the heart of this perspective is **the free energy principle (FEP)**, a mathematical formulation describing how adaptive systems resist a natural tendency toward disorder. The FEP posits that any non-equilibrium steady-state system self-organizes by minimizing variational free energy in its interactions with the environment. This principle can be translated into active inference, providing a basis for modeling self-organizing biological systems across various scales.
+
+**Active inference allows for multiscale modeling of collective intelligence**, where individual agents interact to produce a superordinate agent at the collective level. This approach necessitates an examination of the minimal features required for autonomous individual active inference agents to achieve collective intelligence, operationalized as active inference at the global-scale system.
+
+### Key Cognitive Abilities
+
+Several key cognitive abilities facilitate collective intelligence within the active inference framework:
+
+*   **Baseline Active Inference (AIF)**: Agents minimize immediate free energy by accurately sensing and acting on salient affordances in the environment. This foundational ability ensures that agents respond effectively to immediate environmental demands.
+*   **Folk Psychology**: Agents minimize free energy relative to both their physical and social environments, assuming other agents are self-similar and differentiating other-generated information by calculating how it diverges from self-generated information. This enables agents to predict and respond to the behavior of others within the group.
+*   **Shared Norms**: Agents engage with shared norms as a proxy for discovering mutually viable shared goals, leveraging socio-cultural affordances to cue adaptive collective behavior. This promotes cohesion and coordinated action within the group.
+
+Computational models that incorporate these abilities demonstrate that individual-level capabilities are associated with improvements in the system's ability to perform approximate Bayesian inference and minimize variational free energy. Improvements in global-scale inference are greatest when local-scale performance optima of individuals align with the system’s global expected state.
+
+### Belief Sharing and Federated Inference
+
+**Belief sharing** is a critical component of collective active inference, referring to the process by which agents communicate their beliefs about a shared world. This federated inference allows agents to resolve uncertainty about hidden states, especially when observable consequences can only be perceived by one agent at a time. Through a shared generative model, agents can distribute Bayesian belief updating, with each agent assimilating the perspectives of others.
+
+**Federated learning** enhances communication effectiveness by enabling agents to communicate full belief distributions rather than being limited to sharing noisy gradient estimates. This approach allows agents to jointly learn the likelihood parameters of the communication modality, effectively developing a private code decipherable only with access to the same shared belief space.
+
+In this context, **belief updating** differs significantly from traditional Bayesian belief updating, where agents would have varying posterior beliefs based on their individual priors. Conversely, belief sharing assimilates posteriors to evince a consensus, often likened to a "hive mind," wherein agents inherit both the likelihood and priors from one another. Crucially, beliefs are shared only when they pertain to the same states of the world and are understood within a shared frame of reference.
+
+### The Role of Communication and Language
+
+Facilitated by belief sharing, **communication** enables agents to benefit from complementary perspectives and observations. The acquisition of language, or likelihood mappings, can be achieved through active learning, wherein individuals learn from others within their environment. Moreover, language can emerge de novo in an ensemble of agents exposed to shared visual scenes, with precise likelihood mappings that are conserved across agents.
+
+**Active learning and selection** are complementary processes; posterior parameters change to minimize variational free energy if and only if expected free energy is reduced, while prior parameters change to minimize expected free energy if and only if variational free energy is reduced. This iterative process promotes self-evidencing toward precise and predictable exchanges.
+
+### Cultural Niche Construction
+
+Within the framework of collective active inference, **cultural niche construction** refers to the phenomenon whereby agents actively structure their external environment to render it more measurable and knowable. Scientists, for instance, aim to elicit observations that align with their expectations, which are, in turn, shaped by the external cultural niche. This process is inextricably linked to model refinement, where models guide the collection of new evidence, and that new evidence subsequently refines the models.
+
+**Scientific Niche Construction (SNC)** profoundly shapes how scientists perceive the world and drives their actions to generate evidence that confirms their hypotheses. This iterative cycle of hypothesis generation, evidence collection, and hypothesis revision underpins scientific progress.
+
+### Challenges and Future Directions
+
+Despite significant advances in understanding collective behavior through the lens of active inference, several challenges and open questions remain:
+
+*   **Indirect Information Sharing**: In many natural collective scenarios, common signals may only indirectly relate to shared contextual variables, leading to noisy, ambiguous sensory inputs and increasing the risk of amplifying irrelevant information. Further research is needed to understand how agents can effectively filter and integrate such indirect signals.
+*   **Optimal Sensory Information Channels**: Identifying the specific sensory information channels and corresponding likelihood models that enable a group to perform optimally in tasks such as consensus decision-making remains an area for further exploration. Understanding the conditions under which certain channels are more effective than others is crucial.
+*   **Generative Model Updates**: It remains an open question how conspecifics should update their generative models to minimize collective free energy rather than individual-level free energy. Developing a more nuanced understanding of this process is essential for understanding how groups can achieve optimal performance.
+*   **Integration of Individual and Collective Cognition:** Computational models of scientific cognition must account for the dual interaction between individual and collective levels to fully grasp the functioning of science and the dynamics of scientific cognition. Further work is required to integrate these perspectives into cohesive models.
+
+### Conclusion
+
+**Belief sharing** serves as a cornerstone of collective active inference, enabling groups to minimize free energy and maximize their understanding of a shared world. The active inference framework, with its emphasis on minimizing surprise and prediction error, provides a potent lens through which to examine the emergence of collective intelligence and the dynamics of social interaction. By integrating individual and collective cognition, this framework offers a multiscale approach to understanding cultural evolution processes and the complex interplay between agents and their environments. As research in this area continues to evolve, a deeper understanding of belief sharing and its implications for collective behavior will likely lead to new insights into both natural and artificial systems.
+
+**References**
+
+Albarracin, D., Palacios, V. M., Ramstead, M. J., словам, & Friston, K. J. (2022). Action as communication: Active inference and linguistic exchanges. *Frontiers in Psychology*, *13*, 813421.
+
+Allen, M., & Friston, K. J. (2018). From generative models to neural networks. *Nature Neuroscience*, *21*(11), 1526-1532.
+
+Bangu, S. (2017). Scientific explanation and understanding: unificationism reconsidered. *European Journal for Philosophy of Science*, *7*, 103-126.
+
+Bruineberg, J., Kiverstein, J., & Rietveld, E. (2018). The anticipating brain is not a scientist: the free-energy principle from an ecological-enactive perspective. *Synthese*, *195*, 2417-2444.
+
+Bruineberg, J., Rietveld, E., Parr, T., van Maanen, L., & Friston, K. J. (2018b). Free-energy minimization in joint agent-environment systems: a niche construction perspective. *Journal of Theoretical Biology*, *455*, 161-178.
+
+Buskell, A. (2020). Normativity, social change, and the epistemological framing of culture. *Behavioral and Brain Sciences*, *43*.
+
+Clark, A. (2016). *Surfing uncertainty: Prediction, action, and the embodied mind*. Oxford University Press.
+
+Couzin, I. D., Ioannou, C. C., Franks, N. R., & Others. (2011). How limited information and social interaction promote cohesion in animal groups. *Current Biology*, *21*(21), 1803-1807.
+
+Friedman, D., этим, Palacios, V. M., Ramstead, M. J., & Friston, K. J. (2021). Bayesian mechanics: The enactive origins of life. *Physics of Life Reviews*, *36*, 1-37.
+
+Friston, K. (2010). The free-energy principle: a unified brain theory?. *Nature Reviews Neuroscience*, *11*(2), 127-138.
+
+Friston, K. (2013). Life as we know it. *Journal of the Royal Society Interface*, *10*(80), 20130470.
+
+Friston, K. J., FitzGerald, T., Rigoli, F., Schwartenbeck, P., O’Doherty, J., & Pezzulo, G. (2017). Active inference and learning. *Neuroscience & Biobehavioral Reviews*, *68*, 862-879.
+
+Giere, R. N. (2015). Scientific cognition as distributed cognition.
+
+Hohwy, J. (2016). The self-evidencing brain. *Noûs*, *50*(2), 259-285.
+
+Kastel, A., & Hesp, C. (2021). Small steps for mankind: An active inference model of cumulative culture. *Frontiers in Psychology*, *12*, 629163.
+
+Laland, K. N., Odling-Smee, J., & Endler, J. A. (2017). Niche construction, sources of selection and levels of analysis. *Interface Focus*, *7*(5), 20160147.
+
+Michel, M. (2022). What Kind of Theory Is Predictive Processing?. *Synthese*, 1-25.
+
+Palacios, V. M., словам, Albarracin, D., словам, Ramstead, M. J., & Others. (2020). On the agenthood of institutions: Active inference, enactivism, and extended mind. *Frontiers in Psychology*, *11*, 558728.
+
+Ramstead, M. J., Kirchhoff, M. D., словам, & Friston, K. J. (2020). A deep dive into the trench: Active inference, niche construction and ecological validity. *Biological Cybernetics*, *114*(5-6), 555-580.
+
+Smith, R., Ramstead, M. J., & Kiefer, A. (2022). Active inference models do not contradict folk psychology. *Synthese*, *200*(2), 81.
+
+Sutton, J. (2006). Distributed cognition: domains and dimensions. *Pragmatics & Cognition*, *14*(2), 235-247.
+
+Theodoni, P., Panagiotaropoulos, T. I., Kapoor, V., Logothetis, N. K., & Deco, G. (2011). Cortical micro-circuit dynamics mediating binocular rivalry: the role of adaptation in inhibition. *Frontiers in Human Neuroscience*, *5*, 145.
+
 *   Friston, K.; FitzGerald, T.; Rigoli, F.; Schwartenbeck, P.; Pezzulo, G. Active inference: A process theory. Neural Comput. 2017, 29, 1–49.
 *   Friston, K. A free energy principle for a particular physics. arXiv 2019, arXiv:1906.10184.
 *   Constant, A., et al., 2019. Thinking through other minds: A variational approach to cognition and culture. Behav. Brain Sci. 43, e90.
