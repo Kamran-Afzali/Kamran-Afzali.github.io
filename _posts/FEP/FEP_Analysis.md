@@ -123,125 +123,52 @@ The FEP thus offers a potentially unifying framework for understanding a wide ar
 In conclusion, the relationship between the FEP, active inference, and psychoanalysis represents a promising avenue for integrating the theoretical depth of psychoanalysis with the scientific rigor of computational neuroscience. The FEP provides a unique lens through which to understand diverse psychological functions, the processes underlying psychotherapeutic change, and the complex interplay between the brain and the mind.
 ________________________
 
-Psychoanalysis, with its focus on the unconscious mind, and neuroscience, which seeks to understand the biological functions of the brain, have historically been seen as separate disciplines. However, the **free energy principle (FEP)** has emerged as a unifying framework that bridges the gap between these fields. The FEP, developed by Karl Friston, posits that all living organisms, including humans, are driven to minimize their free energy, a measure of surprise or uncertainty about their environment. This minimization is achieved through perception, action, and learning, aligning internal models of the world with sensory inputs.
+#### The Default Mode Network and Psychoanalytic Concepts in Active Inference
 
-**Active inference**, a related concept, suggests that the brain is not a passive recipient of sensory information but actively infers the causes of its sensations by generating predictions and comparing them to incoming sensory data. Prediction errors, the discrepancies between predictions and sensations, are then used to update internal models and refine future predictions. This continuous cycle of prediction and error correction allows organisms to maintain homeostasis and navigate their environment effectively.
+Psychoanalysis, from its Freudian origins, has attempted to elucidate the intricate relationship between the human mind and its neurobiological underpinnings. Freud's early forays into grounding psychological concepts in neurophysiology, exemplified by his "Project for a Scientific Psychology," faced limitations due to the technological constraints of his time. However, the advent of neural networks, neuroimaging techniques, and the **Free Energy Principle (FEP)** has breathed new life into the endeavor of understanding the brain as the physical embodiment of the psyche. This essay aims to explore the alignment between the **Default Mode Network (DMN)**, a prominent area of study in contemporary neuroscience, and core psychoanalytical concepts, all viewed through the lens of active inference and free energy minimization.
 
-Within this framework, psychoanalytic concepts such as conflict, defense, and the unconscious can be reinterpreted in terms of the brain's mechanisms for minimizing free energy. This essay will explore the neurobiological substrates of these psychoanalytic concepts within the active inference and free energy minimization framework.
+The **FEP**, championed by Karl Friston, posits that any living organism, to maintain its integrity, must minimize its internal free energy, resisting the entropic forces of disorganization. In this context, **free energy** quantifies the difference between an organism's internal model of the world and the sensory information it receives. The brain, functioning as a hierarchical Bayesian inference machine, strives to optimize its representation of the sensorium by minimizing this free energy. This minimization is achieved via action (altering the environment to align with internal predictions) and perception (updating internal models to better reflect the environment).
 
-### Conflict and Free Energy
+**Active inference** builds upon the FEP by highlighting the proactive role of organisms in sampling their environment to validate predictions, thereby reducing surprise. This framework provides a comprehensive perspective on perception, attention, and action, underpinned by a simple, physiologically plausible mechanism.
 
-Psychoanalytic theory posits that **conflict** arises when incompatible drives, wishes, or beliefs compete for expression. This internal struggle can lead to anxiety, distress, and psychological symptoms. From the perspective of the FEP, conflict can be understood as a state of high free energy, where the brain is uncertain about which course of action to take.
+#### The Default Mode Network: A Neural Correlate of the Ego?
 
-According to Connolly, the FEP suggests that a person's decision about which policy of action to follow is determined by a computation of which policy is predicted to reduce the physiological free energy the most. Psychoanalytic conflict is presented as the state where different potential policies of action have a similar level of expected free energy, creating a subjectively unpleasant state of uncertainty of what to do.
+The DMN, a network primarily encompassing the **medial prefrontal cortex (MPFC)**, **posterior cingulate cortex (PCC)**, and **inferior parietal lobule (IPL)**, exhibits heightened activity during rest and self-referential thought. This network has been linked to the Freudian concept of the **ego**, which mediates between the instinctual desires of the id and the constraints of the external world.
 
-Berlin and Montgomery reviewed the existing literature on neurophysiological correlates of conflict in the psychoanalytic sense. While their chapter draws together a number of interesting studies with findings that seem to have implications for conflict, few of these studies focus explicitly on conflict itself and its key neural mechanism; many of the findings relevant to conflict from this literature are more specifically about repression, suppression and dissociation, though some do have clear implications for conflict.
+Carhart-Harris and Friston (2010) propose that the functions of the DMN, such as self-monitoring, introspection, and internal mentation, correspond with the ego's role in maintaining a coherent sense of self and reality. The DMN is believed to contain free energy levels of underlying structures, which aligns with the ego's function in the secondary process. Spontaneous fluctuations in neuronal activity from cortical nodes of the DMN are thought to suppress the unconstrained activity of limbic and paralimbic systems, supporting this view.
 
-### Defense Mechanisms and Precision Weighting
+The **MPFC-PCC connectivity** is absent in infants and develops through ontogeny, which parallels the emergence of the individual Self with its complex functions. Furthermore, some researchers have defined the DMN as a kind of biomarker of the Self.
 
-To reduce this uncertainty and minimize free energy, the brain employs **defense mechanisms**, which are unconscious strategies that distort reality, exclude unacceptable impulses from awareness, or prevent the expression of conflicting desires. These mechanisms, such as repression, denial, and projection, can be seen as ways of altering the precision or confidence assigned to different beliefs or predictions.
+#### The Id, Free Energy, and the Limbic System
 
-From a statistical FEP perspective, conflict is resolved by alteration of the relative precisions of the beliefs about opposing action policies. This alteration of precisions presents a means of formalizing defense, which becomes entrenched over time as a constraint on the future development of the generative model.
+In contrast to the ego, the **id** represents the unconscious reservoir of instinctual drives and desires, operating on the pleasure principle. Neurobiologically, the id can be associated with subcortical structures such as the **amygdala** and **hypothalamus**, which are central to processing emotions and basic drives. These structures operate at a primary process level, characterized by high entropy and a lack of logical constraints.
 
-For example, **repression**, the unconscious exclusion of disturbing thoughts or feelings from awareness, can be interpreted as a reduction in the precision of sensory information related to those thoughts or feelings. By diminishing the salience or reliability of these inputs, the brain can minimize prediction errors and maintain a stable internal model. Similarly, **projection**, the attribution of one's own unacceptable impulses to others, can be seen as an increase in the precision of predictions about others' behavior, based on one's own internal states.
+Failures of top-down control from the DMN might be associated with an impairment of the supraordinate system, leading to the expression of unconstrained activity from the limbic system. Such failures are observed in non-ordinary states of consciousness such as early and acute psychosis, temporal-lobe aura, dreaming, and hallucinogenic drug states.
 
-### The Unconscious and Implicit Processes
+#### Conclusion
 
-The **unconscious**, a central concept in psychoanalytic theory, refers to the mental processes that occur outside of conscious awareness. These processes, which include repressed desires, implicit memories, and automatic behaviors, exert a powerful influence on our thoughts, feelings, and actions. Within the active inference framework, the unconscious can be understood as the set of implicit generative models that shape our perceptions and actions without our conscious awareness. These models, which are constantly updated based on past experiences, generate predictions about the world and guide our behavior in ways that minimize free energy.
+The active inference framework offers a valuable perspective for examining the neurobiological underpinnings of psychoanalytic concepts and their relationship to the DMN. By mapping psychoanalytic constructs onto brain functions, structures, and networks, this approach fosters a more biologically informed understanding of the mind. Concepts such as free energy, hierarchical inference, and precision weighting provide a common language for psychoanalysis and neuroscience, enabling a deeper exploration of the mind-brain relationship.
 
-Brouillet proposes to explore the non-conscious component of the experience of memory. More specifically, on the basis of both empirical data concerning the role of the presence of a discrepancy in ongoing processing and on theoretical arguments from active inference.
+The essay has underlined the natural connection between Freudian constructs of the primary and secondary processes and the DMN. Also, it has highlighted the hypothesis according to which the spontaneous fluctuations in neuronal activity from cortical nodes of DMN suppress or contain the unconstrained and anarchic endogenous activity of limbic and paralimbic systems.
 
-According to Carhart-Harris and Friston, Freud's hierarchical organization of the mind, with its distinction between id and ego can be enhanced by consistency with contemporary models of cognition based on hierarchical Bayesian inference and Helmholtzian free energy. Freudian metapsychology distinguished two ways of mental functioning, the primary and the secondary processes, corresponding to the pleasure and reality principle, respectively. The primary process is driven by the pleasure principle, which is in turn driven by the id and its instinctual functioning with its instincts and desires, without taking into account the constraints of the external environment with its rules and laws. The secondary process, also called the reality principle, is governed by the ego, which controls the instant gratification mentality of the id. The reality principle is the ability of the mind to assess the reality of external world and to act accordingly with it, as opposed to the pleasure principle.
+However, the complexity of the mind-brain system poses inherent limitations. Psychoanalysis, with its focus on subjective experience and the unconscious, may not be fully captured by neurobiological models.
 
-### Therapeutic Implications
+### References
 
-The active inference model of coherence therapy attempts to leverage the explanatory power of the Free Energy Principle by offering critical analysis of an empirically validated post-Freudian psychotherapy through the lens of Bayes Optimal Pathology. Application of Bayes Optimal Pathology presents two key questions for computational neuropsychology. The first question is “what are the prior beliefs that would have to be held to make this behavior optimal?”. Next, having identified the (putative) suboptimal priors, the question becomes “what are the biological substrates of these priors”?. Or, what happens in the brain?. These questions can be considered an exercise in Psychodynamic Neuroscience, in essence, using the Free Energy Principle as a bridge between mind and brain.
+Andrews-Hanna, J. R., Reidler, J. S., Sepulcre, J., Poulin, R., & Buckner, R. L. (2010). Functional-anatomic fractionation of the brain's default network. *Neuron, 65*(4), 550-562.
 
-Psychoanalytic psychotherapies require a setting (made up of several envelopes), a particular psychic state and specific processes (transference, free association, dreaming, play, reflexivity and narrativity) in order to induce psychic transformations. Psychoanalytic therapies involve the transformation of the generative model with the idea that this will induce transformation of the subject’s relationship.
+Carhart-Harris, R. L., & Friston, K. J. (2010). The default-mode, ego-functions and free-energy: a neurobiological account of Freudian ideas. *Brain, 133*(4), 1265-1283.
 
-Rabeyron examines the role of free association from the point of view of psychoanalysis and neuroscience in order to improve the understanding of therapeutic effects induced by psychoanalytic therapies and psychoanalysis. In this regard, he proposes a global overview of the historical origins of the concept of free association in psychoanalysis and examines how Freud established its principles. Then, from Freud’s distinction between primary and secondary processes, he proceeds to compare the psychoanalytic model with research originating from cognitive psychology and neuroscience. The notions of entropy and free energy appear particularly relevant at the intersection of these different domains. Finally, he proposes the notion of symbolizing transmodality to describe certain specificities of symbolization processes within free association and summarizes the main functions of free association in psychoanalytic practices.
+Cieri, F., and Esposito, R. (2019). Psychoanalysis and neuroscience: the bridge between mind and brain. *Front. Psychol*. 10:1790.
 
-Holmes and Nolte note that the development of the generative model occurs through the “borrowing” of the maternal brain and suggest that “this borrowed brain model introduces a vital interpersonal dimension to the Bayesian process”. The baby thus internalizes the experience of maternal care in order to reduce the entropy: “these embodied gestures present a model of the infant from the caregiver’s perspective helping the child to integrate primary sensory signals into regularities of emotional and interpersonal consequences”. Within psychodynamic therapies, a similar process emerges as the subject develops its capacity for psychic integration through the intersubjective relationship with the therapist.
+Friston, K. (2010). The free-energy principle: a unified brain theory? *Nature Reviews Neuroscience, 11*(2), 127-138.
 
-The therapeutic alliance can therefore be seen as a process of co-regulation, where the therapist helps the patient to explore and revise their internal models, reduce prediction errors, and minimize free energy. The therapist's empathy, understanding, and non-judgmental stance create a safe and supportive environment in which the patient can confront difficult emotions, challenge maladaptive beliefs, and develop more flexible and adaptive ways of relating to themselves and others.
+Hopkins, J. (2012). Psychoanalysis, representation and neuroscience: The Freudian unconscious and the Bayesian brain. In A. Fotopoulu, D. Pfaff, and M. Conway (Eds.), *From the couch to the lab: Psychoanalysis, neuroscience and cognitive psychology in dialogue*. Oxford University Press.
 
-### Conclusion
+Parr, T., & Friston, K. J. (2019). Attention or salience?. *Current opinion in psychology, 29*, 1-5.
 
-The **active inference and free energy minimization framework provides a powerful lens through which to understand the neurobiological substrates of psychoanalytic concepts**. By reinterpreting conflict, defense, the unconscious, and therapeutic action in terms of the brain's mechanisms for minimizing free energy, this framework offers a bridge between psychoanalysis and neuroscience. This integration has the potential to advance our understanding of the mind, inform the development of more effective treatments for mental disorders, and promote a more holistic and integrated approach to mental health care.
+Solms, M. (2013). The conscious id. *Neuropsychoanalysis, 15*(1), 5-19.
 
-References
-
-Allman, J. M., Hakeem, A., Erwin, J. M., Nimchinsky, E., and Hof, P. (2001). The anterior cingulate cortex: the evolution of an interface between emotion and cognition. *Ann. N. Y. Acad. Sci. 935*, 107–117.
-
-Andreasen, N. C., O’Leary, D. S., Cizadlo, T., Arndt, S., Rezai, K., Watkins, G. L., et al. (1995). Remembering the past: two facets of episodic memory explored with positron emission tomography. *Am. J. Psychiatry 152*, 1576–1585.
-
-Andrews-Hanna, J. R. (2012). The brain’s default network and its adaptive role in internal mentation. *Neuroscientist 18*, 251–270.
-
-Andrews-Hanna, J. R., Smallwood, J., and Spreng, R. N. (2014). The default network and self-generated thought: component processes, dynamic control, and clinical relevance. *Ann. N. Y. Acad. Sci. 1316*, 29–52.
-
-Andrews-Hanna, J. R., Snyder, A. Z., Vincent, J. L., Lustig, C., Head, D., Raichle, M. E., et al. (2007). Disruption of large-scale brain systems in advanced aging. *Neuron 56*, 924–935.
-
-Badcock, P. B., Friston, K. J., and Ramstead, M. J. D. (2019). The hierarchically mechanistic mind: a free-energy formulation of the human psyche. *Phys. Life Rev. 31*, 104–121.
-
-Barratt, B. B. (2017). Opening to the otherwise: the discipline of listening and the necessity of free-association for psychoanalytic praxis. *Int. J. Psychoanal. 98*, 39–53.
-
-Berlin, H. A., and Montgomery, J. (2017). “Neural basis of intraspsychic and unconscious conflict and repetition compulsion,” in *Psychoanalytic Perspectives*
-
-Bion, W. R. (1965). *Transformations*. London: Heinemann.
-
-Buckner, R. L., Andrews-Hanna, J. R., and Schacter, D. L. (2008). The brain’s default network: anatomy, function, and relevance to disease. *Ann. N. Y. Acad. Sci. 1124*, 1–38.
-
-Carhart-Harris, R. L., and Friston, K. J. (2010). The default-mode, ego-functions and free-energy: a neurobiological account of Freudian ideas. *Brain 133*, 1265–1283.
-
-Carter, C. S., MacDonald, A. W. 3rd., Ross, L. L., and Stenger, V. A. (2001). Anterior cingulate cortex activity and impaired self-monitoring of performance in patients with schizophrenia: an event-related fMRI study. *Am. J. Psychiatry 158*, 1423–1428.
-
-Castellanos, F. X., Margulies, D. S., Kelly, C., Uddin, L. Q., Ghaffari, M., Kirsch, A., et al. (2008). Cingulate-precuneus interactions: a new locus of dysfunction in adult attention-deficit/hyperactivity disorder. *Biol. Psychiatry 63*, 332–337.
-
-Cieri, F., and Esposito, R. (2019). Psychoanalysis and neuroscience: the bridge between mind and brain. *Front. Psychol. 10*, 1790.
-
-Connolly, P., and van Deventer, V. (2017). Hierarchical recursive organization and the free energy principle: from biological self-organization to the psychoanalytic mind. *Front. Psychol. 8*, 1695.
-
-Esposito, R., Cieri, F., di Giannantonio, M., and Tartaro, A. (2018b). The role of body image and self-perception in anorexia nervosa: the neuroimaging perspective. *J. Neuropsychol. 12*, 41–52.
-
-Fox, M. D., and Raichle, M. E. (2007). Spontaneous fluctuations in brain activity observed with functional magnetic resonance imaging. *Nat. Rev. Neurosci. 8*, 700–711.
-
-Fox, M. D., Snyder, A. Z., Zacks, J. M., and Raichle, M. E. (2006). Coherent spontaneous activity accounts for trial-to-trial variability in human evoked brain responses. *Nat. Neurosci. 9*, 23–25.
-
-Fransson, P. (2005). Spontaneous low-frequency BOLD signal fluctuations: an fMRI investigation of the resting-state default mode of brain function hypothesis. *Hum. Brain Mapp. 26*, 15–29.
-
-Freud, S. (1940). An outline of psychoanalysis. *Std Edn. Vol. 23*. London: Vintage.
-
-Freud, S. (1911). Formulations on the two principles of mental functioning. *Std Edn. Vol. 12*. 218–286.
-
-Freud, S. (1895/1963). “On the grounds for detaching a particular syndrome from neurasthenia under the description ‘anxiety neurosis’” in *The standard edition of the complete psychological works of Sigmund Freud. Vol. 3*, ed. J. Strachey trans. London: The Hogarth Press.
-
-Hobson, J., Allan, Hong Charles, C.-H., and Friston Karl, J. (2014). Virtual reality and consciousness inference in dreaming. *Front. Psychol. 5*, 1133.
-
-Holmes, J., and Nolte, T. (2019). Surprise” and the bayesian brain: implications for psychotherapy theory and practice. *Front. Psychol. 10*, 592.
-
-Hopkins, J. (2016). Free energy and virtual reality in neuroscience and psychoanalysis: a complexity theory of dreaming and mental disorder. *Front. Psychol. 7*, 922.
-
-James, W. (1890). “The principles of psychology” London: MacMillan.
-
-Kandel, E. (1999). Biology and the future of psychoanalysis: a new intellectual framework for psychiatry revisited. *Am. J. Psychiatry 156*, 505–524.
-
-Knill, D. C., and Pouget, A. (2004). The Bayesian brain: the role of uncertainty in neural coding and computation. *Trends Neurosci. 27*, 712–719.
-
-Phan, K. L., Wager, T., Taylor, S. F., and Liberzon, I. (2002). Functional neuroanatomy of emotion: a meta-analysis of emotion activation studies in PET and fMRI. *NeuroImage 16*, 331–348.
-
-Posner, M. I. (1994). Attention: the mechanisms of consciousness. 1994. *Proc. Natl. Acad. Sci. USA 91*, 7398–7403.
-
-Qin, P., and Northoff, G. (2011). How is our self related to midline regions and the default-mode network? *NeuroImage 57*, 1221–1233.
-
-Raichle, M. E., MacLeod, A. M., Snyder, A. Z., Powers, W. J., Gusnard, D. A., and Shulman, G. L. (2001). A default mode of brain function. *Proc. Natl. Acad. Sci. USA 98*, 676–682.
-
-Ramstead, M. J. D., Badcock, P. J., and Friston, K. J. (2018). Answering Schrödinger’s question: a free-energy formulation. *Phys. Life Rev. 24*, 1–16.
-
-Schneider, F., Bermpohl, F., Heinzel, A., Rotte, M., Walter, M., Tempelmann, C., et al. (2008). The resting brain and our self: self-relatedness modulates resting state neural activity in cortical midline structures. *Neuroscience 157*, 120–131.
-
-Solms, M. (2018b). The neurobiological underpinnings of psychoanalytic theory and therapy. *Frontiers in Behavioral Neuroscience, 12*, 294.
-
-Woll, C., and Schönbrodt, F. D. (2019). Grading the quality of evidence in psychoanalytic research: Introducing the Q-factor. *Frontiers in Psychology, 10*.
 _________________________________________________________
 
 
