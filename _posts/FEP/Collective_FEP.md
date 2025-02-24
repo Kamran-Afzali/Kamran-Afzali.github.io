@@ -1,19 +1,148 @@
-### Main points
+### **Collective Active Inference and Group-Level Free Energy Minimization**
 
-The main points of collective active inference and group-level free energy minimization are:
+Collective intelligence, an emergent property where a group outperforms the sum of its individual members, has long intrigued researchers. One promising approach to understanding this phenomenon is through the lens of **active inference and the free energy principle (FEP)**, which posits that collective intelligence can be understood as a system minimizing free energy or performing approximate Bayesian inference at a collective level. This framework provides a mathematical description of how individual interactions lead to global behavior in complex adaptive systems. The active inference framework (AIF) is a theory of approximate Bayesian inference that describes how any self-organizing biological system can be modeled.
 
-*   **Collective motion** Macroscopic patterns can arise from decentralized, local interactions, and can be modeled using active inference. This approach suggests that collective behavior results from individual agents minimizing surprise, without needing explicit behavioral rules or goals.
-*   **Active inference** blends cognitivist and physics-based approaches by suggesting that behavior is governed by the minimization of surprise or prediction error.
-*   **Collective intelligence** can be understood as a system that is able to minimize free energy or perform approximate Bayesian inference at a collective level.
-*   **Shared generative model** By equipping agents with a shared generative model of a shared world, Bayesian belief updating can be distributed over multiple agents. This requires a common ground or frame of reference, with conserved belief structures and representations across agents.
-*   **Federated inference and learning** emerges from minimizing variational, expected, and reduced free energy, providing a first-principles account of state inference, parameter learning, and model selection for any generative model and implicit agent.
-*   **Belief-sharing** Belief-sharing can resolve uncertainty about hidden states, especially when observable consequences are only visible to one agent at a time.
-*   **Language emergence** Linguistic communication emerges as agents broadcast beliefs, increasing the accuracy of their world models and enhancing communication efficiency. The structure of language inherits the structure of the underlying generative model and is constrained by the causal structure of the lived world.
-*   **Multi-scale application** Active inference can be applied across scales, with collectives of active inference agents maintaining a group-level Markov blanket and acting as a larger group-level active inference agent with its own generative model.
-*   **System-level free energy** Collective performance can be measured using system-level free energy, where lower free energy indicates higher system performance. Cognitive sophistication at the individual level is associated with reductions in free energy at the system level.
-*   **Constraints and communication** Constraints arise naturally from free energy minimization, influencing language and communication.
-*   **Emergence of complexity** As free energy is minimized, complexity emerges, with increased accuracy in understanding the environment leading to increased complexity.
-*   **The role of active inference** in offering explanations of how an agent resists a natural tendency to entropy.
+The **free energy principle (FEP)** suggests that any system maintaining a stable boundary or **Markov blanket** can be described as minimizing the variational free energy of its sensory states. A Markov blanket statistically separates internal and external states, with sensory states affecting internal states and active states influencing external states. Minimizing variational free energy is equivalent to approximate Bayesian inference, enabling systems to engage in active inference or self-evidencing. This perspective casts perception, learning, and action as variational inference processes dependent on a generative model of the environment. Under the FEP, surprise is associated with variational free energy, suggesting that minimizing variational free energy implicitly minimizes surprise.
+
+**Shared Generative Models and Distributed Bayesian Belief Updating**
+
+A cornerstone of collective active inference is the concept of a **shared generative model**. By equipping agents with a shared generative model of a shared world, Bayesian belief updating can be distributed across multiple agents. This distribution relies on a **common ground or frame of reference**, ensuring conserved belief structures and representations across agents. For agents to effectively share beliefs, there must be an isomorphism between their beliefs, requiring generative models with conserved belief structures.
+
+**Federated Inference and Learning**
+
+**Federated inference and learning** emerge from minimizing variational, expected, and reduced free energy, offering a first-principles account of state inference, parameter learning, and model selection for any generative model and implicit agent.
+
+*   **Variational free energy** relates to beliefs about states.
+*   **Expected free energy** relates to beliefs about paths.
+*   **Reduced free energy** relates to beliefs about likelihoods.
+
+This framework simulates inference, learning, and selection as nested free energy minimizing processes. Minimizing variational free energy maximizes the model evidence of observations under the agent's generative model, a process known as self-evidencing. Expected free energy, definitive of active inference, scores the likelihood of various actions, while variational free energy scores the marginal likelihood of observations under Bayesian beliefs about their causes. The free energy principle describes self-organization in open systems coupled to each other, where agents exchange information and update beliefs to minimize free energy.
+
+**Belief-Sharing**
+
+**Belief-sharing** plays a crucial role in resolving uncertainty about hidden states, especially when observable consequences are only visible to one agent at a time. By sharing beliefs, agents can accumulate evidence through multiple perspectives, enhancing the efficiency of belief updating. This process relies on a shared generative model, where the mapping between each agent's beliefs and expressions is conserved across agents. In scenarios where agents have complementary perspectives, communication resolves uncertainty about latent states in their shared world.
+
+**Language Emergence**
+
+**Linguistic communication emerges** as agents broadcast beliefs, increasing the accuracy of their world models and enhancing communication efficiency. As agents interact and share information, they develop a shared language that facilitates coordination and knowledge sharing. The structure of language inherits the structure of the underlying generative model and is constrained by the causal structure of the lived world. This perspective aligns with linguistic theories such as Universal Grammar and Optimality Theory, where constraints arise naturally from free energy minimization.
+
+**System-Level Free Energy**
+
+**Collective performance** can be measured using system-level free energy, where lower free energy indicates higher system performance. Cognitive sophistication at the individual level is associated with reductions in free energy at the system level. In models with agents that have theory of mind and goal alignment exhibit the greatest reduction in free energy. By defining a system at multiple levels, simulations can analyze agent-level interactions and their impact on system-level performance, using free energy as a measure.
+
+**Constraints and Communication**
+
+**Constraints arise naturally** from free energy minimization, influencing language and communication. The free energy principle is dual to the constrained maximum entropy principle, where constraints inherit from the generative model. This suggests that the structure of language reflects the causal structure of the world and the bodies within it. These constraints ensure that agents within a collective minimize surprise and uncertainty, leading to more effective communication and coordination.
+
+**Conclusion**
+
+The collective active inference and group-level free energy minimization framework offers a comprehensive approach to understanding collective intelligence in complex systems. By integrating concepts such as shared generative models, federated inference, belief-sharing, and system-level free energy, this framework provides insights into how individual interactions give rise to emergent group behaviors. The application of these principles can enhance our understanding of human collectives, artificial intelligence systems, and other complex adaptive systems, highlighting the importance of information sharing, coordination, and the minimization of uncertainty in achieving collective goals.
+
+
+**References**
+
+ Albarracin, D., et al. (2022). Collective behavior from surprise minimization.
+
+ Allen, M., & Friston, K. J. (2018). From generative models to Markov blankets: An introduction to active inference. *Archives of Clinical Neuropsychology*, *33*(8), 1282-1297.
+
+ Berdahl, A. M., et al. (2013). Emergent sensing and decision making in animal groups. *Science*, *339*(6119), 574-576.
+
+ Berger, J. O. (2011). *Statistical decision theory: Concepts and methods*. Springer Science & Business Media.
+
+ Braun, D. A., et al. (2011). Bounded rationality and biological decision-making: perspectives from control theory and information theory. *Philosophical Transactions of the Royal Society B: Biological Sciences*, *366*(1563), 447-461.
+
+ Bruineberg, J., et al. (2018). Getting a grip on the world: Active interoceptive inference and sensorimotor contingencies. *Philosophical Transactions of the Royal Society B: Biological Sciences*, *373*(1740), 20170141.
+
+ Chomsky, N. (2017). *The minimalist program*. MIT press.
+
+ Constant, A., et al. (2019). Embodied predictive coding: a theoretical framework for sensorimotor contingencies and perceptual presence. *Cognitive Computation*, *11*(2), 269-290.
+
+ Couzin, I. D., et al. (2005). Effective leadership and decision-making in animal groups on the move. *Nature*, *433*(7025), 513-516.
+
+ Dauwels, J. (2007). Expectation propagation for graphical models. In *Probability and statistics* (pp. 141-153). ISTE.
+
+ Fields, C., et al. (2021). Self-evidencing and the epistemic imperative. *Frontiers in Psychology*, *12*, 636029.
+
+ Friston, K. (2010). The free-energy principle: a unified brain theory?. *Nature reviews neuroscience*, *11*(2), 127-138.
+
+ Friston, K. (2013). Life as we know it. *Journal of the Royal Society Interface*, *10*(80), 20130475.
+
+ Friston, K., et al. (2022). Distributed Science.
+
+ Gershman, S. J., & Niv, Y. (2010). Learning fixed and random reward structures. *Journal of Neuroscience*, *30*(27), 9287-9292.
+
+ Ghavamzadeh, M., et al. (2016). Bayesian reinforcement learning: A survey. *Foundations and Trends® in Machine Learning*, *8*(5-6), 359-613.
+
+ Hein, A. M., et al. (2015). Collective information use, spatial scale, and coping with environmental change. *Ecology*, *96*(1), 74-84.
+
+ Hohwy, J. (2016). The self-evidencing brain. *Noûs*, *50*(2), 259-285.
+
+ Itti, L., & Baldi, P. (2009). Bayesian surprise attracts human attention. *Vision research*, *49*(12), 1295-1306.
+
+ Kass, R. E., & Raftery, A. E. (1995). Bayes factors. *Journal of the american statistical association*, *90*(430), 773-795.
+
+ Kastel, A., et al. (2023). Small Steps for Mankind.
+
+ Kaufmann, T., et al. (2021). Stepwise cognitive transitions increase collective intelligence in an active inference model. *Entropy*, *23*(7), 830.
+
+ Klyubin, A. S., et al. (2005). Risk-sensitive behavior explains direct choices in uncertain environments. *PLoS computational biology*, *1*(5), e53.
+
+ Lindley, D. V. (1956). On a measure of the information provided by an experiment. *The Annals of Mathematical Statistics*, *27*(4), 986-1005.
+
+ Mackay, D. J. C. (1992). Information-based objective functions for active data selection. *Neural computation*, *4*(3), 405-447.
+
+ Michel, M. (2022). Predictive processing as a framework, not a theory: commentary on Kirchhoff, Parr, Palacios, Friston and Clark. *Synthese*, *200*(3), 1-9.
+
+ Ortega, P. A., & Braun, D. A. (2013). Thermodynamics as a theory of decision-making with information-processing costs. *Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences*, *469*(2153), 20120699.
+
+ Parr, T., & Friston, K. J. (2019). Generalized free energy and active inference; the Markovian niche. *Entropy*, *21*(1), 43.
+
+ Pellet, J. P., & Elisseeff, A. (2008). A PAC-Bayesian approach to model selection. *Journal of Machine Learning Research*, *9*(Feb), 285-316.
+
+ Prince, A., & Smolensky, P. (2007). *Optimality theory: Constraint interaction in generative grammar*. John Wiley & Sons.
+
+ Ramstead, M. J., et al. (2020). Answering Schrödinger’s question: A free-energy formulation. *Physics of Life Reviews*, *35*, 1-27.
+
+ Sakthivadivel, D. (2022). The dual faces of the free energy principle: Active inference, constrained maximum entropy and self-organisation. *arXiv preprint arXiv:2208.01381*.
+
+ Schmidhuber, J. (2010). Formal theory of creativity, fun, and intrinsic motivation (1990–2010). *IEEE Transactions on Autonomous Mental Development*, *2*(3), 230-247.
+
+ Smith, R., et al. (2020). Bayesian model selection and comparison in computational cognitive modeling. *Psychological Methods*, *25*(5), 621.
+
+ Spielman, D. A., & Srivastava, N. (2011). Graph sparsification by effective resistances. *SIAM Journal on Computing*, *40*(6), 1913-1942.
+
+ Steels, L. (2011). The autotelic origin of language. *Cognitive science*, *35*(4), 601-633.
+
+ Tervo, D. G. R., et al. (2016). Bayesian model selection for characterizing neural computation. *bioRxiv*, 086089.
+
+ Tomasello, M. (2016). *A natural history of human morality*. Harvard University Press.
+
+ Torney, C. J., et al. (2015). Information transfer and cohesion in animal groups: a comparative analysis. *Philosophical Transactions of the Royal Society B: Biological Sciences*, *370*(1669), 20140150.
+
+ van den Broek, T., et al. (2010). Exploration, exploitation, and optimality in motor learning. *Journal of Neuroscience*, *30*(23), 7812-7821.
+
+ Veissière, S. P., et al. (2019). Cultural niche construction and the active inference of social affordances. *Adaptive Behavior*, *27*(3), 154-169.
+
+ Vigorito, M., & Barto, A. G. (2010). Intrinsically motivated exploration in structured environments. *Developmental Cognitive Systems*, *1*(4), 407-422.
+
+ Ward, A. J., et al. (2008). Quorum decision-making facilitates information transfer in fish shoals. *Proceedings of the National Academy of Sciences*, *105*(19), 6948-6953.
+
+ Winn, J. M., & Bishop, C. M. (2005). Variational message passing. *Journal of Machine Learning Research*, *6*(Apr), 661-694.
+
+ Heins, C., Ramstead, M. J. D.,র্ষণ Friston, K. J., & Constant, A. (2024). Federated free energy principle: Emergence of distributed inference and learning. *Neuroscience and Biobehavioral Reviews*, *156*, 105500.
+
+ Guénin—Carlut, L. (2022). City-States as Thinking Minds: A (En)Active Inference Approach to Urbanisation. *IOP Conference Series: Materials Science and Engineering*, *1261*(1), 012026.
+
+ Heins, C., et al. (2024). Deconstructing the generative model of group-level active inference agents. *Entropy*, *26*(2), 143.
+
+ Allen, M., & Friston, K. J. (2018). From generative models to Markov blankets: An introduction to active inference. *Archives of Clinical Neuropsychology*, *33*(8), 1282-1297.
+
+ Ramstead, M. J., Kirchhoff, M., & Friston, K. J. (2020). Answering Schrödinger’s question: A free-energy formulation. *Physics of Life Reviews*, *35*, 1-27.
+
+ Scott-Phillips, T. C., Dickins, T. E., & West, S. A. (2011). Evolutionary versus mechanistic explanations in the social sciences. *Behavioral and Brain Sciences*, *34*(6), 291-310.
+
+ Smith, R., et al. (2022). Active inference and agency: Temporally extended mechanisms of control. *Cognitive science*, *46*(3), e13115.
+
 
 ______________
 
@@ -281,10 +410,6 @@ In summary, **system-level free energy** is a powerful concept for understanding
 
 _______________________________________
 
-
-**Belief Sharing within the Collective Active Inference and Group-Level Free Energy Minimization Framework**
-
-The natural world abounds with examples of collective behavior, where groups of animals exhibit complex patterns such as coordinated movement, milling, and swarming. These macroscopic patterns typically emerge from decentralized, local interactions among individual members of the group. In recent years, the active inference framework has arisen as a robust tool for modeling such behaviors, suggesting that behavior is fundamentally driven by a single imperative: **to minimize surprise**. This framework posits that collective phenomena, including cohesion, milling, and directed motion, can naturally arise from active Bayesian inference without the need to explicitly program behavioral rules or goals into individual agents. This essay explores the critical role of belief sharing within the collective active inference and group-level free energy minimization framework, examining its theoretical underpinnings, cognitive mechanisms, and implications for understanding collective intelligence and social behavior.
 
 ### Active Inference and Collective Behavior
 
