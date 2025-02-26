@@ -21,20 +21,12 @@ The alignment between active inference, the Free Energy Principle (FEP), and the
 
 From a psychoanalytic perspective, **dreams are the "royal road to the unconscious"**, offering a glimpse into our hidden desires and traumatic experiences. Freud proposed that during sleep, the psychic energy is freer, leading to the expression of desires in a hallucinatory manner. The FEP echoes this by suggesting that dreams represent a state where the usual constraints on our generative models are relaxed, allowing for the exploration of different scenarios and the integration of new information.
 
-The FEP suggests that **the brain is continuously attempting to minimize its free energy, which can be achieved by either changing the world or updating its internal models**. Dreams, in this context, can be understood as a form of "virtual reality" where the brain simulates possible future scenarios to prepare for potential challenges and reduce prediction error. By playing out these scenarios, the brain can refine its predictive models and reduce the likelihood of being surprised by future events.
+The FEP suggests that **the brain is continuously attempting to minimize its free energy, which can be achieved by either changing the world or updating its internal models**. Dreams, in this context, can be understood as a form of "virtual reality" where the brain simulates possible future scenarios to prepare for potential challenges and reduce prediction error. By playing out these scenarios, the brain can refine its predictive models and reduce the likelihood of being surprised by future events. 
 
-**Dreams are also closely related to the concept of "reverie"**, which is considered a fundamental component of psychoanalytical therapies. According to one article, reverie is a state of empathic, containing attentional state and can offer practitioners a means to enter the predictive moment deeply, making use of its subtle contents to connect with clients. During the sessions, reverie appears as the state in which the patient enters. The therapist, too, enters a state that allows the therapist to dream the patient's experience and to "dream undreamt dreams". This state is catalyzed by the analyst's own dream function.
+Likewise, **dreaming elaborates trauma so that it becomes thinkable**. This process involves a state of "letting go", which allows the emergence of simple and elegant solutions. **Psychoanalytical therapies catalyze these meaning and narrative processes, helping to regulate the psyche's energetic dynamics**. The psychoanalytic approach considers that dreams express unconscious desires and traumatic experiences. The therapist pays attention to the patient's dreams and proposes interpretations about their meaning. **Dreams create a "virtual reality space" that allows for exploration of desires and traumatic experiences that have not been integrated**.
 
-In terms of the dialogue between neuroscience and psychoanalysis, dreams and free association provide a clear path with cognitive science, free energy neuroscience, and computational psychiatry in order to create a consistent and solid connection between the psychological and neuroscientific views.
-
-**The work of psychic integration occurs when coupled with secondary processes as a complementary system necessary for the reflexive metabolization of the subjective experience**, which requires a very particular psychic activity underlying the effects of free association, and is called the "alpha function".
-
-According to one paper, **dreaming elaborates trauma so that it becomes thinkable**. This process involves a state of "letting go", which allows the emergence of simple and elegant solutions. **Psychoanalytical therapies catalyze these meaning and narrative processes, helping to regulate the psyche's energetic dynamics**.
-
-The psychoanalytic approach considers that dreams express unconscious desires and traumatic experiences. The therapist pays attention to the patient's dreams and proposes interpretations about their meaning. **Dreams create a "virtual reality space" that allows for exploration of desires and traumatic experiences that have not been integrated**.
-
-##### Desire
-The alignment between active inference, the Free Energy Principle (FEP), and the concept of desire in psychoanalysis creates a framework for understanding motivation, affect, and the interactions between internal states and external actions. Within this synthesis, **desire is an active force, shaping perception, cognition, and behavior**, not a passive feeling.
+### Desire
+The alignment between active inference, the Free Energy Principle, and the concept of desire in psychoanalysis creates a framework for understanding motivation, affect, and the interactions between internal states and external actions.Along these lines, **desire is an active force, shaping perception, cognition, and behavior**, not a passive feeling.
 
 Psychoanalysis understands the mind as a system influenced by unconscious desires and conflicts. Freud's work explored psychic energy and how mental processes reduce tension and seek pleasure. The FEP provides a lens to revisit these concepts with a quantifiable, information-theoretic approach to psychic energy.
 
@@ -43,6 +35,12 @@ Active inference, based on the FEP, suggests that organisms reduce free energy b
 *   **Perception:** Updating internal models to better predict sensory input.
 
 Desire drives both action and perception, guiding the organism toward predictable states.
+
+The FEP integrates subcortical emotions with cortical predictive models. The mind maintains homeostasis, and predictions are motivated by desires and wishes, supporting the idea that "all thinking is wishful-thinking".
+
+Within active inference, **desire links to action and exploration**. Active inference is enhanced by seeking help and collaboration, a process where individuals refine their understanding of the world. Blocked explorations to reduce free energy may be responsible for psychological illness. Psychoanalysis evokes and then quiets trauma-related unbound energy through free association, dream analysis, and transference analysis.
+
+
 
 One way to view **desire is through a linguistic model, where individuals are signifiers in a chain of meaning**. Desire drives individuals to seek the signified object, creating an interplay between subjects. Complexity theory suggests this is a process of partial synchronization where individuals influence internal states.
 
@@ -60,9 +58,6 @@ Psychoanalysis emphasizes unconscious processes, while the FEP highlights the br
 
 **Psychotherapeutic procedures enhance interpersonal satisfaction and challenge self-fulfilling priors**. Therapy creates a supportive environment to explore unconscious desires and revise maladaptive beliefs.
 
-The FEP integrates subcortical emotions with cortical predictive models. The mind maintains homeostasis, and predictions are motivated by desires and wishes, supporting the idea that "all thinking is wishful-thinking".
-
-Within active inference, **desire links to action and exploration**. Active inference is enhanced by seeking help and collaboration, a process where individuals refine their understanding of the world. Blocked explorations to reduce free energy may be responsible for psychological illness. Psychoanalysis evokes and then quiets trauma-related unbound energy through free association, dream analysis, and transference analysis.
 
 Synthesizing active inference, the FEP, and psychoanalytic concepts, the relationship between desire, affect, and subjective experience can be appreciated. This interdisciplinary approach provides a framework for understanding the human mind and offers new avenues for therapeutic intervention.
 
