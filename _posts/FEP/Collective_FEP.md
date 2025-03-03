@@ -269,22 +269,41 @@ The mechanisms underlying federated inference and learning have implications for
 Active learning and selection complement each other. In active learning, posterior parameters change to minimize variational free energy if, and only if, expected free energy is reduced. Conversely, in active selection, prior parameters change to minimize expected free energy if, and only if, variational free energy is reduced as scored with Bayesian model reduction. The implicit bootstrapping underwrites self-evidencing towards precise and predictable exchanges.
 
 In summary, federated inference and learning offer a powerful approach to distributed cognition, enabling agents to collectively enhance their understanding of a shared world. By leveraging the principles of active inference, shared generative models, belief sharing, and active learning, agents can achieve levels of performance that exceed their individual capabilities and contribute to the emergence of collective intelligence at the group level. The mechanisms described in this essay have implications for a wide range of applications, from distributed sensing and robotics to social learning and organizational decision-making. By continuing to explore these concepts, we can gain valuable insights into the nature of collective behavior and its potential for addressing some of the most pressing challenges facing society today.
+____
+Federated inference and belief sharing represent a critical advancement in our understanding of collective intelligence, distributed cognition, and the mechanisms underlying cooperative behavior. At its core, federated inference is a decentralized approach to information processing, where multiple agents—whether biological, artificial, or hybrid—engage in active inference to minimize free energy and generate a shared, cohesive understanding of their environment. This paradigm is particularly relevant to multi-agent systems, collective behavior, and the emergence of cumulative culture, offering a theoretical foundation for explaining complex social and cognitive phenomena.
+
+Active inference, as articulated by Friston and colleagues, posits that biological and artificial systems maintain homeostasis and adapt to their surroundings by minimizing variational free energy (Friston, 2010). This principle extends beyond individual cognition, applying to multi-agent systems where belief sharing facilitates coordinated action and collective decision-making. Federated inference, therefore, integrates distributed agents into a coherent network of information processing, enabling them to exchange and refine beliefs through recursive updating and shared generative models (Friston et al., 2024).
+
+One of the essential aspects of federated inference is its role in collective behavior. Heins et al. (2023) explore how surprise minimization governs interactions within social systems, demonstrating that agents engaged in active inference adjust their expectations and responses to align with a broader collective. This process is crucial for large-scale coordination, from ant colonies to human societies, where individuals must reconcile their local predictions with the global network’s evolving structure.
+
+Kastel et al. (2022) build on this foundation by modeling the emergence of cumulative culture through joint active inference communication. Their work highlights the iterative nature of belief updating in social systems, where cultural transmission relies on agents dynamically adjusting their predictive models in response to shared experiences. This process underlies the formation of social norms, language, and cooperative strategies, enabling human societies to accumulate knowledge over generations.
+
+The interplay between cognition and collective intelligence has been extensively studied in the context of federated inference. Kaufmann et al. (2021) use active inference to model how cognitive processes interact with distributed intelligence networks, demonstrating that federated belief updating enhances the efficiency and adaptability of multi-agent systems. Their findings suggest that decentralized networks—whether composed of human participants, artificial agents, or hybrid collectives—exhibit superior problem-solving capabilities when they can share and integrate beliefs effectively.
+
+Levchuk et al. (2018) extend this perspective by examining active inference in multi-agent systems, emphasizing the importance of context-driven collaboration and decentralized team adaptation. Their research underscores the significance of shared generative models in facilitating coordination among agents, particularly in dynamic and uncertain environments. By continuously updating their priors based on shared experiences, agents can optimize their collective responses, reducing uncertainty and enhancing overall system resilience.
+
+The neurobiological underpinnings of federated inference have also been a subject of exploration. Allen (2020) investigates the role of interoceptive inference in shaping individual and collective decision-making, suggesting that the brain's predictive mechanisms extend beyond solitary cognition to encompass social interactions. Waade et al. (2025) further develop this idea by linking individual and emergent group-level generative models, illustrating how hierarchical active inference structures information processing across different scales of organization.
+
+Friston et al. (2024) provide a comprehensive account of federated inference and belief sharing, outlining the computational principles that govern distributed cognition. Their work integrates insights from Bayesian statistics, information theory, and neuroscience to offer a unified framework for understanding how agents synchronize their internal models with external realities. This theoretical foundation has implications for artificial intelligence, robotics, and human-computer interaction, where collaborative intelligence plays a crucial role in system efficiency and adaptability.
+
+The niche construction perspective on free-energy minimization, explored by Bruineberg et al. (2018), adds another layer to our understanding of federated inference. Their research suggests that agent-environment interactions co-evolve through iterative updates to generative models, reinforcing the importance of ecological feedback loops in shaping collective intelligence. This perspective aligns with Buskell’s (2020) examination of normativity and social change, highlighting how belief sharing facilitates adaptive transformations within cultural and institutional frameworks.
+
+Parr et al. (2022) and Friston et al. (2017) further elaborate on the role of active inference in structuring cognitive and behavioral processes, emphasizing its applicability to both individual and group dynamics. Their research demonstrates how federated inference mechanisms enable agents to negotiate complex environments by integrating multiple streams of information into a coherent, predictive framework. This capability is particularly relevant to contemporary challenges in artificial intelligence and distributed decision-making, where federated learning techniques are increasingly used to optimize machine learning models without centralized data storage.
+
+The implications of federated inference extend beyond theoretical considerations, influencing practical applications in neuroscience, artificial intelligence, and organizational decision-making. Friston’s (2019) formulation of the free-energy principle in the context of physics provides a broad ontological basis for understanding the emergence of self-organizing systems, reinforcing the relevance of federated belief updating across multiple domains.
+
+Constant et al. (2019) and Heyes (2018) examine the role of social cognition in active inference, proposing that human communication operates as an inferential process wherein agents recursively update their beliefs about others’ intentions and expectations. This recursive structure is fundamental to the development of cooperative strategies, joint attention, and theory of mind, all of which are critical components of social intelligence.
+
+Ramstead et al. (2018) and Kirchhoff et al. (2018) explore the concept of Markov blankets in relation to autonomy and active inference, demonstrating how federated inference structures can maintain distinct yet interdependent information-processing units. These insights inform research on distributed cognition, where networked agents maintain autonomy while participating in a larger, coordinated system.
+
+Hesp et al. (2019) extend these ideas by proposing a multi-scale view of emergent complexity, suggesting that federated inference operates across various levels of organization, from individual neurons to collective societal structures. Their work integrates active inference with evolutionary and developmental frameworks, providing a comprehensive account of how federated belief sharing facilitates adaptation and resilience in complex systems.
+
+Veissière et al. (2019) and Giere (2015) contribute to the discussion by examining how scientific cognition emerges as a form of distributed intelligence. Their research underscores the role of collaborative inference in scientific progress, where shared models, experimental validation, and peer review processes contribute to a dynamic, self-correcting epistemic system.
+
+Overall, federated inference and belief sharing represent a powerful explanatory framework for understanding distributed cognition, collective intelligence, and adaptive behavior in both biological and artificial systems. By integrating insights from neuroscience, cognitive science, artificial intelligence, and cultural evolution, this paradigm offers a unifying theory for how agents coordinate their beliefs and actions to navigate complex and uncertain environments. The future of federated inference lies in its application to real-world problems, from enhancing human-AI collaboration to optimizing decentralized decision-making structures in large-scale networks.
+
 
 **References**
-
-*   Heins, C., Ramstead, M. J. D., et al. “Collective behavior from surprise minimization.”
-*   Kastel, N., Hesp, C., Ridderinkhof, K. R., Friston, K. J. "Small Steps for Mankind: Modeling the Emergence of Cumulative Culture from Joint Active Inference Communication." *Frontiers in Neurorobotics*, December 2022.
-*   Kaufmann, R., et al. “Using Active Inference to Model the Interplay between Cognition and Collective Intelligence”. *Entropy* 2021, *23*(7), 830.
-*   Levchuk, G., et al. "Active Inference in Multi-Agent Systems: Context-Driven Collaboration and Decentralized Purpose-Driven Team Adaptation." *2018 AAAI Spring Symposium Series*, AAAI: Menlo Park, CA, USA, 2018, pp. 157–165.
-*   Allen, M. Unravelling the Neurobiology of Interoceptive Inference. Trends Cogn. Sci. 2020, 24, 265–266.
-*   Waade, P. T., et al. "As One and Many: Relating Individual and Emergent Group-Level Generative Models in Active Inference." *Entropy* 2025, *27*, 143.
-*   Friston, K. J., et al. "Federated inference and belief sharing." *Neuroscience and Biobehavioral Reviews* 156 (2024) 105500.
-*   Bruineberg, J., Rietveld, E., Parr, T., van Maanen, L., & Friston, K. J. (2018b). Free-energy minimization in joint agent-environment systems: a niche construction perspective. *Journal of theoretical biology, 455*, 161–178.
-*   Buskell, A. (2020). Normativity, social change, and the epistemological framing of culture. *Behavioral and Brain Sciences, 43*.
-*   Parr, T.; Pezzulo, G.; Friston, K.J. Active Inference: The Free Energy Principle in Mind, Brain, and Behavior; The MIT Press: Cambridge, MA, USA, 2022.
-*   Friston, K.; FitzGerald, T.; Rigoli, F.; Schwartenbeck, P.; Pezzulo, G. Active inference: A process theory. Neural Comput. 2017, 29, 1–49.
-*   Friston, K. A free energy principle for a particular physics. arXiv 2019, arXiv:1906.10184.
-
 
 
 1. **Heins, C., Ramstead, M. J. D., et al.** “Collective behavior from surprise minimization.” [ResearchGate](https://www.researchgate.net/)
@@ -306,6 +325,41 @@ In summary, federated inference and learning offer a powerful approach to distri
 17. **Hesp, C.; Ramstead, M.; Constant, A.; Badcock, P.; Kirchhoff, M.; Friston, K.** "A multi-scale view of the emergent complexity of life: A free-energy proposal." [Springer](https://link.springer.com/chapter/10.1007/978-3-030-10899-4_10)
 18. **Veissière et al.** "Thinking through other minds: A variational approach to cognition and culture." [Behavioral and Brain Sciences](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735)
 19. **Giere, R. N.** "Scientific Cognition as Distributed Cognition." [Springer](https://link.springer.com/book/10.1007/978-3-319-21852-8)
+
+
+Allen, M. (2020). Unravelling the neurobiology of interoceptive inference. *Trends in Cognitive Sciences, 24*(4), 265–266. [https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(20)30046-1](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(20)30046-1)
+
+Bruineberg, J., Rietveld, E., Parr, T., van Maanen, L., & Friston, K. J. (2018). Free-energy minimization in joint agent-environment systems: A niche construction perspective. *Journal of Theoretical Biology, 455*, 161–178. [https://www.sciencedirect.com/science/article/abs/pii/S0022519318300246](https://www.sciencedirect.com/science/article/abs/pii/S0022519318300246)
+
+Buskell, A. (2020). Normativity, social change, and the epistemological framing of culture. *Behavioral and Brain Sciences, 43.* [https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/normativity-social-change-and-the-epistemological-framing-of-culture/653C5E02E61BBA45D4F9EBA161AF2735](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/normativity-social-change-and-the-epistemological-framing-of-culture/653C5E02E61BBA45D4F9EBA161AF2735)
+
+Constant, A., et al. (2019). Thinking through other minds: A variational approach to cognition and culture. *Behavioral and Brain Sciences, 43*, e90. [https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735)
+
+Friston, K. (2019). A free energy principle for a particular physics. *arXiv.* [https://arxiv.org/abs/1906.10184](https://arxiv.org/abs/1906.10184)
+
+Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., & Pezzulo, G. (2017). Active inference: A process theory. *Neural Computation, 29*(1), 1–49. [https://direct.mit.edu/neco/article/29/1/1/8365/Active-Inference-A-Process-Theory](https://direct.mit.edu/neco/article/29/1/1/8365/Active-Inference-A-Process-Theory)
+
+Friston, K. J., et al. (2024). Federated inference and belief sharing. *Neuroscience and Biobehavioral Reviews, 156*, 105500. [https://www.sciencedirect.com/science/article/abs/pii/S0149763423004535](https://www.sciencedirect.com/science/article/abs/pii/S0149763423004535)
+
+Giere, R. N. (2015). Scientific cognition as distributed cognition. *Springer.* [https://link.springer.com/book/10.1007/978-3-319-21852-8](https://link.springer.com/book/10.1007/978-3-319-21852-8)
+
+Hesp, C., Ramstead, M., Constant, A., Badcock, P., Kirchhoff, M., & Friston, K. (2019). A multi-scale view of the emergent complexity of life: A free-energy proposal. In *Evolution, Development and Complexity* (pp. 195–227). *Springer.* [https://link.springer.com/chapter/10.1007/978-3-030-10899-4_10](https://link.springer.com/chapter/10.1007/978-3-030-10899-4_10)
+
+Heyes, C. (2018). A world unto itself: Human communication as active inference. *Frontiers in Psychology, 11*, 417. [https://www.frontiersin.org/articles/10.3389/fpsyg.2018.00417/full](https://www.frontiersin.org/articles/10.3389/fpsyg.2018.00417/full)
+
+Kastel, N., Hesp, C., Ridderinkhof, K. R., & Friston, K. J. (2022). Small steps for mankind: Modeling the emergence of cumulative culture from joint active inference communication. *Frontiers in Neurorobotics.* [https://www.frontiersin.org/articles/10.3389/fnbot.2022.846906/full](https://www.frontiersin.org/articles/10.3389/fnbot.2022.846906/full)
+
+Kaufmann, R., et al. (2021). Using active inference to model the interplay between cognition and collective intelligence. *Entropy, 23*(7), 830. [https://www.mdpi.com/1099-4300/23/7/830](https://www.mdpi.com/1099-4300/23/7/830)
+
+Kirchhoff, M.D., Parr, T., Palacios, E., Friston, K., & Kiverstein, J. (2018). The Markov blankets of life: Autonomy, active inference and the free energy principle. *Journal of the Royal Society Interface, 15.* [https://royalsocietypublishing.org/doi/full/10.1098/rsif.2017.0792](https://royalsocietypublishing.org/doi/full/10.1098/rsif.2017.0792)
+
+Levchuk, G., et al. (2018). Active inference in multi-agent systems: Context-driven collaboration and decentralized purpose-driven team adaptation. *AAAI Spring Symposium Series.* [https://ojs.aaai.org/index.php/AAAI/article/view/11473](https://ojs.aaai.org/index.php/AAAI/article/view/11473)
+
+Parr, T., Pezzulo, G., & Friston, K. J. (2022). *Active inference: The free energy principle in mind, brain, and behavior.* MIT Press. [https://mitpress.mit.edu/9780262047470/active-inference/](https://mitpress.mit.edu/9780262047470/active-inference/)
+
+Ramstead, M.J.D., Badcock, P.B., & Friston, K.J. (2018). Answering Schrödinger’s question: A free-energy formulation. *Physics of Life Reviews, 24*, 1–16. [https://www.sciencedirect.com/science/article/abs/pii/S1571064517302322](https://www.sciencedirect.com/science/article/abs/pii/S1571064517302322)
+
+Veissière et al. (2019). Thinking through other minds: A variational approach to cognition and culture. *Behavioral and Brain Sciences, 43*, e90. [https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735)
 
 
 
@@ -368,69 +422,32 @@ In the context of niche construction, language serves as a cultural artifact tha
 
 From a systems perspective, the role of communication in active inference extends to large-scale organizational behavior and institutional dynamics. Friston et al. (2022) describe how institutions function as extended cognitive systems that process information and regulate collective uncertainty. Language, as a primary medium of institutional communication, enables these systems to maintain coherence and adaptability. By structuring interactions through formalized discourse, institutions minimize free energy at a macro scale, ensuring resilience in complex and dynamic environments (Buskell, 2020).
 
-In summary, language and communication are indispensable to collective active inference and group-level free energy minimization. By facilitating shared generative models, enabling cumulative culture, structuring epistemic boundaries, and regulating affective states, linguistic communication ensures the coherence and adaptability of social systems. From micro-level interpersonal exchanges to macro-level institutional dynamics, language functions as both an inferential tool and a stabilizing mechanism, optimizing collective cognition in an uncertain world. This perspective underscores the necessity of integrating linguistics, cognitive science, and active inference to better understand the emergent complexity of social behavior and cultural evolution.
+Language and communication are indispensable to collective active inference and group-level free energy minimization. By facilitating shared generative models, enabling cumulative culture, structuring epistemic boundaries, and regulating affective states, linguistic communication ensures the coherence and adaptability of social systems. From micro-level interpersonal exchanges to macro-level institutional dynamics, language functions as both an inferential tool and a stabilizing mechanism, optimizing collective cognition in an uncertain world. This perspective underscores the necessity of integrating linguistics, cognitive science, and active inference to better understand the emergent complexity of social behavior and cultural evolution.
 
-___________
-
-The role of language and communication in collective active inference and group-level free energy minimization is a complex and multifaceted topic that has garnered significant attention in recent years. This essay will explore how language and communication facilitate collective cognition, enable group-level free energy minimization, and contribute to the emergence of cultural practices and shared knowledge.
-
-##### Language as a Medium for Collective Active Inference
-
-Language serves as a crucial medium through which individuals engage in collective active inference. Active inference, a framework proposed by Karl Friston and colleagues, posits that organisms strive to minimize surprise (or free energy) by continuously updating their internal models of the world. In the context of group dynamics, language allows individuals to share their predictions, beliefs, and sensory experiences, thereby enabling a form of distributed cognition that extends beyond individual minds.
-
-When individuals communicate, they are essentially exchanging predictions about their shared environment. This exchange of predictions allows for a more robust and accurate model of reality to emerge at the group level. As Heyes (2018) argues, human communication can be understood as a process of active inference, where individuals use language to test and refine their predictions about the world and others' mental states.
-
-##### Group-Level Free Energy Minimization
-
-The concept of group-level free energy minimization extends the principles of active inference to collective behavior. Friston et al. (2023) propose a framework of "federated inference and belief sharing" that explains how groups can collectively minimize free energy. In this model, individuals within a group share their beliefs and update them based on the beliefs of others, leading to a convergence of expectations and a reduction in collective uncertainty.
-
-Language plays a pivotal role in this process by allowing for the rapid and efficient exchange of information. Through verbal and non-verbal communication, group members can quickly align their internal models, leading to more coordinated action and decision-making. This alignment of models can be seen as a form of "cognitive niche construction," where the group collectively shapes its cognitive environment to better predict and respond to challenges.
-
-##### Emergence of Cultural Practices and Shared Knowledge
-
-The interplay between language, communication, and collective active inference gives rise to cultural practices and shared knowledge. Veissière et al. (2019) propose a "variational approach to cognition and culture," arguing that cultural practices emerge as solutions to the problem of free energy minimization at the group level. In this view, cultural norms, rituals, and shared beliefs can be understood as collective strategies for reducing uncertainty and improving predictions about the world.
-
-Language serves as the primary vehicle for transmitting these cultural practices across generations and between individuals. Through storytelling, instruction, and social learning, groups can accumulate knowledge and refine their collective predictive models over time. This process of cultural evolution can be seen as a form of "cumulative culture," where each generation builds upon the knowledge and practices of previous generations[2].
-
-##### Active Inference in Multi-Agent Systems
-
-The principles of active inference and free energy minimization can also be applied to understand and model multi-agent systems. Levchuk et al. explore how active inference can be used to model context-driven collaboration and decentralized team adaptation. In these systems, agents use communication to share their beliefs and coordinate their actions, leading to emergent collective behaviors that are more adaptive and efficient than individual actions alone.
-
-This approach to modeling collective behavior has implications for understanding human group dynamics as well as for designing artificial multi-agent systems. By incorporating principles of active inference and free energy minimization, researchers can develop more sophisticated models of how groups coordinate, make decisions, and adapt to changing environments.
-
-##### The Role of Interoception and Embodied Cognition
-
-While language is a crucial component of collective active inference, it is important to recognize that communication extends beyond verbal exchanges. Allen (2020) emphasizes the role of interoception – the sensing of internal bodily states – in the process of active inference. This perspective highlights how non-verbal cues and embodied experiences contribute to the collective predictive process.
-
-In group settings, individuals not only exchange verbal information but also pick up on subtle physical cues, emotional states, and shared sensory experiences. This multi-modal form of communication enriches the collective predictive model, allowing for a more holistic and nuanced understanding of the shared environment.
-
-##### Challenges and Future Directions
-
-While the framework of collective active inference through language and communication offers powerful insights into group cognition, it also presents several challenges and areas for future research. One key challenge is understanding how individual differences in cognitive styles, cultural backgrounds, and communication preferences influence the collective inference process. Buskell (2020) highlights the need to consider the normative aspects of social change and cultural transmission in these models.
-
-Another important direction for future research is the exploration of how digital technologies and online communication platforms affect collective active inference. As more human interaction moves into virtual spaces, it becomes crucial to understand how these new forms of communication impact our ability to share predictions, align models, and minimize collective free energy.
-
-##### Conclusion
-
-Language and communication play a fundamental role in collective active inference and group-level free energy minimization. They serve as the primary means by which individuals share predictions, align their internal models, and collectively reduce uncertainty about their shared environment. This process gives rise to emergent cultural practices, shared knowledge, and coordinated group behaviors.
-
-The framework of collective active inference through language offers a powerful lens for understanding human social cognition, cultural evolution, and group dynamics. It bridges the gap between individual cognitive processes and collective behaviors, providing insights into how groups navigate complex environments and solve shared challenges.
-
-As research in this field continues to evolve, it promises to shed light on the fundamental mechanisms underlying human cooperation, cultural transmission, and the emergence of collective intelligence. By deepening our understanding of these processes, we may gain valuable insights into how to foster more effective communication, enhance group decision-making, and promote adaptive collective behaviors in an increasingly complex and interconnected world.
 
 
 **References**
 
-*   Heins, C., Ramstead, M. J. D., et al. “Collective behavior from surprise minimization.”
-*   Kastel, N., Hesp, C., Ridderinkhof, K. R., Friston, K. J. "Small Steps for Mankind: Modeling the Emergence of Cumulative Culture from Joint Active Inference Communication." *Frontiers in Neurorobotics*, December 2022.
-*   Kaufmann, R., et al. “Using Active Inference to Model the Interplay between Cognition and Collective Intelligence”. *Entropy* 2021, *23*(7), 830.
-*   Levchuk, G., et al. "Active Inference in Multi-Agent Systems: Context-Driven Collaboration and Decentralized Purpose-Driven Team Adaptation." *2018 AAAI Spring Symposium Series*, AAAI: Menlo Park, CA, USA, 2018, pp. 157–165.
-*   Allen, M. Unravelling the Neurobiology of Interoceptive Inference. Trends Cogn. Sci. 2020, 24, 265–266.
-*   Waade, P. T., et al. "As One and Many: Relating Individual and Emergent Group-Level Generative Models in Active Inference." *Entropy* 2025, *27*, 143.
-*   Friston, K. J., et al. "Federated inference and belief sharing." *Neuroscience and Biobehavioral Reviews* 156 (2024) 105500.
-*   Bruineberg, J., Rietveld, E., Parr, T., van Maanen, L., & Friston, K. J. (2018b). Free-energy minimization in joint agent-environment systems: a niche construction perspective. *Journal of theoretical biology, 455*, 161–178.
-*   Buskell, A. (2020). Normativity, social change, and the epistemological framing of culture. *Behavioral and Brain Sciences, 43*.
-*   Parr, T.; Pezzulo, G.; Friston, K.J. Active Inference: The Free Energy Principle in Mind, Brain, and Behavior; The MIT Press: Cambridge, MA, USA, 2022.
+1. **Heins, C., Ramstead, M. J. D., et al.** “Collective behavior from surprise minimization.” [ResearchGate](https://www.researchgate.net/)
+2. **Kastel, N., Hesp, C., Ridderinkhof, K. R., Friston, K. J.** "Small Steps for Mankind: Modeling the Emergence of Cumulative Culture from Joint Active Inference Communication." [Frontiers in Neurorobotics](https://www.frontiersin.org/articles/10.3389/fnbot.2022.846906/full)
+3. **Kaufmann, R., et al.** “Using Active Inference to Model the Interplay between Cognition and Collective Intelligence”. [Entropy, MDPI](https://www.mdpi.com/1099-4300/23/7/830)
+4. **Levchuk, G., et al.** "Active Inference in Multi-Agent Systems: Context-Driven Collaboration and Decentralized Purpose-Driven Team Adaptation." [AAAI](https://ojs.aaai.org/index.php/AAAI/article/view/11473)
+5. **Allen, M.** "Unravelling the Neurobiology of Interoceptive Inference." [Trends in Cognitive Sciences](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(20)30046-1)
+6. **Waade, P. T., et al.** "As One and Many: Relating Individual and Emergent Group-Level Generative Models in Active Inference." [Entropy, MDPI](https://www.mdpi.com/journal/entropy)
+7. **Friston, K. J., et al.** "Federated inference and belief sharing." [Neuroscience and Biobehavioral Reviews](https://www.sciencedirect.com/science/article/abs/pii/S0149763423004535)
+8. **Bruineberg, J., Rietveld, E., Parr, T., van Maanen, L., & Friston, K. J.** "Free-energy minimization in joint agent-environment systems: a niche construction perspective." [Journal of Theoretical Biology](https://www.sciencedirect.com/science/article/abs/pii/S0022519318300246)
+9. **Buskell, A.** "Normativity, social change, and the epistemological framing of culture." [Behavioral and Brain Sciences](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/normativity-social-change-and-the-epistemological-framing-of-culture/653C5E02E61BBA45D4F9EBA161AF2735)
+10. **Parr, T.; Pezzulo, G.; Friston, K.J.** "Active Inference: The Free Energy Principle in Mind, Brain, and Behavior." [MIT Press](https://mitpress.mit.edu/9780262047470/active-inference/)
+11. **Friston, K.; FitzGerald, T.; Rigoli, F.; Schwartenbeck, P.; Pezzulo, G.** "Active inference: A process theory." [Neural Computation](https://direct.mit.edu/neco/article/29/1/1/8365/Active-Inference-A-Process-Theory)
+12. **Friston, K.** "A free energy principle for a particular physics." [arXiv](https://arxiv.org/abs/1906.10184)
+13. **Constant, A., et al.** "Thinking through other minds: A variational approach to cognition and culture." [Behavioral and Brain Sciences](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735)
+14. **Heyes, C.** "A world unto itself: human communication as active inference." [Frontiers in Psychology](https://www.frontiersin.org/articles/10.3389/fpsyg.2018.00417/full)
+15. **Ramstead, M.J.D.; Badcock, P.B.; Friston, K.J.** "Answering Schrödinger’s question: A free-energy formulation." [Physics of Life Reviews](https://www.sciencedirect.com/science/article/abs/pii/S1571064517302322)
+16. **Kirchhoff, M.D.; Parr, T.; Palacios, E.; Friston, K.; Kiverstein, J.** "The Markov blankets of life: Autonomy, active inference and the free energy principle." [Journal of the Royal Society Interface](https://royalsocietypublishing.org/doi/full/10.1098/rsif.2017.0792)
+17. **Hesp, C.; Ramstead, M.; Constant, A.; Badcock, P.; Kirchhoff, M.; Friston, K.** "A multi-scale view of the emergent complexity of life: A free-energy proposal." [Springer](https://link.springer.com/chapter/10.1007/978-3-030-10899-4_10)
+18. **Veissière et al.** "Thinking through other minds: A variational approach to cognition and culture." [Behavioral and Brain Sciences](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735)
+19. **Giere, R. N.** "Scientific Cognition as Distributed Cognition." [Springer](https://link.springer.com/book/10.1007/978-3-319-21852-8)
+
 
 
 ________________________________
