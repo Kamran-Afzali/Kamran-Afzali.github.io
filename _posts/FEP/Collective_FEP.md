@@ -137,51 +137,49 @@ One of the essential aspects of federated inference is its role in collective be
 Friston et al. (2024) provide a comprehensive account of federated inference and belief sharing, outlining the computational principles that govern distributed cognition. Their work integrates insights from Bayesian statistics, information theory, and neuroscience to offer a unified framework for understanding how agents synchronize their internal models with external realities. This theoretical foundation has implications for artificial intelligence, robotics, and human-computer interaction, where collaborative intelligence plays a crucial role in system efficiency and adaptability.
 
 
-# Federated Inference and Learning as Distributed Cognition: Collective Active Inference and Group-Level Free Energy Minimization  
+#### Federated Inference and Learning as Distributed Cognition: Collective Active Inference and Group-Level Free Energy Minimization  
 
 The integration of federated inference and learning with frameworks like active inference and free energy minimization offers a transformative lens for understanding distributed cognition. These paradigms reveal how decentralized agents—whether synthetic algorithms, biological organisms, or human collectives—collaboratively refine shared world models while preserving autonomy. By minimizing free energy at both individual and group levels, such systems achieve emergent intelligence that transcends the capabilities of isolated agents. This essay explores the theoretical foundations of collective active inference, examines its mechanistic implementation in federated systems, analyzes privacy challenges, and highlights applications across biological, technological, and scientific domains.  
 
-## Theoretical Foundations: Active Inference and Free Energy Minimization  
+##### Theoretical Foundations: Active Inference and Free Energy Minimization  
 
-Active inference formalizes intelligence through the imperative to minimize free energy—a measure of surprise or prediction error relative to an agent’s generative model of the world[4]. At the individual level, this manifests as perception updating beliefs to align sensory data with expectations (perceptual inference) and action altering sensory inputs to fulfill predictions (active inference)[4]. Crucially, free energy minimization extends beyond isolated agents. In federated systems, groups collectively reduce free energy through belief-sharing protocols that harmonize local inferences into global consensus[1][7].  
+Active inference formalizes intelligence through the imperative to minimize free energy—a measure of surprise or prediction error relative to an agent’s generative model of the world. At the individual level, this manifests as perception updating beliefs to align sensory data with expectations (perceptual inference) and action altering sensory inputs to fulfill predictions (active inference)-. Crucially, free energy minimization extends beyond isolated agents. In federated systems, groups collectively reduce free energy through belief-sharing protocols that harmonize local inferences into global consensus.  
 
-The Free Energy Principle (FEP) provides a unifying account of self-organization across scales. Biological systems like fish schools exemplify this: individuals minimize surprise about their neighbors’ movements while collectively exhibiting complex patterns like milling or directed migration[3]. These behaviors emerge not from explicit coordination rules but from each agent’s Bayesian belief updating under a shared generative model[3][4]. Similarly, federated machine learning frameworks enable devices to collaboratively train models by exchanging parameter updates—a process mathematically analogous to belief propagation in hierarchical active inference systems[1][6].  
+The Free Energy Principle (FEP) provides a unifying account of self-organization across scales. Biological systems like fish schools exemplify this: individuals minimize surprise about their neighbors’ movements while collectively exhibiting complex patterns like milling or directed migration. These behaviors emerge not from explicit coordination rules but from each agent’s Bayesian belief updating under a shared generative model. Similarly, federated machine learning frameworks enable devices to collaboratively train models by exchanging parameter updates—a process mathematically analogous to belief propagation in hierarchical active inference systems.  
 
-Group-level free energy minimization occurs when agents operate within overlapping "econiches," sharing likelihood mappings between internal beliefs and observable signals[1][7]. This creates distributed generative models where local inferences contribute to global knowledge integration. For instance, synthetic agents in federated simulations develop emergent communication protocols by minimizing the expected free energy of misunderstood messages[1]. These dynamics mirror scientific communities refining theories through peer review—a multi-scale active inference process where individual hypotheses undergo collective error correction[7].  
+Group-level free energy minimization occurs when agents operate within overlapping "econiches," sharing likelihood mappings between internal beliefs and observable signals. This creates distributed generative models where local inferences contribute to global knowledge integration. For instance, synthetic agents in federated simulations develop emergent communication protocols by minimizing the expected free energy of misunderstood messages. These dynamics mirror scientific communities refining theories through peer review—a multi-scale active inference process where individual hypotheses undergo collective error correction.  
 
-## Mechanisms of Collective Intelligence in Federated Systems  
+##### Mechanisms of Collective Intelligence in Federated Systems  
 
-Federated architectures implement collective active inference through three core mechanisms: belief-sharing protocols, adaptive learning dynamics, and hierarchical prediction-error minimization. Belief-sharing requires agents to encode posterior beliefs into transmissible signals—a process formalized as likelihood mappings from internal states to observable messages[1][7]. In federated learning, this corresponds to clients transmitting model updates to a server, which aggregates them into a global belief state[2][6]. Crucially, message precision (inverse variance) determines their influence during aggregation, mirroring neurobiological mechanisms where prediction errors are weighted by their reliability[4][6].  
+Federated architectures implement collective active inference through three core mechanisms: belief-sharing protocols, adaptive learning dynamics, and hierarchical prediction-error minimization. Belief-sharing requires agents to encode posterior beliefs into transmissible signals—a process formalized as likelihood mappings from internal states to observable messages. In federated learning, this corresponds to clients transmitting model updates to a server, which aggregates them into a global belief state. Crucially, message precision (inverse variance) determines their influence during aggregation, mirroring neurobiological mechanisms where prediction errors are weighted by their reliability.  
 
-Learning dynamics in these systems exhibit meta-adaptive properties. Agents not only update beliefs about world states but also optimize the parameters and structure of their generative models[1][4]. For example, federated learning clients can dynamically adjust batch sizes and learning rates to minimize expected free energy under resource constraints—a process demonstrated in IoT networks where devices balance energy consumption with model accuracy[5][6]. These adaptations create positive feedback: as agents refine their generative models, their belief-sharing becomes more efficient, accelerating collective inference[7].  
+Learning dynamics in these systems exhibit meta-adaptive properties. Agents not only update beliefs about world states but also optimize the parameters and structure of their generative models. For example, federated learning clients can dynamically adjust batch sizes and learning rates to minimize expected free energy under resource constraints—a process demonstrated in IoT networks where devices balance energy consumption with model accuracy. These adaptations create positive feedback: as agents refine their generative models, their belief-sharing becomes more efficient, accelerating collective inference.  
 
-Hierarchical prediction-error minimization enables federated systems to operate across temporal and spatial scales. At the micro scale, individual agents resolve sensory prediction errors through local belief updates. At the macro scale, the collective minimizes global free energy by redistributing computational loads—as seen in federated networks that shift training tasks from energy-constrained devices to more capable neighbors[5][6]. This multi-scale optimization emerges naturally from active inference principles, where agents prioritize policies (action sequences) that minimize expected free energy over both immediate and long-term horizons[4][5].  
+Hierarchical prediction-error minimization enables federated systems to operate across temporal and spatial scales. At the micro scale, individual agents resolve sensory prediction errors through local belief updates. At the macro scale, the collective minimizes global free energy by redistributing computational loads—as seen in federated networks that shift training tasks from energy-constrained devices to more capable neighbors. This multi-scale optimization emerges naturally from active inference principles, where agents prioritize policies (action sequences) that minimize expected free energy over both immediate and long-term horizons.  
 
-## Privacy and Security Considerations  
+##### Privacy and Security Considerations  
 
-The same mechanisms enabling efficient belief-sharing in federated systems create vulnerabilities to inference attacks. Dishonest servers can manipulate global model updates to extract private information—as demonstrated by active membership inference (AMI) attacks that infer client data membership with 72% accuracy despite local differential privacy (LDP) protections[2]. These attacks exploit non-linear correlations in high-dimensional parameter spaces, bypassing noise addition mechanisms designed to obscure individual contributions[2][6].  
+The same mechanisms enabling efficient belief-sharing in federated systems create vulnerabilities to inference attacks. Dishonest servers can manipulate global model updates to extract private information—as demonstrated by active membership inference (AMI) attacks that infer client data membership with 72% accuracy despite local differential privacy (LDP) protections. These attacks exploit non-linear correlations in high-dimensional parameter spaces, bypassing noise addition mechanisms designed to obscure individual contributions.  
 
-Countering such threats requires rethinking privacy through the lens of free energy minimization. Traditional LDP approaches add isotropic noise to model updates, inadvertently increasing global free energy by degrading the signal-to-noise ratio of belief transmissions[2][6]. Adaptive solutions inspired by active inference dynamically adjust privacy parameters based on context—for instance, increasing noise during early training phases when models are unstable, then reducing it as the global belief converges[6]. This meta-learning approach aligns with the FEP’s emphasis on precision weighting, where agents modulate attention to sensory inputs based on their reliability[4][6].  
+Countering such threats requires rethinking privacy through the lens of free energy minimization. Traditional LDP approaches add isotropic noise to model updates, inadvertently increasing global free energy by degrading the signal-to-noise ratio of belief transmissions. Adaptive solutions inspired by active inference dynamically adjust privacy parameters based on context—for instance, increasing noise during early training phases when models are unstable, then reducing it as the global belief converges. This meta-learning approach aligns with the FEP’s emphasis on precision weighting, where agents modulate attention to sensory inputs based on their reliability.  
 
-A promising direction lies in federated active inference architectures that treat privacy constraints as prior beliefs. By encoding privacy requirements into the expected free energy calculations of individual agents, systems can autonomously negotiate Pareto-optimal balances between data protection and model utility[6][7]. Experimental implementations show such frameworks reduce energy consumption by 60% compared to static privacy protocols while maintaining robustness against adversarial perturbations[5][6].  
+A promising direction lies in federated active inference architectures that treat privacy constraints as prior beliefs. By encoding privacy requirements into the expected free energy calculations of individual agents, systems can autonomously negotiate Pareto-optimal balances between data protection and model utility. Experimental implementations show such frameworks reduce energy consumption by 60% compared to static privacy protocols while maintaining robustness against adversarial perturbations.  
 
-## Applications and Case Studies  
+##### Applications and Case Studies  
 
-Biological collectives provide paradigmatic examples of federated active inference. Fish schools achieve predator detection through distributed belief-sharing: each individual’s visual inferences about potential threats are integrated into a global vigilance state without centralized processing[3]. Simulation studies demonstrate that these systems spontaneously develop hierarchical communication protocols—analogous to federated averaging in machine learning—where localized motion cues aggregate into group-level directional consensus[3][7].  
+Biological collectives provide paradigmatic examples of federated active inference. Fish schools achieve predator detection through distributed belief-sharing: each individual’s visual inferences about potential threats are integrated into a global vigilance state without centralized processing. Simulation studies demonstrate that these systems spontaneously develop hierarchical communication protocols—analogous to federated averaging in machine learning—where localized motion cues aggregate into group-level directional consensus.  
 
-In technological domains, federated active inference enables energy-efficient IoT networks. A 2022 study optimized smartphone-based federated learning by co-running training processes with foreground applications, exploiting underutilized computational cycles to reduce energy consumption by 63%[5]. This approach treats energy expenditure as a form of thermodynamic free energy, applying the FEP to balance model accuracy against battery constraints[5][6]. Adaptive agents dynamically adjusted batch sizes from 256 to 512 samples based on power availability, demonstrating how free energy minimization generalizes beyond cognitive tasks to resource management[6].  
+In technological domains, federated active inference enables energy-efficient IoT networks. A 2022 study optimized smartphone-based federated learning by co-running training processes with foreground applications, exploiting underutilized computational cycles to reduce energy consumption by 63%. This approach treats energy expenditure as a form of thermodynamic free energy, applying the FEP to balance model accuracy against battery constraints. Adaptive agents dynamically adjusted batch sizes from 256 to 512 samples based on power availability, demonstrating how free energy minimization generalizes beyond cognitive tasks to resource management.  
 
-Scientific communities themselves operate as federated inference systems. Researchers act as Bayesian agents updating hypotheses (beliefs) through peer-reviewed publications (belief-sharing), with the collective goal of minimizing disciplinary prediction error[7]. The replication crisis exemplifies a breakdown in this process, where insufficient error correction allowed high-free-energy models to persist—a scenario analogous to federated systems failing to detect Byzantine clients[7]. Remedies inspired by active inference include preprint servers that accelerate belief propagation and meta-analytic frameworks that weight studies by their predictive precision[7].  
+Scientific communities themselves operate as federated inference systems. Researchers act as Bayesian agents updating hypotheses (beliefs) through peer-reviewed publications (belief-sharing), with the collective goal of minimizing disciplinary prediction error. The replication crisis exemplifies a breakdown in this process, where insufficient error correction allowed high-free-energy models to persist—a scenario analogous to federated systems failing to detect Byzantine clients. Remedies inspired by active inference include preprint servers that accelerate belief propagation and meta-analytic frameworks that weight studies by their predictive precision.  
 
-## Challenges and Future Directions  
+##### Challenges and Future Directions  
 
-Scalability remains a critical challenge. As federated networks grow, the combinatorial complexity of belief-sharing increases polynomially—a problem exacerbated in heterogeneous systems mixing devices with varying computational resources[6]. Neuromorphic computing architectures offer potential solutions by physically instantiating free energy minimization through energy-efficient analog circuits, though this requires rethinking federated protocols at the hardware level[5][6].  
+Scalability remains a critical challenge. As federated networks grow, the combinatorial complexity of belief-sharing increases polynomially—a problem exacerbated in heterogeneous systems mixing devices with varying computational resources. Neuromorphic computing architectures offer potential solutions by physically instantiating free energy minimization through energy-efficient analog circuits, though this requires rethinking federated protocols at the hardware level.  
 
-Another frontier involves formalizing the "economics" of belief propagation. Agents in open federated systems may manipulate shared beliefs for self-interest—a phenomenon observed in blockchain networks plagued by dishonest nodes. Integrating game-theoretic concepts with active inference could yield mechanisms for detecting and excluding adversarial agents while preserving decentralization[2][6]. Preliminary work shows promise: by treating trust as a precision parameter in Bayesian belief updates, systems automatically downweight contributions from unreliable participants[6].  
+Another frontier involves formalizing the "economics" of belief propagation. Agents in open federated systems may manipulate shared beliefs for self-interest—a phenomenon observed in blockchain networks plagued by dishonest nodes. Integrating game-theoretic concepts with active inference could yield mechanisms for detecting and excluding adversarial agents while preserving decentralization. Preliminary work shows promise: by treating trust as a precision parameter in Bayesian belief updates, systems automatically downweight contributions from unreliable participants.  
 
-Future research must also bridge the gap between biological and artificial federated systems. While machine learning focuses on parameter transmission, biological collectives like ant colonies exchange chemical signals encoding complex priors about resource locations. Developing bio-inspired federated protocols that transmit compressed generative models—rather than raw parameters—could dramatically improve communication efficiency[3][7].  
-
-## Conclusion  
+Future research must also bridge the gap between biological and artificial federated systems. While machine learning focuses on parameter transmission, biological collectives like ant colonies exchange chemical signals encoding complex priors about resource locations. Developing bio-inspired federated protocols that transmit compressed generative models—rather than raw parameters—could dramatically improve communication efficiency.  
 
 Federated inference and learning represent more than technical frameworks for distributed computing—they embody a fundamental principle of intelligent systems operating under the FEP. By formalizing collective cognition as group-level free energy minimization, these approaches unify phenomena ranging from fish schooling to global scientific collaboration. The challenges ahead—privacy vulnerabilities, scalability limits, and adversarial dynamics—are not mere engineering hurdles but manifestations of deeper thermodynamic and information-theoretic constraints. Addressing them will require advances both technical (adaptive privacy mechanisms, neuromorphic hardware) and conceptual (game-theoretic active inference, multi-scale free energy formalisms). As these efforts progress, they promise to illuminate not just artificial intelligence but the very nature of collective intelligence in biological and social systems.
 
@@ -244,90 +242,42 @@ Ramstead, M.J.D., Badcock, P.B., & Friston, K.J. (2018). Answering Schrödinger�
 
 Veissière et al. (2019). Thinking through other minds: A variational approach to cognition and culture. *Behavioral and Brain Sciences, 43*, e90. [https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/thinking-through-other-minds-a-variational-approach-to-cognition-and-culture/653C5E02E61BBA45D4F9EBA161AF2735)
 
-# Federated Inference and Learning as Distributed Cognition: Collective Active Inference and Group-Level Free Energy Minimization  
-
-The integration of federated inference and learning with frameworks like active inference and free energy minimization offers a transformative lens for understanding distributed cognition. These paradigms reveal how decentralized agents—whether synthetic algorithms, biological organisms, or human collectives—collaboratively refine shared world models while preserving autonomy. By minimizing free energy at both individual and group levels, such systems achieve emergent intelligence that transcends the capabilities of isolated agents. This essay explores the theoretical foundations of collective active inference, examines its mechanistic implementation in federated systems, analyzes privacy challenges, and highlights applications across biological, technological, and scientific domains.  
-
-## Theoretical Foundations: Active Inference and Free Energy Minimization  
-
-Active inference formalizes intelligence through the imperative to minimize free energy—a measure of surprise or prediction error relative to an agent’s generative model of the world[4]. At the individual level, this manifests as perception updating beliefs to align sensory data with expectations (perceptual inference) and action altering sensory inputs to fulfill predictions (active inference)[4]. Crucially, free energy minimization extends beyond isolated agents. In federated systems, groups collectively reduce free energy through belief-sharing protocols that harmonize local inferences into global consensus[1][7].  
-
-The Free Energy Principle (FEP) provides a unifying account of self-organization across scales. Biological systems like fish schools exemplify this: individuals minimize surprise about their neighbors’ movements while collectively exhibiting complex patterns like milling or directed migration[3]. These behaviors emerge not from explicit coordination rules but from each agent’s Bayesian belief updating under a shared generative model[3][4]. Similarly, federated machine learning frameworks enable devices to collaboratively train models by exchanging parameter updates—a process mathematically analogous to belief propagation in hierarchical active inference systems[1][6].  
-
-Group-level free energy minimization occurs when agents operate within overlapping "econiches," sharing likelihood mappings between internal beliefs and observable signals[1][7]. This creates distributed generative models where local inferences contribute to global knowledge integration. For instance, synthetic agents in federated simulations develop emergent communication protocols by minimizing the expected free energy of misunderstood messages[1]. These dynamics mirror scientific communities refining theories through peer review—a multi-scale active inference process where individual hypotheses undergo collective error correction[7].  
-
-## Mechanisms of Collective Intelligence in Federated Systems  
-
-Federated architectures implement collective active inference through three core mechanisms: belief-sharing protocols, adaptive learning dynamics, and hierarchical prediction-error minimization. Belief-sharing requires agents to encode posterior beliefs into transmissible signals—a process formalized as likelihood mappings from internal states to observable messages[1][7]. In federated learning, this corresponds to clients transmitting model updates to a server, which aggregates them into a global belief state[2][6]. Crucially, message precision (inverse variance) determines their influence during aggregation, mirroring neurobiological mechanisms where prediction errors are weighted by their reliability[4][6].  
-
-Learning dynamics in these systems exhibit meta-adaptive properties. Agents not only update beliefs about world states but also optimize the parameters and structure of their generative models[1][4]. For example, federated learning clients can dynamically adjust batch sizes and learning rates to minimize expected free energy under resource constraints—a process demonstrated in IoT networks where devices balance energy consumption with model accuracy[5][6]. These adaptations create positive feedback: as agents refine their generative models, their belief-sharing becomes more efficient, accelerating collective inference[7].  
-
-Hierarchical prediction-error minimization enables federated systems to operate across temporal and spatial scales. At the micro scale, individual agents resolve sensory prediction errors through local belief updates. At the macro scale, the collective minimizes global free energy by redistributing computational loads—as seen in federated networks that shift training tasks from energy-constrained devices to more capable neighbors[5][6]. This multi-scale optimization emerges naturally from active inference principles, where agents prioritize policies (action sequences) that minimize expected free energy over both immediate and long-term horizons[4][5].  
-
-## Privacy and Security Considerations  
-
-The same mechanisms enabling efficient belief-sharing in federated systems create vulnerabilities to inference attacks. Dishonest servers can manipulate global model updates to extract private information—as demonstrated by active membership inference (AMI) attacks that infer client data membership with 72% accuracy despite local differential privacy (LDP) protections[2]. These attacks exploit non-linear correlations in high-dimensional parameter spaces, bypassing noise addition mechanisms designed to obscure individual contributions[2][6].  
-
-Countering such threats requires rethinking privacy through the lens of free energy minimization. Traditional LDP approaches add isotropic noise to model updates, inadvertently increasing global free energy by degrading the signal-to-noise ratio of belief transmissions[2][6]. Adaptive solutions inspired by active inference dynamically adjust privacy parameters based on context—for instance, increasing noise during early training phases when models are unstable, then reducing it as the global belief converges[6]. This meta-learning approach aligns with the FEP’s emphasis on precision weighting, where agents modulate attention to sensory inputs based on their reliability[4][6].  
-
-A promising direction lies in federated active inference architectures that treat privacy constraints as prior beliefs. By encoding privacy requirements into the expected free energy calculations of individual agents, systems can autonomously negotiate Pareto-optimal balances between data protection and model utility[6][7]. Experimental implementations show such frameworks reduce energy consumption by 60% compared to static privacy protocols while maintaining robustness against adversarial perturbations[5][6].  
-
-## Applications and Case Studies  
-
-Biological collectives provide paradigmatic examples of federated active inference. Fish schools achieve predator detection through distributed belief-sharing: each individual’s visual inferences about potential threats are integrated into a global vigilance state without centralized processing[3]. Simulation studies demonstrate that these systems spontaneously develop hierarchical communication protocols—analogous to federated averaging in machine learning—where localized motion cues aggregate into group-level directional consensus[3][7].  
-
-In technological domains, federated active inference enables energy-efficient IoT networks. A 2022 study optimized smartphone-based federated learning by co-running training processes with foreground applications, exploiting underutilized computational cycles to reduce energy consumption by 63%[5]. This approach treats energy expenditure as a form of thermodynamic free energy, applying the FEP to balance model accuracy against battery constraints[5][6]. Adaptive agents dynamically adjusted batch sizes from 256 to 512 samples based on power availability, demonstrating how free energy minimization generalizes beyond cognitive tasks to resource management[6].  
-
-Scientific communities themselves operate as federated inference systems. Researchers act as Bayesian agents updating hypotheses (beliefs) through peer-reviewed publications (belief-sharing), with the collective goal of minimizing disciplinary prediction error[7]. The replication crisis exemplifies a breakdown in this process, where insufficient error correction allowed high-free-energy models to persist—a scenario analogous to federated systems failing to detect Byzantine clients[7]. Remedies inspired by active inference include preprint servers that accelerate belief propagation and meta-analytic frameworks that weight studies by their predictive precision[7].  
-
-## Challenges and Future Directions  
-
-Scalability remains a critical challenge. As federated networks grow, the combinatorial complexity of belief-sharing increases polynomially—a problem exacerbated in heterogeneous systems mixing devices with varying computational resources[6]. Neuromorphic computing architectures offer potential solutions by physically instantiating free energy minimization through energy-efficient analog circuits, though this requires rethinking federated protocols at the hardware level[5][6].  
-
-Another frontier involves formalizing the "economics" of belief propagation. Agents in open federated systems may manipulate shared beliefs for self-interest—a phenomenon observed in blockchain networks plagued by dishonest nodes. Integrating game-theoretic concepts with active inference could yield mechanisms for detecting and excluding adversarial agents while preserving decentralization[2][6]. Preliminary work shows promise: by treating trust as a precision parameter in Bayesian belief updates, systems automatically downweight contributions from unreliable participants[6].  
-
-Future research must also bridge the gap between biological and artificial federated systems. While machine learning focuses on parameter transmission, biological collectives like ant colonies exchange chemical signals encoding complex priors about resource locations. Developing bio-inspired federated protocols that transmit compressed generative models—rather than raw parameters—could dramatically improve communication efficiency[3][7].  
-
-## Conclusion  
-
-Federated inference and learning represent more than technical frameworks for distributed computing—they embody a fundamental principle of intelligent systems operating under the FEP. By formalizing collective cognition as group-level free energy minimization, these approaches unify phenomena ranging from fish schooling to global scientific collaboration. The challenges ahead—privacy vulnerabilities, scalability limits, and adversarial dynamics—are not mere engineering hurdles but manifestations of deeper thermodynamic and information-theoretic constraints. Addressing them will require advances both technical (adaptive privacy mechanisms, neuromorphic hardware) and conceptual (game-theoretic active inference, multi-scale free energy formalisms). As these efforts progress, they promise to illuminate not just artificial intelligence but the very nature of collective intelligence in biological and social systems.
-
 Citations:
-[1] https://pubmed.ncbi.nlm.nih.gov/38056542/
-[2] https://proceedings.mlr.press/v206/nguyen23e.html
-[3] https://www.pnas.org/doi/10.1073/pnas.2320239121
-[4] https://pmc.ncbi.nlm.nih.gov/articles/PMC9141822/
-[5] https://arxiv.org/abs/2204.13878
-[6] https://repositum.tuwien.at/bitstream/20.500.12708/208042/1/Danilenka-2024-Adaptive%20Active%20Inference%20Agents%20for%20Heterogeneous%20and%20Li...-smur.pdf
-[7] https://bsahely.com/2023/10/28/distributed-science-the-scientific-process-as-multi-scale-active-inference/
-[8] https://www.mdpi.com/1099-4300/27/2/143
-[9] https://en.wikipedia.org/wiki/Federated_learning
-[10] https://uwaterloo.ca/scholar/sites/ca.scholar/files/sshen/files/zhang2021optimizing.pdf
-[11] https://en.wikipedia.org/wiki/Free_energy_principle
-[12] https://pmc.ncbi.nlm.nih.gov/articles/PMC9586964/
-[13] https://direct.mit.edu/books/oa-monograph-pdf/2246566/book_9780262369978.pdf
-[14] https://arxiv.org/pdf/2207.06970.pdf
-[15] https://proceedings.mlr.press/v206/jothimurugesan23a/jothimurugesan23a.pdf
-[16] https://arxiv.org/abs/2410.09099
-[17] https://osf.io/preprints/dnw5k/
-[18] https://arxiv.org/abs/2411.16003
-[19] https://ieeexplore.ieee.org/document/9971068/
-[20] https://pubmed.ncbi.nlm.nih.gov/39086831/
-[21] https://ieeexplore.ieee.org/document/10640099/
-[22] https://arxiv.org/abs/2302.12685
-[23] https://www.mdpi.com/1099-4300/23/7/830
-[24] https://royalsocietypublishing.org/doi/10.1098/rsos.240465
-[25] https://www.nature.com/articles/s41598-024-71995-y
-[26] https://www.tandfonline.com/doi/full/10.1080/00207543.2022.2164628
-[27] https://pmc.ncbi.nlm.nih.gov/articles/PMC9593308/
-[28] https://www.mdpi.com/1996-1073/17/24/6485
-[29] https://dl.acm.org/doi/10.1007/s00521-023-08593-y
-[30] https://pmc.ncbi.nlm.nih.gov/articles/PMC10266898/
-[31] https://ieeexplore.ieee.org/document/9593225
-[32] https://www.preprints.org/manuscript/202410.1895/v1
-[33] https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2012.00478/full
-[34] https://www.reddit.com/r/neuroscience/comments/k9svca/fristons_free_energy_principle_and_active/
-[35] https://jaredtumiel.github.io/blog/2020/10/14/spinning-up-in-ai.html
+- https://pubmed.ncbi.nlm.nih.gov/38056542/
+- https://proceedings.mlr.press/v206/nguyen23e.html
+- https://www.pnas.org/doi/10.1073/pnas.2320239121
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC9141822/
+- https://arxiv.org/abs/2204.13878
+- https://repositum.tuwien.at/bitstream/20.500.12708/208042/1/Danilenka-2024-Adaptive%20Active%20Inference%20Agents%20for%20Heterogeneous%20and%20Li...-smur.pdf
+- https://bsahely.com/2023/10/28/distributed-science-the-scientific-process-as-multi-scale-active-inference/
+- https://www.mdpi.com/1099-4300/27/2/143
+- https://en.wikipedia.org/wiki/Federated_learning
+- https://uwaterloo.ca/scholar/sites/ca.scholar/files/sshen/files/zhang2021optimizing.pdf
+- https://en.wikipedia.org/wiki/Free_energy_principle
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC9586964/
+- https://direct.mit.edu/books/oa-monograph-pdf/2246566/book_9780262369978.pdf
+- https://arxiv.org/pdf/2207.06970.pdf
+- https://proceedings.mlr.press/v206/jothimurugesan23a/jothimurugesan23a.pdf
+- https://arxiv.org/abs/2410.09099
+- https://osf.io/preprints/dnw5k/
+- https://arxiv.org/abs/2411.16003
+- https://ieeexplore.ieee.org/document/9971068/
+- https://pubmed.ncbi.nlm.nih.gov/39086831/
+- https://ieeexplore.ieee.org/document/10640099/
+- https://arxiv.org/abs/2302.12685
+- https://www.mdpi.com/1099-4300/23/7/830
+- https://royalsocietypublishing.org/doi/10.1098/rsos.240465
+- https://www.nature.com/articles/s41598-024-71995-y
+- https://www.tandfonline.com/doi/full/10.1080/00207543.2022.2164628
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC9593308/
+- https://www.mdpi.com/1996-1073/17/24/6485
+- https://dl.acm.org/doi/10.1007/s00521-023-08593-y
+- https://pmc.ncbi.nlm.nih.gov/articles/PMC10266898/
+- https://ieeexplore.ieee.org/document/9593225
+- https://www.preprints.org/manuscript/202410.1895/v1
+- https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2012.00478/full
+- https://www.reddit.com/r/neuroscience/comments/k9svca/fristons_free_energy_principle_and_active/
+- https://jaredtumiel.github.io/blog/2020/10/14/spinning-up-in-ai.html
 
 ### Language and communication
 
