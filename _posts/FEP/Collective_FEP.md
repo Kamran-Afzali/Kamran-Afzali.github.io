@@ -261,34 +261,12 @@ One key element in this framework is the concept of a **shared generative model*
 
 Communication also plays a key role in the regulation of group-level free energy minimization by establishing epistemic boundaries—demarcations that define what is relevant within a given social context (Constant et al., 2019). These boundaries, operationalized through linguistic categories and narratives, shape perception and action by constraining the space of possible interpretations. In this way, language functions as a scaffold that both simplifies and enriches the collective generative model, ensuring that social agents remain synchronized in their expectations and responses to the world (Bruineberg et al., 2018). A particularly interesting dimension of language in active inference is its role in normativity and social change. Buskell (2020) argues that linguistic communication is essential for negotiating social norms and modifying collective priors. Through discourse, groups can challenge existing generative models and introduce new inferential structures that alter patterns of belief and behavior. This capacity for reflective self-modification underscores the flexibility of collective active inference and highlights how language is not just a medium for transmitting knowledge but a mechanism for reshaping the cognitive landscape of groups (Veissière et al., 2019).
 
+The complexity of language allows humans to convey not only the content of beliefs but also the **confidence** in those beliefs. Communication in this sense is more than just the transmission of information; it includes the nuances and subtleties that allow for a deeper understanding between individuals. This deeper exchange can lead to the emergence of shared expectations and narratives that reduce free energy. However, **efficient communication** is not without its challenges. The environment itself does not impose the practical constraints that drive real-life human behaviors. The model can be expanded to include practical constraints and real-world dynamics to address these issues. Furthermore, indirect information sharing can introduce the risk of amplifying noisy or irrelevant information, leading to maladaptive group outcomes.
+ Communication relies on agents having precise **likelihood mappings**, and agents acquire these mappings because they expect to acquire them. When agents are devoid of language capabilities, they can still develop language mappings through interaction and exposure. The convergence to a common ground or frame of reference is mediated by free energy selection processes at the level of the model structure, using Bayesian model reduction.
+
 The creation and use of language can be seen as a process of **scientific niche construction (SNC)**, wherein the environment is modified to influence expectations and drive actions aimed at confirming hypotheses. In this view, models guide the collection of new evidence, and new evidence refines the models, creating an ongoing cycle of hypothesis generation, evidence collection, and hypothesis revision that drives scientific progress. In the context of niche construction, language serves as a cultural artifact that shapes the environment in which inference takes place (Hesp et al., 2019). Through repeated use, linguistic structures become embedded in social practices, externalizing aspects of cognition and enabling more efficient coordination. As Friston et al. (2019) suggest, language can be considered a form of epistemic engineering—an adaptive mechanism that structures inference at both individual and collective levels. This perspective aligns with Kirchhoff et al. (2018), who propose that the Markov blankets defining social systems are partially constituted by linguistic constructs that delineate informational boundaries within groups.
 
 By enabling agents to share their internal models, coordinate their actions, and learn from each other's experiences, language and communication facilitate the minimization of free energy at both the individual and collective levels. As agents engage in these processes, they contribute to the creation of shared knowledge, the evolution of cultural norms, and the ability of collectives to solve complex problems and adapt to changing environments. Further research into the dynamics of language and communication within active inference promises to yield valuable insights into the nature of social behavior and the potential for creating more intelligent, cooperative, and resilient societies.
-
-
-
-
-__________
-From the perspective of **active inference**, agents of a socio-cultural system infer the belief states of those in their environment and update their own representations accordingly. An emergent property of this bi-directional inference is the synchronization of belief states among the cultural ensemble. This synchronization relies on the notion of **generalized synchrony** as signaling the emergence of a shared narrative to which all parties refer.
-
-The complexity of language allows humans to convey not only the content of beliefs but also the **confidence** in those beliefs. Communication in this sense is more than just the transmission of information; it includes the nuances and subtleties that allow for a deeper understanding between individuals. This deeper exchange can lead to the emergence of shared expectations and narratives that reduce free energy.
-
-Moreover, **cultural transmission** occurs not only through explicit communication but also through implicit learning, where agents infer others' expectations through immersive participation in cultural practices. This implicit learning shapes attention and behavior, allowing individuals to learn social behaviors and expectations within their culture.
-
-**Federated learning** fits into this framework by suggesting that agents sharing the same beliefs about the sensory consequences of an action will be able to figure out their roles in a larger pattern. This is made possible through **communication** premised on a shared generative model. In this view, science itself can be seen as a high-level ensemble of Markov blanketed systems, an emergent system that both constrains and is constrained by the behavior of its constituent parts.
-
-However, **efficient communication** is not without its challenges. The environment itself does not impose the practical constraints that drive real-life human behaviors. The model can be expanded to include practical constraints and real-world dynamics to address these issues. Furthermore, indirect information sharing can introduce the risk of amplifying noisy or irrelevant information, leading to maladaptive group outcomes.
-
-The dynamics of **cultural evolution** are closely tied to communication. Through dialogue, individual mental models are modified, and distinct representations converge to a shared narrative. This attunement of interlocutors translates over time into collective free energy minimization.
-
-Communication relies on agents having precise **likelihood mappings**, and agents acquire these mappings because they expect to acquire them. When agents are devoid of language capabilities, they can still develop language mappings through interaction and exposure. The convergence to a common ground or frame of reference is mediated by free energy selection processes at the level of the model structure, using Bayesian model reduction.
-
-
-
-
-
-
-
 
 
 **References**
