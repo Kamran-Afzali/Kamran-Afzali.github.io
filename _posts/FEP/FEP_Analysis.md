@@ -213,32 +213,18 @@ One implication of applying FEP to psychoanalysis is in understanding psychodyna
 ________
 
 
-Furthermore, the DMN interacts with other large-scale networks, such as the salience network and central executive network, to regulate attention and emotional responses. This interaction is crucial in balancing internal cognitive processes with external stimuli, a dynamic that is central to both psychoanalytic theory and active inference. The DMN’s role in integrating past experiences and generating expectations aligns with Freud’s notion of the unconscious mind shaping behavior outside of conscious awareness.
 
-A critical implication of this integrative approach is its potential to unify disparate schools of psychological thought. Traditional psychoanalysis has often been criticized for lacking empirical grounding, while cognitive neuroscience has struggled to incorporate subjective experiences and meaning-making processes. The Free Energy Principle offers a bridge between these fields by providing a mathematically rigorous yet phenomenologically rich account of human cognition. It enables a reframing of psychoanalytic constructs within a computational framework, allowing for testable predictions and interdisciplinary dialogue.
-
-One of the remaining challenges for neuropsychoanalysis within the FEP framework is operationalizing complex psychodynamic constructs in a way that is computationally tractable. While progress has been made in modeling defense mechanisms and affect regulation using predictive coding, further empirical research is required to validate these models against clinical data. As computational psychiatry continues to advance, integrating neuropsychoanalytic insights into predictive processing frameworks could lead to novel diagnostic tools and interventions tailored to individual neurocognitive profiles.
-
-In conclusion, neuropsychoanalysis, when viewed through the lens of active inference and the Free Energy Principle, provides a compelling framework for understanding unconscious processes, defense mechanisms, and the therapeutic process. By conceptualizing the mind as a predictive system that seeks to minimize free energy, longstanding psychoanalytic concepts such as repression, primary and secondary process thinking, and anxiety regulation gain a computational foundation. This interdisciplinary synthesis has the potential to transform both clinical practice and our understanding of the mind, paving the way for a more integrated and empirically grounded approach to mental health.
-
-
-#### The Default Mode Network: A Neural Correlate of the Ego?
 
 The DMN, a network primarily encompassing the **medial prefrontal cortex (MPFC)**, **posterior cingulate cortex (PCC)**, and **inferior parietal lobule (IPL)**, exhibits heightened activity during rest and self-referential thought. This network has been linked to the Freudian concept of the **ego**, which mediates between the instinctual desires of the id and the constraints of the external world.
 
-Carhart-Harris and Friston (2010) propose that the functions of the DMN, such as self-monitoring, introspection, and internal mentation, correspond with the ego's role in maintaining a coherent sense of self and reality. The DMN is believed to contain free energy levels of underlying structures, which aligns with the ego's function in the secondary process. Spontaneous fluctuations in neuronal activity from cortical nodes of the DMN are thought to suppress the unconstrained activity of limbic and paralimbic systems, supporting this view.
-
 The **MPFC-PCC connectivity** is absent in infants and develops through ontogeny, which parallels the emergence of the individual Self with its complex functions. Furthermore, some researchers have defined the DMN as a kind of biomarker of the Self.
-
-#### The Id, Free Energy, and the Limbic System
 
 In contrast to the ego, the **id** represents the unconscious reservoir of instinctual drives and desires, operating on the pleasure principle. Neurobiologically, the id can be associated with subcortical structures such as the **amygdala** and **hypothalamus**, which are central to processing emotions and basic drives. These structures operate at a primary process level, characterized by high entropy and a lack of logical constraints.
 
 Failures of top-down control from the DMN might be associated with an impairment of the supraordinate system, leading to the expression of unconstrained activity from the limbic system. Such failures are observed in non-ordinary states of consciousness such as early and acute psychosis, temporal-lobe aura, dreaming, and hallucinogenic drug states.
 
-#### Conclusion
+Furthermore, the DMN interacts with other large-scale networks, such as the salience network and central executive network, to regulate attention and emotional responses. This interaction is crucial in balancing internal cognitive processes with external stimuli, a dynamic that is central to both psychoanalytic theory and active inference. The DMN’s role in integrating past experiences and generating expectations aligns with Freud’s notion of the unconscious mind shaping behavior outside of conscious awareness.
 
-The active inference framework offers a valuable perspective for examining the neurobiological underpinnings of psychoanalytic concepts and their relationship to the DMN. By mapping psychoanalytic constructs onto brain functions, structures, and networks, this approach fosters a more biologically informed understanding of the mind. Concepts such as free energy, hierarchical inference, and precision weighting provide a common language for psychoanalysis and neuroscience, enabling a deeper exploration of the mind-brain relationship.
 
 The essay has underlined the natural connection between Freudian constructs of the primary and secondary processes and the DMN. Also, it has highlighted the hypothesis according to which the spontaneous fluctuations in neuronal activity from cortical nodes of DMN suppress or contain the unconstrained and anarchic endogenous activity of limbic and paralimbic systems.
 
