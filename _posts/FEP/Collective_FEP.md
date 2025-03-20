@@ -263,6 +263,9 @@ Communication also plays a key role in the regulation of group-level free energy
 
 The creation and use of language can be seen as a process of **scientific niche construction (SNC)**, wherein the environment is modified to influence expectations and drive actions aimed at confirming hypotheses. In this view, models guide the collection of new evidence, and new evidence refines the models, creating an ongoing cycle of hypothesis generation, evidence collection, and hypothesis revision that drives scientific progress. In the context of niche construction, language serves as a cultural artifact that shapes the environment in which inference takes place (Hesp et al., 2019). Through repeated use, linguistic structures become embedded in social practices, externalizing aspects of cognition and enabling more efficient coordination. As Friston et al. (2019) suggest, language can be considered a form of epistemic engineering—an adaptive mechanism that structures inference at both individual and collective levels. This perspective aligns with Kirchhoff et al. (2018), who propose that the Markov blankets defining social systems are partially constituted by linguistic constructs that delineate informational boundaries within groups.
 
+By enabling agents to share their internal models, coordinate their actions, and learn from each other's experiences, language and communication facilitate the minimization of free energy at both the individual and collective levels. As agents engage in these processes, they contribute to the creation of shared knowledge, the evolution of cultural norms, and the ability of collectives to solve complex problems and adapt to changing environments. Further research into the dynamics of language and communication within active inference promises to yield valuable insights into the nature of social behavior and the potential for creating more intelligent, cooperative, and resilient societies.
+
+
 
 
 __________
@@ -280,15 +283,6 @@ The dynamics of **cultural evolution** are closely tied to communication. Throug
 
 Communication relies on agents having precise **likelihood mappings**, and agents acquire these mappings because they expect to acquire them. When agents are devoid of language capabilities, they can still develop language mappings through interaction and exposure. The convergence to a common ground or frame of reference is mediated by free energy selection processes at the level of the model structure, using Bayesian model reduction.
 
-From a psychological perspective, the **desire to share** encourages the emergence of language, which in turn enlarges common ground and makes models of the world more accurate. This creates a mental niche in which communication is more efficient, and the ability to share is enhanced, all driven by free energy minimization.
-
-**Constraints and Universal Grammar**:
-From a linguistic standpoint, the constraints that shape language arise naturally from free energy minimization. If language is the broadcasting of beliefs under a generative model, then the structure of language should inherit the factorial structure of the underlying generative model, which is constrained by the causal structure of the lived world.
-
-**Active Inference and Communication Difficulties**:
-In cases where divergent beliefs exist, communication can become intractable. In such situations, communicative isolation between incongruent groups may emerge as a strategy to minimize expected free energy.
-
-In summary, **language and communication** are central to the emergence of collective intelligence within the **active inference framework**. By enabling agents to share their internal models, coordinate their actions, and learn from each other's experiences, language and communication facilitate the minimization of free energy at both the individual and collective levels. As agents engage in these processes, they contribute to the creation of shared knowledge, the evolution of cultural norms, and the ability of collectives to solve complex problems and adapt to changing environments. Further research into the dynamics of language and communication within active inference promises to yield valuable insights into the nature of social behavior and the potential for creating more intelligent, cooperative, and resilient societies.
 
 
 
