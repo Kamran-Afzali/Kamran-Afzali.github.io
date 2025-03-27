@@ -37,7 +37,7 @@ To address these gaps, several initiatives have emerged to examine the [ethical,
 
 **Data Governance**
 
-- Data management, including storage, access, and transfer, is a significant focus. Applicants must de-identify data, clarify device ownership, and justify their storage/compute methods. Clear procedures for handling data upon participant withdrawal are required, along with secure data transfer protocols, especially in international collaborations. Anonymization and confidentiality strategies must be detailed, distinguishing between pseudonymous and anonymous data. Video and audio recording justifications are necessary, particularly regarding the duration of storage and sharing with sponsors.
+- Data management, including storage, access, and transfer through pipelines where developers/data-managers de-identify data, clarify device ownership, and justify their storage/compute methods is part of this aspect.  Anonymization and confidentiality strategies must be detailed, distinguishing between pseudonymous and anonymous data. Video and audio recording justifications are necessary, particularly regarding the duration of storage and sharing with sponsors. Clear procedures for handling data upon participant's request for data withdrawal are required. Finally secure data transfer protocols, especially in international collaborations are necessary.
 
 **Fairness of AI and algorithms**
 
