@@ -205,161 +205,96 @@ sdcApp()
 # 5. Export anonymized data
 ```
 
+**k-Anonymity**  
+k-Anonymity is a privacy-preserving technique used in data anonymization to ensure that an individual's record cannot be distinguished from at least \( k-1 \) other records in a dataset. It achieves this by generalizing or suppressing identifying attributes so that each combination of quasi-identifiers appears in at least \( k \) instances. This reduces the risk of re-identification by making it difficult to single out any one individual based on available attributes. However, while k-anonymity protects against identity disclosure, it does not necessarily prevent attribute disclosure, as all individuals in the same group might share sensitive information.  
+
+**l-Diversity**  
+l-Diversity extends k-anonymity by addressing its vulnerability to attribute disclosure. It ensures that within each anonymized group, there are at least \( l \) distinct values for any sensitive attribute, reducing the risk of inferring private information. This technique prevents an adversary from confidently predicting an individual's sensitive attribute even if they identify the group. However, l-diversity may be ineffective in cases where the distribution of sensitive values lacks sufficient variation, leading to a risk of disclosure through semantic similarity.  
+
+**t-Closeness**  
+t-Closeness further improves privacy by ensuring that the distribution of a sensitive attribute within each anonymized group is statistically close to its distribution in the overall dataset. This prevents attackers from gaining an advantage by observing imbalanced distributions within a group. The technique measures closeness using statistical distance metrics like Earth Mover’s Distance (EMD), ensuring that the probability of inferring sensitive information remains low. While t-closeness enhances data security, it can reduce data utility due to the strict constraints imposed on attribute distributions.
 
 
+Here’s how you can implement **k-Anonymity, l-Diversity, and t-Closeness** in R using the `sdcMicro` package.  
 
+---
 
+### **1. k-Anonymity Implementation in R**
+The `sdcMicro` package provides tools for applying **k-anonymity** by generalizing or suppressing quasi-identifiers.
 
-
-### k-Anonymity: The Baseline Protection
-**Formal Definition**  
-A dataset achieves *k-anonymity* if every combination of quasi-identifiers appears in at least *k* records, making individuals indistinguishable within these equivalence classes. Mathematically:
-
-$$  
-\forall q \in Q: |E(q)| \geq k  
-$$
-
-Where $$ Q $$ represents quasi-identifiers and $$ E(q) $$ the equivalence class for quasi-identifier combination $$ q $$[4].
-
-**Implementation Challenges**  
-1. **Equivalence Class Formation** requires strategic generalization:
-```R
-# sdcMicro implementation
+#### **Code:**
+```r
+# Install and load the sdcMicro package
+install.packages("sdcMicro")
 library(sdcMicro)
-sdc %
-  group_by(ID) %>%
-  mutate(delta = difftime(visit_date, lag(visit_date))) %>%
-  identify_peaks(delta, threshold = 7)
+
+# Sample dataset (example of microdata)
+data <- data.frame(
+  Age = c(25, 32, 40, 22, 35, 40, 29, 40),
+  ZipCode = c("12345", "12345", "12346", "12346", "12347", "12345", "12346", "12347"),
+  Income = c(50000, 60000, 55000, 62000, 58000, 55000, 53000, 60000),
+  Disease = c("Diabetes", "Cancer", "Heart Disease", "Diabetes", "Cancer", "Diabetes", "Heart Disease", "Cancer")
+)
+
+# Define quasi-identifiers
+quasi_identifiers <- c("Age", "ZipCode")
+
+# Create an SDC object
+sdc <- createSdcObj(dat = data, keyVars = quasi_identifiers)
+
+# Apply k-anonymity (local suppression)
+sdc <- localSuppression(sdc, k = 2)  # Ensures each group has at least 2 individuals
+
+# Extract anonymized data
+anon_data <- extractManipData(sdc)
+print(anon_data)
 ```
 
-**Mitigation Strategy**  
-```R
-# Temporal anonymization
-library(anonymizer)
-safe_data %
-  perturb_dates("visit_date", granularity = "month") %>%
-  add_noise("delta", type = "multiplicative")
-```
+---
 
-### High-Dimensional Linkage
-**Genomic Data Challenge**  
-23andMe-style attacks using:
-- 100 SNPs → 99.9% identification accuracy
-- Genome-wide data → 100% re-ID[3]
+### **2. l-Diversity Implementation in R**
+**l-Diversity** ensures that each anonymized group has at least `l` distinct sensitive values (e.g., Disease).
 
-**Differential Privacy Solution**  
-$$  
-\mathcal{M}(D) = f(D) + \text{Lap}\left(\frac{\Delta f}{\epsilon}\right)  
-$$
-
-```R
-library(dpTitanic)
-private_counts %
-    k_anonymize(k = 10) %>%
-    l_diversify(l = 3) %>%
-    t_closeness(t = 0.08) %>%
-    add_geodistortion(lat_long_vars, radius = 5km)
-}
-```
-
-## Emerging Frontiers in Privacy Preservation
-
-### Synthetic Data Generation
-**GAN-Based Approach**  
-```R
-library(ganSynth)
-model <- train_synth(data,
-                    epochs = 500,
-                    privacy_epsilon = 1.0)
-synthetic_data <- generate(model, n = nrow(data))
-```
-
-**Validation Metrics**  
-1. KL Divergence ≤ 0.05
-2. Wasserstein Distance ≤ 0.1
-3. Privacy Loss ≤ ε=1.0[3]
-
-### Homomorphic Encryption
-**Secure Computation**  
-```R
-library(homomorpheR)
-params <- pars("CKKS", poly_modulus_degree = 8192)
-keys <- keygen(params)
-enc_age <- encrypt(keys$pk, health_data$Age)
-enc_result <- homomorphic_lm(enc_age, enc_bp)
-```
-
-**Performance Metrics**  
-- 128-bit security: 2.3s/encryption
-- 256-bit security: 6.7s/encryption[3]
-
-## Practical Implementation Checklist
-
-1. **Attribute Classification**  
-   ```R
-   library(gdpr)
-   classify_vars(data,
-                identifiers = c("PatientID"),
-                quasi_ids = c("Age", "ZIP"),
-                sensitive = c("Diagnosis"))
-   ```
-
-2. **Risk-Utility Optimization**  
-   $$  
-   \max_{k,l,t} \quad \text{Utility}(k,l,t) - \lambda \cdot \text{Risk}(k,l,t)  
-   $$
-
-3. **Attack Simulation**  
-   ```R
-   library(umap)
-   reid_risk <- calculate_mia_risk(original, anonymized)
-   plot_risk_surface(reid_risk)
-   ```
-
-This comprehensive framework integrates theoretical rigor with practical implementations, addressing both classic vulnerabilities and emerging threats in health data anonymization. The mathematical formalisms and R code implementations are validated against current research[1][3][5] and regulatory guidelines[4], providing a state-of-the-art toolkit for researchers.
-
-
-
-### k-Anonymity Enhancements
-```R
-# sdcMicro implementation with l-diversity
+#### **Code:**
+```r
+# Load necessary library
 library(sdcMicro)
-sdc %
-  createSdcObj(keyVars = c("age", "gender", "zipcode"),
-              numVars = c("blood_pressure", "cholesterol"),
-              weightVar = NULL) %>%
-  localSuppression(k = 5, importance = c(1,2,3)) %>%
-  addNoise(noise = 2.5, method = "correlated") %>%
-  pram(variables = "diagnosis", pd = 0.8) %>%
-  globalRecode(column = "age",
-              breaks = c(0, 18, 35, 50, 65, 100)) %>%
-  measure_risk()
 
-# Privacy metrics report
-cat("Disclosure Risk Indicators:\n")
-print(risk(health_sdc)[c("global_risk", "hierarchical_risk")])
+# Define sensitive attribute
+sensitive_vars <- c("Disease")
 
-# Data utility assessment
-compare(original = health_data,
-       anonymized = health_sdc@manipNumVars,
-       stats = c("cor", "rmse"))
+# Apply l-diversity using microaggregation
+sdc <- createSdcObj(dat = data, keyVars = quasi_identifiers, numVars = sensitive_vars)
+sdc <- microaggregation(sdc, method = "mdav", aggr = 2) # Enforces diversity by aggregation
+
+# Extract anonymized data
+anon_data <- extractManipData(sdc)
+print(anon_data)
 ```
 
-### Differential Privacy with diffpriv
-```R
-library(diffpriv)
+---
 
-mechanism %
-  mutate(visit_date = sample(seq(as.Date('2020-01-01'), 
-                                as.Date('2023-12-31'), by="day"), 10)) %>%
-  group_by(patient_id) %>%
-  mutate(visit_sequence = row_number())
+### **3. t-Closeness Implementation in R**
+**t-Closeness** ensures that the distribution of a sensitive attribute within each group is similar to the overall dataset.
 
-anonymized_temporal %
-  anonymize_dates("visit_date", granularity = "month") %>%
-  group_by(patient_id) %>%
-  mutate(time_delta_perturbed = jitter(diff(visit_date), factor = 2)) %>%
-  permute_records(.group = "diagnosis", .seed = 789) %>%
-  add_noise(vars = "blood_pressure", sd = 3, type = "additive")
+#### **Code:**
+```r
+# Load necessary library
+library(sdcMicro)
+
+# Apply t-closeness by ensuring the distribution of the sensitive attribute is maintained
+sdc <- createSdcObj(dat = data, keyVars = quasi_identifiers, numVars = sensitive_vars)
+
+# Risk assessment to check distribution similarity
+risk <- dRisk(sdc)
+print(risk)
+
+# If the risk is high, apply additional generalization techniques
+sdc <- globalRecode(sdc, column = "Age", breaks = c(20, 30, 40, 50), labels = c("20-30", "30-40", "40-50"))
+
+# Extract final anonymized dataset
+anon_data <- extractManipData(sdc)
+print(anon_data)
 ```
 
+---
