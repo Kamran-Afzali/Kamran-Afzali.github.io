@@ -83,18 +83,6 @@ Key functions in the anonymizer package include:
 
 Here's a simple example of how to use the anonymizer package:
 
-```r
-library(anonymizer)
-library(dplyr)
-
-# Example data
-data <- c("John Doe", "Jane Smith", "Bob Johnson")
-
-# Anonymize the data
-anonymized_data <- data %>% anonymize(.algo = "crc32", .seed = 1)
-
-print(anonymized_data)
-```
 
 ### `sdcMicro`
 
@@ -109,25 +97,6 @@ Some of the key features of sdcMicro include:
 
 Here's a basic example of using sdcMicro for data anonymization:
 
-```r
-library(sdcMicro)
-
-# Load example data
-data("testdata2")
-
-# Create an SDC object
-sdcObj <- createSdcObj(testdata2,
-                       keyVars=c('urbrur','roof','walls','water','electcon'),
-                       numVars=c('expend','income','savings'),
-                       w='sampling_weight')
-
-# Apply anonymization methods
-sdcObj <- kAnon(sdcObj, k=3)
-sdcObj <- localSuppression(sdcObj)
-
-# Get the anonymized data
-anonymized_data <- extractManipData(sdcObj)
-```
 
 ### `deident`
 
@@ -140,24 +109,6 @@ Key features of the `deident` package include:
 - **Shuffling**: Replacement of columns by a random sample without replacement.
 - **Blurring**: Aggregation of numeric or categorical data according to specified rules.
 - **Perturbation**: Addition of user-defined random noise to a numeric variable. 
-
-
-```R
-# Install and load the deident package
-install.packages("deident")
-library(deident)
-
-# Load the babynames dataset
-library(babynames)
-babynames <- babynames::babynames |>
-  dplyr::filter(year > 2015)
-
-# Create a deidentification pipeline to pseudonymize the 'name' column
-pipeline <- deident(babynames, "pseudonymize", name)
-
-# Apply the deidentification pipeline to the dataset
-deidentified_data <- apply_deident(babynames, pipeline)
-```
 
 
 ## Hands-on Exercises with R
@@ -173,6 +124,15 @@ library(sdcMicro)
 
 # Create sample health dataset
 set.seed(123)
+health_data <- data.frame(
+  patient_id = 1:10,
+  age = sample(20:80, 10, replace = TRUE),
+  gender = sample(c("M", "F"), 10, replace = TRUE),
+  zipcode = sample(10000:99999, 10),
+  diagnosis = sample(c("Diabetes", "Hypertension", "Asthma", "Arthritis"), 10, replace = TRUE),
+  blood_pressure = sample(110:180, 10)
+)
+
 health_data %
   add_pseudonymize("patient_id") %>%
   add_blur_age("age", width = 10) %>%
