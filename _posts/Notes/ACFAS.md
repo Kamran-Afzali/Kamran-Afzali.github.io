@@ -81,7 +81,18 @@ Key functions in the anonymizer package include:
 - `hash`: Applies a hashing algorithm to the input data.
 - `anonymize`: Combines salting and hashing to anonymize the input data.
 
-Here's a simple example of how to use the anonymizer package:
+
+### `deident`
+
+The `deident` package in R provides a comprehensive tool for the replicable removal of personally identifiable data from datasets. It offers several methods tailored to different data types.  
+
+Key features of the `deident` package include:
+
+- **Pseudonymization**: Consistent replacement of a string with a random string.
+- **Encryption**: Consistent replacement of a string with an alphanumeric hash using an encryption key and salt.
+- **Shuffling**: Replacement of columns by a random sample without replacement.
+- **Blurring**: Aggregation of numeric or categorical data according to specified rules.
+- **Perturbation**: Addition of user-defined random noise to a numeric variable. 
 
 
 ### `sdcMicro`
@@ -95,20 +106,21 @@ Some of the key features of sdcMicro include:
 - Microaggregation for continuous variables
 - PRAM (Post Randomization Method) for categorical variables
 
-Here's a basic example of using sdcMicro for data anonymization:
 
+### SDC methods can be classified as non-perturbative and perturbative 
 
-### `deident`
+- Non-perturbative methods reduce the detail in the data by generalization or suppression of certain values (i.e., masking) without distorting the data structure.
 
-The `deident` package in R provides a comprehensive tool for the replicable removal of personally identifiable data from datasets. It offers several methods tailored to different data types.  
+- Perturbative methods do not suppress values in the dataset but perturb (i.e., alter) values to limit disclosure risk by creating uncertainty around the true values.
 
-Key features of the `deident` package include:
+- Both non-perturbative and perturbative methods can be used for categorical and continuous variables.
 
-- **Pseudonymization**: Consistent replacement of a string with a random string.
-- **Encryption**: Consistent replacement of a string with an alphanumeric hash using an encryption key and salt.
-- **Shuffling**: Replacement of columns by a random sample without replacement.
-- **Blurring**: Aggregation of numeric or categorical data according to specified rules.
-- **Perturbation**: Addition of user-defined random noise to a numeric variable. 
+### Probabilistic and deterministic SDC methods
+
+- Probabilistic methods depend on a probability mechanism or a random number-generating mechanism. Every time a probabilistic method is used, a different outcome is generated. For these methods it is often recommended that a seed be set for the random number generator if you want to produce replicable results.
+
+- Deterministic methods follow a certain algorithm and produce the same results if applied repeatedly to the same data with the same set of parameters.
+
 
 
 ## Hands-on Exercises with R
@@ -171,11 +183,8 @@ k-Anonymity is a privacy-preserving technique used in data anonymization to ensu
 **l-Diversity**  
 l-Diversity extends k-anonymity by addressing its vulnerability to attribute disclosure. It ensures that within each anonymized group, there are at least \( l \) distinct values for any sensitive attribute, reducing the risk of inferring private information. This technique prevents an adversary from confidently predicting an individual's sensitive attribute even if they identify the group. However, l-diversity may be ineffective in cases where the distribution of sensitive values lacks sufficient variation, leading to a risk of disclosure through semantic similarity.  
 
-**t-Closeness**  
-t-Closeness further improves privacy by ensuring that the distribution of a sensitive attribute within each anonymized group is statistically close to its distribution in the overall dataset. This prevents attackers from gaining an advantage by observing imbalanced distributions within a group. The technique measures closeness using statistical distance metrics like Earth Mover’s Distance (EMD), ensuring that the probability of inferring sensitive information remains low. While t-closeness enhances data security, it can reduce data utility due to the strict constraints imposed on attribute distributions.
 
-
-Here’s how you can implement **k-Anonymity, l-Diversity, and t-Closeness** in R using the `sdcMicro` package.  
+Here’s how you can implement **k-Anonymity and l-Diversity** in R using the `sdcMicro` package.  
 
 ---
 
@@ -232,29 +241,3 @@ anon_data <- extractManipData(sdc)
 print(anon_data)
 ```
 
----
-
-### **3. t-Closeness Implementation in R**
-**t-Closeness** ensures that the distribution of a sensitive attribute within each group is similar to the overall dataset.
-
-#### **Code:**
-```r
-# Load necessary library
-library(sdcMicro)
-
-# Apply t-closeness by ensuring the distribution of the sensitive attribute is maintained
-sdc <- createSdcObj(dat = data, keyVars = quasi_identifiers, numVars = sensitive_vars)
-
-# Risk assessment to check distribution similarity
-risk <- dRisk(sdc)
-print(risk)
-
-# If the risk is high, apply additional generalization techniques
-sdc <- globalRecode(sdc, column = "Age", breaks = c(20, 30, 40, 50), labels = c("20-30", "30-40", "40-50"))
-
-# Extract final anonymized dataset
-anon_data <- extractManipData(sdc)
-print(anon_data)
-```
-
----
