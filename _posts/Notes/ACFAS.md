@@ -121,6 +121,20 @@ Some of the key features of sdcMicro include:
 
 - Deterministic methods follow a certain algorithm and produce the same results if applied repeatedly to the same data with the same set of parameters.
 
+### Local suppression
+
+It is common in surveys to encounter values for certain variables or combinations of quasi-identifiers (keys) that are shared by very few individuals. When this occurs, the risk of re-identification for those respondents is higher than the rest of the respondents (see the Section k-anonymity). Often local suppression is used after reducing the number of keys in the data by recoding the appropriate variables. Recoding reduces the number of necessary suppressions as well as the computation time needed for suppression. Suppression of values means that values of a variable are replaced by a missing value (NA in R). 
+
+### Microaggregation
+
+Microaggregation is most suitable for continuous variables, but can be extended in some cases to categorical variables. [14] It is most useful where confidentiality rules have been predetermined (e.g., a certain threshold for 𝑘
+-anonymity has been set) that permit the release of data only if combinations of variables are shared by more than a predetermined threshold number of respondents (𝑘). The first step in microaggregation is the formation of small groups of individuals that are homogeneous with respect to the values of selected variables, such as groups with similar income or age. Subsequently, the values of the selected variables of all group members are replaced with a common value, e.g., the mean of that group. Microaggregation methods differ with respect to (i) how the homogeneity of groups is defined, (ii) the algorithms used to find homogeneous groups, and (iii) the determination of replacement values. In practice, microaggregation works best when the values of the variables in the groups are more homogeneous. When this is the case, then the information loss due to replacing values with common values for the group will be smaller than in cases where groups are less homogeneous.
+
+### Noise addition
+Noise addition, or noise masking, means adding or subtracting (small) values to the original values of a variable, and is most suited to protect continuous variables (see Bran02 for an overview). Noise addition can prevent exact matching of continuous variables. The advantages of noise addition are that the noise is typically continuous with mean zero, and exact matching with external files will not be possible. Depending on the magnitude of noise added, however, approximate interval matching might still be possible.
+
+When using noise addition to protect data, it is important to consider the type of data, the intended use of the data and the properties of the data before and after noise addition, i.e., the distribution – particularly the mean – covariance and correlation between the perturbed and original datasets.
+
 
 
 ## Hands-on Exercises with R
