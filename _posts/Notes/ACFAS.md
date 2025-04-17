@@ -146,6 +146,12 @@ Noise addition, or noise masking, means adding or subtracting (small) values to 
 
 When using noise addition to protect data, it is important to consider the type of data, the intended use of the data and the properties of the data before and after noise addition, i.e., the distribution – particularly the mean – covariance and correlation between the perturbed and original datasets.
 
+### k-Anonymity  
+k-Anonymity is a privacy-preserving technique used in data anonymization to ensure that an individual's record cannot be distinguished from at least \( k-1 \) other records in a dataset. It achieves this by generalizing or suppressing identifying attributes so that each combination of quasi-identifiers appears in at least \( k \) instances. This reduces the risk of re-identification by making it difficult to single out any one individual based on available attributes. However, while k-anonymity protects against identity disclosure, it does not necessarily prevent attribute disclosure, as all individuals in the same group might share sensitive information.  
+
+### l-Diversity  
+l-Diversity extends k-anonymity by addressing its vulnerability to attribute disclosure. It ensures that within each anonymized group, there are at least \( l \) distinct values for any sensitive attribute, reducing the risk of inferring private information. This technique prevents an adversary from confidently predicting an individual's sensitive attribute even if they identify the group. However, l-diversity may be ineffective in cases where the distribution of sensitive values lacks sufficient variation, leading to a risk of disclosure through semantic similarity.  
+
 
 
 ## Hands-on Exercises with R
@@ -161,33 +167,20 @@ library(sdcMicro)
 
 # Create sample health dataset
 set.seed(123)
+n <- 10000
 health_data <- data.frame(
-  patient_id = 1:10,
-  age = sample(20:80, 10, replace = TRUE),
-  gender = sample(c("M", "F"), 10, replace = TRUE),
-  zipcode = sample(10000:99999, 10),
-  diagnosis = sample(c("Diabetes", "Hypertension", "Asthma", "Arthritis"), 10, replace = TRUE),
-  blood_pressure = sample(110:180, 10)
+  id = 1:n,
+  age = sample(18:90, n, replace = TRUE),
+  gender = sample(c("M","F","NB","QR","FLD"), n, replace = TRUE,prob=c(0.49, 0.49, 0.01, 0.005, 0.005)),
+  postal_code = sample(paste0("PC-",100:130), n, replace = TRUE),
+  income = rlnorm(n, meanlog = 10, sdlog = 0.5),
+  health_score = rnorm(n, mean = 50, sd = 10),
+  hiv_status = rbinom(n, 1, 0.03)
 )
 
-health_data %
-  add_pseudonymize("patient_id") %>%
-  add_blur_age("age", width = 10) %>%
-  add_suppress("zipcode", start = 4) %>%
-  add_perturb("blood_pressure", noise = 5, method = "additive") %>%
-  add_shuffle("diagnosis")
-
-# Apply the pipeline to the data
-anonymized_data <- apply_deident(health_data, deident_pipeline)
-
-# View the result
-print(anonymized_data)
-
-# Save the pipeline for reuse with similar datasets
-# save_deident_plan(deident_pipeline, "health_anonymization_plan.yaml")
 ```
 
-### Exercise 3: Using sdcMicro's GUI
+### Using sdcMicro's GUI
 
 ```R
 # Launch the interactive GUI for sdcMicro
@@ -202,67 +195,5 @@ sdcApp()
 # 5. Export anonymized data
 ```
 
-**k-Anonymity**  
-k-Anonymity is a privacy-preserving technique used in data anonymization to ensure that an individual's record cannot be distinguished from at least \( k-1 \) other records in a dataset. It achieves this by generalizing or suppressing identifying attributes so that each combination of quasi-identifiers appears in at least \( k \) instances. This reduces the risk of re-identification by making it difficult to single out any one individual based on available attributes. However, while k-anonymity protects against identity disclosure, it does not necessarily prevent attribute disclosure, as all individuals in the same group might share sensitive information.  
 
-**l-Diversity**  
-l-Diversity extends k-anonymity by addressing its vulnerability to attribute disclosure. It ensures that within each anonymized group, there are at least \( l \) distinct values for any sensitive attribute, reducing the risk of inferring private information. This technique prevents an adversary from confidently predicting an individual's sensitive attribute even if they identify the group. However, l-diversity may be ineffective in cases where the distribution of sensitive values lacks sufficient variation, leading to a risk of disclosure through semantic similarity.  
-
-
-Here’s how you can implement **k-Anonymity and l-Diversity** in R using the `sdcMicro` package.  
-
----
-
-### **1. k-Anonymity Implementation in R**
-The `sdcMicro` package provides tools for applying **k-anonymity** by generalizing or suppressing quasi-identifiers.
-
-#### **Code:**
-```r
-# Install and load the sdcMicro package
-install.packages("sdcMicro")
-library(sdcMicro)
-
-# Sample dataset (example of microdata)
-data <- data.frame(
-  Age = c(25, 32, 40, 22, 35, 40, 29, 40),
-  ZipCode = c("12345", "12345", "12346", "12346", "12347", "12345", "12346", "12347"),
-  Income = c(50000, 60000, 55000, 62000, 58000, 55000, 53000, 60000),
-  Disease = c("Diabetes", "Cancer", "Heart Disease", "Diabetes", "Cancer", "Diabetes", "Heart Disease", "Cancer")
-)
-
-# Define quasi-identifiers
-quasi_identifiers <- c("Age", "ZipCode")
-
-# Create an SDC object
-sdc <- createSdcObj(dat = data, keyVars = quasi_identifiers)
-
-# Apply k-anonymity (local suppression)
-sdc <- localSuppression(sdc, k = 2)  # Ensures each group has at least 2 individuals
-
-# Extract anonymized data
-anon_data <- extractManipData(sdc)
-print(anon_data)
-```
-
----
-
-### **2. l-Diversity Implementation in R**
-**l-Diversity** ensures that each anonymized group has at least `l` distinct sensitive values (e.g., Disease).
-
-#### **Code:**
-```r
-# Load necessary library
-library(sdcMicro)
-
-# Define sensitive attribute
-sensitive_vars <- c("Disease")
-
-# Apply l-diversity using microaggregation
-sdc <- createSdcObj(dat = data, keyVars = quasi_identifiers, numVars = sensitive_vars)
-sdc <- microaggregation(sdc, method = "mdav", aggr = 2) # Enforces diversity by aggregation
-
-# Extract anonymized data
-anon_data <- extractManipData(sdc)
-print(anon_data)
-```
 
