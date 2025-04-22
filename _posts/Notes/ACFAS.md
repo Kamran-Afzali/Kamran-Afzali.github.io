@@ -180,6 +180,73 @@ health_data <- data.frame(
 
 ```
 
+```
+sdc <- createSdcObj(
+  dat = health_data,
+  keyVars = c("age","gender", "postal_code"),  # Quasi-identifiers
+  numVars = c( "income", "health_score"),        # Sensitive numericals
+  weightVar = NULL,
+  hhId = NULL,                       
+  sensibleVar = "hiv_status"                  
+)
+
+print(sdc, "risk") 
+```
+
+```
+sdc <- groupAndRename(sdc, var="gender", before=c("NB","QR","FLD"), after=c("Other"))
+
+
+print(sdc, "risk") 
+data_modified_1=extractManipData(sdc)
+```
+
+```
+sdc <- globalRecode(sdc, column = 'age', breaks = 10 * c(1:9))
+print(sdc, "risk") 
+
+data_modified_2=extractManipData(sdc)
+```
+
+```
+hist(health_data$health_score)
+
+sdc <- topBotCoding(obj = sdc, value = 70, replacement = 70,kind = 'top', column = 'health_score')
+
+sdc <- topBotCoding(obj = sdc, value = 30, replacement = 30, kind = 'bottom', column = 'health_score')
+
+print(sdc, "risk") 
+```
+
+```
+sdc <-microaggregation(sdc, method = "mdav", variables=c("income","health_score"), aggr = 3)
+#data2=extractManipData(sdc)
+print(sdc, "risk") 
+
+data_modified_4=extractManipData(sdc)
+```
+
+
+
+
+```
+sdc <- addNoise(sdc, noise = 0.1)  
+
+print(sdc, "risk") 
+
+measure_risk(sdc)
+data_modified_5=extractManipData(sdc)
+
+```
+
+
+sdc <- localSuppression(sdc,k = 5)                # 5% risk threshold
+print(sdc, "risk") 
+data_modified_3=extractManipData(sdc)
+
+
+
+
 ### Using sdcMicro's GUI
 
 ```R
