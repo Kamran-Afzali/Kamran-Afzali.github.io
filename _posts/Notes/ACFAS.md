@@ -154,11 +154,11 @@ l-Diversity extends k-anonymity by addressing its vulnerability to attribute dis
 
 
 
-## Hands-on Exercises with R
+## Hands-on Exercises with R : Basic sdcMicro Usage
 
 Let's explore practical implementations of anonymization techniques using R packages.
 
-### Exercise 1: Basic sdcMicro Usage
+###  Data Generation
 
 ```R
 # Install and load the sdcMicro package
@@ -180,6 +180,8 @@ health_data <- data.frame(
 
 ```
 
+###  Sdc Object
+
 ```
 sdc <- createSdcObj(
   dat = health_data,
@@ -193,6 +195,8 @@ sdc <- createSdcObj(
 print(sdc, "risk") 
 ```
 
+###  Group And Rename
+
 ```
 sdc <- groupAndRename(sdc, var="gender", before=c("NB","QR","FLD"), after=c("Other"))
 
@@ -200,14 +204,14 @@ sdc <- groupAndRename(sdc, var="gender", before=c("NB","QR","FLD"), after=c("Oth
 print(sdc, "risk") 
 data_modified_1=extractManipData(sdc)
 ```
-
+### Global Recodeing
 ```
 sdc <- globalRecode(sdc, column = 'age', breaks = 10 * c(1:9))
 print(sdc, "risk") 
 
 data_modified_2=extractManipData(sdc)
 ```
-
+### Top Bottom Coding
 ```
 hist(health_data$health_score)
 
@@ -218,6 +222,20 @@ sdc <- topBotCoding(obj = sdc, value = 30, replacement = 30, kind = 'bottom', co
 print(sdc, "risk") 
 ```
 
+
+### Local Suppression
+
+```
+sdc <- localSuppression(sdc,k = 5)                # 5% risk threshold
+print(sdc, "risk") 
+data_modified_3=extractManipData(sdc)
+
+
+table(health_data$gender,health_data$postal_code)
+table(data2$gender,data2$postal_code)
+```
+
+### Microaggregation
 ```
 sdc <-microaggregation(sdc, method = "mdav", variables=c("income","health_score"), aggr = 3)
 #data2=extractManipData(sdc)
@@ -227,6 +245,7 @@ data_modified_4=extractManipData(sdc)
 ```
 
 
+### Add Noise
 
 
 ```
@@ -238,13 +257,6 @@ measure_risk(sdc)
 data_modified_5=extractManipData(sdc)
 
 ```
-
-
-sdc <- localSuppression(sdc,k = 5)                # 5% risk threshold
-print(sdc, "risk") 
-data_modified_3=extractManipData(sdc)
-
-
 
 
 ### Using sdcMicro's GUI
@@ -262,5 +274,8 @@ sdcApp()
 # 5. Export anonymized data
 ```
 
+
+
+### Utility Analysis
 
 
