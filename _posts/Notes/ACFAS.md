@@ -154,73 +154,8 @@ l-Diversity extends k-anonymity by addressing its vulnerability to attribute dis
 
 
 
-## Hands-on Exercises with R : Basic sdcMicro Usage
-
-Let's explore practical implementations of anonymization techniques using R packages.
-
-###  Data Generation
-
-```R
-# Install and load the sdcMicro package
-# install.packages("sdcMicro")
-library(sdcMicro)
-
-# Create sample health dataset
-set.seed(123)
-n <- 10000
-health_data <- data.frame(
-  id = 1:n,
-  age = sample(18:90, n, replace = TRUE),
-  gender = sample(c("M","F","NB","QR","FLD"), n, replace = TRUE,prob=c(0.49, 0.49, 0.01, 0.005, 0.005)),
-  postal_code = sample(paste0("PC-",100:130), n, replace = TRUE),
-  income = rlnorm(n, meanlog = 10, sdlog = 0.5),
-  health_score = rnorm(n, mean = 50, sd = 10),
-  hiv_status = rbinom(n, 1, 0.03)
-)
-
-```
-
-###  Sdc Object
-
-```
-sdc <- createSdcObj(
-  dat = health_data,
-  keyVars = c("age","gender", "postal_code"),  # Quasi-identifiers
-  numVars = c( "income", "health_score"),        # Sensitive numericals
-  weightVar = NULL,
-  hhId = NULL,                       
-  sensibleVar = "hiv_status"                  
-)
-
-print(sdc, "risk") 
-```
-
-###  Group And Rename
-
-```
-sdc <- groupAndRename(sdc, var="gender", before=c("NB","QR","FLD"), after=c("Other"))
 
 
-print(sdc, "risk") 
-data_modified_1=extractManipData(sdc)
-```
-### Global Recodeing
-```
-sdc <- globalRecode(sdc, column = 'age', breaks = 10 * c(1:9))
-print(sdc, "risk") 
-
-data_modified_2=extractManipData(sdc)
-```
-### Top Bottom Coding
-```
-hist(health_data$health_score)
-
-sdc <- topBotCoding(obj = sdc, value = 70, replacement = 70,kind = 'top', column = 'health_score')
-
-sdc <- topBotCoding(obj = sdc, value = 30, replacement = 30, kind = 'bottom', column = 'health_score')
-
-print(sdc, "risk") 
-```
 
 
 ### Local Suppression
@@ -275,76 +210,33 @@ sdcApp()
 ```
 
 
-
-### Utility Analysis
-
-```
-# Visualize impact of noise addition
-original <- health_data$income
-anonymized <- extractManipData(sdc)$income
-correlation <- cor(original, anonymized)
-
-
-
-
-ggplot() +
-  geom_density(aes(x = original), fill = "blue", alpha = 0.5) +
-  geom_density(aes(x = anonymized), fill = "red", alpha = 0.5) +
-  labs(title = "Income Distribution Before/After Anonymization")
-```
-
-
-```
-# Visualize impact of local suppression 
-PlotXTabs2(data_modified_4, hiv_status, gender, plottype = "percent")
-PlotXTabs2(health_data, hiv_status, gender, plottype = "percent") 
-
-table(health_data$hiv_status,health_data$gender)
-
-table(data_modified_4$hiv_status, data_modified_4$postal_code)
-
-
-PlotXTabs2(data_modified_4, postal_code, hiv_status, plottype = "percent",x.axis.orientation="vertical")
-
-
-table(health_data$hiv_status,health_data$postal_code)
-PlotXTabs2(health_data, postal_code, hiv_status, plottype = "percent",x.axis.orientation="vertical")
-```
-
-
-```
-# Visualize impact microagression
-data_modified_4 %>% group_by(hiv_status) %>% 
-  summarise(mean_age=mean(age, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_age, fill = hiv_status)) + geom_bar(stat = "identity") 
-  
-health_data %>% group_by(hiv_status) %>%  summarise(mean_age=mean(age, na.rm = T)*10, .groups = 'drop')  %>% ggplot( aes(x = hiv_status, y = mean_age, fill = hiv_status)) + geom_bar(stat = "identity")
-
-data_modified_4 %>% group_by(hiv_status) %>% 
-  summarise(mean_income=mean(income, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_income, fill = hiv_status)) + geom_bar(stat = "identity")
-
-health_data %>% group_by(hiv_status) %>% 
-  summarise(mean_income=mean(income, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_income, fill = hiv_status)) + geom_bar(stat = "identity")
-
-data_modified_4 %>% group_by(hiv_status) %>% 
-  summarise(mean_health_score=mean(health_score, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_health_score, fill = hiv_status)) + geom_bar(stat = "identity")
-
-
-health_data %>% group_by(hiv_status) %>% 
-  summarise(mean_health_score=mean(health_score, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_health_score, fill = hiv_status)) + geom_bar(stat = "identity")
-```
-
-This R code provides a comprehensive hands-on example of how to anonymize sensitive data using the `sdcMicro` package in R. Here's a **step-by-step breakdown** of what each part does:
-
 ---
+
+## Hands-on Exercises with R : Basic sdcMicro Usage
+
 
 ### ✅ **1. Data Generation**
 
-```r
+
+
+```R
+# Install and load the sdcMicro package
+# install.packages("sdcMicro")
+library(sdcMicro)
+
+# Create sample health dataset
 set.seed(123)
 n <- 10000
 health_data <- data.frame(
-  ...
+  id = 1:n,
+  age = sample(18:90, n, replace = TRUE),
+  gender = sample(c("M","F","NB","QR","FLD"), n, replace = TRUE,prob=c(0.49, 0.49, 0.01, 0.005, 0.005)),
+  postal_code = sample(paste0("PC-",100:130), n, replace = TRUE),
+  income = rlnorm(n, meanlog = 10, sdlog = 0.5),
+  health_score = rnorm(n, mean = 50, sd = 10),
+  hiv_status = rbinom(n, 1, 0.03)
 )
+
 ```
 
 - **Purpose:** Simulate a synthetic health dataset with 10,000 records.
@@ -361,9 +253,19 @@ health_data <- data.frame(
 
 ### ✅ **2. Creating an SDC Object**
 
-```r
-sdc <- createSdcObj(...)
 ```
+sdc <- createSdcObj(
+  dat = health_data,
+  keyVars = c("age","gender", "postal_code"),  # Quasi-identifiers
+  numVars = c( "income", "health_score"),        # Sensitive numericals
+  weightVar = NULL,
+  hhId = NULL,                       
+  sensibleVar = "hiv_status"                  
+)
+
+print(sdc, "risk") 
+```
+
 
 - **Purpose:** Wrap the dataset in an `sdcMicro` object to perform anonymization.
 - **Key parameters:**
@@ -375,18 +277,24 @@ sdc <- createSdcObj(...)
 
 ### ✅ **3. Group and Rename**
 
-```r
-sdc <- groupAndRename(...)
 ```
+sdc <- groupAndRename(sdc, var="gender", before=c("NB","QR","FLD"), after=c("Other"))
 
+
+print(sdc, "risk") 
+data_modified_1=extractManipData(sdc)
+```
 - **Purpose:** Combine rare gender categories into a single "Other" category to reduce re-identification risk.
 
 ---
 
 ### ✅ **4. Global Recoding**
 
-```r
-sdc <- globalRecode(...)
+```
+sdc <- globalRecode(sdc, column = 'age', breaks = 10 * c(1:9))
+print(sdc, "risk") 
+
+data_modified_2=extractManipData(sdc)
 ```
 
 - **Purpose:** Bucket `age` into broader 10-year intervals to reduce identifiability.
@@ -395,14 +303,15 @@ sdc <- globalRecode(...)
 
 ### ✅ **5. Top and Bottom Coding**
 
-```r
-sdc <- topBotCoding(...)
 ```
+hist(health_data$health_score)
 
-- **Purpose:** Limit extreme values in `health_score` to reduce outlier disclosure risk.
-  - Top code: All values >70 set to 70.
-  - Bottom code: All values <30 set to 30.
+sdc <- topBotCoding(obj = sdc, value = 70, replacement = 70,kind = 'top', column = 'health_score')
 
+sdc <- topBotCoding(obj = sdc, value = 30, replacement = 30, kind = 'bottom', column = 'health_score')
+
+print(sdc, "risk") 
+```
 ---
 
 ### ✅ **6. Local Suppression**
@@ -442,37 +351,71 @@ sdc <- addNoise(sdc, noise = 0.1)
 
 #### 🔹 **Correlation & Distribution Plot**
 
-```r
-cor(original, anonymized)
+```
+# Visualize impact of noise addition
+original <- health_data$income
+anonymized <- extractManipData(sdc)$income
+correlation <- cor(original, anonymized)
+
+
+
+
+ggplot() +
+  geom_density(aes(x = original), fill = "blue", alpha = 0.5) +
+  geom_density(aes(x = anonymized), fill = "red", alpha = 0.5) +
+  labs(title = "Income Distribution Before/After Anonymization")
 ```
 
 - **Measures** the correlation between original and anonymized `income`.
-
-```r
-ggplot(...) + geom_density(...)
-```
-
 - **Visualizes** how the income distribution changed due to anonymization.
 
 #### 🔹 **Cross-tabulation and Bar Charts**
 
-```r
-PlotXTabs2(...)
+
+
+
+```
+# Visualize impact of local suppression 
+PlotXTabs2(data_modified_4, hiv_status, gender, plottype = "percent")
+PlotXTabs2(health_data, hiv_status, gender, plottype = "percent") 
+
+table(health_data$hiv_status,health_data$gender)
+
+table(data_modified_4$hiv_status, data_modified_4$postal_code)
+
+
+PlotXTabs2(data_modified_4, postal_code, hiv_status, plottype = "percent",x.axis.orientation="vertical")
+
+
+table(health_data$hiv_status,health_data$postal_code)
+PlotXTabs2(health_data, postal_code, hiv_status, plottype = "percent",x.axis.orientation="vertical")
 ```
 
 - **Visualizes** relationships between variables (e.g., gender vs HIV status) before and after anonymization.
-
-```r
-table(...)
-```
-
 - Compares frequency tables pre- and post-anonymization.
 
 #### 🔹 **Microaggregation Impact on Means**
 
-```r
-summarise(mean_income=..., ...)
 ```
+# Visualize impact microagression
+data_modified_4 %>% group_by(hiv_status) %>% 
+  summarise(mean_age=mean(age, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_age, fill = hiv_status)) + geom_bar(stat = "identity") 
+  
+health_data %>% group_by(hiv_status) %>%  summarise(mean_age=mean(age, na.rm = T)*10, .groups = 'drop')  %>% ggplot( aes(x = hiv_status, y = mean_age, fill = hiv_status)) + geom_bar(stat = "identity")
+
+data_modified_4 %>% group_by(hiv_status) %>% 
+  summarise(mean_income=mean(income, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_income, fill = hiv_status)) + geom_bar(stat = "identity")
+
+health_data %>% group_by(hiv_status) %>% 
+  summarise(mean_income=mean(income, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_income, fill = hiv_status)) + geom_bar(stat = "identity")
+
+data_modified_4 %>% group_by(hiv_status) %>% 
+  summarise(mean_health_score=mean(health_score, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_health_score, fill = hiv_status)) + geom_bar(stat = "identity")
+
+health_data %>% group_by(hiv_status) %>% 
+  summarise(mean_health_score=mean(health_score, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_health_score, fill = hiv_status)) + geom_bar(stat = "identity")
+```
+
 
 - Compares **mean values** for age, income, and health score across HIV status before/after anonymization.
 
