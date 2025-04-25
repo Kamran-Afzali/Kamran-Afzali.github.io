@@ -638,3 +638,6 @@ The European Health Data Space exemplifies the future direction of health data m
 
 The field of data anonymization has evolved from simplistic approaches to sophisticated frameworks that balance utility and privacy. Both HHS's Office for Civil Rights and privacy researchers acknowledge that while perfect anonymization may be unattainable, well-implemented techniques can reduce re-identification risk to acceptably low levels. The future lies in privacy-preserving techniques that enable analysis without compromising individual privacy.
 
+
+
+https://sdcpractice.readthedocs.io/en/latest/anon_methods.html#top-and-bottom-coding
