@@ -144,7 +144,6 @@ A comprehensive analysis of the evolution of data anonymization techniques, regu
 - **Scope**: This presentation traces the historical trajectory of data anonymization, highlighting technological, regulatory, and methodological developments.
 - The field of data anonymization has evolved dramatically over the past three decades, transitioning from simple identifier removal to sophisticated mathematical frameworks that provide formal privacy guarantees. This presentation traces this evolution and examines how technical innovations have intersected with regulatory developments to shape modern privacy protection approaches.
 
-
 - **Notable Cases**:
   - 1997: Latanya Sweeney demonstrated re-identification of anonymized health records using voter registration data.
   - 2008: Narayanan and Shmatikov re-identified Netflix users by correlating anonymized data with IMDb ratings.
@@ -169,18 +168,17 @@ During this period, data holders operated under the assumption that removing exp
 - **Extensions**:
   - **L-Diversity**: Addresses homogeneity attacks by ensuring diversity in sensitive attributes.
   - **T-Closeness**: Ensures the distribution of sensitive attributes in any group is close to the overall distribution.
-- **Datafly Algorithm**: Developed by Sweeney, it automates generalization and suppression to achieve k-anonymity. citeturn0search16
-
+- **Datafly Algorithm**: Developed by Sweeney, it automates generalization and suppression to achieve k-anonymity. 
 Sweeney's seminal work represented the first comprehensive mathematical framework for understanding privacy risks. K-anonymity addressed the fundamental problem that uniqueness within datasets creates vulnerability, establishing that each record should be indistinguishable from at least k-1 other records. This approach fundamentally changed how organizations conceptualized privacy protection in structured data.
 
 ## Slide 4: Differential Privacy (2006-2014)
 
 **Mathematical Privacy Guarantees**
 - Developed by cryptographer Cynthia Dwork and colleagues
-- Goal: "To learn as much as possible about a specific group of people from an existing dataset, without learning anything about the individuals in that group"[5]
+- Goal: "To learn as much as possible about a specific group of people from an existing dataset, without learning anything about the individuals in that group"
 - Innovation: Adding calibrated "noise" to data responses
 - Considered "The new gold standard of privacy protection"
-- **Concept**: Proposed by Dwork et al. in 2006, differential privacy adds calibrated noise to data queries, providing strong privacy guarantees. citeturn0search15
+- **Concept**: Proposed by Dwork et al. in 2006, differential privacy adds calibrated noise to data queries, providing strong privacy guarantees.
 - **Applications**:
   - U.S. Census Bureau (2020): Implemented differential privacy in data releases.
   - Apple (2016): Utilized differential privacy to collect user data while preserving privacy. 
@@ -495,7 +493,7 @@ sdc <- localSuppression(sdc, k = 5)
 ### Slide 26: **7. Microaggregation**
 
 ```r
-sdc <- microaggregation(...)
+sdc <- microaggregation(sdc, method = "mdav", variables=c("income","health_score"), aggr = 3)
 ```
 
 - **Purpose:** Group and average sensitive numerical data (e.g., income, health_score) to prevent re-identification.
@@ -525,9 +523,6 @@ original <- health_data$income
 anonymized <- extractManipData(sdc)$income
 correlation <- cor(original, anonymized)
 
-
-
-
 ggplot() +
   geom_density(aes(x = original), fill = "blue", alpha = 0.5) +
   geom_density(aes(x = anonymized), fill = "red", alpha = 0.5) +
@@ -538,9 +533,6 @@ ggplot() +
 - **Visualizes** how the income distribution changed due to anonymization.
 
 #### Slide 29: **Cross-tabulation and Bar Charts**
-
-
-
 
 ```
 # Visualize impact of local suppression 
