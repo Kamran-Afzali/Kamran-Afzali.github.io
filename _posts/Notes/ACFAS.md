@@ -137,7 +137,7 @@ sdcApp()
 
 A comprehensive analysis of the evolution of data anonymization techniques, regulatory frameworks, and future directions in privacy protection.
 
-## Slide 1: Title and Introduction
+## Slide 1: # Health Data Anonymization for Researchers: Protecting Privacy While Advancing Science
 
 - **Definition**: Data anonymization involves modifying datasets to prevent the identification of individuals, ensuring privacy while retaining data utility.
 - **Importance**: Balancing data utility with privacy protection is crucial, especially in health data management.
