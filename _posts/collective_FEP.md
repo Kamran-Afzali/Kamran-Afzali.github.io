@@ -18,84 +18,84 @@ Collective active inference and group-level free energy minimization provide a p
 **References**
 
 
-1. *[Collective behavior from surprise minimization](https://www.pnas.org/doi/10.1073/pnas.2320239121**  
+1. [Collective behavior from surprise minimization](https://www.pnas.org/doi/10.1073/pnas.2320239121 
    Albarracin, D., et al. (2022).
 
-2. *[Emergent sensing and decision making in animal groups](https://www.science.org/doi/10.1126/science.1225883**  
+2. [Emergent sensing and decision making in animal groups](https://www.science.org/doi/10.1126/science.1225883 
    Berdahl, A. M., et al. (2013). *Science*, *339*(6119), 574-576.
 
-3. *[Statistical Decision Theory: Foundations, Concepts, and Methods](https://www.amazon.com/Statistical-Decision-Theory-Foundations-Statistics/dp/0387904719**  
+3. [Statistical Decision Theory: Foundations, Concepts, and Methods](https://www.amazon.com/Statistical-Decision-Theory-Foundations-Statistics/dp/0387904719 
    Berger, J. O. (1980). Springer-Verlag.
 
-4. *[Bounded rational decision-making models suggest capacity-limited concurrent motor planning in human posterior parietal and frontal cortex](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010585**  
+4. [Bounded rational decision-making models suggest capacity-limited concurrent motor planning in human posterior parietal and frontal cortex](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010585 
    Braun, D. A., et al. (2011). *PLOS Computational Biology*.
 
-5. *[Active interoceptive inference and the emotional brain](https://pubmed.ncbi.nlm.nih.gov/28080966/**  
+5. [Active interoceptive inference and the emotional brain](https://pubmed.ncbi.nlm.nih.gov/28080966/ 
    Bruineberg, J., et al. (2018). *Philosophical Transactions of the Royal Society B: Biological Sciences*, *373*(1740), 20170141.
 
-6. *[The Minimalist Program](https://mitpress.mit.edu/9780262531283/the-minimalist-program/**  
+6. [The Minimalist Program](https://mitpress.mit.edu/9780262531283/the-minimalist-program/ 
    Chomsky, N. (2017). MIT Press.
 
-7. *[Embodied predictive coding: a theoretical framework for sensorimotor contingencies and perceptual presence](https://link.springer.com/article/10.1007/s12559-018-9584-5**  
+7. [Embodied predictive coding: a theoretical framework for sensorimotor contingencies and perceptual presence](https://link.springer.com/article/10.1007/s12559-018-9584-5 
    Constant, A., et al. (2019). *Cognitive Computation*, *11*(2), 269-290.
 
-8. *[Effective leadership and decision-making in animal groups on the move](https://www.nature.com/articles/nature03236**  
+8. [Effective leadership and decision-making in animal groups on the move](https://www.nature.com/articles/nature03236 
    Couzin, I. D., et al. (2005). *Nature*, *433*(7025), 513-516.
 
-9. *[Expectation propagation for graphical models](https://scispace.com/pdf/extending-expectation-propagation-for-graphical-models-19r531y5o4.pdf**  
+9. [Expectation propagation for graphical models](https://scispace.com/pdf/extending-expectation-propagation-for-graphical-models-19r531y5o4.pdf 
    Dauwels, J. (2007). In *Probability and Statistics* (pp. 141-153). ISTE.
 
-10. *[Self-evidencing and the epistemic imperative](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.636029/full**  
+10. [Self-evidencing and the epistemic imperative](https://www.frontiersin.org/articles/10.3389/fpsyg.2021.636029/full 
     Fields, C., et al. (2021). *Frontiers in Psychology*, *12*, 636029.
 
-11. *[The free-energy principle: a unified brain theory?](https://www.nature.com/articles/nrn2787**  
+11. [The free-energy principle: a unified brain theory?](https://www.nature.com/articles/nrn2787 
     Friston, K. (2010). *Nature Reviews Neuroscience*, *11*(2), 127-138.
 
-12. *[Life as we know it](https://royalsocietypublishing.org/doi/10.1098/rsif.2013.0475**  
+12. [Life as we know it](https://royalsocietypublishing.org/doi/10.1098/rsif.2013.0475 
     Friston, K. (2013). *Journal of the Royal Society Interface*, *10*(80), 20130475.
 
-13. *[Distributed Science](https://arxiv.org/abs/2201.09674**  
+13. [Distributed Science](https://arxiv.org/abs/2201.09674 
     Friston, K., et al. (2022).
 
-14. *[Learning fixed and random reward structures](https://www.jneurosci.org/content/30/27/9287**  
+14. [Learning fixed and random reward structures](https://www.jneurosci.org/content/30/27/9287 
     Gershman, S. J., & Niv, Y. (2010). *Journal of Neuroscience*, *30*(27), 9287-9292.
 
-15. *[Bayesian reinforcement learning: A survey](https://www.nowpublishers.com/article/Details/MAL-050**  
+15. [Bayesian reinforcement learning: A survey](https://www.nowpublishers.com/article/Details/MAL-050 
     Ghavamzadeh, M., et al. (2016). *Foundations and Trends® in Machine Learning*, *8*(5-6), 359-613.
 
-16. *[Collective information use, spatial scale, and coping with environmental change](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/14-0702.1**  
+16. [Collective information use, spatial scale, and coping with environmental change](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/14-0702.1 
     Hein, A. M., et al. (2015). *Ecology*, *96*(1), 74-84.
 
-17. *[The self-evidencing brain](https://onlinelibrary.wiley.com/doi/abs/10.1111/nous.12062**  
+17. [The self-evidencing brain](https://onlinelibrary.wiley.com/doi/abs/10.1111/nous.12062 
     Hohwy, J. (2016). *Noûs*, *50*(2), 259-285.
 
-18. *[Bayesian surprise attracts human attention](https://www.sciencedirect.com/science/article/abs/pii/S0042698909001053**  
+18. [Bayesian surprise attracts human attention](https://www.sciencedirect.com/science/article/abs/pii/S0042698909001053 
     Itti, L., & Baldi, P. (2009). *Vision Research*, *49*(12), 1295-1306.
 
-19. *[Bayes factors](https://www.tandfonline.com/doi/abs/10.1080/01621459.1995.10476572**  
+19. [Bayes factors](https://www.tandfonline.com/doi/abs/10.1080/01621459.1995.10476572 
     Kass, R. E., & Raftery, A. E. (1995). *Journal of the American Statistical Association*, *90*(430), 773-795.
 
-20. *[Small Steps for Mankind](https://arxiv.org/abs/2308.07870**  
+20. [Small Steps for Mankind](https://arxiv.org/abs/2308.07870 
     Kastel, A., et al. (2023).
 
-21. *[Stepwise cognitive transitions increase collective intelligence in an active inference model](https://www.mdpi.com/1099-4300/23/7/830**  
+21. [Stepwise cognitive transitions increase collective intelligence in an active inference model](https://www.mdpi.com/1099-4300/23/7/830 
     Kaufmann, T., et al. (2021). *Entropy*, *23*(7), 830.
 
-22. *[Risk-sensitive behavior explains direct choices in uncertain environments](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0010053**  
+22. [Risk-sensitive behavior explains direct choices in uncertain environments](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0010053 
     Klyubin, A. S., et al. (2005). *PLoS Computational Biology*, *1*(5), e53.
 
-23. *[On a measure of the information provided by an experiment](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-27/issue-4/On-a-Measure-of-the-Information-Provided-by-an-Experiment/10.1214/aoms/1177728069.full**  
+23. [On a measure of the information provided by an experiment](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-27/issue-4/On-a-Measure-of-the-Information-Provided-by-an-Experiment/10.1214/aoms/1177728069.full 
     Lindley, D. V. (1956). *The Annals of Mathematical Statistics*, *27*(4), 986-1005.
 
-24. *[Information-based objective functions for active data selection](https://direct.mit.edu/neco/article-abstract/4/3/405/6053/Information-Based-Objective-Functions-for-Active-Data**  
+24. [Information-based objective functions for active data selection](https://direct.mit.edu/neco/article-abstract/4/3/405/6053/Information-Based-Objective-Functions-for-Active-Data 
     Mackay, D. J. C. (1992). *Neural Computation*, *4*(3), 405-447.
 
-25. *[Predictive processing as a framework, not a theory: commentary on Kirchhoff, Parr, Palacios, Friston and Clark](https://link.springer.com/article/10.1007/s11229-021-03156-6**  
+25. [Predictive processing as a framework, not a theory: commentary on Kirchhoff, Parr, Palacios, Friston and Clark](https://link.springer.com/article/10.1007/s11229-021-03156-6 
     Michel, M. (2022). *Synthese*, *200*(3), 1-9.
 
-26. *[Thermodynamics as a theory of decision-making with information-processing costs](https://royalsocietypublishing.org/doi/10.1098/rspa.2012.0699**  
+26. [Thermodynamics as a theory of decision-making with information-processing costs](https://royalsocietypublishing.org/doi/10.1098/rspa.2012.0699 
     Ortega, P. A., & Braun, D. A. (2013). *Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences*, *469*(2153), 20120699.
 
-27. *[Generalized free energy and active inference; the Markovian niche](https://www.mdpi.com/1099-4300/21/1/43**  
+27. [Generalized free energy and active inference; the Markovian niche](https://www.mdpi.com/1099-4300/21/1/43 
     Parr, T., & Friston, K. J. (2019). *Entropy*, *21*(1), 43.
 
