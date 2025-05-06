@@ -1,7 +1,7 @@
 
 
 
-Ce script a été préparé dans le cadre d'une présentation sur l’anonymisation des données de santé, destinée au Congrès de l’ACFAS. Il illustre un processus complet de traitement statistique visant à réduire les risques de réidentification tout en préservant l’utilité analytique des données. À travers l'utilisation du package `sdcMicro`, différentes techniques d’anonymisation sont appliquées de manière progressive, accompagnées d’analyses comparatives pour évaluer l’impact des transformations sur la qualité de l’information.
+Ce code a été préparé dans le cadre d'une présentation sur l’anonymisation des données de santé, destinée au Congrès de l’ACFAS. Il illustre un processus complet de traitement statistique visant à réduire les risques de réidentification tout en préservant l’utilité analytique des données. À travers l'utilisation du package `sdcMicro`, différentes techniques d’anonymisation sont appliquées de manière progressive, accompagnées d’analyses comparatives pour évaluer l’impact des transformations sur la qualité de l’information.
 
 
 ### **1. Génération de données simulées**
