@@ -1,0 +1,292 @@
+
+
+
+Ce script a été préparé dans le cadre d'une présentation sur l’anonymisation des données de santé, destinée au Congrès de l’ACFAS. Il illustre un processus complet de traitement statistique visant à réduire les risques de réidentification tout en préservant l’utilité analytique des données. À travers l'utilisation du package `sdcMicro`, différentes techniques d’anonymisation sont appliquées de manière progressive, accompagnées d’analyses comparatives pour évaluer l’impact des transformations sur la qualité de l’information.
+
+
+### **1. Génération de données simulées**
+
+Un jeu de données fictif est créé pour représenter un registre de santé contenant des informations sensibles (statut VIH), des variables quasi-identifiantes (âge, genre, code postal) et des variables numériques sensibles (revenu, score de santé).
+
+---
+
+### **2. Création de l’objet d’anonymisation (`sdcMicro`)**
+
+L’objet `sdc` est initialisé avec les variables à protéger. Cela permet de calculer les risques de réidentification et de manipuler les données tout en suivant leur niveau de confidentialité.
+
+---
+
+### **3. Réduction du risque par étapes successives**
+
+Plusieurs techniques d'anonymisation sont appliquées pour réduire le risque de réidentification :
+
+* **Regroupement de modalités rares** dans `gender` pour éviter l’unicité.
+* **Regroupement par classes d'âge** pour réduire la granularité.
+* **Top/Bottom coding** sur le score de santé pour limiter les valeurs extrêmes.
+* **Suppression locale** pour garantir un `k-anonymat`.
+* **Microagrégation** pour brouiller les variables numériques.
+* **Ajout de bruit** pour perturber davantage les valeurs sensibles.
+
+À chaque étape, le risque est recalculé.
+
+---
+
+### **4. Extraction des données anonymisées**
+
+Les données transformées sont extraites à deux étapes :
+
+* après la première anonymisation légère,
+* après l’ensemble des techniques appliquées.
+
+---
+
+### **5. Analyse d’utilité**
+
+Des comparaisons visuelles entre les données réelles et les données anonymisées sont réalisées pour évaluer l’impact des transformations :
+
+* **Répartition par genre et code postal selon le statut VIH**,
+* **Comparaisons des moyennes** (âge, revenu, score santé) entre les deux jeux de données.
+
+
+---
+
+### **Chargement des bibliothèques et génération des données**
+
+```r
+library(sdcMicro)
+library(ggplot2)
+library(dplyr)
+library(CGPfunctions)
+```
+
+Ces lignes chargent les bibliothèques nécessaires :
+
+* `sdcMicro` pour l'anonymisation des données,
+* `ggplot2` pour la visualisation,
+* `dplyr` pour la manipulation de données,
+* `CGPfunctions` pour des fonctions graphiques complémentaires.
+
+```r
+set.seed(123)
+n <- 10000
+```
+
+Initialisation du générateur aléatoire pour reproductibilité. Création de `n`, la taille de l’échantillon (10 000 individus).
+
+```r
+health_data <- data.frame(
+  id = 1:n,
+  age = sample(18:90, n, replace = TRUE),
+  gender = sample(c("M","F","NB","QR","FLD"), n, replace = TRUE,prob=c(0.49, 0.49, 0.01, 0.005, 0.005)),
+  postal_code = sample(paste0("PC-",100:130), n, replace = TRUE),
+  income = rlnorm(n, meanlog = 10, sdlog = 0.5),
+  health_score = rnorm(n, mean = 50, sd = 10),
+  hiv_status = rbinom(n, 1, 0.03)
+)
+```
+
+Création du jeu de données `health_data` avec :
+
+* un identifiant unique (`id`),
+* l’âge entre 18 et 90 ans,
+* le genre, avec cinq modalités et des probabilités spécifiées,
+* un code postal fictif,
+* un revenu suivant une loi log-normale,
+* un score de santé normalement distribué,
+* un statut VIH binomial (probabilité de 3 % d’être positif).
+
+```r
+health_data$hiv_status=as.factor(health_data$hiv_status)
+```
+
+Conversion de la variable `hiv_status` en facteur pour les traitements ultérieurs.
+
+---
+
+### **Initialisation de l’objet sdcMicro**
+
+```r
+sdc <- createSdcObj(
+  dat = health_data,
+  keyVars = c("age","gender", "postal_code"),
+  numVars = c("income", "health_score"),
+  weightVar = NULL,
+  hhId = NULL,
+  sensibleVar = "hiv_status"
+)
+```
+
+Création d’un objet `sdcMicro` pour l’anonymisation, en précisant :
+
+* les quasi-identifiants (`keyVars`) : variables pouvant potentiellement réidentifier les individus,
+* les variables numériques sensibles (`numVars`),
+* la variable confidentielle (`sensibleVar`) : ici, le statut VIH.
+
+```r
+measure_risk(sdc)
+print(sdc, "risk")
+```
+
+Évaluation initiale du risque de réidentification et affichage des résultats.
+
+---
+
+### **Regroupement des catégories rares du genre**
+
+```r
+sdc <- groupAndRename(sdc, var="gender", before=c("NB","QR","FLD"), after=c("Other"))
+```
+
+Regroupement des catégories peu fréquentes dans la variable `gender` sous une seule modalité `"Other"`.
+
+---
+
+### **Extraction des données manipulées**
+
+```r
+data_anon_01=extractManipData(sdc)
+```
+
+Extraction du jeu de données après regroupement des genres.
+
+```r
+crosstable(health_data, gender, by=hiv_status) %>% as_flextable(keep_id=F)
+crosstable(data_anon_01, gender, by=hiv_status) %>% as_flextable(keep_id=F)
+```
+
+Création de tableaux croisés pour comparer la distribution de `gender` selon le `hiv_status` dans les données originales et anonymisées.
+
+---
+
+### **Regroupement global par tranches d’âge**
+
+```r
+sdc <- globalRecode(sdc, column = 'age', breaks = 10 * c(1:9))
+```
+
+Discrétisation de l’âge en intervalles de 10 ans.
+
+---
+
+### **Encodage haut/bas (top/bottom coding)**
+
+```r
+sdc <- topBotCoding(obj = sdc, value = 70, replacement = 70, kind = 'top', column = 'health_score')
+sdc <- topBotCoding(obj = sdc, value = 30, replacement = 30, kind = 'bottom', column = 'health_score')
+```
+
+Limitation des valeurs extrêmes de `health_score` à des seuils définis (respectivement 70 pour les hauts, 30 pour les bas).
+
+```r
+data_anon_02=extractManipData(sdc)
+```
+
+Nouvelle extraction des données après encodage top/bottom.
+
+---
+
+### **Suppression locale**
+
+```r
+sdc <- localSuppression(sdc,k = 5)
+```
+
+Suppression ciblée de certaines valeurs pour garantir qu'au moins 5 enregistrements partagent les mêmes quasi-identifiants (`k-anonymat`).
+
+---
+
+### **Microagrégation**
+
+```r
+sdc <- microaggregation(sdc, method = "mdav", variables=c("income","health_score"), aggr = 2)
+```
+
+Application de la microagrégation (méthode MDAV) sur les variables `income` et `health_score` pour brouiller les valeurs tout en conservant leur distribution générale.
+
+---
+
+### **Ajout de bruit**
+
+```r
+sdc <- addNoise(sdc, noise = 0.9)
+```
+
+Ajout d’un bruit aléatoire aux variables numériques pour renforcer l’anonymisation.
+
+---
+
+### **Comparaison visuelle (analyse d'utilité)**
+
+#### **Genre vs VIH**
+
+```r
+pl1=PlotXTabs2(data_anon_02, hiv_status, gender, plottype = "percent")
+pl2=PlotXTabs2(health_data, hiv_status, gender, plottype = "percent")
+grid.arrange(pl1, pl2, ncol=2)
+```
+
+Visualisation des répartitions conditionnelles du genre selon le statut VIH, avant et après anonymisation.
+
+#### **Code postal vs VIH**
+
+```r
+pl3=PlotXTabs2(data_anon_02, postal_code, hiv_status, plottype = "percent", x.axis.orientation="vertical")
+pl4=PlotXTabs2(health_data, postal_code, hiv_status, plottype = "percent", x.axis.orientation="vertical")
+grid.arrange(pl3, pl4, ncol=1)
+```
+
+Analyse de la distribution du VIH par code postal, avec comparaison avant/après anonymisation.
+
+#### **Comparaison des moyennes d’âge**
+
+```r
+p1=data_anon_02 %>% group_by(hiv_status) %>% 
+  summarise(mean_age=mean(age, na.rm = T)*10, .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_age, fill = hiv_status)) + geom_bar(stat = "identity", position = "dodge") + coord_cartesian(ylim = c(40,50)) + ggtitle("anonymized_data") + theme_solarized() +
+  scale_colour_solarized()
+  
+p2=health_data %>% group_by(hiv_status) %>%  summarise(mean_age=mean(age, na.rm = T), .groups = 'drop')  %>% ggplot( aes(x = hiv_status, y = mean_age, fill = hiv_status)) + geom_bar(stat = "identity", position = "dodge") + coord_cartesian(ylim = c(40,55)) + ggtitle("real_data") + theme_solarized() +
+  scale_colour_solarized()
+grid.arrange(p1, p2, ncol=2)
+```
+
+Graphiques à barres montrant la moyenne d’âge par statut VIH dans les jeux de données anonymisé et original.
+
+#### **Comparaison des revenus moyens**
+
+```r
+p3=data_anon_02 %>% group_by(hiv_status) %>% 
+  summarise(mean_income=mean(income, na.rm = T), .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_income, fill = hiv_status)) + geom_bar(stat = "identity", position = "dodge") + coord_cartesian(ylim = c(20000,27000)) + ggtitle("anonymized_data") + theme_solarized() +
+  scale_colour_solarized()
+p4=health_data %>% group_by(hiv_status) %>% 
+  summarise(mean_income=mean(income, na.rm = T), .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_income, fill = hiv_status)) + geom_bar(stat = "identity", position = "dodge") + coord_cartesian(ylim = c(20000,25000)) + ggtitle("real_data") + theme_solarized() +
+  scale_colour_solarized()
+grid.arrange(p3, p4, ncol=2)
+```
+
+Comparaison graphique des revenus moyens par statut VIH avant et après anonymisation.
+
+#### **Comparaison des scores de santé**
+
+```r
+p5=data_anon_02 %>% group_by(hiv_status) %>% 
+  summarise(mean_health_score=mean(health_score, na.rm = T), .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_health_score, fill = hiv_status)) + geom_bar(stat = "identity", position = "dodge") + coord_cartesian(ylim = c(40,52))  + ggtitle("anonymized_data") + theme_solarized() +
+  scale_colour_solarized()
+
+
+p6=health_data %>% group_by(hiv_status) %>% 
+  summarise(mean_health_score=mean(health_score, na.rm = T), .groups = 'drop') %>% ggplot( aes(x = hiv_status, y = mean_health_score, fill = hiv_status)) + geom_bar(stat = "identity", position = "dodge") + coord_cartesian(ylim = c(40,52)) + ggtitle("real_data") + theme_solarized() +
+  scale_colour_solarized()
+grid.arrange(p5, p6, ncol=2)
+```
+
+Visualisation des scores de santé moyens par statut VIH pour évaluer la préservation de l’utilité des données.
+
+
+
+
+
+
+
+
+
+
