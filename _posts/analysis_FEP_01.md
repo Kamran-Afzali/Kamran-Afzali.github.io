@@ -72,35 +72,35 @@ Motivation and desire are the divergence between an individual's current state a
 #### References 
 
 
-**Anderson, M. C., Ochsner, K. N., Kuhl, B., Cooper, J., Robertson, E., Gabrieli, S. W., et al. (2004).** [Neural systems underlying the suppression of unwanted memories](https://pubmed.ncbi.nlm.nih.gov/14716015/). *Science*, *303*, 232.
+**Anderson, M. C., Ochsner, K. N., Kuhl, B., Cooper, J., Robertson, E., Gabrieli, S. W., et al. (2004).** [Neural systems underlying the suppression of unwanted memories](https://pubmed.ncbi.nlm.nih.gov/14716015/). *Science*, *303*, 232.
 
-**Carhart-Harris, R. L., & Friston, K. J. (2010).** [The default-mode, ego-functions and free-energy: a neurobiological account of Freudian ideas](https://pubmed.ncbi.nlm.nih.gov/20194141/). *Brain*, *133*, 1265–1283.
+**Carhart-Harris, R. L., & Friston, K. J. (2010).** [The default-mode, ego-functions and free-energy: a neurobiological account of Freudian ideas](https://pubmed.ncbi.nlm.nih.gov/20194141/). *Brain*, *133*, 1265–1283.
 
-**Cittern, D., Nolte, T., Friston, K., & Edalat, A. (2018).** [Intrinsic and extrinsic motivators of attachment under active inference](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0193955). *PLoS ONE*, *13*(4), e0193955.
+**Cittern, D., Nolte, T., Friston, K., & Edalat, A. (2018).** [Intrinsic and extrinsic motivators of attachment under active inference](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0193955). *PLoS ONE*, *13*(4), e0193955.
 
-**Gray, J. R., Bargh, J. A., & Morsella, E. (2013).** [Neural correlates of the essence of conscious conflict: fMRI of sustaining incompatible intentions](https://acmelab.yale.edu/sites/default/files/2013_neural_correlates_of_the_essence_of_conscious_conflict.pdf). *Experimental Brain Research*, *229*(3), 453–465.
+**Gray, J. R., Bargh, J. A., & Morsella, E. (2013).** [Neural correlates of the essence of conscious conflict: fMRI of sustaining incompatible intentions](https://acmelab.yale.edu/sites/default/files/2013_neural_correlates_of_the_essence_of_conscious_conflict.pdf). *Experimental Brain Research*, *229*(3), 453–465.
 
-**Connolly, P. (2018).** [Expected free energy formalizes conflict underlying defense in Freudian psychoanalysis](https://www.frontiersin.org/articles/10.3389/fpsyg.2018.01264/full). *Frontiers in Psychology*, *9*, 1264.
+**Connolly, P. (2018).** [Expected free energy formalizes conflict underlying defense in Freudian psychoanalysis](https://www.frontiersin.org/articles/10.3389/fpsyg.2018.01264/full). *Frontiers in Psychology*, *9*, 1264.
 
-**Freud, S. (1895).** *A project for a scientific psychology*. In *The Standard Edition of the Complete Psychological Works of Sigmund Freud* (Vol. 1, pp. 283–397). London: Hogarth Press.
+**Freud, S. (1895).** *A project for a scientific psychology*. In *The Standard Edition of the Complete Psychological Works of Sigmund Freud* (Vol. 1, pp. 283–397). London: Hogarth Press.
 
-**Freud, S. (1900).** *L’Interprétation des Rêves* (2010e éd.). Paris: PUF.
+**Freud, S. (1900).** *L’Interprétation des Rêves* (2010e éd.). Paris: PUF.
 
-**Freud, S. (1911).** *Formulations on the two principles of mental functioning*. In *The Standard Edition of the Complete Psychological Works of Sigmund Freud* (Vol. 12, pp. 218–286).
+**Freud, S. (1911).** *Formulations on the two principles of mental functioning*. In *The Standard Edition of the Complete Psychological Works of Sigmund Freud* (Vol. 12, pp. 218–286).
 
-**Hopkins, J. (2016).** [Free energy and virtual reality in neuroscience and psychoanalysis: a complexity theory of dreaming and mental disorder](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.00922/full). *Frontiers in Psychology*, *7*, 922.
+**Hopkins, J. (2016).** [Free energy and virtual reality in neuroscience and psychoanalysis: a complexity theory of dreaming and mental disorder](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.00922/full). *Frontiers in Psychology*, *7*, 922.
 
-**Holmes, J., & Nolte, T. (2019).** [“Surprise” and the Bayesian brain: Implications for psychotherapy theory and practice](https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00592/full). *Frontiers in Psychology*, *10*, 592.
+**Holmes, J., & Nolte, T. (2019).** [“Surprise” and the Bayesian brain: Implications for psychotherapy theory and practice](https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00592/full). *Frontiers in Psychology*, *10*, 592.
 
-**Kapur, S. (2003).** [Psychosis as a state of aberrant salience: a framework](https://pubmed.ncbi.nlm.nih.gov/12505794/). *Brain*, *126*, 13–27.
+**Kapur, S. (2003).** [Psychosis as a state of aberrant salience: a framework](https://pubmed.ncbi.nlm.nih.gov/12505794/). *Brain*, *126*, 13–27.
 
-**Parr, T., Pezzulo, G., & Friston, K. J. (2022).** [Active inference: The free energy principle in mind, brain, and behavior](https://mitpress.mit.edu/9780262045353/active-inference/). Cambridge, MA: MIT Press.
+**Parr, T., Pezzulo, G., & Friston, K. J. (2022).** [Active inference: The free energy principle in mind, brain, and behavior](https://mitpress.mit.edu/9780262045353/active-inference/). Cambridge, MA: MIT Press.
 
-**Scarfone, D. (2018).** [Free association, surprise, trauma, and transference](https://pep-web.org/search/document/PI.038.0468A). *Psychoanalytic Inquiry*, *38*, 468–477.
+**Scarfone, D. (2018).** [Free association, surprise, trauma, and transference](https://pep-web.org/search/document/PI.038.0468A). *Psychoanalytic Inquiry*, *38*, 468–477.
 
-**Shedler, J. (2010).** [The efficacy of psychodynamic psychotherapy](https://www.apa.org/pubs/journals/releases/amp-65-2-98.pdf). *American Psychologist*, *65*, 98–109.
+**Shedler, J. (2010).** [The efficacy of psychodynamic psychotherapy](https://www.apa.org/pubs/journals/releases/amp-65-2-98.pdf). *American Psychologist*, *65*, 98–109.
 
-**Solms, M. (2019).** [The hard problem of consciousness and the free energy principle](https://www.frontiersin.org/articles/10.3389/fpsyg.2018.02714/full). *Frontiers in Psychology*, *9*, 2714.
+**Solms, M. (2019).** [The hard problem of consciousness and the free energy principle](https://www.frontiersin.org/articles/10.3389/fpsyg.2018.02714/full). *Frontiers in Psychology*, *9*, 2714.
 
-**Zepf, S. (2010).** [Libido and psychic energy – Freud’s concepts reconsidered](https://www.tandfonline.com/doi/abs/10.1080/08037060802450753). *International Forum of Psychoanalysis*, *19*, 3–14.
+**Zepf, S. (2010).** [Libido and psychic energy – Freud’s concepts reconsidered](https://www.tandfonline.com/doi/abs/10.1080/08037060802450753). *International Forum of Psychoanalysis*, *19*, 3–14.
 
