@@ -1,0 +1,252 @@
+Here's a full blog-style post that mirrors the format of your AR, ARMA, and ARIMA post—this time featuring **Bayesian Exponential Smoothing (SES)** and **Bayesian Holt-Winters** models (both with and without seasonality), using your provided Stan and R code.
+
+---
+
+# **Bayesian Exponential Smoothing and Holt-Winters Models in Stan and RStan**
+
+Time series data often reflect patterns of level, trend, and seasonality. While ARIMA-style models are foundational, exponential smoothing techniques are especially appealing when forecasting with recent observations is more informative than distant ones. In this post, we explore how to model these systems in a Bayesian framework using **Stan** and **RStan**, bringing full probabilistic inference and uncertainty quantification to these well-known methods.
+
+We walk through the following:
+
+1. **Bayesian Simple Exponential Smoothing (SES)**
+2. **Bayesian Holt-Winters Models**
+
+   * Without seasonality (trend only)
+   * With seasonality (additive seasonal component)
+
+---
+
+## **1. Bayesian Simple Exponential Smoothing (SES)**
+
+Simple Exponential Smoothing assumes a local level that evolves recursively:
+
+$$
+\ell_t = \alpha y_{t-1} + (1 - \alpha) \ell_{t-1} \\
+y_t \sim \mathcal{N}(\ell_t, \sigma^2)
+$$
+
+To simulate a series under this model:
+
+```r
+set.seed(1)
+n <- 100
+alpha <- 0.3
+sigma <- 1
+l <- numeric(n)
+y <- numeric(n)
+l[1] <- 10
+y[1] <- l[1] + rnorm(1, 0, sigma)
+for (t in 2:n) {
+  l[t] <- alpha * y[t - 1] + (1 - alpha) * l[t - 1]
+  y[t] <- l[t] + rnorm(1, 0, sigma)
+}
+ts.plot(y, main = "Simulated SES Time Series")
+```
+
+### Stan Model
+
+```stan
+data {
+  int<lower=2> N;
+  vector[N] y;
+}
+parameters {
+  real<lower=0, upper=1> alpha;
+  real<lower=0> sigma;
+  vector[N] l;  // local level
+}
+model {
+  l[1] ~ normal(y[1], sigma);
+  for (t in 2:N)
+    l[t] ~ normal(alpha * y[t-1] + (1 - alpha) * l[t-1], sigma);
+  y ~ normal(l, sigma);
+}
+```
+
+### Fitting in R
+
+```r
+library(rstan)
+data_list <- list(N = length(y), y = y)
+fit <- stan(model_code = stan_model_1, data = data_list, chains = 4, iter = 2000, warmup = 1000)
+print(fit, pars = c("alpha", "sigma"))
+```
+
+### Visualization
+
+```r
+post <- extract(fit)
+l_hat <- apply(post$l, 2, mean)
+l_ci_lower <- apply(post$l, 2, quantile, 0.025)
+l_ci_upper <- apply(post$l, 2, quantile, 0.975)
+
+df <- data.frame(
+  time = 1:n, observed = y, true_level = l,
+  posterior_mean = l_hat, lower_95 = l_ci_lower, upper_95 = l_ci_upper
+)
+
+ggplot(df, aes(x = time)) +
+  geom_line(aes(y = observed), linetype = "dashed", color = "black") +
+  geom_line(aes(y = true_level), color = "blue", alpha = 0.5) +
+  geom_line(aes(y = posterior_mean), color = "red") +
+  geom_ribbon(aes(ymin = lower_95, ymax = upper_95), fill = "red", alpha = 0.2) +
+  labs(title = "Bayesian SES: Posterior Level Estimates vs True Level", y = "Value") +
+  theme_minimal()
+```
+
+---
+
+## **2. Bayesian Holt-Winters Models**
+
+### **a. Without Seasonality (Additive Trend)**
+
+Holt’s method models both level and trend:
+
+$$
+\begin{aligned}
+\ell_t &= \alpha y_{t-1} + (1 - \alpha)(\ell_{t-1} + b_{t-1}) \\
+b_t &= \beta(\ell_t - \ell_{t-1}) + (1 - \beta)b_{t-1} \\
+y_t &\sim \mathcal{N}(\ell_t + b_t, \sigma^2)
+\end{aligned}
+$$
+
+```r
+set.seed(2)
+n <- 100
+alpha <- 0.3
+beta <- 0.1
+sigma <- 1
+l <- numeric(n)
+b <- numeric(n)
+y <- numeric(n)
+l[1] <- 5
+b[1] <- 0.5
+y[1] <- l[1] + b[1] + rnorm(1, 0, sigma)
+for (t in 2:n) {
+  l[t] <- alpha * y[t - 1] + (1 - alpha) * (l[t - 1] + b[t - 1])
+  b[t] <- beta * (l[t] - l[t - 1]) + (1 - beta) * b[t - 1]
+  y[t] <- l[t] + b[t] + rnorm(1, 0, sigma)
+}
+ts.plot(y, main = "Simulated Holt-Winters Time Series")
+```
+
+### Stan Model
+
+```stan
+data {
+  int<lower=2> N;
+  vector[N] y;
+}
+parameters {
+  real<lower=0, upper=1> alpha;
+  real<lower=0, upper=1> beta;
+  real<lower=0> sigma;
+  vector[N] l;
+  vector[N] b;
+}
+model {
+  l[1] ~ normal(y[1], sigma);
+  b[1] ~ normal(0, sigma);
+  for (t in 2:N) {
+    l[t] ~ normal(alpha * y[t-1] + (1 - alpha) * (l[t-1] + b[t-1]), sigma);
+    b[t] ~ normal(beta * (l[t] - l[t-1]) + (1 - beta) * b[t-1], sigma);
+  }
+  y ~ normal(l + b, sigma);
+}
+```
+
+### Visualization
+
+```r
+post <- extract(fit)
+l_hat <- apply(post$l, 2, mean)
+b_hat <- apply(post$b, 2, mean)
+y_hat <- l_hat + b_hat
+l_ci_lower <- apply(post$l, 2, quantile, 0.025)
+l_ci_upper <- apply(post$l, 2, quantile, 0.975)
+
+df <- data.frame(
+  time = 1:n, observed = y,
+  predicted = y_hat, level_mean = l_hat,
+  level_lower = l_ci_lower, level_upper = l_ci_upper
+)
+
+ggplot(df, aes(x = time)) +
+  geom_line(aes(y = observed), linetype = "dashed", color = "black") +
+  geom_line(aes(y = predicted), color = "red") +
+  geom_ribbon(aes(ymin = level_lower, ymax = level_upper), fill = "red", alpha = 0.2) +
+  labs(title = "Bayesian Holt-Winters: Posterior Level & Trend Estimates", y = "Value") +
+  theme_minimal()
+```
+
+---
+
+### **b. With Seasonality (Additive Seasonal Component)**
+
+The full Holt-Winters seasonal model captures all three components:
+
+$$
+\begin{aligned}
+\ell_t &= \alpha(y_{t-1} - s_{t-m}) + (1 - \alpha)(\ell_{t-1} + b_{t-1}) \\
+b_t &= \beta(\ell_t - \ell_{t-1}) + (1 - \beta)b_{t-1} \\
+s_t &= \gamma(y_{t-1} - \ell_{t-1} - b_{t-1}) + (1 - \gamma)s_{t-m} \\
+y_t &\sim \mathcal{N}(\ell_t + b_t + s_{t-m}, \sigma^2)
+\end{aligned}
+$$
+
+```r
+set.seed(3)
+n <- 120
+m <- 12
+alpha <- 0.3; beta <- 0.1; gamma <- 0.2; sigma <- 1
+l <- numeric(n); b <- numeric(n); s <- numeric(n); y <- numeric(n)
+l[1] <- 10; b[1] <- 0.5; s[1:m] <- sin(2 * pi * (1:m) / m)
+y[1] <- l[1] + b[1] + s[1] + rnorm(1, 0, sigma)
+for (t in 2:n) {
+  if (t > m) {
+    l[t] <- alpha * (y[t - 1] - s[t - m]) + (1 - alpha) * (l[t - 1] + b[t - 1])
+    b[t] <- beta * (l[t] - l[t - 1]) + (1 - beta) * b[t - 1]
+    s[t] <- gamma * (y[t - 1] - l[t - 1] - b[t - 1]) + (1 - gamma) * s[t - m]
+  } else {
+    l[t] <- l[t - 1]; b[t] <- b[t - 1]; s[t] <- s[t - 1]
+  }
+  y[t] <- l[t] + b[t] + s[t %% m + 1] + rnorm(1, 0, sigma)
+}
+ts.plot(y, main = "Simulated Seasonal Holt-Winters Time Series")
+```
+
+### Stan Model (Additive Seasonal)
+
+
+### Visualization
+
+```r
+post <- extract(fit)
+l_hat <- apply(post$l, 2, mean)
+l_ci_lower <- apply(post$l, 2, quantile, 0.025)
+l_ci_upper <- apply(post$l, 2, quantile, 0.975)
+
+df <- data.frame(
+  time = 1:n,
+  observed = y,
+  level_mean = l_hat,
+  level_lower = l_ci_lower,
+  level_upper = l_ci_upper
+)
+
+ggplot(df, aes(x = time)) +
+  geom_line(aes(y = observed), linetype = "dashed", color = "black") +
+  geom_line(aes(y = level_mean), color = "red") +
+  geom_ribbon(aes(ymin = level_lower, ymax = level_upper), fill = "red", alpha = 0.2) +
+  labs(title = "Bayesian Seasonal Holt-Winters: Posterior Level Estimates", y = "Value") +
+  theme_minimal()
+```
+
+---
+
+## **Conclusion**
+
+Bayesian formulations of Exponential Smoothing and Holt-Winters models offer elegant alternatives to frequentist smoothing, with the advantage of posterior inference, natural handling of uncertainty, and full probabilistic forecasting. Using **Stan** via **RStan**, we can model level, trend, and seasonality in a transparent and interpretable way—crucial for applications in forecasting and planning. These methods can be extended further to include hierarchical structure, time-varying parameters, or non-Gaussian errors for more complex real-world tasks.
+
+Let the data speak—but with priors and probability.
+
