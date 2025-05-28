@@ -215,6 +215,9 @@ Nevertheless, one should keep in mind that no single model captures the full com
 ## Full code
 
 
+### 1
+This R script simulates and compares the learning behaviors of two agents—designated as "healthy" and "depressed"—in a two-armed bandit environment using a Q-learning framework. Each agent interacts with a probabilistic environment, where one action yields a reward with a probability of 0.8 and the other with 0.2. The Q-learning algorithm updates value estimates based on received rewards, moderated by a learning rate (α) and a softmax temperature parameter (β) which governs action selection. The healthy agent is modeled with a higher learning rate (α = 0.4) and stronger reward sensitivity (β = 5), enabling more adaptive behavior. In contrast, the depressed agent employs a lower learning rate (α = 0.05) and reduced reward sensitivity (β = 2), resulting in slower and less accurate value updates. The script visualizes the cumulative rewards over 2000 trials, illustrating a performance disparity whereby the healthy agent accrues significantly greater rewards over time.
+
 
 ```
 set.seed(42)
@@ -264,6 +267,9 @@ ggplot(df_long, aes(x = Trial, y = CumulativeReward, color = Agent)) +
 ```
 
 
+### 2
+
+This R code models and compares decision-making behaviors of a "healthy" and a "depressed" agent in a five-armed bandit task using a Q-learning algorithm. The environment includes two high-reward options and three self-defeating arms associated with negative or minimal reward probabilities. Both agents employ softmax-based action selection, but the depressed agent exhibits a self-defeating bias, implemented by increasing the logits of the suboptimal arms (arms 3–5), thereby elevating their selection probability. The healthy agent is characterized by a moderate learning rate (α = 0.2), high reward sensitivity (β = 5), and no self-defeating bias. Conversely, the depressed agent employs a low learning rate (α = 0.05) and a significant self-defeating bias (+2 to arms 3–5 logits), simulating maladaptive behavioral tendencies. The resulting plots reveal that the healthy agent accrues higher cumulative rewards and favors optimal actions, whereas the depressed agent frequently selects suboptimal arms and accumulates lower net rewards, modeling cognitive distortions commonly observed in affective disorders.
 
 
 
@@ -338,6 +344,9 @@ print(p1)
 print(p2)
 ```
 
+### 3
+
+This R script models complex affective-cognitive dynamics in reinforcement learning by simulating "healthy" and "depressed" agents in a five-armed bandit environment using a modified Q-learning framework. The environment distinguishes between rewarding and self-defeating arms, with associated reward probabilities and valences. The agent's decision policy integrates multiple biases: pessimistic bias (underestimation of Q-values), self-defeating bias (inflated logit values for negative arms), and mood-dependent modulation of exploration. Mood is operationalized as a moving average of recent rewards and influences the agent's reward sensitivity (β), such that lower mood increases exploratory behavior. The healthy agent is parameterized with neutral affect, no biases, and stable learning dynamics, while the depressed agent exhibits lower learning rates, pessimistic value expectations, self-defeating preferences, and mood-exploration coupling. Visual analyses reveal that the depressed agent accrues fewer cumulative rewards, disproportionately selects suboptimal actions, and experiences persistently lower mood states. This simulation offers a computational perspective on maladaptive decision-making in affective disorders.
 
 
 
@@ -457,6 +466,9 @@ print(p1)
 print(p2)
 print(p3)
 ```
+### 4
+This R script implements a Bayesian reinforcement learning model to simulate decision-making behavior in a five-armed bandit task, comparing a healthy agent and a depressed agent. Each agent estimates the value of available actions using Thompson sampling, drawing from posterior distributions over expected rewards. Initially, both agents are assigned Gaussian priors for each arm's value, with the healthy agent receiving a neutral prior (mean = 0), while the depressed agent begins with a pessimistic prior (mean = –0.5). Additionally, a self-defeating bias is introduced in the depressed agent by artificially increasing the sampled values of the negatively valenced arms (arms 3–5), making these options more likely to be chosen. Bayesian updates are performed iteratively based on observed outcomes, assuming fixed reward variance. The simulation results indicate that the healthy agent consistently favors the optimal arms and accumulates higher cumulative rewards, whereas the depressed agent exhibits maladaptive action selection patterns, demonstrating how biased priors and cognitive distortions can degrade performance.
+
 
 ```
 set.seed(123)
@@ -551,7 +563,9 @@ print(p1)
 print(p2)
 ```
 
+### 5
 
+This R script simulates a Bayesian reinforcement learning framework augmented with a dynamic mood component to model healthy and depressed agents in a five-armed bandit task. The environment includes two optimal arms and three maladaptive, negatively-rewarding arms. Agents employ Thompson sampling, drawing Q-values from a posterior distribution defined by evolving estimates of means and precision. Mood is operationalized as an exponentially smoothed average of past rewards and modulates the variance of the sampling distribution, thereby influencing the agent’s exploration-exploitation trade-off. A healthy agent uses neutral priors, no self-defeating bias, and moderate mood sensitivity, while the depressed agent incorporates pessimistic priors, a bias favoring maladaptive actions, and heightened mood-driven exploration. The simulation reveals that mood fluctuations and cognitive distortions jointly impair learning efficiency in the depressed agent, as reflected in lower cumulative rewards, suboptimal action choices, and mood instability. Graphical outputs illustrate these behavioral and affective divergences across the trial sequence.
 
 
 ```
