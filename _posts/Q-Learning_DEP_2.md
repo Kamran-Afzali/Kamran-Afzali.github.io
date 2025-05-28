@@ -1,80 +1,164 @@
-# Computational Psychiatry Meets Reinforcement Learning: Decoding Depressive Cognition Through Q-Learning Dynamics  
+# Modeling Affective Dynamics in Reinforcement Learning: A Comparative Study of Healthy and Depressed Agents
 
-This investigation bridges artificial intelligence and clinical psychology by implementing a mood-modulated Bayesian Q-learning framework to simulate cognitive differences between healthy and depressed agents. Through systematic parameter adjustments grounded in psychiatric research, we demonstrate how computational models can capture essential features of depressive cognition, including pessimistic priors, self-defeating behavior patterns, and maladaptive learning dynamics. The accompanying R code provides a reproducible template for simulating these effects while maintaining mathematical rigor in reinforcement learning principles.  
+## Introduction
 
-## Neurocomputational Foundations of Mood-Modulated Q-Learning  
+Reinforcement learning (RL) has emerged as a powerful framework for modeling decision-making processes in both artificial agents and biological organisms. By learning from interactions with their environment, agents can adapt their behavior to maximize cumulative rewards. However, traditional RL models often overlook the influence of affective states, such as mood, on decision-making. Recent advancements have sought to integrate emotional dynamics into RL frameworks, providing a more comprehensive understanding of behavior, particularly in the context of psychological disorders like depression.
 
-Modern reinforcement learning theory, rooted in Bellman's dynamic programming equations[4][5], provides the mathematical framework for understanding how intelligent agents learn optimal policies through environmental interaction. The standard Q-learning update rule:  
+Depression is characterized by persistent negative mood, anhedonia, and cognitive biases that affect decision-making. Computational psychiatry has leveraged RL models to dissect the cognitive mechanisms underlying depression, offering insights into how affective states modulate learning and choice behavior. In this blog post, we explore two R-based simulation frameworks that incorporate mood dynamics into RL models to compare the behavior of "healthy" and "depressed" agents. The first framework introduces between-person variability and exogenous environmental events, while the second incorporates meta-cognitive mechanisms to model affective decision-making.
 
-$$ Q(s_t,a_t) \leftarrow Q(s_t,a_t) + \alpha[r_{t+1} + \gamma \max_a Q(s_{t+1},a) - Q(s_t,a_t)] $$  
+## Part 1: Mood-Modulated Bayesian Reinforcement Learning with Between-Person Variability
 
-becomes psychologically enriched through three key depressive modifications implemented in our code:  
+### Overview
 
-1. **Pessimistic Prior Beliefs**: Depressed agents initialize action values with negative bias  
-2. **Self-Defeating Action Bias**: Maladaptive preference for suboptimal choices  
-3. **Mood-Dependent Exploration**: Affective state modulates decision uncertainty  
+The first simulation framework extends a mood-modulated Bayesian RL model by introducing individual differences and external environmental events. In a 5-armed bandit task, each of 20 simulated agents is endowed with parameters governing pessimism, self-defeating bias, mood decay, and mood influence. Notably, the pessimistic prior mean and self-defeating bias are sampled from a correlated bivariate normal distribution, introducing realistic covariance in affective traits. The environment is punctuated by external events—negative at trials 50 and 180, positive at 120—which directly perturb the agent’s mood.
 
-```r  
-# Depressed vs Healthy Parameterization  
-params_non_depressed = threshold) {  
-  alpha  0) {  
-  mood_update <- weight_success * reward  
-} else {  
-  mood_update <- weight_failure * reward  
-}  
+### Simulation Details
+
+The environment consists of five arms with varying reward probabilities and values:
+
+```r
+reward_probs <- c(0.7, 0.6, 0.2, 0.1, 0.05)
+reward_vals  <- c(1, 1, -1, -1, -2)
+self_defeating_arms <- 3:5
 ```
 
-Depressed agents overweight failures (0.8 vs 0.5 weight) while underweighting successes (0.2 vs 0.5), implementing Beck's cognitive triad theory computationally. This creates negatively skewed mood trajectories that persist beyond environmental contingencies.  
+External events are introduced at specific trials to simulate environmental perturbations:
 
-## Simulation Results and Clinical Parallels  
-
-The code generates two critical outputs through 200 trial simulations:  
-
-**Cumulative Reward Trajectories**  
-![Cumulative Reward Plot](https://i.imgur.com agents (red) show significantly reduced reward accumulation due to:  
-1. Initial avoidance of high-probability arms (1-2)  
-2. Premature exploitation of locally-optimal bad arms (3-5)  
-3. Failure to correct choices after environmental shifts  
-
-**Mood Dynamics**  
-![Mood Trajectory Plot](https://i.img mood persistence in depressed agents emerges from:  
-1. Stronger reaction to punishments (steeper slopes)  
-2. Weaker recovery from positive events (trial 120)  
-3. Baseline negative affective drift  
-
-These computational findings align with neuroimaging studies showing altered striatal-prefrontal activation patterns during reinforcement learning in depressed patients[3].  
-
-## Therapeutic Implications and Model Extensions  
-
-The framework enables virtual testing of intervention strategies by modifying parameters:  
-
-```r  
-# Cognitive Behavioral Therapy Simulation  
-params_CBT <- list(  
-  self_defeat_bias = params_depressed$self_defeat_bias * 0.5,  
-  rumination_weight_failure = 0.6  
-)  
+```r
+external_events <- rep(0, episodes)
+external_events[c(50, 120, 180)] <- c(-2, 1, -1)
 ```
 
-Early experiments show partial reward accumulation recovery when gradually adjusting these parameters over trials. Future directions could incorporate:  
+Individual differences are modeled by sampling parameters from specified distributions:
 
-1. Dynamic parameter adjustment based on success history  
-2. Meta-learning of belief update rules  
-3. Social reward components through multi-agent systems  
+```r
+mean_vec <- c(0, 0)
+cov_mat <- matrix(c(0.25, 0.15,
+                    0.15, 1.0), nrow = 2, byrow = TRUE)
+correlated_params <- MASS::mvrnorm(N_agents, mu = mean_vec, Sigma = cov_mat)
+colnames(correlated_params) <- c("pessimistic_prior_mean", "self_defeat_bias")
+mood_decay <- runif(N_agents, 0.85, 0.98)
+mood_influence <- rnorm(N_agents, 2, 0.5)
+```
 
-## Conclusion  
+Each agent selects actions using Thompson sampling, with mood dynamically modulating the variance of the sampled Q-values to shift the exploration–exploitation balance. The mood is updated as an exponentially smoothed function of prior rewards and is directly perturbed by external events.
 
-This mood-modulated Q-learning implementation provides a computationally rigorous yet clinically meaningful model of depressive cognition. By grounding parameter adjustments in established psychological theories and empirical observations[3], the framework bridges AI and psychiatry through three key contributions:  
+### Results
 
-1. **Mechanistic Explanations** for maladaptive learning patterns  
-2. **Quantitative Predictions** of treatment outcomes  
-3. **Hypothesis Generation** for neurocognitive research  
+The simulation captures action choice, reward received, and mood trajectory for each agent across 200 episodes. The mood trajectories, visualized via a multi-agent time series plot, reveal heterogeneity in affective dynamics and illustrate how internal traits interact with external perturbations. Agents with higher pessimism and self-defeating bias exhibit more negative mood trajectories and are more susceptible to external negative events.
 
-The accompanying code serves as both research tool and pedagogical resource, demonstrating how reinforcement learning principles can advance our understanding of mental health disorders. Future work should explore hybrid architectures combining model-based planning with these affective modulation mechanisms to capture the full complexity of human decision-making.
+## Part 2: Meta-Cognitive Mechanisms in Affective Decision-Making
+
+### Overview
+
+The second simulation framework incorporates meta-cognitive mechanisms to model affective decision-making in "depressed" and "non-depressed" agents. Each agent interacts with a 5-armed bandit environment over 200 trials, with distinct probabilities and magnitudes of rewards. The agents implement Bayesian Q-learning, where mood modulates exploration through variance scaling, and updates to beliefs depend on a learned helplessness factor that reduces learning following repeated punishments.
+
+### Simulation Details
+
+The environment setup is similar to the first framework:
+
+```r
+reward_probs <- c(0.7, 0.6, 0.2, 0.1, 0.05)
+reward_vals  <- c(1, 1, -1, -1, -2)
+self_defeating_arms <- 3:5
+```
+
+The agent function incorporates meta-cognitive variables:
+
+```r
+bayesian_agent_meta <- function(
+    episodes = 200,
+    pessimistic_prior_mean = 0,
+    prior_var = 10,
+    self_defeat_bias = 0,
+    mood_decay = 0.9,
+    mood_influence = 1.5,
+    learned_helplessness_threshold = 5,
+    learned_helplessness_factor = 0.5,
+    rumination_weight_success = 0.3,
+    rumination_weight_failure = 0.7
+) {
+    # Function body
+}
+```
+
+Two groups are defined by parameter sets that reflect psychological differences:
+
+```r
+params_non_depressed <- list(
+  pessimistic_prior_mean = 0,
+  self_defeat_bias = 0,
+  mood_decay = 0.95,
+  mood_influence = 1.0,
+  learned_helplessness_threshold = 10,
+  learned_helplessness_factor = 0.8,
+  rumination_weight_success = 0.5,
+  rumination_weight_failure = 0.5
+)
+
+params_depressed <- list(
+  pessimistic_prior_mean = -0.5,
+  self_defeat_bias = 2,
+  mood_decay = 0.9,
+  mood_influence = 2.0,
+  learned_helplessness_threshold = 3,
+  learned_helplessness_factor = 0.3,
+  rumination_weight_success = 0.2,
+  rumination_weight_failure = 0.8
+)
+```
+
+Thirty agents per group are simulated, and the output is summarized across trials to estimate average cumulative reward and mood.
+
+### Results
+
+Visualizations reveal significant group differences, with depressed agents accumulating fewer rewards and displaying more negative mood trajectories. The depressed agents exhibit greater pessimism, stronger self-defeating bias, faster mood decay, and heightened susceptibility to negative feedback through lower helplessness thresholds and biased rumination. These findings highlight the behavioral and emotional consequences of maladaptive cognitive-affective dynamics.
+
+## Discussion
+
+The integration of mood dynamics into RL models provides a nuanced understanding of decision-making processes, particularly in the context of depression. The first framework demonstrates how individual differences and environmental events interact to shape affective trajectories, while the second framework elucidates the role of meta-cognitive mechanisms in modulating learning and behavior.([Computational Psychiatry][1])
+
+These models align with empirical findings in computational psychiatry, which suggest that depression is associated with impairments in reinforcement learning, including diminished reward sensitivity and increased punishment sensitivity . Moreover, the incorporation of learned helplessness and rumination into the models reflects key features of depressive cognition .([ScienceDirect][2], [Wikipedia][3])
+
+By simulating both "healthy" and "depressed" agents, these frameworks offer valuable insights into the cognitive and affective processes underlying depression. They also provide a platform for testing interventions aimed at modifying maladaptive learning patterns and improving decision-making in individuals with depression.
+
+## Conclusion
+
+The integration of affective dynamics into reinforcement learning models represents a significant advancement in our understanding of decision-making processes. By simulating individual differences and meta-cognitive mechanisms, these models capture the complexity of human behavior and offer a computational framework for studying psychological disorders like depression. Future research should continue to refine these models and explore their applications in clinical settings, with the goal of developing targeted interventions to improve mental health outcomes.
+
+
+## References
+
+Beck, A. T., Rush, A. J., Shaw, B. F., & Emery, G. (1979). *Cognitive therapy of depression*. Guilford Press. [https://www.guilford.com/books/Cognitive-Therapy-of-Depression/Beck-Rush-Shaw-Emery/9780898629194](https://www.guilford.com/books/Cognitive-Therapy-of-Depression/Beck-Rush-Shaw-Emery/9780898629194)
+
+Dayan, P., & Huys, Q. J. M. (2008). Serotonin, inhibition, and negative mood. *PLoS Computational Biology, 4*(2), e4. [https://doi.org/10.1371/journal.pcbi.0040004](https://doi.org/10.1371/journal.pcbi.0040004)
+
+Eshel, N., & Roiser, J. P. (2010). Reward and punishment processing in depression. *Biological Psychiatry, 68*(2), 118–124. [https://doi.org/10.1016/j.biopsych.2010.01.027](https://doi.org/10.1016/j.biopsych.2010.01.027)
+
+Huys, Q. J. M., Daw, N. D., & Dayan, P. (2015). Depression: A decision-theoretic analysis. *Annual Review of Neuroscience, 38*, 1–23. [https://doi.org/10.1146/annurev-neuro-071714-033928](https://doi.org/10.1146/annurev-neuro-071714-033928)
+
+Maia, T. V., & Frank, M. J. (2011). From reinforcement learning models to psychiatric and neurological disorders. *Nature Neuroscience, 14*(2), 154–162. [https://doi.org/10.1038/nn.2723](https://doi.org/10.1038/nn.2723)
+
+Montague, P. R., Dolan, R. J., Friston, K. J., & Dayan, P. (2012). Computational psychiatry. *Trends in Cognitive Sciences, 16*(1), 72–80. [https://doi.org/10.1016/j.tics.2011.11.018](https://doi.org/10.1016/j.tics.2011.11.018)
+
+Pittig, A., Treanor, M., LeBeau, R. T., & Craske, M. G. (2018). The role of associative learning in anxiety disorders: A reassessment. *Behaviour Research and Therapy, 112*, 1–17. [https://doi.org/10.1016/j.brat.2018.10.011](https://doi.org/10.1016/j.brat.2018.10.011)
+
+Rottenberg, J., & Hindash, A. C. (2015). Emerging evidence for emotion context insensitivity in depression. *Current Opinion in Psychology, 4*, 72–77. [https://doi.org/10.1016/j.copsyc.2015.03.020](https://doi.org/10.1016/j.copsyc.2015.03.020)
+
+Sutton, R. S., & Barto, A. G. (2018). *Reinforcement learning: An introduction* (2nd ed.). MIT Press. [http://incompleteideas.net/book/the-book-2nd.html](http://incompleteideas.net/book/the-book-2nd.html)
+
+Treadway, M. T., & Zald, D. H. (2013). Parsing anhedonia: Translational models of reward-processing deficits in psychopathology. *Current Directions in Psychological Science, 22*(3), 244–249. [https://doi.org/10.1177/0963721412474460](https://doi.org/10.1177/0963721412474460)
+
+Wikipedia contributors. (2023, September 26). *Behavioral theories of depression*. Wikipedia. [https://en.wikipedia.org/wiki/Behavioral\_theories\_of\_depression](https://en.wikipedia.org/wiki/Behavioral_theories_of_depression)
+
+Whitton, A. E., Treadway, M. T., & Pizzagalli, D. A. (2015). Reward processing dysfunction in major depression, bipolar disorder and schizophrenia. *Current Opinion in Psychiatry, 28*(1), 7–12. [https://doi.org/10.1097/YCO.0000000000000122](https://doi.org/10.1097/YCO.0000000000000122)
 
 
 
 
+
+
+## Code
 
 This R script extends a mood-modulated Bayesian reinforcement learning framework by introducing between-person variability and exogenous environmental events. In a 5-armed bandit task, each of 20 simulated agents is endowed with individual-level parameters governing pessimism, self-defeating bias, mood decay, and mood influence. Notably, pessimistic prior mean and self-defeating bias are sampled from a correlated bivariate normal distribution, introducing realistic covariance in affective traits. The environment is punctuated by external events—negative at trials 50 and 180, positive at 120—which directly perturb the agent’s mood, operationalized as an exponentially smoothed function of prior rewards. Each agent selects actions using Thompson sampling, with mood dynamically modulating the variance of the sampled Q-values to shift the exploration–exploitation balance. The resulting dataset captures action choice, reward received, and mood trajectory for each agent across 200 episodes. The mood trajectories, visualized via a multi-agent time series plot, reveal heterogeneity in affective dynamics and illustrate how internal traits interact with external perturbations.
 
@@ -319,169 +403,3 @@ print(p1)
 print(p2)
 ```
 
-
-
-
-Citations:
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/237323/d279eda4-3dcf-4f2f-bda2-9dd81e0ac89e/paste.txt
-[2] https://arxiv.org/html/2405.03341
-[3] https://pmc.ncbi.nlm.nih.gov/articles/PMC8319827/
-[4] https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf
-[5] https://www.datacamp.com/tutorial/bellman-equation-reinforcement-learning
-[6] https://www.engati.com/glossary/temporal-difference-learning
-[7] https://arxiv.org/pdf/1906.11286.pdf
-[8] https://arxiv.org/pdf/2501.05411.pdf
-[9] https://pmc.ncbi.nlm.nih.gov/articles/PMC8153417/
-[10] https://en.wikipedia.org/wiki/Bellman_equation
-[11] http://arxiv.org/pdf/2407.02419.pdf
-[12] https://pmc.ncbi.nlm.nih.gov/articles/PMC11443165/
-[13] https://arxiv.org/abs/2502.01146
-[14] https://pmc.ncbi.nlm.nih.gov/articles/PMC9807874/
-[15] https://arxiv.org/pdf/2204.03771.pdf
-[16] https://pmc.ncbi.nlm.nih.gov/articles/PMC10564931/
-[17] https://arxiv.org/pdf/1609.01468.pdf
-[18] https://pmc.ncbi.nlm.nih.gov/articles/PMC11386953/
-[19] https://arxiv.org/abs/1602.04062
-[20] https://pmc.ncbi.nlm.nih.gov/articles/PMC7464008/
-[21] https://pmc.ncbi.nlm.nih.gov/articles/PMC3814110/
-[22] https://arxiv.org/abs/2307.02632
-[23] https://arxiv.org/abs/1707.03770
-[24] https://arxiv.org/abs/2304.00803
-[25] https://www.semanticscholar.org/paper/85b9cd66602a1fca2cc339a234fc02dda235698a
-[26] https://arxiv.org/abs/2006.04938
-[27] https://arxiv.org/abs/1905.07727
-[28] https://www.semanticscholar.org/paper/f6fdc471cb347cd3a3a326668b4aff6d30c92fcc
-[29] https://www.semanticscholar.org/paper/435a2190f44e50559ac34081a176e849d1d0a737
-[30] https://www.semanticscholar.org/paper/5312b96a62d4f942e3896521bdf6d8c8cc8b50ad
-[31] https://www.semanticscholar.org/paper/7d2d1a78650914ac70b75145de0d299f45282df3
-[32] http://arxiv.org/pdf/2003.12427.pdf
-[33] http://arxiv.org/pdf/2007.01193.pdf
-[34] https://www.datacamp.com/tutorial/introduction-q-learning-beginner-tutorial
-[35] https://www.simplilearn.com/tutorials/machine-learning-tutorial/what-is-q-learning
-[36] https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/
-[37] https://www.youtube.com/watch?v=TiAXhVAZQl8
-[38] https://huggingface.co/learn/deep-rl-course/en/unit2/q-learning-example
-[39] https://www.techtarget.com/searchenterpriseai/definition/Q-learning
-[40] https://www.youtube.com/watch?v=iKdlKYG78j4
-[41] https://www.youtube.com/watch?v=9JZID-h6ZJ0
-[42] https://towardsdatascience.com/q-learning-algorithm-from-explanation-to-implementation-cdbeda2ea187/
-[43] https://www.semanticscholar.org/paper/9cc9e888c00e813ee919ed246528091ca5f186ab
-[44] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11576168/
-[45] https://www.semanticscholar.org/paper/58ae4f640c8b50bcf2407b1f03520e73fc91f2c3
-[46] https://pubmed.ncbi.nlm.nih.gov/37382553/
-[47] https://pubmed.ncbi.nlm.nih.gov/38043370/
-[48] https://pubmed.ncbi.nlm.nih.gov/35726513/
-[49] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11104310/
-[50] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8319827/
-[51] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9807874/
-[52] https://www.semanticscholar.org/paper/bbebfd8cf7af0472b4f1bd2d674fc1d393ab6a2d
-[53] https://www.sciencedirect.com/science/article/pii/S0165032724015519
-[54] https://pubmed.ncbi.nlm.nih.gov/34319349/
-[55] https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2789693
-[56] https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2782452
-[57] https://openaccess.city.ac.uk/22863/1/Modelling-Emotion-Based-Reward-Valuation-with-Computational-Reinforcement-Learning.pdf
-[58] https://en.wikipedia.org/wiki/Learned_helplessness
-[59] https://www.biorxiv.org/content/10.1101/2024.07.25.605051v1.full-text
-[60] https://www.sciencedirect.com/science/article/pii/S0149763415001311
-[61] https://publications.lib.chalmers.se/records/fulltext/173825/173825.pdf
-[62] https://www.semanticscholar.org/paper/cb3b1859dab77ef60c31c2bf404855b69a0ceac8
-[63] https://www.semanticscholar.org/paper/11b1a6447652327722a8dbbadd6bdc3e8bffa019
-[64] https://www.semanticscholar.org/paper/0a3d4fe59e92e486e5d00aba157f3fdfdad0e0c5
-[65] https://www.semanticscholar.org/paper/1969a432c727456eeb8071fbb68020e51ecce218
-[66] https://www.semanticscholar.org/paper/ac9eeefb5afaa59d2a97b65906de394e5834de80
-[67] https://www.semanticscholar.org/paper/380fc745025531a8ed3657e120f428c311425fb4
-[68] https://arxiv.org/abs/2401.02653
-[69] https://arxiv.org/abs/2409.05908
-[70] https://arxiv.org/abs/2402.00468
-[71] https://www.semanticscholar.org/paper/57e8c0043d8fe383fcac492b2882791f8a39027c
-[72] http://arxiv.org/pdf/2103.16377.pdf
-[73] http://arxiv.org/pdf/2005.08844.pdf
-[74] https://www.baeldung.com/cs/epsilon-greedy-q-learning
-[75] https://huggingface.co/learn/deep-rl-course/unit2/q-learning
-[76] https://paperswithcode.com/method/epsilon-greedy-exploration
-[77] https://milvus.io/ai-quick-reference/what-is-an-epsilongreedy-policy
-[78] https://pmc.ncbi.nlm.nih.gov/articles/PMC9570626/
-[79] https://www.youtube.com/watch?v=z6-Cz-pElGA
-[80] https://milvus.io/ai-quick-reference/what-is-the-discount-factor-in-reinforcement-learning
-[81] https://github.com/ronanmmurphy/Q-Learning-Algorithm
-[82] http://incompleteideas.net/book/the-book-2nd.html
-[83] https://mitpress.mit.edu/9780262039246/reinforcement-learning/
-[84] https://pubmed.ncbi.nlm.nih.gov/32489521/
-[85] https://arxiv.org/abs/2012.09737
-[86] https://pubmed.ncbi.nlm.nih.gov/37022247/
-[87] https://www.semanticscholar.org/paper/e6fbb218ca756e7c4b4993b66a4137a32e8f685d
-[88] https://www.semanticscholar.org/paper/25fe06b985f2dc3c021f9b788cbf9def65cdf84b
-[89] https://pubmed.ncbi.nlm.nih.gov/36696154/
-[90] https://www.semanticscholar.org/paper/40eb96507465afeb353dd222ef1a5163a7077664
-[91] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8466032/
-[92] https://www.semanticscholar.org/paper/018373d6949e837872c964be62d1c94574ff39e6
-[93] https://www.semanticscholar.org/paper/fd018186f57a8892f4d5803f21da750bb225b2c2
-[94] https://www.reddit.com/r/MachineLearning/comments/jg475u/r_a_bayesian_perspective_on_qlearning/
-[95] https://openreview.net/pdf?id=rIq73puh9-
-[96] https://discourse.pymc.io/t/introduction-to-bayesian-q-learning/2740
-[97] https://bruno.nicenboim.me/2021/11/29/bayesian-h-reinforcement-learning/
-[98] https://en.wikipedia.org/wiki/Q-learning
-[99] https://en.wikipedia.org/wiki/Multi-armed_bandit
-[100] https://www.sciencedirect.com/science/article/pii/S2949719125000287
-[101] https://web.eecs.umich.edu/~teneket/pubs/MAB-Survey.pdf
-[102] https://www.semanticscholar.org/paper/f6ee698e4d712ed6a9ef6b56190b03555b367e0d
-[103] https://www.semanticscholar.org/paper/07a720ba56b03d72073946074f2504f4e33a8d95
-[104] https://www.semanticscholar.org/paper/48816e9fcbc98424b199ab99a5759a83b7e46e19
-[105] https://www.semanticscholar.org/paper/2e56fc1b0f6ac71e5041abb98d1b54556293bf7b
-[106] https://www.semanticscholar.org/paper/f93c5403c9a901e1ba7220decd4f0b238784f108
-[107] https://www.semanticscholar.org/paper/47ee892825d15dbe51b1b0cf79a17d4ece34efa8
-[108] https://arxiv.org/abs/2310.02147
-[109] https://arxiv.org/abs/2404.06189
-[110] https://arxiv.org/abs/2306.16208
-[111] https://www.youtube.com/watch?v=MSrfaI1gGjI
-[112] https://pythonprogramming.net/q-learning-algorithm-reinforcement-learning-python-tutorial/
-[113] https://www.datacamp.com/tutorial/reinforcement-learning-python-introduction
-[114] https://arxiv.org/abs/2408.02262
-[115] https://arxiv.org/abs/2410.19849
-[116] https://arxiv.org/abs/2301.05108
-[117] https://www.semanticscholar.org/paper/5840e9a1f60a80686d249ef9f5a877c25bf60268
-[118] https://www.semanticscholar.org/paper/25de93b9ca86c39f6143c1a3f69ab166401db9e0
-[119] https://www.semanticscholar.org/paper/06ed63f3dca32982a356a12e1c91d3eec8ead4d6
-[120] https://www.semanticscholar.org/paper/f5f84d5c6e92d1ecd64e526496984b3542a9b881
-[121] https://www.semanticscholar.org/paper/bdfcb242fef705bbc2e706aa47bed1be911fbdc9
-[122] https://www.kaggle.com/code/unmoved/example-reinforcement-learning-q-learning
-[123] https://arxiv.org/pdf/2110.15093.pdf
-[124] https://pmc.ncbi.nlm.nih.gov/articles/PMC11104395/
-[125] https://pmc.ncbi.nlm.nih.gov/articles/PMC11576168/
-[126] https://pmc.ncbi.nlm.nih.gov/articles/PMC10490608/
-[127] https://arxiv.org/pdf/2112.03376.pdf
-[128] https://arxiv.org/pdf/2310.16173.pdf
-[129] https://arxiv.org/pdf/2201.10803.pdf
-[130] https://arxiv.org/pdf/2209.02555.pdf
-[131] http://arxiv.org/pdf/1409.0732.pdf
-[132] http://arxiv.org/pdf/2209.07376.pdf
-[133] https://arxiv.org/pdf/2007.00869.pdf
-[134] https://www.andrew.cmu.edu/course/10-703/textbook/BartoSutton.pdf
-[135] https://danieltakeshi.github.io/2019/08/18/rl-00/
-[136] https://www.reddit.com/r/MachineLearning/comments/m6ablk/d_getting_started_with_rl_using_suttons_book/
-[137] https://milvus.io/ai-quick-reference/what-is-offpolicy-learning-in-reinforcement-learning
-[138] http://arxiv.org/pdf/1912.02992.pdf
-[139] https://arxiv.org/pdf/2211.04924.pdf
-[140] https://pmc.ncbi.nlm.nih.gov/articles/PMC7848953/
-[141] https://arxiv.org/html/2406.06307v1
-[142] https://arxiv.org/pdf/2010.02088.pdf
-[143] https://arxiv.org/pdf/2407.13743.pdf
-[144] https://pmc.ncbi.nlm.nih.gov/articles/PMC8088855/
-[145] https://arxiv.org/pdf/2305.11300.pdf
-[146] https://arxiv.org/pdf/2202.02522.pdf
-[147] https://arxiv.org/pdf/2311.08990.pdf
-[148] http://arxiv.org/pdf/2202.04709.pdf
-[149] https://arxiv.org/pdf/2205.05333.pdf
-[150] https://arxiv.org/abs/2006.06135
-[151] https://pmc.ncbi.nlm.nih.gov/articles/PMC10377777/
-[152] https://arxiv.org/abs/2302.00727
-[153] https://arxiv.org/pdf/1909.01500.pdf
-[154] https://arxiv.org/abs/1903.04359
-[155] https://arxiv.org/abs/1903.05195v1
-[156] http://arxiv.org/pdf/2503.14422.pdf
-[157] https://arxiv.org/pdf/2206.15284.pdf
-[158] https://arxiv.org/html/2402.17760v1
-[159] https://arxiv.org/pdf/2106.11057.pdf
-
----
-Answer from Perplexity: pplx.ai/share
