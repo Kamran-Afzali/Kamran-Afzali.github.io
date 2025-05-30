@@ -30,7 +30,7 @@ To frame this spectrum of approaches clearly, the table below summarizes key RL 
 | TD Learning         | No          | Yes            | Yes           | SARSA, Q-Learning                 |
 | Policy Gradient     | No          | Yes            | Maybe         | REINFORCE, PPO, A2C               |
 | Actor-Critic        | No          | Yes            | Yes           | A2C, DDPG, SAC                    |
-| Model-Based         | Yes         | Yes            | Yes           | Dyna-Q, MuZero                    |
+
 
 This classification illustrates the diversity of RL approaches and underscores the flexibility of the RL paradigm. Some methods assume access to a perfect model, while others learn entirely from data. Some directly optimize policies, while others estimate values to guide policy improvement.
 
@@ -64,19 +64,12 @@ More recent advances in policy optimization have focused on improving training s
 
 Soft Actor-Critic (SAC), on the other hand, incorporates an entropy maximization objective, encouraging exploration by maintaining a degree of randomness in the policy. This leads to better performance in environments with sparse or deceptive rewards and is particularly effective in continuous control tasks.
 
-### Model-Based Reinforcement Learning
-
-Model-based RL revisits the idea of using an explicit or learned model of the environment for planning. This approach can be more sample-efficient, as agents can simulate trajectories internally rather than relying solely on real interactions. Classical methods like Dyna-Q combine learning and planning by interleaving updates based on real and simulated experience.
-
-Recent innovations, such as MuZero, demonstrate that it is possible to learn a model implicitly, without reconstructing full observations or transition dynamics. MuZero learns to predict value functions, policies, and rewards from abstract latent states, achieving state-of-the-art results in domains like Go and Atari games. These methods illustrate how model-based ideas can be integrated with deep learning to create highly capable RL agents.
 
 ### Conclusion and Further Directions
 
 Reinforcement Learning has evolved into a mature and diverse field, offering a rich set of tools for decision-making under uncertainty. From simple bandit strategies to deep policy optimization and model-based reasoning, RL provides a versatile framework for learning from interaction. The field continues to advance rapidly, driven by theoretical insights, algorithmic innovation, and increasingly ambitious applications.
 
-A solid understanding of the main categories—such as those outlined in the comparative table—is essential for navigating the RL landscape. Whether one is interested in theoretical foundations, algorithm development, or practical deployment, the key ideas of exploration, value estimation, policy optimization, and model learning form the backbone of modern RL.
-
-For further reading, *Reinforcement Learning: An Introduction* by Sutton and Barto remains the canonical text. Online resources like OpenAI's Spinning Up, DeepMind's technical blog, and repositories of papers on arXiv are excellent for staying current with the latest advancements. As artificial agents continue to tackle more complex and dynamic environments, reinforcement learning stands at the forefront of AI research and application.
+A solid understanding of the main categories—such as those outlined in the comparative table—is essential for navigating the RL landscape. Whether one is interested in theoretical foundations, algorithm development, or practical deployment, the key ideas of exploration, value estimation, policy optimization, and model learning form the backbone of modern RL. For further reading, *Reinforcement Learning: An Introduction* by Sutton and Barto remains the canonical text. Online resources like OpenAI's Spinning Up, DeepMind's technical blog, and repositories of papers on arXiv are excellent for staying current with the latest advancements. As artificial agents continue to tackle more complex and dynamic environments, reinforcement learning stands at the forefront of AI research and application.
 
 
 ## References
