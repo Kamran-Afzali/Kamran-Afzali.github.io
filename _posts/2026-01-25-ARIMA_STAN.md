@@ -1,6 +1,3 @@
-Certainly. Here's a full blog post in a clear, academic tone, suitable for readers with a strong interest in Bayesian modeling and time series analysis.
-
----
 
 # **Bayesian AR, ARMA, and ARIMA Models in Stan and RStan**
 
@@ -8,7 +5,6 @@ Bayesian methods for time series modeling have gained widespread appeal for thei
 
 We implement each model using **Stan**, a powerful probabilistic programming language, and **RStan**, its R interface. Through these examples, we aim to offer a practical understanding of how Bayesian time series models are constructed, estimated, and interpreted.
 
----
 
 ## **Bayesian AR(1) Model**
 
@@ -65,7 +61,6 @@ fit <- stan(
 print(fit)
 ```
 
----
 
 ## **Bayesian ARMA(1,1) Model**
 
@@ -134,7 +129,6 @@ fit <- stan(
 print(fit, pars = c("alpha", "phi", "theta", "sigma"))
 ```
 
----
 
 ## **Bayesian ARIMA(1,1,1) Model**
 
@@ -208,13 +202,8 @@ fit <- stan(
 print(fit, pars = c("alpha", "phi", "theta", "sigma"))
 ```
 
----
-
 ## **Conclusion**
 
-Bayesian time series modeling provides a flexible, interpretable framework for analyzing temporal data. Beginning with the autoregressive model, we can successively build toward more complex structures like ARMA and ARIMA. Each model expands our capacity to handle persistence, shocks, and non-stationarity in a principled probabilistic way. While Bayesian inference comes with computational cost, it also brings the benefits of full uncertainty quantification, model extensibility, and coherent predictions under uncertainty.
+Bayesian time series modeling provides a flexible, interpretable framework for analyzing temporal data. Beginning with the autoregressive model, we can successively build toward more complex structures like ARMA and ARIMA. Each model expands our capacity to handle persistence, shocks, and non-stationarity in a principled probabilistic way. While Bayesian inference comes with computational cost, it also brings the benefits of full uncertainty quantification, model extensibility, and coherent predictions under uncertainty. Using Stan and RStan, we can translate classical time series models into a Bayesian framework and apply them to real-world data with transparency and rigor. Future work may involve extending these models to accommodate seasonality, hierarchical structure, or time-varying parameters.
 
-Using Stan and RStan, we can translate classical time series models into a Bayesian framework and apply them to real-world data with transparency and rigor. Future work may involve extending these models to accommodate seasonality, hierarchical structure, or time-varying parameters.
-
-If you'd like to explore these extensions or need help interpreting your own results, feel free to reach out or comment below.
 
