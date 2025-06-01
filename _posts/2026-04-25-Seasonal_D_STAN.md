@@ -1,6 +1,3 @@
-Certainly. Here's a complete blog post on **Bayesian Seasonal Decomposition** written in a clear, academic tone with Stan and R code for full implementation. This post introduces how to decompose time series into trend, seasonal, and irregular components using a **Bayesian structural time series model**.
-
----
 
 # **Bayesian Seasonal Decomposition in Stan and RStan**
 
@@ -136,6 +133,4 @@ Bayesian structural time series models can be extended in numerous ways. One may
 ## **6. Conclusion**
 
 Bayesian seasonal decomposition offers a principled approach to breaking down time series into interpretable components while rigorously accounting for uncertainty. Compared to classical methods, the Bayesian formulation in Stan provides flexibility, interpretability, and extensibility. Whether used for exploratory analysis or as a preprocessing step for forecasting, structural time series decomposition is a valuable tool in the Bayesian modeler’s toolkit.
-
-As always, the full code and Stan model are available on the linked GitHub repository. Feel free to explore variations of the model or adapt it to your own data.
 
