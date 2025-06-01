@@ -5,7 +5,6 @@ Understanding the components that make up a time series is a critical first step
 
 In contrast, **Bayesian seasonal decomposition** allows us to model uncertainty in each component explicitly. In this post, we demonstrate how to construct a **Bayesian structural time series model** in Stan, decompose a seasonal time series, and obtain posterior distributions for each latent component.
 
----
 
 ## **1. Simulating Seasonal Time Series Data**
 
@@ -24,7 +23,7 @@ y <- trend + seasonal + noise
 ts.plot(y, main = "Simulated Time Series with Trend and Seasonality")
 ```
 
----
+
 
 ## **2. Bayesian Seasonal Decomposition Model in Stan**
 
@@ -76,7 +75,7 @@ model {
 }'
 ```
 
----
+
 
 ## **3. Fitting the Model in R**
 
@@ -103,7 +102,7 @@ fit <- stan(
 print(fit, pars = c("sigma", "sigma_mu", "sigma_season"))
 ```
 
----
+
 
 ## **4. Extracting and Visualizing Components**
 
@@ -122,13 +121,13 @@ plot(season_hat, type = 'l', col = "darkgreen", main = "Estimated Seasonal Compo
 
 This visual decomposition gives insight into how much of the variation is driven by the underlying trend and how much by recurring seasonal patterns. The Bayesian framework also allows for full posterior uncertainty quantification, which can be visualized with credible intervals around each component.
 
----
+
 
 ## **5. Extensions and Applications**
 
 Bayesian structural time series models can be extended in numerous ways. One may introduce regression components to account for covariates (leading to models like BSTS), or allow the trend to include a slope (i.e., a local linear trend). Multivariate or hierarchical seasonal decomposition is also possible and particularly useful for grouped or panel time series.
 
----
+
 
 ## **6. Conclusion**
 
