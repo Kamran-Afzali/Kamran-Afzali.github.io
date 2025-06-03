@@ -8,6 +8,12 @@ Bayesian modeling has become a central approach in modern data analysis, providi
 
 The choice of a Bayesian model should begin with a clear understanding of the research objective. In broad terms, the aim of modeling can be categorized into two primary goals: inference and prediction. Inference focuses on understanding the relationships between variables, quantifying uncertainty in parameter estimates, and testing theoretical hypotheses. Prediction, on the other hand, emphasizes the accuracy of forecasting outcomes for new observations. While the two goals are not mutually exclusive, they can lead to different modeling choices, particularly in terms of model complexity and regularization. Another factor influencing model selection is the nature of the data. Key aspects include the type of response variable (continuous, binary, count, categorical), the presence of outliers or heavy-tailed distributions, the structure of the data (e.g., hierarchical or longitudinal), and the dimensionality of the predictor space. A careful examination of these characteristics provides essential guidance for selecting an appropriate Bayesian model.
 
+**Prior Specification and Computational Considerations**
+
+An essential feature of Bayesian modeling is the specification of prior distributions. Priors can be informative, weakly informative, or non-informative, depending on the amount of domain knowledge available. Informative priors are grounded in expert knowledge or historical data, while weakly informative priors help stabilize estimates without unduly influencing the posterior. Prior predictive checks can assess the implications of the priors before seeing the data, ensuring they encode plausible assumptions. Modelers should also perform sensitivity analyses to understand how different priors affect inferences.
+
+Computational feasibility is another practical concern. Some Bayesian models—especially nonparametric or high-dimensional ones—can be computationally intensive, requiring advanced MCMC algorithms or variational inference. Diagnostics such as the Gelman-Rubin R-hat statistic, effective sample size (ESS), and checks for divergent transitions should be used to ensure reliable inference (Gelman et al., 2013). Stan and `brms` provide tools to assess convergence and evaluate sampling efficiency.
+
 **[Bayesian Linear Regression](https://kamran-afzali.github.io/posts/2022-04-25/STAN.html)**
 
 Bayesian linear regression serves as the foundational model in the Bayesian framework. It assumes a linear relationship between predictors and a continuous response variable, with normally distributed residuals. This model is particularly useful for its simplicity and interpretability. When the assumptions of linearity and normality hold reasonably well, Bayesian linear regression provides reliable parameter estimates and predictive intervals. It also serves as a baseline model against which more complex models can be compared. In practice, Bayesian linear regression can be implemented in Stan with straightforward model code, specifying priors for the regression coefficients and residual variance. The flexibility of Bayesian inference allows for the incorporation of prior knowledge, which can be particularly valuable in small-sample contexts or when strong domain expertise is available.
@@ -42,11 +48,23 @@ Mixture models introduce additional complexity due to the need to estimate both 
 
 When there is reason to believe that the data comprise distinct subgroups with different underlying characteristics, mixture models offer an effective approach to modeling such heterogeneity.
 
+**Comparative Summary Table**
+
+| Model Type             | Use Case                          | Key Assumptions           | Priors                | Limitations                       |
+| ---------------------- | --------------------------------- | ------------------------- | --------------------- | --------------------------------- |
+| Linear Regression      | Continuous outcome, low noise     | Linearity, normal errors  | Normal, Inverse-Gamma | Poor with outliers                |
+| Robust Regression      | Heavy-tailed residuals            | t-distributed residuals   | Prior on ν            | Increased complexity              |
+| Regularized Regression | High-dimensional predictors       | Sparsity                  | Laplace, Gaussian     | Shrinkage may hide effects        |
+| GLMs                   | Binary/count/categorical outcomes | Appropriate link function | Varied                | Can overfit without strong priors |
+| Hierarchical Models    | Nested/grouped data               | Partial pooling           | Hierarchical priors   | Sensitive to group size           |
+| Gaussian Processes     | Unknown nonlinear function        | Smoothness in kernel      | GP prior              | Poor scaling (O(n³))              |
+| Mixture Models         | Latent structure/clustering       | Finite components         | Dirichlet, etc.       | Label switching, identifiability  |
+
 **Model Diagnostics and Comparison**
 
 Choosing the right model also involves evaluating its performance and comparing it to alternative specifications. Bayesian model diagnostics include posterior predictive checks, which assess how well the model reproduces the observed data. Graphical comparisons between observed and replicated data can reveal model misfit or systematic discrepancies.
 
-Information criteria such as the Widely Applicable Information Criterion (WAIC) and Leave-One-Out Cross-Validation (LOO-CV) provide tools for model comparison, balancing fit and complexity. These criteria estimate the expected out-of-sample predictive performance and are particularly useful for selecting among nested or non-nested models.
+Information criteria such as the Widely Applicable Information Criterion (WAIC) and Leave-One-Out Cross-Validation (LOO-CV) provide tools for model comparison, balancing fit and complexity. These criteria estimate the expected out-of-sample predictive performance and are particularly useful for selecting among nested or non-nested models (Vehtari, Gelman, & Gabry, 2017).
 
 Bayes factors offer another method for model comparison, based on the ratio of marginal likelihoods. However, they are sensitive to prior specification and can be computationally intensive. In practice, WAIC and LOO-CV are often preferred for their robustness and ease of computation.
 
@@ -59,3 +77,10 @@ This decision process is iterative and should incorporate model diagnostics and 
 **Conclusion**
 
 Bayesian modeling offers unparalleled flexibility and rigor in statistical inference, but this power comes with the responsibility of thoughtful model selection. This guide has outlined the key considerations for choosing among the diverse array of Bayesian models available in tools like Stan and `brms`. By grounding model selection in the objectives of the analysis, the characteristics of the data, and robust diagnostic procedures, practitioners can make informed choices that enhance both the interpretability and predictive performance of their models. As with all statistical modeling, the process is iterative and benefits from a combination of statistical insight, computational tools, and substantive expertise. With this guide, researchers are better equipped to navigate the Bayesian modeling landscape and apply the appropriate models to their specific challenges.
+
+**References**
+
+* Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013). *Bayesian Data Analysis* (3rd ed.). Chapman and Hall/CRC.
+* Bernardo, J. M., & Smith, A. F. M. (1994). *Bayesian Theory*. Wiley.
+* Vehtari, A., Gelman, A., & Gabry, J. (2017). "Practical Bayesian model evaluation using leave-one-out cross-validation and WAIC." *Statistics and Computing*, 27(5), 1413–1432.
+
