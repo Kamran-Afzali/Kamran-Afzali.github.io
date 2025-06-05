@@ -1,7 +1,7 @@
 
 # Mathematical Formalism of FEP and Active Inference
 
-**Introduction**
+## Introduction 
 
 The Free Energy Principle (FEP) and its algorithmic implementation in Active Inference represent a unifying theory of cognition, perception, and action. Rooted in statistical physics and variational Bayesian inference, this framework posits that biological systems maintain their structural and functional integrity by minimizing a variational bound on sensory surprise. This minimization drives both perceptual inference and decision-making, allowing organisms to navigate uncertainty while maintaining homeostasis.
 
