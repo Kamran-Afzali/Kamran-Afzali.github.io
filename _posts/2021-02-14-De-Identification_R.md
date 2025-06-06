@@ -142,6 +142,8 @@ non_nominal_data %>%
 |71207b6b |9aff7755 |62a88642 |43ecafc2 |a0da760e |38c225cd |9581f39f    |379adeda |89ea2f87 |
 |d43e1a57 |78fae7be |f4717ee2 |d77b1e73 |9b020da0 |fcf212d7 |21bb4eff    |0326a6c5 |62b54aa4 |
 |af5cdcde |050a5f2f |39989dbb |4d0bf0df |55a1fad0 |d7e7c064 |aa90f82a    |f5a02b03 |e5856780 |
+
+
 ### Package ‘deidentifyr’
 Another package that can be used for data deidentification is ‘deidentifyr.’ This package aims to avoid the potential recovery of hashed PIIs by using a longer SHA-256 hash to generate a unique ID code (Wilcox, 2019). This package is not yet on CRAN, but can be installed from the author's GitHub. The functtion 'deidentify()' will generate a unique ID from personally identifying information. Because the IDs are generated with the SHA-256 algorithm, they are a) very unlikely to be the same for people with different identifying information, and b) nearly impossible to recover the identifying information from.
 
@@ -443,8 +445,6 @@ head(K_ano_patient_data$data)%>%
   knitr::kable(format = "markdown")
 ```
 
-
-
 |Region |Sex | freq|sdcStatus | suppressed|
 |:------|:---|----:|:---------|----------:|
 |d      |m   | 3603|s         |       3603|
@@ -454,6 +454,8 @@ head(K_ano_patient_data$data)%>%
 |a      |m   | 3871|s         |       3871|
 |c      |m   | 3878|s         |       3878|
 
+
+### References
 +	Paul Hendricks (2015). [“Package ‘detector’.”](https://cran.r-project.org/web/packages/detector/index.html)
 +	Paul Hendricks (2015). [“anonymizer: Anonymize Data Containing Personally Identifiable Information.”](https://github.com/paulhendricks/anonymizer)
 +	Wilcox (2019). [“deidentify: Deidentify a dataset.”](https://rdrr.io/github/wilkox/deidentifyr/man/deidentify.html)
