@@ -128,6 +128,50 @@ $$
 
 and often outperforms UCB1 in practice due to its adaptive exploration.
 
+### Epsilon-Greedy Strategy
+
+The epsilon-greedy algorithm is a simple and intuitive approach to balancing exploration and exploitation. At each time step, with probability $\epsilon$, the agent chooses a random arm (exploration), and with probability $1 - \epsilon$, it selects the arm with the highest empirical mean (exploitation). Let $\hat{\mu}_{k,t}$ denote the empirical mean reward for arm $k$ at time $t$. Then:
+
+$$
+A_t = 
+\begin{cases}
+\text{random choice} & \text{with probability } \epsilon, \\
+\arg\max_k \hat{\mu}_{k,t} & \text{with probability } 1 - \epsilon.
+\end{cases}
+$$
+
+While this algorithm is not optimal in the theoretical sense, it often performs well in practice for problems with stationary reward distributions when the exploration rate $\epsilon$ is properly tuned.
+
+Regret under a fixed $\epsilon$ is linear in $T$, i.e., $\mathcal{R}(T) = O(T)$, unless $\epsilon$ is decayed over time (e.g., $\epsilon_t = 1/t$), which introduces a trade-off between convergence speed and variance.
+
+#### R Code for Epsilon-Greedy
+
+```r
+set.seed(42)
+epsilon <- 0.1
+counts <- rep(0, K)
+values <- rep(0, K)
+regret <- numeric(T)
+
+for (t in 1:T) {
+  if (runif(1) < epsilon) {
+    a <- sample(1:K, 1)  # Exploration
+  } else {
+    a <- which.max(values)  # Exploitation
+  }
+  reward <- rbinom(1, 1, mu[a])
+  counts[a] <- counts[a] + 1
+  values[a] <- values[a] + (reward - values[a]) / counts[a]
+  regret[t] <- max(mu) - mu[a]
+}
+
+cum_regret_eps <- cumsum(regret)
+lines(cum_regret_eps, col = "darkgreen", lwd = 2)
+legend("topright", legend = c("UCB1", "Thompson Sampling", "Epsilon-Greedy"), 
+       col = c("blue", "red", "darkgreen"), lwd = 2)
+```
+
+
 
 
 ### Summary Table
