@@ -22,10 +22,6 @@ An MDP is formally defined by the tuple $(S, A, P, R, \gamma)$, where:
 The agent’s objective is to learn a policy $\pi: S \to A$ that maximizes the expected cumulative discounted reward:
 
 $$
-y_t = \alpha + \phi y_{t-1} + \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
-$$
-
-$$
 V^\pi(s) = \mathbb{E}_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R(S_t, A_t, S_{t+1}) \,\bigg|\, S_0 = s \right]
 $$
 
