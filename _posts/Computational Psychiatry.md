@@ -1,4 +1,4 @@
-## Computational Psychiatry: Revolutionizing Mental Health Through Mathematical Models
+## Computational Psychiatry: Mental Health Through Mathematical Models
 
 Computational psychiatry represents a revolutionary intersection of neuroscience, computer science, and clinical practice that is fundamentally transforming our understanding of mental health disorders. This emerging field employs sophisticated mathematical models and computational simulations to decode the complex mechanisms underlying psychiatric conditions, offering unprecedented insights into how mental symptoms arise from the interplay between brain function, environment, and behavior. By bridging the gap between biological processes and observable symptoms, computational psychiatry provides a mechanistic framework that avoids both biological reductionism and artificial categorization, while enabling more precise diagnosis, treatment, and prevention strategies. The field has evolved significantly since the mid-1980s and now encompasses diverse methodological approaches, from reinforcement learning models that explain depression to agent-based simulations that capture population-level mental health patterns. Recent advances, such as the identification of hippocampal volume changes following cognitive behavioral therapy in PTSD patients[1], demonstrate the translational potential of these computational approaches.
 
@@ -54,99 +54,19 @@ Computational psychiatry stands at a transformative moment where technological c
 
 The field's future success will depend not primarily on further technological advancement, but on addressing ethical considerations, educational needs, and practical implementation challenges. As computational models become increasingly sophisticated and predictive, ensuring their responsible integration into clinical practice will require ongoing collaboration between computational scientists, clinicians, patients, and ethicists. The promise of precision psychiatry guided by computational models offers hope for more effective, personalized treatments that could significantly reduce the global burden of mental health disorders. Groundbreaking studies demonstrating neuroplastic changes following psychotherapy[1] and individualized treatment prediction using semiparametric models[6] provide tangible examples of this potential, charting a course toward truly evidence-based mental healthcare.
 
-[1] http://journal.frontiersin.org/article/10.3389/fnhum.2013.00747/abstract
-[2] https://www.quentinhuys.com/pub/Huys13-comppsych.pdf
-[3] https://www.sciencedirect.com/science/article/pii/S2772392524000026
-[4] https://pmc.ncbi.nlm.nih.gov/articles/PMC3446252/
-[5] https://compdevlab.yale.edu/docs/2019/ToM_as_IRL_2019.pdf
-[6] https://pubmed.ncbi.nlm.nih.gov/38706706/
-[7] https://pmc.ncbi.nlm.nih.gov/articles/PMC4030191/
-[8] https://pubmed.ncbi.nlm.nih.gov/31632306/
-[9] https://royalsocietypublishing.org/doi/10.1098/rstb.2013.0475
-[10] https://pubmed.ncbi.nlm.nih.gov/26590977/
-[11] https://www.frontiersin.org/articles/10.3389/fphar.2022.1094281/full
-[12] https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2789693
-[13] https://pmc.ncbi.nlm.nih.gov/articles/PMC8376201/
-[14] https://www.cambridge.org/core/product/identifier/S0033291724000837/type/journal_article
-[15] https://jnnp.bmj.com/lookup/doi/10.1136/jnnp-2015-310737
-[16] https://www.frontiersin.org/articles/10.3389/fnhum.2024.1502508/full
-[17] https://www.jstage.jst.go.jp/article/sjpr/62/1/62_88/_article
-[18] http://archpsyc.jamanetwork.com/article.aspx?doi=10.1001/jamapsychiatry.2019.0231
-[19] https://academic.oup.com/schizophreniabulletin/article/43/3/473/3062417
-[20] http://journal.frontiersin.org/article/10.3389/fpsyg.2013.00019/abstract
-[21] http://link.springer.com/10.1007/s00213-019-05300-5
-[22] https://journals.sagepub.com/doi/10.1177/2167702614567350
-[23] https://www.nature.com/articles/s41386-020-0746-4
-[24] https://pubmed.ncbi.nlm.nih.gov/23782813/
-[25] https://pmc.ncbi.nlm.nih.gov/articles/PMC3701611/
-[26] https://www.sciencedirect.com/science/article/abs/pii/S0022395622003375
-[27] https://linkinghub.elsevier.com/retrieve/pii/S2215036623001463
-[28] https://linkinghub.elsevier.com/retrieve/pii/S1043661825001434
-[29] https://www.semanticscholar.org/paper/72c9628c75c4b4b75305100045c7a37513730699
-[30] https://www.semanticscholar.org/paper/dfa0c6a847906a4d96513e3a5e4d9aa5f1bd3ff2
-[31] https://www.preprints.org/manuscript/202411.1398/v1
-[32] https://homepages.inf.ed.ac.uk/pseries/CPPrimer/CPprimer-submitted.pdf
-[33] https://dokumen.pub/computational-psychiatry-mathematical-modeling-of-mental-illness-9780128098257.html
-[34] https://link.springer.com/10.1007/s11229-024-04741-6
-[35] https://cpsyjournal.org/articles/10.1162/CPSY_a_00002
-[36] https://elifesciences.org/reviewed-preprints/87720v3
-[37] https://www.sciencedirect.com/science/article/pii/S1053811925002162
-[38] https://www.semanticscholar.org/paper/d1564774efa0bb7e255c72fbe4cea96916846f1c
-[39] https://discourse.mc-stan.org/t/reinforcement-learning-model/983
-[40] https://www.nature.com/articles/s41598-025-97387-4
-[41] https://www.biorxiv.org/content/10.1101/682922v2.full
-[42] https://www.linkedin.com/advice/3/how-can-you-use-inverse-reinforcement-learning-7iktc
-[43] https://www.semanticscholar.org/paper/5acd48f228ba32f194301723ce7933e27b64d044
-[44] https://www.semanticscholar.org/paper/e9385f46635b58fa1fe03575d0ed3cc041cf6438
-[45] https://www.semanticscholar.org/paper/d71bd1034597c7b5c9f5a4dd21f812f47da50218
-[46] https://link.springer.com/10.1007/s00406-021-01361-w
-[47] https://www.semanticscholar.org/paper/5647d9fe885df1455cb358ff5814ef66d70fb797
-[48] https://pubmed.ncbi.nlm.nih.gov/39260714/
-[49] https://academic.oup.com/brain/article/144/11/3311/6317665
-[50] https://www.sciencedirect.com/science/article/pii/S0149763423003731
-[51] https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2013.00019/full
-[52] https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2018.00061/pdf
-[53] https://discovery.ucl.ac.uk/10095101/1/final_review.pdf
-[54] https://www.jstage.jst.go.jp/article/sjpr/62/1/62_88/_article/-char/en
-[55] https://pmc.ncbi.nlm.nih.gov/articles/PMC2635536/
-[56] http://journals.sagepub.com/doi/10.1177/09637214231205220
-[57] https://journals.sagepub.com/doi/10.1177/09526951241309504
-[58] https://doi.apa.org/doi/10.1037/abn0000944
-[59] https://www.mdpi.com/2076-3425/14/12/1196
-[60] https://www.tandfonline.com/doi/full/10.1080/13546805.2019.1665994
-[61] https://pmc.ncbi.nlm.nih.gov/articles/PMC5464204/
-[62] https://pmc.ncbi.nlm.nih.gov/articles/PMC11674655/
-[63] https://ski.clps.brown.edu/papers/Huys_NPPR.pdf
-[64] https://scsb.mit.edu/the-computational-psychiatry-of-autism-perception-prediction-and-learning/
-[65] https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D93C5B90EBEFB13FB924E3BE81B5680C/S0007125022001751a.pdf/modelling_mood_updating_a_proof_of_principle_study.pdf
-[66] https://pmc.ncbi.nlm.nih.gov/articles/PMC7688938/
-[67] https://arxiv.org/abs/2407.10971
-[68] https://www.frontiersin.org/articles/10.3389/fsysb.2024.1333760/full
-[69] https://ieeexplore.ieee.org/document/10324324/
-[70] https://arxiv.org/abs/2402.19128
-[71] http://biorxiv.org/lookup/doi/10.1101/2024.10.09.617461
-[72] https://ieeexplore.ieee.org/document/10802715/
-[73] https://ieeexplore.ieee.org/document/10557849/
-[74] https://arxiv.org/abs/2303.14623
-[75] https://pmc.ncbi.nlm.nih.gov/articles/PMC11104400/
-[76] https://pmc.ncbi.nlm.nih.gov/articles/PMC10755559/
-[77] https://www.biorxiv.org/content/10.1101/2023.03.06.531272v1.full-text
-[78] https://pmc.ncbi.nlm.nih.gov/articles/PMC10645421/
-[79] https://www.mdpi.com/1999-4893/16/2/68
-[80] https://docs.autismresearchcentre.com/papers/1985_BC_etal_ASChildTheoryOfMind.pdf
-[81] https://ieeexplore.ieee.org/document/9636477/
-[82] https://dl.acm.org/doi/10.1145/3307334.3328599
-[83] https://arxiv.org/pdf/1906.12350.pdf
-[84] https://pmc.ncbi.nlm.nih.gov/articles/PMC2518639/
-[85] https://pmc.ncbi.nlm.nih.gov/articles/PMC3584128/
-[86] https://pmc.ncbi.nlm.nih.gov/articles/PMC9479916/
-[87] https://arxiv.org/pdf/2410.07525.pdf
-[88] https://pmc.ncbi.nlm.nih.gov/articles/PMC3991847/
-[89] https://pmc.ncbi.nlm.nih.gov/articles/PMC11617014/
-[90] https://www.mdpi.com/2624-8611/4/1/7
-[91] https://arxiv.org/abs/2309.08571
-[92] https://journals.sagepub.com/doi/10.1177/13623613221105385
-[93] https://doi.apa.org/doi/10.1037/pas0001065
-[94] https://academiccommons.columbia.edu/doi/10.7916/D8CR7B2Q
-[95] https://www.tandfonline.com/doi/full/10.1080/19315864.2020.1714824
-[96] https://en.wikipedia.org/wiki/Attractor
+
+
+**References**
+
+Alink, A., Schwiedrzik, C. M., Kohler, A., Singer, W., & Muckli, L. (2019). [Predictive coding with neural transmission delays: A real-time temporal alignment hypothesis](https://pmc.ncbi.nlm.nih.gov/articles/PMC6506824/). *The Journal of Neuroscience, 39*(42), 8207–8220. https://doi.org/10.1523/JNEUROSCI.1033-19.2019  
+
+Huys, Q. J., Pizzagalli, D. A., Bogdan, R., & Dayan, P. (2013). [Mapping anhedonia onto reinforcement learning: A behavioural meta-analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC3701611/). *Biology of Mood & Anxiety Disorders, 3*(1), 12. https://doi.org/10.1186/2045-5380-3-12  
+
+Kaiser, R. H., Whitfield-Gabrieli, S., Dillon, D. G., Goer, F., Beltzer, M., Minkel, J., ... & Pizzagalli, D. A. (2015). [Dynamic resting-state functional connectivity in major depression](https://www.nature.com/articles/npp2015352). *Neuropsychopharmacology, 41*(7), 1822–1830. https://doi.org/10.1038/npp.2015.352  
+
+Roiser, J. P., Stephan, K. E., den Ouden, H. E., Barnes, T. R., Friston, K. J., & Joyce, E. M. (2008). [Do patients with schizophrenia exhibit aberrant salience?](https://pmc.ncbi.nlm.nih.gov/articles/PMC2635536/) *Psychological Medicine, 39*(2), 199–209. https://doi.org/10.1017/S0033291708003863  
+
+Van de Cruys, S., Evers, K., Van der Hallen, R., Van Eylen, L., Boets, B., de-Wit, L., & Wagemans, J. (2014). [Precise minds in uncertain worlds: Predictive coding in autism](https://sandervandecruys.be/pdf/2014-VandeCruysetal-PsychRev-Precise_minds.pdf). *Psychological Review, 121*(4), 649–675.  
+
+Vita, A., De Peri, L., Deste, G., Barlati, S., & Sacchetti, E. (2013). [Progressive loss of cortical gray matter in schizophrenia: A meta-analysis and meta-regression of longitudinal MRI studies](https://www.nature.com/articles/tp201352). *Translational Psychiatry, 3*(6), e275. https://doi.org/10.1038/tp.2013.52  
+
