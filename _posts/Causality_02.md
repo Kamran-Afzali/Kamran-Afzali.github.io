@@ -37,7 +37,7 @@ summary(lm_matched)
 
 Here, `coefficients()` for treatment gives the ATE among matched units, interpretable under the assumption of balance on $X$. Diagnostics should include covariate balance checks after matching (e.g., `plot(match_out, type="jitter")`).
 
----
+
 
 ### Inverse Probability Weighting (IPW)
 
@@ -65,7 +65,7 @@ summary(ipw_mod)
 
 The coefficient on **treatment** gives the IPW-estimated ATE. One must check for **extreme weights** using summaries (`summary(data_obs$wt)`) and consider trimming.
 
----
+
 
 ### Doubly Robust Estimators
 
@@ -93,7 +93,7 @@ dr_ate
 
 This `dr_ate` estimate is **doubly robust**: consistent if either propensity or outcome model is correct. Practical use involves bootstrapping for variance.
 
----
+
 
 ### Integrative Interpretation
 
@@ -101,7 +101,7 @@ Propensity scores adjust for observed confounders in a manner motivated by desig
 
 However, each method remains anchored in core assumptions: **ignorability**, **overlap**, and **model correctness**. Diagnostics—such as balance checks after matching/IPW, weight summaries, and residual/outcome-model validation—are essential before causal claims are made.
 
----
+
 
 ### Summary Table
 
@@ -111,8 +111,17 @@ However, each method remains anchored in core assumptions: **ignorability**, **o
 | Inverse Probability Weighting (IPW) | Logistic for $e(x)$                       | Propensity correctly estimated   | Weighted regression or weighted mean difference        | Creates reweighted, exchangeable sample |
 | Doubly Robust Estimator             | Logistic for $e(x)$ *or* outcome $m(D,X)$ | Either model correctly specified | ATE combining weighted residuals and conditional means | Robust to misspecification, efficient   |
 
----
+
 
 ### Conclusion
 
-This revised follow-up provides **deeper theoretical exposition**, code that **fits and interprets** each estimator, and diagnostic guidance. You can further illustrate robustness via bootstrapping and sensitivity to unmeasured confounders. Let me know if you’d like the next post to add comparisons, advanced diagnostics, or extensions to continuous treatments!
+This post has advanced our series by exploring methods that bridge the gap between randomization and modeling. Propensity scores, IPW, and doubly robust estimators offer complementary strategies for tackling confounding, each accompanied by unique trade‑offs in terms of assumptions, stability, and interpretability. The next installment will explore Matching, Difference-in-Differences, and Instrumental Variables, offering further depth and methods for complex real-world data.
+
+### References  
+Rosenbaum, P. R., & Rubin, D. B. (1983). The central role of the propensity score in observational studies for causal effects. Biometrika, 70(1), 41–55.
+
+Robins, J. M., & Rotnitzky, A. (1995). Semiparametric efficiency in multivariate regression models with missing data. Journal of the American Statistical Association, 90(429), 122–129.
+
+Bang, H., & Robins, J. M. (2005). Doubly robust estimation in missing data and causal inference models. Biometrics, 61(4), 962–973.
+
+Hernán, M. A., & Robins, J. M. (2020). Causal Inference: What If. Chapman & Hall/CRC.
