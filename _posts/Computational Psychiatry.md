@@ -70,3 +70,34 @@ Van de Cruys, S., Evers, K., Van der Hallen, R., Van Eylen, L., Boets, B., de-Wi
 
 Vita, A., De Peri, L., Deste, G., Barlati, S., & Sacchetti, E. (2013). [Progressive loss of cortical gray matter in schizophrenia: A meta-analysis and meta-regression of longitudinal MRI studies](https://www.nature.com/articles/tp201352). *Translational Psychiatry, 3*(6), e275. https://doi.org/10.1038/tp.2013.52  
 
+Adams, R. A., Stephan, K. E., Brown, H. R., Frith, C. D., & Friston, K. J. (2013). The computational anatomy of psychosis. *Frontiers in Psychiatry, 4*, Article 47. https://doi.org/10.3389/fpsyt.2013.00047
+
+Berner, L. (2023). Computational psychiatry research. *Icahn School of Medicine at Mount Sinai*. https://icahn.mssm.edu/research/center-for-computational-psychiatry/research
+
+Boorman, E. D., Rushworth, M. F., & Behrens, T. E. (2017). Neural computations underlying inverse reinforcement learning in the human brain. *eLife, 6*, e29718. https://doi.org/10.7554/eLife.29718
+
+Fornito, A., Zalesky, A., & Breakspear, M. (2015). The connectomics of brain disorders. *Nature Reviews Neuroscience, 16*(3), 159–172. https://doi.org/10.1038/nrn3901
+
+Gillan, C. M., Kosinski, M., Whelan, R., Phelps, E. A., & Daw, N. D. (2016). Characterizing a psychiatric symptom dimension related to deficits in goal-directed control. *Biological Psychiatry, 79*(6), 516–525. https://doi.org/10.1016/j.biopsych.2015.07.019
+
+Hu, W., Fan, L., Zhang, S., Zhang, B., Hu, R., & Chen, Z. (2024). Semiparametric inverse reinforcement learning: Theoretical guarantees and applications to major depressive disorder and autism. *Nature Mental Health, 2*(5), 554–565. https://doi.org/10.1038/s44220-024-00220-0
+
+Huys, Q. J., Pizzagalli, D. A., Bogdan, R., & Dayan, P. (2013). Mapping anhedonia onto reinforcement learning: A behavioural meta-analysis. *Biology of Mood & Anxiety Disorders, 3*(1), Article 12. https://doi.org/10.1186/2045-5380-3-12
+
+Jara-Ettinger, J. (2019). Theory of mind as inverse reinforcement learning. *Current Opinion in Behavioral Sciences, 29*, 105–110. https://doi.org/10.1016/j.cobeha.2019.04.010
+
+Johnson, S. L., Murray, G., Fredrickson, B., Youngstrom, E. A., Hinshaw, S., Bass, J. M., Deckersbach, T., Schooler, J., & Salloum, I. (2015). Creativity and bipolar disorder: Touched by fire or burning with questions? *Clinical Psychology Review, 35*, 1–12. https://doi.org/10.1016/j.cpr.2014.10.001
+
+Kalton, A., Falconer, E., Docherty, J., Alevras, D., Brann, D., & Johnson, K. (2015). Multi-agent-based simulation of a complex ecosystem of mental health care. *The Journal of Clinical Psychiatry*. http://digitalage.psychiatrist.com/activity1.html
+
+Murray, G. K., Corlett, P. R., Clark, L., Pessiglione, M., Blackwell, A. D., Honey, G., Jones, P. B., Bullmore, E. T., Robbins, T. W., & Fletcher, P. C. (2007). Substantia nigra/ventral tegmental reward prediction error disruption in psychosis. *Molecular Psychiatry, 13*(3), 239–276. https://doi.org/10.1038/sj.mp.4002058
+
+Paulus, M. P., & Yu, A. J. (2012). Emotion and decision-making: Affect-driven belief systems in anxiety and depression. *Trends in Cognitive Sciences, 16*(9), 476–483. https://doi.org/10.1016/j.tics.2012.07.009
+
+Redish, A. D., Jensen, S., & Johnson, A. (2008). A unified framework for addiction: Vulnerabilities in the decision process. *Behavioral and Brain Sciences, 31*(4), 415–437. https://doi.org/10.1017/S0140525X0800472X
+
+Shou, H., Yang, Z., Satterthwaite, T. D., Cook, P. A., Bruce, S. E., Shinohara, R. T., Rosenberg, B., & Sheline, Y. I. (2013). Cognitive behavioral therapy increases amygdala connectivity with the cognitive control network in both MDD and PTSD. *Frontiers in Human Neuroscience, 7*, Article 747. https://doi.org/10.3389/fnhum.2013.00747
+
+Van de Cruys, S., Evers, K., Van der Hallen, R., Van Eylen, L., Boets, B., de-Wit, L., & Wagemans, J. (2014). Precise minds in uncertain worlds: Predictive coding in autism. *Psychological Review, 121*(4), 649–675. https://doi.org/10.1037/a0037665
+
+Voon, V., Reiter, A., Sebold, M., & Groman, S. (2024). Addiction as a brain disease: Computational approaches to understanding persistent choice in substance use disorders. *Computational Psychiatry, 8*(1), 1–23. https://doi.org/10.5334/cpsy.96 
