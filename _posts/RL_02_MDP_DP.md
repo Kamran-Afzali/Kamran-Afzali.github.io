@@ -21,9 +21,7 @@ An MDP is formally defined by the tuple $(S, A, P, R, \gamma)$, where:
 
 The agent’s objective is to learn a policy $\pi: S \to A$ that maximizes the expected cumulative discounted reward:
 
-$$
-V^\pi(s) = \mathbb{E}_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R(S_t, A_t, S_{t+1}) \,\Big|\, S_0 = s \right]
-$$
+$$V^\pi(s) = \mathbb{E}_\pi \left[ \sum_{t=0}^{\infty} \gamma^t R(S_t, A_t, S_{t+1}) \,\Big|\, S_0 = s \right]$$
 
 The optimal value function $V^*$ satisfies the Bellman optimality equation:
 
