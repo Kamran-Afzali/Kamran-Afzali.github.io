@@ -72,11 +72,9 @@ The coefficient on **treatment** gives the IPW-estimated ATE. One must check for
 Doubly robust estimators combine outcome modeling and propensity weighting so that estimation remains consistent if **either** model is correctly specified. The canonical form is:
 
 $$
-\begin{aligned}
-\widehat{\text{ATE}}_{\text{DR}} &= \frac{1}{n} \sum_i \Bigg\{ \left( \frac{D_i}{\hat e(X_i)} - \frac{1-D_i}{1-\hat e(X_i)}\right)\left[Y_i - \hat m(D_i, X_i)\right] \\
+ \widehat{\text{ATE}}_{\text{DR}} &= \frac{1}{n} \sum_i \Bigg\{ \left( \frac{D_i}{\hat e(X_i)} - \frac{1-D_i}{1-\hat e(X_i)}\right)\left[Y_i - \hat m(D_i, X_i)\right] \\
 &\quad\quad + \hat m(1, X_i) - \hat m(0, X_i) \Bigg\},
-\end{aligned}
-$$
+ $$
 
 where $\hat m(D, X)$ is an estimated regression of outcome on treatment and covariates.
 
