@@ -114,3 +114,155 @@ simulate_POMDP(
 In this model, we conceptualize an agent—analogous to an individual—operating in an environment where their internal mood state fluctuates between two conditions: *Positive* and *Negative*. These internal states are not directly observable to the agent; instead, the agent must infer them based on cues from its environment. This is the essence of a POMDP: the agent must make decisions under uncertainty about its own internal state. The agent has three possible actions: "Screen Time", "Physical Exercise", and "Wait". These actions represent different behavioral strategies that influence and are influenced by the agent’s emotional state. "Screen Time" is meant to capture behaviors such as passive media consumption, which research often associates with rumination and worsening mood in depression. In contrast, "Physical Exercise" represents an active behavioral intervention known to improve mood and promote emotional resilience. "Wait" continues to represent a neutral or avoidant strategy, such as doing nothing to change one’s state.
 
 The internal states—Positive and Negative—do not transition between one another in this simplified model. That is, they are modeled as stable within the time frame of the simulation. This decision helps isolate the effects of behavior on perception and mood inference. Observations, come in two forms: “Positive Stimulus” and “Negative Stimulus.” This models how behavioral choices can either reinforce or challenge one's mood state. Rewards are assigned based on the adaptiveness of the action given the emotional context. Physical Exercise tends to yield higher rewards, especially in Negative states, modeling its known therapeutic effects. Screen Time may offer minor relief in the Positive state but becomes maladaptive in the Negative state, incurring higher costs. The Wait action always results in a modest penalty, reflecting opportunity cost or stagnation. The simulation begins with the agent unsure of its current state, assigning equal belief to Positive and Negative. Over time, as the agent makes choices and receives feedback, it updates its belief using Bayes' rule and selects actions based on an optimal policy derived through planning. Through this model, we can explore how behavioral choices—rather than internal cognitive tuning—affect the perception of mood-relevant information and the trajectory of mental health. It enables us to simulate how, for example, regular physical activity can gradually shift beliefs and perceived experiences toward a more positive pattern, offering a computational window into behavioral activation therapy and related interventions for depression.
+
+
+
+
+### **Chunk 1: Loading the `pomdp` Library**
+```r
+library(pomdp)
+```
+
+---
+
+### **Chunk 2: Defining the POMDP Model**
+```r
+model <- POMDP(
+  name = "DepressionBias",
+  states = c("Positive", "Negative"),
+  actions = c("Attend Positive", "Attend Negative", "Wait"),
+  observations = c("Pos Stimulus", "Neg Stimulus"),
+  transition_prob = list(
+    "Attend Positive" = "identity",
+    "Attend Negative" = "identity",
+    "Wait" = "identity"
+  ),
+  observation_prob = rbind(
+    O_("Attend Positive", "Positive", "Pos Stimulus", 0.9),
+    O_("Attend Positive", "Positive", "Neg Stimulus", 0.1),
+    O_("Attend Positive", "Negative", "Pos Stimulus", 0.4),
+    O_("Attend Positive", "Negative", "Neg Stimulus", 0.6),
+
+    O_("Attend Negative", "Positive", "Pos Stimulus", 0.3),
+    O_("Attend Negative", "Positive", "Neg Stimulus", 0.7),
+    O_("Attend Negative", "Negative", "Pos Stimulus", 0.2),
+    O_("Attend Negative", "Negative", "Neg Stimulus", 0.8),
+
+    O_("Wait", "Positive", "Pos Stimulus", 0.5),
+    O_("Wait", "Positive", "Neg Stimulus", 0.5),
+    O_("Wait", "Negative", "Pos Stimulus", 0.5),
+    O_("Wait", "Negative", "Neg Stimulus", 0.5)
+  ),
+  reward = rbind(
+    R_("Attend Positive", "Positive", "*", "*", 2),
+    R_("Attend Positive", "Negative", "*", "*", -1),
+    R_("Attend Negative", "Positive", "*", "*", -2),
+    R_("Attend Negative", "Negative", "*", "*", -1),
+    R_("Wait", "*", "*", "*", -0.5)
+  ),
+  discount = 0.95,
+  horizon = Inf
+)
+```
+This chunk defines the POMDP model. Let’s break it down by its components:
+
+- **`name = "DepressionBias"`**:
+  - **Explanation**: Assigns a name to the model, "DepressionBias," suggesting it models a decision-making process related to attention bias, possibly in a psychological context like depression.
+  - **Purpose**: Provides a descriptive identifier for the model.
+
+- **`states = c("Positive", "Negative")`**:
+  - **Explanation**: Defines the possible hidden states of the system: "Positive" (e.g., a positive mental state) and "Negative" (e.g., a negative or depressive mental state).
+  - **Purpose**: These are the underlying states the agent is trying to influence or infer, but they are not directly observable.
+
+- **`actions = c("Attend Positive", "Attend Negative", "Wait")`**:
+  - **Explanation**: Specifies the actions the agent can take:
+    - "Attend Positive": Focus attention on positive stimuli.
+    - "Attend Negative": Focus attention on negative stimuli.
+    - "Wait": Take no action, observe the environment.
+  - **Purpose**: These actions represent the choices available to the agent, which may influence the state or observations.
+
+- **`observations = c("Pos Stimulus", "Neg Stimulus")`**:
+  - **Explanation**: Defines the possible observations the agent can receive: a positive stimulus or a negative stimulus.
+  - **Purpose**: Since the true state is hidden, the agent relies on these observations to infer the state.
+
+- **`transition_prob = list(...)`**:
+  - **Explanation**: Specifies the state transition probabilities for each action. Here, all actions ("Attend Positive," "Attend Negative," "Wait") use the `"identity"` transition matrix, meaning the state does not change (the probability of staying in the current state is 1, and transitioning to another state is 0).
+    - For example, if the current state is "Positive" and the action is "Attend Positive," the next state is still "Positive" with probability 1.
+  - **Purpose**: Models a static environment where actions do not alter the underlying state, which is unusual for POMDPs but may reflect a specific assumption in this model (e.g., mental state is stable over time).
+
+- **`observation_prob = rbind(...)`**:
+  - **Explanation**: Defines the observation probabilities, which specify the likelihood of observing a particular stimulus given the action and the true state. The `O_` function is used to create observation probability entries in the format `O_(action, state, observation, probability)`. The `rbind` function combines these into a matrix. Let’s break down the probabilities:
+    - **For action "Attend Positive"**:
+      - If the state is "Positive," the agent observes "Pos Stimulus" with probability 0.9 and "Neg Stimulus" with 0.1.
+      - If the state is "Negative," the agent observes "Pos Stimulus" with probability 0.4 and "Neg Stimulus" with 0.6.
+      - This suggests that attending to positive stimuli makes positive observations more likely in a positive state but less reliable in a negative state.
+    - **For action "Attend Negative"**:
+      - If the state is "Positive," the agent observes "Pos Stimulus" with 0.3 and "Neg Stimulus" with 0.7.
+      - If the state is "Negative," the agent observes "Pos Stimulus" with 0.2 and "Neg Stimulus" with 0.8.
+      - This indicates a bias toward negative observations when attending to negative stimuli, especially in a negative state.
+    - **For action "Wait"**:
+      - Regardless of the state ("Positive" or "Negative"), the agent observes "Pos Stimulus" or "Neg Stimulus" with equal probability (0.5).
+      - This models a neutral action where observations are uninformative about the state.
+  - **Purpose**: These probabilities define how observations relate to the hidden state and the chosen action, capturing the uncertainty in the POMDP.
+
+- **`reward = rbind(...)`**:
+  - **Explanation**: Specifies the reward structure using the `R_` function, which defines rewards in the format `R_(action, start_state, end_state, observation, reward)`. The asterisks (`*`) indicate that the reward applies to any end state or observation. Let’s break it down:
+    - **R_("Attend Positive", "Positive", "*", "*", 2)**: If the agent attends to positive stimuli while in a "Positive" state, they receive a reward of +2, regardless of the observation or next state.
+    - **R_("Attend Positive", "Negative", "*", "*", -1)**: If the agent attends to positive stimuli while in a "Negative" state, they receive a reward of -1.
+    - **R_("Attend Negative", "Positive", "*", "*", -2)**: If the agent attends to negative stimuli while in a "Positive" state, they receive a reward of -2.
+    - **R_("Attend Negative", "Negative", "*", "*", -1)**: If the agent attends to negative stimuli while in a "Negative" state, they receive a reward of -1.
+    - **R_("Wait", "*", "*", "*", -0.5)**: Taking the "Wait" action results in a small negative reward of -0.5, regardless of the state or observation.
+  - **Purpose**: The reward structure incentivizes attending to positive stimuli in a positive state (+2) and penalizes mismatches (e.g., attending to negative stimuli in a positive state, -2). The "Wait" action has a small penalty, possibly to discourage inaction.
+
+- **`discount = 0.95`**:
+  - **Explanation**: Sets the discount factor to 0.95, meaning future rewards are discounted by 5% per time step. This reflects the time value of rewards, where immediate rewards are valued more than future ones.
+  - **Purpose**: Encourages the agent to prioritize short-term rewards while still considering long-term outcomes.
+
+- **`horizon = Inf`**:
+  - **Explanation**: Specifies an infinite horizon, meaning the decision process continues indefinitely rather than terminating after a fixed number of steps.
+  - **Purpose**: Models a scenario where the agent makes decisions over an unbounded time period, aiming to maximize the discounted sum of rewards.
+
+---
+
+### **Chunk 3: Normalizing the POMDP Model**
+```r
+model <- normalize_POMDP(model)
+```
+- **Explanation**: The `normalize_POMDP` function ensures that the model’s probabilities (transition and observation probabilities) are valid by checking that they sum to 1 where required and correcting any numerical inconsistencies. It also validates the model’s structure.
+- **Purpose**: Prepares the model for solving by ensuring mathematical correctness and consistency, which is crucial for numerical algorithms used in `solve_POMDP`.
+
+---
+
+### **Chunk 4: Solving the POMDP**
+```r
+solution <- solve_POMDP(model)
+```
+- **Explanation**: The `solve_POMDP` function computes an optimal policy for the POMDP model using numerical methods (e.g., value iteration or policy iteration). The policy maps belief states (probability distributions over the states "Positive" and "Negative") to actions ("Attend Positive," "Attend Negative," or "Wait") that maximize the expected discounted sum of rewards.
+- **Purpose**: Produces a `solution` object containing the optimal policy, value function, and other details. The policy guides the agent on which action to take based on its belief about the current state.
+
+---
+
+### **Chunk 5: Simulating the POMDP**
+```r
+simulate_POMDP(
+  model = model,
+  policy = policy(solution),
+  belief = c(Positive = 0.5, Negative = 0.5),
+  n = 10
+)
+```
+- **Explanation**: This simulates the POMDP model using the computed policy for 10 time steps (`n = 10`). Let’s break down the arguments:
+  - **`model = model`**: Specifies the POMDP model defined earlier.
+  - **`policy = policy(solution)`**: Uses the optimal policy from the `solution` object, which dictates the action to take based on the current belief.
+  - **`belief = c(Positive = 0.5, Negative = 0.5)`**: Initializes the agent’s belief as a 50-50 probability distribution over the "Positive" and "Negative" states, reflecting complete uncertainty about the initial state.
+  - **`n = 10`**: Runs the simulation for 10 time steps.
+- **What Happens in Simulation**:
+  - At each time step, the agent:
+    1. Uses the current belief to select an action based on the policy.
+    2. Receives an observation based on the observation probabilities.
+    3. Updates its belief using Bayesian updating, combining the prior belief, action, and observation.
+    4. Receives a reward based on the reward structure.
+    5. Since transitions are "identity," the true state remains unchanged, but the belief evolves based on observations.
+  - The simulation outputs a sequence of states, actions, observations, rewards, and belief updates.
+- **Purpose**: Tests the policy in a simulated environment, allowing analysis of how the agent behaves and what rewards it accumulates over 10 steps.
+
