@@ -3,8 +3,6 @@
 
 In observational settings where treatment assignment is neither random nor fully ignorable, quasi-experimental methods offer a principled framework to recover causal effects under weaker assumptions than standard regression. This installment introduces two such techniques: **Difference-in-Differences (DiD)** and **Instrumental Variables (IV)**. We examine their identification conditions, derive formal estimators, and demonstrate implementations in R using simulated data. These methods are especially valuable when panel data or natural experiments are available.
 
----
-
 ### **Difference-in-Differences (DiD)**
 
 #### **Motivation and Identification**
