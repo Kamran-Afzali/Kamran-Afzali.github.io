@@ -77,7 +77,7 @@ sample_env <- function(s, a) {
 }
 ```
 
----
+
 
 ### Step 2: Q-Learning Implementation in R
 
@@ -207,7 +207,7 @@ plot_policy(mc_policy_before, "MC Policy Before")
 plot_policy(mc_policy_after,  "MC Policy After", "orchid")
 ```
 
----
+
 
 ### Interpretation and Discussion
 
@@ -219,7 +219,7 @@ This illustrates a core difference:
 
 * **Model-free methods** (like Q-Learning and MC) support habitual behavior, relying on cached values learned from past rewards.
 
----
+
 
 ### Conclusion
 
