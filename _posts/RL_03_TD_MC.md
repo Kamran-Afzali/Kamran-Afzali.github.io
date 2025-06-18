@@ -7,8 +7,6 @@ In many real-world decision-making problems, the environment model—comprising 
 
 Two foundational model-free methods are **Temporal Difference (TD) learning** and **Monte Carlo (MC) methods**. TD learning updates value estimates online based on one-step lookahead and bootstrapping, while MC methods learn from complete episodes by averaging returns. This post presents these approaches with mathematical intuition, R implementations, and an illustrative environment. We also compare how learned policies adapt—or fail to adapt—when rewards are changed after training, illuminating the distinction between goal-directed and habitual learning.
 
----
-
 ### Theoretical Background
 
 Suppose an agent interacts with an environment defined by states $S$, actions $A$, a discount factor $\gamma \in [0,1]$, and an unknown MDP dynamics. The goal is to learn the action-value function $Q^\pi(s,a)$, the expected discounted return starting from state $s$, taking action $a$, and following policy $\pi$ thereafter:
@@ -37,7 +35,6 @@ $$
 
 where $N(s,a)$ is the count of visits to $(s,a)$ and $G_t^{(i)}$ is the return following the $i$-th visit.
 
----
 
 ### Step 1: Defining the Environment in R
 
@@ -114,7 +111,6 @@ Running this yields the learned policy:
 ql_policy_before <- q_learning()
 ```
 
----
 
 ### Step 3: Monte Carlo Every-Visit Implementation
 
@@ -158,7 +154,6 @@ The resulting policy is computed by:
 mc_policy_before <- monte_carlo()
 ```
 
----
 
 ### Step 4: Simulating Outcome Devaluation
 
@@ -172,7 +167,6 @@ for (s in 1:(n_states - 1)) {
 }
 ```
 
----
 
 ### Step 5: Comparing Policies Before and After Devaluation
 
@@ -190,7 +184,6 @@ ql_policy_after <- ql_policy_before
 mc_policy_after <- mc_policy_before
 ```
 
----
 
 ### Step 6: Visualizing the Policies
 
