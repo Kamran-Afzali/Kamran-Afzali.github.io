@@ -27,59 +27,75 @@ $$
 \mathbb{E}[Y_{1}(0) - Y_{0}(0) \mid D = 1] = \mathbb{E}[Y_{1}(0) - Y_{0}(0) \mid D = 0]
 $$
 
+Following ractical considerations should be highlighted:  DiD requires panel or repeated cross-sectional data with observations for both groups before and after the treatment; Covariates including control variables (e.g., via regression) can improve precision and account for potential confounders, as long as they are unaffected by the treatment.
+
+
+
 #### **Simulation and Implementation in R**
 
 We simulate a setting with 1000 units and two time points. Treatment is assigned post-$t = 0$ only to some units.
 
 ```r
 set.seed(123)
-n <- 1000
-id <- 1:n
-time <- rep(c(0, 1), each = n)
-unit <- rep(id, times = 2)
 
-# Covariates and group assignment
-x <- rnorm(n)
-treat <- ifelse(x > 0.2, 1, 0)
-treat_rep <- rep(treat, times = 2)
+# Parameters
+n_units <- 100  # 50 treated, 50 control
+time_periods <- 2  # Pre (t=0) and Post (t=1)
+treatment_effect <- 5  # True treatment effect
 
-# Outcome model
-baseline <- 2 + 1.5 * x
-trend <- 1.2
-treatment_effect <- 2
+# Create data
+data <- data.frame(
+  unit = rep(1:n_units, each = time_periods),
+  time = rep(0:1, times = n_units),
+  treated = rep(rep(c(0, 1), each = time_periods), times = n_units/2)
+)
 
-# Generate potential outcomes
-y0 <- baseline + trend * (time == 1)
-y1 <- y0 + treatment_effect * (treat_rep == 1 & time == 1)
+# Generate outcome variable Y
+# Y = baseline + group_effect + time_effect + treatment_effect + noise
+data$Y <- 10 +                      # Baseline
+  2 * data$treated +                # Group effect (treated units slightly higher)
+  3 * data$time +                   # Time trend (both groups increase over time)
+  treatment_effect * data$treated * data$time +  # Treatment effect (only for treated in t=1)
+  rnorm(n = nrow(data), mean = 0, sd = 1)  # Random noise
 
-# Observed outcome
-y <- ifelse(treat_rep == 1 & time == 1, y1, y0)
+# Preview data
+head(data)
 
-data <- data.frame(id = unit, time = time, treat = treat_rep, y = y)
 
-library(dplyr)
+library(ggplot2)
 
-# Calculate DiD manually
-did_data <- data %>%
-  group_by(treat, time) %>%
-  summarise(mean_y = mean(y), .groups = "drop") %>%
-  pivot_wider(names_from = time, values_from = mean_y, names_prefix = "time_")
+# Calculate group means by time
+means <- aggregate(Y ~ time + treated, data = data, mean)
 
-did_estimate <- (did_data$time_1[2] - did_data$time_0[2]) - 
-                (did_data$time_1[1] - did_data$time_0[1])
-did_estimate
+# Plot
+ggplot(means, aes(x = time, y = Y, color = factor(treated), group = treated)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Parallel Trends Check", x = "Time", y = "Outcome (Y)",
+       color = "Group") +
+  scale_color_manual(values = c("blue", "red"), labels = c("Control", "Treated")) +
+  theme_minimal()
+
+# Run DiD regression
+did_model <- lm(Y ~ treated + time + treated:time, data = data)
+
+# Summary of results
+summary(did_model)
+
+
+# Calculate means for each group and time
+means_table <- aggregate(Y ~ treated + time, data = data, mean)
+
+# Extract means
+y0_control <- means_table$Y[means_table$treated == 0 & means_table$time == 0]
+y1_control <- means_table$Y[means_table$treated == 0 & means_table$time == 1]
+y0_treated <- means_table$Y[means_table$treated == 1 & means_table$time == 0]
+y1_treated <- means_table$Y[means_table$treated == 1 & means_table$time == 1]
+
+# Compute DiD
+did_estimate <- (y1_treated - y0_treated) - (y1_control - y0_control)
+cat("DiD Estimate:", did_estimate, "\n")
 ```
-
-We can also estimate DiD via linear regression with interaction:
-
-```r
-model <- lm(y ~ treat * time, data = data)
-summary(model)
-```
-
-The coefficient on `treat:time` estimates the DiD effect. Its consistency depends crucially on **parallel trends**, which should be diagnosed using pre-treatment periods if available (e.g., event study plots).
-
----
 
 ### **Instrumental Variables (IV)**
 
