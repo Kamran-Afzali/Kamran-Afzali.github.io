@@ -229,3 +229,16 @@ By contrasting these methods with Dynamic Programming, which requires a known mo
 
 Future posts will explore extensions including function approximation, eligibility traces, and policy gradient methods.
 
+
+| **Aspect**                     | **Monte Carlo (MC)**                                                                 | **Temporal Difference (Q-Learning)**                                              |
+|-------------------------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| **Learning Approach**          | Learns from complete episodes by averaging returns after each episode.              | Learns incrementally after each state-action transition using bootstrapping.      |
+| **Update Rule**               | Updates Q-value as the mean of observed returns: <br> $Q(s,a) \approx \frac{1}{N(s,a)} \sum_{i=1}^{N(s,a)} G_t^{(i)}$ | Updates Q-value using TD error: <br> $Q(s,a) \leftarrow Q(s,a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s,a) \right)$ |
+| **Episode Requirement**        | Requires complete episodes to compute returns ($G_t$).                              | Does not require complete episodes; updates online after each step.               |
+| **Bias and Variance**         | Unbiased estimate of Q-value, but high variance due to full episode returns.        | Biased due to bootstrapping (relies on current Q estimates), but lower variance.  |
+| **Policy Type**               | Typically on-policy (e.g., with ε-greedy exploration), but can be adapted for off-policy. | Off-policy; learns optimal policy regardless of exploration policy.              |
+| **Computational Efficiency**   | Less efficient; must wait for episode completion before updating.                   | More efficient; updates Q-values immediately after each transition.               |
+| **Adaptation to Change**       | Slow to adapt to environment changes without retraining, as it relies on past episode returns. | Slow to adapt without retraining, but incremental updates allow faster response to changes. |
+| **Implementation in Code**     | Stores state-action-reward sequences, computes discounted returns backward.         | Updates Q-values online using immediate reward and next state’s Q-value.         |
+| **Example in Provided Code**   | Every-visit MC: averages returns for each $(s,a)$ visit in an episode.             | Q-Learning: updates Q-values after each transition using TD rule.                |
+
