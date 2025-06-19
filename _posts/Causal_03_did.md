@@ -169,17 +169,6 @@ Key diagnostics include:
 * **Overidentification tests**: e.g., Hansen J-test, for models with multiple instruments.
 * **Placebo or falsification checks**: assess exclusion by testing instrument association with outcomes that should not be affected.
 
----
-
-### **Integrative Discussion**
-
-Difference-in-Differences and Instrumental Variables represent distinct responses to unobserved confounding. DiD leverages temporal structure and repeated observations, assuming that, in the absence of treatment, both groups would follow the same trajectory. Its simplicity and intuitive interpretation make it a workhorse in policy evaluation.
-
-Instrumental Variables, in contrast, leverage variation from external sources—policy rules, natural experiments, or genetic variants (in Mendelian randomization)—to identify causal effects when ignorability fails. However, IV identifies LATE, not ATE, and the exclusion restriction is often unverifiable and fragile.
-
-Both methods complement regression and propensity score approaches, extending the causal inference toolkit to more complex observational settings.
-
----
 
 ### **Summary Table**
 
@@ -192,9 +181,8 @@ Both methods complement regression and propensity score approaches, extending th
 
 ### **Conclusion**
 
-This post expanded the causal inference framework to cover quasi-experimental methods—Difference-in-Differences and Instrumental Variables. These tools relax the strict ignorability assumptions of regression and propensity-based estimators by incorporating external or structural information. Each requires careful consideration of identification assumptions and diagnostics, particularly the plausibility of parallel trends (for DiD) and the exclusion restriction (for IV). In the next installment, we will consider Regression Discontinuity Designs and Synthetic Control methods, which further extend causal analysis in observational research.
+DiD leverages temporal structure and repeated observations, assuming that, in the absence of treatment, both groups would follow the same trajectory. Its simplicity and intuitive interpretation make it a workhorse in policy evaluation. Instrumental Variables, in contrast, leverage variation from external sources—policy rules, natural experiments, or genetic variants (in Mendelian randomization)—to identify causal effects when ignorability fails. Both methods complement regression and propensity score approaches, extending the causal inference toolkit to more complex observational settings. This post expanded the causal inference framework to cover quasi-experimental methods—Difference-in-Differences and Instrumental Variables. These tools relax the strict ignorability assumptions of regression and propensity-based estimators by incorporating external or structural information. Each requires careful consideration of identification assumptions and diagnostics, particularly the plausibility of parallel trends (for DiD) and the exclusion restriction (for IV). In the next installment, we will consider Regression Discontinuity Designs and Synthetic Control methods, which further extend causal analysis in observational research.
 
----
 
 ### **References**
 
