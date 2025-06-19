@@ -152,8 +152,6 @@ In more general settings, particularly with continuous instruments or treatments
 
 The coefficient $\alpha_1$ from the second stage provides a consistent estimate of the causal effect under the IV assumptions. Importantly, this estimator remains consistent even in the presence of omitted variable bias, provided the instrument is valid.
 
-#### Comparison to Other Causal Methods
-
 Instrumental Variables (IV) estimation differs substantially from other causal inference strategies, such as **propensity score methods** and **Difference-in-Differences (DiD)**, both in terms of identifying assumptions and target estimands.
 
 Propensity score matching and related methods (e.g., inverse probability weighting, doubly robust estimators) rely on the **conditional ignorability assumption**, i.e., $Y(1), Y(0) \perp D \mid X$, which requires that all confounders influencing both treatment and outcome are observed and properly adjusted for. These approaches target the **Average Treatment Effect (ATE)** or the **Average Treatment effect on the Treated (ATT)** across the full population or a matched subpopulation. In contrast, IV methods do not require all confounders to be measured but instead depend on the presence of a valid instrument and identify LATE, a more restricted estimand.
