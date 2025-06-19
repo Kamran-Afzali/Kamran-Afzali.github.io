@@ -200,7 +200,6 @@ Key diagnostics include:
 | Difference-in-Differences | Parallel trends (untreated units represent counterfactual trend) | ATE (under strong assumptions) | `lm(y ~ treat*time)`   | Policy evaluation, natural experiments    |
 | Instrumental Variables    | Exclusion restriction, relevance, independence                   | LATE (compliers only)          | `ivreg()` from **AER** | Endogenous treatment, natural experiments |
 
----
 
 ### **Conclusion**
 
