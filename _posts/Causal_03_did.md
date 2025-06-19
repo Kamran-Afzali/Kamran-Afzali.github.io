@@ -5,9 +5,8 @@ In observational settings where treatment assignment is neither random nor fully
 
 ### **Difference-in-Differences (DiD)**
 
-#### **Motivation and Identification**
 
-Difference-in-Differences (DiD) is a powerful tool when units are observed before and after treatment, and some units remain untreated. The key idea is to estimate the causal effect by comparing the **change** in outcomes over time between treated and untreated groups. Formally, let:
+Difference-in-Differences (DiD) is a tool when units are observed before and after treatment, and some units remain untreated. The key idea is to estimate the causal effect by comparing the **change** in outcomes over time between treated and untreated groups. Formally, let:
 
 * $Y_{it}$: Outcome for unit $i$ at time $t \in \{0, 1\}$
 * $D_i \in \{0,1\}$: Indicator for treated group
@@ -97,44 +96,70 @@ cat("DiD Estimate:", did_estimate, "\n")
 
 ### **Instrumental Variables (IV)**
 
-#### **Motivation and Identification**
+### Instrumental Variables (IV) Estimation
 
-When unmeasured confounding invalidates ignorability, Instrumental Variables (IV) estimation allows recovery of causal effects using an external source of variation in treatment—an **instrument**—that satisfies three key conditions:
+#### Motivation and Identification
 
-1. **Relevance**: The instrument $Z$ is correlated with treatment $D$:
+Instrumental Variables (IV) methods offer a strategy for causal inference in the presence of **unmeasured confounding**, a situation where the standard assumption of conditional ignorability fails. That is, when potential outcomes $Y(1), Y(0)$ are not conditionally independent of treatment $D$ given observed covariates $X$, alternative identification strategies are required. IV methods achieve this by exploiting exogenous variation in treatment induced by an external variable, known as an **instrument** $Z$, which must satisfy a set of well-defined assumptions.
 
-   $$
-   \text{Cov}(Z, D) \neq 0
-   $$
-2. **Exclusion**: The instrument affects outcome $Y$ only through treatment $D$, not directly.
-3. **Independence**: The instrument is as good as randomly assigned, i.e., independent of potential outcomes:
+The validity of an instrumental variable relies on the following three core conditions:
+
+1. **Relevance**: The instrument must have a non-zero correlation with the treatment variable. Formally,
 
    $$
-   Z \perp \{Y(1), Y(0)\}
+   \operatorname{Cov}(Z, D) \neq 0,
    $$
 
-Under these assumptions, IV identifies the **Local Average Treatment Effect (LATE)**—the average effect among **compliers**, those whose treatment status is affected by the instrument.
+   which ensures that the instrument induces variation in the treatment.
 
-#### **Formal Estimator**
+2. **Exclusion Restriction**: The instrument must affect the outcome $Y$ only through its effect on the treatment $D$. That is, conditional on the treatment and covariates, the instrument has no direct effect on the outcome:
 
-The **Wald estimator** for binary $Z$ and $D$ is:
+   $$
+   Y = f(D, X, \varepsilon), \quad \text{with } Z \notin f.
+   $$
+
+3. **Independence (or Exogeneity)**: The instrument must be independent of the unobserved determinants of the outcome, i.e., the instrument is as good as randomly assigned:
+
+   $$
+   Z \perp \{Y(1), Y(0)\} \mid X.
+   $$
+
+When these conditions are met, the IV approach identifies the **Local Average Treatment Effect (LATE)**—the average treatment effect for the subpopulation of **compliers**, individuals whose treatment status is influenced by the instrument. It is important to emphasize that LATE may differ from the Average Treatment Effect (ATE), as it pertains only to a specific subpopulation determined by the instrument’s influence.
+
+#### Theoretical Estimation Framework
+
+In the case of binary instruments and binary treatments, the IV estimand can be expressed via the **Wald estimator**, given by:
 
 $$
-\widehat{\text{LATE}} = \frac{\mathbb{E}[Y \mid Z = 1] - \mathbb{E}[Y \mid Z = 0]}{\mathbb{E}[D \mid Z = 1] - \mathbb{E}[D \mid Z = 0]}
+\widehat{\text{LATE}} = \frac{\mathbb{E}[Y \mid Z = 1] - \mathbb{E}[Y \mid Z = 0]}{\mathbb{E}[D \mid Z = 1] - \mathbb{E}[D \mid Z = 0]}.
 $$
 
-More generally, IV can be estimated by **two-stage least squares (2SLS)**:
+This ratio captures the causal effect among compliers by scaling the change in outcomes induced by the instrument by the change in treatment uptake.
 
-1. First stage: regress treatment on instrument
+In more general settings, particularly with continuous instruments or treatments and with covariates $X$, the causal effect is commonly estimated via **two-stage least squares (2SLS)**. The procedure consists of two sequential regressions:
 
-   $$
-   D_i = \pi_0 + \pi_1 Z_i + \pi_2 X_i + \nu_i
-   $$
-2. Second stage: regress outcome on predicted treatment
+* **First stage**: Estimate the predicted treatment value $\hat{D}_i$ using the instrument:
 
-   $$
-   Y_i = \alpha_0 + \alpha_1 \hat{D}_i + \alpha_2 X_i + \varepsilon_i
-   $$
+  $$
+  D_i = \pi_0 + \pi_1 Z_i + \pi_2^\top X_i + \nu_i.
+  $$
+
+* **Second stage**: Regress the outcome $Y_i$ on the predicted treatment:
+
+  $$
+  Y_i = \alpha_0 + \alpha_1 \hat{D}_i + \alpha_2^\top X_i + \varepsilon_i.
+  $$
+
+The coefficient $\alpha_1$ from the second stage provides a consistent estimate of the causal effect under the IV assumptions. Importantly, this estimator remains consistent even in the presence of omitted variable bias, provided the instrument is valid.
+
+#### Comparison to Other Causal Methods
+
+Instrumental Variables (IV) estimation differs substantially from other causal inference strategies, such as **propensity score methods** and **Difference-in-Differences (DiD)**, both in terms of identifying assumptions and target estimands.
+
+Propensity score matching and related methods (e.g., inverse probability weighting, doubly robust estimators) rely on the **conditional ignorability assumption**, i.e., $Y(1), Y(0) \perp D \mid X$, which requires that all confounders influencing both treatment and outcome are observed and properly adjusted for. These approaches target the **Average Treatment Effect (ATE)** or the **Average Treatment effect on the Treated (ATT)** across the full population or a matched subpopulation. In contrast, IV methods do not require all confounders to be measured but instead depend on the presence of a valid instrument and identify LATE, a more restricted estimand.
+
+Difference-in-Differences (DiD) methods exploit temporal variation in treatment exposure across groups and require the **parallel trends assumption**: that, in the absence of treatment, the difference in outcomes between treated and control groups would have remained constant over time. DiD can accommodate some unobserved confounding, provided it is time-invariant. However, DiD assumes the absence of differential trends, an assumption that cannot be tested directly. Unlike IV, DiD does not rely on an instrument but on quasi-experimental variation in timing or assignment. IV estimation offers a powerful alternative when unmeasured confounding invalidates conditional ignorability, but it comes with its own limitations, such as the difficulty of finding valid instruments and the interpretation of effects limited to compliers. While DiD and propensity score methods may estimate broader effects under stronger assumptions, IV provides robustness to hidden bias at the cost of narrower causal generalizability.
+
 
 #### **Simulation and R Implementation**
 
