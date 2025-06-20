@@ -14,9 +14,9 @@ Difference-in-Differences (DiD) is a tool when units are observed before and aft
 
 The **DiD estimator** is:
 
-\mathbb
-\widehat{\text{DiD}} = \left( \bar{Y}_{1, \text{treated}} - \bar{Y}_{0, \text{treated}} \right) - \left( \bar{Y}_{1, \text{control}} - \bar{Y}_{0, \text{control}} \right)
-\mathbb
+$\widehat{\text{DiD}}$ = 
+$\left( \bar{Y}_{1, \text{treated}} - \bar{Y}_{0, \text{treated}} \right) - \left( \bar{Y}_{1, \text{control}} - \bar{Y}_{0, \text{control}} \right)$
+
 
 This relies on the **parallel trends assumption**: in the absence of treatment, treated and control groups would have experienced the same average change in outcomes. Formally,
 
