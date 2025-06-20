@@ -8,15 +8,15 @@ In observational settings where treatment assignment is neither random nor fully
 
 Difference-in-Differences (DiD) is a tool when units are observed before and after treatment, and some units remain untreated. The key idea is to estimate the causal effect by comparing the **change** in outcomes over time between treated and untreated groups. Formally, let:
 
-* \mathbb Y_{it}$: Outcome for unit $i$ at time $t \in \{0, 1\}
+* $Y_{it}$: Outcome for unit $i$ at time $t \in \{0, 1\}$
 * $D_i \in \{0,1\}$: Indicator for treated group
 * $Y_{i1}(1), Y_{i1}(0)$: Potential outcomes at time 1 under treatment and control
 
 The **DiD estimator** is:
 
-$$
+\mathbb
 \widehat{\text{DiD}} = \left( \bar{Y}_{1, \text{treated}} - \bar{Y}_{0, \text{treated}} \right) - \left( \bar{Y}_{1, \text{control}} - \bar{Y}_{0, \text{control}} \right)
-$$
+\mathbb
 
 This relies on the **parallel trends assumption**: in the absence of treatment, treated and control groups would have experienced the same average change in outcomes. Formally,
 
