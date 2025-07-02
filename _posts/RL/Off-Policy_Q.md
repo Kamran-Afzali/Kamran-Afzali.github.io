@@ -1,62 +1,68 @@
-# Off-Policy Learning in Reinforcement Learning: Applications to Temporal Difference and Monte Carlo Methods
+# On-Policy vs Off-Policy Reinforcement Learning: SARSA, Q-Learning, and Monte Carlo in R
 
 ## Introduction
 
-Reinforcement learning (RL) empowers agents to learn optimal decision-making strategies through interaction with an environment, guided by rewards. A key distinction in RL is between **on-policy** and **off-policy** learning. On-policy methods learn the value of the policy the agent follows, tightly coupling learning to the agent’s current behavior. In contrast, off-policy learning allows an agent to learn the value of an **optimal policy** while following a different, often exploratory, **behavior policy**. This decoupling offers remarkable flexibility, enabling agents to learn from diverse data sources—such as random exploration, human demonstrations, or past experiences—without being constrained by their current actions.
-
-Imagine a robot navigating a maze to find a treasure. An on-policy method like SARSA learns only from the robot’s current path, refining its strategy based on the actions it takes. An off-policy method like Q-learning, however, can learn the fastest route to the treasure even if the robot wanders randomly, by evaluating what would have happened had it taken the best possible actions. This makes off-policy learning powerful for scenarios where exploration is costly or data comes from external sources, such as autonomous driving systems learning from human drivers’ logs or recommendation systems optimizing user engagement using historical data.
-
-Off-policy learning is central to many RL successes, from Deep Q-Networks (DQNs) mastering Atari games to advanced actor-critic methods controlling robotic arms. This post explores off-policy learning applied to **Temporal Difference (TD)** and **Monte Carlo (MC)** methods, with mathematical foundations, R implementations, and a practical example. We demonstrate how off-policy methods learn optimal policies from exploratory behavior and examine their response to environmental changes, contrasting them with on-policy approaches.
+In model-free reinforcement learning (RL), agents learn optimal policies directly from experience without a model of the environment’s dynamics. Two key approaches are on-policy and off-policy methods, exemplified by SARSA (State-Action-Reward-State-Action) and Q-Learning, respectively. Additionally, off-policy Monte Carlo methods leverage importance sampling to learn optimal policies from exploratory data. This post explores these methods, focusing on their theoretical foundations, practical implications, and implementation in R. We use a 10-state, 2-action environment to compare how SARSA, Q-Learning, and off-policy Monte Carlo learn policies and adapt to environmental changes, such as outcome devaluation. Mathematical formulations and R code are provided to illustrate the concepts.
 
 ## Theoretical Background
 
-In RL, an agent interacts with an environment defined by states $S$, actions $A$, rewards $R$, and a discount factor $\gamma \in [0,1]$. The goal is to learn the action-value function $Q^\pi(s,a)$, the expected discounted return starting from state $s$, taking action $a$, and following policy $\pi$:
+Both SARSA, Q-Learning, and off-policy Monte Carlo aim to estimate the action-value function $Q^\pi(s,a)$, the expected discounted return for taking action $a$ in state $s$ and following policy $\pi$:
 
 $$
 Q^\pi(s,a) = \mathbb{E}_\pi \left[ \sum_{t=0}^\infty \gamma^t R_{t+1} \mid S_0 = s, A_0 = a \right]
 $$
 
-### Off-Policy Learning: Concept and Advantages
+where $\gamma \in [0,1]$ is the discount factor, and $R_{t+1}$ is the reward at time $t+1$.
 
-Off-policy learning distinguishes between the **behavior policy** $\mu(a|s)$, which generates actions for exploration (e.g., ε-greedy or random), and the **target policy** $\pi(a|s)$, which is the optimal policy being learned (e.g., greedy). This separation allows the agent to learn the value of the best possible actions even when its current actions are suboptimal or exploratory. For example, in a self-driving car scenario, an off-policy algorithm can learn an optimal driving policy from a dataset of human-driven trajectories, even if those trajectories include mistakes or cautious maneuvers. This flexibility makes off-policy learning ideal for applications where:
+### SARSA (On-Policy)
 
-- **Data is diverse**: Learning from human demonstrations, logged data, or mixed policies (e.g., robotics, where a robot learns from a mix of expert and novice actions).
-- **Exploration is costly**: In healthcare, where trial-and-error is risky, off-policy methods can use historical patient data to optimize treatment policies.
-- **Reusability is key**: In recommendation systems, off-policy learning can improve suggestions by analyzing past user interactions, regardless of the policy used to collect them.
+SARSA is an on-policy method, meaning it learns the value of the policy being followed, including exploration. The update rule is:
 
-The trade-off is potential instability (e.g., in Q-learning with function approximation) or high variance (e.g., in off-policy MC), but these methods enable robust learning in complex, real-world settings.
+$$
+Q(s,a) \leftarrow Q(s,a) + \alpha \left( r + \gamma Q(s', a') - Q(s,a) \right)
+$$
 
-### Off-Policy Temporal Difference (Q-Learning)
+where $\alpha$ is the learning rate, $r$ is the reward, $s'$ is the next state, and $a'$ is the action actually taken in $s'$ according to the current policy (e.g., $\epsilon$-greedy). SARSA updates $Q$ based on the next state-action pair $(s', a')$, making it sensitive to the exploration policy. In the 10-state environment, SARSA learns a policy that accounts for exploratory actions, potentially avoiding risky moves that lead to lower rewards.
 
-Q-learning, a TD method, is inherently off-policy. It updates the Q-value using the maximum Q-value of the next state, assuming the optimal action is taken, regardless of the behavior policy:
+### Q-Learning (Off-Policy)
+
+Q-Learning is an off-policy method, meaning it learns the optimal policy $\pi^*$ regardless of the exploration policy (e.g., $\epsilon$-greedy). The update rule is:
 
 $$
 Q(s,a) \leftarrow Q(s,a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s,a) \right)
 $$
 
-where $\alpha$ is the learning rate, $r$ is the reward, and $s'$ is the next state. For instance, in a game like Pac-Man, Q-learning can learn the optimal move (e.g., chase a power pellet) even if the agent randomly explores other directions, by focusing on the best future outcomes.
+where $\max_{a'} Q(s', a')$ estimates the value of the next state assuming the optimal action. This bootstrapping makes Q-Learning converge to the optimal action-value function $Q^*(s,a)$. In the 10-state environment, Q-Learning favors actions that maximize future rewards (e.g., action 1 in state 9, yielding a 1.0 reward at the terminal state), ignoring exploration effects.
 
 ### Off-Policy Monte Carlo with Importance Sampling
 
-Monte Carlo methods are typically on-policy, averaging returns from episodes generated by the current policy. Off-policy MC uses **importance sampling** to learn the target policy’s value from episodes generated by a different behavior policy. Importance sampling corrects for the mismatch between the behavior policy $\mu(a|s)$ and the target policy $\pi(a|s)$ by weighting the return $G_t$ (cumulative discounted reward from time $t$ onward) with the **importance sampling ratio**:
+Off-policy Monte Carlo uses importance sampling to learn the value of a target policy (e.g., greedy) from episodes generated by a behavior policy (e.g., random). The return $G_t$ (cumulative discounted reward from time $t$ onward) is weighted by the importance sampling ratio:
 
 $$
 \rho_t = \prod_{k=t}^T \frac{\pi(a_k|s_k)}{\mu(a_k|s_k)}
 $$
 
-where $T$ is the episode length. This ratio measures how likely the observed trajectory is under the target policy compared to the behavior policy. For example, in a medical treatment scenario, an off-policy MC agent can learn an optimal treatment policy (e.g., choosing the best drug) from a dataset of random treatments by reweighting the outcomes to reflect what the optimal policy would have achieved. The Q-value update is:
+where $\pi$ is the target policy, $\mu$ is the behavior policy, and $T$ is the episode length. The Q-value update is:
 
 $$
 Q(s,a) \leftarrow Q(s,a) + \alpha \left( \rho_t G_t - Q(s,a) \right)
 $$
 
-**Importance Sampling Mechanics**: If the behavior policy randomly selects actions (e.g., $\mu(a|s) = 0.5$ for two actions), but the target policy is greedy (e.g., $\pi(a|s) = 1$ for the best action, 0 otherwise), the ratio $\rho_t$ emphasizes returns from actions aligned with the greedy policy. This allows the agent to learn from diverse data, such as logged interactions or human demonstrations, without requiring new environment interactions.
+**Importance Sampling Mechanics**: In the 10-state environment, suppose the behavior policy is random (0.5 probability for actions 1 and 2), but the target policy is greedy (choosing the action with the highest Q-value). If the agent in state 9 takes action 2 (reward 0.5 at the terminal state), but the greedy policy prefers action 1 (reward 1.0), the importance sampling ratio $\rho_t$ is low (e.g., 0 if the greedy policy assigns zero probability to action 2), reducing the update’s impact. This allows learning the optimal policy from exploratory trajectories, but high variance can occur if the policies diverge significantly. Weighted importance sampling (as in the code below) normalizes weights to reduce variance, and early termination (stopping when $\rho_t = 0$) improves efficiency.
 
-**Benefits and Challenges**: Importance sampling enables off-policy MC to handle offline RL settings, making it valuable for applications like recommendation systems or robotics, where data is pre-collected. However, it introduces high variance if the behavior and target policies differ significantly, as the ratio $\rho_t$ can become very large or zero. Weighted importance sampling (as used in the code below) mitigates this by normalizing weights, and early termination (stopping updates when $\rho_t = 0$) improves efficiency.
+### Key Differences
 
-## Step 1: Defining the Environment in R
+| **Aspect**            | **SARSA (On-Policy)**                              | **Q-Learning (Off-Policy)**                         | **Off-Policy Monte Carlo**                                                                 |
+|-----------------------|----------------------------------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------|
+| **Update Rule**       | Uses $Q(s', a')$, where $a'$ is sampled from the current policy. | Uses $\max_{a'} Q(s', a')$, assuming the optimal action. | Uses $\rho_t G_t$, where $\rho_t$ reweights returns based on policy likelihoods.            |
+| **Policy Learning**   | Learns the value of the policy being followed (including exploration). | Learns the optimal policy, independent of exploration. | Learns the optimal policy using importance sampling from exploratory trajectories.         |
+| **Exploration Impact**| Exploration affects learned Q-values.               | Exploration does not affect learned Q-values.       | Exploration affects returns, reweighted by importance sampling.                            |
+| **Convergence**       | Converges to the policy’s value if exploration decreases (e.g., $\epsilon \to 0$). | Converges to the optimal policy even with fixed exploration. | Converges to the optimal policy, but variance depends on policy similarity.                |
+| **Behavior**          | More conservative, accounts for exploration risks.  | More aggressive, assumes optimal future actions.    | Aggressive, but variance can lead to unstable learning if policies differ significantly.   |
 
-We use a 10-state, 2-action environment with stochastic transitions and rewards, where the terminal state (state 10) initially yields a reward.
+## Step 1: Environment Setup in R
+
+We use a 10-state, 2-action environment with stochastic transitions and rewards. The terminal state (state 10) yields higher rewards for action 1 (1.0) than action 2 (0.5).
 
 ```r
 # Common settings
@@ -93,12 +99,12 @@ sample_env <- function(s, a) {
 }
 ```
 
-## Step 2: Off-Policy Q-Learning Implementation in R
+## Step 2: Q-Learning Implementation in R
 
-Q-learning uses an ε-greedy behavior policy but learns the greedy target policy via TD updates.
+Q-Learning uses the off-policy update rule, selecting actions via an $\epsilon$-greedy policy.
 
 ```r
-off_policy_q_learning <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
+q_learning <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
   Q <- matrix(0, nrow = n_states, ncol = n_actions)
   
   for (ep in 1:episodes) {
@@ -119,16 +125,40 @@ off_policy_q_learning <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
 }
 ```
 
-Run Q-learning:
+## Step 3: SARSA Implementation in R
+
+SARSA follows the on-policy update rule, selecting the next action $a'$ based on the current policy before updating $Q$.
 
 ```r
-ql_result <- off_policy_q_learning()
-ql_policy_before <- ql_result$policy
+sarsa <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
+  Q <- matrix(0, nrow = n_states, ncol = n_actions)
+  
+  for (ep in 1:episodes) {
+    s <- 1
+    a <- if (runif(1) < epsilon) sample(1:n_actions, 1) else which.max(Q[s, ])
+    while (TRUE) {
+      out <- sample_env(s, a)
+      s_prime <- out$s_prime
+      reward <- out$reward
+      
+      # Select next action a' using the current policy
+      a_prime <- if (runif(1) < epsilon) sample(1:n_actions, 1) else which.max(Q[s_prime, ])
+      
+      # SARSA update
+      Q[s, a] <- Q[s, a] + alpha * (reward + gamma * Q[s_prime, a_prime] - Q[s, a])
+      
+      if (s_prime == n_states) break
+      s <- s_prime
+      a <- a_prime
+    }
+  }
+  list(Q = Q, policy = apply(Q, 1, which.max))
+}
 ```
 
-## Step 3: Off-Policy Monte Carlo Implementation in R
+## Step 4: Off-Policy Monte Carlo Implementation in R
 
-Off-policy MC uses a random behavior policy and importance sampling to learn the greedy target policy.
+Off-policy Monte Carlo uses a random behavior policy and importance sampling to learn the greedy target policy.
 
 ```r
 off_policy_monte_carlo <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
@@ -171,38 +201,31 @@ off_policy_monte_carlo <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) 
 }
 ```
 
-Run off-policy MC:
+## Step 5: Outcome Devaluation
+
+We simulate a change in the environment by setting terminal state rewards to 0 and observe how policies behave without retraining.
 
 ```r
-mc_result <- off_policy_monte_carlo()
-mc_policy_before <- mc_result$policy
-```
+# Run algorithms before devaluation
+sarsa_result_before <- sarsa()
+ql_result_before <- q_learning()
+mc_result_before <- off_policy_monte_carlo()
 
-## Step 4: Simulating Reward Devaluation
-
-We devalue the terminal state’s reward to zero to simulate environmental change.
-
-```r
 # Devalue terminal reward
 for (s in 1:(n_states - 1)) {
   reward_model[s, 1, n_states] <- 0
   reward_model[s, 2, n_states] <- 0
 }
+
+# Policies after devaluation (no retraining)
+sarsa_policy_after <- sarsa_result_before$policy
+ql_policy_after <- ql_result_before$policy
+mc_policy_after <- mc_result_before$policy
 ```
 
-## Step 5: Comparing Policies Before and After Devaluation
+## Step 6: Visualizing Policies
 
-Without retraining, off-policy methods retain their original policies, reflecting habitual behavior.
-
-```r
-# Off-policy methods keep previous policies (habitual)
-ql_policy_after <- ql_policy_before
-mc_policy_after <- mc_policy_before
-```
-
-## Step 6: Visualizing the Policies
-
-Visualize the policies to compare behavior.
+We plot the policies before and after devaluation to compare SARSA, Q-Learning, and off-policy Monte Carlo.
 
 ```r
 plot_policy <- function(policy, label, col = "skyblue") {
@@ -212,32 +235,49 @@ plot_policy <- function(policy, label, col = "skyblue") {
   abline(h = 1.5, lty = 2, col = "gray")
 }
 
-par(mfrow = c(2, 2))
-
-plot_policy(ql_policy_before, "Q-Learning Policy Before", "orange")
-plot_policy(ql_policy_after, "Q-Learning Policy After", "orange")
-plot_policy(mc_policy_before, "Off-Policy MC Policy Before", "orchid")
+par(mfrow = c(2, 3))
+plot_policy(sarsa_result_before$policy, "SARSA Policy Before", "skyblue")
+plot_policy(sarsa_policy_after, "SARSA Policy After", "lightgreen")
+plot_policy(ql_result_before$policy, "Q-Learning Policy Before", "orange")
+plot_policy(ql_policy_after, "Q-Learning Policy After", "lightcoral")
+plot_policy(mc_result_before$policy, "Off-Policy MC Policy Before", "purple")
 plot_policy(mc_policy_after, "Off-Policy MC Policy After", "orchid")
 ```
 
 ## Interpretation and Discussion
 
-Q-learning and off-policy Monte Carlo learn the optimal (greedy) policy from exploratory behavior, leveraging the flexibility of off-policy learning. Q-learning’s TD updates are efficient for online learning, while off-policy MC uses importance sampling to learn from complete episodes, making it suitable for offline settings like learning from logged data. Importance sampling allows off-policy MC to reweight returns from a random behavior policy to estimate the value of a greedy policy, but it can introduce high variance if the policies diverge significantly. After reward devaluation, both methods retain their policies without retraining, demonstrating habitual behavior typical of model-free RL. This contrasts with model-based methods, which adapt instantly to reward changes. Off-policy learning’s ability to use diverse data makes it valuable for applications like robotics (learning from demonstration) or recommendation systems (optimizing from user logs), though it faces challenges like variance in MC or instability in TD with function approximation.
+### Policy Differences
+- **SARSA**: As an on-policy method, it learns the value of the $\epsilon$-greedy policy, which includes exploratory actions. In the 10-state environment, SARSA may balance between actions 1 and 2, reflecting the impact of random exploration, leading to a more conservative policy.
+- **Q-Learning**: As an off-policy method, it learns the optimal policy, favoring action 1 in state 9 (higher terminal reward of 1.0) due to its greedy updates. Its policy is less sensitive to exploration noise, as it assumes optimal future actions.
+- **Off-Policy Monte Carlo**: Also off-policy, it learns the optimal policy using importance sampling to reweight returns from a random behavior policy. It may align closely with Q-Learning’s policy but can exhibit variability due to high variance in importance sampling ratios, especially if the random policy frequently selects action 2 (lower reward).
+
+### Devaluation
+All methods exhibit habitual behavior without retraining, retaining their original policies after the terminal reward is removed. This highlights a limitation of model-free methods compared to model-based approaches (e.g., dynamic programming), which adapt instantly to reward changes.
+
+### Practical Implications
+- **SARSA**: Better suited for environments where the exploration policy must be accounted for, such as safety-critical systems (e.g., robotics), where risky exploratory actions could lead to poor outcomes.
+- **Q-Learning**: Ideal for scenarios where the optimal policy is desired regardless of exploration, such as games or simulations where exploration does not incur real-world costs.
+- **Off-Policy Monte Carlo**: Suitable for offline learning from logged data (e.g., recommendation systems), but high variance can make it less stable than Q-Learning in dynamic environments.
+
+### Experimental Observations
+- Before devaluation, Q-Learning and off-policy Monte Carlo likely favor action 1 in state 9 due to its higher terminal reward, while SARSA’s policy may show more variability due to exploration. 
+- After devaluation, all policies remain unchanged without retraining, illustrating their reliance on cached Q-values.
+- Off-policy Monte Carlo’s performance depends on the similarity between the random behavior policy and the greedy target policy, with high variance potentially leading to less consistent policies compared to Q-Learning.
 
 ## Conclusion
 
-Off-policy learning enhances TD and MC methods by enabling agents to learn optimal policies from diverse, exploratory data. Q-learning’s incremental updates suit dynamic environments, while off-policy MC’s importance sampling supports offline learning from pre-collected trajectories. Future posts will explore off-policy learning in deep RL (e.g., DQN) and advanced methods like DDPG and SAC for continuous action spaces.
+SARSA, Q-Learning, and off-policy Monte Carlo represent distinct paradigms in model-free RL. SARSA’s on-policy updates reflect the exploration policy, making it conservative. Q-Learning’s off-policy updates target the optimal policy, ignoring exploration effects. Off-policy Monte Carlo uses importance sampling to learn from diverse trajectories, enabling offline learning but introducing variance. The R implementations demonstrate these differences in a 10-state environment, and the devaluation experiment underscores their habitual nature. Future posts could explore advanced topics, such as SARSA($\lambda$), deep RL extensions, or variance reduction in off-policy Monte Carlo.
 
 ## Comparison Table
 
-| **Aspect**                     | **Off-Policy Monte Carlo**                                                                 | **Off-Policy Temporal Difference (Q-Learning)**                                              |
-|-------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| **Learning Approach**          | Learns from complete episodes, using importance sampling to adjust for behavior policy.     | Learns incrementally after each transition using bootstrapping.                              |
-| **Update Rule**               | $Q(s,a) \leftarrow Q(s,a) + \alpha \left( \rho_t G_t - Q(s,a) \right)$                    | $Q(s,a) \leftarrow Q(s,a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s,a) \right)$ |
-| **Episode Requirement**        | Requires complete episodes to compute returns and importance weights.                     | Updates online after each step, no episode completion needed.                                |
-| **Bias and Variance**         | Unbiased but high variance due to importance sampling ratios.                             | Biased due to bootstrapping, lower variance.                                                |
-| **Policy Type**               | Off-policy; learns greedy policy from exploratory behavior using importance sampling.      | Off-policy; learns greedy policy via max Q-value.                                           |
-| **Computational Efficiency**   | Less efficient; requires episode completion and ratio calculations.                       | More efficient; updates immediately after each transition.                                  |
-| **Adaptation to Change**       | Slow to adapt without retraining, relies on past episode returns.                         | Slow to adapt without retraining, but incremental updates allow faster response.             |
-| **Implementation in Code**     | Stores episodes, computes weighted returns backward using importance sampling.            | Updates Q-values online using TD rule and max Q-value.                                      |
-| **Example in Provided Code**   | Off-policy MC with random behavior policy, greedy target policy.                          | Q-Learning with ε-greedy behavior policy, greedy target policy.                             |
+| **Aspect**                     | **SARSA (On-Policy)**                              | **Q-Learning (Off-Policy)**                         | **Off-Policy Monte Carlo**                                                                 |
+|-------------------------------|----------------------------------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------|
+| **Learning Approach**          | Learns incrementally, updates based on action taken by behavior policy. | Learns incrementally, updates based on best action in next state. | Learns from complete episodes, using importance sampling.                                   |
+| **Update Rule**               | $Q(s,a) \leftarrow Q(s,a) + \alpha \left( r + \gamma Q(s', a') - Q(s,a) \right)$ | $Q(s,a) \leftarrow Q(s,a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s,a) \right)$ | $Q(s,a) \leftarrow Q(s,a) + \alpha \left( \rho_t G_t - Q(s,a) \right)$                    |
+| **Episode Requirement**        | Updates online, no episode completion needed.       | Updates online, no episode completion needed.       | Requires complete episodes for returns and importance weights.                             |
+| **Bias and Variance**         | Biased due to bootstrapping, moderate variance.     | Biased due to bootstrapping, lower variance.        | Unbiased but high variance due to importance sampling.                                     |
+| **Policy Type**               | On-policy; learns value of behavior policy.         | Off-policy; learns optimal policy via max Q-value.  | Off-policy; learns greedy policy using importance sampling.                                |
+| **Exploration Impact**        | Exploration affects learned Q-values.               | Exploration does not affect learned Q-values.       | Exploration affects returns, reweighted by importance sampling.                            |
+| **Convergence**               | Converges to policy’s value if $\epsilon \to 0$.    | Converges to optimal policy even with fixed $\epsilon$. | Converges to optimal policy, but variance depends on policy similarity.                    |
+| **Behavior**                  | Conservative, accounts for exploration risks.       | Aggressive, assumes optimal future actions.         | Aggressive, but variance can lead to instability.                                          |
+| **Example in Environment**    | Balances actions 1 and 2, sensitive to exploration. | Favors action 1 (higher reward) in state 9.         | Favors action 1, but variance may cause variability.                                       |
