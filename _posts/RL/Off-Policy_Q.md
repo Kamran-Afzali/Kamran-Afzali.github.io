@@ -60,9 +60,8 @@ $$
 | **Convergence**       | Converges to the policy’s value if exploration decreases (e.g., $\epsilon \to 0$). | Converges to the optimal policy even with fixed exploration. | Converges to the optimal policy, but variance depends on policy similarity.                |
 | **Behavior**          | More conservative, accounts for exploration risks.  | More aggressive, assumes optimal future actions.    | Aggressive, but variance can lead to unstable learning if policies differ significantly.   |
 
-## Step 1: Environment Setup in R
 
-We use a 10-state, 2-action environment with stochastic transitions and rewards. The terminal state (state 10) yields higher rewards for action 1 (1.0) than action 2 (0.5).
+
 
 ```r
 # Common settings
@@ -90,158 +89,230 @@ for (s in 1:(n_states - 1)) {
 transition_model[n_states, , ] <- 0
 reward_model[n_states, , ] <- 0
 
-# Sampling function
-sample_env <- function(s, a) {
-  probs <- transition_model[s, a, ]
-  s_prime <- sample(1:n_states, 1, prob = probs)
-  reward <- reward_model[s, a, s_prime]
-  list(s_prime = s_prime, reward = reward)
-}
-```
-
-## Step 2: Q-Learning Implementation in R
-
-Q-Learning uses the off-policy update rule, selecting actions via an $\epsilon$-greedy policy.
-
-```r
-q_learning <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
-  Q <- matrix(0, nrow = n_states, ncol = n_actions)
-  
-  for (ep in 1:episodes) {
-    s <- 1
-    while (TRUE) {
-      a <- if (runif(1) < epsilon) sample(1:n_actions, 1) else which.max(Q[s, ])
-      out <- sample_env(s, a)
-      s_prime <- out$s_prime
-      reward <- out$reward
-      
-      Q[s, a] <- Q[s, a] + alpha * (reward + gamma * max(Q[s_prime, ]) - Q[s, a])
-      
-      if (s_prime == n_states) break
-      s <- s_prime
-    }
+# Helper function: Epsilon-greedy policy
+epsilon_greedy <- function(Q, state, epsilon) {
+  if (runif(1) < epsilon) {
+    sample(1:n_actions, 1)
+  } else {
+    which.max(Q[state, ])
   }
-  list(Q = Q, policy = apply(Q, 1, which.max))
 }
-```
 
-## Step 3: SARSA Implementation in R
-
-SARSA follows the on-policy update rule, selecting the next action $a'$ based on the current policy before updating $Q$.
-
-```r
-sarsa <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
-  Q <- matrix(0, nrow = n_states, ncol = n_actions)
-  
-  for (ep in 1:episodes) {
-    s <- 1
-    a <- if (runif(1) < epsilon) sample(1:n_actions, 1) else which.max(Q[s, ])
-    while (TRUE) {
-      out <- sample_env(s, a)
-      s_prime <- out$s_prime
-      reward <- out$reward
-      
-      # Select next action a' using the current policy
-      a_prime <- if (runif(1) < epsilon) sample(1:n_actions, 1) else which.max(Q[s_prime, ])
-      
-      # SARSA update
-      Q[s, a] <- Q[s, a] + alpha * (reward + gamma * Q[s_prime, a_prime] - Q[s, a])
-      
-      if (s_prime == n_states) break
-      s <- s_prime
-      a <- a_prime
-    }
-  }
-  list(Q = Q, policy = apply(Q, 1, which.max))
+# Helper function: Simulate environment
+simulate_step <- function(state, action) {
+  probs <- transition_model[state, action, ]
+  next_state <- sample(1:n_states, 1, prob = probs)
+  reward <- reward_model[state, action, next_state]
+  list(next_state = next_state, reward = reward)
 }
-```
 
-## Step 4: Off-Policy Monte Carlo Implementation in R
-
-Off-policy Monte Carlo uses a random behavior policy and importance sampling to learn the greedy target policy.
-
-```r
-off_policy_monte_carlo <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
-  Q <- matrix(0, nrow = n_states, ncol = n_actions)
-  C <- matrix(0, nrow = n_states, ncol = n_actions)  # Cumulative importance weights
+# SARSA
+sarsa <- function(n_episodes = 1000, alpha = 0.1, epsilon = 0.1) {
+  Q <- matrix(0, n_states, n_actions)
+  policy <- rep(0, n_states)
+  rewards <- numeric(n_episodes)
   
-  for (ep in 1:episodes) {
-    episode <- list()
-    s <- 1
-    # Use random behavior policy (uniform over actions)
-    while (TRUE) {
-      a <- sample(1:n_actions, 1)
-      out <- sample_env(s, a)
-      episode[[length(episode) + 1]] <- list(state = s, action = a, reward = out$reward)
-      if (out$s_prime == n_states) break
-      s <- out$s_prime
-    }
+  for (episode in 1:n_episodes) {
+    state <- sample(1:(n_states - 1), 1)
+    action <- epsilon_greedy(Q, state, epsilon)
+    episode_reward <- 0
     
+    while (state != terminal_state) {
+      step <- simulate_step(state, action)
+      next_state <- step$next_state
+      reward <- step$reward
+      next_action <- epsilon_greedy(Q, next_state, epsilon)
+      
+      Q[state, action] <- Q[state, action] + alpha * (
+        reward + gamma * Q[next_state, next_action] - Q[state, action]
+      )
+      
+      state <- next_state
+      action <- next_action
+      episode_reward <- episode_reward + reward
+    }
+    rewards[episode] <- episode_reward
+  }
+  
+  policy[1:(n_states - 1)] <- apply(Q[1:(n_states - 1), ], 1, which.max)
+  list(Q = Q, policy = policy, rewards = rewards)
+}
+
+# Q-Learning
+q_learning <- function(n_episodes = 1000, alpha = 0.1, epsilon = 0.1) {
+  Q <- matrix(0, n_states, n_actions)
+  policy <- rep(0, n_states)
+  rewards <- numeric(n_episodes)
+  
+  for (episode in 1:n_episodes) {
+    state <- sample(1:(n_states - 1), 1)
+    episode_reward <- 0
+    
+    while (state != terminal_state) {
+      action <- epsilon_greedy(Q, state, epsilon)
+      step <- simulate_step(state, action)
+      next_state <- step$next_state
+      reward <- step$reward
+      
+      Q[state, action] <- Q[state, action] + alpha * (
+        reward + gamma * max(Q[next_state, ]) - Q[state, action]
+      )
+      
+      state <- next_state
+      episode_reward <- episode_reward + reward
+    }
+    rewards[episode] <- episode_reward
+  }
+  
+  policy[1:(n_states - 1)] <- apply(Q[1:(n_states - 1), ], 1, which.max)
+  list(Q = Q, policy = policy, rewards = rewards)
+}
+
+# Off-Policy Monte Carlo
+off_policy_mc <- function(n_episodes = 1000, epsilon = 0.1) {
+  Q <- matrix(0, n_states, n_actions)
+  C <- matrix(0, n_states, n_actions)  # Cumulative weights
+  policy <- rep(0, n_states)
+  rewards <- numeric(n_episodes)
+  
+  for (episode in 1:n_episodes) {
+    # Generate episode using behavior policy (epsilon-greedy)
+    states <- numeric(0)
+    actions <- numeric(0)
+    rewards_ep <- numeric(0)
+    state <- sample(1:(n_states - 1), 1)
+    
+    while (state != terminal_state) {
+      action <- sample(1:n_actions, 1)  # Behavior policy: random
+      step <- simulate_step(state, action)
+      next_state <- step$next_state
+      reward <- step$reward
+      
+      states <- c(states, state)
+      actions <- c(actions, action)
+      rewards_ep <- c(rewards_ep, reward)
+      state <- next_state
+    }
+    rewards[episode] <- sum(rewards_ep)
+    
+    # Update Q using importance sampling
     G <- 0
-    W <- 1  # Importance sampling ratio
-    for (t in length(episode):1) {
-      s <- episode[[t]]$state
-      a <- episode[[t]]$action
-      r <- episode[[t]]$reward
-      G <- gamma * G + r
+    W <- 1
+    for (t in length(states):1) {
+      state <- states[t]
+      action <- actions[t]
+      reward <- rewards_ep[t]
       
-      # Update only if the action matches the greedy target policy
-      greedy_a <- which.max(Q[s, ])
-      if (a == greedy_a) {
-        C[s, a] <- C[s, a] + W
-        Q[s, a] <- Q[s, a] + (W / C[s, a]) * (G - Q[s, a])
-      }
+      G <- gamma * G + reward
+      C[state, action] <- C[state, action] + W
+      Q[state, action] <- Q[state, action] + (W / C[state, action]) * (G - Q[state, action])
       
-      # Update importance sampling ratio (behavior: uniform, target: greedy)
-      W <- W * (ifelse(a == greedy_a, 1 / epsilon, 0) / (1 / n_actions))
-      if (W == 0) break  # Early termination if ratio becomes zero
+      pi_action <- which.max(Q[state, ])
+      if (action != pi_action) break
+      W <- W / (1 / n_actions)  # Importance sampling ratio
     }
   }
-  list(Q = Q, policy = apply(Q, 1, which.max))
-}
-```
-
-## Step 5: Outcome Devaluation
-
-We simulate a change in the environment by setting terminal state rewards to 0 and observe how policies behave without retraining.
-
-```r
-# Run algorithms before devaluation
-sarsa_result_before <- sarsa()
-ql_result_before <- q_learning()
-mc_result_before <- off_policy_monte_carlo()
-
-# Devalue terminal reward
-for (s in 1:(n_states - 1)) {
-  reward_model[s, 1, n_states] <- 0
-  reward_model[s, 2, n_states] <- 0
+  
+  policy[1:(n_states - 1)] <- apply(Q[1:(n_states - 1), ], 1, which.max)
+  list(Q = Q, policy = policy, rewards = rewards)
 }
 
-# Policies after devaluation (no retraining)
-sarsa_policy_after <- sarsa_result_before$policy
-ql_policy_after <- ql_result_before$policy
-mc_policy_after <- mc_result_before$policy
-```
-
-## Step 6: Visualizing Policies
-
-We plot the policies before and after devaluation to compare SARSA, Q-Learning, and off-policy Monte Carlo.
-
-```r
-plot_policy <- function(policy, label, col = "skyblue") {
-  barplot(policy, names.arg = 1:n_states, col = col,
-          ylim = c(0, 3), ylab = "Action (1=A1, 2=A2)",
-          main = label)
-  abline(h = 1.5, lty = 2, col = "gray")
+# Value Iteration (from DP)
+value_iteration <- function(transition_model, reward_model, gamma, epsilon = 1e-6, max_iter = 1000) {
+  V <- rep(0, n_states)
+  policy <- rep(0, n_states)
+  delta <- Inf
+  iter <- 0
+  
+  while (delta > epsilon && iter < max_iter) {
+    delta <- 0
+    V_old <- V
+    
+    for (s in 1:(n_states - 1)) {
+      Q <- numeric(n_actions)
+      for (a in 1:n_actions) {
+        Q[a] <- sum(transition_model[s, a, ] * (reward_model[s, a, ] + gamma * V))
+      }
+      V[s] <- max(Q)
+      policy[s] <- which.max(Q)
+      delta <- max(delta, abs(V[s] - V_old[s]))
+    }
+    iter <- iter + 1
+  }
+  
+  # Evaluate DP policy
+  rewards <- numeric(1000)
+  for (episode in 1:1000) {
+    state <- sample(1:(n_states - 1), 1)
+    episode_reward <- 0
+    while (state != terminal_state) {
+      action <- policy[state]
+      step <- simulate_step(state, action)
+      episode_reward <- episode_reward + step$reward
+      state <- step$next_state
+    }
+    rewards[episode] <- episode_reward
+  }
+  
+  list(V = V, policy = policy, rewards = rewards)
 }
 
-par(mfrow = c(2, 3))
-plot_policy(sarsa_result_before$policy, "SARSA Policy Before", "skyblue")
-plot_policy(sarsa_policy_after, "SARSA Policy After", "lightgreen")
-plot_policy(ql_result_before$policy, "Q-Learning Policy Before", "orange")
-plot_policy(ql_policy_after, "Q-Learning Policy After", "lightcoral")
-plot_policy(mc_result_before$policy, "Off-Policy MC Policy Before", "purple")
-plot_policy(mc_policy_after, "Off-Policy MC Policy After", "orchid")
+# Run algorithms
+set.seed(42)
+dp_result <- value_iteration(transition_model, reward_model, gamma)
+sarsa_result <- sarsa(n_episodes = 1000, alpha = 0.1, epsilon = 0.1)
+qlearn_result <- q_learning(n_episodes = 1000, alpha = 0.1, epsilon = 0.1)
+mc_result <- off_policy_mc(n_episodes = 1000, epsilon = 0.1)
+
+# Visualization
+library(ggplot2)
+library(gridExtra)
+
+# Policy comparison
+policy_df <- data.frame(
+  State = rep(1:n_states, 4),
+  Policy = c(dp_result$policy, sarsa_result$policy, qlearn_result$policy, mc_result$policy),
+  Algorithm = rep(c("DP", "SARSA", "Q-Learning", "Off-Policy MC"), each = n_states)
+)
+policy_df$Policy[n_states * 0:3 + n_states] <- NA  # Terminal state
+
+policy_plot <- ggplot(policy_df, aes(x = State, y = Policy, color = Algorithm)) +
+  geom_point(size = 3) +
+  geom_line(aes(group = Algorithm), na.rm = TRUE) +
+  theme_minimal() +
+  labs(title = "Optimal Policies by Algorithm", x = "State", y = "Action") +
+  scale_x_continuous(breaks = 1:n_states) +
+  scale_y_continuous(breaks = 1:n_actions, labels = c("Action 1", "Action 2")) +
+  theme(legend.position = "bottom")
+
+# Reward comparison
+reward_df <- data.frame(
+  Episode = rep(1:1000, 4),
+  Reward = c(
+    cumsum(dp_result$rewards),
+    cumsum(sarsa_result$rewards),
+    cumsum(qlearn_result$rewards),
+    cumsum(mc_result$rewards)
+  ),
+  Algorithm = rep(c("DP", "SARSA", "Q-Learning", "Off-Policy MC"), each = 1000)
+)
+
+reward_plot <- ggplot(reward_df, aes(x = Episode, y = Reward, color = Algorithm)) +
+  geom_line() +
+  theme_minimal() +
+  labs(title = "Cumulative Reward Comparison", x = "Episode", y = "Cumulative Reward") +
+  theme(legend.position = "bottom")
+
+# Display plots
+grid.arrange(policy_plot, reward_plot, ncol = 1)
+
+# Print performance metrics
+cat("Average Cumulative Reward per Episode:\n")
+cat("DP:", mean(dp_result$rewards), "\n")
+cat("SARSA:", mean(sarsa_result$rewards), "\n")
+cat("Q-Learning:", mean(qlearn_result$rewards), "\n")
+cat("Off-Policy MC:", mean(mc_result$rewards), "\n")
+                            
 ```
 
 ## Interpretation and Discussion
