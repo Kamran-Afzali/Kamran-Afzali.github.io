@@ -175,3 +175,126 @@ In high-stakes domains like healthcare, the stakes of uncertainty and bias are m
 * Ghahramani, Z. (2015). Probabilistic machine learning and artificial intelligence. *Nature*, 521(7553), 452–459.
 * Obermeyer, Z., & Mullainathan, S. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. *Science*, 366(6464), 447–453.
 
+
+
+
+### Quantifying Uncertainty in Random Forests
+
+Random forests allow for a form of **non-Bayesian predictive uncertainty quantification** using the **variation across trees** in the ensemble. Because each tree is trained on a bootstrap sample, the **distribution of predictions across the ensemble** provides a measure of uncertainty.
+
+Let the prediction of the $t$-th tree for input $\mathbf{x}^*$ be $\hat{y}_t(\mathbf{x}^*)$, and let there be $T$ trees. Then:
+
+$$
+\hat{y}_{RF}(\mathbf{x}^*) = \frac{1}{T} \sum_{t=1}^T \hat{y}_t(\mathbf{x}^*)
+$$
+
+The **standard deviation** across tree predictions approximates uncertainty:
+
+$$
+\text{Uncertainty}(\mathbf{x}^*) = \sqrt{\frac{1}{T} \sum_{t=1}^T \left( \hat{y}_t(\mathbf{x}^*) - \hat{y}_{RF}(\mathbf{x}^*) \right)^2}
+$$
+
+This captures how “certain” the forest is about a prediction—wider disagreement among trees signals higher uncertainty.
+
+---
+
+### R Code: Random Forest with Uncertainty Estimation
+
+```r
+# Load libraries
+library(randomForest)
+library(tidyverse)
+
+# Simulate healthcare dataset
+set.seed(123)
+n <- 1000
+data <- tibble(
+  age = rnorm(n, 50, 10),
+  bmi = rnorm(n, 27, 5),
+  glucose = rnorm(n, 100, 20),
+  diabetes = rbinom(n, 1, prob = plogis(0.04 * age + 0.06 * bmi + 0.03 * glucose - 8))
+)
+
+# Fit random forest model
+rf_model <- randomForest(as.factor(diabetes) ~ age + bmi + glucose, data = data, ntree = 500, keep.forest = TRUE)
+
+# Function to get prediction distribution
+predict_proba_rf <- function(model, newdata) {
+  votes <- predict(model, newdata, type = "prob", predict.all = TRUE)
+  probs <- votes$individual[,,2]  # probabilities for class "1"
+  list(mean_prob = rowMeans(probs), sd_prob = apply(probs, 1, sd))
+}
+
+# Predict for a new patient
+new_patient <- data.frame(age = 55, bmi = 30, glucose = 110)
+pred_info <- predict_proba_rf(rf_model, new_patient)
+
+cat("Predicted diabetes risk:", pred_info$mean_prob, "\n")
+cat("Uncertainty (SD across trees):", pred_info$sd_prob, "\n")
+```
+
+This approach to uncertainty is not Bayesian but still informative, especially when used to flag low-confidence predictions for further review.
+
+
+## Bias in Healthcare ML
+
+Bias in ML systems can magnify existing health inequities. Key types of bias include:
+
+* **Selection bias**: Underrepresentation of key subgroups, such as patients from remote communities.
+* **Measurement bias**: Inconsistent or skewed measurements, like using Eurocentric thresholds for metabolic syndrome.
+* **Representation bias**: A dataset that fails to reflect clinical heterogeneity, e.g., atypical cardiovascular symptoms in women.
+
+Random forests, although flexible, **learn from the biases in the data** and can perpetuate them unless fairness is explicitly evaluated and enforced.
+
+
+### Fairness Metrics for Evaluating Bias
+
+Let $\hat{y}$ be the predicted label, and $A$ the sensitive attribute (e.g., gender, ethnicity).
+
+#### Demographic Parity:
+
+$$
+P(\hat{y} = 1 \mid A = a_1) = P(\hat{y} = 1 \mid A = a_2)
+$$
+
+#### Equal Opportunity:
+
+$$
+P(\hat{y} = 1 \mid y = 1, A = a_1) = P(\hat{y} = 1 \mid y = 1, A = a_2)
+$$
+
+These criteria ensure, respectively, equal treatment and equal benefit for subgroups.
+
+
+### R Code: Fairness Evaluation for Random Forest
+
+```r
+# Add gender to data
+set.seed(321)
+data$gender <- sample(c("male", "female"), size = n, replace = TRUE)
+
+# Predict probabilities
+data$pred_prob <- predict(rf_model, type = "prob")[,2]
+
+# Binarize predictions using threshold
+data$pred <- data$pred_prob > 0.5
+
+# Demographic Parity
+dem_parity <- data %>%
+  group_by(gender) %>%
+  summarise(rate = mean(pred)) %>%
+  summarise(diff = abs(diff(rate)))
+
+# Equal Opportunity
+equal_opp <- data %>%
+  filter(diabetes == 1) %>%
+  group_by(gender) %>%
+  summarise(tpr = mean(pred)) %>%
+  summarise(diff = abs(diff(tpr)))
+
+cat("Demographic parity difference:", dem_parity$diff, "\n")
+cat("Equal opportunity difference:", equal_opp$diff, "\n")
+```
+
+These metrics quantify disparities in model behavior across demographic groups. If differences are substantial, remedial action is needed—such as stratified modeling, reweighting, or adversarial debiasing.
+
