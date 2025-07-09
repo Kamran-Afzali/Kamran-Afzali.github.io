@@ -70,7 +70,7 @@ model <- stan_glm(diabetes ~ age + bmi + glucose,
 new_patient <- data.frame(age = 55, bmi = 30, glucose = 110)
 pred_samples <- posterior_predict(model, newdata = new_patient, draws = 1000)
 pred_prob <- mean(pred_samples)
-cred_interval <- quantile(pred_samples, c(0.025, 0.975))
+cred_interval <- cred_interval <- sqrt(pred_prob*(1-pred_prob))
 
 cat("Predicted probability of diabetes:", pred_prob, "\n")
 cat("95% credible interval:", cred_interval, "\n")
@@ -118,8 +118,8 @@ rf_model <- randomForest(as.factor(diabetes) ~ age + bmi + glucose, data = data,
 # Function to get prediction distribution
 predict_proba_rf <- function(model, newdata) {
   votes <- predict(model, newdata, type = "prob", predict.all = TRUE)
-  probs <- votes$individual[,,2]  # probabilities for class "1"
-  list(mean_prob = rowMeans(probs), sd_prob = apply(probs, 1, sd))
+  probs <- as.numeric(as.character(votes$individual)) # probabilities for class "1"
+  list(mean_prob = mean(probs), sd_prob = sd(probs))
 }
 
 # Predict for a new patient
