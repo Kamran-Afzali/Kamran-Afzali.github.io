@@ -130,12 +130,12 @@ cat("Predicted diabetes risk:", pred_info$mean_prob, "\n")
 cat("Uncertainty (SD across trees):", pred_info$sd_prob, "\n")
 ```
 
-This approach to uncertainty is not Bayesian but still informative, especially when used to flag low-confidence predictions for further review.
+Although this approach to uncertainty is not Bayesian but still informative, especially when used to flag low-confidence predictions for further review.
 
 
 ## Bias 
 
-Bias in ML systems can exacerbate health disparities if not properly addressed. Three common forms of bias are:
+Bias in ML systems can exacerbate health disparities if not properly addressed. As we mentioned in the first  [post](https://kamran-afzali.github.io/posts/2023-12-22/Uncertainty_bias.html) three common forms of bias are:
 
 * **Selection bias**: Training data omits or underrepresents certain groups (e.g., rural patients, Indigenous communities).
 * **Measurement bias**: Systematic errors in variable definitions across groups (e.g., different blood pressure thresholds).
@@ -232,22 +232,7 @@ These metrics quantify disparities in model behavior across demographic groups. 
 
 ## Implications for Responsible Healthcare AI
 
-When machine learning systems are used in clinical contexts, addressing uncertainty and bias is not just a technical requirement but an **ethical imperative**. Unchecked uncertainty in underrepresented populations (e.g., rare diseases, Indigenous patients) may lead to avoidable harm. Biased predictions can reinforce historical inequities and erode trust in healthcare institutions.
-
-### Best Practices
-
-* **Uncertainty-Aware Models**: Use Bayesian or ensemble methods to quantify uncertainty and flag high-risk cases.
-* **Bias Detection**: Regularly audit models for fairness across demographic strata.
-* **Transparent Design**: Ensure interpretability to enable scrutiny by clinicians and patients.
-* **Diverse Data**: Expand data collection to include historically underserved populations.
-* **Multidisciplinary Review**: Include stakeholders (clinicians, ethicists, patients) in the model development lifecycle.
-
-
-
-## Conclusion
-
-In high-stakes domains like healthcare, the stakes of uncertainty and bias are magnified. By employing Bayesian approaches to quantify uncertainty and fairness metrics to detect bias, ML practitioners can design systems that are both scientifically sound and ethically aligned. These efforts are foundational to building **trustworthy AI** that supports equitable and effective patient care.
-
+The integration of machine learning systems into clinical settings has several implications for the ethical practice of healthcare, that requires a commitment to addressing uncertainty and bias as ethical priorities. When these systems operate without rigorous checks, they risk perpetuating harm, particularly among underrepresented groups such as those with rare diseases or Indigenous patients. Biased predictions not only exacerbate longstanding inequities but also undermine confidence in healthcare institutions, eroding the trust essential for effective care delivery. To ensure responsible use of AI in healthcare, models must be designed with uncertainty quantification at their core, employing approaches such as Bayesian methods or ensemble techniques to identify and highlight high-risk cases where predictions may falter. Regular audits for fairness across diverse demographic groups are essential to detect and mitigate bias, ensuring equitable performance of these systems. Transparency in design is equally critical, as interpretable models allow clinicians and patients to scrutinize outputs and foster accountability. Furthermore, expanding data collection to encompass historically underserved populations is vital to reducing gaps in representation that fuel inequitable outcomes. Finally, the development process should incorporate multidisciplinary perspectives, engaging clinicians, ethicists, and patients to ensure that models align with the values and needs of those they serve. By embedding these practices, healthcare AI can uphold the principles of fairness, accountability, and trust, advancing both patient outcomes and societal well-being.
 
 
 ## References
