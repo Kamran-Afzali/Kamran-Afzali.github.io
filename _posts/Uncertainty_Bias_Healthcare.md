@@ -194,7 +194,7 @@ cat("Demographic parity difference:", dem_parity$diff, "\n")
 cat("Equal opportunity difference:", equal_opp$diff, "\n")
 ```
 
-These fairness audits reveal whether the model disproportionately favors one group in terms of positive predictions or true positive rates. If disparities are large, they may indicate structural inequities in the training data or modeling assumptions.
+
 
 ### R Code: Fairness Evaluation for Random Forest
 
@@ -226,8 +226,7 @@ cat("Demographic parity difference:", dem_parity$diff, "\n")
 cat("Equal opportunity difference:", equal_opp$diff, "\n")
 ```
 
-These metrics quantify disparities in model behavior across demographic groups. If differences are substantial, remedial action is needed—such as stratified modeling, reweighting, or adversarial debiasing.
-
+These fairness metrics highlight whether the model disproportionately favors one group in terms of positive predictions or true positive rates. If disparities are large, they may indicate structural inequities in the training data or modeling assumptions that can be adressed through stratified modeling, reweighting, or adversarial debiasing.
 
 
 ## Implications for Responsible Healthcare AI
