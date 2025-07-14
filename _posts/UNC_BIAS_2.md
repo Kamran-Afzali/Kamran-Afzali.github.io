@@ -49,8 +49,6 @@ cat("Predictive variance:", pred_var, "\n")
 cat("95% CI:", pred + c(-1.96, 1.96) * sqrt(pred_var), "\n")
 ```
 
-While `kernlab` does not expose full posterior diagnostics, it provides a useful approximation for uncertainty-aware regression.
-
 ## Conformal Prediction for Model-Agnostic Intervals
 
 Unlike Bayesian methods that require probabilistic models, **conformal prediction** offers a frequentist framework for constructing prediction intervals with finite-sample coverage guarantees. It is model-agnostic and particularly useful when underlying model assumptions are questionable.
