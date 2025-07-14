@@ -1,10 +1,10 @@
 # Uncertainty and Bias Analysis in Healthcare Machine Learning II
 
-This second installment continues our exploration of uncertainty and bias in healthcare machine learning (ML), extending the foundational ideas discussed previously with more sophisticated techniques. In clinical contexts where decisions have high-stakes consequences, refining our understanding and quantification of uncertainty, and proactively addressing algorithmic bias, is not merely a technical matter—it is an ethical imperative. This essay introduces three advanced tools: **Gaussian Process Regression (GPR)** for modeling continuous outcomes with calibrated uncertainty, **conformal prediction** for constructing reliable prediction intervals, and **adversarial debiasing** as a framework for enforcing fairness across sensitive groups. The exposition emphasizes conceptual clarity, mathematical precision, and hands-on implementation using R.
+This second on the subject continues our exploration of uncertainty and bias in healthcare machine learning (ML), building on the the ideas discussed previously with more complex techniques. In clinical contexts with high-stakes decisions and major consequences, quantification of uncertainty and addressing algorithmic bias, is not only a technical matter—it is an ethical imperative. This essay introduces three advanced tools: **Gaussian Process Regression (GPR)** for modeling continuous outcomes with calibrated uncertainty, **conformal prediction** for constructing reliable prediction intervals, and **adversarial debiasing** as a framework for enforcing fairness across sensitive groups. 
 
 ## Modeling Predictive Uncertainty with Gaussian Processes
 
-In many healthcare applications, such as predicting blood glucose levels or estimating hospital stay durations, we are concerned not only with the accuracy of point estimates but also with the confidence we can place in them. **Gaussian Process Regression (GPR)** offers a nonparametric Bayesian framework for continuous outcome modeling that directly yields predictive uncertainty.
+In many healthcare applications (e.g. predicting blood glucose levels or estimating hospital stay durations) we are concerned not only with the accuracy of point estimates but also with the confidence we can place in them. **Gaussian Process Regression (GPR)**, discussed earlier in our Bayesian statistics posts, can directly highlight predictive uncertainty.
 
 A Gaussian process defines a distribution over functions such that any finite set of function values follows a multivariate normal distribution. Formally, a Gaussian process is defined by a mean function $m(\mathbf{x})$ (often set to zero) and a covariance function $k(\mathbf{x}, \mathbf{x}')$. A common choice for the kernel is the squared exponential:
 
@@ -19,7 +19,6 @@ $$
 
 Here, $\mathbf{K}$ is the covariance matrix over the training inputs, $\mathbf{k}_*$ is the vector of covariances between the test point and training inputs, and $\sigma_n^2$ is the observation noise variance. Importantly, the predictive variance captures both **aleatoric uncertainty** (irreducible noise in data) and **epistemic uncertainty** (lack of knowledge due to limited data), offering a holistic view of model confidence.
 
-In practice, GPR scales poorly with dataset size due to the $O(n^3)$ inversion of the covariance matrix. Approximate methods such as sparse Gaussian processes or variational inference can mitigate this limitation, though they require more advanced implementation.
 
 ### Implementation in R
 
