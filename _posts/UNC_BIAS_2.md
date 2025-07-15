@@ -126,6 +126,7 @@ $$
 where $f$ is the prediction function, $g$ is the adversary, $A$ is the sensitive attribute, and $\lambda$ controls the strength of the fairness constraint. In practice, such training is conducted using deep learning frameworks like TensorFlow or PyTorch.
 
 While R lacks native support for adversarial optimization, a simplified proxy can be implemented by reweighting samples to equalize subgroup influence.
+This simplified debiasing strategy reduces disparities in predicted positive rates across gender groups, but does not capture the full capacity of adversarial training to neutralize latent representations. For serious fairness audits, intersectional attributes and causal assumptions must be accounted for.
 
 ### Conceptual Implementation in R
 
@@ -168,7 +169,6 @@ dem_parity_fair <- data %>%
   summarise(rate = mean(pred_class_fair))
 ```
 
-This simplified debiasing strategy reduces disparities in predicted positive rates across gender groups, but does not capture the full capacity of adversarial training to neutralize latent representations. For serious fairness audits, intersectional attributes and causal assumptions must be accounted for.
 
 ## Looking Forward
 
