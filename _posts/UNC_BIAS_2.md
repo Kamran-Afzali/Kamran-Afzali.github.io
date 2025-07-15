@@ -51,15 +51,38 @@ cat("95% CI:", pred + c(-1.96, 1.96) * sqrt(pred_var), "\n")
 
 ## Conformal Prediction for Model-Agnostic Intervals
 
-Unlike Bayesian methods that require probabilistic models, **conformal prediction** offers a frequentist framework for constructing prediction intervals with finite-sample coverage guarantees. It is model-agnostic and particularly useful when underlying model assumptions are questionable.
+Unlike Bayesian methods that rely on specifying a full probabilistic model of the data-generating process, **conformal prediction** provides a distribution-free, frequentist approach for constructing prediction intervals with rigorous finite-sample guarantees. Crucially, it does not require the specification or correctness of any underlying model. Instead, conformal prediction leverages the concept of **exchangeability**—a weaker assumption than independence and identical distribution (i.i.d.)—to ensure valid coverage rates for its predictive sets. This makes it particularly attractive in settings where model misspecification is a concern or where probabilistic modeling is infeasible.
 
-In regression settings, the typical strategy involves splitting the data into training and calibration sets. After fitting a model on the training data, residuals are computed on the calibration set. For a desired confidence level $1 - \alpha$, the $(1 - \alpha)$-quantile of the absolute residuals determines the width of the prediction interval.
+In the context of regression, the most common implementation is **split conformal prediction**, which involves dividing the available data into two disjoint subsets: a training set and a calibration set. A predictive model (e.g., linear regression, random forest, neural network) is first trained on the training set to produce a point prediction function \$\hat{f}(\mathbf{x})\$. The calibration set is then used to empirically quantify the model's uncertainty by evaluating the distribution of residuals:
 
-Formally, for a prediction $\hat{y}^*$ on a new input $\mathbf{x}^*$, the interval is:
+$$
+r_i = |y_i - \hat{f}(\mathbf{x}_i)|, \quad i \in \text{calibration set}.
+$$
 
-$[\hat{y}^* - q_{1-\alpha}, \hat{y}^* + q_{1-\alpha}]$
+Given a desired miscoverage level \$\alpha \in (0,1)\$, the \$(1 - \alpha)\$ quantile of the calibration residuals is computed:
 
-where $q_{1-\alpha}$ is the empirical quantile from the calibration residuals. This interval guarantees that, under exchangeability, the true outcome lies within the interval with probability at least $1 - \alpha$.
+$$
+q_{1-\alpha} = \text{Quantile}_{1-\alpha}\left( \{r_i\}_{i \in \text{cal}} \right).
+$$
+
+This quantile serves as a tolerance radius around the point prediction for a new input \$\mathbf{x}^*\$. The resulting conformal prediction interval for the target value \$y^*\$ is:
+
+$$
+\left[\hat{f}(\mathbf{x}^*) - q_{1-\alpha},\ \hat{f}(\mathbf{x}^*) + q_{1-\alpha} \right].
+$$
+
+Under the assumption of exchangeability—which implies that the joint distribution of the data is invariant to permutations of the data points—this interval satisfies the marginal coverage property:
+
+$$
+\mathbb{P}\left( y^* \in \left[\hat{f}(\mathbf{x}^*) - q_{1-\alpha},\ \hat{f}(\mathbf{x}^*) + q_{1-\alpha} \right] \right) \geq 1 - \alpha.
+$$
+
+Importantly, this guarantee holds for any predictive model \$\hat{f}\$, regardless of whether it is probabilistic, deterministic, linear, nonlinear, or even poorly calibrated. As a result, conformal prediction serves as a robust wrapper method that transforms point predictions into valid uncertainty estimates without modifying the underlying model.
+
+However, this robustness comes with certain trade-offs. The assumption of exchangeability, while weaker than full probabilistic assumptions, may still be violated in real-world settings involving covariate shift, temporal dependence, or structured data. Moreover, conformal prediction does not decompose uncertainty into distinct sources (e.g., epistemic vs. aleatoric), nor does it provide a full predictive distribution. It yields valid marginal coverage but not conditional coverage—meaning the intervals are calibrated on average, but not necessarily for specific subpopulations or regions of the input space.
+
+Nonetheless, in situations where one seeks rigorous, model-agnostic prediction intervals with minimal assumptions, conformal prediction offers a principled and computationally tractable solution grounded in frequentist theory.
+
 
 ### Implementation in R
 
@@ -89,7 +112,6 @@ cat("Prediction:", pred, "\n")
 cat("95% conformal interval:", interval, "\n")
 ```
 
-This method ensures valid coverage without requiring probabilistic modeling assumptions, though it assumes exchangeability of observations and does not distinguish between sources of uncertainty.
 
 ## Adversarial Debiasing for Fairness
 
