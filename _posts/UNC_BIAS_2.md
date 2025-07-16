@@ -115,18 +115,24 @@ cat("95% conformal interval:", interval, "\n")
 
 ## Adversarial Debiasing for Fairness
 
-Machine learning systems trained on healthcare data often reflect and amplify structural biases. To mitigate such issues, **adversarial debiasing** introduces an auxiliary adversarial model that attempts to predict a sensitive attribute (e.g., gender) from the primary model’s outputs. The predictor is trained to minimize prediction loss while simultaneously making the adversary’s task difficult.
+Machine learning models trained on healthcare datasets often encode and even intensify structural inequalities present in the underlying data. These biases may arise from historical disparities, data collection procedures, or the underrepresentation of certain populations. To address such issues, **adversarial debiasing** introduces a secondary model—known as an adversary—that is trained to identify sensitive attributes such as gender, race, or socioeconomic status from the primary model’s output. The core idea is to train the predictive model in a way that preserves accuracy while obfuscating signals related to sensitive variables, thereby reducing potential bias.
 
-This leads to the following minimax objective:
+This framework is formalized through a minimax optimization problem:
 
 $$
-\min_f \max_g \left[ \mathcal{L}_{\text{pred}}(f(\mathbf{x}), y) - \lambda \mathcal{L}_{\text{adv}}(g(f(\mathbf{x})), A) \right]
+\min_{f} \max_{g} \left[ \mathcal{L}_{\text{pred}}(f(\mathbf{x}), y) - \lambda \mathcal{L}_{\text{adv}}(g(f(\mathbf{x})), A) \right]
 $$
 
-where $f$ is the prediction function, $g$ is the adversary, $A$ is the sensitive attribute, and $\lambda$ controls the strength of the fairness constraint. In practice, such training is conducted using deep learning frameworks like TensorFlow or PyTorch.
+Here, $f: \mathcal{X} \to \mathcal{Y}$ is the main prediction function mapping input features $\mathbf{x} \in \mathcal{X}$ to labels $y \in \mathcal{Y}$, while $g: \mathcal{Y} \to \mathcal{A}$ is the adversarial network attempting to recover the sensitive attribute $A \in \mathcal{A}$ from the predictions. The term $\mathcal{L}_{\text{pred}}$ denotes the primary prediction loss (e.g., cross-entropy), and $\mathcal{L}_{\text{adv}}$ measures the adversary's success (e.g., also cross-entropy). The hyperparameter $\lambda > 0$ modulates the trade-off between predictive accuracy and fairness enforcement.
 
-While R lacks native support for adversarial optimization, a simplified proxy can be implemented by reweighting samples to equalize subgroup influence.
-This simplified debiasing strategy reduces disparities in predicted positive rates across gender groups, but does not capture the full capacity of adversarial training to neutralize latent representations. For serious fairness audits, intersectional attributes and causal assumptions must be accounted for.
+Intuitively, the predictor is penalized when the adversary is able to extract sensitive information from its outputs. By minimizing this objective, the model learns representations that are both useful for prediction and invariant (or at least less informative) with respect to the sensitive attribute. This strategy encourages demographic parity or equalized odds, depending on the specific design and integration of the adversarial component.
+
+In practice, this minimax training is implemented via alternating updates to the predictor $f$ and the adversary $g$ using deep learning libraries such as TensorFlow or PyTorch. However, adversarial training is not natively supported in R, and approximations must be used instead.
+
+One such approximation involves reweighting training samples to ensure balanced influence across demographic subgroups. For example, if one gender is underrepresented among positive outcomes, instance weights can be adjusted to equalize expected contributions to the loss function. While this approach may improve parity in metrics such as predicted positive rates or false discovery rates, it lacks the expressive power of adversarial methods to shape latent representations.
+
+Moreover, rigorous fairness assessments require attention to intersectionality—how multiple sensitive attributes jointly affect outcomes—as well as causal reasoning to distinguish between appropriate and inappropriate uses of sensitive information. Without such considerations, apparent improvements in fairness may mask deeper inequities encoded in the model’s behavior.
+
 
 ### Conceptual Implementation in R
 
@@ -170,8 +176,22 @@ dem_parity_fair <- data %>%
 ```
 
 
-## Looking Forward
+## Discussion and future direction
 
-As machine learning systems continue to mediate healthcare decisions, it is essential to align their technical behavior with ethical and clinical expectations. Techniques like Gaussian Process Regression and conformal prediction offer principled ways to express and calibrate predictive uncertainty, which is crucial for trustworthy AI in clinical settings. Adversarial debiasing, even in its simplified forms, points to a broader paradigm where predictive performance must be balanced with fairness constraints.
+As machine learning systems increasingly inform clinical decision-making, there is a growing need to ensure that their behavior reflects not only statistical efficiency but also ethical and clinical standards. Methods such as Gaussian Process Regression and conformal prediction provide formal mechanisms for quantifying and calibrating predictive uncertainty. These approaches contribute to the transparency and reliability of model outputs—properties that are critical in high-stakes medical contexts where uncertainty must be explicitly acknowledged and communicated.
 
-Future work should explore scalable Bayesian methods (e.g., variational inference, Hamiltonian Monte Carlo), intersectional fairness metrics that examine combined effects of race, gender, and age, and empirical validations in diverse clinical datasets. Ultimately, by treating uncertainty and bias not as afterthoughts but as central design principles, we can help build ML systems that are both intelligent and just.
+Adversarial debiasing, including simplified implementations through sample reweighting or fairness-aware loss functions, illustrates a broader shift in emphasis: model development must account for both predictive accuracy and equity. This reflects an emerging consensus that fairness constraints are not optional additions but integral components of responsible algorithm design.
+
+Ongoing research should deepen this integration by exploring scalable Bayesian inference methods, such as variational inference and Hamiltonian Monte Carlo, which allow for principled representation of uncertainty in complex, high-dimensional settings. There is also a need to refine fairness metrics that consider intersectional attributes, capturing the joint impact of race, gender, age, and other social variables on model outcomes. Empirical validation on large and diverse clinical datasets remains essential for assessing the real-world implications of these techniques.
+
+Rather than treating uncertainty and bias as secondary concerns, future work should approach them as foundational to the development of machine learning systems in healthcare. This orientation supports the design of models that are not only technically sound but also responsive to the ethical demands of clinical practice.
+
+## References
+
+Angelopoulos, A. N., & Bates, S. (2021). A gentle introduction to conformal prediction and distribution-free uncertainty quantification. arXiv. https://arxiv.org/abs/2107.07511
+
+Beutel, A., Chen, J., Zhao, Z., & Chi, E. H. (2017). Data decisions and theoretical implications when adversarially learning fair representations. arXiv. https://arxiv.org/abs/1707.00075
+
+Rasmussen, C. E., & Williams, C. K. I. (2006). Gaussian processes for machine learning. MIT Press. http://www.gaussianprocess.org/gpml/chapters/RW.pdf
+
+Shafer, G., & Vovk, V. (2008). A tutorial on conformal prediction. Journal of Machine Learning Research, 9(3), 371–421. http://jmlr.csail.mit.edu/papers/v9/shafer08a.html
