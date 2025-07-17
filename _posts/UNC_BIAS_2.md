@@ -50,31 +50,24 @@ cat("95% CI:", pred + c(-1.96, 1.96) * sqrt(pred_var), "\n")
 
 Unlike Bayesian methods that rely on specifying a full probabilistic model of the data-generating process, **conformal prediction** provides a distribution-free, frequentist approach for constructing prediction intervals with rigorous finite-sample guarantees. Crucially, it does not require the specification or correctness of any underlying model. Instead, conformal prediction leverages the concept of **exchangeability**—a weaker assumption than independence and identical distribution (i.i.d.)—to ensure valid coverage rates for its predictive sets. This makes it particularly attractive in settings where model misspecification is a concern or where probabilistic modeling is infeasible.
 
-In the context of regression, the most common implementation is **split conformal prediction**, which involves dividing the available data into two disjoint subsets: a training set and a calibration set. A predictive model (e.g., linear regression, random forest, neural network) is first trained on the training set to produce a point prediction function \$\hat{f}(\mathbf{x})\$. The calibration set is then used to empirically quantify the model's uncertainty by evaluating the distribution of residuals:
+In the context of regression, the most common implementation is **split conformal prediction**, which involves dividing the available data into two disjoint subsets: a training set and a calibration set. A predictive model (e.g., linear regression, random forest, neural network) is first trained on the training set to produce a point prediction function ![Equation](https://latex.codecogs.com/png.latex?%5Chat%7Bf%7D%28%5Cmathbf%7Bx%7D%29). The calibration set is then used to empirically quantify the model's uncertainty by evaluating the distribution of residuals:
 
-$$
-r_i = |y_i - \hat{f}(\mathbf{x}_i)|, \quad i \in \text{calibration set}.
-$$
+![Equation](https://latex.codecogs.com/png.latex?r_i%20%3D%20%7Cy_i%20-%20%5Chat%7Bf%7D%28%5Cmathbf%7Bx%7D_i%29%7C%2C%20%5Cquad%20i%20%5Cin%20%5Ctext%7Bcalibration%20set%7D.)
 
-Given a desired miscoverage level \$\alpha \in (0,1)\$, the \$(1 - \alpha)\$ quantile of the calibration residuals is computed:
+Given a desired miscoverage level ![Equation](https://latex.codecogs.com/png.latex?%5Calpha%20%5Cin%20%280%2C1%29), the ![Equation](https://latex.codecogs.com/png.latex?%281%20-%20%5Calpha%29) quantile of the calibration residuals is computed:
 
-$$
-q_{1-\alpha} = \text{Quantile}_{1-\alpha}\left( \{r_i\}_{i \in \text{cal}} \right).
-$$
+![Equation](https://latex.codecogs.com/png.latex?q_%7B1-%5Calpha%7D%20%3D%20%5Ctext%7BQuantile%7D_%7B1-%5Calpha%7D%5Cleft%28%20%5C%7Br_i%5C%7D_%7Bi%20%5Cin%20%5Ctext%7Bcal%7D%7D%20%5Cright%29.)
 
-This quantile serves as a tolerance radius around the point prediction for a new input \$\mathbf{x}^*\$. The resulting conformal prediction interval for the target value \$y^*\$ is:
+This quantile serves as a tolerance radius around the point prediction for a new input ![Equation](https://latex.codecogs.com/png.latex?%5Cmathbf%7Bx%7D%5E*). The resulting conformal prediction interval for the target value ![Equation](https://latex.codecogs.com/png.latex?y%5E*) is:
 
-$$
-\left[\hat{f}(\mathbf{x}^*) - q_{1-\alpha},\ \hat{f}(\mathbf{x}^*) + q_{1-\alpha} \right].
-$$
+![Equation](https://latex.codecogs.com/png.latex?%5Cleft%5B%5Chat%7Bf%7D%28%5Cmathbf%7Bx%7D%5E*%29%20-%20q_%7B1-%5Calpha%7D%2C%5C%20%5Chat%7Bf%7D%28%5Cmathbf%7Bx%7D%5E*%29%20%2B%20q_%7B1-%5Calpha%7D%20%5Cright%5D.)
 
 Under the assumption of exchangeability—which implies that the joint distribution of the data is invariant to permutations of the data points—this interval satisfies the marginal coverage property:
 
-$$
-\mathbb{P}\left( y^* \in \left[\hat{f}(\mathbf{x}^*) - q_{1-\alpha},\ \hat{f}(\mathbf{x}^*) + q_{1-\alpha} \right] \right) \geq 1 - \alpha.
-$$
+![Equation](https://latex.codecogs.com/png.latex?%5Cmathbb%7BP%7D%5Cleft%28%20y%5E*%20%5Cin%20%5Cleft%5B%5Chat%7Bf%7D%28%5Cmathbf%7Bx%7D%5E*%29%20-%20q_%7B1-%5Calpha%7D%2C%5C%20%5Chat%7Bf%7D%28%5Cmathbf%7Bx%7D%5E*%29%20%2B%20q_%7B1-%5Calpha%7D%20%5Cright%5D%20%5Cright%29%20%5Cgeq%20%281%20-%20%5Calpha%29.)
 
-Importantly, this guarantee holds for any predictive model \$\hat{f}\$, regardless of whether it is probabilistic, deterministic, linear, nonlinear, or even poorly calibrated. As a result, conformal prediction serves as a robust wrapper method that transforms point predictions into valid uncertainty estimates without modifying the underlying model.
+Importantly, this guarantee holds for any predictive model ![Equation](https://latex.codecogs.com/png.latex?%5Chat%7Bf%7D), regardless of whether it is probabilistic, deterministic, linear, nonlinear, or even poorly calibrated. As a result, conformal prediction serves as a robust wrapper method that transforms point predictions into valid uncertainty estimates without modifying the underlying model.
+
 
 However, this robustness comes with certain trade-offs. The assumption of exchangeability, while weaker than full probabilistic assumptions, may still be violated in real-world settings involving covariate shift, temporal dependence, or structured data. Moreover, conformal prediction does not decompose uncertainty into distinct sources (e.g., epistemic vs. aleatoric), nor does it provide a full predictive distribution. It yields valid marginal coverage but not conditional coverage—meaning the intervals are calibrated on average, but not necessarily for specific subpopulations or regions of the input space.
 
@@ -116,11 +109,10 @@ Machine learning models trained on healthcare datasets often encode and even int
 
 This framework is formalized through a minimax optimization problem:
 
-$$
-\min_{f} \max_{g} \left[ \mathcal{L}_{\text{pred}}(f(\mathbf{x}), y) - \lambda \mathcal{L}_{\text{adv}}(g(f(\mathbf{x})), A) \right]
-$$
+![Equation](https://latex.codecogs.com/png.latex?%5Cmin_%7Bf%7D%20%5Cmax_%7Bg%7D%20%5Cleft%5B%20%5Cmathcal%7BL%7D_%7B%5Ctext%7Bpred%7D%7D%28f%28%5Cmathbf%7Bx%7D%29%2C%20y%29%20-%20%5Clambda%20%5Cmathcal%7BL%7D_%7B%5Ctext%7Badv%7D%7D%28g%28f%28%5Cmathbf%7Bx%7D%29%29%2C%20A%29%20%5Cright%5D)
 
-Here, $f: \mathcal{X} \to \mathcal{Y}$ is the main prediction function mapping input features $\mathbf{x} \in \mathcal{X}$ to labels $y \in \mathcal{Y}$, while $g: \mathcal{Y} \to \mathcal{A}$ is the adversarial network attempting to recover the sensitive attribute $A \in \mathcal{A}$ from the predictions. The term $\mathcal{L}_{\text{pred}}$ denotes the primary prediction loss (e.g., cross-entropy), and $\mathcal{L}_{\text{adv}}$ measures the adversary's success (e.g., also cross-entropy). The hyperparameter $\lambda > 0$ modulates the trade-off between predictive accuracy and fairness enforcement.
+Here, ![Equation](https://latex.codecogs.com/png.latex?f%3A%20%5Cmathcal%7BX%7D%20%5Cto%20%5Cmathcal%7BY%7D) is the main prediction function mapping input features ![Equation](https://latex.codecogs.com/png.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5Cmathcal%7BX%7D) to labels ![Equation](https://latex.codecogs.com/png.latex?y%20%5Cin%20%5Cmathcal%7BY%7D), while ![Equation](https://latex.codecogs.com/png.latex?g%3A%20%5Cmathcal%7BY%7D%20%5Cto%20%5Cmathcal%7BA%7D) is the adversarial network attempting to recover the sensitive attribute ![Equation](https://latex.codecogs.com/png.latex?A%20%5Cin%20%5Cmathcal%7BA%7D) from the predictions. The term ![Equation](https://latex.codecogs.com/png.latex?%5Cmathcal%7BL%7D_%7B%5Ctext%7Bpred%7D%7D) denotes the primary prediction loss (e.g., cross-entropy), and ![Equation](https://latex.codecogs.com/png.latex?%5Cmathcal%7BL%7D_%7B%5Ctext%7Badv%7D%7D) measures the adversary's success (e.g., also cross-entropy). The hyperparameter ![Equation](https://latex.codecogs.com/png.latex?%5Clambda%20%3E%200) regulates the trade-off between predictive accuracy and fairness enforcement.
+
 
 Intuitively, the predictor is penalized when the adversary is able to extract sensitive information from its outputs. By minimizing this objective, the model learns representations that are both useful for prediction and invariant (or at least less informative) with respect to the sensitive attribute. This strategy encourages demographic parity or equalized odds, depending on the specific design and integration of the adversarial component.
 
