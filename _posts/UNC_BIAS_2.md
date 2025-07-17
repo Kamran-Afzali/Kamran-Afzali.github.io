@@ -6,20 +6,15 @@ This second on the subject continues our exploration of uncertainty and bias in 
 
 In many healthcare applications (e.g. predicting blood glucose levels or estimating hospital stay durations) we are concerned not only with the accuracy of point estimates but also with the confidence we can place in them. **Gaussian Process Regression (GPR)**, discussed earlier in our Bayesian statistics posts, can directly highlight predictive uncertainty.
 
-A Gaussian process defines a distribution over functions such that any finite set of function values follows a multivariate normal distribution. Formally, a Gaussian process is defined by a mean function ![Equation](https://latex.codecogs.com/png.latex?m%28%5Cmathbf%7Bx%7D%29) (often set to zero) and a covariance function $k(\mathbf{x}, \mathbf{x}')$. A common choice for the kernel is the squared exponential:
+A Gaussian process defines a distribution over functions such that any finite set of function values follows a multivariate normal distribution. Formally, a Gaussian process is defined by a mean function ![Equation](https://latex.codecogs.com/png.latex?m%28%5Cmathbf%7Bx%7D%29) (often set to zero) and a covariance function ![Equation](https://latex.codecogs.com/png.latex?k%28%5Cmathbf%7Bx%7D%2C%20%5Cmathbf%7Bx%7D%27%29). A common choice for the kernel is the squared exponential:
 
-$k(\mathbf{x}, \mathbf{x}') = \sigma_f^2 \exp\left(-\frac{\|\mathbf{x} - \mathbf{x}'\|^2}{2l^2}\right)$
+![Equation](https://latex.codecogs.com/png.latex?k%28%5Cmathbf%7Bx%7D%2C%20%5Cmathbf%7Bx%7D%27%29%20%3D%20%5Csigma_f%5E2%20%5Cexp%5Cleft%28-%5Cfrac%7B%7C%7C%5Cmathbf%7Bx%7D%20-%20%5Cmathbf%7Bx%7D%27%7C%7C%5E2%7D%7B2l%5E2%7D%5Cright%29)
 
-where $\sigma_f^2$ is the signal variance and $l$ is the length scale. Given training data $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^n$ , the posterior predictive distribution for a new input $\mathbf{x}^*$ is Gaussian with mean $\mu^*$ and variance $\sigma^{*2}$:
+where ![Equation](https://latex.codecogs.com/png.latex?%5Csigma_f%5E2) is the signal variance and ![Equation](https://latex.codecogs.com/png.latex?l) is the length scale. Given training data ![Equation](https://latex.codecogs.com/png.latex?%5Cmathcal%7BD%7D%20%3D%20%5C%7B%28%5Cmathbf%7Bx%7D_i%2C%20y_i%29%5C%7D_%7Bi%3D1%7D%5En), the posterior predictive distribution for a new input ![Equation](https://latex.codecogs.com/png.latex?%5Cmathbf%7Bx%7D%5E*) is Gaussian with mean ![Equation](https://latex.codecogs.com/png.latex?%5Cmu%5E*) and variance ![Equation](https://latex.codecogs.com/png.latex?%5Csigma%5E%7B*2%7D):
 
+![Equation](https://latex.codecogs.com/png.latex?%5Cmu%5E*%20%3D%20%5Cmathbf%7Bk%7D_*%5E%5Ctop%20%28%5Cmathbf%7BK%7D%20%2B%20%5Csigma_n%5E2%20%5Cmathbf%7BI%7D%29%5E%7B-1%7D%20%5Cmathbf%7By%7D%2C%20%5Cquad%20%5Csigma%5E%7B*2%7D%20%3D%20k%28%5Cmathbf%7Bx%7D%5E*%2C%20%5Cmathbf%7Bx%7D%5E*%29%20-%20%5Cmathbf%7Bk%7D_*%5E%5Ctop%20%28%5Cmathbf%7BK%7D%20%2B%20%5Csigma_n%5E2%20%5Cmathbf%7BI%7D%29%5E%7B-1%7D%20%5Cmathbf%7Bk%7D_*)
 
-$$
-\mu^* = \mathbf{k}_*^\top (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{y}, \quad
-\sigma^{*2} = k(\mathbf{x}^*, \mathbf{x}^*) - \mathbf{k}_*^\top (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{k}_*
-$$
-
-
-Here, $\mathbf{K}$ is the covariance matrix over the training inputs, $\mathbf{k}_*$ is the vector of covariances between the test point and training inputs, and $\sigma_n^2$ is the observation noise variance. Importantly, the predictive variance captures both **aleatoric uncertainty** (irreducible noise in data) and **epistemic uncertainty** (lack of knowledge due to limited data), offering a holistic view of model confidence.
+Here, ![Equation](https://latex.codecogs.com/png.latex?%5Cmathbf%7BK%7D) is the covariance matrix over the training inputs, ![Equation](https://latex.codecogs.com/png.latex?%5Cmathbf%7Bk%7D_*) is the vector of covariances between the test point and training inputs, and ![Equation](https://latex.codecogs.com/png.latex?%5Csigma_n%5E2) is the observation noise variance. Importantly, the predictive variance captures both **aleatoric uncertainty** (irreducible noise in data) and **epistemic uncertainty** (lack of knowledge due to limited data), offering a holistic view of model confidence.
 
 
 ### Implementation in R
