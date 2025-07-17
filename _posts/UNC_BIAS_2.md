@@ -6,7 +6,7 @@ This second on the subject continues our exploration of uncertainty and bias in 
 
 In many healthcare applications (e.g. predicting blood glucose levels or estimating hospital stay durations) we are concerned not only with the accuracy of point estimates but also with the confidence we can place in them. **Gaussian Process Regression (GPR)**, discussed earlier in our Bayesian statistics posts, can directly highlight predictive uncertainty.
 
-A Gaussian process defines a distribution over functions such that any finite set of function values follows a multivariate normal distribution. Formally, a Gaussian process is defined by a mean function $m(\mathbf{x})$ (often set to zero) and a covariance function $k(\mathbf{x}, \mathbf{x}')$. A common choice for the kernel is the squared exponential:
+A Gaussian process defines a distribution over functions such that any finite set of function values follows a multivariate normal distribution. Formally, a Gaussian process is defined by a mean function ![Equation](https://latex.codecogs.com/png.latex?m%28%5Cmathbf%7Bx%7D%29) (often set to zero) and a covariance function $k(\mathbf{x}, \mathbf{x}')$. A common choice for the kernel is the squared exponential:
 
 $k(\mathbf{x}, \mathbf{x}') = \sigma_f^2 \exp\left(-\frac{\|\mathbf{x} - \mathbf{x}'\|^2}{2l^2}\right)$
 
@@ -188,10 +188,10 @@ Rather than treating uncertainty and bias as secondary concerns, future work sho
 
 ## References
 
-Angelopoulos, A. N., & Bates, S. (2021). A gentle introduction to conformal prediction and distribution-free uncertainty quantification. arXiv. https://arxiv.org/abs/2107.07511
+- Angelopoulos, A. N., & Bates, S. (2021). A gentle introduction to conformal prediction and distribution-free uncertainty quantification. arXiv. https://arxiv.org/abs/2107.07511
 
-Beutel, A., Chen, J., Zhao, Z., & Chi, E. H. (2017). Data decisions and theoretical implications when adversarially learning fair representations. arXiv. https://arxiv.org/abs/1707.00075
+- Beutel, A., Chen, J., Zhao, Z., & Chi, E. H. (2017). Data decisions and theoretical implications when adversarially learning fair representations. arXiv. https://arxiv.org/abs/1707.00075
 
-Rasmussen, C. E., & Williams, C. K. I. (2006). Gaussian processes for machine learning. MIT Press. http://www.gaussianprocess.org/gpml/chapters/RW.pdf
+- Rasmussen, C. E., & Williams, C. K. I. (2006). Gaussian processes for machine learning. MIT Press. http://www.gaussianprocess.org/gpml/chapters/RW.pdf
 
-Shafer, G., & Vovk, V. (2008). A tutorial on conformal prediction. Journal of Machine Learning Research, 9(3), 371–421. http://jmlr.csail.mit.edu/papers/v9/shafer08a.html
+- Shafer, G., & Vovk, V. (2008). A tutorial on conformal prediction. Journal of Machine Learning Research, 9(3), 371–421. http://jmlr.csail.mit.edu/papers/v9/shafer08a.html
