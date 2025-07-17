@@ -10,12 +10,14 @@ A Gaussian process defines a distribution over functions such that any finite se
 
 $k(\mathbf{x}, \mathbf{x}') = \sigma_f^2 \exp\left(-\frac{\|\mathbf{x} - \mathbf{x}'\|^2}{2l^2}\right)$
 
-where $\sigma_f^2$ is the signal variance and $l$ is the length scale. Given training data $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^n$, the posterior predictive distribution for a new input $\mathbf{x}^*$ is Gaussian with mean $\mu^*$ and variance $\sigma^{*2}$:
+where $\sigma_f^2$ is the signal variance and $l$ is the length scale. Given training data $\mathcal{D} = \{(\mathbf{x}_i, y_i)\}_{i=1}^n$ , the posterior predictive distribution for a new input $\mathbf{x}^*$ is Gaussian with mean $\mu^*$ and variance $\sigma^{*2}$:
+
 
 $$
 \mu^* = \mathbf{k}_*^\top (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{y}, \quad
 \sigma^{*2} = k(\mathbf{x}^*, \mathbf{x}^*) - \mathbf{k}_*^\top (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{k}_*
 $$
+
 
 Here, $\mathbf{K}$ is the covariance matrix over the training inputs, $\mathbf{k}_*$ is the vector of covariances between the test point and training inputs, and $\sigma_n^2$ is the observation noise variance. Importantly, the predictive variance captures both **aleatoric uncertainty** (irreducible noise in data) and **epistemic uncertainty** (lack of knowledge due to limited data), offering a holistic view of model confidence.
 
