@@ -1,8 +1,4 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
+
 
 # Beyond Linear Models: Q-Learning with Random Forest Function Approximation in R
 
