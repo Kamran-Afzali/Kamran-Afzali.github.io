@@ -1,8 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
 # Deep Function Approximation: Q-Learning with Neural Networks in R
 
