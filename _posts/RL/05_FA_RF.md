@@ -299,51 +299,28 @@ cat("Final OOB error:", tail(rf_result$model$mse, 1), "\n")
 
 ### Policy Learning Characteristics
 
-Random Forest function approximation exhibits several interesting characteristics compared to linear methods:
-
-1. **Non-linear Decision Boundaries**: Trees can capture complex state-action relationships that linear models miss
-2. **Automatic Feature Selection**: Random feature sampling at each split naturally performs feature selection
-3. **Robust Generalization**: Ensemble averaging reduces overfitting and provides stable predictions
-4. **Interpretable Decisions**: Individual trees show clear decision paths for Q-value estimation
+Random Forest function approximation exhibits several characteristics that distinguish it from linear methods. Trees can capture non-linear decision boundaries, enabling the model to learn state-action relationships that linear approaches cannot represent. The random feature sampling at each split performs automatic feature selection, focusing computational resources on the most informative variables. Ensemble averaging across multiple trees reduces overfitting and provides stable predictions across different training samples. Individual trees maintain interpretable decision paths that show how Q-values are estimated for specific state-action pairs.
 
 ### Computational Considerations
 
-The batch retraining approach introduces computational trade-offs:
-
-- **Training Frequency**: More frequent retraining improves responsiveness but increases computational cost
-- **Sample Efficiency**: Trees require sufficient data to learn meaningful patterns, leading to slower initial learning
-- **Memory Usage**: Accumulating training examples increases memory requirements over time
+The batch retraining approach creates distinct computational trade-offs that affect implementation decisions. Training frequency must balance responsiveness against computational cost, as more frequent updates improve adaptation but require additional processing time. Trees need sufficient data to learn meaningful patterns, which can slow initial learning compared to methods that update continuously. Memory requirements increase over time as training examples accumulate, requiring careful management of historical data.
 
 ### Feature Importance Insights
 
-Random Forest naturally provides feature importance measures, revealing which states and actions most influence Q-value predictions. This interpretability advantage helps diagnose learning issues and understand policy decisions.
+Random Forest methods naturally generate feature importance measures that reveal which states and actions most influence Q-value predictions. This interpretability provides diagnostic capabilities for understanding learning issues and analyzing policy decisions. The feature ranking can guide state representation choices and help identify redundant or irrelevant variables in the problem formulation.
 
 ### Practical Implications
 
-Random Forest function approximation offers a middle ground between simple linear models and complex neural networks:
-
-- **Scalability**: Handles larger state spaces better than tabular methods
-- **Flexibility**: Captures non-linear patterns without extensive feature engineering
-- **Stability**: Less sensitive to hyperparameters than neural networks
-- **Interpretability**: Provides insights into decision-making process
+Random Forest function approximation occupies a position between simple linear models and neural networks in terms of complexity and capability. The method handles larger state spaces more effectively than tabular approaches while remaining computationally tractable. It captures non-linear patterns without requiring extensive feature engineering or domain expertise. The approach shows less sensitivity to hyperparameter choices compared to neural networks while maintaining stability across different problem instances. The inherent interpretability provides insights into the decision-making process that can be valuable for debugging and analysis.
 
 ## Comparison with Linear Approximation
 
-When compared to linear function approximation, Random Forest methods show:
-
-- **Better Pattern Recognition**: Can learn complex state-action relationships
-- **Slower Initial Learning**: Requires more data to build meaningful trees
-- **Higher Computational Cost**: Periodic retraining vs. continuous gradient updates
-- **Better Generalization**: Less prone to overfitting with appropriate ensemble size
+Random Forest methods demonstrate several advantages and trade-offs when compared to linear function approximation. The tree-based approach excels at pattern recognition, learning state-action relationships that linear models cannot capture due to their representational limitations. However, initial learning proceeds more slowly as trees require sufficient data to construct meaningful decision boundaries. Computational costs are higher due to periodic retraining requirements, contrasting with the continuous gradient updates used in linear methods. Generalization performance tends to be superior, as ensemble averaging provides natural regularization that reduces overfitting tendencies.
 
 ## Conclusion
 
-Random Forest function approximation represents a powerful extension of linear methods, offering enhanced modeling flexibility while maintaining interpretability. The approach excels in environments with complex state-action relationships and provides natural regularization through ensemble averaging.
+Random Forest function approximation extends linear methods by offering enhanced modeling flexibility while preserving interpretability characteristics. The approach performs particularly well in environments with non-linear state-action relationships and provides regularization through ensemble averaging.
 
-Key takeaways include:
-- Non-linear function approximation can capture richer patterns than linear models
-- Batch learning approaches require careful consideration of training frequency and sample requirements
-- Feature importance analysis provides valuable insights into learned policies
-- Tree-based methods offer an interpretable alternative to neural network approaches
+Several key observations emerge from this analysis. Non-linear function approximation can capture patterns that linear models miss, enabling better policy learning in complex environments. Batch learning approaches require careful consideration of training frequency and sample requirements to balance performance with computational efficiency. Feature importance analysis provides insights into learned policies that can guide problem formulation and debugging efforts. Tree-based methods offer an interpretable alternative to neural network approaches while maintaining theoretical foundations.
 
-This exploration demonstrates how ensemble methods can enhance reinforcement learning while preserving the theoretical foundations of Q-Learning. Future extensions could explore online tree learning algorithms, adaptive retraining schedules, or hybrid approaches combining the best aspects of different function approximation methods.
+This exploration demonstrates how ensemble methods can enhance reinforcement learning without abandoning the established principles of Q-Learning. Future work could investigate online tree learning algorithms that avoid batch retraining requirements, adaptive schedules that optimize training frequency based on performance metrics, or hybrid approaches that combine strengths from different function approximation methods.
