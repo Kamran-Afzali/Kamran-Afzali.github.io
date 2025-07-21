@@ -20,7 +20,6 @@ Here, ![Equation](https://latex.codecogs.com/png.latex?%5Cmathbf%7BK%7D) is the 
 ### Implementation in R
 
 ```r
-library(kernlab)
 library(tidyverse)
 
 # Simulate healthcare dataset
@@ -33,17 +32,45 @@ data <- tibble(
   glucose = 80 + 2 * age + 3 * bmi + 10 * hba1c + rnorm(n, 0, 5)
 )
 
-# Fit GPR model
-gp_model <- gausspr(glucose ~ age + bmi + hba1c, data = data, kernel = "rbfdot", var = 0.1)
-
-# Predict for a new patient
 new_patient <- data.frame(age = 55, bmi = 30, hba1c = 6.0)
-pred <- predict(gp_model, newdata = new_patient, type = "response")
-pred_var <- predict(gp_model, newdata = new_patient, type = "sdeviation")^2
 
-cat("Predicted glucose:", pred, "\n")
-cat("Predictive variance:", pred_var, "\n")
-cat("95% CI:", pred + c(-1.96, 1.96) * sqrt(pred_var), "\n")
+X_train <- as.matrix(data[, c("age", "bmi", "hba1c")])
+y_train <- data$glucose
+X_new <- as.matrix(new_patient)
+
+
+# Using mgcv package with Gaussian Process smooth
+library(mgcv)
+
+# Fit GAM with GP smooth (approximation to full GP)
+gam_model <- gam(glucose ~ s(age, bs="gp") + s(bmi, bs="gp") + s(hba1c, bs="gp"), 
+                 data = data, method = "REML")
+
+# Predict with standard errors
+pred_gam <- predict(gam_model, newdata = new_patient, se.fit = TRUE)
+
+cat("mgcv GAM Results:\n")
+cat("Mean prediction:", round(pred_gam$fit, 2), "\n")
+cat("Standard error:", round(pred_gam$se.fit, 2), "\n")
+cat("95% CI: [", round(pred_gam$fit - 1.96*pred_gam$se.fit, 2), ", ", 
+    round(pred_gam$fit + 1.96*pred_gam$se.fit, 2), "]\n\n")
+
+# Using laGP package for large-scale GP
+library(laGP)
+
+# Fit local approximate GP
+X_train_lagp <- as.matrix(data[, c("age", "bmi", "hba1c")])
+y_train_lagp <- data$glucose
+
+# Predict with uncertainty using laGP
+pred_lagp <- aGP(X_train_lagp, y_train_lagp, X_new, verb = 0)
+
+cat("laGP Results:\n")
+cat("Mean prediction:", round(pred_lagp$mean, 2), "\n")
+cat("Standard deviation:", round(sqrt(pred_lagp$var), 2), "\n")
+cat("95% CI: [", round(pred_lagp$mean - 1.96*sqrt(pred_lagp$var), 2), ", ", 
+    round(pred_lagp$mean + 1.96*sqrt(pred_lagp$var), 2), "]\n\n")
+
 ```
 
 ## Conformal Prediction for Model-Agnostic Intervals
