@@ -107,26 +107,231 @@ Nonetheless, in situations where one seeks rigorous, model-agnostic prediction i
 library(tidyverse)
 
 # Split data
+# Split Conformal Prediction Implementation in R
+# This demonstrates model-agnostic prediction intervals using exchangeability
+
+library(ggplot2)
+library(dplyr)
+library(randomForest)
+
 set.seed(123)
-train_idx <- sample(1:n, 0.8 * n)
+
+# ============================================================================
+# 1. DATA GENERATION
+# ============================================================================
+
+# Generate synthetic regression data with heteroscedastic noise
+n_total <- 1000
+x <- runif(n_total, 0, 10)
+
+# True function: quadratic with some complexity
+true_function <- function(x) {
+  2 * sin(x) + 0.5 * x^2 - 3 * cos(x/2)
+}
+
+# Heteroscedastic noise (variance increases with x)
+noise_std <- 0.5 + 0.3 * x
+y <- true_function(x) + rnorm(n_total, 0, noise_std)
+
+# Create data frame
+data <- data.frame(x = x, y = y)
+
+# ============================================================================
+# 2. DATA SPLITTING
+# ============================================================================
+
+# Split into train, calibration, and test sets
+n_train <- floor(0.5 * n_total)
+n_cal <- floor(0.3 * n_total)
+n_test <- n_total - n_train - n_cal
+
+# Random split
+indices <- sample(1:n_total)
+train_idx <- indices[1:n_train]
+cal_idx <- indices[(n_train + 1):(n_train + n_cal)]
+test_idx <- indices[(n_train + n_cal + 1):n_total]
+
 train_data <- data[train_idx, ]
-calib_data <- data[-train_idx, ]
+cal_data <- data[cal_idx, ]
+test_data <- data[test_idx, ]
 
-# Fit a model
-lm_model <- lm(glucose ~ age + bmi + hba1c, data = train_data)
+cat("Data split:\n")
+cat("Training:", nrow(train_data), "observations\n")
+cat("Calibration:", nrow(cal_data), "observations\n")
+cat("Test:", nrow(test_data), "observations\n\n")
 
-# Calibration residuals
-calib_pred <- predict(lm_model, newdata = calib_data)
-calib_residuals <- abs(calib_data$glucose - calib_pred)
+# ============================================================================
+# 3. MODEL TRAINING (Model-Agnostic)
+# ============================================================================
 
-# Construct interval
-alpha <- 0.05
-q <- quantile(calib_residuals, 1 - alpha)
-pred <- predict(lm_model, newdata = new_patient)
-interval <- c(pred - q, pred + q)
+# We'll demonstrate with multiple models to show model-agnostic nature
 
-cat("Prediction:", pred, "\n")
-cat("95% conformal interval:", interval, "\n")
+# Model 1: Linear Regression
+linear_model <- lm(y ~ poly(x, 3), data = train_data)
+
+# Model 2: Random Forest
+rf_model <- randomForest(y ~ x, data = train_data, ntree = 100)
+
+# Model 3: Simple polynomial regression
+poly_model <- lm(y ~ poly(x, 5), data = train_data)
+
+# Prediction functions
+predict_linear <- function(newdata) predict(linear_model, newdata)
+predict_rf <- function(newdata) predict(rf_model, newdata)
+predict_poly <- function(newdata) predict(poly_model, newdata)
+
+# ============================================================================
+# 4. SPLIT CONFORMAL PREDICTION FUNCTION
+# ============================================================================
+
+split_conformal_prediction <- function(predict_fn, cal_data, test_data, alpha = 0.1) {
+  # Step 1: Compute residuals on calibration set
+  cal_predictions <- predict_fn(cal_data)
+  residuals <- abs(cal_data$y - cal_predictions)
+  
+  # Step 2: Compute quantile of absolute residuals
+  # Use (n+1)(1-alpha)/n quantile for finite sample correction
+  n_cal <- length(residuals)
+  q_level <- ceiling((n_cal + 1) * (1 - alpha)) / n_cal
+  q_hat <- quantile(residuals, q_level, na.rm = TRUE)
+  
+  # Step 3: Generate predictions on test set
+  test_predictions <- predict_fn(test_data)
+  
+  # Step 4: Construct prediction intervals
+  lower <- test_predictions - q_hat
+  upper <- test_predictions + q_hat
+  
+  # Calculate empirical coverage
+  coverage <- mean(test_data$y >= lower & test_data$y <= upper)
+  avg_width <- mean(upper - lower)
+  
+  return(list(
+    predictions = test_predictions,
+    lower = lower,
+    upper = upper,
+    coverage = coverage,
+    avg_width = avg_width,
+    quantile = q_hat
+  ))
+}
+
+# ============================================================================
+# 5. APPLY CONFORMAL PREDICTION
+# ============================================================================
+
+alpha <- 0.1  # For 90% prediction intervals
+target_coverage <- 1 - alpha
+
+# Apply to different models
+results_linear <- split_conformal_prediction(predict_linear, cal_data, test_data, alpha)
+results_rf <- split_conformal_prediction(predict_rf, cal_data, test_data, alpha)
+results_poly <- split_conformal_prediction(predict_poly, cal_data, test_data, alpha)
+
+# Print results
+cat("CONFORMAL PREDICTION RESULTS (", (1-alpha)*100, "% intervals)\n", sep="")
+cat("=================================================\n")
+cat("Target Coverage:", target_coverage, "\n\n")
+
+cat("Linear Model:\n")
+cat("  Empirical Coverage:", round(results_linear$coverage, 3), "\n")
+cat("  Average Width:", round(results_linear$avg_width, 3), "\n")
+cat("  Quantile (q̂):", round(results_linear$quantile, 3), "\n\n")
+
+cat("Random Forest:\n")
+cat("  Empirical Coverage:", round(results_rf$coverage, 3), "\n")
+cat("  Average Width:", round(results_rf$avg_width, 3), "\n")
+cat("  Quantile (q̂):", round(results_rf$quantile, 3), "\n\n")
+
+cat("Polynomial Model:\n")
+cat("  Empirical Coverage:", round(results_poly$coverage, 3), "\n")
+cat("  Average Width:", round(results_poly$avg_width, 3), "\n")
+cat("  Quantile (q̂):", round(results_poly$quantile, 3), "\n\n")
+
+# ============================================================================
+# 6. VISUALIZATION
+# ============================================================================
+
+# Create comprehensive visualization
+plot_data <- data.frame(
+  x = test_data$x,
+  y_true = test_data$y,
+  pred_linear = results_linear$predictions,
+  lower_linear = results_linear$lower,
+  upper_linear = results_linear$upper,
+  pred_rf = results_rf$predictions,
+  lower_rf = results_rf$lower,
+  upper_rf = results_rf$upper
+)
+
+# Plot 1: Linear model conformal intervals
+p1 <- ggplot(plot_data) +
+  geom_ribbon(aes(x = x, ymin = lower_linear, ymax = upper_linear), 
+              alpha = 0.3, fill = "blue") +
+  geom_point(aes(x = x, y = y_true), alpha = 0.6, size = 1) +
+  geom_line(aes(x = x, y = pred_linear), color = "blue", size = 1) +
+  labs(title = paste0("Linear Model - Conformal Prediction Intervals (", 
+                      round(results_linear$coverage*100, 1), "% coverage)"),
+       x = "x", y = "y") +
+  theme_minimal()
+
+# Plot 2: Random Forest conformal intervals  
+p2 <- ggplot(plot_data) +
+  geom_ribbon(aes(x = x, ymin = lower_rf, ymax = upper_rf), 
+              alpha = 0.3, fill = "red") +
+  geom_point(aes(x = x, y = y_true), alpha = 0.6, size = 1) +
+  geom_line(aes(x = x, y = pred_rf), color = "red", size = 1) +
+  labs(title = paste0("Random Forest - Conformal Prediction Intervals (", 
+                      round(results_rf$coverage*100, 1), "% coverage)"),
+       x = "x", y = "y") +
+  theme_minimal()
+
+print(p1)
+print(p2)
+
+# ============================================================================
+# 7. COVERAGE ANALYSIS ACROSS DIFFERENT ALPHA VALUES
+# ============================================================================
+
+alpha_values <- seq(0.05, 0.3, by = 0.05)
+coverage_results <- data.frame(
+  alpha = alpha_values,
+  target_coverage = 1 - alpha_values,
+  linear_coverage = numeric(length(alpha_values)),
+  rf_coverage = numeric(length(alpha_values)),
+  linear_width = numeric(length(alpha_values)),
+  rf_width = numeric(length(alpha_values))
+)
+
+for(i in seq_along(alpha_values)) {
+  alpha_i <- alpha_values[i]
+  
+  # Linear model
+  res_lin <- split_conformal_prediction(predict_linear, cal_data, test_data, alpha_i)
+  coverage_results$linear_coverage[i] <- res_lin$coverage
+  coverage_results$linear_width[i] <- res_lin$avg_width
+  
+  # Random Forest
+  res_rf <- split_conformal_prediction(predict_rf, cal_data, test_data, alpha_i)
+  coverage_results$rf_coverage[i] <- res_rf$coverage
+  coverage_results$rf_width[i] <- res_rf$avg_width
+}
+
+# Plot coverage vs target
+p3 <- ggplot(coverage_results) +
+  geom_line(aes(x = target_coverage, y = linear_coverage, color = "Linear"), size = 1) +
+  geom_line(aes(x = target_coverage, y = rf_coverage, color = "Random Forest"), size = 1) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "gray") +
+  geom_point(aes(x = target_coverage, y = linear_coverage, color = "Linear")) +
+  geom_point(aes(x = target_coverage, y = rf_coverage, color = "Random Forest")) +
+  labs(title = "Conformal Prediction: Target vs Empirical Coverage",
+       x = "Target Coverage", y = "Empirical Coverage",
+       color = "Model") +
+  theme_minimal() +
+  coord_cartesian(xlim = c(0.7, 0.95), ylim = c(0.7, 0.95))
+
+print(p3)
+
 ```
 
 
