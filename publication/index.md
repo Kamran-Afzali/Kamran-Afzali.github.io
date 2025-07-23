@@ -2,8 +2,11 @@
 layout: post
 title: Publication
 ---
-
-
+<li><p> Livet, A., Boers, E., Laroque, F., Afzali, M. H., McVey, G., & Conrod, P. J. (2024). Pathways from adolescent screen time to eating related symptoms: A multilevel longitudinal mediation analysis through self-esteem. Psychology & health, 39(9), 1167-1182. </p></li>
+<li><p> Marel, C., Afzali, M. H., Sunderland, M., Teesson, M., & Mills, K. L. (2024). Predicting risk of heroin overdose, remission, use, and mortality using ensemble learning methods in a cohort of people with heroin dependence. International Journal of Mental Health and Addiction, 1-19. </p></li>
+<li><p> Ouellet, J., Assaf, R., Afzali, M. H., Nourbakhsh, S., Potvin, S., & Conrod, P. (2024). Neurocognitive consequences of adolescent sleep disruptions and their relationship to psychosis vulnerability: a longitudinal cohort study. npj Mental Health Research, 3(1), 18. </p></li>
+<li><p> Wallace, J., Boers, E., Ouellet, J., Afzali, M. H., & Conrod, P. (2023). Screen time, impulsivity, neuropsychological functions and their relationship to growth in adolescent attention-deficit/hyperactivity disorder symptoms. Scientific Reports, 13(1), 18108. </p></li>
+<li><p> Laroque, F. M., Boers, E., Afzali, M. H., & Conrod, P. J. (2023). Personality-specific pathways from bullying victimization to adolescent alcohol use: a multilevel longitudinal moderated mediation analysis. Development and psychopathology, 35(3), 1454-1467. </p></li>
 <li><p>Navarri, X., Afzali, M. H., Lavoie, J., Sinha, R., Stein, D. J., Momenan, R., … &amp; Conrod, P. J. (2022). How do substance use disorders compare to other psychiatric conditions on structural brain abnormalities? A cross‐disorder meta‐analytic comparison using the ENIGMA consortium findings. Human Brain Mapping, 43(1), 399-413.</p></li><li><p>Afzali, M. H., Dagher, A., Bourque, J., Spinney, S., &amp; Conrod, P. (2022). Cross-Lagged Relationships Between Depressive Symptoms and Altered Default Mode Network Connectivity Over the Course of Adolescence. Biological Psychiatry: Cognitive Neuroscience and Neuroimaging.</p></li>
 <li><p>Elkrief, L., Lin, B., Marchi, M., Afzali, M. H., Banaschewski, T., Bokde, A. L., … &amp; IMAGEN consortium. (2021). Independent contribution of polygenic risk for schizophrenia and cannabis use in predicting psychotic-like experiences in young adulthood: testing gene× environment moderation and mediation. Psychological Medicine, 1-11.</p></li>
 <li><p>Stewart, S. H., Chinneck, A., Thompson, K., Afzali, M. H., Nogueira-Arjona, R., Mahu, I. T., &amp; Conrod, P. J. (2021). Personality to Prescription Drug Misuse in Adolescents: Testing Affect Regulation, Psychological Dysregulation, and Deviance Proneness Pathways. Frontiers in Psychiatry, 12, 474.</p></li>
