@@ -358,402 +358,135 @@ Moreover, rigorous fairness assessments require attention to intersectionality�
 ### Conceptual Implementation in R
 
 ```r
-library(tidyverse)
-
-# Simulated dataset with sensitive attribute
-data <- tibble(
-  age = rnorm(n, 50, 10),
-  bmi = rnorm(n, 27, 5),
-  glucose = rnorm(n, 100, 20),
-  gender = sample(c("male", "female"), n, replace = TRUE),
-  diabetes = rbinom(n, 1, plogis(0.04 * age + 0.06 * bmi + 0.03 * glucose - 8))
-)
-
-# Fit baseline model
-model <- glm(diabetes ~ age + bmi + glucose, family = binomial(), data = data)
-data$pred_prob <- predict(model, type = "response")
-
-# Evaluate demographic parity
-data <- data %>%
-  mutate(pred_class = ifelse(pred_prob > 0.5, 1, 0))
-dem_parity <- data %>%
-  group_by(gender) %>%
-  summarise(rate = mean(pred_class))
-
-# Reweight samples
-gender_ratio <- table(data$gender)
-weights <- ifelse(data$gender == "male",
-                  gender_ratio["female"] / sum(gender_ratio),
-                  gender_ratio["male"] / sum(gender_ratio))
-model_fair <- glm(diabetes ~ age + bmi + glucose, family = binomial(), data = data, weights = weights)
-data$pred_prob_fair <- predict(model_fair, type = "response")
-
-# Evaluate fairness again
-data <- data %>%
-  mutate(pred_class_fair = ifelse(pred_prob_fair > 0.5, 1, 0))
-dem_parity_fair <- data %>%
-  group_by(gender) %>%
-  summarise(rate = mean(pred_class_fair))
-```
-
-
-```r
-# Adversarial Debiasing Implementation in R
-# A simple implementation without torch/keras dependencies
-
-library(nnet)
-library(MASS)
-library(dplyr)
-library(ggplot2)
+# Adversarial Debiasing in R
+# Simple example with synthetic data, no Torch or Keras
 
 # Set seed for reproducibility
-set.seed(42)
+set.seed(123)
 
-# ==========================================
-# UTILITY FUNCTIONS
-# ==========================================
-
-# Sigmoid activation function
-sigmoid <- function(x) {
-  1 / (1 + exp(-x))
-}
-
-# Simple neural network predictor
-simple_predictor <- function(X, weights) {
-  # Single hidden layer with sigmoid activation
-  hidden <- sigmoid(X %*% weights$W1 + rep(weights$b1, each = nrow(X)))
-  output <- sigmoid(hidden %*% weights$W2 + rep(weights$b2, each = nrow(X)))
-  return(output)
-}
-
-# Simple adversary network
-simple_adversary <- function(pred, weights_adv) {
-  # Single layer adversary
-  output <- sigmoid(pred %*% weights_adv$W + rep(weights_adv$b, each = nrow(pred)))
-  return(output)
-}
-
-# Cross-entropy loss
-cross_entropy_loss <- function(y_true, y_pred) {
-  # Clip predictions to avoid log(0)
-  y_pred <- pmax(pmin(y_pred, 1 - 1e-7), 1e-7)
-  -mean(y_true * log(y_pred) + (1 - y_true) * log(1 - y_pred))
-}
-
-# Initialize weights
-init_weights <- function(input_dim, hidden_dim, output_dim) {
-  list(
-    W1 = matrix(rnorm(input_dim * hidden_dim, 0, 0.1), input_dim, hidden_dim),
-    b1 = rnorm(hidden_dim, 0, 0.1),
-    W2 = matrix(rnorm(hidden_dim * output_dim, 0, 0.1), hidden_dim, output_dim),
-    b2 = rnorm(output_dim, 0, 0.1)
-  )
-}
-
-init_adversary_weights <- function(input_dim, output_dim) {
-  list(
-    W = matrix(rnorm(input_dim * output_dim, 0, 0.1), input_dim, output_dim),
-    b = rnorm(output_dim, 0, 0.1)
-  )
-}
-
-# ==========================================
-# ADVERSARIAL DEBIASING CLASS
-# ==========================================
-
-AdversarialDebiasing <- function(input_dim, hidden_dim = 10, lambda = 1.0, lr = 0.01) {
-  
-  # Initialize networks
-  predictor_weights <- init_weights(input_dim, hidden_dim, 1)
-  adversary_weights <- init_adversary_weights(1, 1)
-  
-  # Training history
-  history <- list(
-    pred_loss = numeric(),
-    adv_loss = numeric(),
-    total_loss = numeric()
-  )
-  
-  # Training function
-  train <- function(X, y, s, epochs = 100, verbose = TRUE) {
-    n <- nrow(X)
-    
-    for (epoch in 1:epochs) {
-      # Forward pass
-      pred <- simple_predictor(X, predictor_weights)
-      adv_pred <- simple_adversary(pred, adversary_weights)
-      
-      # Compute losses
-      pred_loss <- cross_entropy_loss(y, pred)
-      adv_loss <- cross_entropy_loss(s, adv_pred)
-      total_loss <- pred_loss - lambda * adv_loss
-      
-      # Store history
-      history$pred_loss <<- c(history$pred_loss, pred_loss)
-      history$adv_loss <<- c(history$adv_loss, adv_loss)
-      history$total_loss <<- c(history$total_loss, total_loss)
-      
-      # Simple gradient updates (using finite differences for simplicity)
-      delta <- 1e-5
-      
-      # Update predictor weights
-      for (i in 1:length(predictor_weights$W1)) {
-        # Finite difference gradient
-        predictor_weights$W1[i] <- predictor_weights$W1[i] + delta
-        pred_new <- simple_predictor(X, predictor_weights)
-        adv_pred_new <- simple_adversary(pred_new, adversary_weights)
-        loss_new <- cross_entropy_loss(y, pred_new) - lambda * cross_entropy_loss(s, adv_pred_new)
-        predictor_weights$W1[i] <- predictor_weights$W1[i] - delta
-        
-        grad <- (loss_new - total_loss) / delta
-        predictor_weights$W1[i] <<- predictor_weights$W1[i] - lr * grad
-      }
-      
-      # Update adversary weights (maximize adversary loss = minimize negative loss)
-      for (i in 1:length(adversary_weights$W)) {
-        adversary_weights$W[i] <- adversary_weights$W[i] + delta
-        adv_pred_new <- simple_adversary(pred, adversary_weights)
-        loss_new <- cross_entropy_loss(s, adv_pred_new)
-        adversary_weights$W[i] <- adversary_weights$W[i] - delta
-        
-        grad <- (loss_new - adv_loss) / delta
-        adversary_weights$W[i] <<- adversary_weights$W[i] + lr * grad
-      }
-      
-      if (verbose && epoch %% 20 == 0) {
-        cat(sprintf("Epoch %d: Pred Loss = %.4f, Adv Loss = %.4f, Total = %.4f\n", 
-                    epoch, pred_loss, adv_loss, total_loss))
-      }
-    }
-  }
-  
-  # Prediction function
-  predict <- function(X) {
-    simple_predictor(X, predictor_weights)
-  }
-  
-  # Get adversary predictions (for evaluation)
-  predict_adversary <- function(pred) {
-    simple_adversary(pred, adversary_weights)
-  }
-  
-  # Return methods
-  list(
-    train = train,
-    predict = predict,
-    predict_adversary = predict_adversary,
-    get_history = function() history
-  )
-}
-
-# ==========================================
-# DEMONSTRATION WITH SYNTHETIC DATA
-# ==========================================
-
-# Generate synthetic healthcare dataset with bias
-generate_biased_data <- function(n = 1000) {
-  # Sensitive attribute: gender (0 = female, 1 = male)
-  gender <- rbinom(n, 1, 0.5)
-  
-  # Other features (age, symptoms, etc.)
-  age <- rnorm(n, 50, 15)
-  symptoms <- rnorm(n, 0, 1)
-  
-  # Create bias: males more likely to receive positive diagnosis
-  # even with similar symptoms
-  bias_effect <- 0.8 * gender  # Strong bias toward males
-  
-  # True outcome should depend on age and symptoms, not gender
-  true_risk <- sigmoid(-1 + 0.02 * age + 0.5 * symptoms)
-  
-  # Biased outcome (what we observe in historical data)
-  biased_logit <- -1 + 0.02 * age + 0.5 * symptoms + bias_effect
-  outcome <- rbinom(n, 1, sigmoid(biased_logit))
-  
-  # Combine features
-  X <- cbind(age = scale(age)[,1], 
-             symptoms = scale(symptoms)[,1])
-  
-  list(
-    X = X,
-    y = outcome,
-    s = gender,  # sensitive attribute
-    true_risk = true_risk
-  )
-}
-
-# Generate data
-cat("Generating synthetic biased healthcare data...\n")
-data <- generate_biased_data(1000)
-
-# Split into train/test
-train_idx <- sample(1:nrow(data$X), 0.7 * nrow(data$X))
-X_train <- data$X[train_idx, ]
-y_train <- data$y[train_idx]
-s_train <- data$s[train_idx]
-
-X_test <- data$X[-train_idx, ]
-y_test <- data$y[-train_idx]
-s_test <- data$s[-train_idx]
-
-# ==========================================
-# BASELINE MODEL (WITHOUT DEBIASING)
-# ==========================================
-
-cat("\nTraining baseline model (without debiasing)...\n")
-baseline_model <- nnet(X_train, y_train, size = 10, decay = 0.01, 
-                       maxit = 200, trace = FALSE)
-baseline_pred <- predict(baseline_model, X_test)
-
-# ==========================================
-# ADVERSARIAL DEBIASING MODEL
-# ==========================================
-
-cat("\nTraining adversarial debiasing model...\n")
-# Try different lambda values
-lambdas <- c(0.1, 0.5, 1.0, 2.0)
-models <- list()
-
-for (lambda_val in lambdas) {
-  cat(sprintf("\nTraining with lambda = %.1f\n", lambda_val))
-  
-  model <- AdversarialDebiasing(
-    input_dim = ncol(X_train),
-    hidden_dim = 10,
-    lambda = lambda_val,
-    lr = 0.1
-  )
-  
-  model$train(X_train, y_train, s_train, epochs = 200, verbose = FALSE)
-  models[[as.character(lambda_val)]] <- model
-}
-
-# ==========================================
-# EVALUATION FUNCTIONS
-# ==========================================
-
-# Demographic parity: P(Y=1|S=0) ≈ P(Y=1|S=1)
-demographic_parity <- function(predictions, sensitive) {
-  rate_s0 <- mean(predictions[sensitive == 0])
-  rate_s1 <- mean(predictions[sensitive == 1])
-  abs(rate_s0 - rate_s1)
-}
-
-# Equalized odds: TPR and FPR should be similar across groups
-equalized_odds <- function(predictions, true_labels, sensitive, threshold = 0.5) {
-  pred_binary <- as.numeric(predictions > threshold)
-  
-  # True positive rates
-  tpr_s0 <- mean(pred_binary[sensitive == 0 & true_labels == 1])
-  tpr_s1 <- mean(pred_binary[sensitive == 1 & true_labels == 1])
-  
-  # False positive rates  
-  fpr_s0 <- mean(pred_binary[sensitive == 0 & true_labels == 0])
-  fpr_s1 <- mean(pred_binary[sensitive == 1 & true_labels == 0])
-  
-  tpr_diff <- abs(tpr_s0 - tpr_s1)
-  fpr_diff <- abs(fpr_s0 - fpr_s1)
-  
-  list(tpr_diff = tpr_diff, fpr_diff = fpr_diff, 
-       avg_diff = (tpr_diff + fpr_diff) / 2)
-}
-
-# Model accuracy
-accuracy <- function(predictions, true_labels, threshold = 0.5) {
-  pred_binary <- as.numeric(predictions > threshold)
-  mean(pred_binary == true_labels)
-}
-
-# ==========================================
-# RESULTS COMPARISON
-# ==========================================
-
-cat("\n" + "="*60 + "\n")
-cat("EVALUATION RESULTS\n")
-cat("="*60 + "\n")
-
-# Baseline results
-baseline_acc <- accuracy(baseline_pred, y_test)
-baseline_dp <- demographic_parity(baseline_pred, s_test)
-baseline_eo <- equalized_odds(baseline_pred, y_test, s_test)
-
-cat(sprintf("BASELINE MODEL:\n"))
-cat(sprintf("  Accuracy: %.3f\n", baseline_acc))
-cat(sprintf("  Demographic Parity Violation: %.3f\n", baseline_dp))
-cat(sprintf("  Equalized Odds Violation: %.3f\n", baseline_eo$avg_diff))
-
-# Adversarial results
-cat(sprintf("\nADVERSARIAL DEBIASING RESULTS:\n"))
-results_df <- data.frame()
-
-for (lambda_val in lambdas) {
-  model <- models[[as.character(lambda_val)]]
-  pred <- model$predict(X_test)
-  
-  acc <- accuracy(pred, y_test)
-  dp <- demographic_parity(pred, s_test)
-  eo <- equalized_odds(pred, y_test, s_test)
-  
-  cat(sprintf("Lambda = %.1f:\n", lambda_val))
-  cat(sprintf("  Accuracy: %.3f\n", acc))
-  cat(sprintf("  Demographic Parity Violation: %.3f\n", dp))
-  cat(sprintf("  Equalized Odds Violation: %.3f\n", eo$avg_diff))
-  cat("\n")
-  
-  results_df <- rbind(results_df, data.frame(
-    lambda = lambda_val,
-    accuracy = acc,
-    demographic_parity = dp,
-    equalized_odds = eo$avg_diff
-  ))
-}
-
-# ==========================================
-# VISUALIZATION
-# ==========================================
-
-# Plot training history for lambda = 1.0
-model_viz <- models[["1"]]
-history <- model_viz$get_history()
-
-history_df <- data.frame(
-  epoch = 1:length(history$pred_loss),
-  prediction_loss = history$pred_loss,
-  adversary_loss = history$adversary_loss,
-  total_loss = history$total_loss
+# Generate synthetic dataset
+n <- 1000  # Number of samples
+data <- data.frame(
+  feature1 = rnorm(n),  # Continuous feature
+  feature2 = rnorm(n),  # Continuous feature
+  protected = sample(c(0, 1), n, replace = TRUE),  # Protected attribute
+  label = rep(0, n)  # Binary outcome
 )
 
-p1 <- ggplot(history_df, aes(x = epoch)) +
-  geom_line(aes(y = prediction_loss, color = "Prediction Loss")) +
-  geom_line(aes(y = adversary_loss, color = "Adversary Loss")) +
-  geom_line(aes(y = total_loss, color = "Total Loss")) +
-  labs(title = "Training Loss History (λ = 1.0)",
-       x = "Epoch", y = "Loss",
-       color = "Loss Type") +
-  theme_minimal()
+# Simulate labels correlated with features and slightly with protected attribute
+data$label <- as.integer(
+  0.5 * data$feature1 + 0.3 * data$feature2 + 0.2 * data$protected + rnorm(n) > 0
+)
 
-print(p1)
+# Initialize model parameters
+w_pred <- c(0, 0, 0, 0)  # [w1, w2, w_protected, bias]
+w_adv <- c(0, 0)  # [w_output, bias]
 
-# Plot accuracy vs fairness trade-off
-p2 <- ggplot(results_df, aes(x = demographic_parity, y = accuracy)) +
-  geom_point(aes(color = factor(lambda)), size = 3) +
-  geom_text(aes(label = paste("λ =", lambda)), 
-            vjust = -0.5, hjust = 0.5) +
-  labs(title = "Accuracy vs Fairness Trade-off",
-       x = "Demographic Parity Violation",
-       y = "Accuracy",
-       color = "Lambda") +
-  theme_minimal()
+# Sigmoid function
+sigmoid <- function(x) 1 / (1 + exp(-x))
 
-print(p2)
+# Predictor forward pass
+predictor_logits <- function(X, w) {
+  X %*% w[1:3] + w[4]  # Linear combination + bias
+}
 
-cat("\n" + "="*60 + "\n")
-cat("INTERPRETATION:\n")
-cat("- Higher lambda values enforce stronger fairness constraints\n")
-cat("- This typically reduces accuracy but improves fairness metrics\n") 
-cat("- The optimal lambda balances accuracy and fairness for your use case\n")
-cat("="*60 + "\n")
-```
+predictor_probs <- function(X, w) {
+  sigmoid(predictor_logits(X, w))
+}
+
+# Adversary forward pass
+adversary_logits <- function(pred_logits, w) {
+  pred_logits * w[1] + w[2]  # Use logits, not probabilities
+}
+
+adversary_probs <- function(pred_logits, w) {
+  sigmoid(adversary_logits(pred_logits, w))
+}
+
+# Loss functions
+pred_loss <- function(y_true, y_pred) {
+  -mean(y_true * log(pmax(y_pred, 1e-10)) + (1 - y_true) * log(pmax(1 - y_pred, 1e-10)))
+}
+
+adv_loss <- function(s_true, s_pred) {
+  -mean(s_true * log(pmax(s_pred, 1e-10)) + (1 - s_true) * log(pmax(1 - s_pred, 1e-10)))
+}
+
+# Training parameters
+alpha <- 0.1  # Learning rate for predictor
+beta <- 0.1   # Learning rate for adversary
+lambda <- 1.0  # Weight for adversarial loss
+n_epochs <- 500
+
+# Prepare data
+X <- as.matrix(data[, c("feature1", "feature2", "protected")])
+y <- data$label
+s <- data$protected
+
+# Training loop
+for (epoch in 1:n_epochs) {
+  # Forward pass: Predictor
+  pred_logits <- predictor_logits(X, w_pred)
+  y_pred_probs <- predictor_probs(X, w_pred)
+  
+  # Forward pass: Adversary
+  s_pred_probs <- adversary_probs(pred_logits, w_adv)
+  
+  # Compute losses
+  loss_pred <- pred_loss(y, y_pred_probs)
+  loss_adv <- adv_loss(s, s_pred_probs)
+  
+  # Compute gradients for predictor (standard classification)
+  grad_pred_wrt_logits <- y_pred_probs - y
+  grad_w_pred_standard <- t(X) %*% grad_pred_wrt_logits / n
+  grad_b_pred_standard <- mean(grad_pred_wrt_logits)
+  
+  # Compute gradients for adversary
+  grad_adv_wrt_logits <- s_pred_probs - s
+  grad_w_adv <- mean(grad_adv_wrt_logits * pred_logits)
+  grad_b_adv <- mean(grad_adv_wrt_logits)
+  
+  # Compute adversarial gradients for predictor (gradient reversal)
+  # This is the key part: gradients flow back from adversary to predictor
+  adv_influence <- grad_adv_wrt_logits * w_adv[1] * y_pred_probs * (1 - y_pred_probs)
+  grad_w_pred_adv <- t(X) %*% adv_influence / n
+  grad_b_pred_adv <- mean(adv_influence)
+  
+  # Update predictor weights (minimize prediction loss, maximize adversarial loss)
+  w_pred[1:3] <- w_pred[1:3] - alpha * (grad_w_pred_standard - lambda * grad_w_pred_adv)
+  w_pred[4] <- w_pred[4] - alpha * (grad_b_pred_standard - lambda * grad_b_pred_adv)
+  
+  # Update adversary weights (maximize ability to predict protected attribute)
+  w_adv[1] <- w_adv[1] + beta * grad_w_adv  # Note: + for maximization
+  w_adv[2] <- w_adv[2] + beta * grad_b_adv  # Note: + for maximization
+  
+  # Print progress
+  if (epoch %% 100 == 0) {
+    cat(sprintf("Epoch %d: Predictor Loss = %.4f, Adversary Loss = %.4f\n", 
+                epoch, loss_pred, loss_adv))
+  }
+}
+
+# Evaluate results
+y_pred_final <- predictor_probs(X, w_pred)
+s_pred_final <- adversary_probs(predictor_logits(X, w_pred), w_adv)
+
+cat("\n=== FINAL RESULTS ===\n")
+cat("Correlation between predictions and protected attribute:", 
+    cor(y_pred_final, s), "\n")
+
+# Evaluate accuracy
+accuracy <- mean((y_pred_final > 0.5) == y)
+cat("Predictor accuracy:", accuracy, "\n")
+
+# Check demographic parity
+pred_by_group <- aggregate(y_pred_final ~ s, data = data.frame(y_pred_final, s), mean)
+cat("\nDemographic Parity (mean predictions by group):\n")
+print(pred_by_group)
+
+# Adversary accuracy (should be around 0.5 for good debiasing)
+adv_accuracy <- mean((s_pred_final > 0.5) == s)
+cat("Adversary accuracy (lower is better):", adv_accuracy, "\n")```
 
 
 ## Discussion and future direction
