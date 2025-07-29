@@ -1,10 +1,8 @@
 # Regression Discontinuity Design: Exploiting Arbitrary Cutoffs for Causal Inference
 
-## The Beauty of Arbitrary Rules
+## Arbitrary Rules
 
-Administrative cutoffs pervade our world. Students with SAT scores of 1200 qualify for merit scholarships while those scoring 1199 don't. Patients with blood pressure readings above 140 mmHg receive hypertension treatment. Companies with fewer than 50 employees avoid certain regulatory requirements. These seemingly arbitrary thresholds create natural experiments—individuals just above and below the cutoff are likely similar in all respects except treatment assignment.
-
-Regression Discontinuity Design (RDD) exploits this logic. Unlike Instrumental Variables, which require finding exogenous variation that affects treatment, RDD uses the discontinuous assignment mechanism itself. The method appears deceptively simple: compare outcomes for units just above and below a threshold. Yet this simplicity masks sophisticated assumptions and estimation challenges that researchers often underestimate.
+Cutoffs are all around us Students with SAT scores of 1200 qualify for merit scholarships while those scoring 1199 don't. Patients with blood pressure readings above 140 mmHg receive hypertension treatment. Companies with fewer than 50 employees avoid certain regulatory requirements. These seemingly arbitrary thresholds create natural experiments—individuals just above and below the cutoff are likely similar in all respects except treatment assignment. Regression Discontinuity Design (RDD) exploits this logic. Unlike Instrumental Variables, which require finding exogenous variation that affects treatment, RDD uses the discontinuous assignment mechanism itself. The method appears deceptively simple: compare outcomes for units just above and below a threshold. Yet this simplicity masks sophisticated assumptions and estimation challenges that researchers often underestimate.
 
 ## Theoretical Foundation
 
