@@ -17,9 +17,7 @@ D_i = \begin{cases}
 \end{cases}
 $$
 
-where $c$ represents the cutoff threshold. This sharp discontinuity contrasts with fuzzy RDD, where the assignment rule creates jumps in treatment probability rather than certainty.
-
-The key insight: individuals near the cutoff are exchangeable. Someone scoring 1199 on the SAT likely resembles someone scoring 1201 more than they resemble someone scoring 1400. This local randomization assumption enables causal identification.
+where $c$ represents the cutoff threshold. This sharp discontinuity contrasts with fuzzy RDD, where the assignment rule creates jumps in treatment probability rather than certainty. The key insight: individuals near the cutoff are exchangeable. Someone scoring 1199 on the SAT likely resembles someone scoring 1201 more than they resemble someone scoring 1400. 
 
 ### Identification Strategy
 
