@@ -10,39 +10,21 @@ The method proves particularly valuable in policy evaluation contexts where trea
 
 ### Identification Strategy
 
-RDD identification relies on the assumption that potential outcomes are continuous functions of a running variable at the treatment cutoff, while treatment assignment exhibits a discontinuity. Consider a running variable $X$ with cutoff $c$, where treatment $D = 1$ if $X \geq c$ and $D = 0$ if $X < c$. The key insight is that units with $X$ values arbitrarily close to $c$ are similar in all respects except treatment status, making the cutoff a source of quasi-random variation.
+RDD identification relies on the assumption that potential outcomes are continuous functions of a running variable at the treatment cutoff, while treatment assignment exhibits a discontinuity. Consider a running variable X with cutoff c, where treatment D = 1 if X ≥ c and D = 0 if X < c. The key insight is that units with X values arbitrarily close to c are similar in all respects except treatment status, making the cutoff a source of quasi-random variation.
 
-The identifying assumption is continuity of potential outcomes at the cutoff. Formally, for potential outcomes $Y(0)$ and $Y(1)$ under control and treatment:
-
-$$\lim_{x \downarrow c} \mathbb{E}[Y(0) \mid X = x] = \lim_{x \uparrow c} \mathbb{E}[Y(0) \mid X = x]$$
-
-$$\lim_{x \downarrow c} \mathbb{E}[Y(1) \mid X = x] = \lim_{x \uparrow c} \mathbb{E}[Y(1) \mid X = x]$$
-
-Under this assumption, the treatment effect at the cutoff is identified by the discontinuity in the observed outcome:
-
-$$\tau = \lim_{x \downarrow c} \mathbb{E}[Y \mid X = x] - \lim_{x \uparrow c} \mathbb{E}[Y \mid X = x]$$
-
-This local average treatment effect (LATE) applies specifically to units at the cutoff, representing the causal effect for individuals with running variable values equal to the threshold.
+The identifying assumption is continuity of potential outcomes at the cutoff. Formally, for potential outcomes Y(0) and Y(1) under control and treatment, the expected values of both potential outcomes must be continuous at the cutoff point. Under this assumption, the treatment effect at the cutoff is identified by the discontinuity in the observed outcome. This local average treatment effect (LATE) applies specifically to units at the cutoff, representing the causal effect for individuals with running variable values equal to the threshold.
 
 ### Sharp versus Fuzzy Designs
 
 Sharp RDD occurs when treatment assignment is a deterministic function of the running variable, with probability of treatment jumping from 0 to 1 at the cutoff. The treatment effect is estimated directly from the outcome discontinuity. Fuzzy RDD arises when treatment probability changes discontinuously but not deterministically at the cutoff, creating a first-stage relationship between the running variable and treatment assignment. Fuzzy designs require two-stage estimation similar to instrumental variables, where the cutoff serves as an instrument for treatment receipt.
 
-For fuzzy designs, the treatment effect is:
-
-$$\tau = \frac{\lim_{x \downarrow c} \mathbb{E}[Y \mid X = x] - \lim_{x \uparrow c} \mathbb{E}[Y \mid X = x]}{\lim_{x \downarrow c} \mathbb{E}[D \mid X = x] - \lim_{x \uparrow c} \mathbb{E}[D \mid X = x]}$$
-
-This ratio scales the outcome discontinuity by the treatment probability discontinuity, analogous to the Wald estimator in instrumental variables estimation.
+For fuzzy designs, the treatment effect is calculated as the ratio of the outcome discontinuity to the treatment probability discontinuity, analogous to the Wald estimator in instrumental variables estimation.
 
 ### Estimation Approaches
 
-RDD estimation typically employs local polynomial regression focusing on observations near the cutoff. The parametric approach fits separate polynomials on each side of the threshold:
+RDD estimation typically employs local polynomial regression focusing on observations near the cutoff. The parametric approach fits separate polynomials on each side of the threshold, where the treatment effect is captured by the coefficient on the treatment indicator. The nonparametric approach uses local linear regression with kernel weights, estimating separate regressions on each side of the cutoff using observations within a bandwidth h of the threshold.
 
-$$\mathbb{E}[Y_i \mid X_i] = \alpha_0 + \tau D_i + \beta_1 (X_i - c) + \beta_2 D_i (X_i - c) + f(X_i - c)$$
-
-where $D_i = \mathbb{1}(X_i \geq c)$, $f(\cdot)$ represents higher-order polynomial terms, and $\tau$ captures the treatment effect. The nonparametric approach uses local linear regression with kernel weights, estimating separate regressions on each side of the cutoff using observations within a bandwidth $h$ of the threshold.
-
-Bandwidth selection involves a bias-variance tradeoff. Smaller bandwidths reduce bias by focusing on units most similar to those at the cutoff but increase variance due to smaller sample sizes. Optimal bandwidth selection procedures, such as those developed by Imbens and Kalyanaraman or Calonico, Cattaneo, and Titiunik, balance these considerations using cross-validation or mean squared error criteria.
+Bandwidth selection involves a bias-variance tradeoff. Smaller bandwidths reduce bias by focusing on units most similar to those at the cutoff but increase variance due to smaller sample sizes. Optimal bandwidth selection procedures balance these considerations using cross-validation or mean squared error criteria.
 
 ### Comparison with Other Methods
 
@@ -273,7 +255,7 @@ Successful RDD implementation requires careful attention to institutional detail
 
 ## References
 
-* Lee, D. S., & Lemieux, T. (2010). Regression discontinuity designs in economics. *Journal of Economic Literature*, 48(2), 281-355.
-* Imbens, G., & Kalyanaraman, K. (2012). Optimal bandwidth choice for the regression discontinuity estimator. *Review of Economic Studies*, 79(3), 933-959.
-* Calonico, S., Cattaneo, M. D., & Titiunik, R. (2014). Robust nonparametric confidence intervals for regression-discontinuity designs. *Econometrica*, 82(6), 2295-2326.
-* Cattaneo, M. D., Idrobo, N., & Titiunik, R. (2019). *A Practical Introduction to Regression Discontinuity Designs: Foundations*. Cambridge University Press.
+- Lee, D. S., & Lemieux, T. (2010). Regression discontinuity designs in economics. *Journal of Economic Literature*, 48(2), 281-355.
+- Imbens, G., & Kalyanaraman, K. (2012). Optimal bandwidth choice for the regression discontinuity estimator. *Review of Economic Studies*, 79(3), 933-959.
+- Calonico, S., Cattaneo, M. D., & Titiunik, R. (2014). Robust nonparametric confidence intervals for regression-discontinuity designs. *Econometrica*, 82(6), 2295-2326.
+- Cattaneo, M. D., Idrobo, N., & Titiunik, R. (2019). *A Practical Introduction to Regression Discontinuity Designs: Foundations*. Cambridge University Press.
