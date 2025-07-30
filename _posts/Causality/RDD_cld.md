@@ -244,45 +244,11 @@ print(p3)
 
 ### Interpretation and Validation
 
-The density test examines whether patients manipulate blood pressure readings to avoid treatment. A significant p-value suggests bunching below the cutoff, violating the continuity assumption. In practice, manipulation may occur through multiple measurements or strategic timing of clinic visits.
-
-Bandwidth selection involves the classic bias-variance tradeoff. Narrow bandwidths reduce bias from functional form misspecification but increase variance due to smaller sample sizes. The `rdrobust` package implements data-driven bandwidth selection, though sensitivity analysis across multiple bandwidths provides valuable robustness checks.
-
-Predetermined characteristics should not jump at the cutoff. Testing variables like age, gender, or previous medical history helps validate the design. Significant discontinuities in these variables suggest confounding or manipulation, undermining causal identification.
-
-## Comparing RDD with Other Methods
-
-RDD occupies a unique position in the causal inference toolkit. Unlike IV, which requires finding exogenous instruments, RDD exploits existing administrative rules. This makes it particularly attractive for policy evaluation—eligibility thresholds create natural experiments without researcher intervention.
-
-The method's internal validity often exceeds that of matching or regression approaches. Local randomization near the cutoff eliminates selection bias more convincingly than assuming conditional ignorability across the entire covariate distribution. However, external validity remains limited. RDD identifies effects only at the cutoff, potentially missing heterogeneous effects across the running variable's range.
-
-The approach also faces practical limitations. Sharp cutoffs are less common than fuzzy ones, where assignment rules affect treatment probability rather than certainty. Fuzzy RDD requires additional assumptions and instrumental variable techniques, complicating interpretation. Multiple cutoffs or multidimensional assignment rules further challenge standard methods.
-
-## Extensions and Practical Considerations
-
-Recent methodological advances address several RDD limitations. Geographic RDD exploits spatial discontinuities in policies, such as school district boundaries or electoral district borders. Kink designs examine changes in policy slopes rather than levels, expanding the method's applicability.
-
-Practitioners increasingly recognize the importance of graphical analysis alongside formal statistical tests. Plotting outcomes against the running variable reveals functional form assumptions and potential violations. Binned scatter plots, as implemented above, provide intuitive visualizations while local polynomial fits offer flexible functional forms.
-
-The choice between parametric and nonparametric approaches remains contentious. Parametric methods provide precise estimates when functional forms are correctly specified but risk substantial bias otherwise. Nonparametric approaches sacrifice precision for robustness, though bandwidth selection introduces its own uncertainties.
+The density test examines whether patients manipulate blood pressure readings to avoid treatment. A significant p-value suggests bunching below the cutoff, violating the continuity assumption. In practice, manipulation may occur through multiple measurements or strategic timing of clinic visits. Bandwidth selection involves the classic bias-variance tradeoff. Narrow bandwidths reduce bias from functional form misspecification but increase variance due to smaller sample sizes. The `rdrobust` package implements data-driven bandwidth selection, though sensitivity analysis across multiple bandwidths provides valuable robustness checks. Predetermined characteristics should not jump at the cutoff. Testing variables like age, gender, or previous medical history helps validate the design. Significant discontinuities in these variables suggest confounding or manipulation, undermining causal identification.
 
 ## Limitations and Future Directions
 
-RDD's reliance on arbitrary cutoffs both enables and constrains its application. While administrative thresholds are common, they may not align with research questions of primary interest. The method identifies effects at specific points rather than population parameters, limiting generalizability.
-
-Contemporary research explores machine learning applications to RDD. Random forests and neural networks may better capture complex nonlinear relationships, though interpretability concerns arise. Causal machine learning techniques attempt to combine RDD's identification strategy with flexible modeling approaches.
-
-The method also faces challenges in settings with strategic behavior. When agents understand assignment rules, they may manipulate running variables or time their interactions with institutions. Detecting and accounting for such manipulation requires sophisticated empirical strategies.
-
-## Conclusion
-
-Regression Discontinuity Design transforms administrative convenience into scientific opportunity. By exploiting arbitrary cutoffs, researchers can estimate causal effects in settings where experiments prove infeasible or unethical. The blood pressure example demonstrates the method's practical application while highlighting key assumptions and diagnostic tests.
-
-The approach's strength lies in its transparency—the assignment mechanism is observed and understood. Unlike black-box instruments or unverifiable ignorability assumptions, RDD's identification strategy can be visualized and tested. This makes it particularly valuable for policy evaluation and regulatory analysis.
-
-Yet RDD is not a panacea. Its local nature limits external validity, while manipulation and confounding threats require careful attention. Successful applications combine substantive knowledge of institutional contexts with rigorous empirical testing. When these conditions align, RDD provides credible causal estimates that inform both academic understanding and policy decisions.
-
-The method continues evolving as researchers encounter new applications and develop improved techniques. Geographic discontinuities, kink designs, and machine learning extensions expand its reach while maintaining its core appeal: exploiting arbitrary rules to reveal causal relationships.
+RDD has a unique position in the causal inference toolkit. Unlike IV, which requires finding exogenous instruments, RDD exploits existing administrative rules. This makes it particularly attractive for policy evaluation—eligibility thresholds create natural experiments without researcher intervention. The method's internal validity often exceeds that of matching or regression approaches. Local randomization near the cutoff eliminates selection bias more convincingly than assuming conditional ignorability across the entire covariate distribution. However, external validity remains limited. RDD identifies effects only at the cutoff, potentially missing heterogeneous effects across the running variable's range. It also has practical limitations, such as the fact that, sharp cutoffs are less common than fuzzy ones, where assignment rules affect treatment probability rather than certainty. Fuzzy RDD requires additional assumptions and instrumental variable techniques, complicating interpretation. Multiple cutoffs or multidimensional assignment rules further challenge standard methods. Regression Discontinuity Design uses the abritrary convenience of administrative cutoffs into scientific opportunity for researchers to estimate causal effects in settings where experiments prove infeasible or unethical. The blood pressure example demonstrates the method's practical application while highlighting key assumptions and diagnostic tests. The approach's strength lies in its transparency—the assignment mechanism is observed and understood. Unlike black-box instruments or unverifiable ignorability assumptions, RDD's identification strategy can be visualized and tested. This makes it particularly valuable for policy evaluation and regulatory analysis.
 
 ## References
 
