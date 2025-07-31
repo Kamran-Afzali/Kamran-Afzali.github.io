@@ -114,32 +114,6 @@ pFinding(chest.grain.ev)
 
 Evidence propagation updates all probability distributions throughout the network, providing posterior marginals that reflect the observed information. The `pFinding` function computes the probability of the evidence configuration, which proves useful for model comparison and diagnostic purposes. However, practitioners should remember that very low evidence probabilities might indicate model misspecification rather than rare events.
 
-### Learning from Data
-
-Beyond manual specification, gRain supports learning network parameters from data, though this capability comes with important caveats:
-
-```r
-# Load example dataset
-data(lizard, package="gRbase")
-
-# Define graphical structure
-g <- list(~diam + locc, ~diam + spec, ~locc + spec + height)
-
-# Fit graphical model
-gm <- ggm(g, data=lizard)
-
-# Convert to grain object
-grain.fit <- as.grain(gm)
-
-# Compile and propagate
-grain.compiled <- compile(grain.fit)
-grain.prop <- propagate(grain.compiled)
-
-# Query fitted model
-querygrain(grain.prop, nodes="spec")
-```
-
-This approach combines structural assumptions encoded in the graphical model with parameter estimates derived from data. While appealing, this method assumes the specified graph structure is correct—an assumption that may not hold in practice and can lead to overconfident inferences.
 
 ## Advanced Functionality
 
@@ -148,22 +122,29 @@ This approach combines structural assumptions encoded in the graphical model wit
 Understanding network structure becomes essential for model interpretation, though the available tools have limitations. The gRain package provides several visualization options:
 
 ```r
-# Plot network structure
-plot(chest.grain)
 
-# Examine network components
-getNodes(chest.grain)
-getEdges(chest.grain)
+nodeNames(chest.grain)
 
-# Test conditional independence
-dsep(chest.grain$dag, "asia", "bronc", "smoke")
+dag <- chest.grain$dag
+plot(dag)  # This works for plotting the DAG
 
-# Examine junction tree structure
-getCliques(chest.grain)
-getSeparators(chest.grain)
+
+edges <- edges(dag)
+print(edges)
+
+
+parents("lung", dag)
+children("lung", dag)
+summary(chest.grain)
+
+
+chest.compiled <- compile(chest.grain)
+
+chest.compiled$rip
+
 ```
 
-The `dsep` function tests d-separation, a fundamental concept in graphical models that determines conditional independence relationships. Clique and separator information provides insight into the computational structure created by the junction tree algorithm. However, the plotting capabilities are fairly basic, and complex networks may require external visualization tools for meaningful interpretation.
+Clique and separator information provides insight into the computational structure created by the junction tree algorithm. However, the plotting capabilities are fairly basic, and complex networks may require external visualization tools for meaningful interpretation.
 
 ### Simulation and Model Validation
 
