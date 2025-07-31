@@ -6,21 +6,40 @@ Regression Discontinuity Design (RDD) exploits arbitrary thresholds in treatment
 
 The method proves particularly valuable in policy evaluation contexts where treatments are assigned based on arbitrary cutoffs, such as scholarship eligibility based on test scores, medical interventions based on diagnostic thresholds, or regulatory compliance based on firm size. This essay examines RDD's theoretical foundation, mathematical framework, and practical implementation through a healthcare application estimating the causal effect of intensive care unit admission on patient mortality using simulated data in R. We explore both sharp and fuzzy designs, discuss assumption validation, and compare RDD with alternative causal inference approaches.
 
-## Theoretical Framework
+RDD identification relies on the assumption that potential outcomes are continuous functions of a running variable at the treatment cutoff, while treatment assignment exhibits a discontinuity. Consider a running variable X with cutoff c, where treatment D = 1 if X ≥ c and D = 0 if X < c. The key insight is that units with X values arbitrarily close to c are similar in all respects except treatment status, making the cutoff a source of quasi-random variation. RDD applies when treatment assignment follows a deterministic rule based on an observed running variable $X$:
 
-### Identification Strategy
+$$
+D_i = \begin{cases}
+1 & \text{if } X_i \geq c \\
+0 & \text{if } X_i < c
+\end{cases}
+$$
 
-RDD identification relies on the assumption that potential outcomes are continuous functions of a running variable at the treatment cutoff, while treatment assignment exhibits a discontinuity. Consider a running variable X with cutoff c, where treatment D = 1 if X ≥ c and D = 0 if X < c. The key insight is that units with X values arbitrarily close to c are similar in all respects except treatment status, making the cutoff a source of quasi-random variation.
+where $c$ represents the cutoff threshold. This sharp discontinuity contrasts with fuzzy RDD, where the assignment rule creates jumps in treatment probability rather than certainty. The key insight: individuals near the cutoff are exchangeable.
+
+The RDD estimand targets the treatment effect at the cutoff:
+
+$$
+\tau_{RDD} = \mathbb{E}[Y_i(1) - Y_i(0) | X_i = c]
+$$
+
+Since we observe only one potential outcome for each unit, identification requires continuity of the conditional expectation function at the cutoff. Formally:
+
+$$
+\mathbb{E}[Y_i(0) | X_i = x] \text{ and } \mathbb{E}[Y_i(1) | X_i = x] \text{ are continuous at } x = c
+$$
+
+When this holds, the treatment effect equals the discontinuous jump in the observed outcome:
+
+$$
+\tau_{RDD} = \lim_{x \to c^+} \mathbb{E}[Y_i | X_i = x] - \lim_{x \to c^-} \mathbb{E}[Y_i | X_i = x]
+$$
+
 
 The identifying assumption is continuity of potential outcomes at the cutoff. Formally, for potential outcomes Y(0) and Y(1) under control and treatment, the expected values of both potential outcomes must be continuous at the cutoff point. Under this assumption, the treatment effect at the cutoff is identified by the discontinuity in the observed outcome. This local average treatment effect (LATE) applies specifically to units at the cutoff, representing the causal effect for individuals with running variable values equal to the threshold.
 
-### Sharp versus Fuzzy Designs
+Sharp RDD occurs when treatment assignment is a deterministic function of the running variable, with probability of treatment jumping from 0 to 1 at the cutoff. The treatment effect is estimated directly from the outcome discontinuity. Fuzzy RDD arises when treatment probability changes discontinuously but not deterministically at the cutoff, creating a first-stage relationship between the running variable and treatment assignment. Fuzzy designs require two-stage estimation similar to instrumental variables, where the cutoff serves as an instrument for treatment receipt. For fuzzy designs, the treatment effect is calculated as the ratio of the outcome discontinuity to the treatment probability discontinuity, analogous to the Wald estimator in instrumental variables estimation.
 
-Sharp RDD occurs when treatment assignment is a deterministic function of the running variable, with probability of treatment jumping from 0 to 1 at the cutoff. The treatment effect is estimated directly from the outcome discontinuity. Fuzzy RDD arises when treatment probability changes discontinuously but not deterministically at the cutoff, creating a first-stage relationship between the running variable and treatment assignment. Fuzzy designs require two-stage estimation similar to instrumental variables, where the cutoff serves as an instrument for treatment receipt.
-
-For fuzzy designs, the treatment effect is calculated as the ratio of the outcome discontinuity to the treatment probability discontinuity, analogous to the Wald estimator in instrumental variables estimation.
-
-### Estimation Approaches
 
 RDD estimation typically employs local polynomial regression focusing on observations near the cutoff. The parametric approach fits separate polynomials on each side of the threshold, where the treatment effect is captured by the coefficient on the treatment indicator. The nonparametric approach uses local linear regression with kernel weights, estimating separate regressions on each side of the cutoff using observations within a bandwidth h of the threshold.
 
@@ -219,13 +238,9 @@ cat("Nonparametric estimate suggests", round(abs(nonparam_effect) * 100, 1),
 
 ## Interpretation and Diagnostics
 
-The parametric and nonparametric estimates should approximate the true treatment effect of -0.15 if the design assumptions hold. The optimal bandwidth determined by the rdrobust package balances bias and variance considerations, typically including observations within 1-3 units of the cutoff. Confidence intervals reflect estimation uncertainty, with nonparametric approaches often producing wider intervals due to their flexibility.
+The parametric and nonparametric estimates should approximate the true treatment effect of -0.15 if the design assumptions hold. The optimal bandwidth determined by the rdrobust package balances bias and variance considerations, typically including observations within 1-3 units of the cutoff. Confidence intervals reflect estimation uncertainty, with nonparametric approaches often producing wider intervals due to their flexibility. The density test examines whether the running variable distribution shows evidence of manipulation around the cutoff. A significant test statistic suggests systematic sorting that could invalidate the design. In our simulation, the p-value should exceed conventional significance levels since we generated random APACHE scores without manipulation.
 
-The density test examines whether the running variable distribution shows evidence of manipulation around the cutoff. A significant test statistic suggests systematic sorting that could invalidate the design. In our simulation, the p-value should exceed conventional significance levels since we generated random APACHE scores without manipulation.
-
-The placebo test estimates effects at a false cutoff where no treatment discontinuity exists. Significant placebo effects suggest that observed discontinuities may reflect underlying trends rather than treatment effects, casting doubt on the main results. Successful placebo tests show estimates close to zero with insignificant p-values.
-
-Visual inspection provides additional validation. The plot should show smooth outcome trends on both sides of the cutoff with a clear discontinuity at the threshold. Binned scatter plots help reveal the underlying relationship while reducing noise from individual observations. Suspicious patterns, such as unusual curvature near the cutoff or multiple discontinuities, warrant further investigation.
+The placebo test estimates effects at a false cutoff where no treatment discontinuity exists. Significant placebo effects suggest that observed discontinuities may reflect underlying trends rather than treatment effects, casting doubt on the main results. Successful placebo tests show estimates close to zero with insignificant p-values. Visual inspection provides additional validation. The plot should show smooth outcome trends on both sides of the cutoff with a clear discontinuity at the threshold. Binned scatter plots help reveal the underlying relationship while reducing noise from individual observations. Suspicious patterns, such as unusual curvature near the cutoff or multiple discontinuities, warrant further investigation.
 
 ## Extensions and Robustness
 
