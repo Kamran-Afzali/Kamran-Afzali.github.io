@@ -118,7 +118,9 @@ param_se <- summary(param_model)$coefficients["icu_admission", "Std. Error"]
 
 cat("Parametric RDD estimate:", round(param_effect, 4), "\n")
 cat("Standard error:", round(param_se, 4), "\n")
+```
 
+```r
 # Nonparametric estimation using rdrobust
 rd_result <- rdrobust(y = data$mortality, x = data$apache_score, c = cutoff)
 nonparam_effect <- rd_result$coef["Robust", ]
@@ -128,12 +130,9 @@ optimal_bandwidth <- rd_result$bws["h", "left"]
 cat("Nonparametric RDD estimate:", round(nonparam_effect, 4), "\n")
 cat("Robust standard error:", round(nonparam_se, 4), "\n")
 cat("Optimal bandwidth:", round(optimal_bandwidth, 2), "\n")
+```
 
-# Density test for manipulation
-density_test <- rddensity(data$apache_score, c = cutoff)
-density_pvalue <- density_test$test$p_jk
-
-cat("Density test p-value:", round(density_pvalue, 4), "\n")
+```r
 
 # Placebo test at false cutoff
 false_cutoff <- 13
@@ -143,7 +142,9 @@ placebo_se <- placebo_result$se["Robust", ]
 
 cat("Placebo test estimate:", round(placebo_effect, 4), "\n")
 cat("Placebo test p-value:", round(2 * (1 - pnorm(abs(placebo_effect / placebo_se))), 4), "\n")
+```
 
+```
 # Visualization
 # Create prediction data for smooth curves
 pred_data <- data.frame(apache_score = seq(10, 20, 0.1))
@@ -238,9 +239,7 @@ cat("Nonparametric estimate suggests", round(abs(nonparam_effect) * 100, 1),
 
 ## Interpretation and Diagnostics
 
-The parametric and nonparametric estimates should approximate the true treatment effect of -0.15 if the design assumptions hold. The optimal bandwidth determined by the rdrobust package balances bias and variance considerations, typically including observations within 1-3 units of the cutoff. Confidence intervals reflect estimation uncertainty, with nonparametric approaches often producing wider intervals due to their flexibility. The density test examines whether the running variable distribution shows evidence of manipulation around the cutoff. A significant test statistic suggests systematic sorting that could invalidate the design. In our simulation, the p-value should exceed conventional significance levels since we generated random APACHE scores without manipulation.
-
-The placebo test estimates effects at a false cutoff where no treatment discontinuity exists. Significant placebo effects suggest that observed discontinuities may reflect underlying trends rather than treatment effects, casting doubt on the main results. Successful placebo tests show estimates close to zero with insignificant p-values. Visual inspection provides additional validation. The plot should show smooth outcome trends on both sides of the cutoff with a clear discontinuity at the threshold. Binned scatter plots help reveal the underlying relationship while reducing noise from individual observations. Suspicious patterns, such as unusual curvature near the cutoff or multiple discontinuities, warrant further investigation.
+The parametric and nonparametric estimates should approximate the true treatment effect of -0.15 if the design assumptions hold. The optimal bandwidth determined by the rdrobust package balances bias and variance considerations, typically including observations within 1-3 units of the cutoff. Confidence intervals reflect estimation uncertainty, with nonparametric approaches often producing wider intervals due to their flexibility. The density test examines whether the running variable distribution shows evidence of manipulation around the cutoff. A significant test statistic suggests systematic sorting that could invalidate the design. In our simulation, the p-value should exceed conventional significance levels since we generated random APACHE scores without manipulation. The placebo test estimates effects at a false cutoff where no treatment discontinuity exists. Significant placebo effects suggest that observed discontinuities may reflect underlying trends rather than treatment effects, casting doubt on the main results. Successful placebo tests show estimates close to zero with insignificant p-values. Visual inspection provides additional validation. The plot should show smooth outcome trends on both sides of the cutoff with a clear discontinuity at the threshold. Binned scatter plots help reveal the underlying relationship while reducing noise from individual observations. Suspicious patterns, such as unusual curvature near the cutoff or multiple discontinuities, warrant further investigation.
 
 ## Extensions and Robustness
 
