@@ -1,4 +1,4 @@
-# Bayesian Networks in R: A Guide to the `gRain` Package
+# Bayesian Networks in R with `gRain` Package
 
 The challenge of modeling uncertainty across disciplines—from medical diagnosis to environmental assessment—has led researchers to increasingly rely on Bayesian networks. While the theoretical underpinnings are well understood, translating these concepts into working computational models requires careful attention to algorithmic implementation. The `gRain` package for R addresses this need by providing what appears to be one of the more comprehensive implementations of probability propagation in Bayesian networks, though practitioners should understand both its capabilities and limitations.
 
