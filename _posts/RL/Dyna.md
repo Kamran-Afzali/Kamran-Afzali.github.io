@@ -87,56 +87,55 @@ sample_env <- function(s, a) {
 ### Dyna-Q Implementation
 
 ```r
+# Dyna-Q algorithm with episode-wise performance tracking
 dyna_q <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1, n_planning = 5) {
-  # Initialize Q-values and model
   Q <- matrix(0, nrow = n_states, ncol = n_actions)
-  model_T <- array(NA, dim = c(n_states, n_actions))  # Transition model
-  model_R <- array(NA, dim = c(n_states, n_actions))  # Reward model
-  visited_sa <- list()  # Track visited state-action pairs
+  model_T <- array(NA, dim = c(n_states, n_actions))
+  model_R <- array(NA, dim = c(n_states, n_actions))
+  visited_sa <- list()
+  
+  episode_rewards <- numeric(episodes)
+  episode_steps <- numeric(episodes)
   
   for (ep in 1:episodes) {
     s <- 1
+    total_reward <- 0
+    steps <- 0
     
-    while (s != terminal_state) {
-      # Action selection (epsilon-greedy)
+    while (s != terminal_state && steps < 100) {  # Add max steps to prevent infinite loops
       if (runif(1) < epsilon) {
         a <- sample(1:n_actions, 1)
       } else {
         a <- which.max(Q[s, ])
       }
       
-      # Take action and observe outcome
       outcome <- sample_env(s, a)
       s_prime <- outcome$s_prime
       r <- outcome$reward
       
-      # Direct learning (Q-Learning update)
+      total_reward <- total_reward + r
+      steps <- steps + 1
+      
       Q[s, a] <- Q[s, a] + alpha * (r + gamma * max(Q[s_prime, ]) - Q[s, a])
       
-      # Model learning
       model_T[s, a] <- s_prime
       model_R[s, a] <- r
       
-      # Track visited state-action pairs
       sa_key <- paste(s, a, sep = "_")
       if (!(sa_key %in% names(visited_sa))) {
         visited_sa[[sa_key]] <- c(s, a)
       }
       
-      # Planning phase
       if (length(visited_sa) > 0) {
         for (i in 1:n_planning) {
-          # Sample random previously visited state-action pair
           sa_sample <- sample(visited_sa, 1)[[1]]
           s_plan <- sa_sample[1]
           a_plan <- sa_sample[2]
           
-          # Get simulated experience from model
           if (!is.na(model_T[s_plan, a_plan])) {
             s_prime_plan <- model_T[s_plan, a_plan]
             r_plan <- model_R[s_plan, a_plan]
             
-            # Planning update (same as Q-Learning)
             Q[s_plan, a_plan] <- Q[s_plan, a_plan] + 
               alpha * (r_plan + gamma * max(Q[s_prime_plan, ]) - Q[s_plan, a_plan])
           }
@@ -145,32 +144,49 @@ dyna_q <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1, n_planning = 5) 
       
       s <- s_prime
     }
+    
+    episode_rewards[ep] <- total_reward
+    episode_steps[ep] <- steps
   }
   
-  list(Q = Q, policy = apply(Q, 1, which.max), model_T = model_T, model_R = model_R)
+  list(Q = Q, policy = apply(Q, 1, which.max), 
+       episode_rewards = episode_rewards, episode_steps = episode_steps)
 }
 ```
 
 ### Standard Q-Learning for Comparison
 
 ```r
+# Q-Learning with performance tracking
 q_learning <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
   Q <- matrix(0, nrow = n_states, ncol = n_actions)
+  episode_rewards <- numeric(episodes)
+  episode_steps <- numeric(episodes)
   
   for (ep in 1:episodes) {
     s <- 1
-    while (s != terminal_state) {
+    total_reward <- 0
+    steps <- 0
+    
+    while (s != terminal_state && steps < 100) {
       a <- if (runif(1) < epsilon) sample(1:n_actions, 1) else which.max(Q[s, ])
       outcome <- sample_env(s, a)
       s_prime <- outcome$s_prime
       r <- outcome$reward
       
+      total_reward <- total_reward + r
+      steps <- steps + 1
+      
       Q[s, a] <- Q[s, a] + alpha * (r + gamma * max(Q[s_prime, ]) - Q[s, a])
       s <- s_prime
     }
+    
+    episode_rewards[ep] <- total_reward
+    episode_steps[ep] <- steps
   }
   
-  list(Q = Q, policy = apply(Q, 1, which.max))
+  list(Q = Q, policy = apply(Q, 1, which.max), 
+       episode_rewards = episode_rewards, episode_steps = episode_steps)
 }
 ```
 
@@ -181,160 +197,122 @@ q_learning <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1) {
 We compare Dyna-Q against standard Q-Learning across different numbers of planning steps:
 
 ```r
-# Run experiments with different planning steps
+# Run comprehensive experiments
 set.seed(123)
-n_runs <- 50
-episodes <- 500
+n_runs <- 20
+episodes <- 300
 
-results <- data.frame(
-  episode = rep(1:episodes, 4),
-  algorithm = rep(c("Q-Learning", "Dyna-Q (n=5)", "Dyna-Q (n=10)", "Dyna-Q (n=20)"), each = episodes),
-  performance = numeric(episodes * 4)
-)
+# Initialize results storage
+all_results <- data.frame()
+
+print("Running experiments...")
 
 for (run in 1:n_runs) {
-  # Q-Learning
-  ql_perf <- evaluate_performance(q_learning(episodes = episodes))
+  cat("Run", run, "of", n_runs, "\n")
   
-  # Dyna-Q variants
-  dyna5_perf <- evaluate_performance(dyna_q(episodes = episodes, n_planning = 5))
-  dyna10_perf <- evaluate_performance(dyna_q(episodes = episodes, n_planning = 10))
-  dyna20_perf <- evaluate_performance(dyna_q(episodes = episodes, n_planning = 20))
+  # Run algorithms
+  ql_result <- q_learning(episodes = episodes)
+  dyna5_result <- dyna_q(episodes = episodes, n_planning = 5)
+  dyna10_result <- dyna_q(episodes = episodes, n_planning = 10)
+  dyna20_result <- dyna_q(episodes = episodes, n_planning = 20)
   
-  # Accumulate results (simplified for illustration)
-  if (run == 1) {
-    results$performance <- c(ql_perf, dyna5_perf, dyna10_perf, dyna20_perf)
-  }
-}
-
-# Performance evaluation function
-evaluate_performance <- function(result) {
-  # Calculate policy value or other performance metric
-  policy_values <- numeric(episodes)
-  for (i in 1:episodes) {
-    # Simplified: count optimal actions in policy
-    policy_values[i] <- sum(result$policy == 1) / length(result$policy)
-  }
-  return(policy_values)
+  # Store results
+  run_data <- data.frame(
+    episode = rep(1:episodes, 4),
+    run = run,
+    algorithm = rep(c("Q-Learning", "Dyna-Q (n=5)", "Dyna-Q (n=10)", "Dyna-Q (n=20)"), each = episodes),
+    reward = c(ql_result$episode_rewards, dyna5_result$episode_rewards, 
+               dyna10_result$episode_rewards, dyna20_result$episode_rewards),
+    steps = c(ql_result$episode_steps, dyna5_result$episode_steps,
+              dyna10_result$episode_steps, dyna20_result$episode_steps)
+  )
+  
+  all_results <- rbind(all_results, run_data)
 }
 ```
 
-### Adaptation to Environmental Changes
 
-We test how Dyna-Q handles environmental changes compared to standard Q-Learning:
-
-```r
-# Test adaptation after environment change
-test_adaptation <- function() {
-  # Train both algorithms in original environment
-  ql_result <- q_learning(episodes = 500)
-  dyna_result <- dyna_q(episodes = 500, n_planning = 10)
-  
-  # Change environment (block preferred path)
-  original_trans <- transition_model[5, 1, ]
-  transition_model[5, 1, ] <<- 0
-  transition_model[5, 1, 1] <<- 1  # Force return to start
-  
-  # Continue learning in changed environment
-  ql_adapted <- q_learning_continue(ql_result$Q, episodes = 200)
-  dyna_adapted <- dyna_q_continue(dyna_result$Q, episodes = 200, n_planning = 10)
-  
-  # Restore original environment
-  transition_model[5, 1, ] <<- original_trans
-  
-  list(
-    ql_before = ql_result$policy,
-    ql_after = ql_adapted$policy,
-    dyna_before = dyna_result$policy,
-    dyna_after = dyna_adapted$policy
-  )
-}
 ```
-
-## Planning Step Analysis
-
-The number of planning steps $n$ represents a crucial hyperparameter in Dyna. We analyze its impact:
-
-```r
-analyze_planning_steps <- function() {
-  n_values <- c(0, 1, 5, 10, 20, 50)
-  convergence_episodes <- numeric(length(n_values))
-  
-  for (i in seq_along(n_values)) {
-    result <- dyna_q(episodes = 1000, n_planning = n_values[i])
-    # Calculate episodes to convergence (simplified)
-    convergence_episodes[i] <- estimate_convergence(result)
-  }
-  
-  data.frame(
-    n_planning = n_values,
-    episodes_to_convergence = convergence_episodes
+# Compute smoothed averages
+smoothed_results <- all_results %>%
+  group_by(algorithm, episode) %>%
+  summarise(
+    mean_reward = mean(reward),
+    se_reward = sd(reward) / sqrt(n()),
+    mean_steps = mean(steps),
+    se_steps = sd(steps) / sqrt(n()),
+    .groups = 'drop'
+  ) %>%
+  group_by(algorithm) %>%
+  mutate(
+    smooth_reward = stats::filter(mean_reward, rep(1/10, 10), sides = 2),
+    smooth_steps = stats::filter(mean_steps, rep(1/10, 10), sides = 2)
   )
-}
 
-# Visualization
-plot_convergence <- function() {
-  data <- analyze_planning_steps()
-  
-  plot(data$n_planning, data$episodes_to_convergence,
-       type = "b", pch = 16, col = "steelblue",
-       xlab = "Planning Steps (n)", ylab = "Episodes to Convergence",
-       main = "Effect of Planning Steps on Learning Speed")
-  
-  grid(lty = 2, col = "gray")
-}
+# Create comprehensive visualization
+# Plot 1: Learning Curves (Rewards)
+p1 <- ggplot(smoothed_results, aes(x = episode, y = mean_reward, color = algorithm)) +
+  geom_line(size = 1.2) +
+  geom_ribbon(aes(ymin = mean_reward - se_reward, ymax = mean_reward + se_reward, fill = algorithm), 
+              alpha = 0.2, color = NA) +
+  scale_color_manual(values = c("Q-Learning" = "#E31A1C", "Dyna-Q (n=5)" = "#1F78B4", 
+                                "Dyna-Q (n=10)" = "#33A02C", "Dyna-Q (n=20)" = "#FF7F00")) +
+  scale_fill_manual(values = c("Q-Learning" = "#E31A1C", "Dyna-Q (n=5)" = "#1F78B4", 
+                               "Dyna-Q (n=10)" = "#33A02C", "Dyna-Q (n=20)" = "#FF7F00")) +
+  labs(title = "Learning Performance: Average Episode Rewards",
+       x = "Episode", y = "Average Reward per Episode",
+       color = "Algorithm", fill = "Algorithm") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        legend.position = "bottom")
+
+# Plot 2: Steps to Terminal (Efficiency)
+p2 <- ggplot(smoothed_results, aes(x = episode, y = mean_steps, color = algorithm)) +
+  geom_line(size = 1.2) +
+  geom_ribbon(aes(ymin = mean_steps - se_steps, ymax = mean_steps + se_steps, fill = algorithm), 
+              alpha = 0.2, color = NA) +
+  scale_color_manual(values = c("Q-Learning" = "#E31A1C", "Dyna-Q (n=5)" = "#1F78B4", 
+                                "Dyna-Q (n=10)" = "#33A02C", "Dyna-Q (n=20)" = "#FF7F00")) +
+  scale_fill_manual(values = c("Q-Learning" = "#E31A1C", "Dyna-Q (n=5)" = "#1F78B4", 
+                               "Dyna-Q (n=10)" = "#33A02C", "Dyna-Q (n=20)" = "#FF7F00")) +
+  labs(title = "Learning Efficiency: Steps to Reach Terminal State",
+       x = "Episode", y = "Average Steps per Episode",
+       color = "Algorithm", fill = "Algorithm") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        legend.position = "bottom")
+
+# Plot 3: Final performance comparison (last 50 episodes)
+final_performance <- all_results %>%
+  filter(episode > episodes - 50) %>%
+  group_by(algorithm, run) %>%
+  summarise(avg_reward = mean(reward), .groups = 'drop')
+
+p3 <- ggplot(final_performance, aes(x = algorithm, y = avg_reward, fill = algorithm)) +
+  geom_boxplot(alpha = 0.7) +
+  geom_point(position = position_jitter(width = 0.2), alpha = 0.5) +
+  scale_fill_manual(values = c("Q-Learning" = "#E31A1C", "Dyna-Q (n=5)" = "#1F78B4", 
+                               "Dyna-Q (n=10)" = "#33A02C", "Dyna-Q (n=20)" = "#FF7F00")) +
+  labs(title = "Final Performance Comparison (Last 50 Episodes)",
+       x = "Algorithm", y = "Average Reward",
+       fill = "Algorithm") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "none")
+
+# Display all plots
+print(p1)
+print(p2)
+print(p3)
 ```
 
 ## Discussion
 
-### Computational Trade-offs
+Dyna demonstrates a fundamental trade-off between sample efficiency and computational cost, requiring $(n+1)$ times the computation per step compared to model-free methods due to additional planning updates. This computational investment typically yields faster convergence, particularly when real experience is expensive or dangerous to obtain, though optimal planning steps depend on problem characteristics—moderate values (5-10) generally provide good improvements without excessive overhead while very large values can produce diminishing returns or hurt performance with inaccurate models. The algorithm's effectiveness critically depends on model quality, with our deterministic table-based implementation becoming increasingly accurate as more state-action pairs are visited, though this approach assumes deterministic transitions and uses simple model representation (storing only last observed transitions) that works well for stationary environments but struggles with non-stationary dynamics where more sophisticated representations maintaining transition probability distributions could improve robustness at increased computational cost. The interaction between exploration and planning creates a distinctive advantage where $\epsilon$-greedy exploration ensures diverse state-action coverage that directly improves model quality and planning effectiveness, establishing a positive feedback loop where better exploration enhances the model, making planning more effective and leading to better policies with potentially more informed exploration. Relative to pure model-free methods like Q-Learning, Dyna typically shows faster convergence and better sample efficiency by allowing each real experience to propagate information more widely through planning, while compared to pure model-based approaches, it maintains robustness through continued direct learning even with imperfect models. However, basic Dyna has notable limitations including poor representation of stochastic environments through deterministic models and suboptimal uniform sampling for planning, though modern extensions like Dyna-Q+ with exploration bonuses, prioritized sweeping focusing on high-value updates, and model-based variants maintaining probability distributions over transitions address many of these constraints.
 
-Dyna demonstrates a fundamental trade-off in reinforcement learning between sample efficiency and computational cost. Each real experience triggers $n$ additional planning updates, requiring $(n+1)$ times the computation per step compared to model-free methods. However, this computational investment often pays dividends through faster convergence, especially in environments where real experience is expensive or dangerous to obtain.
+## Implementation Considerations and Conclusion
 
-The optimal value of $n$ depends on the specific problem characteristics. In our experiments, moderate values (5-10 planning steps) typically provide good performance improvements without excessive computational overhead. Very large values of $n$ can lead to diminishing returns and may even hurt performance if the model is inaccurate.
+Dyna requires additional memory to store the learned model alongside the value function. In our implementation, this doubles the memory requirements compared to pure Q-Learning. For larger state-action spaces, this can become a significant consideration, potentially requiring sparse representations or function approximation techniques. The planning phase introduces variable computational demands that can complicate real-time applications. While the number of planning steps can be adjusted based on available computational budget, this flexibility requires careful consideration of timing constraints in online learning scenarios. Dyna introduces additional hyperparameters, particularly the number of planning steps $n$. This parameter requires tuning based on the specific problem characteristics and computational constraints. Unlike some hyperparameters that can be set based on theoretical considerations, $n$ often requires empirical validation.
 
-### Model Quality and Robustness
-
-Dyna's effectiveness critically depends on model quality. In our deterministic table-based implementation, the model becomes increasingly accurate as more state-action pairs are visited. However, this approach assumes deterministic transitions, which may not hold in stochastic environments.
-
-The simple model representation used here (storing only the last observed transition) works well for stationary environments but can struggle with non-stationary dynamics. More sophisticated model representations, such as maintaining transition probability distributions, can improve robustness at the cost of increased memory and computational requirements.
-
-### Exploration and Planning Synergy
-
-An interesting aspect of Dyna is how exploration during direct learning benefits planning effectiveness. The $\epsilon$-greedy exploration policy ensures that diverse state-action pairs are visited, providing the model with broader coverage of the environment. This coverage directly impacts planning quality, as the algorithm can only plan using previously visited state-action pairs.
-
-This creates a positive feedback loop where exploration improves the model, which in turn makes planning more effective, leading to better policies and potentially more informed exploration. This synergy distinguishes Dyna from pure model-based approaches that might suffer from limited exploration during model learning.
-
-### Comparison with Pure Approaches
-
-Relative to pure model-free methods like Q-Learning, Dyna typically demonstrates faster convergence and better sample efficiency. The planning component allows each real experience to propagate information more widely through the value function, effectively amplifying the impact of limited experience.
-
-Compared to pure model-based approaches, Dyna maintains the robustness benefits of direct learning. Even if the model is imperfect, the direct learning component continues to make progress using real experience. This dual approach can be particularly valuable in environments where model accuracy is difficult to achieve or verify.
-
-### Limitations and Extensions
-
-Several limitations of basic Dyna become apparent in practice. The deterministic model representation may poorly capture stochastic environments. The uniform sampling of state-action pairs for planning may be suboptimal compared to prioritized approaches that focus computational resources on high-value updates.
-
-Modern extensions address many of these limitations. Dyna-Q+ incorporates exploration bonuses for state-action pairs that haven't been visited recently, encouraging continued exploration. Prioritized sweeping focuses planning updates on state-action pairs where the value function is likely to change most significantly. Model-based extensions can maintain probability distributions over transitions rather than deterministic mappings.
-
-## Implementation Considerations
-
-### Memory Requirements
-
-Dyna requires additional memory to store the learned model alongside the value function. In our implementation, this doubles the memory requirements compared to pure Q-Learning. For larger state-action spaces, this can become a significant consideration, potentially requiring sparse representations or function approximation techniques.
-
-### Real-time Constraints
-
-The planning phase introduces variable computational demands that can complicate real-time applications. While the number of planning steps can be adjusted based on available computational budget, this flexibility requires careful consideration of timing constraints in online learning scenarios.
-
-### Hyperparameter Sensitivity
-
-Dyna introduces additional hyperparameters, particularly the number of planning steps $n$. This parameter requires tuning based on the specific problem characteristics and computational constraints. Unlike some hyperparameters that can be set based on theoretical considerations, $n$ often requires empirical validation.
-
-## Conclusion
-
-Dyna represents an elegant solution to integrating learning and planning in reinforcement learning, combining the sample efficiency of model-based methods with the robustness of model-free approaches. Our R implementation demonstrates both the benefits and challenges of this integration, showing improved learning speed at the cost of increased computational and memory requirements.
-
-The key insight of using real experience for both direct learning and model improvement creates a powerful synergy that can significantly accelerate learning in many environments. However, the approach requires careful consideration of model representation, computational constraints, and hyperparameter tuning to achieve optimal performance.
-
-Future extensions could explore more sophisticated model representations, prioritized planning strategies, or integration with function approximation techniques for handling larger state spaces. The fundamental principle of combining direct and indirect learning remains a valuable paradigm in modern reinforcement learning research.
+Dyna represents an elegant solution to integrating learning and planning in reinforcement learning, combining the sample efficiency of model-based methods with the robustness of model-free approaches. Our R implementation demonstrates both the benefits and challenges of this integration, showing improved learning speed at the cost of increased computational and memory requirements. The key insight of using real experience for both direct learning and model improvement creates a powerful synergy that can significantly accelerate learning in many environments. However, the approach requires careful consideration of model representation, computational constraints, and hyperparameter tuning to achieve optimal performance. Future extensions could explore more sophisticated model representations, prioritized planning strategies, or integration with function approximation techniques for handling larger state spaces. The fundamental principle of combining direct and indirect learning remains a valuable paradigm in modern reinforcement learning research.
