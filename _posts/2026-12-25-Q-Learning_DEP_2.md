@@ -203,32 +203,38 @@ The visualization of mood trajectories across all agents illustrates the complex
 ### Advanced Psychological Modeling
 
 Our second framework extends the basic mood-modulated model by incorporating sophisticated meta-cognitive mechanisms that are central to depressive cognition. These mechanisms operate "above" the basic learning level, modifying how information is processed and integrated.
-
 #### Learned Helplessness
 
 Learned helplessness represents one of the most influential theories of depression, proposing that repeated uncontrollable negative experiences lead to a generalized expectation of futility. We implement this through an adaptive learning rate mechanism:
 
-$$\alpha^{(t)} = \alpha_{\text{base}} \cdot h^{(t)}$$
+$$
+\alpha^{(t)} = \alpha_{\text{base}} \cdot h^{(t)}
+$$
 
-where the helplessness factor $h^{(t)}$ decreases following consecutive negative outcomes:
+where the helplessness factor \( h^{(t)} \) decreases following consecutive negative outcomes:
 
-$$h^{(t)} = \begin{cases}
+$$
+h^{(t)} = \begin{cases}
 \eta & \text{if } \text{consecutive\_punishments} \geq \theta \\
 1 & \text{otherwise}
-\end{cases}$$
+\end{cases}
+$$
 
-Here, $\theta$ is the helplessness threshold (number of consecutive negative outcomes required) and $\eta < 1$ is the reduction factor. Depressed agents have lower thresholds and stronger reductions, making them more susceptible to helplessness.
+Here, \( \theta \) is the helplessness threshold (number of consecutive negative outcomes required) and \( \eta < 1 \) is the reduction factor. Depressed agents have lower thresholds and stronger reductions, making them more susceptible to helplessness.
 
 #### Rumination and Cognitive Bias
 
 Rumination—the tendency to repeatedly focus on negative events—is modeled through asymmetric mood updates:
 
-$$\Delta m = \begin{cases}
+$$
+\Delta m = \begin{cases}
 w_+ \cdot r & \text{if } r > 0 \\
 w_- \cdot |r| & \text{if } r < 0
-\end{cases}$$
+\end{cases}
+$$
 
-For depressed agents, $w_- > w_+$, meaning negative outcomes have disproportionate impact on mood compared to positive outcomes of equivalent magnitude. This asymmetry captures the well-documented negativity bias in depression.
+For depressed agents, \( w_- > w_+ \), meaning negative outcomes have disproportionate impact on mood compared to positive outcomes of equivalent magnitude. This asymmetry captures the well-documented negativity bias in depression.
+
 
 #### Agent Parameterization
 
@@ -338,118 +344,330 @@ bayesian_agent_meta <- function(
 
 This implementation integrates all meta-cognitive mechanisms into a coherent framework. The learned helplessness mechanism tracks consecutive negative outcomes and reduces learning rates when thresholds are exceeded. Rumination is implemented through asymmetric weighting of positive and negative rewards in mood updates. The combination of these mechanisms with the basic mood-modulated learning creates a rich model capable of reproducing diverse aspects of depressive cognition.
 
-### Population-Level Analysis
+## Discussion
 
-To capture the heterogeneity within clinical populations, we simulate 30 agents per group (non-depressed and depressed) and analyze aggregate behavior patterns. This approach reveals both group-level differences and within-group variability.
+### Population-Level Analysis and Clinical Heterogeneity
 
-The simulation generates comprehensive datasets tracking cumulative rewards and mood trajectories across all agents and trials. Statistical analysis focuses on group means and standard errors, providing robust estimates of population-level effects while acknowledging individual differences.
+To capture the heterogeneity within clinical populations, we simulated 30 agents per group across non-depressed and depressed conditions, analyzing aggregate behavior patterns that reveal both group-level differences and within-group variability. This approach generated comprehensive datasets tracking cumulative rewards and mood trajectories across all agents and trials, with statistical analysis focusing on group means and standard errors to provide robust estimates of population-level effects while acknowledging individual differences.
 
-### Results and Clinical Implications
+The meta-cognitive framework produces several clinically relevant findings that illuminate the complex nature of depressive cognition. Depressed agents consistently showed lower cumulative rewards throughout tasks, with performance gaps widening over time, reflecting the compounding effects of multiple cognitive biases operating simultaneously. These agents exhibited greater mood volatility and more negative average mood states, with the interaction between rumination and learned helplessness creating self-perpetuating cycles of negativity.
 
-The meta-cognitive framework produces several clinically relevant findings:
+The combination of pessimistic priors, reduced learning rates, and self-defeating biases severely impaired agents' ability to identify and exploit rewarding options. Even when depressed agents occasionally discovered beneficial choices, learned helplessness prevented them from capitalizing on this knowledge. Despite shared parameter sets, agents within each group showed meaningful individual differences in trajectories, underscoring the importance of personalized approaches in computational psychiatry.
 
-1. **Cumulative Reward Deficits**: Depressed agents show consistently lower cumulative rewards throughout the task, with the gap widening over time. This pattern reflects the compounding effects of multiple cognitive biases operating simultaneously.
+### Mechanistic Insights and Dynamic Processes
 
-2. **Mood Instability**: Depressed agents exhibit greater mood volatility and more negative average mood states. The interaction between rumination and learned helplessness creates a self-perpetuating cycle of negativity.
+Our mood-modulated reinforcement learning framework provides several mechanistic insights into depressive cognition that extend beyond traditional static models. The models demonstrate how multiple cognitive biases interact synergistically rather than additively, creating cascade effects where pessimistic priors make negative outcomes more likely, triggering rumination and learned helplessness that further degrade performance and mood. This cascade helps explain why depression can be so persistent and self-reinforcing, as each negative experience compounds previous difficulties.
 
-3. **Learning Impairments**: The combination of pessimistic priors, reduced learning rates, and self-defeating biases severely impairs the ability to identify and exploit rewarding options. Even when depressed agents occasionally discover good choices, learned helplessness prevents them from capitalizing on this knowledge.
+Unlike static trait models, our framework captures the dynamic nature of mood and its feedback effects on cognition. This temporal dimension proves crucial for understanding both the episodic nature of depression and the potential for recovery through targeted interventions. The incorporation of population-level heterogeneity acknowledges that depression manifests differently across individuals, recognizing the essential need for personalized treatment approaches based on computational phenotyping.
 
-4. **Individual Variability**: Despite shared parameter sets, agents within each group show meaningful individual differences in trajectories. This variability underscores the importance of personalized approaches in computational psychiatry.
+### Clinical Applications and Translational Potential
 
-## Broader Implications for Computational Psychiatry
+The framework suggests several potential clinical applications that could transform how we approach depression assessment and treatment. Model parameters such as learning rates, mood decay, and helplessness thresholds could serve as objective markers of depressive severity and treatment response. Unlike subjective rating scales, these parameters are grounded in formal mathematical theory and can be estimated from behavioral data, providing more reliable and quantifiable measures of clinical state.
 
-### Mechanistic Insights
+By identifying which computational mechanisms are most impaired in individual patients, clinicians could tailor interventions accordingly. Patients with strong self-defeating biases might benefit from behavioral activation approaches, while those with pronounced learned helplessness patterns might require cognitive restructuring interventions. Longitudinal tracking of model parameters could provide early indicators of treatment response or relapse risk, enabling proactive clinical management that anticipates rather than merely responds to symptom changes.
 
-Our mood-modulated RL framework provides several mechanistic insights into depressive cognition:
+### Limitations and Methodological Considerations
 
-**Cascade Effects**: The models demonstrate how multiple cognitive biases interact synergistically rather than additively. Pessimistic priors make negative outcomes more likely, which triggers rumination and learned helplessness, further degrading performance and mood. This cascade helps explain why depression can be so persistent and self-reinforcing.
+While our framework represents a significant advance in modeling affective decision-making, several limitations must be acknowledged to contextualize these findings appropriately. Real-world decision-making occurs in rich, dynamic environments with complex reward structures that extend far beyond our bandit task paradigms. Although these simplified tasks prove useful for isolating specific mechanisms, they lack the complexity of naturalistic choice situations that patients encounter daily.
 
-**Dynamic Instability**: Unlike static trait models, our framework captures the dynamic nature of mood and its feedback effects on cognition. This temporal dimension is crucial for understanding both the episodic nature of depression and the potential for recovery through targeted interventions.
+Our models, while inspired by neuroscientific findings, remain abstract computational descriptions that require further validation against neural data. Future work should more explicitly link model parameters to specific neural circuits and neurotransmitter systems to enhance biological plausibility. The models operate on trial-by-trial timescales, but depression involves changes across multiple temporal scales, from milliseconds of neural responses to months or years of clinical episodes. Multi-scale modeling approaches will be necessary to capture this full complexity.
 
-**Individual Differences**: The incorporation of population-level heterogeneity acknowledges that depression manifests differently across individuals. This recognition is essential for developing personalized treatment approaches based on computational phenotyping.
-
-### Clinical Applications
-
-The framework suggests several potential clinical applications:
-
-**Computational Biomarkers**: Model parameters (e.g., learning rates, mood decay, helplessness thresholds) could serve as objective markers of depressive severity and treatment response. Unlike subjective rating scales, these parameters are grounded in formal mathematical theory and can be estimated from behavioral data.
-
-**Intervention Targeting**: By identifying which computational mechanisms are most impaired in individual patients, clinicians could tailor interventions accordingly. For example, patients with strong self-defeating biases might benefit from behavioral activation, while those with learned helplessness might require cognitive restructuring.
-
-**Treatment Monitoring**: Longitudinal tracking of model parameters could provide early indicators of treatment response or relapse risk, enabling proactive clinical management.
-
-### Limitations and Future Directions
-
-While our framework represents a significant advance in modeling affective decision-making, several limitations must be acknowledged:
-
-**Environmental Complexity**: Real-world decision-making occurs in rich, dynamic environments with complex reward structures. Our bandit tasks, while useful for isolating specific mechanisms, lack the complexity of naturalistic choice situations.
-
-**Neural Implementation**: Although our models are inspired by neuroscientific findings, they remain abstract computational descriptions. Future work should more explicitly link model parameters to specific neural circuits and neurotransmitter systems.
-
-**Temporal Scales**: Our models operate on trial-by-trial timescales, but depression involves changes across multiple temporal scales—from milliseconds (neural responses) to months or years (clinical episodes). Multi-scale modeling approaches will be necessary to capture this complexity.
-
-**Social and Cultural Factors**: Depression is influenced by social relationships, cultural context, and socioeconomic factors that are not captured in our individual-agent models. Extensions incorporating social learning and cultural transmission would enhance ecological validity.
+Depression is influenced by social relationships, cultural context, and socioeconomic factors that are not captured in our individual-agent models. Extensions incorporating social learning and cultural transmission would enhance ecological validity and better reflect the multifaceted nature of mental health conditions. Additionally, the static nature of our environmental assumptions may not capture the dynamic, evolving challenges that individuals face in real-world contexts.
 
 ### Future Research Directions
 
-Several promising directions emerge from this work:
+Several promising directions emerge from this work that could significantly advance computational psychiatry. Extending the framework to include hierarchical models with higher-order beliefs about task structure, volatility, and self-efficacy could capture more sophisticated aspects of depressive cognition, particularly the meta-cognitive processes that maintain negative thought patterns.
 
-**Hierarchical Models**: Extending the framework to include higher-order beliefs about task structure, volatility, and self-efficacy could capture more sophisticated aspects of depressive cognition.
+Incorporating active inference principles would allow agents to not only learn from experience but also actively seek information to reduce uncertainty, a capacity that may be particularly impaired in depression. This extension could illuminate how depression affects information-seeking behaviors and curiosity, potentially explaining the withdrawal and reduced exploration commonly observed in clinical populations.
 
-**Active Inference**: Incorporating active inference principles would allow agents to not only learn from experience but also actively seek information to reduce uncertainty—a capacity that may be impaired in depression.
+Developing computational models of therapeutic interventions, such as cognitive-behavioral therapy or pharmacotherapy, could help optimize treatment protocols and predict individual responses. Such models could simulate how different therapeutic approaches modify the underlying computational parameters, providing a principled framework for treatment selection and monitoring.
 
-**Intervention Modeling**: Developing computational models of therapeutic interventions (e.g., cognitive-behavioral therapy, pharmacotherapy) could help optimize treatment protocols and predict individual responses.
-
-**Cross-Diagnostic Applications**: The framework could be extended to model other psychiatric conditions characterized by altered reward processing, such as addiction, anxiety disorders, or bipolar disorder.
+The framework could also be extended to model other psychiatric conditions characterized by altered reward processing, including addiction, anxiety disorders, and bipolar disorder. Cross-diagnostic applications would help identify shared computational mechanisms while highlighting disorder-specific features, potentially informing transdiagnostic treatment approaches.
 
 ## Conclusion
 
-The integration of mood dynamics into reinforcement learning models represents a crucial step toward more realistic and clinically relevant computational models of mental health. Our comprehensive framework demonstrates how multiple cognitive biases—pessimistic priors, self-defeating behaviors, rumination, and learned helplessness—interact to produce the characteristic patterns of behavior observed in depression.
+The integration of mood dynamics into reinforcement learning models represents a crucial step toward more realistic and clinically relevant computational models of mental health. Our comprehensive framework demonstrates how multiple cognitive biases, including pessimistic priors, self-defeating behaviors, rumination, and learned helplessness, interact to produce the characteristic patterns of behavior observed in depression.
 
-The two simulation studies presented here illustrate different aspects of this complexity. The first framework captures population heterogeneity and environmental influences, showing how individual differences in affective traits interact with life events to produce diverse trajectories. The second framework focuses on within-individual mechanisms, demonstrating how meta-cognitive processes can create self-perpetuating cycles of negative mood and poor decision-making.
+The simulation studies presented here illustrate different but complementary aspects of this complexity. The population-level analyses capture heterogeneity and environmental influences, showing how individual differences in affective traits interact with life events to produce diverse trajectories. The mechanistic framework focuses on within-individual processes, demonstrating how meta-cognitive mechanisms can create self-perpetuating cycles of negative mood and poor decision-making.
 
-Together, these models provide a rich computational account of depressive cognition that goes beyond simple deficits in reward learning. They capture the dynamic, multifaceted nature of depression while remaining grounded in formal mathematical principles. This combination of clinical relevance and theoretical rigor makes them valuable tools for both basic research and clinical application.
+Together, these models provide a rich computational account of depressive cognition that goes beyond simple deficits in reward learning. They capture the dynamic, multifaceted nature of depression while remaining grounded in formal mathematical principles. This combination of clinical relevance and theoretical rigor makes them valuable tools for both basic research and clinical application, bridging the gap between computational theory and therapeutic practice.
 
-As computational psychiatry continues to mature, models like these will play an increasingly important role in understanding mental illness, developing targeted interventions, and ultimately improving outcomes for patients. The challenge ahead lies in validating these models against real-world data, extending them to capture additional aspects of human psychology, and translating computational insights into effective clinical tools.
+As computational psychiatry continues to mature, models like these will play an increasingly important role in understanding mental illness, developing targeted interventions, and ultimately improving outcomes for patients. The challenge ahead lies in validating these models against real-world data, extending them to capture additional aspects of human psychology, and translating computational insights into effective clinical tools that can be implemented in routine practice.
 
-The future of mental health treatment may well depend on our ability to understand the computational principles underlying normal and abnormal cognition. By providing formal, testable models of how mood influences decision-making, our framework contributes to this ambitious but essential goal.
+The future of mental health treatment may well depend on our ability to understand the computational principles underlying normal and abnormal cognition. By providing formal, testable models of how mood influences decision-making, our framework contributes to this ambitious but essential goal. These advances bring us closer to a truly personalized, mechanistically-informed approach to mental health care that can adapt treatments to individual computational profiles and provide more effective, targeted interventions for those suffering from depression and related conditions.
 
 ## References
 
-Badcock, P. B., Friston, K. J., Ramstead, M. J., Ploeger, A., & Hohwy, J. (2019). The hierarchically mechanistic mind: A free-energy formulation of the human psyche. *Physics of Life Reviews*, 31, 104–121.
+Beck, A. T., Rush, A. J., Shaw, B. F., & Emery, G. (1979). *Cognitive therapy of depression*. Guilford Press. [https://www.guilford.com/books/Cognitive-Therapy-of-Depression/Beck-Rush-Shaw-Emery/9780898629194](https://www.guilford.com/books/Cognitive-Therapy-of-Depression/Beck-Rush-Shaw-Emery/9780898629194)
 
-Beck, A. T., Rush, A. J., Shaw, B. F., & Emery, G. (1979). *Cognitive therapy of depression*. Guilford Press.
+Dayan, P., & Huys, Q. J. M. (2008). Serotonin, inhibition, and negative mood. *PLoS Computational Biology, 4*(2), e4. [https://doi.org/10.1371/journal.pcbi.0040004](https://doi.org/10.1371/journal.pcbi.0040004)
 
-Blanco, N. J., Otto, A. R., Maddox, W. T., Beevers, C. G., & Love, B. C. (2013). The influence of depression symptoms on exploratory decision-making. *Cognition*, 129(3), 563–568.
+Eshel, N., & Roiser, J. P. (2010). Reward and punishment processing in depression. *Biological Psychiatry, 68*(2), 118–124. [https://doi.org/10.1016/j.biopsych.2010.01.027](https://doi.org/10.1016/j.biopsych.2010.01.027)
 
-Dayan, P., & Huys, Q. J. M. (2008). Serotonin, inhibition, and negative mood. *PLoS Computational Biology*, 4(2), e4.
+Huys, Q. J. M., Daw, N. D., & Dayan, P. (2015). Depression: A decision-theoretic analysis. *Annual Review of Neuroscience, 38*, 1–23. [https://doi.org/10.1146/annurev-neuro-071714-033928](https://doi.org/10.1146/annurev-neuro-071714-033928)
 
-Eshel, N., & Roiser, J. P. (2010). Reward and punishment processing in depression. *Biological Psychiatry*, 68(2), 118–124.
+Maia, T. V., & Frank, M. J. (2011). From reinforcement learning models to psychiatric and neurological disorders. *Nature Neuroscience, 14*(2), 154–162. [https://doi.org/10.1038/nn.2723](https://doi.org/10.1038/nn.2723)
 
-Huys, Q. J. M., Daw, N. D., & Dayan, P. (2015). Depression: A decision-theoretic analysis. *Annual Review of Neuroscience*, 38*, 1–23.
+Montague, P. R., Dolan, R. J., Friston, K. J., & Dayan, P. (2012). Computational psychiatry. *Trends in Cognitive Sciences, 16*(1), 72–80. [https://doi.org/10.1016/j.tics.2011.11.018](https://doi.org/10.1016/j.tics.2011.11.018)
 
-Huys, Q. J. M., Pizzagalli, D. A., Bogdan, R., & Dayan, P. (2013). Mapping anhedonia onto reinforcement learning: A behavioral meta-analysis. *Biology of Mood & Anxiety Disorders*, 3, 12.
+Pittig, A., Treanor, M., LeBeau, R. T., & Craske, M. G. (2018). The role of associative learning in anxiety disorders: A reassessment. *Behaviour Research and Therapy, 112*, 1–17. [https://doi.org/10.1016/j.brat.2018.10.011](https://doi.org/10.1016/j.brat.2018.10.011)
 
-Kumar, P., Waiter, G., Ahearn, T., Milders, M., Reid, I., & Steele, J. D. (2008). Abnormal temporal difference reward-learning signals in major depression. *Brain*, 131(8), 2084–2093.
+Rottenberg, J., & Hindash, A. C. (2015). Emerging evidence for emotion context insensitivity in depression. *Current Opinion in Psychology, 4*, 72–77. [https://doi.org/10.1016/j.copsyc.2015.03.020](https://doi.org/10.1016/j.copsyc.2015.03.020)
 
-Maia, T. V., & Frank, M. J. (2011). From reinforcement learning models to psychiatric and neurological disorders. *Nature Neuroscience*, 14(2), 154–162.
+Sutton, R. S., & Barto, A. G. (2018). *Reinforcement learning: An introduction* (2nd ed.). MIT Press. [http://incompleteideas.net/book/the-book-2nd.html](http://incompleteideas.net/book/the-book-2nd.html)
 
-Montague, P. R., Dolan, R. J., Friston, K. J., & Dayan, P. (2012). Computational psychiatry. *Trends in Cognitive Sciences*, 16(1), 72–80.
+Treadway, M. T., & Zald, D. H. (2013). Parsing anhedonia: Translational models of reward-processing deficits in psychopathology. *Current Directions in Psychological Science, 22*(3), 244–249. [https://doi.org/10.1177/0963721412474460](https://doi.org/10.1177/0963721412474460)
 
-Pike, A. C., & Robinson, O. J. (2022). Reinforcement learning in patients with mood and anxiety disorders vs control individuals: A systematic review and meta-analysis. *JAMA Psychiatry*, 79(4), 313–322.
+Wikipedia contributors. (2023, September 26). *Behavioral theories of depression*. Wikipedia. [https://en.wikipedia.org/wiki/Behavioral\_theories\_of\_depression](https://en.wikipedia.org/wiki/Behavioral_theories_of_depression)
 
-Pittig, A., Treanor, M., LeBeau, R. T., & Craske, M. G. (2018). The role of associative learning in anxiety disorders: A reassessment. *Behaviour Research and Therapy*, 112, 1–17.
+Whitton, A. E., Treadway, M. T., & Pizzagalli, D. A. (2015). Reward processing dysfunction in major depression, bipolar disorder and schizophrenia. *Current Opinion in Psychiatry, 28*(1), 7–12. [https://doi.org/10.1097/YCO.0000000000000122](https://doi.org/10.1097/YCO.0000000000000122)
 
-Rottenberg, J., & Hindash, A. C. (2015). Emerging evidence for emotion context insensitivity in depression. *Current Opinion in Psychology*, 4, 72–77.
 
-Rutledge, R. B., Skandali, N., Dayan, P., & Dolan, R. J. (2014). A computational and neural model of momentary subjective well-being. *Proceedings of the National Academy of Sciences*, 111(33), 12252–12257.
 
-Seligman, M. E. P. (1972). Learned helplessness: Annual review of medicine and a theory for the age of personal control. *Annual Review of Medicine*, 23(1), 407–412.
 
-Sutton, R. S., & Barto, A. G. (2018). *Reinforcement learning: An introduction* (2nd ed.). MIT Press.
 
-Thompson, W. R. (1933). On the likelihood that one unknown probability exceeds another in view of the evidence of two samples. *Biometrika*, 25(3-4), 285–294.
 
-Treadway, M. T., & Zald, D. H. (2013). Parsing anhedonia: Translational models of reward-processing deficits in psychopathology. *Current Directions in Psychological Science*, 22(3), 244–249.
+## Code
 
-Whitton, A. E., Treadway, M. T., & Pizzagalli, D. A. (2015). Reward processing dysfunction in major depression, bipolar disorder and schizophrenia. *Current Opinion in Psychiatry*, 28(1), 7–12.
+This R script extends a mood-modulated Bayesian reinforcement learning framework by introducing between-person variability and exogenous environmental events. In a 5-armed bandit task, each of 20 simulated agents is endowed with individual-level parameters governing pessimism, self-defeating bias, mood decay, and mood influence. Notably, pessimistic prior mean and self-defeating bias are sampled from a correlated bivariate normal distribution, introducing realistic covariance in affective traits. The environment is punctuated by external events—negative at trials 50 and 180, positive at 120—which directly perturb the agent’s mood, operationalized as an exponentially smoothed function of prior rewards. Each agent selects actions using Thompson sampling, with mood dynamically modulating the variance of the sampled Q-values to shift the exploration–exploitation balance. The resulting dataset captures action choice, reward received, and mood trajectory for each agent across 200 episodes. The mood trajectories, visualized via a multi-agent time series plot, reveal heterogeneity in affective dynamics and illustrate how internal traits interact with external perturbations.
+
+
+
+
+
+
+```
+set.seed(123)
+library(ggplot2)
+library(reshape2)
+
+# Environment
+reward_probs <- c(0.7, 0.6, 0.2, 0.1, 0.05)
+reward_vals  <- c(1, 1, -1, -1, -2)
+self_defeating_arms <- 3:5
+episodes <- 200
+N_agents <- 20
+
+# External events (e.g., negative at 50, positive at 120, negative at 180)
+external_events <- rep(0, episodes)
+external_events[c(50, 120, 180)] <- c(-2, 1, -1)
+
+
+mean_vec <- c(0, 0)
+cov_mat <- matrix(c(0.25, 0.15,
+                    0.15, 1.0), nrow = 2, byrow = TRUE)
+
+# Generate correlated samples
+correlated_params <- MASS::mvrnorm(N_agents, mu = mean_vec, Sigma = cov_mat)
+colnames(correlated_params) <- c("pessimistic_prior_mean", "self_defeat_bias")
+
+# Generate other independent parameters
+mood_decay <- runif(N_agents, 0.85, 0.98)
+mood_influence <- rnorm(N_agents, 2, 0.5)
+
+# Combine into a data frame
+agents <- data.frame(
+  mood_decay = mood_decay,
+  mood_influence = mood_influence,
+  pessimistic_prior_mean = correlated_params[, "pessimistic_prior_mean"],
+  self_defeat_bias = correlated_params[, "self_defeat_bias"]
+)
+
+
+
+run_agent <- function(params) {
+  K <- length(reward_probs)
+  mu <- rep(params$pessimistic_prior_mean, K)
+  tau <- rep(1/10, K)
+  actions <- integer(episodes)
+  rewards <- numeric(episodes)
+  mood <- 0
+  mood_hist <- numeric(episodes)
+  for (i in 1:episodes) {
+    mood_clamped <- min(max(mood, -1), 1)
+    mood_sigma_scale <- exp(-params$mood_influence * mood_clamped)
+    sampled_Q <- rnorm(K, mean = mu, sd = mood_sigma_scale / sqrt(tau))
+    sampled_Q[self_defeating_arms] <- sampled_Q[self_defeating_arms] + params$self_defeat_bias
+    action <- which.max(sampled_Q)
+    reward <- ifelse(runif(1) < reward_probs[action], reward_vals[action], 0)
+    tau[action] <- tau[action] + 1
+    mu[action] <- (mu[action] * (tau[action] - 1) + reward) / tau[action]
+    actions[i] <- action
+    rewards[i] <- reward
+    mood <- params$mood_decay * mood + (1 - params$mood_decay) * reward
+    mood <- mood + external_events[i]
+    mood_hist[i] <- mood
+  }
+  data.frame(trial = 1:episodes, action = actions, reward = rewards, mood = mood_hist)
+}
+
+# Simulate all agents
+results <- lapply(1:N_agents, function(i) {
+  df <- run_agent(agents[i, ])
+  df$agent <- i
+  df
+})
+results_df <- do.call(rbind, results)
+
+# Visualize mood trajectories for all agents
+ggplot(results_df, aes(x = trial, y = mood, group = agent, color = factor(agent))) +
+  geom_line() +
+  labs(title = "Mood Trajectories with Between-Person Differences and External Events",
+       x = "Trial", y = "Mood", color = "Agent") +
+  theme_minimal()
+```
+
+
+
+
+ This R script simulates a reinforcement learning framework that incorporates meta-cognitive mechanisms to model affective decision-making in “depressed” and “non-depressed” agents. Each agent interacts with a 5-armed bandit environment over 200 trials, with distinct probabilities and magnitudes of rewards. The agents implement Bayesian Q-learning, where mood modulates exploration through variance scaling, and updates to beliefs depend on a learned helplessness factor that reduces learning following repeated punishments. Two groups are defined by parameter sets that reflect psychological differences: the depressed group exhibits greater pessimism, stronger self-defeating bias, faster mood decay, and heightened susceptibility to negative feedback through lower helplessness thresholds and biased rumination (favoring negative outcomes). Thirty agents per group are simulated, and the output is summarized across trials to estimate average cumulative reward and mood. Visualizations reveal significant group differences, with depressed agents accumulating fewer rewards and displaying more negative mood trajectories, highlighting the behavioral and emotional consequences of maladaptive cognitive-affective dynamics.
+
+
+
+
+```
+set.seed(123)
+library(ggplot2)
+library(reshape2)
+library(dplyr)
+
+# Environment
+reward_probs <- c(0.7, 0.6, 0.2, 0.1, 0.05)
+reward_vals  <- c(1, 1, -1, -1, -2)
+self_defeating_arms <- 3:5
+episodes <- 200
+n_agents <- 30
+
+# Agent function with meta-cognitive variables
+bayesian_agent_meta <- function(
+    episodes = 200,
+    pessimistic_prior_mean = 0,
+    prior_var = 10,
+    self_defeat_bias = 0,
+    mood_decay = 0.9,
+    mood_influence = 1.5,
+    learned_helplessness_threshold = 5,
+    learned_helplessness_factor = 0.5,
+    rumination_weight_success = 0.3,
+    rumination_weight_failure = 0.7
+) {
+  K <- length(reward_probs)
+  mu <- rep(pessimistic_prior_mean, K)
+  tau <- rep(1/prior_var, K)
+  actions <- integer(episodes)
+  rewards <- numeric(episodes)
+  mood <- 0
+  mood_hist <- numeric(episodes)
+  consecutive_punishments <- 0
+  alpha_base <- 1.0
+  
+  for (i in 1:episodes) {
+    mood_clamped <- min(max(mood, -1), 1)
+    mood_sigma_scale <- exp(-mood_influence * mood_clamped)
+    sampled_Q <- rnorm(K, mean = mu, sd = mood_sigma_scale / sqrt(tau))
+    sampled_Q[self_defeating_arms] <- sampled_Q[self_defeating_arms] + self_defeat_bias
+    action <- which.max(sampled_Q)
+    reward <- ifelse(runif(1) < reward_probs[action], reward_vals[action], 0)
+    
+    # Learned helplessness
+    if (reward < 0) {
+      consecutive_punishments <- consecutive_punishments + 1
+    } else {
+      consecutive_punishments <- 0
+    }
+    if (consecutive_punishments >= learned_helplessness_threshold) {
+      alpha <- alpha_base * learned_helplessness_factor
+    } else {
+      alpha <- alpha_base
+    }
+    
+    # Bayesian update
+    tau[action] <- tau[action] + alpha
+    mu[action] <- (mu[action] * (tau[action] - alpha) + alpha * reward) / tau[action]
+    actions[i] <- action
+    rewards[i] <- reward
+    
+    # Rumination
+    if (reward > 0) {
+      mood_update <- rumination_weight_success * reward
+    } else if (reward < 0) {
+      mood_update <- rumination_weight_failure * reward
+    } else {
+      mood_update <- 0
+    }
+    mood <- mood_decay * mood + (1 - mood_decay) * mood_update
+    mood_hist[i] <- mood
+  }
+  list(actions = actions, rewards = rewards, mood = mood_hist)
+}
+
+# Parameter sets for groups
+params_non_depressed <- list(
+  pessimistic_prior_mean = 0,
+  self_defeat_bias = 0,
+  mood_decay = 0.95,
+  mood_influence = 1.0,
+  learned_helplessness_threshold = 10,
+  learned_helplessness_factor = 0.8,
+  rumination_weight_success = 0.5,
+  rumination_weight_failure = 0.5
+)
+
+params_depressed <- list(
+  pessimistic_prior_mean = -0.5,
+  self_defeat_bias = 2,
+  mood_decay = 0.9,
+  mood_influence = 2.0,
+  learned_helplessness_threshold = 3,
+  learned_helplessness_factor = 0.3,
+  rumination_weight_success = 0.2,
+  rumination_weight_failure = 0.8
+)
+
+# Run simulations
+sim_results <- lapply(1:n_agents, function(i) {
+  # Non-depressed
+  nd <- do.call(bayesian_agent_meta, c(list(episodes = episodes, prior_var = 10), params_non_depressed))
+  # Depressed
+  d <- do.call(bayesian_agent_meta, c(list(episodes = episodes, prior_var = 10), params_depressed))
+  data.frame(
+    Trial = rep(1:episodes, 2),
+    CumulativeReward = c(cumsum(nd$rewards), cumsum(d$rewards)),
+    Mood = c(nd$mood, d$mood),
+    Agent = rep(i, 2 * episodes),
+    Group = rep(c("Non-Depressed", "Depressed"), each = episodes)
+  )
+})
+sim_df <- bind_rows(sim_results)
+
+# Summarize across agents
+summary_df <- sim_df %>%
+  group_by(Group, Trial) %>%
+  summarize(
+    MeanCumulativeReward = mean(CumulativeReward),
+    SEMCumulativeReward = sd(CumulativeReward) / sqrt(n()),
+    MeanMood = mean(Mood),
+    SEMMood = sd(Mood) / sqrt(n())
+  )
+
+# Plot average cumulative reward
+p1 <- ggplot(summary_df, aes(x = Trial, y = MeanCumulativeReward, color = Group)) +
+  geom_line(size = 1) +
+  geom_ribbon(aes(ymin = MeanCumulativeReward - SEMCumulativeReward, ymax = MeanCumulativeReward + SEMCumulativeReward, fill = Group), alpha = 0.2, color = NA) +
+  labs(title = "Average Cumulative Reward", x = "Trial", y = "Cumulative Reward") +
+  theme_minimal() +
+  scale_color_manual(values = c("Non-Depressed" = "#00bfc4", "Depressed" = "#f8766d")) +
+  scale_fill_manual(values = c("Non-Depressed" = "#00bfc4", "Depressed" = "#f8766d"))
+
+# Plot average mood
+p2 <- ggplot(summary_df, aes(x = Trial, y = MeanMood, color = Group)) +
+  geom_line(size = 1) +
+  geom_ribbon(aes(ymin = MeanMood - SEMMood, ymax = MeanMood + SEMMood, fill = Group), alpha = 0.2, color = NA) +
+  labs(title = "Average Mood", x = "Trial", y = "Mood") +
+  theme_minimal() +
+  scale_color_manual(values = c("Non-Depressed" = "#00bfc4", "Depressed" = "#f8766d")) +
+  scale_fill_manual(values = c("Non-Depressed" = "#00bfc4", "Depressed" = "#f8766d"))
+
+print(p1)
+print(p2)
+```
