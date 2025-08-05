@@ -214,7 +214,8 @@ $$
 where the helplessness factor decreases following consecutive negative outcomes:
 
 $$
-h^{(t)} = \begin{cases}
+h^{(t)} =
+\begin{cases}
 \eta & \text{if } \text{consecutive\_punishments} \geq \theta \\
 1 & \text{otherwise}
 \end{cases}
