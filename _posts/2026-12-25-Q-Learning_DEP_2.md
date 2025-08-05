@@ -211,7 +211,7 @@ $$
 \alpha^{(t)} = \alpha_{\text{base}} \cdot h^{(t)}
 $$
 
-where the helplessness factor \( h^{(t)} \) decreases following consecutive negative outcomes:
+where the helplessness factor decreases following consecutive negative outcomes:
 
 $$
 h^{(t)} = \begin{cases}
