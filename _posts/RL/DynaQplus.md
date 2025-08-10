@@ -492,57 +492,23 @@ plot_bonus_evolution <- function() {
 }
 ```
 
-## Discussion
+## Discussion and Implementation Considerations
 
-### The Psychology of Artificial Curiosity
+Dyna-Q+ can be understood as a form of algorithmic curiosity that parallels aspects of human learning. Just as people grow uneasy about facts they have not revisited in some time, the algorithm gradually discounts its own model’s accuracy as intervals between visits lengthen. This built-in doubt is advantageous in non-stationary settings, where relying on yesterday’s truths can be costly. The exploration bonus, scaled by a square root of elapsed time, encodes an important nuance: uncertainty should increase with neglect, but at a diminishing rate. This prevents the system from sliding into perpetual skepticism while keeping enough pressure to revisit older assumptions.
 
-Dyna-Q+ embodies a form of artificial curiosity that mirrors aspects of human learning. Just as we become suspicious of information we haven't verified recently, the algorithm systematically doubts its model's accuracy as time passes. This skepticism proves adaptive in changing environments, where yesterday's knowledge might be today's liability.
+The extra bookkeeping is minimal—simply a timestamp for each state–action pair—but it changes the decision-making problem. The agent now balances three forces: exploiting current knowledge, exploring new possibilities, and re-exploring known areas to keep the model current. This is more complex than the standard explore–exploit trade-off in Dyna. For large state–action spaces, the linear scaling of timestamp storage may require function approximation or selective retention, especially in continuous or high-dimensional domains.
 
-The square root scaling of the exploration bonus reflects a nuanced understanding of uncertainty. Rather than linearly increasing doubt, the algorithm acknowledges that while confidence should decrease with time, the rate of that decrease should itself decrease. This mathematical choice prevents the system from becoming paralyzed by excessive doubt while maintaining sufficient motivation to revisit old assumptions.
+Empirically, Dyna-Q+ tends to shine in environments that evolve over time. In stable conditions, bonuses for well-visited states remain small and the algorithm behaves much like standard Dyna. But when conditions shift, the systematic revisiting of old transitions enables faster adaptation. The parameter $\kappa$ sets the level of “model anxiety”: small values create a trusting system, large values a more suspicious one. The best setting depends on how quickly the world changes and on the relative costs of exploration and exploitation errors.
 
-### Computational Implications
+The method rests on an implicit assumption—that environmental change is the main cause of model inaccuracy. When inaccuracy stems instead from intrinsic difficulty, such as noisy transitions or highly complex dynamics, the uniform bonuses may encourage needless exploration. Similarly, applying the same bonus across all state–action pairs ignores that some regions may be more volatile or strategically important than others. More refined variants might weight bonuses according to change likelihood or the expected impact of outdated information.
 
-The additional bookkeeping required by Dyna-Q+ is minimal—just maintaining timestamps for each state-action pair. However, the conceptual implications run deeper. The algorithm must now balance three competing objectives: exploiting current knowledge, exploring for immediate learning, and re-exploring to maintain model currency. This three-way tension creates richer behavioral dynamics than standard Dyna's simpler explore-exploit dichotomy.
+Later research has broadened these ideas. In deep reinforcement learning, uncertainty-driven exploration often uses learned uncertainty estimates rather than timestamps. Meta-learning approaches aim to optimise exploration strategies across related environments. Curiosity-driven methods extend the spirit of Dyna-Q+ beyond temporal doubt, rewarding novelty in prediction error, information gain, or visitation patterns. The shared thread is that learning systems should actively seek information that improves their internal models.
 
-In environments with large state-action spaces, the timestamp storage requirements scale linearly with the size of the space. For continuous or very large discrete spaces, this might necessitate function approximation or selective memory management, where only recently relevant state-action pairs maintain explicit timestamps.
+In practice, Dyna-Q+ is well suited to domains with gradual, structured change—financial markets with shifting regimes, or mobile robots navigating spaces where obstacles occasionally move. It is less effective in environments with rapid or chaotic dynamics, where maintaining a model may be futile or the bonus insufficient to trigger timely adaptation.
 
-### Performance Characteristics
+Implementation choices often start with $\kappa$ between 0.01 and 0.1, tuning from there. More volatile settings generally warrant larger values. Planning steps $n$ interact with $\kappa$: increasing $n$ amplifies bonus effects and may require reducing $\kappa$. Large-scale use can demand timestamp approximations—such as storing them only for a subset of pairs or grouping times into bins—to save memory while preserving adaptivity. The extra computation from bonuses is usually negligible compared to value updates, though in time-critical systems, even the square-root calculation may be replaced by lookup tables or cheaper approximations.
 
-Our experiments reveal that Dyna-Q+'s advantages become most pronounced in non-stationary environments. In stable conditions, the exploration bonuses for frequently visited states remain small, and performance closely matches standard Dyna. However, when environmental changes occur, Dyna-Q+ typically adapts more quickly, driven by its systematic re-examination of previously learned transitions.
 
-The parameter $\kappa$ serves as a knob controlling the algorithm's anxiety level about its model's accuracy. Small values create a conservative system that trusts its model unless strong evidence suggests otherwise. Large values create a more paranoid system that constantly questions its assumptions. The optimal setting depends critically on the expected rate of environmental change and the cost of exploration versus exploitation errors.
-
-### Limitations and Edge Cases
-
-Dyna-Q+ assumes that environmental changes are the primary reason for model inaccuracy. In environments where the model is simply difficult to learn accurately (due to high stochasticity or complex dynamics), the exploration bonuses might drive excessive exploration without corresponding benefits. The algorithm lacks mechanisms to distinguish between model inaccuracy due to environmental change versus inherent learning difficulty.
-
-The uniform application of exploration bonuses across all state-action pairs may also prove suboptimal. In many environments, certain regions might be more prone to change than others, or the consequences of outdated information might vary dramatically across the state space. More sophisticated versions might weight exploration bonuses based on the strategic importance or change probability of different state-action pairs.
-
-### Extensions and Modern Perspectives
-
-Contemporary research has extended the core insights of Dyna-Q+ in several directions. Uncertainty-based exploration methods in deep reinforcement learning often incorporate similar principles, using neural network uncertainty estimates to drive exploration rather than simple timestamp-based bonuses. Meta-learning approaches attempt to learn optimal exploration strategies for families of related environments.
-
-The relationship between Dyna-Q+ and modern curiosity-driven learning deserves particular attention. While Dyna-Q+ focuses on temporal curiosity (doubting old information), recent work explores intrinsic motivation based on prediction errors, information gain, or state visitation counts. These approaches share the fundamental insight that learning systems should actively seek information that improves their understanding of the world.
-
-## Implementation Considerations
-
-### Real-world Applications
-
-Dyna-Q+ proves particularly valuable in domains where environmental dynamics evolve gradually rather than changing abruptly. Financial trading, where market conditions shift over time, represents one such application. Robot navigation in environments where obstacles occasionally move provides another example. The algorithm's systematic skepticism about outdated information aligns well with these domains' requirements.
-
-However, the approach may be less suitable for environments with very rapid changes or completely random dynamics. In such cases, the exploration bonuses might not provide sufficient time to detect and adapt to changes, or the changes might be so frequent that maintaining any model becomes counterproductive.
-
-### Hyperparameter Guidelines
-
-Practitioners implementing Dyna-Q+ often start with $\kappa$ values between 0.01 and 0.1, adjusting based on empirical performance. The optimal value typically correlates with the expected frequency of environmental changes: more volatile environments benefit from larger $\kappa$ values, while stable environments work well with smaller values.
-
-The number of planning steps $n$ interacts with $\kappa$ in interesting ways. Larger $n$ values amplify the effects of exploration bonuses, as more planning updates occur with augmented rewards. This interaction suggests that $\kappa$ might need downward adjustment when increasing $n$, though the exact relationship depends on specific problem characteristics.
-
-### Memory and Computational Efficiency
-
-For large-scale applications, the timestamp storage requirements might necessitate approximations. Techniques like temporal sampling (maintaining timestamps for only a subset of state-action pairs) or temporal binning (grouping time into discrete bins rather than maintaining exact timestamps) can reduce memory requirements while preserving much of the algorithm's adaptive behavior.
-
-The computational overhead of calculating exploration bonuses during planning is typically minimal compared to the value function updates themselves. However, in time-critical applications, the square root calculations might be approximated with lookup tables or simplified functions.
 
 ## Conclusion
 
