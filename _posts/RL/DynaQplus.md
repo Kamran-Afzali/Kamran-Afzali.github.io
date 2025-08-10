@@ -34,9 +34,13 @@ $$\tau(s,a) \leftarrow t$$
 
 **Planning Phase** (repeat $n$ times):
 $$s_{plan} \leftarrow \text{random previously visited state}$$
+
 $$a_{plan} \leftarrow \text{random action previously taken in } s_{plan}$$
+
 $$r_{plan} \leftarrow \hat{R}(s_{plan},a_{plan}) + \kappa \sqrt{t - \tau(s_{plan},a_{plan})}$$
+
 $$s'_{plan} \leftarrow \hat{T}(s_{plan},a_{plan})$$
+
 $$Q(s_{plan},a_{plan}) \leftarrow Q(s_{plan},a_{plan}) + \alpha \left[ r_{plan} + \gamma \max_{a'} Q(s'_{plan}, a') - Q(s_{plan},a_{plan}) \right]$$
 
 ### Convergence and Stability
