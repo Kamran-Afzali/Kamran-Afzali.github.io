@@ -8,17 +8,19 @@ Dyna-Q+, introduced by Sutton (1990) alongside the original Dyna framework, addr
 
 The enhancement might seem minor—just an additional term in the reward calculation—but its implications run deep. Dyna-Q+ acknowledges that in a changing world, forgetting can be as important as remembering, and that an agent's confidence in its model should decay over time unless continually refreshed by recent experience.
 
+
+
 ## Theoretical Framework
 
 ### The Exploration Bonus Mechanism
 
 Dyna-Q+ modifies the planning phase of standard Dyna by augmenting rewards with an exploration bonus based on the time elapsed since each state-action pair was last visited. The core insight lies in treating the passage of time as information: the longer an agent hasn't verified a particular transition, the less confident it should be about that transition's current validity.
 
-For each state-action pair $(s,a)$, we maintain a timestamp $\tau(s,a)$ recording when it was last experienced. During planning, instead of using the stored reward $\hat{R}(s,a)$ directly, we calculate an augmented reward:
+For each state-action pair $(s,a)$, we maintain a timestamp $\\tau(s,a)$ recording when it was last experienced. During planning, instead of using the stored reward $\\hat{R}(s,a)$ directly, we calculate an augmented reward:
 
 $$r_{augmented} = \hat{R}(s,a) + \kappa \sqrt{t - \tau(s,a)}$$
 
-where $t$ represents the current time step, and $\kappa$ is a parameter controlling the strength of the exploration bonus. The square root function provides a diminishing bonus that grows with time but at a decreasing rate, reflecting the intuition that uncertainty about a transition increases with time but not linearly.
+where $t$ represents the current time step, and $\\kappa$ is a parameter controlling the strength of the exploration bonus. The square root function provides a diminishing bonus that grows with time but at a decreasing rate, reflecting the intuition that uncertainty about a transition increases with time but not linearly.
 
 ### Complete Dyna-Q+ Algorithm
 
@@ -28,9 +30,7 @@ The full algorithm extends standard Dyna with minimal modifications. For each re
 $$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s,a) \right]$$
 
 **Model and Timestamp Updates**:
-$$\hat{T}(s,a) \leftarrow s'$$
-$$\hat{R}(s,a) \leftarrow r$$
-$$\tau(s,a) \leftarrow t$$
+$$\hat{T}(s,a) \leftarrow s'$$$$\hat{R}(s,a) \leftarrow r$$$$\tau(s,a) \leftarrow t$$
 
 **Planning Phase** (repeat $n$ times):
 $$s_{plan} \leftarrow \text{random previously visited state}$$
@@ -47,7 +47,9 @@ $$Q(s_{plan},a_{plan}) \leftarrow Q(s_{plan},a_{plan}) + \alpha \left[ r_{plan} 
 
 The theoretical properties of Dyna-Q+ are more complex than those of standard Dyna due to the non-stationary nature of the augmented rewards. In stationary environments, the exploration bonuses for frequently visited state-action pairs will remain small, and convergence properties approach those of standard Dyna. However, the algorithm sacrifices some theoretical guarantees about convergence to optimal policies in exchange for improved adaptability.
 
-The parameter $\kappa$ requires careful tuning. Too small, and the exploration bonus becomes negligible, reducing Dyna-Q+ to standard Dyna. Too large, and the algorithm may exhibit excessive exploration even in stable environments, potentially degrading performance. The square root scaling helps moderate this trade-off by providing significant bonuses for truly neglected state-action pairs while keeping bonuses manageable for recently visited ones.
+The parameter $\\kappa$ requires careful tuning. Too small, and the exploration bonus becomes negligible, reducing Dyna-Q+ to standard Dyna. Too large, and the algorithm may exhibit excessive exploration even in stable environments, potentially degrading performance. The square root scaling helps moderate this trade-off by providing significant bonuses for truly neglected state-action pairs while keeping bonuses manageable for recently visited ones.
+
+
 
 ## Implementation in R
 
@@ -57,7 +59,7 @@ Building on our previous Dyna implementation, we extend the framework to include
 
 We'll use the same 10-state environment as before, but we'll also create scenarios with environmental changes to demonstrate Dyna-Q+'s adaptive capabilities:
 
-```r
+```{r}
 # Environment parameters (same as before)
 n_states <- 10
 n_actions <- 2
@@ -104,7 +106,7 @@ sample_env <- function(s, a, modified = FALSE) {
 
 The key modification involves maintaining timestamps and calculating exploration bonuses during planning:
 
-```r
+```{r}
 dyna_q_plus <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1, 
                         n_planning = 5, kappa = 0.1, change_episode = NULL) {
   # Initialize Q-values, model, and timestamps
@@ -132,7 +134,8 @@ dyna_q_plus <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1,
       if (runif(1) < epsilon) {
         a <- sample(1:n_actions, 1)
       } else {
-        a <- which.max(Q[s, ])
+        # Break ties randomly
+        a <- sample(which(Q[s, ] == max(Q[s, ])), 1)
       }
       
       # Take action and observe outcome
@@ -192,9 +195,9 @@ dyna_q_plus <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1,
 
 We also implement standard Dyna to highlight the differences:
 
-```r
+```{r}
 dyna_q_standard <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1, 
-                           n_planning = 5, change_episode = NULL) {
+                            n_planning = 5, change_episode = NULL) {
   Q <- matrix(0, nrow = n_states, ncol = n_actions)
   model_T <- array(NA, dim = c(n_states, n_actions))
   model_R <- array(NA, dim = c(n_states, n_actions))
@@ -214,7 +217,8 @@ dyna_q_standard <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1,
       if (runif(1) < epsilon) {
         a <- sample(1:n_actions, 1)
       } else {
-        a <- which.max(Q[s, ])
+        # Break ties randomly
+        a <- sample(which(Q[s, ] == max(Q[s, ])), 1)
       }
       
       # Take action
@@ -260,13 +264,15 @@ dyna_q_standard <- function(episodes = 1000, alpha = 0.1, epsilon = 0.1,
 }
 ```
 
+
+
 ## Experimental Analysis
 
 ### Adaptation to Environmental Changes
 
 The most compelling demonstration of Dyna-Q+'s advantages comes from scenarios where the environment changes mid-learning. We'll compare how quickly both algorithms adapt:
 
-```r
+```{r}
 # Function to evaluate policy performance
 evaluate_policy_performance <- function(Q, episodes = 100, modified = FALSE) {
   total_reward <- 0
@@ -278,7 +284,7 @@ evaluate_policy_performance <- function(Q, episodes = 100, modified = FALSE) {
     steps <- 0
     
     while (s != terminal_state && steps < 50) {  # Prevent infinite loops
-      a <- which.max(Q[s, ])
+      a <- sample(which(Q[s, ] == max(Q[s, ])), 1) # Break ties randomly
       outcome <- sample_env(s, a, modified = modified)
       episode_reward <- episode_reward + outcome$reward
       s <- outcome$s_prime
@@ -309,11 +315,12 @@ adaptation_experiment <- function() {
   
   for (run in 1:n_runs) {
     # Train both algorithms
+    # For a full experiment, you would re-initialize Q here for each run
     dyna_standard_result <- dyna_q_standard(episodes = total_episodes, 
-                                          change_episode = change_point)
+                                            change_episode = change_point)
     dyna_plus_result <- dyna_q_plus(episodes = total_episodes, 
-                                   change_episode = change_point,
-                                   kappa = 0.1)
+                                    change_episode = change_point,
+                                    kappa = 0.1)
     
     # Evaluate performance at each episode (simplified for illustration)
     for (ep in 1:total_episodes) {
@@ -323,11 +330,11 @@ adaptation_experiment <- function() {
       # track performance throughout training
       if (ep %% 50 == 0) {
         std_perf <- evaluate_policy_performance(dyna_standard_result$Q, 
-                                              episodes = 10, 
-                                              modified = modified_env)
+                                                episodes = 10, 
+                                                modified = modified_env)
         plus_perf <- evaluate_policy_performance(dyna_plus_result$Q, 
-                                               episodes = 10, 
-                                               modified = modified_env)
+                                                 episodes = 10, 
+                                                 modified = modified_env)
         
         # Store results (this is simplified - you'd want better tracking)
         idx_std <- (run - 1) * total_episodes * 2 + ep
@@ -345,11 +352,58 @@ adaptation_experiment <- function() {
 }
 ```
 
+#### Example: Running the Adaptation Experiment
+
+Here we execute the experiment defined above. The resulting plot shows that both algorithms perform similarly until the environment changes at episode 500. After the change, Dyna-Q (`kappa = 0`) fails to adapt because its model is outdated, leading to a sharp drop in performance. In contrast, Dyna-Q+ uses its exploration bonus to re-evaluate old paths, quickly discovering the change and finding a new optimal policy, thus recovering its performance.
+
+```{r}
+# Setup chunk for libraries
+if (!require("ggplot2", quietly = TRUE)) install.packages("ggplot2")
+if (!require("dplyr", quietly = TRUE)) install.packages("dplyr")
+if (!require("tidyr", quietly = TRUE)) install.packages("tidyr")
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+# Run the experiment.
+# Note: The original experiment function evaluates performance every 50 episodes,
+# resulting in a plot that connects these discrete data points.
+adaptation_results_df <- adaptation_experiment()
+
+# Prepare data for plotting by filtering out unevaluated episodes
+plot_data <- adaptation_results_df %>%
+  filter(performance != 0)
+
+# Generate the plot
+ggplot(plot_data, aes(x = episode, y = performance, color = algorithm)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.5) +
+  geom_vline(xintercept = 500, linetype = "dashed", color = "black", linewidth = 1) +
+  annotate("text", x = 480, y = min(plot_data$performance, na.rm=TRUE) * 1.1, label = "Environment\nChange", vjust = 0, hjust = 1, color = "black", size=3.5) +
+  labs(
+    title = "Dyna-Q+ vs. Standard Dyna-Q in a Changing Environment",
+    subtitle = "Performance comparison before and after an environmental change at episode 500.",
+    x = "Episode",
+    y = "Average Reward",
+    color = "Algorithm"
+  ) +
+  theme_minimal(base_size = 14) +
+  scale_color_manual(values = c("Dyna-Q" = "#d95f02", "Dyna-Q+" = "#1b9e77")) +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "grey30")
+  )
+```
+
+
+
 ### Parameter Sensitivity Analysis
 
-The exploration parameter $\kappa$ significantly influences Dyna-Q+'s behavior. Let's examine its effects:
+The exploration parameter $\\kappa$ significantly influences Dyna-Q+'s behavior. Let's examine its effects:
 
-```r
+```{r}
 kappa_sensitivity_analysis <- function() {
   kappa_values <- c(0, 0.01, 0.05, 0.1, 0.2, 0.5)
   change_point <- 300
@@ -361,19 +415,30 @@ kappa_sensitivity_analysis <- function() {
     set.seed(42)  # Consistent conditions
     
     result <- dyna_q_plus(episodes = total_episodes,
-                         change_episode = change_point,
-                         kappa = kappa_values[i],
-                         n_planning = 10)
+                          change_episode = change_point,
+                          kappa = kappa_values[i],
+                          n_planning = 10)
     
-    # Evaluate adaptation speed after change
-    pre_change_perf <- evaluate_policy_performance(result$Q, modified = FALSE)
+    # Create a temporary Q matrix for evaluation before the change
+    # We can't know the exact Q before the change without modifying the main loop,
+    # so we run a separate short training for pre-change evaluation.
+    pre_change_result <- dyna_q_plus(episodes = change_point, kappa = kappa_values[i], n_planning=10)
+    
+    pre_change_perf <- evaluate_policy_performance(pre_change_result$Q, modified = FALSE)
     post_change_perf <- evaluate_policy_performance(result$Q, modified = TRUE)
     
+    # Handle division by zero or near-zero rewards
+    adaptation_ratio <- if (pre_change_perf$avg_reward > 1e-5) {
+      post_change_perf$avg_reward / pre_change_perf$avg_reward
+    } else {
+      NA # Avoid meaningless ratios
+    }
+
     results[[i]] <- list(
       kappa = kappa_values[i],
       pre_change_reward = pre_change_perf$avg_reward,
       post_change_reward = post_change_perf$avg_reward,
-      adaptation_ratio = post_change_perf$avg_reward / pre_change_perf$avg_reward
+      adaptation_ratio = adaptation_ratio
     )
   }
   
@@ -389,33 +454,56 @@ kappa_sensitivity_analysis <- function() {
 }
 
 # Visualization function
-plot_kappa_sensitivity <- function() {
-  data <- kappa_sensitivity_analysis()
-  
-  par(mfrow = c(1, 2))
+plot_kappa_sensitivity <- function(data) {
+  par(mfrow = c(1, 2), mar = c(5, 4, 4, 2) + 0.1)
   
   # Plot 1: Performance vs kappa
   plot(data$kappa, data$post_change, type = "b", pch = 16, col = "darkred",
-       xlab = "Kappa Value", ylab = "Post-Change Performance",
-       main = "Performance After Environmental Change")
-  grid(lty = 2, col = "gray")
+       xlab = "Kappa Value (κ)", ylab = "Post-Change Average Reward",
+       main = "Performance After Change", ylim=c(min(data$post_change, na.rm=T)*0.9, max(data$post_change, na.rm=T)*1.1))
+  grid(lty = 1, col = "gray90")
   
   # Plot 2: Adaptation ratio vs kappa
   plot(data$kappa, data$adaptation, type = "b", pch = 16, col = "darkblue",
-       xlab = "Kappa Value", ylab = "Adaptation Ratio",
-       main = "Adaptation Speed vs Exploration Strength")
-  grid(lty = 2, col = "gray")
-  abline(h = 1, lty = 2, col = "red")  # Reference line
+       xlab = "Kappa Value (κ)", ylab = "Adaptation Ratio (Post/Pre)",
+       main = "Adaptation vs Exploration")
+  grid(lty = 1, col = "gray90")
   
   par(mfrow = c(1, 1))
 }
 ```
 
+#### Example: Running the Sensitivity Analysis
+
+We run the analysis for different values of $\\kappa$. A value of $\\kappa = 0$ corresponds to standard Dyna-Q. The table shows the average reward before and after the environmental change. The plots visualize how post-change performance and the adaptation ratio change with $\\kappa$. There is a sweet spot for $\\kappa$ (around 0.1-0.2 in this case) that provides the best adaptation. If $\\kappa$ is too low, adaptation is slow; if it's too high, the agent explores too much, which can also hurt performance.
+
+```{r}
+
+# 1. Generate the data
+sensitivity_data <- kappa_sensitivity_analysis()
+
+# 2. Display the data as a formatted table
+if (!require("knitr", quietly = TRUE)) install.packages("knitr")
+knitr::kable(sensitivity_data,
+      caption = "Kappa Parameter Sensitivity Analysis Results",
+      col.names = c("Kappa (κ)", "Pre-Change Reward", "Post-Change Reward", "Adaptation Ratio"),
+      digits = 3,
+      align = 'c')
+```
+
+
+```{r}
+# 3. Generate the plots using the provided function
+plot_kappa_sensitivity(sensitivity_data)
+```
+
+
+
 ### Exploration Pattern Analysis
 
 One way to understand Dyna-Q+'s behavior is to examine how exploration bonuses evolve over time:
 
-```r
+```{r}
 analyze_exploration_patterns <- function() {
   # Run Dyna-Q+ and track exploration bonuses
   set.seed(123)
@@ -428,12 +516,15 @@ analyze_exploration_patterns <- function() {
   
   # Storage for bonus tracking
   bonus_history <- list()
-  time_points <- seq(100, 1000, by = 100)
-  
-  for (ep in 1:1000) {
-    s <- 1
+  # Define time points for snapshotting bonus values
+  time_points <- seq(100, 2000, by=100)
+
+  # Run for a fixed number of time steps instead of episodes
+  # to get a clearer view of bonus evolution over time.
+  while(current_time < 2000) {
+    s <- 1 # Reset to start state for each "pseudo-episode"
     
-    while (s != terminal_state) {
+    while (s != terminal_state && current_time < 2000) {
       current_time <- current_time + 1
       
       # Simple action selection for this analysis
@@ -482,15 +573,25 @@ plot_bonus_evolution <- function() {
   
   lines(time_points, mean_bonuses, col = "blue", lwd = 2, lty = 2)
   
-  legend("topright", 
+  legend("topleft", 
          legend = c("Maximum Bonus", "Average Bonus"),
          col = c("red", "blue"), 
          lty = c(1, 2), 
-         lwd = 2)
+         lwd = 2, bty="n")
   
-  grid(lty = 2, col = "gray")
+  grid(lty = 1, col = "gray90")
 }
 ```
+
+#### Example: Visualizing Exploration Bonuses
+
+This plot shows how the exploration bonuses change over time. As the agent explores, timestamps are updated, and the time since the last visit (`t - τ`) for any given state-action pair can grow. The **Maximum Bonus** corresponds to the state-action pair that has been unvisited for the longest time, showing the agent's growing "curiosity" about that specific part of the environment. The **Average Bonus** (for visited pairs) tends to stay lower, indicating that most parts of the model are kept relatively fresh through planning and exploration.
+
+```{r}
+plot_bonus_evolution()
+```
+
+
 
 ## Discussion and Implementation Considerations
 
@@ -498,7 +599,7 @@ Dyna-Q+ can be understood as a form of algorithmic curiosity that parallels aspe
 
 The extra bookkeeping is minimal—simply a timestamp for each state–action pair—but it changes the decision-making problem. The agent now balances three forces: exploiting current knowledge, exploring new possibilities, and re-exploring known areas to keep the model current. This is more complex than the standard explore–exploit trade-off in Dyna. For large state–action spaces, the linear scaling of timestamp storage may require function approximation or selective retention, especially in continuous or high-dimensional domains.
 
-Empirically, Dyna-Q+ tends to shine in environments that evolve over time. In stable conditions, bonuses for well-visited states remain small and the algorithm behaves much like standard Dyna. But when conditions shift, the systematic revisiting of old transitions enables faster adaptation. The parameter $\kappa$ sets the level of “model anxiety”: small values create a trusting system, large values a more suspicious one. The best setting depends on how quickly the world changes and on the relative costs of exploration and exploitation errors.
+Empirically, Dyna-Q+ tends to shine in environments that evolve over time. In stable conditions, bonuses for well-visited states remain small and the algorithm behaves much like standard Dyna. But when conditions shift, the systematic revisiting of old transitions enables faster adaptation. The parameter $\\kappa$ sets the level of “model anxiety”: small values create a trusting system, large values a more suspicious one. The best setting depends on how quickly the world changes and on the relative costs of exploration and exploitation errors.
 
 The method rests on an implicit assumption—that environmental change is the main cause of model inaccuracy. When inaccuracy stems instead from intrinsic difficulty, such as noisy transitions or highly complex dynamics, the uniform bonuses may encourage needless exploration. Similarly, applying the same bonus across all state–action pairs ignores that some regions may be more volatile or strategically important than others. More refined variants might weight bonuses according to change likelihood or the expected impact of outdated information.
 
@@ -506,8 +607,7 @@ Later research has broadened these ideas. In deep reinforcement learning, uncert
 
 In practice, Dyna-Q+ is well suited to domains with gradual, structured change—financial markets with shifting regimes, or mobile robots navigating spaces where obstacles occasionally move. It is less effective in environments with rapid or chaotic dynamics, where maintaining a model may be futile or the bonus insufficient to trigger timely adaptation.
 
-Implementation choices often start with $\kappa$ between 0.01 and 0.1, tuning from there. More volatile settings generally warrant larger values. Planning steps $n$ interact with $\kappa$: increasing $n$ amplifies bonus effects and may require reducing $\kappa$. Large-scale use can demand timestamp approximations—such as storing them only for a subset of pairs or grouping times into bins—to save memory while preserving adaptivity. The extra computation from bonuses is usually negligible compared to value updates, though in time-critical systems, even the square-root calculation may be replaced by lookup tables or cheaper approximations.
-
+Implementation choices often start with $\\kappa$ between 0.01 and 0.1, tuning from there. More volatile settings generally warrant larger values. Planning steps $n$ interact with $\\kappa$: increasing $n$ amplifies bonus effects and may require reducing $\\kappa$. Large-scale use can demand timestamp approximations—such as storing them only for a subset of pairs or grouping times into bins—to save memory while preserving adaptivity. The extra computation from bonuses is usually negligible compared to value updates, though in time-critical systems, even the square-root calculation may be replaced by lookup tables or cheaper approximations.
 
 
 ## Conclusion
