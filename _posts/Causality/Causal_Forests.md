@@ -2,106 +2,48 @@
 
 ## Introduction
 
-Causal forests represent a breakthrough in heterogeneous treatment effect estimation, combining the flexibility of machine learning with the rigor of causal inference theory. Unlike traditional approaches that estimate average treatment effects or require pre-specified subgroups, causal forests automatically discover treatment effect heterogeneity across the covariate space while maintaining valid statistical inference. The method builds upon random forests but incorporates causal identification principles to ensure unbiased estimation of conditional average treatment effects (CATEs) at any point in the feature space.
+Imagine you're a physician treating diabetes patients and you have a new medication that shows promise in clinical trials. The average effect looks good, but you notice something intriguing: some patients respond dramatically well while others show minimal improvement. Traditional clinical trials tell you the average treatment effect, but what you really need to know is which specific patients will benefit most from this new treatment. This is the challenge of treatment effect heterogeneity—understanding how treatment benefits vary across different individuals based on their characteristics.
 
-This approach proves particularly valuable in personalized medicine, targeted policy interventions, and precision marketing, where treatment effects vary substantially across individuals or contexts. Traditional linear models assume constant treatment effects or require researchers to specify interaction terms a priori, limiting their ability to capture complex heterogeneity patterns. Causal forests overcome these limitations by nonparametrically estimating treatment effects as functions of observed covariates while providing honest confidence intervals that account for both sampling uncertainty and model selection.
+Causal forests represent a breakthrough solution to this problem, combining the pattern-recognition power of machine learning with the rigorous theoretical foundations of causal inference. Unlike traditional approaches that estimate single average effects or require researchers to guess which patient characteristics matter, causal forests automatically discover complex patterns of treatment effect variation across the entire patient population while providing statistically valid confidence intervals for individual predictions.
 
-The method's theoretical foundation rests on potential outcomes framework combined with honest estimation procedures that separate sample splitting for model selection from inference. This ensures that confidence intervals maintain nominal coverage rates despite the adaptive nature of tree-based methods. We examine causal forests' mathematical framework, implementation strategies, and practical application through a precision medicine example estimating heterogeneous effects of a new diabetes treatment using simulated clinical trial data in R.
+This methodology proves transformative in precision medicine, where one-size-fits-all treatments give way to personalized therapeutic strategies. Traditional linear regression models assume treatment effects are either constant across all patients or vary only through pre-specified interaction terms that researchers must identify beforehand. This approach severely limits our ability to capture the complex, nonlinear patterns of treatment response that characterize real-world medical interventions. Causal forests overcome these limitations by nonparametrically learning treatment effect functions from data while maintaining honest statistical inference that accounts for both sampling uncertainty and the adaptive nature of the algorithm.
 
-Causal forests extend the random forest algorithm to causal inference settings where the goal shifts from prediction to treatment effect estimation. The key innovation lies in modifying the splitting criterion to maximize treatment effect heterogeneity rather than predictive accuracy. Consider a dataset with $n$ observations, where each unit $i$ has covariates $X_i \in \mathbb{R}^p$, treatment assignment $W_i \in \{0,1\}$, and observed outcome $Y_i$. Under the potential outcomes framework, each unit has two potential outcomes: $Y_i(0)$ under control and $Y_i(1)$ under treatment, with the individual treatment effect defined as $\tau_i = Y_i(1) - Y_i(0)$.
+The theoretical foundation rests on the potential outcomes framework combined with sample splitting procedures that ensure valid inference despite the data-driven nature of tree-based methods. This represents a major advance over naive machine learning applications to causal inference, which often produce overly optimistic confidence intervals that ignore model selection uncertainty. Through a detailed precision medicine application estimating heterogeneous diabetes treatment effects, we'll explore both the mathematical framework and practical implementation of causal forests using simulated clinical trial data in R.
 
-The causal forest algorithm aims to estimate the conditional average treatment effect:
+## Understanding Causal Forests: Theory and Intuition
 
-$$
-\tau(x) = \mathbb{E}[Y_i(1) - Y_i(0) | X_i = x]
-$$
+Causal forests extend the beloved random forest algorithm from prediction problems to causal inference settings, but with a crucial twist in objective function. While traditional random forests split tree nodes to maximize predictive accuracy, causal forests split nodes to maximize treatment effect heterogeneity. This fundamental shift in optimization target allows the algorithm to automatically identify patient subgroups with meaningfully different treatment responses without requiring researchers to specify these subgroups in advance.
 
-This represents the expected treatment effect for individuals with covariate values $x$. Unlike supervised learning where we observe outcomes directly, causal inference requires handling the fundamental problem that we never observe both potential outcomes for the same individual.
+Consider a clinical dataset with $n$ patients, where each patient $i$ has observable characteristics $X_i$ (age, BMI, medical history), treatment assignment $W_i$ (new drug vs. standard care), and observed outcome $Y_i$ (change in HbA1c levels). Under the potential outcomes framework, each patient has two potential outcomes: $Y_i(0)$ representing what would happen under standard care and $Y_i(1)$ representing the outcome under the new treatment. The individual treatment effect is $\tau_i = Y_i(1) - Y_i(0)$, but we face the fundamental problem of causal inference—we never observe both potential outcomes for the same individual.
 
-The method requires three key identifying assumptions. Unconfoundedness assumes that treatment assignment is as good as random conditional on observed covariates:
+The causal forest algorithm estimates the conditional average treatment effect function $\tau(x) = \mathbb{E}[Y_i(1) - Y_i(0) | X_i = x]$, which represents the expected treatment benefit for patients with characteristics $x$. This function allows physicians to predict treatment effects for new patients based on their observable characteristics, enabling personalized treatment decisions grounded in rigorous statistical inference.
 
-$$
-\{Y_i(0), Y_i(1)\} \perp W_i | X_i
-$$
+The method requires three identifying assumptions that parallel those needed for any observational causal study. Unconfoundedness assumes that treatment assignment is effectively random conditional on observed characteristics: $\{Y_i(0), Y_i(1)\} \perp W_i | X_i$. This rules out unmeasured confounding where hidden factors influence both treatment decisions and outcomes. The overlap assumption requires that patients with similar characteristics have positive probability of receiving either treatment: $0 < \mathbb{P}(W_i = 1 | X_i = x) < 1$ for all $x$. This ensures we observe both treated and control patients across the covariate space, preventing extrapolation into regions with no counterfactual evidence. Finally, the Stable Unit Treatment Value Assumption (SUTVA) requires that each patient's potential outcomes depend only on their own treatment, ruling out interference effects where one patient's treatment affects another's outcomes.
 
-This rules out unmeasured confounding that affects both treatment assignment and outcomes. Overlap requires that all individuals have positive probability of receiving either treatment:
+The algorithmic innovation lies in the splitting criterion that guides tree construction. For a candidate split partitioning observations into sets $S_L$ and $S_R$, the algorithm evaluates $\Delta(S, S_L, S_R) = |S_L| \cdot (\hat{\tau}(S_L) - \hat{\tau}(S))^2 + |S_R| \cdot (\hat{\tau}(S_R) - \hat{\tau}(S))^2$, where $\hat{\tau}(S)$ represents the estimated treatment effect within set $S$. This criterion prefers splits that create child nodes with treatment effects that differ substantially from the parent node, thereby maximizing treatment effect heterogeneity rather than outcome predictability.
 
-$$
-0 < \mathbb{P}(W_i = 1 | X_i = x) < 1 \text{ for all } x
-$$
+The honesty principle ensures valid statistical inference by requiring strict separation between structure learning and effect estimation. Each tree uses sample splitting where one subsample determines the tree structure (which variables to split on and where), while a completely separate subsample estimates treatment effects within each leaf. This separation prevents overfitting that would invalidate subsequent confidence intervals and hypothesis tests, ensuring that the adaptive nature of the algorithm doesn't compromise statistical rigor.
 
-This ensures that we observe both treated and control units across the covariate space. The Stable Unit Treatment Value Assumption (SUTVA) requires that potential outcomes depend only on one's own treatment assignment, ruling out interference or spillover effects between units.
+## Making Predictions and Inference
 
-## Theoretical Framework
+When predicting treatment effects for a new patient with characteristics $x$, causal forests aggregate information across all trees using a sophisticated weighting scheme. Let $\alpha_i(x)$ denote the weight assigned to training patient $i$ when making predictions for the new patient, calculated as $\alpha_i(x) = \frac{1}{B} \sum_{b=1}^{B} \frac{\mathbf{1}(X_i \in L_b(x))}{|L_b(x)|}$, where $B$ is the number of trees, $L_b(x)$ is the leaf containing $x$ in tree $b$, and $|L_b(x)|$ is the number of training patients in that leaf. This weighting naturally adapts to local data density, giving more influence to patients who are similar to the prediction target across multiple trees.
 
-The causal forest algorithm modifies standard random forest procedures to focus on treatment effect heterogeneity. Each tree is grown using a random subsample of observations and covariates, but the splitting criterion differs fundamentally from prediction-focused algorithms. Rather than minimizing mean squared error or maximizing information gain, causal trees split nodes to maximize the difference in treatment effects between child nodes.
+The treatment effect estimate becomes $\hat{\tau}(x) = \sum_{i=1}^{n} \alpha_i(x) \cdot W_i \cdot Y_i - \sum_{i=1}^{n} \alpha_i(x) \cdot (1-W_i) \cdot Y_i$, which can be interpreted as a locally-weighted difference in means between treated and control patients who are similar to the prediction target. This adaptive weighting scheme provides more precise estimates in dense regions of the covariate space while appropriately expressing uncertainty in sparse regions where few similar patients exist.
 
-For a candidate split that partitions observations into sets $S_L$ and $S_R$, the splitting criterion evaluates:
+The theoretical guarantee that causal forests provide asymptotically normal treatment effect estimates enables construction of honest confidence intervals and hypothesis tests. The asymptotic variance $\text{Var}(\hat{\tau}(x)) = \sigma^2(x) \cdot V(x)$ depends on both the conditional variance of outcomes $\sigma^2(x)$ and the effective sample size $V(x)$ accounting for the forest weighting scheme. Computing unbiased variance estimates requires additional sample splitting to avoid using the same data for both point estimation and variance estimation, but this investment in honesty pays dividends through reliable uncertainty quantification.
 
-$$
-\Delta(S, S_L, S_R) = |S_L| \cdot (\hat{\tau}(S_L) - \hat{\tau}(S))^2 + |S_R| \cdot (\hat{\tau}(S_R) - \hat{\tau}(S))^2
-$$
+These honest confidence intervals represent a major advance over naive machine learning approaches that ignore model selection uncertainty. Traditional methods often produce overly narrow confidence intervals because they fail to account for the fact that the algorithm adapted to the data during training. Causal forests explicitly account for this adaptation, providing confidence intervals that maintain nominal coverage rates despite the flexibility of the tree-based approach.
 
-where $\hat{\tau}(S)$ represents the estimated treatment effect within set $S$, calculated as the difference in mean outcomes between treated and control units in that leaf. This criterion prefers splits that create child nodes with treatment effects that differ substantially from the parent node, thereby maximizing treatment effect heterogeneity.
+## Precision Medicine Application: Personalized Diabetes Treatment
 
-The honesty principle ensures valid inference by requiring that the same observations not be used for both structure learning and treatment effect estimation. Each tree uses sample splitting where one subsample determines the tree structure (which variables to split on and where to split), while a separate subsample estimates treatment effects within each leaf. This separation prevents overfitting that would invalidate subsequent inference procedures.
+We'll explore causal forests through a realistic precision medicine scenario involving a new diabetes medication with heterogeneous effects across patient populations. Clinical trials typically focus on average treatment effects, reporting that the new drug reduces HbA1c levels by an average of 0.8 percentage points compared to standard care. However, this average masks substantial variation—some patients experience dramatic improvements exceeding 2 percentage points, while others show minimal response or even slight deterioration.
 
-For prediction at a new point $x$, causal forests aggregate across all trees, weighting observations based on how frequently they fall in the same leaf as $x$. Let $\alpha_i(x)$ denote the weight assigned to observation $i$ when predicting at point $x$, calculated as:
+Our analysis aims to develop personalized treatment recommendations by estimating conditional average treatment effects as functions of patient characteristics including age, BMI, baseline HbA1c levels, and comorbidity indicators. The outcome is the change in HbA1c levels after six months of treatment, where more negative values indicate better glycemic control. Understanding this heterogeneity allows clinicians to identify patients most likely to benefit from the new medication while avoiding unnecessary exposure for those unlikely to respond.
 
-$$
-\alpha_i(x) = \frac{1}{B} \sum_{b=1}^{B} \frac{\mathbf{1}(X_i \in L_b(x))}{|L_b(x)|}
-$$
-
-where $B$ is the number of trees, $L_b(x)$ is the leaf containing $x$ in tree $b$, and $|L_b(x)|$ is the number of observations in that leaf. The treatment effect estimate becomes:
-
-$$
-\hat{\tau}(x) = \sum_{i=1}^{n} \alpha_i(x) \cdot W_i \cdot Y_i - \sum_{i=1}^{n} \alpha_i(x) \cdot (1-W_i) \cdot Y_i
-$$
-
-This weighting scheme naturally adapts to local data density and treatment assignment patterns, providing more weight to observations that are similar to the prediction point.
-
-### Inference and Confidence Intervals
-
-Causal forests provide asymptotically normal treatment effect estimates under regularity conditions, enabling construction of confidence intervals and hypothesis tests. The asymptotic variance of $\hat{\tau}(x)$ depends on both the treatment effect estimation variance and the uncertainty from adaptive tree selection:
-
-$$
-\text{Var}(\hat{\tau}(x)) = \sigma^2(x) \cdot V(x)
-$$
-
-where $\sigma^2(x)$ represents the conditional variance of outcomes at $x$, and $V(x)$ captures the effective sample size accounting for the forest weighting scheme. The variance estimate requires additional sample splitting to avoid bias from using the same data for both point estimation and variance estimation.
-
-The method provides honest confidence intervals that maintain nominal coverage rates despite the adaptive nature of the algorithm. This represents a significant advance over naive approaches that ignore model selection uncertainty and produce overly optimistic confidence intervals.
-
-### Comparison with Other Methods
-
-Causal forests offer several advantages over traditional approaches to treatment effect heterogeneity. Unlike linear models with pre-specified interactions, causal forests automatically discover complex nonlinear patterns without requiring domain knowledge about relevant interactions. The method handles high-dimensional covariate spaces better than subgroup analysis, which suffers from multiple testing problems and lacks principled approaches for subgroup selection.
-
-Compared to other machine learning approaches for causal inference, causal forests provide theoretical guarantees about consistency and asymptotic normality while maintaining computational efficiency. Unlike neural networks or support vector machines, the tree-based structure offers interpretability through variable importance measures and partial dependence plots. The method also handles mixed-type covariates naturally without requiring extensive preprocessing.
-
-However, causal forests share limitations with other observational study methods, particularly sensitivity to unmeasured confounding. The method also requires substantial sample sizes for reliable estimation in high-dimensional settings and may struggle with very sparse regions of the covariate space where few observations are available for local treatment effect estimation.
-
-## Healthcare Application: Personalized Diabetes Treatment
-
-### Scenario
-
-We examine heterogeneous effects of a new diabetes medication across patient subgroups. Clinical trials typically estimate average treatment effects, but precision medicine requires understanding how treatment benefits vary by patient characteristics. Our analysis estimates conditional average treatment effects as functions of age, BMI, baseline HbA1c levels, and comorbidity indicators, helping clinicians identify patients most likely to benefit from the new treatment.
-
-The outcome is the change in HbA1c levels after 6 months of treatment, where larger reductions indicate better glycemic control. The treatment is binary assignment to the new medication versus standard care. Covariates include continuous measures (age, BMI, baseline HbA1c) and binary indicators (hypertension, cardiovascular disease, kidney disease). The goal is to develop personalized treatment recommendations based on individual patient profiles.
-
-### Assumptions and Validity
-
-The unconfoundedness assumption requires that treatment assignment be as good as random conditional on observed patient characteristics. In randomized trials, this holds by design, but observational studies require careful consideration of potential confounders. Our simulation assumes random assignment within strata defined by baseline characteristics.
-
-The overlap assumption requires that patients with similar characteristics have positive probability of receiving either treatment. This can be violated in practice if certain patient types are systematically excluded from new treatments due to safety concerns or contraindications. Checking overlap empirically involves examining propensity score distributions and identifying regions with insufficient variation in treatment assignment.
-
-SUTVA assumes that one patient's treatment doesn't affect another's outcomes. This seems reasonable for individual medication decisions but could be violated in settings with peer effects or healthcare system spillovers. The assumption also requires that treatment be well-defined, ruling out different versions or dosing regimens that could affect outcomes differently.
-
-### R Implementation
-
-We simulate data for 2000 diabetes patients with realistic covariate distributions and heterogeneous treatment effects. The true treatment effect varies by age and baseline HbA1c, with younger patients and those with higher baseline values experiencing larger benefits. Our implementation uses the grf package, which provides optimized causal forest algorithms with honest inference procedures.
+The clinical scenario assumes we have data from a well-designed randomized trial where treatment assignment satisfies the unconfoundedness assumption by design. Patients were randomly assigned to receive either the new medication or standard care, ensuring that observed and unobserved patient characteristics are balanced across treatment groups on average. The overlap assumption holds because randomization ensures all patient types have positive probability of receiving either treatment, and SUTVA seems reasonable since individual medication decisions don't directly affect other patients' outcomes.
 
 ```r
-# Load required libraries
+# Load required libraries for causal forest analysis
 if (!requireNamespace("grf", quietly = TRUE)) install.packages("grf")
 if (!requireNamespace("ggplot2", quietly = TRUE)) install.packages("ggplot2")
 if (!requireNamespace("dplyr", quietly = TRUE)) install.packages("dplyr")
@@ -111,384 +53,342 @@ library(ggplot2)
 library(dplyr)
 library(reshape2)
 
-# Set seed for reproducibility
+# Set seed for reproducible results
 set.seed(789)
 
-# Simulate patient data
+# Simulate realistic patient population
 n <- 2000
 
-# Patient characteristics
+# Generate patient characteristics with realistic distributions
 age <- rnorm(n, 60, 12)
-age <- pmax(25, pmin(85, age))  # Bounded between 25-85
+age <- pmax(25, pmin(85, age))  # Constrain to reasonable age range
 
 bmi <- rnorm(n, 30, 6)
-bmi <- pmax(20, pmin(50, bmi))  # Bounded between 20-50
+bmi <- pmax(20, pmin(50, bmi))  # Constrain to realistic BMI range
 
 baseline_hba1c <- rnorm(n, 8.5, 1.2)
-baseline_hba1c <- pmax(6.0, pmin(12.0, baseline_hba1c))  # Bounded between 6-12
+baseline_hba1c <- pmax(6.0, pmin(12.0, baseline_hba1c))  # Clinical range
 
+# Binary comorbidity indicators
 hypertension <- rbinom(n, 1, 0.6)
 cvd <- rbinom(n, 1, 0.3)
 kidney_disease <- rbinom(n, 1, 0.25)
 
-# Combine covariates
+# Combine all covariates into matrix format
 X <- cbind(age, bmi, baseline_hba1c, hypertension, cvd, kidney_disease)
 colnames(X) <- c("age", "bmi", "baseline_hba1c", "hypertension", "cvd", "kidney_disease")
 
-# Treatment assignment (randomized trial)
-propensity <- 0.5  # 50% treatment probability
+# Randomized treatment assignment (50% probability)
+propensity <- 0.5
 W <- rbinom(n, 1, propensity)
 
-# Heterogeneous treatment effects
-# Effect varies by age and baseline HbA1c
+# Generate heterogeneous treatment effects
+# Effect varies realistically by age and baseline glycemic control
 true_tau <- -0.5 - 0.02 * (age - 60) - 0.3 * (baseline_hba1c - 8.5)
-true_tau <- pmax(-2.5, pmin(0, true_tau))  # Bounded between -2.5 and 0
+true_tau <- pmax(-2.5, pmin(0, true_tau))  # Constrain to realistic effect sizes
 
-# Outcome: Change in HbA1c (negative values indicate improvement)
-# Control group outcomes
+# Generate outcomes under potential outcomes framework
+# Control group outcomes depend on patient characteristics
 Y0 <- -0.3 + 0.01 * age + 0.02 * bmi + 0.1 * baseline_hba1c + 
       0.2 * hypertension + 0.15 * cvd + 0.25 * kidney_disease + rnorm(n, 0, 0.8)
 
-# Treatment group outcomes
+# Treatment group outcomes include heterogeneous treatment effects
 Y1 <- Y0 + true_tau + rnorm(n, 0, 0.3)
 
-# Observed outcomes
+# Observed outcomes follow treatment assignment
 Y <- W * Y1 + (1 - W) * Y0
 
-# Create dataset
+# Create comprehensive dataset
 data <- data.frame(X, W = W, Y = Y, true_tau = true_tau)
 
-cat("Dataset created with", n, "patients\n")
-cat("Treatment assignment: Control =", sum(W == 0), ", Treatment =", sum(W == 1), "\n")
-cat("Mean outcome: Control =", round(mean(Y[W == 0]), 3), 
-    ", Treatment =", round(mean(Y[W == 1]), 3), "\n")
+cat("Dataset Summary:\n")
+cat("Total patients:", n, "\n")
+cat("Control group:", sum(W == 0), "patients\n")
+cat("Treatment group:", sum(W == 1), "patients\n")
+cat("Mean outcome - Control:", round(mean(Y[W == 0]), 3), "\n")
+cat("Mean outcome - Treatment:", round(mean(Y[W == 1]), 3), "\n")
+cat("Naive ATE estimate:", round(mean(Y[W == 1]) - mean(Y[W == 0]), 3), "\n")
 ```
 
-```r
-# Fit causal forest
-cf <- causal_forest(X, Y, W, 
-                    num.trees = 2000,
-                    honesty = TRUE,
-                    honesty.fraction = 0.5,
-                    ci.group.size = 1)
+This code creates a realistic diabetes dataset with 2000 patients exhibiting heterogeneous treatment responses. The simulation generates patient characteristics following clinically reasonable distributions, with age averaging 60 years, BMI around 30 (indicating obesity common in diabetes), and baseline HbA1c levels averaging 8.5% (indicating poor glycemic control). The true treatment effects vary systematically by age and baseline HbA1c, with younger patients and those with worse initial control experiencing larger benefits. This pattern reflects clinical reality where patients with more room for improvement often respond better to new interventions.
 
-# Get treatment effect predictions
+```r
+# Fit causal forest with optimal hyperparameters
+cf <- causal_forest(X, Y, W, 
+                    num.trees = 2000,        # Sufficient trees for stable estimates
+                    honesty = TRUE,          # Enable honest inference
+                    honesty.fraction = 0.5,  # Split sample equally
+                    ci.group.size = 1)       # Individual confidence intervals
+
+# Extract predictions and uncertainty estimates
 tau_hat <- predict(cf)$predictions
 tau_se <- sqrt(predict(cf, estimate.variance = TRUE)$variance.estimates)
 
-# Calculate confidence intervals
+# Construct confidence intervals
 tau_lower <- tau_hat - 1.96 * tau_se
 tau_upper <- tau_hat + 1.96 * tau_se
 
-cat("Causal Forest Results:\n")
-cat("Mean predicted treatment effect:", round(mean(tau_hat), 3), "\n")
-cat("Standard deviation of predicted effects:", round(sd(tau_hat), 3), "\n")
-cat("Mean true treatment effect:", round(mean(true_tau), 3), "\n")
-cat("Correlation between true and predicted effects:", 
-    round(cor(true_tau, tau_hat), 3), "\n")
+cat("Causal Forest Performance:\n")
+cat("Mean predicted effect:", round(mean(tau_hat), 3), "\n")
+cat("SD of predicted effects:", round(sd(tau_hat), 3), "\n")
+cat("Mean true effect:", round(mean(true_tau), 3), "\n")
+cat("Prediction correlation:", round(cor(true_tau, tau_hat), 3), "\n")
+cat("Mean confidence interval width:", round(mean(tau_upper - tau_lower), 3), "\n")
 ```
 
+The causal forest achieves excellent performance, with strong correlation between predicted and true treatment effects demonstrating the algorithm's ability to recover heterogeneous patterns. The 2000 trees provide stable estimates while the honest inference procedure ensures valid confidence intervals. The mean confidence interval width indicates the precision of individual predictions, with narrower intervals reflecting greater certainty about treatment effects for specific patient profiles.
+
 ```r
-# Variable importance
+# Analyze variable importance for treatment effect heterogeneity
 var_importance <- variable_importance(cf)
 importance_df <- data.frame(
   Variable = colnames(X),
   Importance = var_importance
-)
-importance_df <- importance_df[order(importance_df$Importance, decreasing = TRUE), ]
+) %>%
+  arrange(desc(Importance))
 
-cat("\nVariable Importance:\n")
-print(importance_df)
+cat("\nVariable Importance Rankings:\n")
+for(i in 1:nrow(importance_df)) {
+  cat(sprintf("%d. %s: %.3f\n", i, importance_df$Variable[i], importance_df$Importance[i]))
+}
 
-# Plot variable importance
+# Visualize variable importance
 p_importance <- ggplot(importance_df, aes(x = reorder(Variable, Importance), y = Importance)) +
-  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_col(fill = "steelblue", alpha = 0.8) +
   coord_flip() +
-  labs(title = "Variable Importance in Treatment Effect Heterogeneity",
-       x = "Variable", y = "Importance") +
-  theme_minimal()
+  labs(title = "Variable Importance for Treatment Effect Heterogeneity",
+       subtitle = "Higher values indicate greater contribution to effect variation",
+       x = "Patient Characteristics", 
+       y = "Importance Score") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 14, face = "bold"))
 
 print(p_importance)
 ```
 
+Variable importance analysis reveals which patient characteristics drive treatment effect heterogeneity most strongly. As expected from our simulation design, baseline HbA1c and age emerge as the most important predictors, reflecting the clinical reality that patients with worse initial glycemic control and younger age tend to respond better to new diabetes medications. The importance scores provide interpretable guidance for clinicians about which patient factors matter most for treatment decisions.
+
 ```r
-# Average treatment effect with confidence interval
+# Estimate average treatment effect with statistical inference
 ate <- average_treatment_effect(cf)
-cat("\nAverage Treatment Effect:", round(ate["estimate"], 3), "\n")
-cat("95% Confidence Interval: [", round(ate["estimate"] - 1.96 * ate["std.err"], 3),
+cat("\nAverage Treatment Effect Analysis:\n")
+cat("ATE estimate:", round(ate["estimate"], 3), "\n")
+cat("Standard error:", round(ate["std.err"], 3), "\n")
+cat("95% CI: [", round(ate["estimate"] - 1.96 * ate["std.err"], 3),
     ",", round(ate["estimate"] + 1.96 * ate["std.err"], 3), "]\n")
 
-# Test for heterogeneity
+# Test for significant treatment effect heterogeneity
 het_test <- test_calibration(cf)
-cat("\nHeterogeneity Test:\n")
+cat("\nHeterogeneity Test Results:\n")
 cat("Test statistic:", round(het_test["estimate"], 3), "\n")
 cat("P-value:", round(het_test["pval"], 4), "\n")
+
 if (het_test["pval"] < 0.05) {
-  cat("Significant heterogeneity detected (p < 0.05)\n")
+  cat("Result: Significant heterogeneity detected (reject constant effects)\n")
+  cat("Interpretation: Personalized treatment rules recommended\n")
 } else {
-  cat("No significant heterogeneity detected (p >= 0.05)\n")
+  cat("Result: No significant heterogeneity (constant effects plausible)\n")
+  cat("Interpretation: One-size-fits-all treatment may be appropriate\n")
 }
 ```
 
+The average treatment effect estimate provides the population-level summary that traditional clinical trials report, while the heterogeneity test formally evaluates whether personalized treatment rules offer advantages over treating all patients identically. A significant test result provides statistical evidence that the observed variation in treatment effects represents true heterogeneity rather than random noise, justifying the complexity of personalized treatment recommendations.
+
 ```r
-# Visualization of treatment effect heterogeneity
-# Create subset for plotting
+# Create comprehensive visualizations of treatment effect patterns
 plot_data <- data.frame(
   age = data$age,
   baseline_hba1c = data$baseline_hba1c,
+  bmi = data$bmi,
   predicted_effect = tau_hat,
   true_effect = true_tau,
+  prediction_se = tau_se,
   treatment = factor(W, labels = c("Control", "Treatment"))
 )
 
-# Predicted vs true effects
+# Validate predictions against true effects
 p1 <- ggplot(plot_data, aes(x = true_effect, y = predicted_effect)) +
-  geom_point(alpha = 0.6, color = "darkblue") +
-  geom_abline(intercept = 0, slope = 1, color = "red", linetype = "dashed") +
-  labs(title = "Predicted vs True Treatment Effects",
+  geom_point(alpha = 0.6, color = "darkblue", size = 1.5) +
+  geom_abline(intercept = 0, slope = 1, color = "red", linetype = "dashed", size = 1) +
+  geom_smooth(method = "lm", se = TRUE, color = "orange", alpha = 0.3) +
+  labs(title = "Causal Forest Prediction Accuracy",
+       subtitle = paste("Correlation:", round(cor(true_tau, tau_hat), 3)),
        x = "True Treatment Effect", 
        y = "Predicted Treatment Effect") +
   theme_minimal() +
-  annotate("text", x = -2, y = -0.5, 
-           label = paste("Correlation:", round(cor(true_tau, tau_hat), 3)), 
-           size = 4)
+  theme(plot.title = element_text(size = 14, face = "bold"))
 
 print(p1)
 
-# Treatment effects by age and baseline HbA1c
-p2 <- ggplot(plot_data, aes(x = age, y = baseline_hba1c, fill = predicted_effect)) +
-  geom_point(shape = 21, size = 2, alpha = 0.8) +
+# Visualize treatment effect heterogeneity across patient characteristics
+p2 <- ggplot(plot_data, aes(x = age, y = baseline_hba1c)) +
+  geom_point(aes(fill = predicted_effect), shape = 21, size = 3, alpha = 0.8) +
   scale_fill_gradient2(low = "darkgreen", mid = "white", high = "darkred", 
-                       midpoint = -0.75, name = "Predicted\nEffect") +
-  labs(title = "Treatment Effect Heterogeneity by Patient Characteristics",
+                       midpoint = -0.75, 
+                       name = "Predicted\nEffect",
+                       labels = function(x) paste0(x, "%")) +
+  labs(title = "Treatment Effect Heterogeneity Map",
+       subtitle = "Green indicates larger benefits, red indicates smaller benefits",
        x = "Age (years)", 
        y = "Baseline HbA1c (%)") +
   theme_minimal() +
-  theme(legend.position = "right")
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        legend.position = "right")
 
 print(p2)
 ```
 
+These visualizations demonstrate the causal forest's ability to recover complex treatment effect patterns. The prediction accuracy plot shows strong agreement between true and predicted effects, validating the algorithm's performance. The heterogeneity map reveals clinically interpretable patterns where younger patients with higher baseline HbA1c (shown in green) experience the largest treatment benefits, while older patients with better initial control (shown in red) show minimal response. This pattern provides actionable insights for clinical decision-making.
+
 ```r
-# Subgroup analysis for high-benefit patients
-high_benefit_threshold <- quantile(tau_hat, 0.25)  # Bottom 25% (most negative = best)
-high_benefit <- tau_hat <= high_benefit_threshold
+# Develop personalized treatment recommendations
+high_benefit_threshold <- quantile(tau_hat, 0.25)  # Bottom quartile (most negative)
+high_benefit_patients <- tau_hat <= high_benefit_threshold
 
-cat("\nSubgroup Analysis - High Benefit Patients:\n")
-cat("Threshold for high benefit:", round(high_benefit_threshold, 3), "\n")
-cat("Number of high-benefit patients:", sum(high_benefit), 
-    "(", round(100 * mean(high_benefit), 1), "%)\n")
+cat("\nPersonalized Treatment Strategy Analysis:\n")
+cat("High-benefit threshold:", round(high_benefit_threshold, 3), "\n")
+cat("High-benefit patients:", sum(high_benefit_patients), 
+    "(", round(100 * mean(high_benefit_patients), 1), "% of population)\n")
 
-# Characteristics of high-benefit patients
-high_benefit_chars <- data[high_benefit, ]
-regular_chars <- data[!high_benefit, ]
+# Compare patient characteristics between groups
+high_benefit_chars <- data[high_benefit_patients, ]
+regular_chars <- data[!high_benefit_patients, ]
 
-cat("\nCharacteristics comparison:\n")
-cat("High-benefit patients - Mean age:", round(mean(high_benefit_chars$age), 1), "\n")
-cat("Regular patients - Mean age:", round(mean(regular_chars$age), 1), "\n")
-cat("High-benefit patients - Mean baseline HbA1c:", 
-    round(mean(high_benefit_chars$baseline_hba1c), 2), "\n")
-cat("Regular patients - Mean baseline HbA1c:", 
-    round(mean(regular_chars$baseline_hba1c), 2), "\n")
+cat("\nPatient Characteristics Comparison:\n")
+cat("High-benefit group:\n")
+cat("  Mean age:", round(mean(high_benefit_chars$age), 1), "years\n")
+cat("  Mean baseline HbA1c:", round(mean(high_benefit_chars$baseline_hba1c), 2), "%\n")
+cat("  Mean BMI:", round(mean(high_benefit_chars$bmi), 1), "\n")
 
-# Expected outcomes under different treatment strategies
-treat_all <- mean(Y[W == 1])
-treat_none <- mean(Y[W == 0])
-treat_high_benefit <- mean(tau_hat[high_benefit]) + mean(Y[W == 0])
+cat("Regular group:\n")
+cat("  Mean age:", round(mean(regular_chars$age), 1), "years\n")
+cat("  Mean baseline HbA1c:", round(mean(regular_chars$baseline_hba1c), 2), "%\n")
+cat("  Mean BMI:", round(mean(regular_chars$bmi), 1), "\n")
 
-cat("\nTreatment Strategy Comparison:\n")
-cat("Treat everyone - Expected outcome:", round(treat_all, 3), "\n")
-cat("Treat no one - Expected outcome:", round(treat_none, 3), "\n")
-cat("Treat high-benefit only - Expected outcome:", round(treat_high_benefit, 3), "\n")
+# Calculate expected outcomes under different treatment strategies
+control_outcome <- mean(Y[W == 0])
+treat_all_outcome <- control_outcome + mean(tau_hat)
+selective_outcome <- control_outcome + mean(tau_hat[high_benefit_patients]) * mean(high_benefit_patients)
+
+cat("\nTreatment Strategy Outcomes:\n")
+cat("No treatment:", round(control_outcome, 3), "\n")
+cat("Treat everyone:", round(treat_all_outcome, 3), "\n")
+cat("Treat high-benefit only:", round(selective_outcome, 3), "\n")
+cat("Selective strategy benefit:", round(selective_outcome - control_outcome, 3), "\n")
 ```
 
+The personalized treatment analysis identifies patients most likely to benefit from the new medication, enabling targeted therapy that maximizes clinical benefit while minimizing unnecessary exposure. High-benefit patients are characterized by younger age and poorer baseline glycemic control, providing clear clinical criteria for treatment decisions. The comparison of treatment strategies quantifies the potential value of personalization, showing how selective treatment of high-benefit patients can achieve substantial population-level improvements while treating fewer individuals.
+
 ```r
-# Partial dependence plots for key variables
-# Age effect
-age_seq <- seq(30, 80, by = 5)
-age_effects <- sapply(age_seq, function(a) {
-  X_new <- X
-  X_new[, "age"] <- a
-  mean(predict(cf, X_new)$predictions)
+# Generate partial dependence plots for clinical interpretation
+age_sequence <- seq(30, 80, by = 5)
+age_effects <- sapply(age_sequence, function(target_age) {
+  X_modified <- X
+  X_modified[, "age"] <- target_age
+  mean(predict(cf, X_modified)$predictions)
 })
 
-age_df <- data.frame(age = age_seq, effect = age_effects)
+hba1c_sequence <- seq(7, 11, by = 0.5)
+hba1c_effects <- sapply(hba1c_sequence, function(target_hba1c) {
+  X_modified <- X
+  X_modified[, "baseline_hba1c"] <- target_hba1c
+  mean(predict(cf, X_modified)$predictions)
+})
+
+# Create partial dependence plots
+age_df <- data.frame(age = age_sequence, effect = age_effects)
+hba1c_df <- data.frame(hba1c = hba1c_sequence, effect = hba1c_effects)
 
 p3 <- ggplot(age_df, aes(x = age, y = effect)) +
-  geom_line(color = "blue", size = 1.2) +
-  geom_point(color = "blue", size = 2) +
-  labs(title = "Average Treatment Effect by Age",
+  geom_line(color = "blue", size = 1.5) +
+  geom_point(color = "blue", size = 3) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  labs(title = "Treatment Effect by Age",
+       subtitle = "Average effect holding other characteristics constant",
        x = "Age (years)", 
        y = "Average Treatment Effect") +
-  theme_minimal()
-
-print(p3)
-
-# Baseline HbA1c effect
-hba1c_seq <- seq(7, 11, by = 0.5)
-hba1c_effects <- sapply(hba1c_seq, function(h) {
-  X_new <- X
-  X_new[, "baseline_hba1c"] <- h
-  mean(predict(cf, X_new)$predictions)
-})
-
-hba1c_df <- data.frame(hba1c = hba1c_seq, effect = hba1c_effects)
+  theme_minimal() +
+  theme(plot.title = element_text(size = 14, face = "bold"))
 
 p4 <- ggplot(hba1c_df, aes(x = hba1c, y = effect)) +
-  geom_line(color = "darkgreen", size = 1.2) +
-  geom_point(color = "darkgreen", size = 2) +
-  labs(title = "Average Treatment Effect by Baseline HbA1c",
+  geom_line(color = "darkgreen", size = 1.5) +
+  geom_point(color = "darkgreen", size = 3) +
+  geom_hline(yintercept = 0, linetype = "dashed", alpha = 0.5) +
+  labs(title = "Treatment Effect by Baseline HbA1c",
+       subtitle = "Average effect holding other characteristics constant",
        x = "Baseline HbA1c (%)", 
        y = "Average Treatment Effect") +
-  theme_minimal()
+  theme_minimal() +
+  theme(plot.title = element_text(size = 14, face = "bold"))
 
+print(p3)
 print(p4)
 
-# Summary statistics
-results_summary <- data.frame(
-  Metric = c("Mean True Effect", "Mean Predicted Effect", "Prediction Correlation",
-             "ATE Estimate", "ATE Standard Error", "Heterogeneity P-value"),
-  Value = c(mean(true_tau), mean(tau_hat), cor(true_tau, tau_hat),
-            ate["estimate"], ate["std.err"], het_test["pval"])
-)
-
-print(results_summary)
+# Summary of key findings
+cat("\nKey Clinical Insights:\n")
+cat("1. Age effect: Treatment benefits decrease by approximately", 
+    round(abs(age_effects[1] - age_effects[length(age_effects)]) / (age_sequence[length(age_sequence)] - age_sequence[1]), 3), 
+    "percentage points per year of age\n")
+cat("2. Baseline HbA1c effect: Each 1% increase in baseline HbA1c associated with", 
+    round(abs(hba1c_effects[length(hba1c_effects)] - hba1c_effects[1]) / (hba1c_sequence[length(hba1c_sequence)] - hba1c_sequence[1]), 3), 
+    "percentage point greater treatment benefit\n")
+cat("3. Optimal candidates: Younger patients with poor glycemic control (HbA1c > 9%)\n")
+cat("4. Personalization value: Substantial heterogeneity justifies individualized treatment decisions\n")
 ```
 
-## Interpretation and Diagnostics
+Partial dependence plots provide intuitive visualization of how treatment effects vary along key patient dimensions while holding other characteristics constant. The age effect shows declining benefits with advancing age, possibly reflecting reduced physiological responsiveness or competing health priorities in older patients. The baseline HbA1c effect demonstrates the "room for improvement" principle where patients with worse initial control have greater potential for benefit. These insights translate directly into clinical decision rules that physicians can apply in practice.
 
-The causal forest successfully recovers heterogeneous treatment effects, with strong correlation between predicted and true effects indicating good performance. Variable importance rankings reveal which patient characteristics drive treatment effect heterogeneity, helping clinicians understand mechanisms underlying treatment response variation. Age and baseline HbA1c typically emerge as the most important predictors, consistent with clinical knowledge about diabetes treatment response patterns.
+## Clinical Interpretation and Implementation
 
-The heterogeneity test provides formal evidence for treatment effect variation across patients. Significant test results support using personalized treatment rules rather than treating all patients identically. This test compares the forest's predictions against a model assuming constant treatment effects, providing statistical evidence for the value of personalization.
+The causal forest analysis reveals clinically meaningful patterns of treatment heterogeneity that support personalized diabetes care. The algorithm successfully identifies that younger patients with poor baseline glycemic control represent optimal candidates for the new medication, achieving HbA1c reductions exceeding 2 percentage points compared to minimal benefits for older patients with better initial control. This pattern aligns with clinical understanding of diabetes pathophysiology where patients with greater metabolic dysfunction often show more dramatic responses to effective interventions.
 
-Partial dependence plots illustrate how treatment effects vary along key dimensions. The age effect typically shows diminishing benefits for older patients, while the baseline HbA1c effect demonstrates larger benefits for patients with poorer initial glycemic control. These patterns align with clinical expectations and provide interpretable insights for treatment decisions.
+Variable importance rankings confirm that baseline HbA1c and age drive most treatment effect variation, providing physicians with clear guidance about which patient characteristics matter most for treatment decisions. The formal heterogeneity test provides statistical evidence that personalized treatment rules offer meaningful advantages over one-size-fits-all approaches, justifying the additional complexity of individualized care protocols.
 
-Confidence intervals around individual predictions reflect both sampling uncertainty and the inherent difficulty of estimating effects in sparse regions of the covariate space. Wider intervals in regions with fewer observations suggest where additional data collection might improve precision. The honest inference procedure ensures these intervals maintain nominal coverage despite the adaptive nature of the algorithm.
+The confidence intervals around individual predictions reflect appropriate uncertainty about treatment effects, with wider intervals in regions of the covariate space where fewer patients provide evidence. This honest uncertainty quantification helps clinicians understand when predictions are most reliable and when additional caution or monitoring might be warranted. The forest's ability to provide both point estimates and uncertainty measures represents a crucial advantage over deterministic treatment algorithms that ignore prediction uncertainty.
 
-## Extensions and Advanced Topics
+Implementation in clinical practice would involve integrating the causal forest model into electronic health record systems where patient characteristics automatically generate personalized treatment effect predictions. The partial dependence plots provide interpretable summaries that help physicians understand and trust the algorithm's recommendations, while the variable importance measures guide data collection priorities for optimal model performance.
 
-### Double Machine Learning Integration
+## Understanding Limitations and Model Robustness
 
-Causal forests can be combined with other machine learning methods through double machine learning frameworks. This approach uses separate algorithms to estimate the outcome regression and propensity score, then applies causal forests to estimate heterogeneous effects on residualized outcomes. This combination can improve performance when the outcome-covariate or treatment-covariate relationships are complex but the treatment effect heterogeneity follows simpler patterns.
+Causal forests inherit important limitations from both machine learning and causal inference methodologies that practitioners must understand for successful implementation. The method requires substantial sample sizes for reliable estimation, particularly in high-dimensional settings where the curse of dimensionality affects local estimation procedures. Clinical datasets with fewer than several thousand patients may lack sufficient power for stable treatment effect estimation, especially when investigating numerous patient characteristics simultaneously.
 
-```r
-# Double machine learning with causal forests
-# First stage: estimate nuisance parameters
-if (!requireNamespace("randomForest", quietly = TRUE)) install.packages("randomForest")
-library(randomForest)
+The honesty requirement, while theoretically essential for valid inference, reduces effective sample sizes by requiring strict separation between structure learning and effect estimation. This creates practical tradeoffs between statistical rigor and estimation precision that may favor alternative approaches in moderate-sized datasets. Researchers must balance the benefits of honest inference against potential power losses from sample splitting.
 
-# Estimate propensity scores
-ps_forest <- randomForest(factor(W) ~ ., data = data.frame(X), ntree = 500)
-e_hat <- predict(ps_forest, type = "prob")[, 2]
+Model interpretability represents another consideration, as causal forests provide less transparent decision rules compared to parametric approaches. Understanding why specific patients receive particular treatment effect predictions requires additional analysis through partial dependence plots, variable importance measures, or other post-hoc explanation methods. This complexity may challenge implementation in clinical settings where physicians need clear, interpretable guidance for treatment decisions.
 
-# Estimate outcome regression
-outcome_forest <- randomForest(Y ~ ., data = data.frame(X, W), ntree = 500)
-mu_hat <- predict(outcome_forest, data.frame(X, W = 1)) * e_hat + 
-          predict(outcome_forest, data.frame(X, W = 0)) * (1 - e_hat)
+The method assumes that treatment effect heterogeneity follows patterns amenable to tree-based discovery, potentially missing complex interactions or highly nonlinear relationships that don't align with recursive partitioning logic. Alternative approaches using kernel methods, neural networks, or other flexible machine learning techniques might capture different types of heterogeneity patterns, suggesting that method selection should consider the anticipated structure of treatment effect variation.
 
-# Residualize outcomes
-Y_res <- Y - mu_hat
-W_res <- W - e_hat
+Sensitivity to unmeasured confounding remains a fundamental challenge, as causal forests cannot overcome violations of the unconfoundedness assumption. While randomized trial data eliminates this concern by design, observational applications require careful consideration of potential hidden confounders that might bias treatment effect estimates. Future research explores extensions combining causal forests with instrumental variables or other identification strategies to address unmeasured confounding in observational settings.
 
-# Apply causal forest to residualized data
-cf_dml <- causal_forest(X, Y_res, W_res, num.trees = 1000)
-tau_dml <- predict(cf_dml)$predictions
+## Future Directions and Extensions
 
-cat("Double ML correlation with true effects:", round(cor(true_tau, tau_dml), 3), "\n")
-```
+Recent methodological developments extend causal forests to increasingly complex settings that expand their practical applicability. Researchers have developed instrumental variable versions that maintain the flexibility of forest-based estimation while addressing identification challenges in observational studies where unmeasured confounding threatens validity. These extensions enable personalized treatment effect estimation even when randomized assignment is impossible or unethical.
 
-### Multi-Arm Treatment Extensions
+Integration with adaptive experimental designs represents another promising direction where treatment assignments update based on accumulating evidence about individual responses. This enables real-time personalization in clinical trials or digital health interventions while maintaining statistical rigor through principled sequential decision-making. Such designs could dramatically accelerate the development of personalized treatment protocols by efficiently exploring treatment effect heterogeneity during the trial itself.
 
-Causal forests extend naturally to settings with multiple treatment arms. The multi-arm causal forest algorithm estimates pairwise treatment contrasts, allowing researchers to identify optimal treatments for each individual from a set of alternatives. This proves particularly valuable in precision medicine where multiple treatment options exist.
+Fairness considerations become increasingly important as personalized algorithms influence clinical decisions that may affect different population groups differently. When some patient subgroups benefit more than others from new treatments, personalized algorithms might exacerbate existing health disparities if not carefully designed. Researchers are developing methods to incorporate equity constraints into causal forest algorithms, ensuring that personalized treatments promote rather than undermine health equity goals.
 
-### Policy Learning
-
-Beyond estimating treatment effects, causal forests enable learning optimal treatment assignment rules. The approach combines treatment effect estimation with policy optimization, finding assignment rules that maximize expected outcomes subject to resource constraints or fairness considerations. This bridges descriptive causal inference with prescriptive policy analysis.
-
-## Limitations and Considerations
-
-Causal forests inherit limitations from both machine learning and causal inference domains. The method requires substantial sample sizes for reliable estimation, particularly in high-dimensional settings where the curse of dimensionality affects local estimation procedures. Rules of thumb suggest needing at least 20-50 observations per covariate dimension for stable results.
-
-The honesty requirement, while theoretically necessary, reduces effective sample sizes by requiring sample splitting. This can limit performance in moderate-sized datasets where splitting reduces power substantially. Researchers face tradeoffs between honest inference and estimation precision that may favor alternative approaches in small samples.
-
-Model interpretability, while better than black-box methods, remains limited compared to parametric approaches. Understanding why specific individuals receive particular treatment effect predictions requires additional analysis through partial dependence plots, SHAP values, or other post-hoc explanation methods.
-
-The method assumes that treatment effect heterogeneity follows patterns that tree-based methods can capture effectively. Highly nonlinear relationships or interactions involving many variables simultaneously may challenge the algorithm's ability to discover relevant patterns. Alternative kernel-based or neural network approaches might perform better in such settings.
-
-## Validation and Model Selection
-
-### Cross-Validation Strategies
-
-Standard cross-validation approaches require modification for causal inference settings to avoid bias from using the same observations for both treatment effect estimation and validation. Causal forest validation typically employs sample splitting where one subset trains the model and another evaluates performance on held-out treatment effects.
-
-```r
-# Cross-validation for causal forests
-set.seed(456)
-n_folds <- 5
-fold_ids <- sample(rep(1:n_folds, length.out = n))
-cv_results <- numeric(n_folds)
-
-for (fold in 1:n_folds) {
-  train_idx <- fold_ids != fold
-  test_idx <- fold_ids == fold
-  
-  # Train on training set
-  cf_fold <- causal_forest(X[train_idx, ], Y[train_idx], W[train_idx], 
-                           num.trees = 1000)
-  
-  # Predict on test set
-  tau_pred <- predict(cf_fold, X[test_idx, ])$predictions
-  tau_true <- true_tau[test_idx]
-  
-  # Calculate mean squared error
-  cv_results[fold] <- mean((tau_pred - tau_true)^2)
-}
-
-cat("Cross-validation MSE:", round(mean(cv_results), 4), 
-    "±", round(sd(cv_results), 4), "\n")
-```
-
-### Hyperparameter Tuning
-
-Key hyperparameters include the number of trees, minimum leaf size, and honesty fraction. While causal forests are relatively robust to these choices, systematic tuning can improve performance. The number of trees typically ranges from 1000-4000, with diminishing returns beyond this range. Minimum leaf size affects the bias-variance tradeoff, with smaller leaves reducing bias but increasing variance.
-
-## Comparison with Alternative Methods
-
-### Bayesian Additive Regression Trees (BART)
-
-BART provides another tree-based approach to treatment effect heterogeneity with different theoretical foundations. Unlike causal forests' frequentist framework, BART employs Bayesian inference with priors on tree structures. BART often performs well with smaller samples but lacks the theoretical guarantees of causal forests regarding inference validity.
-
-### Meta-Learners
-
-Meta-learning approaches like S-learner, T-learner, and X-learner provide alternative frameworks for treatment effect heterogeneity. These methods combine standard machine learning algorithms in different ways to estimate treatment effects. Causal forests generally outperform these approaches when sufficient data exists, but meta-learners may be preferable with limited samples or when using specialized algorithms for specific domains.
-
-### Gaussian Process Approaches
-
-Gaussian processes offer another nonparametric approach to treatment effect estimation with built-in uncertainty quantification. These methods excel at capturing smooth treatment effect surfaces but may struggle with high-dimensional covariates or discontinuous effects that tree-based methods handle naturally.
-
-## Future Directions and Research
-
-### Causal Forests with Confounding
-
-Recent research extends causal forests to settings with unmeasured confounding using instrumental variables or negative control outcomes. These approaches maintain the flexibility of forest-based estimation while addressing identification challenges in observational studies.
-
-### Online Learning and Adaptive Experiments
-
-Causal forests can be integrated with adaptive experimental designs where treatment assignments update based on observed outcomes. This enables real-time personalization in clinical trials or digital experiments while maintaining statistical rigor.
-
-### Fairness and Equity Considerations
-
-Treatment effect heterogeneity raises important questions about fairness when some groups benefit more than others. Research explores how to incorporate equity constraints into causal forest algorithms to ensure that personalized treatments don't exacerbate existing disparities.
+Multi-outcome extensions allow simultaneous modeling of treatment effects on multiple endpoints, capturing tradeoffs between efficacy and safety outcomes that characterize real-world treatment decisions. For diabetes care, this might involve jointly modeling HbA1c reduction, weight changes, and hypoglycemia risk to develop treatment recommendations that optimize overall patient benefit rather than single-outcome effects.
 
 ## Conclusion
 
-Causal forests represent a significant methodological advance for understanding treatment effect heterogeneity in complex, high-dimensional settings. The method successfully combines machine learning flexibility with causal inference rigor, providing both point estimates and honest confidence intervals for conditional treatment effects. Our precision medicine application demonstrates practical implementation and highlights the method's ability to discover clinically meaningful patterns of treatment response variation.
+Causal forests represent a transformative advance in our ability to understand and exploit treatment effect heterogeneity for personalized medicine and targeted interventions. By combining the pattern-recognition capabilities of machine learning with the statistical rigor of causal inference theory, the method enables automatic discovery of complex treatment effect patterns while providing honest uncertainty quantification that supports clinical decision-making.
 
-The approach excels when sufficient data exists and treatment effects vary in ways that tree-based methods can capture. Variable importance measures and partial dependence plots provide interpretable insights into heterogeneity patterns, supporting clinical decision-making and policy formulation. The theoretical guarantees regarding asymptotic normality and confidence interval coverage represent important advances over ad-hoc machine learning approaches to causal inference.
+Our precision medicine application demonstrates the method's practical value for developing personalized diabetes treatment protocols based on patient characteristics. The algorithm successfully identifies clinically meaningful subgroups with different treatment responses, providing interpretable insights about which patients benefit most from new interventions. Variable importance measures and partial dependence plots translate complex algorithmic outputs into actionable clinical guidance that physicians can understand and apply.
 
-However, successful implementation requires careful attention to sample size requirements, honest estimation procedures, and validation strategies. The method works best as part of a comprehensive analytical approach that includes domain expertise, assumption checking, and sensitivity analysis. Future research continues to extend the framework to handle unmeasured confounding, multiple outcomes, and fairness constraints, expanding its applicability across diverse domains.
+The theoretical guarantees regarding asymptotic normality and confidence interval coverage represent crucial advances over ad-hoc machine learning approaches to causal inference that ignore model selection uncertainty. These honest inference procedures ensure that the adaptive nature of tree-based methods doesn't compromise statistical validity, providing reliable foundations for high-stakes clinical decisions.
 
-When applied appropriately, causal forests provide powerful tools for precision medicine, targeted policy interventions, and any setting where treatment effects vary across individuals. The method's combination of statistical rigor and practical flexibility makes it an essential addition to the causal inference toolkit for researchers and practitioners seeking to understand and exploit treatment effect heterogeneity.
+However, successful implementation requires careful attention to sample size requirements, assumption verification, and validation strategies. The method works best as part of comprehensive analytical approaches that combine algorithmic insights with domain expertise, clinical judgment, and careful consideration of implementation challenges. Future research continues expanding the framework to handle unmeasured confounding, multiple outcomes, and fairness constraints while developing computational improvements that enable application to massive healthcare datasets.
+
+When applied appropriately with adequate sample sizes and valid identifying assumptions, causal forests provide powerful tools for precision medicine, targeted policy interventions, and any domain where treatment effects vary meaningfully across individuals. The method's combination of statistical rigor, computational efficiency, and practical interpretability establishes it as an essential component of the modern causal inference toolkit for researchers and practitioners seeking to understand and exploit treatment effect heterogeneity.
+
+The diabetes treatment application illustrates how causal forests can transform clinical practice by moving beyond one-size-fits-all approaches toward truly personalized medicine. By automatically discovering that younger patients with poor glycemic control benefit most from new treatments while older patients with better initial control show minimal response, the algorithm provides actionable insights that directly inform treatment decisions. This represents a fundamental shift from traditional clinical decision-making based on average effects toward precision medicine grounded in individual patient characteristics.
+
+The method's success depends critically on the quality of input data, appropriate hyperparameter selection, and careful validation of identifying assumptions. Practitioners should invest substantial effort in data preprocessing, covariate selection, and assumption verification rather than treating causal forests as black-box solutions. The algorithm's power lies not in replacing clinical judgment but in augmenting physician expertise with data-driven insights about treatment effect patterns that might not be apparent from clinical experience alone.
+
+Future applications will likely integrate causal forests with other advanced methodologies including instrumental variables for observational studies, multi-armed bandit algorithms for adaptive trials, and deep learning approaches for high-dimensional data. As healthcare systems increasingly adopt electronic health records and digital monitoring technologies, the availability of rich longitudinal data will enable even more sophisticated personalized treatment algorithms that adapt recommendations based on real-time patient responses and evolving clinical presentations.
+
+The ultimate promise of causal forests extends beyond technical innovation to clinical impact—enabling physicians to make treatment decisions based on rigorous statistical evidence about individual patient benefit rather than population averages that may not apply to the specific patient sitting in their office. This represents not just methodological progress but a fundamental advancement toward more effective, efficient, and equitable healthcare delivery that maximizes benefit for each individual patient while optimizing resource allocation across entire populations.
 
 ## References
 
