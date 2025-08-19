@@ -116,12 +116,8 @@ The internal states—Positive and Negative—do not transition between one anot
 
 
 
-### **Chunk 1: Loading the `pomdp` Library**
-```r
-library(pomdp)
-```
 
-### **Chunk 2: Defining the POMDP Model**
+### **Chunk 1: Defining the POMDP Model**
 ```r
 model <- POMDP(
   name = "DepressionBias",
@@ -218,14 +214,14 @@ This chunk defines the POMDP model. Let’s break it down by its components:
   - **Explanation**: Specifies an infinite horizon, meaning the decision process continues indefinitely rather than terminating after a fixed number of steps.
   - **Purpose**: Models a scenario where the agent makes decisions over an unbounded time period, aiming to maximize the discounted sum of rewards.
 
-### **Chunk 3: Normalizing the POMDP Model**
+### **Chunk 2: Normalizing the POMDP Model**
 ```r
 model <- normalize_POMDP(model)
 ```
 - **Explanation**: The `normalize_POMDP` function ensures that the model’s probabilities (transition and observation probabilities) are valid by checking that they sum to 1 where required and correcting any numerical inconsistencies. It also validates the model’s structure.
 - **Purpose**: Prepares the model for solving by ensuring mathematical correctness and consistency, which is crucial for numerical algorithms used in `solve_POMDP`.
 
-### **Chunk 4: Solving the POMDP**
+### **Chunk 3: Solving the POMDP**
 ```r
 solution <- solve_POMDP(model)
 ```
@@ -233,7 +229,7 @@ solution <- solve_POMDP(model)
 - **Purpose**: Produces a `solution` object containing the optimal policy, value function, and other details. The policy guides the agent on which action to take based on its belief about the current state.
 
 
-### **Chunk 5: Simulating the POMDP**
+### **Chunk 4: Simulating the POMDP**
 ```r
 simulate_POMDP(
   model = model,
