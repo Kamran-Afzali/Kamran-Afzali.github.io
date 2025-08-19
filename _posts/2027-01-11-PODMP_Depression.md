@@ -6,8 +6,6 @@ The complexities of human emotion and cognition requires complex modeling applie
 
 This post explores a novel application of the POMDP framework to simulate depression-related biases in action selection and perceptual inference. Using the R `pomdp` package, we develop a simple model that captures how behavior influences—and is influenced by—an agent’s internal affective state. Specifically, we examine how actions such as physical exercise or screen time modulate the agent’s perception of environmental stimuli and belief about its own mood. The model encapsulates both cognitive and behavioral components of depression and provides insights into how certain interventions might shift an individual toward a more adaptive emotional trajectory.
 
-
-
 ### Formalizing Mood-Dependent Behavior in a POMDP Framework
 
 As mentioned in a previous post POMDP is a mathematical model suited for agents making decisions under uncertainty. Unlike fully observable Markov Decision Processes, where the agent has complete knowledge of its current state, a POMDP acknowledges the epistemic gap between the agent's knowledge and the actual environment. The agent must rely on indirect observations to update its beliefs and determine optimal actions.
@@ -123,8 +121,6 @@ The internal states—Positive and Negative—do not transition between one anot
 library(pomdp)
 ```
 
----
-
 ### **Chunk 2: Defining the POMDP Model**
 ```r
 model <- POMDP(
@@ -222,16 +218,12 @@ This chunk defines the POMDP model. Let’s break it down by its components:
   - **Explanation**: Specifies an infinite horizon, meaning the decision process continues indefinitely rather than terminating after a fixed number of steps.
   - **Purpose**: Models a scenario where the agent makes decisions over an unbounded time period, aiming to maximize the discounted sum of rewards.
 
----
-
 ### **Chunk 3: Normalizing the POMDP Model**
 ```r
 model <- normalize_POMDP(model)
 ```
 - **Explanation**: The `normalize_POMDP` function ensures that the model’s probabilities (transition and observation probabilities) are valid by checking that they sum to 1 where required and correcting any numerical inconsistencies. It also validates the model’s structure.
 - **Purpose**: Prepares the model for solving by ensuring mathematical correctness and consistency, which is crucial for numerical algorithms used in `solve_POMDP`.
-
----
 
 ### **Chunk 4: Solving the POMDP**
 ```r
@@ -240,7 +232,6 @@ solution <- solve_POMDP(model)
 - **Explanation**: The `solve_POMDP` function computes an optimal policy for the POMDP model using numerical methods (e.g., value iteration or policy iteration). The policy maps belief states (probability distributions over the states "Positive" and "Negative") to actions ("Attend Positive," "Attend Negative," or "Wait") that maximize the expected discounted sum of rewards.
 - **Purpose**: Produces a `solution` object containing the optimal policy, value function, and other details. The policy guides the agent on which action to take based on its belief about the current state.
 
----
 
 ### **Chunk 5: Simulating the POMDP**
 ```r
