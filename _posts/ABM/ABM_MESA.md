@@ -1,9 +1,6 @@
  
 # Agent-Based Modeling with Mesa: Complete Curriculum
 
-
-# Agent-Based Modeling with Mesa: Complete Curriculum
-
 | **Post #** | **Title** | **Main Concepts** | **Core Model** | **Mesa Components & Code** | **Key Examples** | **Target Audience** | **Prerequisites** | **Learning Outcomes** |
 |------------|-----------|-------------------|----------------|----------------------------|------------------|-------------------|-------------------|----------------------|
 | **1** | **"Digital Societies: Introduction to Agent-Based Modeling"** | Individual agents, emergence, complex systems, bottom-up modeling | Schelling's Segregation Model | `Agent`, `Model`, `RandomActivation`, `MultiGrid`<br>```python<br>class SchellingAgent(Agent):<br>    def __init__(self, unique_id, model, agent_type):<br>        super().__init__(unique_id, model)<br>        self.type = agent_type<br>``` | Residential segregation, social clustering, tipping points | General audience, social scientists | Basic Python | Understand core ABM concepts and Mesa architecture. Create a basic spatial model with emergent patterns. |
