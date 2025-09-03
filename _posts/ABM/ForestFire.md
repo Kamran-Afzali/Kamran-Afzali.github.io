@@ -8,7 +8,7 @@ Forest fires represent one of nature's most dramatic examples of spatiotemporal 
 
 Cellular automata provide a powerful framework for understanding how microscopic processes aggregate into macroscopic phenomena. In the context of forest fire dynamics, each spatial location can be modeled as an autonomous agent with discrete states, following simple transition rules based on local neighborhood conditions. This approach, pioneered in ecological modeling, reveals how seemingly chaotic fire patterns emerge from deterministic local interactions.
 
-The classical forest fire model, introduced by Drossel and Schwabl, considers a spatial grid where each cell can exist in one of four states: empty ($E$), occupied by a tree ($T$), burning ($F$), or burned ($B$). The temporal evolution follows probabilistic rules governed by three fundamental processes: tree growth, fire ignition, and fire propagation.
+The classical forest fire model, introduced by Drossel and Schwabl, considers a spatial grid where each cell can exist in one of four states: empty ($E$), occupied by a tree ($T$), burning ($F$), or burned ($B$). The temporal evolution follows probabilistic rules governed by three fundamental processes encompassing tree growth, fire ignition, and fire propagation.
 
 ## Mathematical Framework: State Transitions and Probability Dynamics
 
@@ -22,33 +22,9 @@ $$N(i,j) = \{(i',j') \in L : |i-i'| \leq 1, |j-j'| \leq 1, (i',j') \neq (i,j)\}$
 
 ### Transition Dynamics
 
-The model evolves through two distinct phases at each time step, implementing a staged activation scheme that separates growth processes from fire dynamics.
+The model evolves through two distinct phases at each time step, implementing a staged activation scheme that separates growth processes from fire dynamics. During the first phase, empty cells transition to tree state with probability $p_g$ representing the growth rate, while existing trees age according to their temporal accumulation since establishment. This growth phase captures the fundamental ecological process of forest regeneration and maturation.
 
-**Phase 1: Growth and Aging**
-
-Empty cells transition to tree state with probability $p_g$ (growth rate):
-
-$$P(s_{i,j}(t+1) = T | s_{i,j}(t) = E) = p_g$$
-
-Existing trees age according to:
-
-$$\text{age}_{i,j}(t+1) = \text{age}_{i,j}(t) + 1 \text{ if } s_{i,j}(t) = T$$
-
-**Phase 2: Fire Propagation**
-
-Burning cells transition to burned state deterministically:
-
-$$P(s_{i,j}(t+1) = B | s_{i,j}(t) = F) = 1$$
-
-Tree cells ignite through two mechanisms:
-
-1. **Neighbor-induced ignition**: Fire spreads from burning neighbors with probability $p_f$:
-
-$$P(s_{i,j}(t+1) = F | s_{i,j}(t) = T, \exists (i',j') \in N(i,j) : s_{i',j'}(t) = F) = p_f$$
-
-2. **Lightning strikes**: Spontaneous ignition occurs with probability $p_l$:
-
-$$P(s_{i,j}(t+1) = F | s_{i,j}(t) = T, \forall (i',j') \in N(i,j) : s_{i',j'}(t) \neq F) = p_l$$
+The second phase governs fire propagation through deterministic and stochastic mechanisms. Burning cells transition to burned state with certainty, representing the completion of combustion processes. Tree cells can ignite through two pathways: neighbor-induced ignition occurs when fire spreads from burning neighbors with probability $p_f$, while lightning strikes create spontaneous ignition with probability $p_l$. This dual ignition mechanism captures both the spatial correlation inherent in fire spread and the random external disturbances that initiate new fire events.
 
 The complete transition probability function becomes:
 
@@ -66,201 +42,139 @@ where $p$ represents the appropriate transition probability for each case.
 
 ### Agent-Based Structure
 
-Each spatial cell is implemented as an autonomous agent with internal state variables:
+Each spatial cell is implemented as an autonomous agent with internal state variables that track both current condition and temporal history. The agent maintains its current state within the four-state system while also recording age information that enables more sophisticated ecological modeling. This structure provides the foundation for both simple rule-based behavior and potential extensions incorporating age-dependent processes such as varying flammability or seed production.
 
-```python
-class TreeAgent(mesa.Agent):
-    def __init__(self, unique_id, model):
-        super().__init__(unique_id, model)
-        self.state = TreeState.EMPTY
-        self.age = 0  # Temporal tracking for ecological realism
-```
-
-The agent's behavioral repertoire consists of two primary methods corresponding to the model's dual-phase structure:
-
-**Growth Phase Implementation**:
-```python
-def step(self):
-    if self.state == TreeState.EMPTY:
-        if random.random() < self.model.growth_rate:
-            self.state = TreeState.TREE
-            self.age = 0
-    elif self.state == TreeState.TREE:
-        self.age += 1
-```
-
-**Fire Phase Implementation**:
-```python
-def fire_step(self):
-    if self.state == TreeState.FIRE:
-        self.state = TreeState.BURNED
-    elif self.state == TreeState.TREE:
-        # Neighbor-induced fire spread
-        neighbors = self.model.grid.get_neighbors(self.pos, moore=True)
-        for neighbor in neighbors:
-            if neighbor.state == TreeState.FIRE:
-                if random.random() < self.model.fire_spread_rate:
-                    self.state = TreeState.FIRE
-                    break
-        
-        # Lightning strikes
-        if random.random() < self.model.lightning_rate:
-            self.state = TreeState.FIRE
-```
+The agent's behavioral repertoire consists of two primary methods corresponding to the model's dual-phase structure. During the growth phase, empty cells probabilistically transition to tree state based on the specified growth rate, while existing trees increment their age counters to maintain temporal records. The fire phase implements the core fire spread mechanism, where burning cells deterministically become burned while tree cells evaluate both neighbor-induced ignition and spontaneous lightning strikes.
 
 ### Staged Activation Protocol
 
-The temporal evolution employs Mesa's `StagedActivation` scheduler to ensure proper separation of ecological and fire processes:
-
-```python
-self.schedule = mesa.time.StagedActivation(
-    self, 
-    stage_list=["step", "fire_step"],
-    shuffle=True
-)
-```
-
-This staging prevents temporal artifacts where agents updated earlier in a time step influence those updated later, ensuring synchronous state transitions across the entire spatial domain.
+The temporal evolution employs Mesa's `StagedActivation` scheduler to ensure proper separation of ecological and fire processes. This staging prevents temporal artifacts where agents updated earlier in a time step influence those updated later, ensuring synchronous state transitions across the entire spatial domain. The scheduler processes all agents through the growth phase before advancing any agent through the fire phase, maintaining the mathematical integrity of the cellular automaton approach.
 
 ## Emergent Dynamics: Pattern Formation and Critical Phenomena
 
 ### Self-Organized Criticality
 
-The forest fire model exhibits characteristics of self-organized criticality, where the system naturally evolves toward a critical state without external parameter tuning. As tree density increases through growth processes, the system becomes increasingly susceptible to large-scale fire events that reset local densities, creating a dynamic equilibrium.
+The forest fire model exhibits characteristics of self-organized criticality, where the system naturally evolves toward a critical state without external parameter tuning. As tree density increases through growth processes, the system becomes increasingly susceptible to large-scale fire events that reset local densities, creating a dynamic equilibrium between accumulation and disturbance.
 
-The critical fire spread probability $p_f^c$ represents a phase transition threshold. For $p_f < p_f^c$, fires remain localized and quickly extinguish. For $p_f > p_f^c$, fires can propagate across the entire domain, creating system-spanning disturbances.
+The critical fire spread probability $p_f^c$ represents a phase transition threshold that fundamentally alters system behavior. For fire spread probabilities below this critical value, fires remain localized and quickly extinguish, creating small disturbance patches that minimally impact overall forest structure. Above the critical threshold, fires can propagate across the entire domain, creating system-spanning disturbances that dramatically reshape landscape patterns.
 
 ### Spatial Correlation and Clustering
 
-The model generates spatially correlated patterns through the interplay of local fire spread and stochastic ignition. Tree clusters that escape fire events continue growing, creating increasingly connected fuel loads. When ignition occurs within these clusters, the high connectivity enables rapid fire propagation, leading to characteristic "fire scars" that create patchy landscape mosaics.
+The model generates spatially correlated patterns through the complex interplay of local fire spread and stochastic ignition processes. Tree clusters that escape fire events through spatial isolation or stochastic luck continue growing and expanding, creating increasingly connected fuel loads that enhance future fire propagation potential. When ignition eventually occurs within these mature clusters, the high connectivity enables rapid fire spread that creates characteristic "fire scars" across the landscape.
+
+These fire scars generate patchy landscape mosaics where areas of different recovery ages create spatial heterogeneity in fuel loads, flammability, and ecological characteristics. The resulting patterns exhibit scale-dependent spatial correlation, with strong local correlation within fire scars and weaker correlation across fire boundaries, mimicking patterns observed in real forest landscapes.
 
 ### Temporal Oscillations and Quasi-Periodicity
 
-Long-term dynamics often exhibit quasi-periodic behavior, with periods of forest accumulation followed by large fire events. The characteristic time scale depends on the parameter ratios:
+Long-term dynamics often exhibit quasi-periodic behavior characterized by alternating periods of forest accumulation and large fire events. During accumulation phases, tree density gradually increases as growth processes exceed fire losses, leading to higher connectivity and increased system flammability. Eventually, a lightning strike or local fire outbreak triggers a large fire event that resets tree density across extensive areas.
 
-$$\tau_{cycle} \approx \frac{1}{p_l} \cdot \frac{\ln(1/p_g)}{p_f}$$
-
-This relationship captures how lightning frequency, growth rates, and fire spread efficiency interact to determine ecosystem disturbance cycles.
+The characteristic time scale of these cycles depends on the parameter ratios according to the approximate relationship $\tau_{cycle} \approx \frac{1}{p_l} \cdot \frac{\ln(1/p_g)}{p_f}$. This expression captures how lightning frequency determines the average time between potential large fire events, while growth rates and fire spread efficiency control how quickly the system builds up flammable biomass and how effectively fires can propagate once initiated.
 
 ## Analytical Results: Population Dynamics and Stability
 
 ### Equilibrium Analysis
 
-In the absence of fire ($p_f = p_l = 0$), the system reaches a trivial equilibrium where all cells eventually contain trees. The mean-field approximation for tree density $\rho_T(t)$ follows:
+In the absence of fire processes, the system reaches a trivial equilibrium where all cells eventually contain trees, representing a fire-excluded forest state. Including fire processes fundamentally alters this trajectory by introducing mortality that balances growth. The mean-field approximation provides insight into equilibrium tree density through the relationship $\rho_T^* = \frac{p_g}{p_g + p_l + \langle p_{spread} \rangle}$, where the effective fire spread rate accounts for spatial correlations that emerge from the cellular automaton structure.
 
-$$\frac{d\rho_T}{dt} = p_g(1 - \rho_T) - (\text{fire losses})$$
-
-Including fire processes, the equilibrium tree density satisfies:
-
-$$\rho_T^* = \frac{p_g}{p_g + p_l + \langle p_{spread} \rangle}$$
-
-where $\langle p_{spread} \rangle$ represents the effective fire spread rate accounting for spatial correlations.
+This equilibrium represents a dynamic balance where tree growth in empty cells balances tree mortality from both lightning strikes and neighbor-induced fire spread. The spatial correlations captured by $\langle p_{spread} \rangle$ reflect the non-linear relationship between tree density and fire propagation efficiency, as higher tree density creates more connected fuel loads that enable more effective fire spread.
 
 ### Stability and Perturbation Response
 
-Linear stability analysis around equilibrium reveals that the system exhibits damped oscillations when:
+Linear stability analysis around equilibrium reveals that the system exhibits damped oscillations when fire spread rates and equilibrium tree density exceed the geometric mean of growth and lightning parameters. This condition identifies parameter regimes where fire dynamics create negative feedback loops that stabilize forest density fluctuations rather than amplifying them.
 
-$$p_f \cdot \rho_T^* > \sqrt{p_g \cdot p_l}$$
-
-This condition identifies parameter regimes where fire dynamics create negative feedback loops that stabilize forest density fluctuations.
+The stability analysis provides insight into system resilience and recovery following disturbances. In stable regimes, perturbations from equilibrium generate restoring forces that return the system toward its balanced state. In unstable regimes, perturbations may trigger cascading changes that shift the system toward alternative stable states or persistent oscillatory dynamics.
 
 ## Computational Implementation: Scalability and Validation
 
 ### Performance Considerations
 
-The cellular automaton approach scales as $O(N \cdot T)$ where $N$ represents the number of spatial cells and $T$ the simulation duration. The staged activation requires two passes per time step, but maintains computational efficiency through vectorized neighborhood operations.
+The cellular automaton approach scales linearly with both spatial extent and temporal duration, requiring $O(N \cdot T)$ computational operations where $N$ represents the number of spatial cells and $T$ the simulation duration. The staged activation protocol requires two passes through all agents per time step, but maintains computational efficiency through vectorized neighborhood operations that leverage modern computing architectures.
 
-Memory requirements scale linearly with domain size, as each agent stores only local state information. The Mesa framework provides efficient spatial indexing through its `MultiGrid` data structure, enabling $O(1)$ neighbor queries.
+Memory requirements scale linearly with domain size since each agent stores only local state information and immediate temporal history. The Mesa framework provides efficient spatial indexing through its `MultiGrid` data structure, enabling constant-time neighbor queries that prevent computational bottlenecks even for large spatial domains. This scalability makes the approach suitable for landscape-scale applications covering thousands of square kilometers.
 
 ### Validation Against Empirical Data
 
-Model validation requires comparison with historical fire data, focusing on:
+Model validation requires systematic comparison with historical fire data across multiple metrics that capture different aspects of fire regime characteristics. Fire size distributions provide one crucial validation metric, as empirical fire sizes often follow power-law distributions that the model can reproduce for appropriate parameter combinations. The model's ability to generate these scale-invariant patterns suggests that it captures fundamental mechanisms underlying real fire dynamics.
 
-1. **Fire size distributions**: Empirical fire sizes often follow power-law distributions, which the model reproduces for appropriate parameter ranges
-2. **Spatial autocorrelation**: Real fire patterns exhibit scale-dependent spatial correlation that matches model predictions
-3. **Return intervals**: The distribution of time intervals between fires in the same location provides a critical validation metric
+Spatial autocorrelation analysis provides another validation approach by comparing model-generated spatial patterns with remotely sensed fire data. Real fire patterns exhibit scale-dependent spatial correlation structures that reflect the underlying processes of fire spread and landscape heterogeneity. The model's success in reproducing these correlation patterns across multiple spatial scales provides evidence for its representation of key ecological processes.
+
+Return interval analysis examines the distribution of time intervals between fires affecting the same location, providing insight into temporal fire regime characteristics. This metric integrates both spatial and temporal dynamics by tracking how fire frequency varies across space based on local fire history, topographic position, and stochastic variation in weather conditions.
 
 ## Applications and Policy Implications
 
 ### Forest Management Strategies
 
-The model enables evaluation of different management interventions:
+The model enables systematic evaluation of different management interventions by manipulating parameters that represent various management tools and strategies. Fuel reduction programs that decrease tree density effectively lower the probability of fire connectivity, potentially shifting the system below critical fire spread thresholds where large fires become rare events. However, the model also reveals potential unintended consequences, such as how excessive fuel reduction might eliminate the natural fire cycles that maintain ecosystem integrity.
 
-**Fuel Reduction Programs**: Reducing tree density (lowering $\rho_T$) decreases fire connectivity, potentially shifting the system below the critical fire spread threshold.
+Prescribed burning strategies can be evaluated by introducing controlled fires with specific spatial and temporal patterns. The model suggests that strategically timed and positioned prescribed fires can break up large fuel loads while maintaining overall forest structure, essentially mimicking the natural role of lightning strikes but with enhanced spatial and temporal control. The effectiveness of prescribed burning depends critically on timing relative to fuel accumulation cycles and spatial positioning relative to natural fire barriers.
 
-**Prescribed Burning**: Introducing controlled fires with specific spatial patterns can break up large fuel loads, mimicking the natural role of lightning strikes but with strategic spatial targeting.
-
-**Firebreaks and Fragmentation**: Creating permanent empty cells disrupts fire connectivity, with effectiveness depending on firebreak width relative to characteristic fire correlation lengths.
+Firebreaks and landscape fragmentation strategies create permanent empty cells that disrupt fire connectivity across the landscape. The model reveals that firebreak effectiveness depends on width relative to characteristic fire correlation lengths, with narrow firebreaks having minimal impact while excessively wide firebreaks may fragment habitat beyond acceptable ecological limits. Optimal firebreak design emerges as a balance between fire containment and habitat connectivity.
 
 ### Climate Change Adaptation
 
-Parameter sensitivity analysis reveals how changing environmental conditions affect fire regimes:
+Parameter sensitivity analysis provides a framework for assessing how changing environmental conditions might alter fire regimes and inform adaptive management strategies. Increased drought conditions translate to higher lightning ignition probabilities and enhanced fire spread rates, shifting the system toward more frequent and intense fire cycles that may exceed historical ranges of variability.
 
-- Increased drought (higher $p_l$, higher $p_f$) shifts the system toward more frequent, intense fire cycles
-- Temperature increases affect both ignition probability and fire spread rates
-- Precipitation changes influence growth rates and fuel moisture content
+Temperature increases affect multiple model parameters simultaneously by influencing both ignition probability through fuel desiccation and fire spread rates through enhanced combustion efficiency. The model enables exploration of how these correlated parameter changes interact to produce potentially non-linear responses in fire regime characteristics.
+
+Precipitation changes influence growth rates and fuel moisture content, creating complex interactions between fuel accumulation and fire spread potential. The model suggests that moderate increases in growing season precipitation might enhance fuel loads while simultaneously reducing fire spread efficiency, creating competing effects whose net impact depends on the relative magnitude of parameter changes.
 
 ### Conservation Planning
 
-The model identifies spatial patterns that promote biodiversity through intermediate disturbance. Moderate fire frequencies create habitat heterogeneity while preventing complete forest loss or fire exclusion.
+The model provides insights into spatial patterns that promote biodiversity through intermediate disturbance mechanisms. Moderate fire frequencies create habitat heterogeneity by maintaining a mosaic of different-aged forest patches while preventing both complete forest loss and fire exclusion that leads to homogeneous mature forests.
+
+Conservation planning applications can use the model to identify landscape configurations that maintain fire regime integrity while protecting critical habitats. The analysis reveals trade-offs between fire management objectives and conservation goals, helping planners develop strategies that balance multiple objectives across complex landscapes.
 
 ## Model Extensions and Future Directions
 
 ### Spatial Heterogeneity
 
-The current model assumes uniform parameters across space. Extensions could incorporate:
+The current model assumes uniform parameters across space, but real landscapes exhibit significant spatial variation in factors that influence fire behavior. Extensions incorporating topographic effects could represent how slope and aspect influence fire spread rates and directions, while fuel load variability could capture different vegetation types with distinct flammability characteristics.
 
-- **Topographic effects**: Slope and aspect influence fire spread rates and directions
-- **Fuel load variability**: Different vegetation types with distinct flammability characteristics
-- **Weather patterns**: Spatially and temporally varying wind, humidity, and temperature
+Weather pattern extensions could introduce spatially and temporally varying wind, humidity, and temperature conditions that create realistic fire weather scenarios. These extensions would enable exploration of how synoptic weather patterns create correlated fire conditions across large regions, leading to widespread fire activity during extreme weather events.
 
 ### Multi-scale Dynamics
 
-Hierarchical models could capture interactions between local fire behavior and landscape-scale patterns:
+Hierarchical models could capture interactions between local fire behavior and landscape-scale patterns that operate over different temporal and spatial scales. Seed dispersal mechanisms could represent long-distance forest recovery following large fires, while regional fire weather systems could create correlations in fire activity across multiple landscapes.
 
-- **Seed dispersal**: Long-distance forest recovery following large fires
-- **Fire weather systems**: Synoptic weather patterns that create correlated fire conditions across large regions
-- **Human impacts**: Road networks, urban interfaces, and fire suppression efforts
+Human impact extensions could incorporate road networks, urban interfaces, and fire suppression efforts that increasingly dominate fire regimes in many regions. These extensions would enable exploration of how human infrastructure and management activities interact with natural fire processes to create novel fire regimes.
 
 ### Stochastic Fire Spread
 
-Rather than uniform fire spread probability, more realistic models could incorporate:
+Rather than uniform fire spread probability, more realistic models could incorporate directional spread patterns driven by wind conditions and topographic effects. Variable fire intensity could represent how different fire temperatures affect vegetation recovery and soil properties, while ember transport could enable long-distance fire spread that creates complex spatial patterns.
 
-- **Directional spread**: Wind-driven fire propagation with anisotropic spread patterns
-- **Fire intensity**: Variable fire temperatures affecting vegetation recovery
-- **Spotting**: Long-distance fire spread through ember transport
+These extensions would enhance model realism while maintaining computational efficiency and conceptual clarity. The challenge lies in balancing added complexity with interpretability and computational tractability.
 
 ## Limitations and Model Assumptions
 
 ### Temporal Resolution
 
-The discrete time steps assume that all processes occur at similar time scales. In reality, fire spread occurs over hours or days, while forest growth operates over years or decades. Multi-scale temporal approaches could address this limitation.
+The discrete time step approach assumes that all processes occur at similar temporal scales, which conflicts with the reality that fire spread occurs over hours or days while forest growth operates over years or decades. Multi-scale temporal approaches could address this limitation by implementing hierarchical time stepping or continuous-time formulations that better represent the natural separation of temporal scales.
 
 ### Spatial Resolution
 
-The regular grid assumes uniform spatial discretization, which may not capture fine-scale heterogeneity in fuel loads, moisture, or topography that critically influence real fire behavior.
+The regular grid assumes uniform spatial discretization that may not capture fine-scale heterogeneity in fuel loads, moisture, or topography that critically influence real fire behavior. Adaptive spatial resolution or irregular spatial networks could provide more realistic representations of landscape heterogeneity while maintaining computational efficiency.
 
 ### Deterministic vs. Stochastic Elements
 
-While the model includes stochastic elements for tree growth and ignition, fire spread remains purely probabilistic. Real fires exhibit complex feedbacks between fire behavior, local weather, and fuel consumption that create deterministic elements within stochastic frameworks.
+While the model includes stochastic elements for tree growth and ignition, fire spread remains purely probabilistic without incorporating the complex feedbacks between fire behavior, local weather, and fuel consumption that create deterministic elements within stochastic frameworks. Enhanced fire spread models could incorporate fire intensity effects, fuel depletion, and weather feedback mechanisms.
 
 ### Human Dimensions
 
-The current model excludes human factors that increasingly dominate fire regimes in many regions: fire suppression, ignition sources, land use patterns, and the wildland-urban interface all significantly influence contemporary fire dynamics.
+The current model excludes human factors that increasingly dominate fire regimes in many regions, including fire suppression, anthropogenic ignition sources, land use patterns, and the wildland-urban interface. These human dimensions fundamentally alter fire regime characteristics and represent critical factors for contemporary fire management.
 
 ## Conclusion: Emergent Complexity from Simple Rules
 
-The cellular automaton approach to forest fire modeling demonstrates how complex spatiotemporal patterns emerge from simple local interaction rules. Through the interplay of stochastic growth processes, probabilistic ignition, and deterministic fire spread, the model reproduces many qualitative features observed in real forest ecosystems: patchy spatial patterns, quasi-periodic temporal dynamics, and critical behavior near phase transition boundaries.
+The cellular automaton approach to forest fire modeling demonstrates how complex spatiotemporal patterns emerge from simple local interaction rules operating across spatial networks. Through the interplay of stochastic growth processes, probabilistic ignition, and deterministic fire spread, the model reproduces many qualitative features observed in real forest ecosystems, including patchy spatial patterns, quasi-periodic temporal dynamics, and critical behavior near phase transition boundaries.
 
-**For ecological research**, the model provides a conceptual framework for understanding how local processes scale up to landscape-level patterns. The emergence of self-organized criticality suggests that forest ecosystems naturally evolve toward states that maximize information transfer and pattern formation, providing insight into fundamental principles governing ecological organization.
+For ecological research, the model provides a conceptual framework for understanding how local processes scale up to landscape-level patterns through emergent phenomena. The emergence of self-organized criticality suggests that forest ecosystems naturally evolve toward states that maximize information transfer and pattern formation, providing insight into fundamental principles governing ecological organization and resilience.
 
-**For forest management**, the model offers tools for evaluating intervention strategies under different scenarios. The ability to manipulate parameters representing fuel loads, ignition sources, and fire spread rates enables systematic exploration of management trade-offs between fire suppression and ecological integrity.
+For forest management, the model offers practical tools for evaluating intervention strategies under different scenarios while revealing potential unintended consequences of management actions. The ability to manipulate parameters representing fuel loads, ignition sources, and fire spread rates enables systematic exploration of management trade-offs between fire suppression objectives and ecological integrity requirements.
 
-**For climate adaptation**, the framework provides a foundation for assessing how changing environmental conditions might alter fire regimes. By linking climate variables to model parameters, managers can explore potential futures and develop adaptive strategies that maintain ecosystem resilience under novel conditions.
+For climate adaptation, the framework provides a foundation for assessing how changing environmental conditions might alter fire regimes and challenge existing management paradigms. By linking climate variables to model parameters, managers can explore potential futures and develop adaptive strategies that maintain ecosystem resilience under novel environmental conditions.
 
-The model ultimately illustrates a fundamental principle of complex systems: that sophisticated collective behaviors can arise from simple individual rules. In the case of forest fire dynamics, the interaction between growth, death, and disturbance creates rich spatiotemporal patterns that mirror those observed in real ecosystems, despite the underlying simplicity of the cellular automaton framework.
+The model ultimately illustrates a fundamental principle of complex systems: sophisticated collective behaviors can arise from simple individual rules operating across networks of interacting agents. In the case of forest fire dynamics, the interaction between growth, death, and disturbance creates rich spatiotemporal patterns that mirror those observed in real ecosystems, despite the underlying simplicity of the cellular automaton framework.
 
-As we face increasing challenges from climate change and altered fire regimes, computational models like this provide essential tools for understanding and managing complex ecological systems. The marriage of mathematical formalism with agent-based implementation creates a powerful approach for exploring how local actions aggregate into global patterns—a perspective essential for navigating the complex dynamics of our changing planet.
+As we face increasing challenges from climate change and altered fire regimes, computational models like this provide essential tools for understanding and managing complex ecological systems. The marriage of mathematical formalism with agent-based implementation creates a powerful approach for exploring how local actions aggregate into global patterns, a perspective essential for navigating the complex dynamics of our changing planet.
 
 Understanding fire as an emergent phenomenon arising from simple local rules provides both humility about our ability to control complex natural systems and confidence in our capacity to understand the fundamental principles governing their behavior. In an era of unprecedented environmental change, such understanding becomes crucial for developing effective strategies that work with, rather than against, the inherent dynamics of ecological systems.
 
