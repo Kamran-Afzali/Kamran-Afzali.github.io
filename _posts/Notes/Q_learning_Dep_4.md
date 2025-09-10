@@ -1,176 +1,301 @@
+# Parameter Recovery in Computational Psychiatry: Bayesian Analysis of Clinical Reinforcement Learning Data
 
+Computational psychiatry holds immense promise for understanding the mechanisms underlying mental health disorders, but translating theoretical models into clinical insights requires careful attention to parameter recovery and model validation. When we collect behavioral data from clinical populations performing reinforcement learning tasks, we face a fundamental question: can we reliably recover the computational parameters that drove their behavior, and what do these parameters tell us about psychiatric symptoms?
 
-# Bayesian Model Comparison in Computational Psychiatry: Q-Learning vs. Win-Stay-Lose-Shift
+This post demonstrates how to apply Bayesian parameter recovery techniques to real clinical data, focusing on the practical challenges of working with behavioral datasets where we assume an underlying reinforcement learning process generated the observed choices. We'll explore how to validate our parameter estimates, assess model reliability, and interpret individual differences in a clinically meaningful way.
 
-Computational models provide powerful frameworks for understanding decision-making in mental health, but a critical question remains: which models best capture the mechanisms underlying psychiatric symptoms? Simply fitting a single model to behavioral data tells us little about whether that model reflects the true cognitive processes involved. Model comparison—particularly through Bayesian approaches—offers a principled method for evaluating competing hypotheses about how healthy and depressed individuals learn and choose.
+## The Parameter Recovery Challenge in Clinical Data
 
-In this post, we extend our Q-learning depression models by implementing Bayesian parameter estimation and formal model comparison. We contrast the mechanistic Q-learning framework with a simpler heuristic model: Win-Stay-Lose-Shift (WSLS). Through probabilistic programming in Stan, we demonstrate how to fit both models to simulated behavioral data, generate predictions, and use information criteria to determine which better explains observed choice patterns. This approach illustrates how computational psychiatry can move beyond parameter fitting toward rigorous theory testing.
+Unlike controlled simulation studies where we know the true generating parameters, clinical behavioral data presents unique challenges. When a depressed patient performs 200 trials of a two-armed bandit task, we observe only their choices and outcomes—the underlying learning rate, reward sensitivity, and decision noise remain hidden. Yet these latent parameters may be precisely what distinguishes healthy from pathological cognition.
 
-## The Challenge of Model Selection
+The stakes for accurate parameter recovery are high in clinical contexts. If we conclude that depression involves reduced learning rates based on model fitting, this could influence treatment decisions, theoretical understanding, and future research directions. But what if our parameter estimates are unreliable due to limited data, model misspecification, or individual heterogeneity? Bayesian approaches provide tools to quantify this uncertainty and validate our computational inferences.
 
-Computational models in psychiatry often involve multiple free parameters that can be adjusted to fit almost any behavioral pattern. A Q-learning model with flexible learning rates and inverse temperatures might explain data well simply because of its parameterization flexibility, not because it captures true cognitive mechanisms. This overfitting problem is particularly acute when comparing populations: apparent differences in Q-learning parameters between healthy and depressed groups might reflect model inadequacy rather than genuine psychological differences.
+Consider a typical clinical dataset: 50 depressed patients and 50 healthy controls, each completing 200 trials of a probabilistic learning task. Standard analysis might fit Q-learning models to each participant, extract point estimates of α (learning rate) and β (inverse temperature), then compare group means with t-tests. This approach ignores parameter uncertainty, model fit quality, and the possibility that different individuals might be using entirely different learning strategies.
 
-Model comparison addresses this challenge by explicitly penalizing complexity while rewarding predictive accuracy. The goal is not just to fit existing data, but to identify models that generalize to new observations. In psychiatric contexts, this means finding computational frameworks that capture stable individual differences rather than idiosyncratic behavioral noise.
+## Hierarchical Bayesian Parameter Recovery
 
-Consider two competing hypotheses for how individuals approach two-armed bandit tasks. The **mechanistic hypothesis** posits that people maintain explicit value estimates that are updated through prediction error learning, then use these values probabilistically to guide choice. This maps onto Q-learning with learnable α (learning rate) and β (inverse temperature) parameters. The **heuristic hypothesis** suggests that people use simpler rules based on immediate outcome feedback: repeat rewarded actions and switch after unrewarded actions. This maps onto WSLS with parameters for stay probability after reward and shift probability after no reward.
-
-Both models can account for basic learning phenomena, but they make different assumptions about the cognitive architecture underlying choice. Q-learning assumes integration of outcome history into stable value representations, while WSLS assumes direct stimulus-response conditioning based on the most recent outcome. These different assumptions lead to different predictions about how behavior should evolve across learning episodes.
-
-## Bayesian Parameter Estimation
-
-Rather than using maximum likelihood point estimates, Bayesian approaches provide full posterior distributions over parameters. This captures uncertainty in parameter estimates and enables more robust model comparison by accounting for the range of parameter values consistent with observed data.
-
-Our Stan implementation for Q-learning follows the standard formulation but uses probabilistic programming to sample from the posterior:
+A more principled approach treats parameter recovery as a hierarchical inference problem. Rather than estimating parameters independently for each individual, we simultaneously model individual-level parameters and group-level distributions. This approach provides several advantages: improved parameter estimates through partial pooling, explicit modeling of individual differences, and natural incorporation of group-level comparisons.
 
 ```stan
+data {
+  int<lower=1> N_subj;          // Number of subjects
+  int<lower=1> N_trials;        // Trials per subject
+  int<lower=1> N_total;         // Total observations
+  int<lower=1,upper=N_subj> subj[N_total];  // Subject index
+  int<lower=1,upper=2> choice[N_total];     // Choices (1 or 2)
+  int<lower=0,upper=1> reward[N_total];     // Rewards (0 or 1)
+  int<lower=0,upper=1> group[N_subj];       // Group membership (0=control, 1=depressed)
+}
+
 parameters {
-  real<lower=0, upper=1> alpha;
-  real<lower=0> beta;
+  // Group-level parameters
+  vector[2] mu_alpha;           // Mean learning rate by group
+  vector[2] mu_beta;            // Mean inverse temp by group
+  vector<lower=0>[2] sigma_alpha;  // SD learning rate by group
+  vector<lower=0>[2] sigma_beta;   // SD inverse temp by group
+  
+  // Individual-level parameters (raw)
+  vector[N_subj] alpha_raw;
+  vector[N_subj] beta_raw;
+}
+
+transformed parameters {
+  // Individual parameters (constrained)
+  vector<lower=0,upper=1>[N_subj] alpha;
+  vector<lower=0>[N_subj] beta;
+  
+  for (s in 1:N_subj) {
+    alpha[s] = Phi_approx(mu_alpha[group[s] + 1] + sigma_alpha[group[s] + 1] * alpha_raw[s]);
+    beta[s] = exp(mu_beta[group[s] + 1] + sigma_beta[group[s] + 1] * beta_raw[s]);
+  }
 }
 
 model {
-  vector[2] Q = rep_vector(0, 2);
-  alpha ~ beta(1, 1);
-  beta ~ normal(0, 5);
-
-  for (n in 1:N) {
-    vector[2] logit_p = beta * Q;
-    target += categorical_logit_lpmf(A[n] | logit_p);
-    Q[A[n]] += alpha * (R[n] - Q[A[n]]);
+  // Priors
+  mu_alpha ~ normal(0, 1);
+  mu_beta ~ normal(1, 1);
+  sigma_alpha ~ normal(0, 0.5);
+  sigma_beta ~ normal(0, 0.5);
+  alpha_raw ~ normal(0, 1);
+  beta_raw ~ normal(0, 1);
+  
+  // Likelihood
+  {
+    vector[N_total] log_lik;
+    int idx = 1;
+    
+    for (s in 1:N_subj) {
+      vector[2] Q = rep_vector(0.0, 2);
+      
+      for (t in 1:N_trials) {
+        vector[2] action_prob = softmax(beta[s] * Q);
+        log_lik[idx] = categorical_lpmf(choice[idx] | action_prob);
+        
+        // Update Q-values
+        Q[choice[idx]] += alpha[s] * (reward[idx] - Q[choice[idx]]);
+        idx += 1;
+      }
+    }
+    
+    target += sum(log_lik);
   }
+}
+
+generated quantities {
+  // Posterior predictions and diagnostics
+  vector[N_total] log_lik;
+  vector[N_subj] alpha_diff;    // Individual deviations from group mean
+  real group_diff_alpha;       // Group difference in learning rate
+  real group_diff_beta;        // Group difference in inverse temperature
+  
+  // [Implementation of posterior predictions and group comparisons]
 }
 ```
 
-The key insight is treating parameter estimation as inference rather than optimization. Instead of finding single "best" parameter values, we sample from the posterior distribution P(α,β|data). This provides several advantages: uncertainty quantification in parameter estimates, natural regularization through prior specifications, and proper accounting of parameter correlations.
+This hierarchical structure enables several key improvements over individual fitting approaches. First, participants with limited or noisy data borrow strength from the group, leading to more stable parameter estimates. Second, we explicitly model the distribution of individual differences within each group, capturing heterogeneity that might be clinically relevant. Third, group comparisons emerge naturally from the posterior distributions rather than requiring separate statistical tests.
 
-For our WSLS implementation, we model two core parameters: p_stay (probability of repeating an action after reward) and p_shift (probability of switching action after no reward):
+## Validating Parameter Recovery with Posterior Predictive Checks
 
-```stan
-parameters {
-  real<lower=0, upper=1> p_stay;
-  real<lower=0, upper=1> p_shift;
-}
+Parameter estimates are only meaningful if our model adequately captures the behavioral patterns in the data. Posterior predictive checking provides a systematic approach to model validation by generating simulated data from fitted models and comparing against observed behavior.
 
-model {
-  p_stay ~ beta(1, 1);
-  p_shift ~ beta(1, 1);
+For clinical RL data, several behavioral signatures are particularly important to capture:
 
-  for (n in 2:N) {
-    if (R[n - 1] == 1) {
-      target += bernoulli_lpmf(A[n] == A[n - 1] ? 1 : 0 | p_stay);
-    } else {
-      target += bernoulli_lpmf(A[n] != A[n - 1] ? 1 : 0 | p_shift);
+**Learning Curves**: Does the model reproduce the trial-by-trial evolution of choice preferences? Healthy individuals might show rapid convergence to optimal choices, while depressed participants might show slower or more volatile learning.
+
+**Choice Consistency**: How well does the model capture the relationship between choice probability and reward history? Individual differences in this relationship might reflect distinct computational phenotypes.
+
+**Perseveration vs. Exploration**: Can the model account for how participants balance exploitation of known good options against exploration of alternatives? This balance might be disrupted in various psychiatric conditions.
+
+```r
+# Posterior predictive validation
+validate_learning_curves <- function(fit, observed_data) {
+  posterior_samples <- extract(fit)
+  n_samples <- 100  # Use subset of posterior samples
+  
+  predictions <- array(dim = c(n_samples, n_subjects, n_trials))
+  
+  for (i in 1:n_samples) {
+    for (s in 1:n_subjects) {
+      alpha_s <- posterior_samples$alpha[i, s]
+      beta_s <- posterior_samples$beta[i, s]
+      
+      # Simulate choices using fitted parameters
+      Q <- c(0, 0)
+      for (t in 1:n_trials) {
+        action_probs <- softmax(beta_s * Q)
+        choice <- sample(1:2, 1, prob = action_probs)
+        reward <- observed_data$rewards[s, t]  # Use actual rewards
+        
+        predictions[i, s, t] <- choice
+        Q[choice] <- Q[choice] + alpha_s * (reward - Q[choice])
+      }
     }
   }
+  
+  return(predictions)
 }
-```
 
-This model assumes that each choice depends only on the immediately preceding outcome and action, without any integration across multiple trials. The simplicity is both a strength (fewer parameters, more interpretable) and potential weakness (inability to capture complex learning dynamics).
-
-## Posterior Predictive Validation
-
-Beyond parameter estimation, Bayesian approaches enable posterior predictive checking: generating new data from fitted models and comparing against observed behavioral patterns. This reveals whether models capture key features of the data beyond simple choice frequencies.
-
-Our validation approach reconstructs trial-by-trial choice probabilities using posterior mean parameter estimates, then compares predicted vs. observed choice patterns across learning episodes. For Q-learning, this involves forward simulation:
-
-```r
-predict_q_learning <- function(alpha, beta, rewards, actions) {
-  Q <- c(0, 0)
-  probs <- numeric(length(rewards))
-  for (i in seq_along(rewards)) {
-    exp_q <- exp(Q * beta)
-    p1 <- exp_q[1] / sum(exp_q)
-    probs[i] <- p1
-    a <- actions[i]
-    r <- rewards[i]
-    Q[a] <- Q[a] + alpha * (r - Q[a])
+# Compare predicted vs observed learning curves
+plot_learning_validation <- function(predictions, observed_choices) {
+  # Aggregate predictions across posterior samples
+  pred_mean <- apply(predictions == 1, c(2, 3), mean)  # P(choose option 1)
+  pred_ci <- apply(predictions == 1, c(2, 3), function(x) quantile(x, c(0.025, 0.975)))
+  
+  # Plot for each group
+  for (group in c("Control", "Depressed")) {
+    # Implementation of group-specific learning curve plots
+    # with confidence intervals from posterior predictions
   }
-  probs
 }
 ```
 
-The resulting predictions reveal how well each model captures the temporal dynamics of learning. Q-learning should show gradual convergence toward optimal choices as value estimates accumulate evidence. WSLS should show more erratic patterns tied to recent outcomes rather than long-term learning trends.
+The key insight from posterior predictive validation is identifying systematic discrepancies between model predictions and observed behavior. If the model consistently under-predicts learning speed in depressed participants, this might indicate that our Q-learning framework misses important aspects of how depression affects reinforcement learning. Such discrepancies guide model refinement and theoretical development.
 
-When applied to simulated "healthy" agent data (α=0.4, β=5), both models show reasonable fits to binned choice probabilities. However, closer examination reveals systematic differences. Q-learning predictions show smooth learning curves that reflect accumulated experience, while WSLS predictions show more volatile patterns reflecting sensitivity to recent outcomes. The quality of fit depends on the underlying generative process: Q-learning better captures data generated by Q-learning agents, while WSLS may better explain truly heuristic behavior.
+## Addressing Individual Heterogeneity and Mixture Models
 
-## Information Criteria and Model Selection
+One of the most challenging aspects of clinical data analysis is individual heterogeneity. Not all depressed patients show the same computational profile, and some might use entirely different learning strategies than others. Traditional group-level analyses can obscure this heterogeneity, leading to conclusions about "depressed cognition" that don't apply to many individuals in the clinical population.
 
-Formal model comparison requires metrics that balance goodness-of-fit against model complexity. The Leave-One-Out Cross-Validation (LOO) Information Criterion provides a principled approach by estimating each model's out-of-sample predictive accuracy.
+Mixture models provide one approach to this challenge by allowing different individuals to be governed by different computational processes. For instance, some participants might use Q-learning while others rely on simpler heuristics like Win-Stay-Lose-Shift:
 
-LOO works by iteratively removing each data point, refitting the model to remaining data, and evaluating the held-out point's likelihood. Models with better generalization show higher LOO values. Unlike traditional information criteria (AIC, BIC), LOO accounts for parameter uncertainty by using the full posterior distribution rather than point estimates.
+```stan
+data {
+  // [Same as hierarchical model plus:]
+  int<lower=1> N_strategies;    // Number of possible strategies (e.g., 2)
+}
 
-```r
-library(loo)
-log_lik_q <- extract_log_lik(fit_q)
-log_lik_wsls <- extract_log_lik(fit_wsls)
+parameters {
+  // Strategy selection
+  simplex[N_strategies] strategy_prob[2];  // Strategy probabilities by group
+  
+  // Strategy-specific parameters
+  vector[2] mu_alpha_ql;       // Q-learning parameters by group
+  vector[2] mu_beta_ql;
+  vector[2] mu_pstay_wsls;     // WSLS parameters by group
+  vector[2] mu_pshift_wsls;
+  
+  // [Additional variance parameters and individual effects]
+}
 
-loo_q <- loo(log_lik_q)
-loo_wsls <- loo(log_lik_wsls)
-loo_compare(loo_q, loo_wsls)
+model {
+  // [Mixture likelihood combining Q-learning and WSLS]
+  for (s in 1:N_subj) {
+    vector[N_strategies] log_lik_strategy = rep_vector(0, N_strategies);
+    
+    // Q-learning likelihood
+    log_lik_strategy[1] = compute_ql_likelihood(s, alpha[s], beta[s]);
+    
+    // WSLS likelihood  
+    log_lik_strategy[2] = compute_wsls_likelihood(s, pstay[s], pshift[s]);
+    
+    // Weight by strategy probabilities
+    target += log_sum_exp(log(strategy_prob[group[s] + 1]) + log_lik_strategy);
+  }
+}
 ```
 
-The comparison typically reveals that Q-learning provides better LOO scores when applied to Q-learning-generated data, reflecting the model recovery expected when the generative model matches the fitted model. However, the margin of superiority matters: small differences suggest both models explain the data reasonably well, while large differences indicate clear model preference.
+This approach reveals whether clinical populations are characterized by altered parameters within preserved computational architectures (e.g., reduced learning rates in Q-learning) or fundamental changes in learning strategies (e.g., shift from Q-learning to simple heuristics). The clinical implications differ substantially: parameter changes might respond to targeted interventions, while strategy changes might require different therapeutic approaches.
 
-More importantly, these comparisons can reveal when simpler models (like WSLS) perform competitively with complex alternatives (like Q-learning). If a two-parameter heuristic explains behavior as well as a sophisticated reinforcement learning model, this suggests that the cognitive mechanisms might be simpler than initially assumed. Such findings have important implications for understanding individual differences and planning interventions.
+## Computational Psychiatry Applications: Beyond Group Differences
 
-## Clinical Applications and Individual Differences
+The ultimate goal of computational psychiatry is not just to identify group differences, but to link computational parameters to clinically relevant outcomes. Parameter recovery techniques enable several important applications:
 
-The Bayesian model comparison framework extends naturally to clinical populations. Rather than simply fitting Q-learning parameters to healthy vs. depressed groups, we can ask which models better explain each population's behavior. This addresses fundamental questions about the nature of cognitive dysfunction in mental health conditions.
+**Symptom Prediction**: Can computational parameters predict symptom severity or treatment response? If learning rate α correlates with anhedonia scores, this suggests mechanistic links between reinforcement learning and motivational symptoms.
 
-Several scenarios could emerge from such comparisons:
+**Longitudinal Tracking**: How do computational parameters change over time, treatment, or mood episodes? Reliable parameter recovery enables tracking of computational "vital signs" that might predict relapse or recovery.
 
-**Mechanism Preservation**: Both healthy and depressed groups are better explained by Q-learning, but with different parameter values. This suggests preserved reinforcement learning machinery with altered sensitivity or learning rate parameters—consistent with dopamine system dysfunction hypotheses.
+**Personalized Medicine**: Can individual computational profiles guide treatment selection? Patients with low learning rates might benefit from different interventions than those with high decision noise.
 
-**Mechanism Simplification**: Healthy individuals are better explained by Q-learning while depressed individuals are better explained by WSLS. This could indicate cognitive simplification under distress, where complex value integration gives way to simple heuristics based on immediate outcomes.
+**Biological Validation**: Do recovered parameters correlate with neural measures or genetic variants? Such convergent validity strengthens confidence in computational interpretations.
 
-**Universal Heuristics**: Both groups are better explained by WSLS despite being generated by Q-learning simulations. This might reveal that bandit tasks don't engage complex learning mechanisms in either population, limiting their clinical utility.
+```r
+# Clinical correlation analysis
+analyze_clinical_correlations <- function(fit, clinical_data) {
+  posterior_means <- summary(fit, pars = c("alpha", "beta"))$summary[, "mean"]
+  
+  # Extract individual parameter estimates
+  alpha_estimates <- posterior_means[grep("alpha\\[", names(posterior_means))]
+  beta_estimates <- posterior_means[grep("beta\\[", names(posterior_means))]
+  
+  # Correlate with clinical measures
+  depression_scores <- clinical_data$beck_depression_inventory
+  anhedonia_scores <- clinical_data$snaith_hamilton_pleasure_scale
+  
+  # Bayesian correlation analysis accounting for parameter uncertainty
+  correlation_results <- list(
+    alpha_depression = cor.test(alpha_estimates, depression_scores),
+    alpha_anhedonia = cor.test(alpha_estimates, anhedonia_scores),
+    beta_depression = cor.test(beta_estimates, depression_scores),
+    beta_anhedonia = cor.test(beta_estimates, anhedonia_scores)
+  )
+  
+  return(correlation_results)
+}
+```
 
-**Individual Heterogeneity**: Model preferences vary within groups rather than between them. Some individuals in both populations might use sophisticated learning while others rely on simple heuristics, suggesting that cognitive strategy rather than group membership drives behavior.
+## Model Comparison and Selection in Clinical Contexts
 
-Each outcome carries different implications for treatment. If depression involves parameter changes within preserved Q-learning, interventions might target specific computational components (e.g., learning rate through dopaminergic medications, inverse temperature through cognitive training). If depression involves strategy simplification, treatments might focus on restoring cognitive complexity or working within simplified frameworks.
+When working with clinical data, we often face competing hypotheses about which computational models best explain observed behavior. Rather than assuming Q-learning applies universally, Bayesian model comparison enables principled evaluation of alternative frameworks:
 
-## Extensions and Future Directions
+```r
+# Comprehensive model comparison
+compare_clinical_models <- function(data) {
+  models <- list(
+    "Q-learning" = fit_q_learning(data),
+    "WSLS" = fit_wsls(data),  
+    "Dual-system" = fit_dual_system(data),
+    "Decay" = fit_q_learning_decay(data)
+  )
+  
+  # Compute information criteria
+  loo_results <- map(models, ~ loo(extract_log_lik(.x)))
+  loo_comparison <- loo_compare(loo_results)
+  
+  # Weight models by evidence
+  model_weights <- loo_model_weights(loo_results)
+  
+  return(list(
+    comparison = loo_comparison,
+    weights = model_weights,
+    best_model = rownames(loo_comparison)[1]
+  ))
+}
+```
 
-The Q-learning vs. WSLS comparison represents just one example of computational model comparison in psychiatry. The Bayesian framework scales to more sophisticated model spaces and clinical questions:
+The results of model comparison can reveal important insights about psychiatric populations. If depressed individuals are better explained by simpler heuristic models while controls are better explained by Q-learning, this suggests cognitive simplification under depressive symptoms. Alternatively, if both groups are best explained by the same model but with different parameters, this supports mechanistic hypotheses about altered but preserved computational processes.
 
-**Hierarchical Models**: Rather than fitting individuals separately, hierarchical Bayesian models can simultaneously estimate individual parameters and group-level distributions. This provides more stable individual estimates while preserving information about population differences.
+## Practical Considerations and Limitations
 
-**Model Averaging**: When multiple models receive substantial support, Bayesian Model Averaging weights predictions by model probabilities rather than selecting a single best model. This approach acknowledges model uncertainty while making robust predictions.
+Several practical issues deserve attention when applying these methods to clinical data:
 
-**Dynamic Models**: Extensions could examine how model preferences change over time or treatment. Do individuals switch between Q-learning and heuristic strategies depending on mood, stress, or medication status?
+**Sample Size Requirements**: Hierarchical Bayesian models require adequate sample sizes at both individual and group levels. Underpowered studies may show unreliable parameter estimates or spurious group differences.
 
-**Task Generalization**: Comparing models across multiple behavioral tasks can reveal whether individual differences reflect stable cognitive traits or task-specific strategies. Do individuals who use Q-learning in bandits also show sophisticated learning in other paradigms?
+**Data Quality**: Clinical populations may show increased noise, missing data, or task non-compliance. Robust modeling approaches and careful data preprocessing become crucial.
 
-**Neural Constraints**: Incorporating neural data (fMRI, EEG) into model comparison can adjudicate between behaviorally equivalent models by examining their neural plausibility. Models that better predict neural activity might be preferred even if behavioral fits are similar.
+**Clinical Interpretation**: Statistical significance of parameter differences doesn't guarantee clinical significance. Effect sizes, confidence intervals, and correlation with symptoms provide more meaningful measures of clinical relevance.
 
-## Methodological Considerations
+**Generalizability**: Parameters recovered from specific tasks may not generalize to real-world behavior. Validation across multiple paradigms strengthens computational interpretations.
 
-Several technical issues deserve attention when applying these methods clinically:
+## Future Directions: Toward Computational Clinical Tools
 
-**Sample Sizes**: Reliable model comparison requires adequate data per individual and sufficient individuals per group. Underpowered studies may show spurious model differences or fail to detect genuine ones.
+The long-term vision for computational psychiatry involves translating parameter recovery techniques into clinical decision-making tools. Several developments could accelerate this translation:
 
-**Model Misspecification**: All models represent simplifications of true cognitive processes. Poor fits for all models might indicate fundamental misspecification rather than meaningful individual differences.
+**Real-time Parameter Estimation**: Online Bayesian updating could enable parameter tracking during behavioral assessment, providing immediate computational profiles for clinical use.
 
-**Prior Sensitivity**: Bayesian results can depend on prior specifications, particularly with limited data. Sensitivity analyses examining robustness to different priors help establish the reliability of conclusions.
+**Multi-modal Integration**: Combining behavioral parameters with neural, genetic, and clinical data could improve prediction accuracy and mechanistic understanding.
 
-**Computational Considerations**: Stan sampling can be computationally intensive, particularly for hierarchical models with many individuals. Efficient coding and adequate computing resources become important practical constraints.
+**Treatment Matching**: Large-scale studies could identify computational profiles that predict treatment response, enabling precision medicine approaches in psychiatry.
 
-## Implications for Computational Psychiatry
-
-Bayesian model comparison offers computational psychiatry a principled approach to theory testing that goes beyond parameter estimation. Rather than assuming particular models apply to clinical populations, we can empirically determine which computational frameworks best explain observed behavior.
-
-This approach addresses several longstanding challenges in the field. First, it provides objective criteria for choosing between competing theoretical frameworks rather than relying on face validity or tradition. Second, it naturally accounts for model complexity, preventing overfitting that might obscure genuine individual differences. Third, it quantifies uncertainty in model selection, acknowledging when evidence is insufficient to strongly prefer one framework over alternatives.
-
-Perhaps most importantly, rigorous model comparison can reveal when simple explanations suffice. The tendency in computational psychiatry has been toward increasingly sophisticated models that incorporate multiple cognitive systems and parameters. While such complexity may sometimes be necessary, Bayesian approaches can identify cases where simpler heuristic models provide adequate explanations. This parsimony principle not only aids scientific understanding but may also suggest more targeted and implementable interventions.
+**Digital Therapeutics**: Understanding individual computational parameters could guide personalized cognitive interventions delivered through digital platforms.
 
 ## Conclusion
 
-The transition from model fitting to model comparison represents a crucial methodological advancement for computational psychiatry. By treating model selection as a formal inference problem, we can move beyond describing behavioral patterns toward understanding the cognitive mechanisms that generate them.
+Parameter recovery in computational psychiatry requires moving beyond simple model fitting toward principled Bayesian inference that accounts for uncertainty, individual differences, and model comparison. When applied to clinical reinforcement learning data, these approaches can reveal the computational mechanisms underlying psychiatric symptoms and guide the development of more targeted interventions.
 
-The Q-learning vs. WSLS comparison demonstrates how this approach works in practice: implementing competing models in probabilistic programming languages, estimating posterior distributions over parameters, generating predictions, and using information criteria to assess relative model support. When applied to clinical populations, this framework can reveal whether mental health conditions involve altered parameters within preserved cognitive architectures or fundamental changes in behavioral strategies.
+The key insight is that computational parameters are not just statistical estimates—they represent hypotheses about the cognitive processes that generate behavior. Validating these hypotheses through posterior predictive checking, model comparison, and clinical correlation analysis is essential for ensuring that computational psychiatry delivers on its promise of mechanistic insight into mental health.
 
-As computational models become increasingly central to psychiatric research, such rigorous model comparison methods will be essential for ensuring that theoretical advances translate into improved understanding and treatment of mental health conditions. The goal is not simply to fit models to data, but to identify the computational principles that best explain human behavior in health and disease.
+As the field matures, the focus should shift from demonstrating that computational models can be fit to clinical data toward establishing which models provide reliable, validated, and clinically actionable insights into psychiatric conditions. This requires the kind of rigorous Bayesian parameter recovery approaches demonstrated here, applied at scale to diverse clinical populations performing validated behavioral tasks.
 
+The future of computational psychiatry depends on our ability to extract reliable computational signatures from behavioral data and translate these signatures into improved understanding and treatment of mental health conditions. Bayesian parameter recovery provides the methodological foundation for this translation, but success will ultimately depend on careful validation, clinical integration, and therapeutic application of computational insights.
 ```r
 set.seed(42)
 
