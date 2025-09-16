@@ -297,12 +297,12 @@ ggplot(combined_df, aes(x = Episode, y = State, color = Group)) +
   geom_point(alpha = 0.5, size = 2) +
   labs(title = "State Visits Over Time") +
   theme_minimal()
-
+```
 
 # This R script extends a mood-sensitive Q-learning framework by integrating a model of social influence into agent-based simulations. The environment consists of five behavioral states, each associated with specific reward structures and transition probabilities that favor action-related state persistence. A Q-learning agent learns over 200 episodes, adjusting its action values (Q-values) in response to both intrinsic mood dynamics and extrinsic peer feedback. Mood is influenced by a combination of reinforcement (positive or negative reward-based rumination) and social appraisal, which is modeled via a feedback mechanism. Depending on the specified mode—random or state-based—peer responses are either probabilistically assigned or derived from a normative evaluation of the selected action (e.g., rewarding socializing, penalizing alcohol use). Two agent profiles, representing "Healthy" and "Depressed" individuals, are simulated using distinct parameter configurations that modulate sensitivity to reward, social feedback, and mood inertia. The resulting trajectories are analyzed through visualizations of mood evolution, cumulative reward, behavioral state transitions, and peer feedback patterns. This simulation framework provides a computational approach for examining the interplay between affect, learning, and social context, offering insights into behavioral trajectories characteristic of differing mental health profiles.
 
 
-
+```r
 set.seed(123)
 library(ggplot2)
 library(reshape2)
@@ -483,7 +483,7 @@ ggplot(combined_df, aes(x = Episode, y = PeerFeedback, color = Group)) +
   geom_smooth(se = FALSE) +
   labs(title = "Peer Feedback Over Time") +
   theme_minimal()
-
+```
 
 
 
@@ -491,7 +491,7 @@ ggplot(combined_df, aes(x = Episode, y = PeerFeedback, color = Group)) +
 # This script implements a simulation of Q-learning agents embedded within a behavioral environment, with a focus on dynamic identity traits and their influence on learning and affect. The environment comprises five states representing common daily activities, each associated with fixed rewards and uniform state transition probabilities. A central feature of the model is the integration of three mutable identity parameters—rumination bias, social sensitivity, and goal orientation—which evolve in response to experience. Mood updates are driven by both intrinsic reward processing and extrinsic peer feedback, with the magnitude and direction of these effects modulated by the agent’s current identity profile. Action selection follows an ε-greedy policy, and Q-values are updated using an optimism-weighted delta, accounting for motivational framing. Identity traits are adjusted across episodes based on recent affective and social experiences, providing a feedback loop between psychological traits and behavior. The simulation runs across multiple agents to generate heterogeneous trajectories, with visualizations depicting mood fluctuation and the evolution of identity traits over time. This model contributes to computational affective science by capturing the bidirectional interactions between mood, behavior, learning, and personality-like traits in a socially influenced decision-making context.
 
 
-
+```r
 set.seed(123)
 library(ggplot2)
 library(dplyr)
@@ -629,4 +629,4 @@ ggplot(traits_long, aes(x = trial, y = value, color = factor(agent))) +
   facet_wrap(~trait, scales = "free_y") +
   labs(title = "Identity Trait Evolution", x = "Trial", y = "Trait Value") +
   theme_minimal()
-
+```
