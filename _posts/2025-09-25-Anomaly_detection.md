@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: posts
-title: Anomaly Detection in R, Approaches, Techniques, and Tools 
+title: Anomaly Detection in R
 featured-image: /images/andet.png.jpg
 tags: [Anomaly, R, Machine Learning]
 date-string: September 2025
