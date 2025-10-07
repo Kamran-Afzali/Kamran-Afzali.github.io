@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Anomaly Detection in R
-featured-image: /images/EHRVAL.jpg
+featured-image: /images/andet.png
 tags: [Anomaly, R, Machine Learning]
 date-string: September 2025
 ---
