@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Anomaly Detection with Isolation Forests in R
-featured-image: /images/andet.png
+featured-image: /images/isofrst.png
 tags: [Anomaly, R, Machine Learning]
 date-string: November 2025
 ---
