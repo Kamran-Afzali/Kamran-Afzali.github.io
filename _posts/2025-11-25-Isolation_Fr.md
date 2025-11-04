@@ -11,13 +11,11 @@ date-string: November 2025
 
 As we mentioned in a previous post anomaly detection (outlier or novelty detection) is a task in data analysis where the goal is to identify rare items, events, or observations that deviate significantly from the majority of the data. This process is used in various domains such as fraud detection. Following up on an earlier post this post will guide you through the concept, implementation, and application of isolation forests, with code examples in R, with the `isotree` package.
 
-### Introduction to Isolation Forests
-
 The Isolation Forest algorithm, first introduced by [Liu et al. in 2008](https://ieeexplore.ieee.org/abstract/document/4781136?casa_token=IroD7uAmF48AAAAA:ojG1snalIxGQhkA2XK6wkMFv7O6g2yFnT28JUS4ANreqIrkuZg_J9ZFWG1l6AJCC7ePu_l9xq3j6oA), is a tree-based, unsupervised learning algorithm, based on the principle of isolating anomalies which are few and different compared to normal data points. The algorithm achieves this by randomly partitioning the dataset into isolation trees (iTrees). Anomalies are isolated faster due to their uniqueness, requiring fewer splits to separate them from the rest of the data. The shorter the path length in these trees, the higher the anomaly score of a point. This is in contrast, normal points require more splits due to their denser distribution. The method begins by constructing multiple isolation trees (iTrees) using random subsets of the dataset. Each tree is built through recursive partitioning, where a feature is randomly selected, and a split value is chosen randomly within the feature’s range. This process continues until every data point is isolated or a maximum tree depth is reached. The ease of isolating a data point is reflected in its path length—the number of splits required to separate it from the rest of the data, hence, the isolation forests are efficient with high-dimensional data and can handle both large datasets and complex feature interactions. Another advantage is the versatility in handling both numerical and categorical data directly, eliminating the need for extensive preprocessing or transformations. Isolation Forests do not require explicit data standardization or normalization which reduces the preprocessing overhead, making the algorithm more user-friendly and accessible. Moreover, Isolation Forests provide clear and interpretable results through anomaly scores. Each data point is assigned a score that quantifies its degree of anomaly, enabling straightforward decision-making. This transparency allows practitioners to understand the basis of anomaly detection, fostering trust in the model's predictions and facilitating communication with stakeholders.
 
 ### Implementing Isolation Forests in R
 
-#### Step 1: Generating Synthetic Data
+#### Generating Synthetic Data
 We generate a dataset with 500 points where most points are sampled from a normal distribution, and a few are sampled as outliers.
 ```R
 set.seed(42)
@@ -43,7 +41,7 @@ plot(data$x, data$y, col = "blue", pch = 20, main = "Synthetic Dataset", xlab = 
 points(outliers$x, outliers$y, col = "red", pch = 20)
 ```
 
-#### Step 2: Training the Isolation Forest Model
+#### Training the Isolation Forest Model
 We now train an isolation forest model using the `isolation.forest` function. This function builds a series of isolation trees, evaluating anomaly scores for each point.
 ```R
 library(isotree)
@@ -60,7 +58,7 @@ iso_forest <- isolation.forest(
 summary(iso_forest)
 ```
 
-#### Step 3: Generating Anomaly Scores
+#### Generating Anomaly Scores
 After training the model, we calculate anomaly scores for each point. These scores range from 0 to 1, with higher scores indicating greater anomaly likelihood.
 ```R
 # Compute anomaly scores
@@ -73,7 +71,7 @@ data$score <- scores
 hist(scores, breaks = 30, main = "Distribution of Anomaly Scores", xlab = "Anomaly Score", col = "lightblue")
 ```
 
-#### Step 4: Visualizing Anomalies
+#### Visualizing Anomalies
 Points with high anomaly scores can be flagged as potential outliers. We highlight these points in the dataset visualization.
 ```R
 # Flag anomalies
@@ -131,93 +129,11 @@ roc_curve <- roc(labels, scores)
 plot(roc_curve, col = "darkgreen", main = "ROC Curve for Isolation Forest")
 ```
 
-### Use Cases of Isolation Forests
+### Conclusion
 
 Isolation Forests is a useful anomaly detection method with applications across fields such as healthcare. Their ability to isolate anomalies effectively makes them invaluable for identifying rare but critical patterns in medical datasets.  In healthcare, Isolation Forests can identify anomalous patient data that may indicate underlying issues requiring immediate attention. For example, they can detect sudden spikes in heart rate, irregularities in glucose levels, or deviations in vital signs that might signal the onset of critical conditions like sepsis or arrhythmias. In hospital settings, they are used to monitor ICU equipment, identifying anomalies in sensor readings that could suggest malfunctions or false alarms, ensuring timely interventions and reducing risks. In public health, Isolation Forests play a role in detecting anomalies in epidemiological data, such as unusual spikes in emergency room visits or reported symptoms. These insights can help identify early signs of disease outbreaks, enabling preventive measures and resource allocation before the situation escalates. Similarly, wearable health devices equipped with anomaly detection capabilities use Isolation Forests to monitor user health, flagging irregularities like abnormal sleep patterns or activity levels, prompting users to seek medical advice. Beyond healthcare, Isolation Forests are applied in other domains like manufacturing and IoT. For instance, in pharmaceutical production, they can identify deviations in equipment performance that may compromise drug quality. 
 
-
-### **Conclusion**
-
 Isolation Forests are an efficient method for anomaly detection, capable of handling diverse datasets with minimal preprocessing. Although the algorithm is robust to varying feature scales, applying transformations such as log scaling to address skewed data can enhance performance in some cases. Fine-tuning parameters like the number of trees (ntrees), sample size, and the number of dimensions (ndim) allows finding the balance between computational efficiency and detection accuracy, adapting the model to specific use cases. The 'isotree' package in R simplifies the implementation of isolation forests, offering a customizable framework for users. However, interpreting anomaly scores requires a contextual approach, as these scores serve as relative indicators rather than absolute measures of anomalies. Domain expertise still plays an important role in determining appropriate thresholds, ensuring meaningful insights about the nature of the anomaly. 
-
-_________________________________________________________
-
-
-
-
-
-### **Implementation in R**
-
-To implement Isolation Forests in R, we can use the `isotree` package, which provides efficient tools for building and analyzing isolation forests.
-
-#### **Step-by-Step Guide**
-
-1. **Install and Load Required Packages**
-
-   First, ensure you have the `isotree` package installed:
-
-   ```r
-   install.packages("isotree")
-   library(isotree)
-   ```
-
-2. **Generate Synthetic Data**
-
-   We'll create a synthetic dataset with some outliers for demonstration purposes:
-
-   ```r
-   set.seed(42)
-   N <- 1000
-   x <- c(rnorm(N, 0, 0.5), rnorm(N * 0.05, -1.5, 1))
-   y <- c(rnorm(N, 0, 0.5), rnorm(N * 0.05, 1.5, 1))
-   data <- data.frame(x = x, y = y)
-   
-   plot(data$x, data$y, main = "Synthetic Data with Outliers", xlab = "X", ylab = "Y")
-   ```
-
-3. **Build an Isolation Forest Model**
-
-   Create an Isolation Forest model using the synthetic data:
-
-   ```r
-   model <- isolation.forest(data, ntrees = 100)
-   ```
-
-4. **Predict Anomalies**
-
-   Use the model to predict anomalies in the dataset:
-
-   ```r
-   scores <- predict(model, data)
-   
-   # Flag anomalies based on a threshold
-   threshold <- quantile(scores, 0.95)
-   anomalies <- ifelse(scores > threshold, "red", "blue")
-   
-   plot(data$x, data$y, col = anomalies, main = "Anomaly Detection with Isolation Forest")
-   ```
-
-5. **Evaluate Model Performance**
-
-   Evaluate how well the model identifies anomalies using metrics like ROC curves:
-
-   ```r
-   library(pROC)
-   
-   # Assuming 'actual' contains true labels (0 for normal, 1 for anomaly)
-   actual <- c(rep(0, N), rep(1, N * 0.05))
-   
-   roc_curve <- roc(actual ~ scores)
-   
-   plot(roc_curve)
-   title("ROC Curve for Isolation Forest")
-   
-   auc(roc_curve) # Area under the curve
-   ```
-
-
-
-
 
 
 ### References
