@@ -355,7 +355,7 @@ gif_path = "/tmp/predprey_anim.gif"
 imageio.mimsave(gif_path, frames, fps=8)
 from IPython.display import Image
 Image(gif_path)
-
+```
 
 
 
