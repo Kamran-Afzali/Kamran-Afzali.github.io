@@ -1,4 +1,4 @@
-# Install Mesa if not already installed
+```# Install Mesa if not already installed
 !pip install -q mesa
 
 import random
@@ -217,3 +217,4 @@ plt.title("Wolf–Sheep Predation Dynamics")
 plt.legend()
 plt.grid(True)
 plt.show()
+```
