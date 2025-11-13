@@ -1,13 +1,13 @@
 ---
 layout: post
 categories: posts
-title: Reconceptualizing Anxiety and Depression within the Free Energy Principle and Active Inference Framework
+title: Anxiety and Depression From the Active Inference Perspective
 featured-image: /images/NIb.jpg
 tags: [Free Energy Principle, Anxiety, Depression]
 date-string: March 2025
 ---
 
-### Reconceptualizing Anxiety and Depression: Insights from the Free Energy Principle and Active Inference Framework
+### Anxiety and Depression: Insights from the Active Inference Framework
 
 The free energy principle and active inference framework offer a computational perspective for understanding psychiatric disorders, framing them as disorders of inference. This framework provides a unified explanation of how maladaptive beliefs and perceptions can lead to conditions like anxiety and depression by disrupting the brain's ability to minimize uncertainty. For anxiety, traditional models have emphasized cognitive biases and learned responses, but the free energy principle suggests that anxiety stems from a persistent mismatch between expected and actual outcomes, leading to irreducible uncertainty. Similarly, in depression, the framework explains rumination as a failure in the brain's generative models to effectively reduce uncertainty, leading to persistent negative thought patterns and maladaptive problem-solving strategies.
 
@@ -26,8 +26,6 @@ From an affective or emotional inference perspective, anxiety can be understood 
 
 This process can be understood through Bayesian learning, where the brain updates its beliefs based on new information. When an agent's experiences consistently indicate that their actions do not lead to predictable outcomes, the agent's higher-level models adapt to this perceived unpredictability. This creates a belief system where uncertainty becomes a central feature, even if the actual world is not as unpredictable as the agent perceives it to be. Consequently, the agent develops anxious beliefs that persistently expect uncertainty, which interferes with their ability to respond adaptively to new situations. Research shows that early experiences of unpredictability can lead to more severe anxiety symptoms later in life. This suggests that initial exposure to uncertainty can shape how an individual's brain models the world, leading to a long-term expectation of unpredictability. These early experiences set the stage for the development of generalized anxiety, where the individual continually perceives and reacts to the world as if it were inherently uncertain. In some cases, the world genuinely is uncertain, and modeling this accurately does not necessarily lead to anxiety. However, anxiety arises when the brain inaccurately models the world as uncertain even when it is not. This misalignment occurs when the brain's models persistently expect uncertainty due to prior experiences, leading to a new state of homeostasis based on learned uncertainty. This pathological state causes the individual to behave as if the world is uncertain, even when it becomes more predictable.
 
----
-
 ### **Depression**
 
 Much like anxiety, the Free Energy Principle has been proposed as a framework where depression emerges from a collection of depressive beliefs or distorted representations of the world, particularly related to reward representation. Rumination involves repetitive and often unproductive thoughts about one’s mood, problems, and their origins, which typically leads to a depressed mood and impaired problem-solving. The Active Inference framework helps explain how rumination, a key aspect of major depressive disorder (MDD) and a marker for comorbidity between depression and anxiety, can lead to pathologies by disrupting the brain's ability to minimize uncertainty. Rumination's process is explained through the brain's use of hierarchical generative models. Mental simulation, or "running imaginary actions," plays a crucial role in this process, enabling the brain to optimize generative models without overt action. This involves evaluating policies (sequences of actions) based on their expected ability to reduce uncertainty and make accurate predictions.
@@ -42,15 +40,11 @@ Long-term rumination has several negative consequences, such as opportunity cost
 
 As a treatment framework along these lines to avoid repetitive sampling, therapists should consider the context, mood, or bodily states during thought and experience sampling. Along the same lines, metacognitive and acceptance and commitment therapies have shown promise by guiding cognitive processes and goal setting based on personal values. Explicitly incorporating problem complexity estimations and analyzing the costs and benefits of mental engagement can further refine treatments. Patients should learn to predict the time and benefits of solving problems through mental simulation compared to overt actions. It is also important to highlight the shared etiology between MDD and anxiety disorders, with rumination being a common factor. Thus, the proposed improvements for treating rumination in MDD could be beneficial for other conditions, such as social anxiety disorder and generalized anxiety disorder. Preventing excessive rumination should be a key therapeutic target across various psychological disorders.
 
----
-
 ### **Conclusion**
 
 Here we explored the Free Energy Principle and Active Inference framework as novel approaches to understanding anxiety and depression, with both disorders being conceptualized as issues with belief updating, where maladaptive priors (learned uncertainties) impair the brain's capacity to minimize uncertainty and predict outcomes effectively. In anxiety, persistent uncertainty regarding the effectiveness of one's actions leads to an overestimation of unpredictability, even when the world may not be as threatening as perceived. Depression, similarly, involves maladaptive belief systems that reinforce rumination, creating a cycle where individuals fail to adaptively problem-solve, exacerbating depressive symptoms. Despite offering a unifying theoretical framework, the application of FEP to psychiatric conditions has challenges, such as the complexity of translating abstract computational models into clinical practice. It is difficult to create therapeutic interventions that directly address maladaptive priors, particularly since these are deeply ingrained and manifest at multiple levels of cognitive and sensory processing. Additionally, there is a need for empirical validation of how the Free Energy Principle applies to individual cases of anxiety and depression, given the heterogeneity of these disorders. Future research should focus on several areas. First, exploring how the brain's hierarchical generative models can be more precisely measured in clinical populations could help in developing targeted therapies. Second, investigating how different therapies—such as cognitive-behavioral, metacognitive, or analytic therapy—can be improved by focusing on belief updating and sensory attenuation could lead to more effective treatments. Lastly, future studies should examine the shared mechanisms underlying anxiety and depression, particularly regarding rumination, as this could help create interventions that address multiple disorders simultaneously (i.e., transdiagnostic intervention).
 
----
-
-### **Recapitulative Table: Anxiety and Depression under the Free Energy Principle**
+### **Anxiety and Depression under the Free Energy Principle**
 
 | Dimension                     | Anxiety                                               | Depression                                                 |
 | ----------------------------- | ----------------------------------------------------- | ---------------------------------------------------------- |
