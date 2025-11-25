@@ -15,7 +15,6 @@ The Isolation Forest algorithm, first introduced by [Liu et al. in 2008](https:/
 
 ### Implementing Isolation Forests in R
 
-#### Generating Synthetic Data
 We generate a dataset with 500 points where most points are sampled from a normal distribution, and a few are sampled as outliers.
 ```R
 set.seed(42)
@@ -92,7 +91,6 @@ The `isotree` package provides several options to customize the isolation forest
 - **`sample_size`:** Subset size for building each tree.
 - **`scoring_metric`:** Metric for scoring anomalies.
 
-#### Extended Isolation Forest
 An extended isolation forest allows non-linear splits by projecting data onto random hyperplanes. This is useful for datasets with complex distributions.
 ```R
 # Extended isolation forest
