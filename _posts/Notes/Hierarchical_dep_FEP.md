@@ -1513,3 +1513,13 @@ Effective therapy must therefore strategize based on the precision profile of th
 Hierarchical Active Inference reframes depression as an architectural problem. The same cognitive hierarchy that provides stability to healthy identity can trap individuals in self-perpetuating negative patterns when narrative-level beliefs become biased and rigid. Top-down predictions from these beliefs overwhelm bottom-up evidence, creating a system that is formally resistant to change.
 
 Recovery is not merely about willpower or "positive thinking"; it is about systematically restructuring a hierarchical generative model. This requires the careful accumulation and integration of evidence across multiple timescales, often necessitating interventions that target the highest levels of the cognitive hierarchy to enable lasting change below.
+
+
+
+
+
+
+
+
+
+
