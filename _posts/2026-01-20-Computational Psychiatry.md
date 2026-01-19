@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Computational Psychiatry An Overview
-featured-image: /images/NIb.jpg
+featured-image: /images/comp_psych_2.png
 tags: [Free Energy Principle, Predictive Processing, Active Inference]
 date-string: January 2026
 ---
