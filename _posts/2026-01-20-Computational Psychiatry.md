@@ -1,3 +1,12 @@
+---
+layout: post
+categories: posts
+title: Computational Psychiatry An Overview
+featured-image: /images/NIb.jpg
+tags: [Free Energy Principle, Predictive Processing, Active Inference]
+date-string: January 2026
+---
+
 ## An overview of computational psychiatry
 
 Computational psychiatry tries to describe mental health problems in terms of "computations" the brain might be carrying out—how it learns from outcomes, updates beliefs, and chooses actions—so that symptoms can be connected to mechanisms rather than just checklists. The hope is not to replace clinical judgment, but to add a layer of formal, testable explanation that can sometimes clarify why two people with the same diagnosis look very different in daily life. In practice, these models link what can be observed (choices in tasks, symptom ratings, neural signals) to latent processes (like reward sensitivity or belief updating). That said, the field sometimes risks overselling "precision": a clean parameter estimate in a lab task may not map neatly onto messy real-world experiences like breakup-driven insomnia or job-loss stress. This is a first post in series of posts where we discuss different approaches and methodologies used in computational psychiatry. [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC8822328/)
