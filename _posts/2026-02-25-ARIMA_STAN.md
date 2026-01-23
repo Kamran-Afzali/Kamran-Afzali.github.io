@@ -1,9 +1,7 @@
 
 # **Bayesian AR, ARMA, and ARIMA Models in Stan and RStan**
 
-Bayesian methods for time series modeling offer something frequentist approaches struggle with: full posterior inference that lets us quantify uncertainty and weave prior knowledge directly into our analysis. This is the first post in our series on Bayesian time series analysis, where we'll work through three foundational models—autoregressive (AR), autoregressive moving average (ARMA), and autoregressive integrated moving average (ARIMA). Each model builds on the previous one, though the jump in complexity isn't always straightforward.
-
-We'll implement everything using **Stan**, a probabilistic programming language built around Hamiltonian Monte Carlo sampling, and **RStan**, which gives us an R interface. The goal here isn't just to show you code that runs, but to walk through how these models are actually constructed and what the Stan syntax is doing under the hood. [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)
+Bayesian methods for time series modeling offer something frequentist approaches struggle with: full posterior inference that lets us quantify uncertainty and weave prior knowledge directly into our analysis. This is the first post in our series on Bayesian time series analysis, where we'll work through three foundational models—autoregressive (AR), autoregressive moving average (ARMA), and autoregressive integrated moving average (ARIMA). Each model builds on the previous one, though the jump in complexity isn't always straightforward. We'll implement everything using **Stan** and **RStan**, which gives us an R interface. The goal here isn't just to show you code that runs, but to walk through how these models are actually constructed and what the Stan syntax is doing under the hood. 
 
 ## **Bayesian AR(1) Model**
 
@@ -13,7 +11,7 @@ The simplest place to start is the **AR(1)** process. The idea is that today's v
 y_t = \alpha + \phi y_{t-1} + \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
 \]
 
-Here, \(\alpha\) represents a constant drift term, \(\phi\) controls how much yesterday's value influences today (often called the autocorrelation parameter), and \(\epsilon_t\) is our white noise  [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html). When \(|\phi| < 1\), the process is stationary, meaning it won't wander off to infinity. If \(\phi\) gets too close to 1, though, the series develops a long memory and small shocks persist for a long time.
+Here, \(\alpha\) represents a constant drift term, \(\phi\) controls how much yesterday's value influences today (often called the autocorrelation parameter), and \(\epsilon_t\) is our white noise. When \(|\phi| < 1\), the process is stationary, meaning it won't wander off to infinity. If \(\phi\) gets too close to 1, though, the series develops a long memory and small shocks persist for a long time.
 
 Let's simulate an AR(1) process in R to see what this looks like:
 
@@ -30,9 +28,7 @@ for (t in 2:n) {
 ts.plot(y, main = "Simulated AR(1) Time Series")
 ```
 
-Notice that we initialize `y [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)` using the stationary distribution of the AR(1) process. This isn't strictly necessary for simulation, but it helps avoid transient startup effects. The denominator `sqrt(1 - phi^2)` comes from the variance of a stationary AR(1), which you can derive by taking variances on both sides of the model equation. [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)
-
-Now for the Stan model. Stan's syntax may look unfamiliar if you're coming from BUGS or JAGS, but it's designed to be more explicit about data types and constraints:
+Notice that we initialize `y` using the stationary distribution of the AR(1) process. This isn't strictly necessary for simulation, but it helps avoid transient startup effects. The denominator `sqrt(1 - phi^2)` comes from the variance of a stationary AR(1), which you can derive by taking variances on both sides of the model equation. Now for the Stan model. Stan's syntax may look unfamiliar if you're coming from BUGS or JAGS, but it's designed to be more explicit about data types and constraints:
 
 ```stan
 data {
@@ -49,9 +45,9 @@ model {
 }
 ```
 
-The `data` block declares what we're passing in from R. The `parameters` block defines what Stan will sample: `alpha` can be any real number, `phi` is constrained between -1 and 1 to ensure stationarity, and `sigma` must be positive. The `model` block specifies the likelihood. Stan uses vectorized notation here—`y[2:N]` represents all observations from time 2 onward, and `y[1:N-1]` is the lagged series. [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)
+The `data` block declares what we're passing in from R. The `parameters` block defines what Stan will sample: `alpha` can be any real number, `phi` is constrained between -1 and 1 to ensure stationarity, and `sigma` must be positive. The `model` block specifies the likelihood. Stan uses vectorized notation here—`y[2:N]` represents all observations from time 2 onward, and `y[1:N-1]` is the lagged series. 
 
-One thing to note: we're not explicitly setting priors for `alpha`, `phi`, or `sigma`. Stan uses improper flat priors by default, which is fine for simple models but can cause problems with more complex hierarchical structures. [minimizeregret](https://minimizeregret.com/short-time-series-prior-knowledge)
+One thing to note: we're not explicitly setting priors for `alpha`, `phi`, or `sigma`. Stan uses improper flat priors by default, which is fine for simple models but can cause problems with more complex hierarchical structures. 
 
 We fit the model in R like this:
 
@@ -125,7 +121,7 @@ model {
 }
 ```
 
-The `transformed parameters` block lets us compute derived quantities that depend on parameters, and these quantities are saved in the posterior samples. The loop explicitly builds up the conditional mean `mu[t]` and residuals `eps[t]` at each time step. We then model `eps[2:N]` as normal with mean zero and standard deviation `sigma`. We skip `eps [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)` because its distribution depends on initial conditions, which we're treating as fixed here. [bayesiancomputationbook](https://bayesiancomputationbook.com/markdown/chp_06.html)
+The `transformed parameters` block lets us compute derived quantities that depend on parameters, and these quantities are saved in the posterior samples. The loop explicitly builds up the conditional mean `mu[t]` and residuals `eps[t]` at each time step. We then model `eps[2:N]` as normal with mean zero and standard deviation `sigma`. We skip `eps [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)` because its distribution depends on initial conditions, which we're treating as fixed here. 
 
 Fitting this model works the same way:
 
@@ -145,7 +141,7 @@ You might notice the model runs slower than AR(1). That's because the loop in `t
 
 ## **Bayesian ARIMA(1,1,1) Model**
 
-Many real-world time series aren't stationary. Stock prices, GDP, temperature records—they all tend to wander. If you try to fit an ARMA model to trending data, you'll get nonsensical parameter estimates because the model assumes the mean is constant. The **ARIMA** framework addresses this by differencing the series first. [bayesiancomputationbook](https://bayesiancomputationbook.com/markdown/chp_06.html)
+Many real-world time series aren't stationary. Stock prices, GDP, temperature records—they all tend to wander. If you try to fit an ARMA model to trending data, you'll get nonsensical parameter estimates because the model assumes the mean is constant. The **ARIMA** framework addresses this by differencing the series first. 
 
 In an ARIMA(1,1,1) model, the middle "1" means we take one difference: \(\Delta y_t = y_t - y_{t-1}\). We then fit an ARMA(1,1) to the differenced series:
 
@@ -195,8 +191,8 @@ parameters {
 transformed parameters {
   vector[N - 1] mu;
   vector[N - 1] eps;
-  mu [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) = alpha;
-  eps [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) = dy [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) - mu [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html);
+  mu  = alpha;
+  eps = dy - mu ;
   for (t in 2:(N - 1)) {
     mu[t] = alpha + phi * dy[t - 1] + theta * eps[t - 1];
     eps[t] = dy[t] - mu[t];
@@ -207,7 +203,7 @@ model {
 }
 ```
 
-The `transformed data` block creates `dy`, a differenced version of `y` with length `N - 1`. Everything else looks similar to the ARMA(1,1) model, except now we're working with the differenced series. [bayesiancomputationbook](https://bayesiancomputationbook.com/markdown/chp_06.html)
+The `transformed data` block creates `dy`, a differenced version of `y` with length `N - 1`. Everything else looks similar to the ARMA(1,1) model, except now we're working with the differenced series. 
 
 Fitting the model in RStan:
 
@@ -227,10 +223,17 @@ One subtle point: the parameter `alpha` in this model represents the mean of the
 
 ## **Conclusion**
 
-These three models—AR, ARMA, and ARIMA—form the backbone of classical time series analysis, and their Bayesian versions inherit both the strengths and quirks of their frequentist counterparts. The advantage of going Bayesian is that we get full uncertainty quantification without relying on asymptotic approximations. We can also extend these models more naturally: adding hierarchical structure, incorporating external predictors, or letting parameters vary over time all fit comfortably within the Bayesian framework. [bayesiancomputationbook](https://bayesiancomputationbook.com/markdown/chp_06.html)
+These three models—AR, ARMA, and ARIMA—form the backbone of classical time series analysis, and their Bayesian versions inherit both the strengths and quirks of their frequentist counterparts. The advantage of going Bayesian is that we get full uncertainty quantification without relying on asymptotic approximations. We can also extend these models more naturally: adding hierarchical structure, incorporating external predictors, or letting parameters vary over time all fit comfortably within the Bayesian framework. 
 
-That said, Bayesian inference isn't free. These models can be slow, especially for long time series or when loops can't be vectorized. ARMA and ARIMA models also assume certain invertibility and stationarity conditions, which aren't always guaranteed just because we put bounds on parameters. And while Stan's HMC sampler is generally more efficient than Gibbs sampling, it can still struggle with highly correlated posteriors or poorly identified parameters. [guillaume.baudart](https://guillaume.baudart.eu/papers/pldi21.pdf)
+That said, Bayesian inference isn't free. These models can be slow, especially for long time series or when loops can't be vectorized. ARMA and ARIMA models also assume certain invertibility and stationarity conditions, which aren't always guaranteed just because we put bounds on parameters. And while Stan's HMC sampler is generally more efficient than Gibbs sampling, it can still struggle with highly correlated posteriors or poorly identified parameters. 
 
-Future extensions might involve seasonal ARIMA models (SARIMA), state space formulations that handle missing data more gracefully, or time-varying parameter models that relax the assumption of constant \(\phi\) and \(\theta\). The framework we've built here should give you a foundation for exploring those directions. [cran.r-project](https://cran.r-project.org/web/packages/bayesforecast/bayesforecast.pdf)
+Future extensions might involve seasonal ARIMA models (SARIMA), state space formulations that handle missing data more gracefully, or time-varying parameter models that relax the assumption of constant \(\phi\) and \(\theta\). The framework we've built here should give you a foundation for exploring those directions. 
 
+## **References**
+
+- [mc-stan time series](https://mc-stan.org/docs/stan-users-guide/time-series.html)
+- [minimizeregret time series](https://minimizeregret.com/short-time-series-prior-knowledge)
+- [bayesiancomputationbook](https://bayesiancomputationbook.com/markdown/chp_06.html)
+- [guillaume.baudart](https://guillaume.baudart.eu/papers/pldi21.pdf)
+- [cran.r-project](https://cran.r-project.org/web/packages/bayesforecast/bayesforecast.pdf)
 
