@@ -64,7 +64,7 @@ fit <- stan(
 print(fit)
 ```
 
-This runs four parallel chains, each with 2000 iterations (1000 for warmup, which Stan discards). The warmup phase tunes the sampler's step size and mass matrix—think of it as the sampler learning the geometry of the posterior. [guillaume.baudart](https://guillaume.baudart.eu/papers/pldi21.pdf)
+This runs four parallel chains, each with 2000 iterations (1000 for warmup, which Stan discards). The warmup phase tunes the sampler's step size and mass matrix—think of it as the sampler learning the geometry of the posterior. 
 
 ## **Bayesian ARMA(1,1) Model**
 
@@ -74,7 +74,7 @@ The AR(1) model captures persistence, but it assumes shocks decay exponentially 
 y_t = \alpha + \phi y_{t-1} + \epsilon_t + \theta \epsilon_{t-1}, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
 \]
 
-The new parameter \(\theta\) controls how much yesterday's forecast error affects today's value. This gives the model more flexibility in shaping the autocorrelation function. When \(\phi\) and \(\theta\) have opposite signs, you can get patterns that pure AR models can't replicate. [bayesiancomputationbook](https://bayesiancomputationbook.com/markdown/chp_06.html)
+The new parameter \(\theta\) controls how much yesterday's forecast error affects today's value. This gives the model more flexibility in shaping the autocorrelation function. When \(\phi\) and \(\theta\) have opposite signs, you can get patterns that pure AR models can't replicate. 
 
 Simulating this in R requires us to track the error terms explicitly:
 
