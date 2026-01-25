@@ -121,7 +121,7 @@ model {
 }
 ```
 
-The `transformed parameters` block lets us compute derived quantities that depend on parameters, and these quantities are saved in the posterior samples. The loop explicitly builds up the conditional mean `mu[t]` and residuals `eps[t]` at each time step. We then model `eps[2:N]` as normal with mean zero and standard deviation `sigma`. We skip `eps [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)` because its distribution depends on initial conditions, which we're treating as fixed here. 
+The `transformed parameters` block lets us compute derived quantities that depend on parameters, and these quantities are saved in the posterior samples. The loop explicitly builds up the conditional mean `mu[t]` and residuals `eps[t]` at each time step. We then model `eps[2:N]` as normal with mean zero and standard deviation `sigma`. We skip `eps` because its distribution depends on initial conditions, which we're treating as fixed here. 
 
 Fitting this model works the same way:
 
@@ -143,7 +143,7 @@ You might notice the model runs slower than AR(1). That's because the loop in `t
 
 Many real-world time series aren't stationary. Stock prices, GDP, temperature records—they all tend to wander. If you try to fit an ARMA model to trending data, you'll get nonsensical parameter estimates because the model assumes the mean is constant. The **ARIMA** framework addresses this by differencing the series first. 
 
-In an ARIMA(1,1,1) model, the middle "1" means we take one difference: \(\Delta y_t = y_t - y_{t-1}\). We then fit an ARMA(1,1) to the differenced series:
+In an ARIMA(1,1,1) model, the middle "1" means we take one difference: $$\(\Delta y_t = y_t - y_{t-1}\)$$. We then fit an ARMA(1,1) to the differenced series:
 
 $$
 \Delta y_t = \alpha + \phi \Delta y_{t-1} + \epsilon_t + \theta \epsilon_{t-1}
@@ -161,7 +161,7 @@ theta <- 0.5
 sigma <- 1
 eps <- rnorm(n, 0, sigma)
 dy <- numeric(n)
-dy [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) <- eps [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)
+dy <- eps 
 for (t in 2:n) {
   dy[t] <- phi * dy[t - 1] + eps[t] + theta * eps[t - 1]
 }
