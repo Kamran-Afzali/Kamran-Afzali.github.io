@@ -70,9 +70,9 @@ This runs four parallel chains, each with 2000 iterations (1000 for warmup, whic
 
 The AR(1) model captures persistence, but it assumes shocks decay exponentially at a fixed rate. Real data often shows more complex behavior. Some shocks die out quickly, while the series still has long-term memory. The **ARMA(1,1)** model adds a moving average term to handle this:
 
-\[
+$$
 y_t = \alpha + \phi y_{t-1} + \epsilon_t + \theta \epsilon_{t-1}, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
-\]
+$$
 
 The new parameter \(\theta\) controls how much yesterday's forecast error affects today's value. This gives the model more flexibility in shaping the autocorrelation function. When \(\phi\) and \(\theta\) have opposite signs, you can get patterns that pure AR models can't replicate. 
 
@@ -145,9 +145,9 @@ Many real-world time series aren't stationary. Stock prices, GDP, temperature re
 
 In an ARIMA(1,1,1) model, the middle "1" means we take one difference: \(\Delta y_t = y_t - y_{t-1}\). We then fit an ARMA(1,1) to the differenced series:
 
-\[
+$$
 \Delta y_t = \alpha + \phi \Delta y_{t-1} + \epsilon_t + \theta \epsilon_{t-1}
-\]
+$$
 
 This removes linear trends (and sometimes more complex nonstationarity, depending on what's driving the trend). After differencing, the series may appear stationary, which satisfies the ARMA assumptions.
 
