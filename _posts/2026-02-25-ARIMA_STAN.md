@@ -7,9 +7,9 @@ Bayesian methods for time series modeling offer something frequentist approaches
 
 The simplest place to start is the **AR(1)** process. The idea is that today's value depends linearly on yesterday's value, plus some random noise. We can write this as:
 
-\[
+$$
 y_t = \alpha + \phi y_{t-1} + \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
-\]
+$$
 
 Here, \(\alpha\) represents a constant drift term, \(\phi\) controls how much yesterday's value influences today (often called the autocorrelation parameter), and \(\epsilon_t\) is our white noise. When \(|\phi| < 1\), the process is stationary, meaning it won't wander off to infinity. If \(\phi\) gets too close to 1, though, the series develops a long memory and small shocks persist for a long time.
 
