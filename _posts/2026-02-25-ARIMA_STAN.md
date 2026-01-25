@@ -93,7 +93,7 @@ for (t in 2:n) {
 ts.plot(y, main = "Simulated ARMA(1,1) Time Series")
 ```
 
-Here's where things get tricky with Stan. We can't directly write a recursion over parameters (like `eps[t] = y[t] - mu[t]`) inside the `model` block because Stan's automatic differentiation system needs to know the full dependency graph upfront. Instead, we compute the residuals in a `transformed parameters` block: [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)
+Here's where things get tricky with Stan. We can't directly write a recursion over parameters (like $$`eps[t] = y[t] - mu[t]`$$) inside the `model` block because Stan's automatic differentiation system needs to know the full dependency graph upfront. Instead, we compute the residuals in a `transformed parameters` block: 
 
 ```stan
 data {
