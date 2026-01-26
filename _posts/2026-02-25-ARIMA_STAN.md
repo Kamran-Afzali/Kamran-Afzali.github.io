@@ -21,7 +21,7 @@ n <- 100
 phi <- 0.7
 sigma <- 1
 y <- numeric(n)
-y [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) <- rnorm(1, 0, sigma / sqrt(1 - phi^2))
+y <- rnorm(1, 0, sigma / sqrt(1 - phi^2))
 for (t in 2:n) {
   y[t] <- phi * y[t - 1] + rnorm(1, 0, sigma)
 }
@@ -86,7 +86,7 @@ theta <- 0.5
 sigma <- 1
 y <- numeric(n)
 e <- rnorm(n, 0, sigma)
-y [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) <- e [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html)
+y <- e 
 for (t in 2:n) {
   y[t] <- phi * y[t - 1] + e[t] + theta * e[t - 1]
 }
@@ -109,8 +109,8 @@ parameters {
 transformed parameters {
   vector[N] mu;
   vector[N] eps;
-  mu [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) = alpha;
-  eps [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) = y [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html) - mu [mc-stan](https://mc-stan.org/docs/stan-users-guide/time-series.html);
+  mu = alpha;
+  eps = y - mu;
   for (t in 2:N) {
     mu[t] = alpha + phi * y[t - 1] + theta * eps[t - 1];
     eps[t] = y[t] - mu[t];
