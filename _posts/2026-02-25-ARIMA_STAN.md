@@ -1,5 +1,13 @@
+---
+layout: post
+categories: posts
+title: Bayesian AR, ARMA, and ARIMA Models
+featured-image: /images/stan.png
+tags: [STAN, R, Bayes]
+date-string: February 2026 
+---
 
-# **Bayesian AR, ARMA, and ARIMA Models in Stan and RStan**
+# **Bayesian AR, ARMA, and ARIMA Models**
 
 Bayesian methods for time series modeling offer something frequentist approaches struggle with: full posterior inference that lets us quantify uncertainty and weave prior knowledge directly into our analysis. This is the first post in our series on Bayesian time series analysis, where we'll work through three foundational models—autoregressive (AR), autoregressive moving average (ARMA), and autoregressive integrated moving average (ARIMA). Each model builds on the previous one, though the jump in complexity isn't always straightforward. We'll implement everything using **Stan** and **RStan**, which gives us an R interface. The goal here isn't just to show you code that runs, but to walk through how these models are actually constructed and what the Stan syntax is doing under the hood. 
 
