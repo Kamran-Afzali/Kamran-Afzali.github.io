@@ -227,15 +227,7 @@ fit <- stan(
 print(fit, pars = c("alpha", "phi", "theta", "sigma"))
 ```
 
-One subtle point: the parameter `alpha` in this model represents the mean of the differenced series, not the original series. If `alpha` is positive, it implies a linear upward trend in the original data. Interpreting parameters after differencing takes a bit of care.
-
-## **Conclusion**
-
-These three models—AR, ARMA, and ARIMA—form the backbone of classical time series analysis, and their Bayesian versions inherit both the strengths and quirks of their frequentist counterparts. The advantage of going Bayesian is that we get full uncertainty quantification without relying on asymptotic approximations. We can also extend these models more naturally: adding hierarchical structure, incorporating external predictors, or letting parameters vary over time all fit comfortably within the Bayesian framework. 
-
-That said, Bayesian inference isn't free. These models can be slow, especially for long time series or when loops can't be vectorized. ARMA and ARIMA models also assume certain invertibility and stationarity conditions, which aren't always guaranteed just because we put bounds on parameters. And while Stan's HMC sampler is generally more efficient than Gibbs sampling, it can still struggle with highly correlated posteriors or poorly identified parameters. 
-
-Future extensions might involve seasonal ARIMA models (SARIMA), state space formulations that handle missing data more gracefully, or time-varying parameter models that relax the assumption of constant \(\phi\) and \(\theta\). The framework we've built here should give you a foundation for exploring those directions. 
+One subtle point: the parameter `alpha` in this model represents the mean of the differenced series, not the original series. If `alpha` is positive, it implies a linear upward trend in the original data. Interpreting parameters after differencing takes a bit of care. The three models—AR, ARMA, and ARIMA presented here form the backbone of classical time series analysis, and their Bayesian versions inherit both the strengths and quirks of their frequentist counterparts. The advantage of going Bayesian is that we get full uncertainty quantification without relying on asymptotic approximations. We can also extend these models more naturally: adding hierarchical structure, incorporating external predictors, or letting parameters vary over time all fit comfortably within the Bayesian framework. That said, Bayesian inference isn't free. These models can be slow, especially for long time series or when loops can't be vectorized. ARMA and ARIMA models also assume certain invertibility and stationarity conditions, which aren't always guaranteed just because we put bounds on parameters. And while Stan's HMC sampler is generally more efficient than Gibbs sampling, it can still struggle with highly correlated posteriors or poorly identified parameters. Future extensions might involve seasonal ARIMA models (SARIMA), state space formulations that handle missing data more gracefully, or time-varying parameter models that relax the assumption of constant phi and theta. The framework we've built here should give you a foundation for exploring those directions. 
 
 ## **References**
 
