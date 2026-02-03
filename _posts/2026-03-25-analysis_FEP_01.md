@@ -111,7 +111,6 @@ The dialogue between psychoanalysis and active inference is rich but has concept
 
 **Zepf, S. (2010).** [Libido and psychic energy – Freud’s concepts reconsidered](https://www.tandfonline.com/doi/abs/10.1080/08037060802450753). *International Forum of Psychoanalysis*, *19*, 3–14.
 
-Now I'll improve the blog post with evidence-based content and corrections while maintaining the requested stylistic elements.
 
 
 
