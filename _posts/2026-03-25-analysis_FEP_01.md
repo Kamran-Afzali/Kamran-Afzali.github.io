@@ -32,11 +32,7 @@ Thus, the alignment is partial and metaphorical: both models describe the mind�
 
 ### Desire and Conflict: Motivational Dynamics
 
-Freud’s theory of desire centers on the tension between instinctual drives and the regulatory functions of the ego and superego. Repression keeps unacceptable desires unconscious, yet these desires persist, shaping symptoms, dreams, and behaviors. Conflict is the engine of psychic life, and its resolution is never final.
-
-Active inference provides a computational counterpart to this dynamic. Desire can be modeled as a prior over preferred states—probabilistic expectations about what the agent seeks to attain. These priors influence perception, cognition, and action through *policy selection*, shaping how the agent engages with the world. From this view, prediction is not neutral: it is *motivated* by expected outcomes. As Friston et al. (2017) note, “all thinking is wishful thinking” in a predictive brain.
-
-However, while active inference formalizes motivation as precision-weighted prediction over policies, psychoanalysis treats desire as symbolic, relational, and historically embedded. To equate them too closely would risk reductionism. The computational framework can model drive and conflict in abstract terms, but it cannot easily capture the dense symbolic texture of psychic life—the meanings embedded in dreams, fantasies, and transference.
+Freud's theory of desire centers on tension between instinctual drives and the regulatory functions of the ego and superego. Repression keeps unacceptable desires unconscious, yet these desires persist, shaping symptoms, dreams, and behaviors. For Freud, conflict constitutes the engine of psychic life, and its resolution remains perpetually incomplete. Active inference provides what might be considered a computational analog to this dynamic. Desire can be modeled as a prior over preferred states—probabilistic expectations about outcomes the agent seeks to attain. These priors influence perception, cognition, and action through policy selection, shaping how the agent engages with the world. As Kruglanski et al. note in their 2020 paper synthesizing epistemic motivation with active inference, "all thinking is wishful thinking" in a predictive brain—prediction is inherently motivated by expected outcomes. Active inference formalizes motivation as precision-weighted prediction over policies, but psychoanalysis treats desire as symbolic, relational, and historically embedded. To link these too concepts directly would risk reductionism where in the computational framework it is possible to model drive and conflict in abstract, formal terms, but it struggles to capture the dense symbolic texture of psychic life—the meanings embedded in dreams, fantasies, and transference relationships.
 
 
 
@@ -71,11 +67,9 @@ The dialogue between psychoanalysis and active inference is rich but has concept
 
 
 [frontiersin](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2016.00020/full)
-
-
 [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/)
-
-
+ [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/)
+ [sciencedirect](https://www.sciencedirect.com/science/article/abs/pii/S1364661320300796)
 #### References 
 
 
@@ -134,13 +128,8 @@ This account bears some resemblance to Freud's idea of dreams as a site of psych
 
 The alignment, then, is partial and heuristic rather than exact. Both models describe adaptation to internal conflict and emotional intensity, but they explain this adaptation through fundamentally different mechanisms—one prioritizing symbolic interpretation, the other formal simulation.
 
-## Desire and Conflict: Motivational Dynamics
 
-Freud's theory of desire centers on tension between instinctual drives and the regulatory functions of the ego and superego. Repression keeps unacceptable desires unconscious, yet these desires persist, shaping symptoms, dreams, and behaviors. For Freud, conflict constitutes the engine of psychic life, and its resolution remains perpetually incomplete.
 
-Active inference provides what might be considered a computational analog to this dynamic. Desire can be modeled as a prior over preferred states—probabilistic expectations about outcomes the agent seeks to attain. These priors influence perception, cognition, and action through policy selection, shaping how the agent engages with the world. As Kruglanski et al. note in their 2020 paper synthesizing epistemic motivation with active inference, "all thinking is wishful thinking" in a predictive brain—prediction is inherently motivated by expected outcomes. [sciencedirect](https://www.sciencedirect.com/science/article/abs/pii/S1364661320300796)
-
-Active inference formalizes motivation as precision-weighted prediction over policies, but psychoanalysis treats desire as symbolic, relational, and historically embedded. To equate them too directly would risk reductionism. The computational framework can model drive and conflict in abstract, formal terms, but it struggles to capture the dense symbolic texture of psychic life—the meanings embedded in dreams, fantasies, and transference relationships. [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/)
 
 ## Methodological and Epistemological Reflections
 
