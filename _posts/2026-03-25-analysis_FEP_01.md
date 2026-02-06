@@ -20,14 +20,7 @@ However, while the analogy is intellectually evocative, it remains metaphorical:
 
 ### Dreams: Simulation or Symbol?
 
-Psychoanalysis famously regards dreams as the “royal road to the unconscious,” revealing disguised wishes, unresolved conflicts, and repressed content. For Freud, dreams are not only expressive but also defensive: they transform unacceptable desires into symbolic narratives through *dream work*—mechanisms like condensation, displacement, and secondary revision.
-
-From the perspective of active inference, dreaming may serve a complementary—though not identical—function. During REM sleep, the brain relaxes sensory constraints and engages in generative modeling, simulating possible future scenarios and integrating emotionally salient experiences. This “offline inference” may allow the brain to explore hypothetical states in order to refine its predictive models and minimize future surprise (cf. Hobson, Friston & Frith, 2014).
-
-This account heuristically parallels Freud’s idea of dreams as a site of psychological work. From both perspectives, dreaming serves to metabolize affect, rehearse responses, and process emotionally loaded material. Yet the logic differs. While Freud emphasizes symbolic transformation and the censorship of unconscious wishes, active inference treats dreams as structurally constrained simulations aimed at optimizing generative models.
-
-Thus, the alignment is partial and metaphorical: both models describe the mind’s adaptation to internal conflict and emotional overload, but they diverge in how they explain this adaptation. One prioritizes symbolic interpretation, the other formal simulation.
-
+Psychoanalysis famously regards dreams as the "royal road to the unconscious," revealing disguised wishes, unresolved conflicts, and repressed material. For Freud, dreams serve not only an expressive function but also a defensive one: they transform unacceptable desires into symbolic narratives through *dream work*—mechanisms such as condensation, displacement, and secondary revision. From an active inference perspective, dreaming may serve a complementary, though distinct, function. During REM sleep, the brain appears to relax sensory constraints and engage in generative modeling, simulating possible scenarios and integrating emotionally significant experiences. This "offline inference" may allow the brain to explore hypothetical states to refine its predictive models and minimize future surprise. Research suggests that REM sleep facilitates pattern extraction from past experiences and enables the consolidation of implicit, emotionally salient memories. This account has some similariy to Freud's idea of dreams as a site of psychological work. Both perspectives put dreaming as a process that metabolizes affect, rehearses responses, and processes emotionally loaded material. Yet the underlying logic is substantially different, Freud emphasizes symbolic transformation and the censorship imposed by psychic defenses, while active inference treats dreams as structurally constrained simulations aimed at optimizing generative models. Both models describe adaptation to internal conflict and emotional intensity, but they explain this adaptation through fundamentally different mechanisms—one prioritizing symbolic interpretation, the other formal simulation.
 
 
 ### Desire and Conflict: Motivational Dynamics
@@ -36,19 +29,10 @@ Freud's theory of desire centers on tension between instinctual drives and the r
 
 
 
-### Methodological and Epistemological Reflections
+## Methodological and Epistemological Reflections
 
-Despite the suggestive parallels, there are serious methodological and epistemological obstacles to integrating psychoanalysis and active inference:
-
-* **Different Scientific Paradigms:** Psychoanalysis is embedded in the *hermeneutic tradition*, concerned with meaning-making and narrative coherence. Active inference is part of *formal mechanistic science*, concerned with algorithmic explanation and prediction. As Paul Ricoeur and Thomas Kuhn might note, these frameworks operate within different paradigms of inquiry.
-
-* **Conceptual Ambiguity:** Terms like "energy," "conflict," or even "desire" carry different connotations in each system. In psychoanalysis, energy is metaphorical and affective; in the FEP, free energy is a precise mathematical quantity. Overextending these analogies risks obfuscation.
-
-* **Empirical Generalizability:** While active inference is testable in experimental paradigms and psychiatric modeling (e.g., Moutoussis et al., 2014), psychoanalytic constructs remain resistant to quantification. Clinical data is rich but not easily formalized.
-
-* **Critique and Caution:** Critics of psychoanalysis often cite its lack of falsifiability, while critics of the FEP warn of its potential to become a "theory of everything" that explains too much and predicts too little (cf. Bowers & Davis, 2012). The integration of both must avoid collapsing into either naïve formalism or interpretive excess.
-
-
+Despite these suggestive parallels, serious methodological and epistemological obstacles complicate any integration of psychoanalysis and active inference such as **Different Scientific Paradigms**, psychoanalysis belongs to the hermeneutic tradition, concerned with meaning-making and narrative coherence. Active inference is embedded in formal mechanistic science, concerned with algorithmic explanation and testable prediction. These frameworks operate within what philosophers like Kuhn might call incommensurable paradigms of inquiry. **Conceptual Ambiguity:** Terms like "energy," "conflict," or "desire" carry different connotations in each system. In psychoanalysis, energy is metaphorical and affective; in the FEP, free energy is a precise mathematical quantity derived from information theory. Overextending these analogies risks conceptual confusion rather than clarification. **Empirical Generalizability:** While active inference generates testable predictions in experimental paradigms and psychiatric modeling, psychoanalytic constructs have historically resisted quantification. Clinical data from psychoanalysis is rich and nuanced but not easily formalized within computational frameworks. 
+**Critique and Caution:** Critics of psychoanalysis often cite its lack of falsifiability—though this criticism has been challenged as both philosophically flawed and empirically outdated. Critics of the FEP, meanwhile, warn that it risks becoming a "theory of everything" that explains too much while predicting too little. Any integration must avoid collapsing into either naive formalism or interpretive excess. 
 
 | Aspect            | Psychoanalysis                          | Active Inference / FEP                  | Alignment & Tensions                                             |
 | ----------------- | --------------------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
@@ -66,10 +50,18 @@ Despite the suggestive parallels, there are serious methodological and epistemol
 The dialogue between psychoanalysis and active inference is rich but has conceptual risks. The FEP and active inference offer formal, computational lenses through which to reinterpret some of Freud's most enduring insights: the mind as a system under tension, perpetually negotiating between competing demands to maintain internal coherence and adapt to its environment. However, this interpretive pairing of two frameworks needs epistemological care. Active inference provides elegant formalisms, but these cannot substitute for the narrative, symbolic, and relational dimensions that psychoanalysis brings to understanding human experience. **The analogy between psychic energy and free energy proves fruitful only when treated as metaphor rather than equation.** True integration, if it proves possible at all, lies not in collapsing one framework into the other but in allowing each to illuminate the other's blind spots. Psychoanalysis can challenge active inference to account more adequately for affect, narrative, and transference. Active inference can offer psychoanalysis new tools for modeling conflict, adaptation, and learning. By embracing both the synergies and the tensions, we may develop a richer, more pluralistic understanding of the psyche—one that honors both its symbolic complexity and its computational structure.
 
 
-[frontiersin](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2016.00020/full)
-[pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/)
- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/)
- [sciencedirect](https://www.sciencedirect.com/science/article/abs/pii/S1364661320300796)
+- [frontiersin](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2016.00020/full)
+- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/)
+- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/)
+- [sciencedirect](https://www.sciencedirect.com/science/article/abs/pii/S1364661320300796)
+- [lesswrong](https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle)
+- [psychstudies](https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/)
+- [beren](https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/)
+- [sciencedirect](https://www.sciencedirect.com/science/article/pii/S037015732300203X)
+- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
+- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
+- [sciencedirect](https://www.sciencedirect.com/science/article/pii/S037015732300203X)
+
 #### References 
 
 
@@ -116,32 +108,11 @@ Freud's notion of the mind as a dynamic energy system, influenced by 19th-centur
 
 His distinction between primary (id-driven, wish-fulfilling) and secondary (ego-driven, reality-oriented) processes finds potential resonance in the FEP's hierarchical generative models. In active inference, lower hierarchical levels process immediate sensory prediction errors, while higher levels encode abstract, temporally extended representations that shape both perception and action. Both frameworks suggest the mind strives toward a state of minimal excitation or surprise—a kind of homeostatic equilibrium. [direct.mit](https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind)
 
-However, this analogy remains fundamentally metaphorical. The FEP offers a formal, information-theoretic framework grounded in variational Bayesian inference, while Freud's psychodynamics rests on speculative neurophysiology and clinical observation. The two operate on fundamentally different epistemological planes, and conflating them risks obscuring rather than clarifying either framework. [sciencedirect](https://www.sciencedirect.com/science/article/pii/S037015732300203X)
-
-## Dreams: Simulation or Symbol?
-
-Psychoanalysis famously regards dreams as the "royal road to the unconscious," revealing disguised wishes, unresolved conflicts, and repressed material. For Freud, dreams serve not only an expressive function but also a defensive one: they transform unacceptable desires into symbolic narratives through *dream work*—mechanisms such as condensation, displacement, and secondary revision.
-
-From an active inference perspective, dreaming may serve a complementary, though distinct, function. During REM sleep, the brain appears to relax sensory constraints and engage in generative modeling, simulating possible scenarios and integrating emotionally significant experiences. This "offline inference" may allow the brain to explore hypothetical states to refine its predictive models and minimize future surprise. Research suggests that REM sleep facilitates pattern extraction from past experiences and enables the consolidation of implicit, emotionally salient memories. [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
-
-This account bears some resemblance to Freud's idea of dreams as a site of psychological work. Both perspectives treat dreaming as a process that metabolizes affect, rehearses responses, and processes emotionally loaded material. Yet the underlying logic differs substantially. Freud emphasizes symbolic transformation and the censorship imposed by psychic defenses, while active inference treats dreams as structurally constrained simulations aimed at optimizing generative models. [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
-
-The alignment, then, is partial and heuristic rather than exact. Both models describe adaptation to internal conflict and emotional intensity, but they explain this adaptation through fundamentally different mechanisms—one prioritizing symbolic interpretation, the other formal simulation.
+However, this analogy remains fundamentally metaphorical. The FEP offers a formal, information-theoretic framework grounded in variational Bayesian inference, while Freud's psychodynamics rests on speculative neurophysiology and clinical observation. The two operate on fundamentally different epistemological planes, and conflating them risks obscuring rather than clarifying either framework. 
 
 
 
 
-## Methodological and Epistemological Reflections
-
-Despite these suggestive parallels, serious methodological and epistemological obstacles complicate any integration of psychoanalysis and active inference:
-
-**Different Scientific Paradigms:** Psychoanalysis belongs to the hermeneutic tradition, concerned with meaning-making and narrative coherence. Active inference is embedded in formal mechanistic science, concerned with algorithmic explanation and testable prediction. These frameworks operate within what philosophers like Kuhn might call incommensurable paradigms of inquiry. [beren](https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/)
-
-**Conceptual Ambiguity:** Terms like "energy," "conflict," or "desire" carry different connotations in each system. In psychoanalysis, energy is metaphorical and affective; in the FEP, free energy is a precise mathematical quantity derived from information theory. Overextending these analogies risks conceptual confusion rather than clarification. [sciencedirect](https://www.sciencedirect.com/science/article/pii/S037015732300203X)
-
-**Empirical Generalizability:** While active inference generates testable predictions in experimental paradigms and psychiatric modeling, psychoanalytic constructs have historically resisted quantification. Clinical data from psychoanalysis is rich and nuanced but not easily formalized within computational frameworks. [psychstudies](https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/)
-
-**Critique and Caution:** Critics of psychoanalysis often cite its lack of falsifiability—though this criticism has been challenged as both philosophically flawed and empirically outdated. Critics of the FEP, meanwhile, warn that it risks becoming a "theory of everything" that explains too much while predicting too little. Any integration must avoid collapsing into either naive formalism or interpretive excess. [lesswrong](https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle)
 
 
 
