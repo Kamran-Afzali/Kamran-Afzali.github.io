@@ -1,6 +1,3 @@
-
-
-
 ## Active Inference and Psychoanalysis: How Aligned Are the Frameworks?
 
 The intersection between the Free Energy Principle (FEP), active inference, and psychoanalysis has become a new area of interdisciplinary research. This convergence may offer psychoanalytic theory new conceptual tools drawn from computational neuroscience, potentially revitalizing a field that has struggled for institutional legitimacy in recent decades. As we have mentioned in our previous posts the FEP provides a mathematical framework describing how living organisms maintain their structural integrity by minimizing **free energy**, which represents prediction error within a probabilistic model. Active inference, which extends from the FEP, proposes that brains function as active agents that constantly generate predictions about their environment rather than passively processing sensory input. This framework not only models biological and psychological processes but attempts to formalize them in ways that invite comparison with psychoanalytic concepts. However, psychoanalysis operates within an interpretive, hermeneutic tradition rooted in narrative, clinical encounter, and symbolic meaning. Active inference, by contrast, is computational and mechanistic, formulated within Bayesian probabilistic frameworks. The potential value—and the danger—of this dialogue lies in navigating these distinct epistemologies without reducing one to the other.
@@ -8,15 +5,7 @@ The intersection between the Free Energy Principle (FEP), active inference, and 
 
 ### Freud's "Project" and the Free Energy Principle
 
-Freud’s early *Project for a Scientific Psychology* (1895) was an ambitious, if ultimately abandoned, attempt to ground psychology in the neurophysiology of his era. Despite its historical limitations, the *Project* anticipated several ideas now formalized by active inference and the FEP, such as energy flow, psychic conflict, and the brain’s drive for equilibrium.
-
-Freud’s notion of the mind as a dynamic energy system, influenced by 19th-century physics, aligns metaphorically with the FEP’s view of the brain as a system minimizing uncertainty. In Freud’s model, concepts like *binding* (*Bindung*) and *unbinding* (*Entbindung*) describe how the nervous system processes excitation—paralleling the FEP’s distinction between prediction error (unbound energy) and coherent generative models (bound energy).
-
-His distinction between primary (id-driven, wish-fulfilling) and secondary (ego-driven, reality-oriented) processes finds resonance in the FEP’s hierarchical generative models. In active inference, lower levels deal with raw sensory prediction errors, while higher levels encode abstract, temporally deep representations that shape perception and action. Both frameworks suggest that the mind strives for a state of minimal excitation or surprise—a homeostatic equilibrium.
-
-However, while the analogy is intellectually evocative, it remains metaphorical: the FEP offers a formal, information-theoretic framework grounded in variational Bayesian inference, while Freud’s psychodynamics rests on speculative neurophysiology and clinical intuition. The two operate on fundamentally distinct epistemological planes.
-
-
+Freud's early *Project for a Scientific Psychology* (1895) represented an ambitious, though ultimately abandoned, attempt to ground psychology in the neurophysiology available at the time. Despite its historical limitations, the *Project* anticipated several ideas that active inference and the FEP now formalize, including concepts of energy flow, psychic conflict, and the nervous system's drive toward equilibrium.  Freud's notion of the mind as a dynamic energy system, influenced by 19th-century thermodynamics, is somehow similar to the FEP's characterization of the brain as a system that minimizes uncertainty. In Freud's model, concepts like *binding* (*Bindung*) and *unbinding* (*Entbindung*) describes how the nervous system processes excitation—which appears to parallel the FEP's distinction between prediction error (unbound energy) and coherent generative models (bound energy). His distinction between primary (id-driven, wish-fulfilling) and secondary (ego-driven, reality-oriented) processes finds potential resonance in the FEP's hierarchical generative models. In active inference, lower hierarchical levels process immediate sensory prediction errors, while higher levels encode abstract, temporally extended representations that shape both perception and action. Both frameworks suggest the mind strives toward a state of minimal excitation or surprise—a kind of homeostatic equilibrium.  However, this analogy is fundamentally metaphorical, that is (as we mentioned in several previoous posts)  FEP offers a formal, information-theoretic framework grounded in variational Bayesian inference, while Freud's psychodynamics rests on speculative neurophysiology and clinical observation. The two operate on fundamentally different epistemological planes, and conflating them risks obscuring rather than clarifying either framework. 
 
 ### Dreams: Simulation or Symbol?
 
@@ -26,8 +15,6 @@ Psychoanalysis famously regards dreams as the "royal road to the unconscious," r
 ### Desire and Conflict: Motivational Dynamics
 
 Freud's theory of desire centers on tension between instinctual drives and the regulatory functions of the ego and superego. Repression keeps unacceptable desires unconscious, yet these desires persist, shaping symptoms, dreams, and behaviors. For Freud, conflict constitutes the engine of psychic life, and its resolution remains perpetually incomplete. Active inference provides what might be considered a computational analog to this dynamic. Desire can be modeled as a prior over preferred states—probabilistic expectations about outcomes the agent seeks to attain. These priors influence perception, cognition, and action through policy selection, shaping how the agent engages with the world. As Kruglanski et al. note in their 2020 paper synthesizing epistemic motivation with active inference, "all thinking is wishful thinking" in a predictive brain—prediction is inherently motivated by expected outcomes. Active inference formalizes motivation as precision-weighted prediction over policies, but psychoanalysis treats desire as symbolic, relational, and historically embedded. To link these too concepts directly would risk reductionism where in the computational framework it is possible to model drive and conflict in abstract, formal terms, but it struggles to capture the dense symbolic texture of psychic life—the meanings embedded in dreams, fantasies, and transference relationships.
-
-
 
 ## Methodological and Epistemological Reflections
 
@@ -59,8 +46,11 @@ The dialogue between psychoanalysis and active inference is rich but has concept
 - [beren](https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/)
 - [sciencedirect](https://www.sciencedirect.com/science/article/pii/S037015732300203X)
 - [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
-- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
-- [sciencedirect](https://www.sciencedirect.com/science/article/pii/S037015732300203X)
+- [direct.mit](https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind)
+- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC2850580/)
+- [bpb-us-e1.wpmucdn](https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf)
+
+
 
 #### References 
 
@@ -100,15 +90,6 @@ The dialogue between psychoanalysis and active inference is rich but has concept
 
 
 
-## Freud's "Project" and the Free Energy Principle
-
-Freud's early *Project for a Scientific Psychology* (1895) represented an ambitious, though ultimately abandoned, attempt to ground psychology in the neurophysiology available at the time. Despite its historical limitations, the *Project* anticipated several ideas that active inference and the FEP now formalize, including concepts of energy flow, psychic conflict, and the nervous system's drive toward equilibrium. [bpb-us-e1.wpmucdn](https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf)
-
-Freud's notion of the mind as a dynamic energy system, influenced by 19th-century thermodynamics, bears some resemblance to the FEP's characterization of the brain as a system that minimizes uncertainty. In Freud's model, concepts like *binding* (*Bindung*) and *unbinding* (*Entbindung*) describe how the nervous system processes excitation—which appears to parallel the FEP's distinction between prediction error (unbound energy) and coherent generative models (bound energy). [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC2850580/)
-
-His distinction between primary (id-driven, wish-fulfilling) and secondary (ego-driven, reality-oriented) processes finds potential resonance in the FEP's hierarchical generative models. In active inference, lower hierarchical levels process immediate sensory prediction errors, while higher levels encode abstract, temporally extended representations that shape both perception and action. Both frameworks suggest the mind strives toward a state of minimal excitation or surprise—a kind of homeostatic equilibrium. [direct.mit](https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind)
-
-However, this analogy remains fundamentally metaphorical. The FEP offers a formal, information-theoretic framework grounded in variational Bayesian inference, while Freud's psychodynamics rests on speculative neurophysiology and clinical observation. The two operate on fundamentally different epistemological planes, and conflating them risks obscuring rather than clarifying either framework. 
 
 
 
