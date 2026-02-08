@@ -21,17 +21,6 @@ Freud's theory of desire centers on tension between instinctual drives and the r
 Despite these suggestive parallels, serious methodological and epistemological obstacles complicate any integration of psychoanalysis and active inference such as **Different Scientific Paradigms**, psychoanalysis belongs to the hermeneutic tradition, concerned with meaning-making and narrative coherence. Active inference is embedded in formal mechanistic science, concerned with algorithmic explanation and testable prediction. These frameworks operate within what philosophers like Kuhn might call incommensurable paradigms of inquiry. **Conceptual Ambiguity:** Terms like "energy," "conflict," or "desire" carry different connotations in each system. In psychoanalysis, energy is metaphorical and affective; in the FEP, free energy is a precise mathematical quantity derived from information theory. Overextending these analogies risks conceptual confusion rather than clarification. **Empirical Generalizability:** While active inference generates testable predictions in experimental paradigms and psychiatric modeling, psychoanalytic constructs have historically resisted quantification. Clinical data from psychoanalysis is rich and nuanced but not easily formalized within computational frameworks. 
 **Critique and Caution:** Critics of psychoanalysis often cite its lack of falsifiability—though this criticism has been challenged as both philosophically flawed and empirically outdated. Critics of the FEP, meanwhile, warn that it risks becoming a "theory of everything" that explains too much while predicting too little. Any integration must avoid collapsing into either naive formalism or interpretive excess. 
 
-| Aspect            | Psychoanalysis                          | Active Inference / FEP                  | Alignment & Tensions                                             |
-| ----------------- | --------------------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
-| Foundation        | Hermeneutic, interpretive, qualitative  | Computational, mathematical, formal     | Parallels in adaptation, but epistemological divergence          |
-| Concept of Energy | Psychic energy (metaphorical/affective) | Free energy (information-theoretic)     | Metaphorical resonance, not equivalence                          |
-| View of Conflict  | Intrapsychic, symbolic, narrative       | Prediction error, policy selection      | Both emphasize conflict resolution, but via different mechanisms |
-| Model of Desire   | Symbolic, historically embedded         | Prior over preferred outcomes           | Motivated prediction vs. unconscious fantasy                     |
-| Methodology       | Subjective, case-based, narrative       | Quantitative, experimental, model-based | Complementary but incommensurable methods                        |
-| Empirical Basis   | Clinical observation, interpretive      | Neuroimaging, behavioral modeling       | Computational models testable; psychoanalysis less so            |
-
-
-
 ## Wrap-up
 
 The dialogue between psychoanalysis and active inference is rich but has conceptual risks. The FEP and active inference offer formal, computational lenses through which to reinterpret some of Freud's most enduring insights: the mind as a system under tension, perpetually negotiating between competing demands to maintain internal coherence and adapt to its environment. However, this interpretive pairing of two frameworks needs epistemological care. Active inference provides elegant formalisms, but these cannot substitute for the narrative, symbolic, and relational dimensions that psychoanalysis brings to understanding human experience. **The analogy between psychic energy and free energy proves fruitful only when treated as metaphor rather than equation.** True integration, if it proves possible at all, lies not in collapsing one framework into the other but in allowing each to illuminate the other's blind spots. Psychoanalysis can challenge active inference to account more adequately for affect, narrative, and transference. Active inference can offer psychoanalysis new tools for modeling conflict, adaptation, and learning. By embracing both the synergies and the tensions, we may develop a richer, more pluralistic understanding of the psyche—one that honors both its symbolic complexity and its computational structure.
@@ -88,9 +77,31 @@ The dialogue between psychoanalysis and active inference is rich but has concept
 **Zepf, S. (2010).** [Libido and psychic energy – Freud’s concepts reconsidered](https://www.tandfonline.com/doi/abs/10.1080/08037060802450753). *International Forum of Psychoanalysis*, *19*, 3–14.
 
 
+Beren, J. (2024, July 27). *A retrospective on active inference*. [https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/](https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/)
 
+Bruineberg, J., Kiverstein, J., & Rietveld, E. (2016). The anticipating brain is not a scientist: The free-energy principle from an ecological-enactive perspective. *Frontiers in Human Neuroscience, 10*, Article 20. [https://doi.org/10.3389/fnhum.2016.00020](https://doi.org/10.3389/fnhum.2016.00020)
 
+Clark, A. (2020). Beyond the “Bayesian brain”: Predictive processing and the extended mind. *Trends in Cognitive Sciences, 24*(7), 517–529. [https://doi.org/10.1016/j.tics.2020.03.010](https://doi.org/10.1016/j.tics.2020.03.010)
 
+Colombo, M., & Wright, C. (2023). First-person methods in computational psychiatry and cognitive neuroscience. *Physics of Life Reviews, 47*, 1–30. [https://doi.org/10.1016/j.plrev.2023.09.003](https://doi.org/10.1016/j.plrev.2023.09.003)
+
+Freud, S. (1950/1895). *Project for a scientific psychology*. Pennsylvania State University. [https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf](https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf)
+
+Friston, K. (2010). The free-energy principle: A unified brain theory? *Nature Reviews Neuroscience, 11*(2), 127–138. [https://pmc.ncbi.nlm.nih.gov/articles/PMC2850580/](https://pmc.ncbi.nlm.nih.gov/articles/PMC2850580/)
+
+Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., O’Doherty, J., & Pezzulo, G. (2016). Active inference and learning. *Neuroscience & Biobehavioral Reviews, 68*, 862–879. [https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
+
+Hohwy, J. (2013). *The predictive mind*. Oxford University Press.
+
+LessWrong. (2019). *Why I’m not into the free energy principle*. [https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle](https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle)
+
+Parr, T., Pezzulo, G., & Friston, K. (2022). *Active inference: The free energy principle in mind, brain, and behavior*. MIT Press. [https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind](https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind)
+
+PsychStudies. (n.d.). *Is psychoanalytic psychotherapy empirically validated?* [https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/](https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/)
+
+Smith, R., Badcock, P., & Friston, K. (2022). Recent advances in the application of the free-energy principle to psychiatry. *Current Opinion in Neurobiology, 76*, 102602. [https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/](https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/)
+
+Williams, D. (2022). Predictive processing and mental disorder. *Philosophy, Psychiatry, & Psychology, 29*(4), 267–290. [https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/](https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/)
 
 
 
