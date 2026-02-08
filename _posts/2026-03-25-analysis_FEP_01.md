@@ -26,18 +26,6 @@ Despite these suggestive parallels, serious methodological and epistemological o
 The dialogue between psychoanalysis and active inference is rich but has conceptual risks. The FEP and active inference offer formal, computational lenses through which to reinterpret some of Freud's most enduring insights: the mind as a system under tension, perpetually negotiating between competing demands to maintain internal coherence and adapt to its environment. However, this interpretive pairing of two frameworks needs epistemological care. Active inference provides elegant formalisms, but these cannot substitute for the narrative, symbolic, and relational dimensions that psychoanalysis brings to understanding human experience. **The analogy between psychic energy and free energy proves fruitful only when treated as metaphor rather than equation.** True integration, if it proves possible at all, lies not in collapsing one framework into the other but in allowing each to illuminate the other's blind spots. Psychoanalysis can challenge active inference to account more adequately for affect, narrative, and transference. Active inference can offer psychoanalysis new tools for modeling conflict, adaptation, and learning. By embracing both the synergies and the tensions, we may develop a richer, more pluralistic understanding of the psyche—one that honors both its symbolic complexity and its computational structure.
 
 
-- [frontiersin](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2016.00020/full)
-- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/)
-- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/)
-- [sciencedirect](https://www.sciencedirect.com/science/article/abs/pii/S1364661320300796)
-- [lesswrong](https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle)
-- [psychstudies](https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/)
-- [beren](https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/)
-- [sciencedirect](https://www.sciencedirect.com/science/article/pii/S037015732300203X)
-- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
-- [direct.mit](https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind)
-- [pmc.ncbi.nlm.nih](https://pmc.ncbi.nlm.nih.gov/articles/PMC2850580/)
-- [bpb-us-e1.wpmucdn](https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf)
 
 
 
