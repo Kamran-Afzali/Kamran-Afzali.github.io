@@ -1,3 +1,12 @@
+---
+layout: post
+categories: posts
+title: Active Inference Account of Substance Use Disorder 
+featured-image: /images/NIb.jpg
+tags: [Free Energy Principle, Psychoanalysis, Active Inference]
+date-string: March 2026
+---
+
 ## Active Inference and Psychoanalysis: How Aligned Are the Frameworks?
 
 The intersection between the Free Energy Principle (FEP), active inference, and psychoanalysis has become a new area of interdisciplinary research. This convergence may offer psychoanalytic theory new conceptual tools drawn from computational neuroscience, potentially revitalizing a field that has struggled for institutional legitimacy in recent decades. As we have mentioned in our previous posts the FEP provides a mathematical framework describing how living organisms maintain their structural integrity by minimizing **free energy**, which represents prediction error within a probabilistic model. Active inference, which extends from the FEP, proposes that brains function as active agents that constantly generate predictions about their environment rather than passively processing sensory input. This framework not only models biological and psychological processes but attempts to formalize them in ways that invite comparison with psychoanalytic concepts. However, psychoanalysis operates within an interpretive, hermeneutic tradition rooted in narrative, clinical encounter, and symbolic meaning. Active inference, by contrast, is computational and mechanistic, formulated within Bayesian probabilistic frameworks. The potential value—and the danger—of this dialogue lies in navigating these distinct epistemologies without reducing one to the other.
@@ -64,32 +73,27 @@ The dialogue between psychoanalysis and active inference is rich but has concept
 
 **Zepf, S. (2010).** [Libido and psychic energy – Freud’s concepts reconsidered](https://www.tandfonline.com/doi/abs/10.1080/08037060802450753). *International Forum of Psychoanalysis*, *19*, 3–14.
 
+**Beren, J. (2024, July 27)**. *A retrospective on active inference*. [https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/](https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/)
 
-Beren, J. (2024, July 27). *A retrospective on active inference*. [https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/](https://www.beren.io/2024-07-27-A-Retrospective-on-Active-Inference/)
+**Bruineberg, J., Kiverstein, J., & Rietveld, E. (2016)** The anticipating brain is not a scientist: The free-energy principle from an ecological-enactive perspective. *Frontiers in Human Neuroscience, 10*, Article 20. [https://doi.org/10.3389/fnhum.2016.00020](https://doi.org/10.3389/fnhum.2016.00020)
 
-Bruineberg, J., Kiverstein, J., & Rietveld, E. (2016). The anticipating brain is not a scientist: The free-energy principle from an ecological-enactive perspective. *Frontiers in Human Neuroscience, 10*, Article 20. [https://doi.org/10.3389/fnhum.2016.00020](https://doi.org/10.3389/fnhum.2016.00020)
+**Clark, A. (2020)**. Beyond the “Bayesian brain”: Predictive processing and the extended mind. *Trends in Cognitive Sciences, 24*(7), 517–529. [https://doi.org/10.1016/j.tics.2020.03.010](https://doi.org/10.1016/j.tics.2020.03.010)
 
-Clark, A. (2020). Beyond the “Bayesian brain”: Predictive processing and the extended mind. *Trends in Cognitive Sciences, 24*(7), 517–529. [https://doi.org/10.1016/j.tics.2020.03.010](https://doi.org/10.1016/j.tics.2020.03.010)
+**Colombo, M., & Wright, C. (2023)**. First-person methods in computational psychiatry and cognitive neuroscience. *Physics of Life Reviews, 47*, 1–30. [https://doi.org/10.1016/j.plrev.2023.09.003](https://doi.org/10.1016/j.plrev.2023.09.003)
 
-Colombo, M., & Wright, C. (2023). First-person methods in computational psychiatry and cognitive neuroscience. *Physics of Life Reviews, 47*, 1–30. [https://doi.org/10.1016/j.plrev.2023.09.003](https://doi.org/10.1016/j.plrev.2023.09.003)
+**Freud, S. (1950/1895)**. *Project for a scientific psychology*. Pennsylvania State University. [https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf](https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf)
 
-Freud, S. (1950/1895). *Project for a scientific psychology*. Pennsylvania State University. [https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf](https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/9/19778/files/2021/12/freud-project_for_scientific_psychology.pdf)
+**Hohwy, J. (2013)**. *The predictive mind*. Oxford University Press.
 
-Friston, K. (2010). The free-energy principle: A unified brain theory? *Nature Reviews Neuroscience, 11*(2), 127–138. [https://pmc.ncbi.nlm.nih.gov/articles/PMC2850580/](https://pmc.ncbi.nlm.nih.gov/articles/PMC2850580/)
+**LessWrong. (2019)**. *Why I’m not into the free energy principle*. [https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle](https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle)
 
-Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., O’Doherty, J., & Pezzulo, G. (2016). Active inference and learning. *Neuroscience & Biobehavioral Reviews, 68*, 862–879. [https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/](https://pmc.ncbi.nlm.nih.gov/articles/PMC4700581/)
+**Parr, T., Pezzulo, G., & Friston, K. (2022)**. *Active inference: The free energy principle in mind, brain, and behavior*. MIT Press. [https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind](https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind)
 
-Hohwy, J. (2013). *The predictive mind*. Oxford University Press.
+**PsychStudies. (2018)**. *Is psychoanalytic psychotherapy empirically validated?* [https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/](https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/)
 
-LessWrong. (2019). *Why I’m not into the free energy principle*. [https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle](https://www.lesswrong.com/posts/MArdnet7pwgALaeKs/why-i-m-not-into-the-free-energy-principle)
+**Smith, R., Badcock, P., & Friston, K. (2022)**. Recent advances in the application of the free-energy principle to psychiatry. *Current Opinion in Neurobiology, 76*, 102602. [https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/](https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/)
 
-Parr, T., Pezzulo, G., & Friston, K. (2022). *Active inference: The free energy principle in mind, brain, and behavior*. MIT Press. [https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind](https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind)
-
-PsychStudies. (n.d.). *Is psychoanalytic psychotherapy empirically validated?* [https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/](https://www.psychstudies.net/is-psychoanalytic-psychotherapy-empirically-validated/)
-
-Smith, R., Badcock, P., & Friston, K. (2022). Recent advances in the application of the free-energy principle to psychiatry. *Current Opinion in Neurobiology, 76*, 102602. [https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/](https://pmc.ncbi.nlm.nih.gov/articles/PMC9260223/)
-
-Williams, D. (2022). Predictive processing and mental disorder. *Philosophy, Psychiatry, & Psychology, 29*(4), 267–290. [https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/](https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/)
+**Williams, D. (2022)**. Predictive processing and mental disorder. *Philosophy, Psychiatry, & Psychology, 29*(4), 267–290. [https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/](https://pmc.ncbi.nlm.nih.gov/articles/PMC9731232/)
 
 
 
