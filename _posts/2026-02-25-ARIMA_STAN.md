@@ -149,7 +149,7 @@ You might notice the model runs slower than AR(1). That's because the loop in `t
 
 ## **Bayesian ARIMA(1,1,1) Model**
 
-Many real-world time series aren't stationary. Stock prices, GDP, temperature records—they all tend to wander. If you try to fit an ARMA model to trending data, you'll get nonsensical parameter estimates because the model assumes the mean is constant. The **ARIMA** framework addresses this by differencing the series first. 
+Many real-world time series aren't stationary. If you try to fit an ARMA model to trending data, you'll get nonsensical parameter estimates because the model assumes the mean is constant. The **ARIMA** framework addresses this by differencing the series first. 
 
 In an ARIMA(1,1,1) model, the middle "1" means we take one difference: $$\(\Delta y_t = y_t - y_{t-1}\)$$. We then fit an ARMA(1,1) to the differenced series:
 
@@ -177,9 +177,7 @@ y <- cumsum(dy)
 ts.plot(y, main = "Simulated ARIMA(1,1,1) Time Series")
 ```
 
-The resulting plot should show something that looks like it's wandering around—this is the integrated part of ARIMA at work.
-
-In Stan, we handle differencing in a `transformed data` block, which runs once before sampling starts. This is efficient because differencing doesn't depend on parameters:
+The resulting plot should show something that looks like it's wandering around—this is the integrated part of ARIMA at work. In Stan, we handle differencing in a `transformed data` block, which runs once before sampling starts. This is efficient because differencing doesn't depend on parameters:
 
 ```stan
 data {
@@ -227,7 +225,7 @@ fit <- stan(
 print(fit, pars = c("alpha", "phi", "theta", "sigma"))
 ```
 
-One subtle point: the parameter `alpha` in this model represents the mean of the differenced series, not the original series. If `alpha` is positive, it implies a linear upward trend in the original data. Interpreting parameters after differencing takes a bit of care. The three models—AR, ARMA, and ARIMA presented here form the backbone of classical time series analysis, and their Bayesian versions inherit both the strengths and quirks of their frequentist counterparts. The advantage of going Bayesian is that we get full uncertainty quantification without relying on asymptotic approximations. We can also extend these models more naturally: adding hierarchical structure, incorporating external predictors, or letting parameters vary over time all fit comfortably within the Bayesian framework. That said, Bayesian inference isn't free. These models can be slow, especially for long time series or when loops can't be vectorized. ARMA and ARIMA models also assume certain invertibility and stationarity conditions, which aren't always guaranteed just because we put bounds on parameters. And while Stan's HMC sampler is generally more efficient than Gibbs sampling, it can still struggle with highly correlated posteriors or poorly identified parameters. Future extensions might involve seasonal ARIMA models (SARIMA), state space formulations that handle missing data more gracefully, or time-varying parameter models that relax the assumption of constant phi and theta. The framework we've built here should give you a foundation for exploring those directions. 
+One subtle point: the parameter `alpha` in this model represents the mean of the differenced series, not the original series. If `alpha` is positive, it implies a linear upward trend in the original data. Interpreting parameters after differencing takes a bit of care. The three models—AR, ARMA, and ARIMA presented here form the backbone of classical time series analysis, and their Bayesian versions inherit both the strengths and quirks of their frequentist counterparts. The advantage of going Bayesian is that we get full uncertainty quantification without relying on asymptotic approximations. We can also extend these models more naturally: adding hierarchical structure, incorporating external predictors, or letting parameters vary over time all fit comfortably within the Bayesian framework. That said, Bayesian inference isn't free. These models can be slow, especially for long time series or when loops can't be vectorized. ARMA and ARIMA models also assume certain invertibility and stationarity conditions, which aren't always guaranteed just because we put bounds on parameters. And while Stan's HMC sampler is generally more efficient than Gibbs sampling, it can still struggle with highly correlated posteriors or poorly identified parameters. Future extensions might involve seasonal ARIMA models (SARIMA), state space formulations that handle missing data more gracefully, or time-varying parameter models that relax the assumption of constant phi and theta.
 
 ## **References**
 
