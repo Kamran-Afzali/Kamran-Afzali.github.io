@@ -3,7 +3,7 @@ layout: post
 categories: posts
 title: Bayesian AR, ARMA, and ARIMA Models
 featured-image: /images/stan.png
-tags: [STAN, R, Bayes]
+tags: [STAN, Time seires, Bayes]
 date-string: February 2026 
 ---
 
