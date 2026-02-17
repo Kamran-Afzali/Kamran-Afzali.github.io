@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: posts
-title: Active Inference Account of Substance Use Disorder 
+title: Active Inference and Psychoanalysis 
 featured-image: /images/NIb.jpg
 tags: [Free Energy Principle, Psychoanalysis, Active Inference]
 date-string: March 2026
@@ -9,7 +9,7 @@ date-string: March 2026
 
 ## Active Inference and Psychoanalysis: How Aligned Are the Frameworks?
 
-The intersection between the Free Energy Principle (FEP), active inference, and psychoanalysis has become a new area of interdisciplinary research. This convergence may offer psychoanalytic theory new conceptual tools drawn from computational neuroscience, potentially revitalizing a field that has struggled for institutional legitimacy in recent decades. As we have mentioned in our previous posts the FEP provides a mathematical framework describing how living organisms maintain their structural integrity by minimizing **free energy**, which represents prediction error within a probabilistic model. Active inference, which extends from the FEP, proposes that brains function as active agents that constantly generate predictions about their environment rather than passively processing sensory input. This framework not only models biological and psychological processes but attempts to formalize them in ways that invite comparison with psychoanalytic concepts. However, psychoanalysis operates within an interpretive, hermeneutic tradition rooted in narrative, clinical encounter, and symbolic meaning. Active inference, by contrast, is computational and mechanistic, formulated within Bayesian probabilistic frameworks. The potential value—and the danger—of this dialogue lies in navigating these distinct epistemologies without reducing one to the other.
+The intersection between the Free Energy Principle (FEP), active inference, and psychoanalysis has become a new area of interdisciplinary research. Some speculate that the convergence may offer psychoanalytic theory new conceptual tools drawn from computational neuroscience, potentially revitalizing a field that has struggled for institutional legitimacy in recent decades. As we have mentioned in our previous posts the FEP provides a formal framework describing how living organisms maintain their structural integrity by minimizing **free energy**, which represents prediction error within a probabilistic model. Active inference, which extends from the FEP, proposes that brains function as active agents that constantly generate predictions about their environment rather than passively processing sensory input. This framework not only models biological and psychological processes but attempts to formalize them in ways that invite comparison with psychoanalytic concepts. However, psychoanalysis operates within an interpretive, hermeneutic tradition rooted in narrative, clinical encounter, and symbolic meaning, while active inference is computational and mechanistic, formulated within Bayesian probabilistic frameworks. The potential value—and the danger—of this dialogue lies in navigating these distinct frameworks without reducing one to the other.
 
 
 ### Freud's "Project" and the Free Energy Principle
