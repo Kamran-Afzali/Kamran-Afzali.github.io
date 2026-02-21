@@ -131,7 +131,7 @@ Looking at these three panels together tells a clear story. The observed series 
 One of the most useful things you can do here is to go beyond point estimates and shade credible intervals around each component. Something like `apply(posterior$mu, 2, quantile, probs = c(0.05, 0.95))` gives you the 5th and 95th percentiles of the trend at each time point, which you can plot as a ribbon. In practice, these intervals tend to widen at the edges of the observed data and in periods where the trend is changing direction quickly — exactly where you'd want to know your uncertainty is high.
 
 
-## Extensions Worth Exploring
+## Conclusion and Extensions
 
 The model above is deliberately simple, but it serves as a foundation for a range of more realistic applications. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope \(\nu_t\) alongside the level:
 
@@ -146,9 +146,7 @@ Another useful direction is adding **regression components** — external predic
 Finally, if you're working with multiple related time series — say, sales across different product categories or web traffic across different regions — **hierarchical seasonal decomposition** lets you share information across series. Individual series can have their own trend and seasonal parameters, but those parameters are drawn from a common prior, which regularizes the estimates and borrows strength where data is sparse.
 
 
-## Conclusion
-
 Bayesian seasonal decomposition is one of those techniques that feels like more work upfront than just running `stl()` — and honestly, it is. Writing a Stan model, waiting for MCMC to run, and diagnosing convergence takes real effort. But the payoff is substantial. You get uncertainty estimates that are statistically coherent, a model structure that can be extended in principled ways, and a decomposition that reflects what the data actually supports rather than what a deterministic algorithm happens to produce.
 
-For exploratory work, the posterior means alone are often enough to get a clean visual decomposition. For anything that feeds into a downstream decision — a forecast, an anomaly detection system, a causal analysis — the full posterior matters, and the Bayesian approach is the right tool for the job.
+For exploratory work, the posterior means alone are often enough to get a clean visual decomposition. For anything that feeds into a downstream decision — a forecast, an anomaly detection system, a causal analysis the full posterior matters, and the Bayesian approach is the right tool for the job.
 
