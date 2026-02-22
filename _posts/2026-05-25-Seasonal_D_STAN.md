@@ -1,17 +1,11 @@
 # Bayesian Seasonal Decomposition in Stan and RStan
 
-Understanding what's actually driving a time series is harder than it looks. Most series you encounter in the wild — monthly sales figures, weekly web traffic, hourly energy consumption — are shaped by several overlapping forces at once: a slow-moving trend, a repeating seasonal rhythm, and a layer of noise that obscures both. Pulling these apart cleanly is one of the foundational challenges in time series analysis.
-
-Classical decomposition methods like STL or X-11 have been doing this job for decades, and they work well enough for many purposes. But they share a fundamental limitation: they're deterministic. You get point estimates for each component, with no sense of how confident you should be in them. When your data is short, noisy, or irregularly sampled, that uncertainty can be enormous — and ignoring it leads to overconfident conclusions downstream.
-
-Bayesian seasonal decomposition sidesteps this by treating each component as a latent random quantity with a full probability distribution. Rather than asking "what is the trend?", we ask "what does the posterior distribution over plausible trend trajectories look like given the data?" That's a much richer and more honest answer. In this post, we'll build a Bayesian structural time series model in Stan from scratch, fit it using RStan, and extract posterior estimates for each component.
+Understanding what's driving a time series is complex with most series you encounter in the real are shaped by several overlapping forces at once: a slow-moving trend, a repeating seasonal rhythm, and a layer of noise that obscures both. Pulling these apart cleanly is one of the foundational aspects of time series analysis. Classical decomposition methods like STL have been doing this job for decades, but they share a fundamental limitation of being deterministic. You get point estimates for each component, with no sense of how confident you should be in them. When your data is short, noisy, or irregularly sampled, that uncertainty can be enormous — and ignoring it leads to overconfident conclusions downstream. Bayesian seasonal decomposition bypass this by treating each component as a latent random quantity with a full probability distribution. Rather than asking "what is the trend?", we ask "what does the posterior distribution over plausible trend trajectories look like given the data?" That's a much richer and more honest answer. In this post, we'll build a Bayesian structural time series model in Stan from scratch, fit it using RStan, and extract posterior estimates for each component.
 
 
 ## Simulating a Seasonal Time Series
 
-Before fitting anything, we need data to work with. Rather than jumping straight to a real-world dataset — which would introduce distractions around data cleaning and domain-specific quirks — it's worth starting with a synthetic series where we know the ground truth. That way, we can actually check whether our model is recovering what it should.
-
-The series below combines a gentle linear trend, a sinusoidal seasonal pattern with a 12-period cycle, and Gaussian noise. Think of it as a rough analogue to something like monthly retail sales: slowly growing over time, with a recurring seasonal pattern and some unexplained variation on top.
+Before fitting anything, we need data to work wit and we could start with a synthetic series where we know the ground truth (i.e. generating process). That way, we can actually check whether our model is recovering what it should. The series below combines a gentle linear trend, a sinusoidal seasonal pattern with a 12-period cycle, and Gaussian noise. Think of it as a rough analogue to something like monthly retail sales: slowly growing over time, with a recurring seasonal pattern and some unexplained variation on top. With 120 observations and a period of 12, we have exactly 10 complete seasonal cycles — enough for the model to get a solid grip on both the trend and the seasonal shape. The noise standard deviation of 0.5 is meaningful relative to the signal, so this isn't a trivially easy decomposition problem.
 
 ```r
 set.seed(123)
@@ -25,8 +19,6 @@ y <- trend + seasonal + noise
 
 ts.plot(y, main = "Simulated Time Series with Trend and Seasonality")
 ```
-
-With 120 observations and a period of 12, we have exactly 10 complete seasonal cycles — enough for the model to get a solid grip on both the trend and the seasonal shape. The noise standard deviation of 0.5 is meaningful relative to the signal, so this isn't a trivially easy decomposition problem.
 
 
 ## The Bayesian Structural Model
