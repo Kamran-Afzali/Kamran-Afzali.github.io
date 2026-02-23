@@ -68,7 +68,7 @@ w_- \cdot r & \text{if } r < 0 \\
 
 where typically $w_- > w_+$ for depressed agents, reflecting the tendency to ruminate more on negative events.
 
-## Part 1: Individual Differences and Environmental Perturbations
+## Individual Differences and Environmental Perturbations
 
 Our first simulation framework models a population of agents with heterogeneous traits interacting with a common environment. This approach captures the fundamental insight that depression manifests differently across individuals while sharing common underlying mechanisms.
 
