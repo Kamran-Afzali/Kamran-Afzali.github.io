@@ -4,11 +4,9 @@
 
 In the last post we showed how traditional reinforcement learning (RL) models have provided some insights into decision-making processes. However they often treat agents as purely rational actors, overlooking the profound influence of affective states on behavior, or their concept is simplist, as *mood* in our last post. Depression is complex, characterized by persistent negative mood, anhedonia (reduced capacity to experience pleasure), cognitive biases, and impaired decision-making. Recent empirical work has demonstrated that depressed individuals show altered patterns in reinforcement learning tasks: they exhibit reduced learning rates for positive outcomes, increased sensitivity to negative feedback, and more exploratory (less decisive) choice patterns. By incorporating psychological constructs like mood, pessimism, and learned helplessness into formal mathematical frameworks, we can generate testable hypotheses about the mechanisms underlying mental illness. Moreover, these models offer the potential to develop personalized interventions by identifying specific computational dysfunctions in individual patients. In this comprehensive study, we extend traditional Bayesian reinforcement learning by incorporating dynamic a more complete mood states that modulate both learning and decision-making processes. We present two complementary simulation frameworks: the first introduces individual differences and environmental perturbations to capture heterogeneity in affective responses, while the second incorporates meta-cognitive mechanisms like learned helplessness and rumination. Through systematic comparison of "healthy" and "depressed" agents, we demonstrate how mood dynamics can produce the characteristic behavioral patterns observed in depression.
 
-## Theoretical Framework: Mood-Modulated Bayesian Learning
+## Mood-Modulated Bayesian Learning
 
-### Mathematical Foundations
-
-Our approach builds upon Bayesian reinforcement learning, where agents maintain probability distributions over the expected value of each available action. For a $K$-armed bandit problem, let $Q_k$ represent the true expected reward for arm $k$. The agent maintains a posterior belief over each $Q_k$, which we model as a Gaussian distribution:
+Like our last post we build on Bayesian reinforcement learning framework, where agents maintain probability distributions over the expected value of each available action. For a $K$-armed bandit problem, let $Q_k$ represent the true expected reward for arm $k$. The agent maintains a posterior belief over each $Q_k$, which we model as a Gaussian distribution:
 
 $$Q_k \sim \mathcal{N}(\mu_k, \sigma_k^2)$$
 
@@ -26,9 +24,7 @@ $$\tau_k^{(t+1)} = \tau_k^{(t)} + \alpha^{(t)}$$
 
 where $\tau_k = 1/\sigma_k^2$ is the precision (inverse variance) and $\alpha^{(t)}$ is an effective learning rate that can be modulated by meta-cognitive factors.
 
-### Mood Integration
-
-The key innovation in our framework is the integration of a dynamic mood state $m^{(t)}$ that influences both action selection and learning. Mood evolves according to an exponential smoothing process:
+Here we go further than the 5th model in our first post with a more comprehensive integration of a dynamic mood state $m^{(t)}$ that influences both action selection and learning. Mood evolves according to an exponential smoothing process:
 
 $$m^{(t+1)} = \lambda m^{(t)} + (1-\lambda) f(r^{(t)}) + \epsilon^{(t)}$$
 
@@ -51,9 +47,7 @@ Mood modulates decision-making through several mechanisms:
    
    where $\mathcal{S}$ is the set of self-defeating arms and $\delta > 0$ is the bias strength.
 
-### Meta-Cognitive Extensions
-
-Our second framework incorporates additional meta-cognitive mechanisms:
+Liewise, here our framework incorporates additional meta-cognitive mechanisms:
 
 **Learned Helplessness**: After experiencing $n$ consecutive negative outcomes, the effective learning rate is reduced:
 
@@ -76,11 +70,7 @@ where typically $w_- > w_+$ for depressed agents, reflecting the tendency to rum
 
 ## Part 1: Individual Differences and Environmental Perturbations
 
-### Simulation Architecture
-
 Our first simulation framework models a population of agents with heterogeneous traits interacting with a common environment. This approach captures the fundamental insight that depression manifests differently across individuals while sharing common underlying mechanisms.
-
-#### Environment Specification
 
 The multi-armed bandit environment consists of five arms with distinct reward profiles:
 
@@ -92,11 +82,7 @@ Arm 4: p = 0.1, reward = -1 (self-defeating option)
 Arm 5: p = 0.05, reward = -2 (highly self-defeating option)
 ```
 
-This structure creates a clear distinction between adaptive (arms 1-2) and maladaptive (arms 3-5) choices, allowing us to quantify self-defeating behavior.
-
-#### Individual Difference Modeling
-
-To capture realistic population heterogeneity, we model individual differences using a multivariate approach. Recognizing that pessimism and self-defeating tendencies often co-occur in depression, we sample these traits from a correlated bivariate normal distribution:
+Here we model **individual differences** using a multivariate approach. Recognizing that pessimism and self-defeating tendencies often co-occur in depression, we sample these traits from a correlated bivariate normal distribution:
 
 $$\begin{pmatrix} 
 \text{pessimism}_i \\ 
@@ -109,9 +95,7 @@ Additional parameters are sampled independently:
 - Mood decay: $\lambda_i \sim \text{Uniform}(0.85, 0.98)$
 - Mood influence: $\beta_i \sim \mathcal{N}(2, 0.5^2)$
 
-#### Environmental Events
-
-To model the impact of life events on mood and decision-making, we introduce exogenous perturbations at specific trials:
+To model the impact of **life events** on mood and decision-making, we introduce exogenous perturbations at specific trials:
 
 ```
 Trial 50:  ε = -2 (major negative event)
@@ -119,11 +103,7 @@ Trial 120: ε = +1 (positive event)
 Trial 180: ε = -1 (minor negative event)
 ```
 
-These events directly modify the agent's mood state, simulating how external circumstances can trigger or alleviate depressive episodes.
-
-### Implementation Details
-
-The core agent function implements the mood-modulated Bayesian learning algorithm:
+These events directly modify the agent's mood state, simulating how external circumstances can trigger or alleviate depressive episodes. The core agent function implements the mood-modulated Bayesian learning algorithm:
 
 ```r
 run_agent <- function(params) {
