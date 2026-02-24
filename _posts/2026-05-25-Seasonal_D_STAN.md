@@ -127,7 +127,7 @@ $\[
 
 This allows the trend to accelerate or decelerate over time, which is often more realistic than assuming a constant growth rate. Google's BSTS package (and the related CausalImpact framework) uses exactly this kind of local linear trend as its backbone.
 
-Another useful direction is adding **regression components** — external predictors that explain some of the variation in \(y_t\). Holiday indicators, weather variables, or economic covariates can all be incorporated by adding a linear predictor \(\mathbf{x}_t^\top \boldsymbol{\beta}\) to the observation equation. The Bayesian framework handles this gracefully, because the uncertainty in the regression coefficients propagates naturally into uncertainty about the decomposed components.
+Another useful direction is adding **regression components** — external predictors that explain some of the variation in $\(y_t\)$. Holiday indicators, weather variables, or economic covariates can all be incorporated by adding a linear predictor $\(\mathbf{x}_t^\top \boldsymbol{\beta}\)$ to the observation equation. The Bayesian framework handles this gracefully, because the uncertainty in the regression coefficients propagates naturally into uncertainty about the decomposed components.
 
 Finally, if you're working with multiple related time series — say, sales across different product categories or web traffic across different regions — **hierarchical seasonal decomposition** lets you share information across series. Individual series can have their own trend and seasonal parameters, but those parameters are drawn from a common prior, which regularizes the estimates and borrows strength where data is sparse.
 
