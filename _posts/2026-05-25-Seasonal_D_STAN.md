@@ -3,7 +3,7 @@
 Understanding what's driving a time series is complex with most series you encounter in the real are shaped by several overlapping forces at once: a slow-moving trend, a repeating seasonal rhythm, and a layer of noise that obscures both. Pulling these apart cleanly is one of the foundational aspects of time series analysis. Classical decomposition methods like STL have been doing this job for decades, but they share a fundamental limitation of being deterministic. You get point estimates for each component, with no sense of how confident you should be in them. When your data is short, noisy, or irregularly sampled, that uncertainty can be enormous — and ignoring it leads to overconfident conclusions downstream. Bayesian seasonal decomposition bypass this by treating each component as a latent random quantity with a full probability distribution. Rather than asking "what is the trend?", we ask "what does the posterior distribution over plausible trend trajectories look like given the data?" That's a much richer and more honest answer. In this post, we'll build a Bayesian structural time series model in Stan from scratch, fit it using RStan, and extract posterior estimates for each component.
 
 
-## Simulating a Seasonal Time Series
+## Simulating data
 
 Before fitting anything, we need data to work wit and we could start with a synthetic series where we know the ground truth (i.e. generating process). That way, we can actually check whether our model is recovering what it should. The series below combines a gentle linear trend, a sinusoidal seasonal pattern with a 12-period cycle, and Gaussian noise. Think of it as a rough analogue to something like monthly retail sales: slowly growing over time, with a recurring seasonal pattern and some unexplained variation on top. With 120 observations and a period of 12, we have exactly 10 complete seasonal cycles — enough for the model to get a solid grip on both the trend and the seasonal shape. The noise standard deviation of 0.5 is meaningful relative to the signal, so this isn't a trivially easy decomposition problem.
 
@@ -21,7 +21,7 @@ ts.plot(y, main = "Simulated Time Series with Trend and Seasonality")
 ```
 
 
-## The Bayesian Structural Model
+## The Bayesian Model
 
 The core idea is an additive decomposition: at each time point \(t\), the observed value is the sum of a trend component, a seasonal component, and residual noise.
 
@@ -35,11 +35,7 @@ Each piece has its own dynamics. The trend \(\mu_t\) follows a **local level mod
 \mu_t = \mu_{t-1} + \eta_t, \quad \eta_t \sim \mathcal{N}(0, \sigma_{\mu}^2)
 \]
 
-The parameter \(\sigma_\mu\) controls how volatile the trend is. A small value keeps the trend smooth; a larger value allows it to change direction more rapidly. The posterior will learn a value that balances flexibility against overfitting.
-
-The seasonal component \(\gamma_t\) is modeled as a set of \(s\) free parameters — one per season — constrained to sum to zero over a full period. That zero-sum constraint is what makes the decomposition **identifiable**: without it, you could shift any constant between the trend and the seasonal component and produce an equally valid fit. By centering the seasonal effects, we pin down a unique solution.
-
-Here's the Stan code implementing all of this:
+The parameter \(\sigma_\mu\) controls how volatile the trend is. A small value keeps the trend smooth; a larger value allows it to change direction more rapidly. The posterior will learn a value that balances flexibility against overfitting. The seasonal component \(\gamma_t\) is modeled as a set of \(s\) free parameters — one per season — constrained to sum to zero over a full period. That zero-sum constraint is what makes the decomposition **identifiable**: without it, you could shift any constant between the trend and the seasonal component and produce an equally valid fit. By centering the seasonal effects, we pin down a unique solution.
 
 ```stan
 stan_model_1 <-'data {
@@ -71,9 +67,9 @@ model {
 }'
 ```
 
-A few implementation details worth noting. The `season_raw` vector holds the unconstrained seasonal effects, and we shift them in `transformed parameters` by subtracting their mean. This centering happens before the likelihood is evaluated, so every posterior sample automatically satisfies the identifiability constraint. The `%` operator handles the cyclic indexing — it wraps the time index back around to position 1 after every \(s\) steps, so the same 12 seasonal effects repeat across all 10 cycles.
+In this model the `season_raw` vector holds the unconstrained seasonal effects, and we shift them in `transformed parameters` by subtracting their mean. This centering happens before the likelihood is evaluated, so every posterior sample automatically satisfies the identifiability constraint. The `%` operator handles the cyclic indexing — it wraps the time index back around to position 1 after every \(s\) steps, so the same 12 seasonal effects repeat across all 10 cycles.
 
-## Fitting the Model in RStan
+## Fitting the Model
 
 With the model defined, fitting it in R is straightforward. We package the data into a list and pass it to `stan()`, running 4 chains with 2000 iterations each (the first 1000 are warmup).
 
@@ -98,9 +94,7 @@ fit <- stan(
 print(fit, pars = c("sigma", "sigma_mu", "sigma_season"))
 ```
 
-It's worth paying attention to the \(\hat{R}\) values and effective sample sizes printed by `print(fit)`. For a model of this complexity, you want \(\hat{R} < 1.01\) for all parameters, which indicates the chains have converged to the same distribution. If the trend parameters are mixing slowly — which can happen when the noise level is high — you may need to increase iterations or consider reparameterizing.
-
-The posterior estimates for `sigma`, `sigma_mu`, and `sigma_season` are particularly informative. If `sigma_mu` comes back near zero, it's telling you the trend is essentially linear and doesn't need the flexibility of a random walk. If `sigma_season` is large relative to `sigma`, the seasonal component is being estimated with relatively high uncertainty — which might prompt you to question whether your chosen period is correct.
+Once the model fit is done, take note of the \(\hat{R}\) values and effective sample sizes printed by `print(fit)`. For a model of this complexity, you want \(\hat{R} < 1.01\) for all parameters, which indicates the chains have converged to the same distribution. If the trend parameters are mixing slowly — which can happen when the noise level is high — you may need to increase iterations or consider reparameterizing. The posterior estimates for `sigma`, `sigma_mu`, and `sigma_season` are particularly informative. If `sigma_mu` comes back near zero, it's telling you the trend is essentially linear and doesn't need the flexibility of a random walk. If `sigma_season` is large relative to `sigma`, the seasonal component is being estimated with relatively high uncertainty — which might prompt you to question whether your chosen period is correct.
 
 
 ## Extracting and Visualizing the Components
