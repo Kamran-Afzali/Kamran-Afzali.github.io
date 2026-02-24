@@ -35,7 +35,7 @@ $\[
 \mu_t = \mu_{t-1} + \eta_t, \quad \eta_t \sim \mathcal{N}(0, \sigma_{\mu}^2)
 \]$
 
-The parameter \(\sigma_\mu\) controls how volatile the trend is. A small value keeps the trend smooth; a larger value allows it to change direction more rapidly. The posterior will learn a value that balances flexibility against overfitting. The seasonal component \(\gamma_t\) is modeled as a set of \(s\) free parameters — one per season — constrained to sum to zero over a full period. That zero-sum constraint is what makes the decomposition **identifiable**: without it, you could shift any constant between the trend and the seasonal component and produce an equally valid fit. By centering the seasonal effects, we pin down a unique solution.
+The parameter $\(\sigma_\mu\)$ controls how volatile the trend is. A small value keeps the trend smooth; a larger value allows it to change direction more rapidly. The posterior will learn a value that balances flexibility against overfitting. The seasonal component $\(\gamma_t\)$ is modeled as a set of $\(s\)$ free parameters — one per season — constrained to sum to zero over a full period. That zero-sum constraint is what makes the decomposition **identifiable**: without it, you could shift any constant between the trend and the seasonal component and produce an equally valid fit. By centering the seasonal effects, we pin down a unique solution.
 
 ```stan
 stan_model_1 <-'data {
