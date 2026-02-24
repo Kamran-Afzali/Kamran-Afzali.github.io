@@ -25,15 +25,15 @@ ts.plot(y, main = "Simulated Time Series with Trend and Seasonality")
 
 The core idea is an additive decomposition: at each time point \(t\), the observed value is the sum of a trend component, a seasonal component, and residual noise.
 
-\[
+$\[
 y_t = \mu_t + \gamma_t + \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
-\]
+\]$
 
 Each piece has its own dynamics. The trend \(\mu_t\) follows a **local level model** — a random walk that allows the trend to drift gradually over time rather than forcing it to follow a rigid parametric shape:
 
-\[
+$\[
 \mu_t = \mu_{t-1} + \eta_t, \quad \eta_t \sim \mathcal{N}(0, \sigma_{\mu}^2)
-\]
+\]$
 
 The parameter \(\sigma_\mu\) controls how volatile the trend is. A small value keeps the trend smooth; a larger value allows it to change direction more rapidly. The posterior will learn a value that balances flexibility against overfitting. The seasonal component \(\gamma_t\) is modeled as a set of \(s\) free parameters — one per season — constrained to sum to zero over a full period. That zero-sum constraint is what makes the decomposition **identifiable**: without it, you could shift any constant between the trend and the seasonal component and produce an equally valid fit. By centering the seasonal effects, we pin down a unique solution.
 
