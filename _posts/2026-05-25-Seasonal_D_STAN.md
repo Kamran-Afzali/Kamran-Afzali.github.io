@@ -119,7 +119,7 @@ One of the most useful things you can do here is to go beyond point estimates an
 
 ## Conclusion and Extensions
 
-The model above is deliberately simple, but it serves as a foundation for a range of more realistic applications. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope \(\nu_t\) alongside the level:
+The model above is deliberately simple, but it serves as a foundation for a range of more realistic applications. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope $\(\nu_t\)$ alongside the level:
 
 $\[
 \mu_t = \mu_{t-1} + \nu_{t-1} + \eta_t, \quad \nu_t = \nu_{t-1} + \zeta_t
