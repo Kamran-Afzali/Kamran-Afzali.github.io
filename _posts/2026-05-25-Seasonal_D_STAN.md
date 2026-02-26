@@ -119,20 +119,11 @@ One of the most useful things you can do here is to go beyond point estimates an
 
 ## Conclusion and Extensions
 
-The model above is deliberately simple, but it serves as a foundation for a range of more realistic applications. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope $\(\nu_t\)$ alongside the level:
+The model above is simple but it serves as a foundation for a range of more realistic applications. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope $\(\nu_t\)$ alongside the level:
 
 $\[
 \mu_t = \mu_{t-1} + \nu_{t-1} + \eta_t, \quad \nu_t = \nu_{t-1} + \zeta_t
 \]$
 
-This allows the trend to accelerate or decelerate over time, which is often more realistic than assuming a constant growth rate. Google's BSTS package (and the related CausalImpact framework) uses exactly this kind of local linear trend as its backbone.
-
-Another useful direction is adding **regression components** — external predictors that explain some of the variation in $\(y_t\)$. Holiday indicators, weather variables, or economic covariates can all be incorporated by adding a linear predictor $\(\mathbf{x}_t^\top \boldsymbol{\beta}\)$ to the observation equation. The Bayesian framework handles this gracefully, because the uncertainty in the regression coefficients propagates naturally into uncertainty about the decomposed components.
-
-Finally, if you're working with multiple related time series — say, sales across different product categories or web traffic across different regions — **hierarchical seasonal decomposition** lets you share information across series. Individual series can have their own trend and seasonal parameters, but those parameters are drawn from a common prior, which regularizes the estimates and borrows strength where data is sparse.
-
-
-Bayesian seasonal decomposition is one of those techniques that feels like more work upfront than just running `stl()` — and honestly, it is. Writing a Stan model, waiting for MCMC to run, and diagnosing convergence takes real effort. But the payoff is substantial. You get uncertainty estimates that are statistically coherent, a model structure that can be extended in principled ways, and a decomposition that reflects what the data actually supports rather than what a deterministic algorithm happens to produce.
-
-For exploratory work, the posterior means alone are often enough to get a clean visual decomposition. For anything that feeds into a downstream decision — a forecast, an anomaly detection system, a causal analysis the full posterior matters, and the Bayesian approach is the right tool for the job.
+This allows the trend to accelerate or decelerate over time, which is often more realistic than assuming a constant growth rate. Google's BSTS package (and the related CausalImpact framework) uses exactly this kind of local linear trend as its backbone. Another useful direction is adding **regression components** — external predictors that explain some of the variation in $\(y_t\)$. Holiday indicators, weather variables, or economic covariates can all be incorporated by adding a linear predictor $\(\mathbf{x}_t^\top \boldsymbol{\beta}\)$ to the observation equation. The Bayesian framework handles this because the of uncertainty in the regression coefficients being integrated into uncertainty about the decomposed components. Finally, if you're working with multiple related time series **hierarchical seasonal decomposition** lets you share information across series. Individual series can have their own trend and seasonal parameters, but those parameters are drawn from a common prior, which regularizes the estimates and borrows strength where data is sparse. Bayesian seasonal decomposition is one of those techniques that has much more work upfront than just running a frequentist `stl()` you should, write a Stan model, wait for MCMC to run, and diagnose the convergence. But as a payoff you get uncertainty estimates that are statistically coherent, a model structure that can be extended in principled ways, and a decomposition that reflects what the data actually supports rather than what a deterministic algorithm happens to produce. For exploratory work, the posterior means alone are often enough to get a clean visual decomposition. For anything that feeds into a downstream decision — a forecast, an anomaly detection system, a causal analysis the full posterior matters, and the Bayesian approach is the right tool for the job.
 
