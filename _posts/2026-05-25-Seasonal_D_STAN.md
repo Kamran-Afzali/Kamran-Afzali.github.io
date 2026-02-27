@@ -1,4 +1,13 @@
-# Bayesian Seasonal Decomposition in Stan and RStan
+---
+layout: post
+categories: posts
+title: Bayesian Seasonal Decomposition in Stan
+featured-image: /images/stan.png
+tags: [STAN, Time seires, Bayes]
+date-string: May 2026 
+---
+
+# Bayesian Seasonal Decomposition in Stan
 
 Understanding what's driving a time series is complex with most series you encounter in the real are shaped by several overlapping forces at once: a slow-moving trend, a repeating seasonal rhythm, and a layer of noise that obscures both. Pulling these apart cleanly is one of the foundational aspects of time series analysis. Classical decomposition methods like STL have been doing this job for decades, but they share a fundamental limitation of being deterministic. You get point estimates for each component, with no sense of how confident you should be in them. When your data is short, noisy, or irregularly sampled, that uncertainty can be enormous — and ignoring it leads to overconfident conclusions downstream. Bayesian seasonal decomposition bypass this by treating each component as a latent random quantity with a full probability distribution. Rather than asking "what is the trend?", we ask "what does the posterior distribution over plausible trend trajectories look like given the data?" That's a much richer and more honest answer. In this post, we'll build a Bayesian structural time series model in Stan from scratch, fit it using RStan, and extract posterior estimates for each component.
 
@@ -21,7 +30,7 @@ ts.plot(y, main = "Simulated Time Series with Trend and Seasonality")
 ```
 
 
-## The Bayesian Model
+## Bayesian Modeling
 
 The core idea is an additive decomposition: at each time point \(t\), the observed value is the sum of a trend component, a seasonal component, and residual noise.
 
