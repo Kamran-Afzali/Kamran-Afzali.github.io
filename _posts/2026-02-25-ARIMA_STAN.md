@@ -82,9 +82,7 @@ $$
 y_t = \alpha + \phi y_{t-1} + \epsilon_t + \theta \epsilon_{t-1}, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
 $$
 
-The new parameter \(\theta\) controls how much yesterday's forecast error affects today's value. This gives the model more flexibility in shaping the autocorrelation function. When \(\phi\) and \(\theta\) have opposite signs, you can get patterns that pure AR models can't replicate. 
-
-Simulating this in R requires us to track the error terms explicitly:
+The new parameter $\(\theta\)$ controls how much yesterday's forecast error affects today's value. This gives the model more flexibility in shaping the autocorrelation function. When $\(\phi\)$ and $\(\theta\)$ have opposite signs, you can get patterns that pure AR models can't replicate.  Simulating this in R requires us to track the error terms explicitly:
 
 ```r
 set.seed(123)
