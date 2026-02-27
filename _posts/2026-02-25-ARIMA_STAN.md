@@ -19,7 +19,7 @@ $$
 y_t = \alpha + \phi y_{t-1} + \epsilon_t, \quad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
 $$
 
-Here, \(\alpha\) represents a constant drift term, \(\phi\) controls how much yesterday's value influences today (often called the autocorrelation parameter), and \(\epsilon_t\) is our white noise. When \(|\phi| < 1\), the process is stationary, meaning it won't wander off to infinity. If \(\phi\) gets too close to 1, though, the series develops a long memory and small shocks persist for a long time.
+Here, $\(\alpha\)$ represents a constant drift term, $\(\phi\)$ controls how much yesterday's value influences today (often called the autocorrelation parameter), and $\(\epsilon_t\)$ is our white noise. When $\(|\phi| < 1\)$, the process is stationary, meaning it won't wander off to infinity. If $\(\phi\)$ gets too close to 1, though, the series develops a long memory and small shocks persist for a long time.
 
 Let's simulate an AR(1) process in R to see what this looks like:
 
