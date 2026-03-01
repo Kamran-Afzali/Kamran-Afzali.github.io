@@ -51,7 +51,10 @@ Liewise, here our framework incorporates additional meta-cognitive mechanisms:
 
 **Learned Helplessness**: After experiencing $n$ consecutive negative outcomes, the effective learning rate is reduced:
 
-$$\alpha^{(t)} = \alpha_{\text{base}} \cdot \begin{cases}
+
+
+$$\alpha^{(t)} = \alpha_{\text{base}} 
+\cdot \begin{cases}
 \eta & \text{if } \sum_{s=t-n+1}^t \mathbb{I}[r^{(s)} < 0] = n \\
 1 & \text{otherwise}
 \end{cases}$$
