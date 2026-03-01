@@ -172,11 +172,6 @@ The simulation of 20 heterogeneous agents over 200 trials reveals several key pa
 
 The visualization of mood trajectories across all agents illustrates the complex interplay between individual traits and environmental factors. Some agents maintain relatively stable positive mood throughout the task, while others experience prolonged negative periods following adverse events—patterns reminiscent of the heterogeneity observed in clinical populations.
 
-## Part 2: Meta-Cognitive Mechanisms in Depression
-
-### Advanced Psychological Modeling
-
-Our second framework extends the basic mood-modulated model by incorporating sophisticated meta-cognitive mechanisms that are central to depressive cognition. These mechanisms operate "above" the basic learning level, modifying how information is processed and integrated.
 #### Learned Helplessness
 
 Learned helplessness represents one of the most influential theories of depression, proposing that repeated uncontrollable negative experiences lead to a generalized expectation of futility. We implement this through an adaptive learning rate mechanism:
@@ -233,8 +228,7 @@ We define two distinct agent populations with parameter sets derived from empiri
 
 ### Implementation Architecture
 
-The enhanced agent function incorporates all meta-cognitive mechanisms:
-
+This implementation integrates all meta-cognitive mechanisms into a coherent framework. The learned helplessness mechanism tracks consecutive negative outcomes and reduces learning rates when thresholds are exceeded. Rumination is implemented through asymmetric weighting of positive and negative rewards in mood updates. The combination of these mechanisms with the basic mood-modulated learning creates a rich model capable of reproducing diverse aspects of depressive cognition.
 ```r
 bayesian_agent_meta <- function(
     episodes = 200,
@@ -316,8 +310,6 @@ bayesian_agent_meta <- function(
   return(list(actions = actions, rewards = rewards, mood = mood_hist))
 }
 ```
-
-This implementation integrates all meta-cognitive mechanisms into a coherent framework. The learned helplessness mechanism tracks consecutive negative outcomes and reduces learning rates when thresholds are exceeded. Rumination is implemented through asymmetric weighting of positive and negative rewards in mood updates. The combination of these mechanisms with the basic mood-modulated learning creates a rich model capable of reproducing diverse aspects of depressive cognition.
 
 
 ### Clinical Applications and Limitations
