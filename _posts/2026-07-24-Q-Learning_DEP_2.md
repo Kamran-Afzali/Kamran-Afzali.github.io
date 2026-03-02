@@ -188,12 +188,12 @@ where the helplessness factor decreases following consecutive negative outcomes:
 $$
 h^{(t)} =
 \begin{cases}
-\eta & \text{if } \text{consecutive\_punishments} \geq \theta \\
+\eta & \text{if} \text{consecutive\_punishments} \geq \theta \\
 1 & \text{otherwise}
 \end{cases}
 $$
 
-Here, \( \theta \) is the helplessness threshold (number of consecutive negative outcomes required) and \( \eta < 1 \) is the reduction factor. Depressed agents have lower thresholds and stronger reductions, making them more susceptible to helplessness.
+Here, $\( \theta \)$ is the helplessness threshold (number of consecutive negative outcomes required) and \( \eta < 1 \) is the reduction factor. Depressed agents have lower thresholds and stronger reductions, making them more susceptible to helplessness.
 
 #### Rumination and Cognitive Bias
 
