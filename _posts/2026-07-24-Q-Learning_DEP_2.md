@@ -10,9 +10,7 @@ Like our last post we build on Bayesian reinforcement learning framework, where 
 
 $$Q_k \sim \mathcal{N}(\mu_k, \sigma_k^2)$$
 
-where $\mu_k$ is the posterior mean and $\sigma_k^2$ is the posterior variance for arm $k$. Initially, we set uninformative priors: $\mu_k^{(0)} = \mu_0$ and $\sigma_k^{(0)} = \sigma_0^2$, where $\mu_0$ can encode pessimistic or optimistic biases.
-
-At each trial $t$, the agent selects actions using **Thompson Sampling**: it draws a sample $\tilde{Q}_k^{(t)} \sim \mathcal{N}(\mu_k^{(t)}, \sigma_k^{(t)})$ for each arm and chooses the arm with the highest sample:
+where $\mu_k$ is the posterior mean and $\sigma_k^2$ is the posterior variance for arm $k$. Initially, we set uninformative priors: $\mu_k^{(0)} = \mu_0$ and $\sigma_k^{(0)} = \sigma_0^2$, where $\mu_0$ can encode pessimistic or optimistic biases. At each trial $t$, the agent selects actions using **Thompson Sampling**: it draws a sample $\tilde{Q}_k^{(t)} \sim \mathcal{N}(\mu_k^{(t)}, \sigma_k^{(t)})$ for each arm and chooses the arm with the highest sample:
 
 $$a^{(t)} = \arg\max_k \tilde{Q}_k^{(t)}$$
 
@@ -22,36 +20,15 @@ $$\mu_k^{(t+1)} = \frac{\tau_k^{(t)} \mu_k^{(t)} + \alpha^{(t)} r^{(t)}}{\tau_k^
 
 $$\tau_k^{(t+1)} = \tau_k^{(t)} + \alpha^{(t)}$$
 
-where $\tau_k = 1/\sigma_k^2$ is the precision (inverse variance) and $\alpha^{(t)}$ is an effective learning rate that can be modulated by meta-cognitive factors.
-
-Here we go further than the 5th model in our first post with a more comprehensive integration of a dynamic mood state $m^{(t)}$ that influences both action selection and learning. Mood evolves according to an exponential smoothing process:
+where $\tau_k = 1/\sigma_k^2$ is the precision (inverse variance) and $\alpha^{(t)}$ is an effective learning rate that can be modulated by meta-cognitive factors. Here we go further than the 5th model in our first post with a more comprehensive integration of a dynamic mood state $m^{(t)}$ that influences both action selection and learning. Mood evolves according to an exponential smoothing process:
 
 $$m^{(t+1)} = \lambda m^{(t)} + (1-\lambda) f(r^{(t)}) + \epsilon^{(t)}$$
 
 where $\lambda \in [0,1]$ is the mood decay parameter, $f(r)$ is a function mapping rewards to mood updates, and $\epsilon^{(t)}$ represents external perturbations (e.g., life events).
 
-Mood modulates decision-making through several mechanisms:
-
-1. **Exploration Modulation**: Mood affects the variance of Thompson sampling:
-   $$\tilde{Q}_k^{(t)} \sim \mathcal{N}\left(\mu_k^{(t)}, \exp(-\beta m^{(t)}) \sigma_k^{(t)}\right)$$
-   
-   When mood is negative ($m < 0$), the variance increases, leading to more exploratory behavior. This captures the clinical observation that depressed individuals often exhibit more random, less value-driven choices.
-
-2. **Pessimistic Bias**: Initial beliefs can be shifted based on trait pessimism:
-   $$\mu_k^{(0)} = \mu_0 + \gamma \cdot \text{pessimism}$$
-   
-   where $\gamma$ scales the influence of pessimistic priors.
-
-3. **Self-Defeating Bias**: In action selection, certain arms (representing maladaptive choices) receive artificial boosts:
-   $$\tilde{Q}_k^{(t)} \leftarrow \tilde{Q}_k^{(t)} + \delta \cdot \mathbb{I}[k \in \mathcal{S}]$$
-   
-   where $\mathcal{S}$ is the set of self-defeating arms and $\delta > 0$ is the bias strength.
-
-Liewise, here our framework incorporates additional meta-cognitive mechanisms:
+Mood modulates decision-making through mechanisms ofv**Exploration Modulation**: Mood affects the variance of Thompson sampling: $$\tilde{Q}_k^{(t)} \sim \mathcal{N}\left(\mu_k^{(t)}, \exp(-\beta m^{(t)}) \sigma_k^{(t)}\right)$$ When mood is negative ($m < 0$), the variance increases, leading to more exploratory behavior. This captures one clinical hypoyhesis that depressed individuals often exhibit more random, less value-driven choices. **Pessimistic Bias**: Initial beliefs can be shifted based on trait pessimism:  $$\mu_k^{(0)} = \mu_0 + \gamma \cdot \text{pessimism}$$ where $\gamma$ scales the influence of pessimistic priors. **Self-Defeating Bias**: In action selection, certain arms (representing maladaptive choices) receive artificial boosts: $$\tilde{Q}_k^{(t)} \leftarrow \tilde{Q}_k^{(t)} + \delta \cdot \mathbb{I}[k \in \mathcal{S}]$$ where $\mathcal{S}$ is the set of self-defeating arms and $\delta > 0$ is the bias strength. Liewise, here our framework incorporates additional meta-cognitive mechanisms:
 
 **Learned Helplessness**: After experiencing $n$ consecutive negative outcomes, the effective learning rate is reduced:
-
-
 
 $$\alpha^{(t)} = \alpha_{\text{base}} 
 \cdot \begin{cases}
@@ -165,13 +142,9 @@ The algorithm begins by initializing Bayesian beliefs with potentially pessimist
 
 ### Results and Interpretation
 
-The simulation of 20 heterogeneous agents over 200 trials reveals several key patterns:
+The simulation of 20 heterogeneous agents over 200 trials shows different patterns:
 
-1. **Mood Trajectory Heterogeneity**: Agents exhibit diverse mood trajectories even when facing identical environmental conditions. Those with higher pessimism and self-defeating bias tend toward more negative mood states and show greater volatility in response to external events.
-
-2. **Event Sensitivity**: The negative event at trial 50 produces variable responses across agents, with some showing rapid recovery while others exhibit persistent mood deterioration. This variability reflects individual differences in resilience—a key factor in depression vulnerability.
-
-3. **Cumulative Performance**: Agents with more negative trait profiles accumulate fewer rewards over time, creating a self-reinforcing cycle where poor performance further degrades mood and decision-making.
+**Mood Trajectory Heterogeneity**: Agents exhibit diverse mood trajectories even when facing identical environmental conditions. Those with higher pessimism and self-defeating bias tend toward more negative mood states and show greater volatility in response to external events. **Event Sensitivity**: The negative event at trial 50 produces variable responses across agents, with some showing rapid recovery while others exhibit persistent mood deterioration. This variability reflects individual differences in resilience—a key factor in depression vulnerability. **Cumulative Performance**: Agents with more negative trait profiles accumulate fewer rewards over time, creating a self-reinforcing cycle where poor performance further degrades mood and decision-making.
 
 The visualization of mood trajectories across all agents illustrates the complex interplay between individual traits and environmental factors. Some agents maintain relatively stable positive mood throughout the task, while others experience prolonged negative periods following adverse events—patterns reminiscent of the heterogeneity observed in clinical populations.
 
