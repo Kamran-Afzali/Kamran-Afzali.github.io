@@ -144,13 +144,7 @@ The algorithm begins by initializing Bayesian beliefs with potentially pessimist
 
 The simulation of 20 heterogeneous agents over 200 trials shows different patterns:
 
-**Mood Trajectory Heterogeneity**: Agents exhibit diverse mood trajectories even when facing identical environmental conditions. Those with higher pessimism and self-defeating bias tend toward more negative mood states and show greater volatility in response to external events. **Event Sensitivity**: The negative event at trial 50 produces variable responses across agents, with some showing rapid recovery while others exhibit persistent mood deterioration. This variability reflects individual differences in resilience—a key factor in depression vulnerability. **Cumulative Performance**: Agents with more negative trait profiles accumulate fewer rewards over time, creating a self-reinforcing cycle where poor performance further degrades mood and decision-making.
-
-The visualization of mood trajectories across all agents illustrates the complex interplay between individual traits and environmental factors. Some agents maintain relatively stable positive mood throughout the task, while others experience prolonged negative periods following adverse events—patterns reminiscent of the heterogeneity observed in clinical populations.
-
-#### Learned Helplessness
-
-Learned helplessness represents one of the most influential theories of depression, proposing that repeated uncontrollable negative experiences lead to a generalized expectation of futility. We implement this through an adaptive learning rate mechanism:
+**Mood Trajectory Heterogeneity**,Agents exhibit diverse mood trajectories even when facing identical environmental conditions. Those with higher pessimism and self-defeating bias tend toward more negative mood states and show greater volatility in response to external events. **Event Sensitivity**, The negative event at trial 50 produces variable responses across agents, with some showing rapid recovery while others exhibit persistent mood deterioration. This variability reflects individual differences in resilience—a key factor in depression vulnerability. **Cumulative Performance**, Agents with more negative trait profiles accumulate fewer rewards over time, creating a self-reinforcing cycle where poor performance further degrades mood and decision-making. **Learned helplessness** represents one of the most influential theories of depression, proposing that repeated uncontrollable negative experiences lead to a generalized expectation of futility. We implement this through an adaptive learning rate mechanism:
 
 $$
 \alpha^{(t)} = \alpha_{\text{base}} \cdot h^{(t)}
