@@ -161,7 +161,7 @@ where the helplessness factor decreases following consecutive negative outcomes:
 $$
 h^{(t)} =
 \begin{cases}
-\eta & \text{if } \text{consecutive\_punishments} \geq \theta \\
+\eta & \text{if } c_t \geq \theta \\
 1 & \text{otherwise}
 \end{cases}
 $$
