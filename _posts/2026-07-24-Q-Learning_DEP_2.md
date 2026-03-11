@@ -99,35 +99,16 @@ run_agent <- function(params) {
   mood_hist <- numeric(episodes)
   
   for (i in 1:episodes) {
-    # Clamp mood to prevent numerical instability
     mood_clamped <- min(max(mood, -1), 1)
-    
-    # Mood modulates exploration via variance scaling
     mood_sigma_scale <- exp(-params$mood_influence * mood_clamped)
-    
-    # Thompson sampling with mood modulation
     sampled_Q <- rnorm(K, mean = mu, sd = mood_sigma_scale / sqrt(tau))
-    
-    # Add self-defeating bias to maladaptive arms
     sampled_Q[self_defeating_arms] <- sampled_Q[self_defeating_arms] + params$self_defeat_bias
-    
-    # Select action greedily with respect to samples
     action <- which.max(sampled_Q)
-    
-    # Observe reward
     reward <- ifelse(runif(1) < reward_probs[action], reward_vals[action], 0)
-    
-    # Bayesian update for chosen arm
     tau[action] <- tau[action] + 1
     mu[action] <- (mu[action] * (tau[action] - 1) + reward) / tau[action]
-    
-    # Update mood with exponential smoothing
     mood <- params$mood_decay * mood + (1 - params$mood_decay) * reward
-    
-    # Apply external event if present
     mood <- mood + external_events[i]
-    
-    # Store results
     actions[i] <- action
     rewards[i] <- reward
     mood_hist[i] <- mood
