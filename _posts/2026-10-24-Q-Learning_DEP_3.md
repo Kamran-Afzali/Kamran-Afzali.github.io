@@ -1,9 +1,7 @@
 
 # Beyond Bandits: Modeling Depression in Complex Behavioral Environments
 
-Multi-armed bandit tasks provide a clean framework for studying decision-making deficits in depression, but they abstract away much of the complexity of real-world behavior. Daily life involves navigating rich environments with multiple states, social contexts, and evolving personal characteristics that shape how we learn and choose. In this follow-up to our Q-learning depression models, we extend beyond simple bandit paradigms to explore how depressive patterns emerge in more realistic behavioral simulations.
-
-This post introduces three progressively sophisticated models: a basic mood-sensitive Markov Decision Process (MDP), an agent influenced by social feedback, and finally an agent with dynamic identity traits that evolve based on experience. Each model reveals new insights into how depression might manifest not just as altered learning parameters, but as complex interactions between affect, environment, and developing psychological characteristics.
+Multi-armed bandit tasks, as we discussed in our previous posts, provide a framework for studying decision-making deficits in depression, but they take away much of the complexity of real-world behavior. Daily life involves navigating environments with states, social contexts, and personal characteristics that shape how we learn and choose. In this follow-up post we extend beyond simple bandit paradigms to explore how depressive patterns emerge in more realistic behavioral simulations. This post introduces three progressive models: a basic mood-sensitive Markov Decision Process (MDP), an agent influenced by social feedback, and finally an agent with dynamic identity traits that evolve based on experience. Each model reveals new insights into how depression might manifest not just as altered learning parameters, but as complex interactions between affect, environment, and developing psychological characteristics.
 
 ## From Bandits to Behavioral States
 
