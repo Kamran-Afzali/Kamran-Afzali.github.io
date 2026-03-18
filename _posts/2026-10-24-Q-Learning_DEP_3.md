@@ -5,15 +5,7 @@ Multi-armed bandit tasks, as we discussed in our previous posts, provide a frame
 
 ## From Bandits to Behavioral States
 
-Real behavior unfolds across multiple contexts rather than simple discrete choices. Our first extension models an agent navigating five behavioral states: ScreenTime, PhysicalActivity, Socializing, Alcohol use, and Cinema. Unlike bandit arms that exist in isolation, these states form an environment where actions influence both immediate rewards and future state transitions.
-
-The agent maintains Q-values for each state-action pair and updates them using standard temporal difference learning. However, we introduce several key modifications that capture depressive cognition more realistically than simple parameter changes:
-
-**Mood-Dependent Learning Rate**: Rather than fixed learning rates, we implement `alpha = alpha_base * exp(-mood_influence * mood)`. When mood is negative, the exponential term increases alpha, making the agent paradoxically more sensitive to new information when distressed. This captures clinical observations that depressed individuals can become hypervigilant to negative feedback while remaining relatively insensitive to positive outcomes.
-
-**Rumination-Based Mood Updates**: Mood evolves based on differential weighting of positive versus negative experiences. Healthy agents weight successes more heavily (`rumination_weight_success = 0.6` vs `rumination_weight_failure = 0.4`), while depressed agents show the reverse pattern (`0.2` vs `0.8`). This asymmetry creates a self-reinforcing cycle where negative experiences have disproportionate impact on future learning.
-
-**Optimism and Pessimism Biases**: Rather than simply altering Q-values uniformly, we implement `biased_Q = Q + optimism - pessimism * (1 - Q)`. The pessimism term scales with how far Q-values are from their maximum, meaning the agent becomes increasingly pessimistic about options it hasn't fully explored—a computational implementation of the "unknown = bad" heuristic often seen in [[Anxiety and Depression]].
+Real behavior unfolds across multiple contexts rather than simple discrete choices. Our first extension models an agent navigating five behavioral states: ScreenTime, PhysicalActivity, Socializing, Alcohol use, and Cinema. Unlike bandit arms that exist in isolation, these states form an environment where actions influence both immediate rewards and future state transitions. The agent maintains Q-values for each state-action pair and updates them using standard temporal difference learning. like previous models (post 1 and 2) we have a **Mood-Dependent Learning Rate**, that is rather than fixed learning rates, we implement `alpha = alpha_base * exp(-mood_influence * mood)`. When mood is negative, the exponential term increases alpha, making the agent paradoxically more sensitive to new information when distressed. This captures clinical observations that depressed individuals can become hypervigilant to negative feedback while remaining relatively insensitive to positive outcomes. We also set up **Rumination-Based Mood Updates** where mood evolves based on differential weighting of positive versus negative experiences. Healthy agents weight successes more heavily (`rumination_weight_success = 0.6` vs `rumination_weight_failure = 0.4`), while depressed agents show the reverse pattern (`0.2` vs `0.8`). This asymmetry creates a self-reinforcing cycle where negative experiences have disproportionate impact on future learning. Also, rather than simply altering Q-values uniformly, we implement `biased_Q = Q + optimism - pessimism * (1 - Q)`. The pessimism term scales with how far Q-values are from their maximum, meaning the agent becomes increasingly pessimistic about options it hasn't fully explored—a computational implementation of the "unknown = bad" heuristic often seen in  Anxiety and Depression.
 
 ```r
 # Key parameter differences
@@ -36,11 +28,7 @@ params_depressed <- list(
 
 ## Adding Social Influence
 
-Mental health disorders rarely occur in social isolation. Our second model incorporates peer feedback as an additional influence on both learning and mood. This extension recognizes that depression often involves altered social cognition and increased sensitivity to social rejection.
-
-The agent receives peer feedback based on its chosen actions, implemented in two modes: random feedback simulating unpredictable social environments, or state-based feedback where certain behaviors (like socializing or exercise) receive positive responses while others (like alcohol use) receive negative feedback.
-
-Critically, we vary `social_feedback_weight` between healthy (0.3) and depressed (0.5) agents, reflecting empirical findings that individuals with depression show heightened sensitivity to social evaluation. The depressed agent's mood becomes more volatile and dependent on external validation:
+Mental health disorders rarely occur in social isolation. Our second model incorporates peer feedback as an additional influence on both learning and mood. This extension recognizes that depression often involves altered social cognition and increased sensitivity to social rejection. The agent receives peer feedback based on its chosen actions, implemented in two modes: random feedback simulating unpredictable social environments, or state-based feedback where certain behaviors (like socializing or exercise) receive positive responses while others (like alcohol use) receive negative feedback. We vary `social_feedback_weight` between healthy (0.3) and depressed (0.5) agents, reflecting empirical findings that individuals with depression show heightened sensitivity to social evaluation. The depressed agent's mood becomes more volatile and dependent on external validation:
 
 ```r
 mood_reward <- if (reward > 0) rumination_weight_success * reward else rumination_weight_failure * reward
