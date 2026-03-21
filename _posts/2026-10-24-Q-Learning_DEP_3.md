@@ -41,15 +41,13 @@ This social influence creates feedback loops where negative peer responses can t
 
 ## Dynamic Identity and Trait Evolution
 
-Our most sophisticated model moves beyond fixed agent parameters to explore how psychological traits themselves might evolve through experience. This addresses a key limitation of static models: real people's characteristics change over time, potentially in ways that reinforce or ameliorate depressive patterns.
+The third model moves beyond fixed agent parameters to explore how psychological traits themselves might evolve through experience as the characteristics change over time, potentially in ways that reinforce or ameliorate depressive patterns. We implement three evolving identity dimensions:
 
-We implement three evolving identity dimensions:
+- **Rumination Bias**: Increases when the agent experiences negative outcomes while in poor mood states. This creates a ratcheting effect where bad experiences during low mood periods make the agent increasingly likely to dwell on future negative outcomes.
+- **Social Sensitivity**: Adjusts based on the magnitude of peer feedback received. Agents who experience strong social responses become more reactive to future social cues, potentially leading to either social confidence or social anxiety depending on the valence of early experiences.
+- **Goal Orientation**: Reflects the agent's recent reward volatility. Agents experiencing consistent outcomes develop stronger goal-directed behavior, while those facing unpredictable environments become more exploratory and less focused.
 
-**Rumination Bias**: Increases when the agent experiences negative outcomes while in poor mood states. This creates a ratcheting effect where bad experiences during low mood periods make the agent increasingly likely to dwell on future negative outcomes.
-
-**Social Sensitivity**: Adjusts based on the magnitude of peer feedback received. Agents who experience strong social responses become more reactive to future social cues, potentially leading to either social confidence or social anxiety depending on the valence of early experiences.
-
-**Goal Orientation**: Reflects the agent's recent reward volatility. Agents experiencing consistent outcomes develop stronger goal-directed behavior, while those facing unpredictable environments become more exploratory and less focused.
+These trait dynamics create emergent behavioral patterns that persist beyond individual learning episodes. An agent who early in simulation experiences negative outcomes while in poor mood develops increased rumination bias, making them more likely to focus on negative aspects of future experiences. This computational implementation captures how depressive cognition can become self-reinforcing through experience-dependent trait formation.
 
 ```r
 # Identity evolution rules
@@ -65,7 +63,6 @@ if (t > 10) {
 }
 ```
 
-These trait dynamics create emergent behavioral patterns that persist beyond individual learning episodes. An agent who early in simulation experiences negative outcomes while in poor mood develops increased rumination bias, making them more likely to focus on negative aspects of future experiences. This computational implementation captures how depressive cognition can become self-reinforcing through experience-dependent trait formation.
 
 ## Behavioral Patterns and Clinical Implications
 
@@ -106,11 +103,7 @@ Despite their limitations, these models suggest several computational perspectiv
 
 ## Conclusion
 
-Moving beyond simple bandit tasks reveals depression not as a collection of fixed parameter changes, but as dynamic patterns emerging from complex interactions between learning, affect, social context, and evolving psychological traits. These models suggest that depressive cognition involves sophisticated feedback loops that can make initially adaptive responses become self-reinforcing patterns of dysfunction.
-
-While these computational approaches remain significant simplifications of human psychology, they offer frameworks for understanding how temporary mood episodes can create lasting behavioral changes, how social contexts shape individual psychology, and how therapeutic interventions might target specific components of complex cognitive-affective systems. As [[Computational Psychiatry]] continues developing, such models may eventually inform personalized interventions based on individual learning patterns and environmental contexts.
-
-The code implementations demonstrate that relatively simple extensions to standard [[Reinforcement Learning]] can capture surprisingly rich behavioral phenomena. However, the true test of these models lies not in their computational sophistication, but in their ability to generate testable predictions about real human behavior and inform effective therapeutic approaches.
+Moving beyond simple bandit tasks here we discussed depression not as a collection of fixed parameter changes, but as dynamic patterns emerging from complex interactions between learning, affect, social context, and evolving psychological traits. These models suggest that depressive cognition involves sophisticated feedback loops that can make initially adaptive responses become self-reinforcing patterns of dysfunction. While these computational approaches remain significant simplifications of human psychology, they offer frameworks for understanding how temporary mood episodes can create lasting behavioral changes, how social contexts shape individual psychology, and how therapeutic interventions might target specific components of complex cognitive-affective systems. As Computational Psychiatry continues developing, such models may eventually inform personalized interventions based on individual learning patterns and environmental contexts. The code implementations demonstrate that relatively simple extensions to standard  Reinforcement Learning can capture surprisingly rich behavioral phenomena. However, the true test of these models lies not in their computational sophistication, but in their ability to generate testable predictions about real human behavior and inform effective therapeutic approaches.
 
 # code
 
