@@ -2,7 +2,7 @@
 layout: post
 categories: posts
 title: Computational Modeling of Healthy and Depressed Decision-Making 
-featured-image: /images/comp_psych_2.png
+featured-image: /images/comp01.png
 tags: [Computational psychiatry, Decision-Making, Reinforcement learning]
 date-string: April 2026
 ---
