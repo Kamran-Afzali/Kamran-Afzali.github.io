@@ -41,13 +41,7 @@ This social influence creates feedback loops where negative peer responses can t
 
 ## Dynamic Identity and Trait Evolution
 
-The third model moves beyond fixed agent parameters to explore how psychological traits themselves might evolve through experience as the characteristics change over time, potentially in ways that reinforce or ameliorate depressive patterns. We implement three evolving identity dimensions:
-
-- **Rumination Bias**: Increases when the agent experiences negative outcomes while in poor mood states. This creates a ratcheting effect where bad experiences during low mood periods make the agent increasingly likely to dwell on future negative outcomes.
-- **Social Sensitivity**: Adjusts based on the magnitude of peer feedback received. Agents who experience strong social responses become more reactive to future social cues, potentially leading to either social confidence or social anxiety depending on the valence of early experiences.
-- **Goal Orientation**: Reflects the agent's recent reward volatility. Agents experiencing consistent outcomes develop stronger goal-directed behavior, while those facing unpredictable environments become more exploratory and less focused.
-
-These trait dynamics create emergent behavioral patterns that persist beyond individual learning episodes. An agent who early in simulation experiences negative outcomes while in poor mood develops increased rumination bias, making them more likely to focus on negative aspects of future experiences. This computational implementation captures how depressive cognition can become self-reinforcing through experience-dependent trait formation.
+The third model moves beyond fixed agent parameters to explore how psychological traits themselves might evolve through experience as the characteristics change over time, potentially in ways that reinforce or ameliorate depressive patterns. We implement three evolving identity dimensions, **Rumination Bias** that increases when the agent experiences negative outcomes while in poor mood states. This creates a ratcheting effect where bad experiences during low mood periods make the agent increasingly likely to dwell on future negative outcomes. **Social Sensitivity** that adjusts based on the magnitude of peer feedback received. Agents who experience strong social responses become more reactive to future social cues, potentially leading to either social confidence or social anxiety depending on the valence of early experiences. Finally, **Goal Orientation**, that reflects the agent's recent reward volatility. Agents experiencing consistent outcomes develop stronger goal-directed behavior, while those facing unpredictable environments become more exploratory and less focused. These trait dynamics create emergent behavioral patterns that persist beyond individual learning episodes. An agent who early in simulation experiences negative outcomes while in poor mood develops increased rumination bias, making them more likely to focus on negative aspects of future experiences. This computational implementation captures how depressive cognition can become self-reinforcing through experience-dependent trait formation.
 
 ```r
 # Identity evolution rules
@@ -63,18 +57,7 @@ if (t > 10) {
 }
 ```
 
-
-## Behavioral Patterns and Clinical Implications
-
-Across all three models, several consistent patterns emerge that align with clinical observations of depression:
-
-**Reduced Behavioral Flexibility**: Depressed agents show less exploration of potentially rewarding states, particularly when mood is low. This computational rigidity mirrors the behavioral activation deficits seen clinically, where patients struggle to engage in potentially rewarding activities.
-
-**Negative Feedback Amplification**: The combination of rumination biases and mood-dependent learning creates a system where negative experiences have cascading effects on future behavior. A single bad outcome can influence mood, which affects learning rates, which biases future choices toward previously successful (but potentially suboptimal) actions.
-
-**Social Feedback Sensitivity**: Depressed agents show greater volatility in response to peer feedback, leading to more erratic behavioral patterns and potentially reinforcing social isolation when feedback is negative.
-
-**Identity Drift**: The dynamic trait model reveals how temporary mood episodes can create lasting changes in psychological characteristics. Short-term negative experiences during vulnerable periods can permanently alter an agent's approach to future situations.
+Across all three models, several patterns emerge that align with clinical observations of depression. Depressed agents exhibit **reduced behavioral flexibility**, showing less exploration of potentially rewarding states, particularly when mood is low; this computational rigidity mirrors the behavioral activation deficits observed clinically, where individuals struggle to engage in activities that might be rewarding. At the same time, negative feedback tends to be amplified: the interaction between rumination biases and mood-dependent learning creates a dynamic in which adverse experiences cascade forward, such that a single negative outcome can shift mood, alter learning rates, and bias subsequent choices toward previously successful yet potentially suboptimal actions. **Sensitivity to social feedback** also appears heightened, with depressed agents displaying greater volatility in response to peer input, producing more erratic behavioral patterns and, when feedback is negative, reinforcing tendencies toward social withdrawal. Finally, the dynamic trait model suggests a form of **identity drift**, where past mood episodes can produce lasting changes in psychological characteristics, allowing short-term negative experiences—especially during vulnerable periods—to reshape how an agent approaches future situations.
 
 ## Limitations and Future Directions
 
