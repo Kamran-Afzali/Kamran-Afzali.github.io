@@ -10,7 +10,7 @@ Unlike controlled simulation studies where we know the true generating parameter
 
 ## Hierarchical Bayesian Parameter Recovery
 
-A more principled approach treats parameter recovery as a hierarchical inference problem. Rather than estimating parameters independently for each individual, we simultaneously model individual-level parameters and group-level distributions. This approach provides several advantages: improved parameter estimates through partial pooling, explicit modeling of individual differences, and natural incorporation of group-level comparisons.
+It is possibe to approach parameter recovery as a hierarchical inference problem, where we simultaneously model individual-level parameters and group-level distributions. This approach provides advantages like improved parameter estimates through partial pooling, explicit modeling of individual differences, and natural incorporation of group-level comparisons.
 
 ```stan
 data {
@@ -88,7 +88,7 @@ generated quantities {
 }
 ```
 
-This hierarchical structure enables several key improvements over individual fitting approaches. First, participants with limited or noisy data borrow strength from the group, leading to more stable parameter estimates. Second, we explicitly model the distribution of individual differences within each group, capturing heterogeneity that might be clinically relevant. Third, group comparisons emerge naturally from the posterior distributions rather than requiring separate statistical tests.
+Such a hierarchical structure allows parameters for participants with limited or noisy data to borrow some precision from the group, leading to more stable estimates. Also, as we explicitly model the distribution of individual differences within each group, capturing heterogeneity that might be clinically relevant. This latter also facilitates group comparisons from the posterior distributions rather than requiring separate statistical tests.
 
 ## Validating Parameter Recovery with Posterior Predictive Checks
 
