@@ -92,15 +92,7 @@ Such a hierarchical structure allows parameters for participants with limited or
 
 ## Validating Parameter Recovery with Posterior Predictive Checks
 
-Parameter estimates are only meaningful if our model adequately captures the behavioral patterns in the data. Posterior predictive checking provides a systematic approach to model validation by generating simulated data from fitted models and comparing against observed behavior.
-
-For clinical RL data, several behavioral signatures are particularly important to capture:
-
-**Learning Curves**: Does the model reproduce the trial-by-trial evolution of choice preferences? Healthy individuals might show rapid convergence to optimal choices, while depressed participants might show slower or more volatile learning.
-
-**Choice Consistency**: How well does the model capture the relationship between choice probability and reward history? Individual differences in this relationship might reflect distinct computational phenotypes.
-
-**Perseveration vs. Exploration**: Can the model account for how participants balance exploitation of known good options against exploration of alternatives? This balance might be disrupted in various psychiatric conditions.
+Parameter estimates are only meaningful if our model adequately captures the behavioral patterns in the data. Posterior predictive checking provides a systematic approach to model validation by generating simulated data from fitted models and comparing against observed behavior. For clinical RL data, several behavioral signatures are particularly important to capture **Learning Curves** that reffers to if the model reproduce the trial-by-trial evolution of choice preferences? Healthy individuals might show rapid convergence to optimal choices, while depressed participants might show slower or more volatile learning. **Choice Consistency**, that shows how well does the model capture the relationship between choice probability and reward history? Individual differences in this relationship might reflect distinct computational phenotypes. **Perseveration vs. Exploration**, where the model account for how participants balance exploitation of known good options against exploration of alternatives? This balance might be disrupted in various psychiatric conditions.
 
 ```r
 # Posterior predictive validation
