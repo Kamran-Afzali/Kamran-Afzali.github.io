@@ -9,11 +9,7 @@ date-string: May 2026
 
 # Bayesian Seasonal Decomposition in Stan
 
-Understanding what drives a time series is not straightforward, with most series you encounter in the real world are shaped by several overlapping forces at once: a slow-moving trend, a repeating seasonal rhythm, and a layer of noise on top of of that. Learning to pull these apart cleanly is one of the foundational skills in time series analysis. Classical decomposition methods like STL have been doing this job for decades, and they do it well. But they share a fundamental limitation of being deterministic. You get a single point estimate for each component, with no indication of how much you can trust it. When your data is short, noisy, or irregularly sampled, that hidden uncertainty can be enormous. Ignoring it tends to produce overconfident conclusions downstream — the kind that look precise on paper but quietly fall apart under scrutiny.
-
-Bayesian seasonal decomposition is a more honest alternative, rather than treating each component as a fixed quantity to be estimated, BSD treats them as latent random variables, each with a full probability distribution. Instead of asking "what is the trend?", we ask "what does the posterior distribution over plausible trend trajectories look like, given the data?" That's a richer question — and it gives a richer answer. In this post, we'll build a Bayesian structural time series model in Stan from scratch, fit it using RStan, and extract posterior estimates for each component. Before fitting anything, though, we need data. We'll start with a synthetic series where we already know the ground truth — the exact generating process — so we can actually verify whether the model is recovering what it should.
-
-The series combines a gentle linear trend, a sinusoidal seasonal pattern with a 12-period cycle, and Gaussian noise. Think of it as a rough analogue to monthly retail sales: slowly growing over time, with a familiar seasonal rhythm and some unexplained variation on top. With 120 observations spanning exactly 10 complete seasonal cycles, the model has enough structure to get a solid grip on both the trend and the seasonal shape. A noise standard deviation of 0.5 — meaningful relative to the signal — means this isn't a trivially easy decomposition problem. It's a realistic one.
+Understanding what drives a time series is not straightforward, with most series you encounter in the real world are shaped by several overlapping forces at once: a slow-moving trend, a repeating seasonal rhythm, and a layer of noise on top of of that. Learning to pull these apart cleanly is one of the foundational skills in time series analysis. Classical decomposition methods like STL have been doing this job for decades, and they do it well. But they share a fundamental limitation of being deterministic. You get a single point estimate for each component, with no indication of how much you can trust it. When your data is short, noisy, or irregularly sampled, that hidden uncertainty can be enormous. Ignoring it tends to produce overconfident conclusions downstream — the kind that look precise on paper but quietly fall apart under scrutiny. Bayesian seasonal decomposition is an alternative that rather than treating each component as a fixed quantity to be estimated treats them as latent random variables, each with a full probability distribution. Instead of asking "what is the trend?", we ask "what does the posterior distribution over plausible trend trajectories look like, given the data?" In this post, we'll build a Bayesian structural time series model in Stan from scratch, fit it using RStan, and extract posterior estimates for each component. Before fitting anything, though, we need data. We'll start with a synthetic series where we already know the ground truth — the exact generating process — so we can actually verify whether the model is recovering what it should. The series combines a gentle linear trend, a sinusoidal seasonal pattern with a 12-period cycle, and Gaussian noise. Think of it as a rough analogue to monthly retail sales: slowly growing over time, with a familiar seasonal rhythm and some unexplained variation on top. With 120 observations spanning exactly 10 complete seasonal cycles, the model has enough structure to get a solid grip on both the trend and the seasonal shape. A noise standard deviation of 0.5 — meaningful relative to the signal — means this isn't a trivially easy decomposition problem. It's a realistic one.
 
 ```r
 set.seed(123)
@@ -29,7 +25,7 @@ ts.plot(y, main = "Simulated Time Series with Trend and Seasonality")
 ```
 
 
-## The Seasonal Decomposition Modeling
+## Seasonal Decomposition
 
 The core idea is an additive decomposition: at each time point \(t\), the observed value is the sum of a trend component, a seasonal component, and residual noise.
 
@@ -75,11 +71,7 @@ model {
 }'
 ```
 
-In this model the `season_raw` vector holds the unconstrained seasonal effects, and we shift them in `transformed parameters` by subtracting their mean. This centering happens before the likelihood is evaluated, so every posterior sample automatically satisfies the identifiability constraint. The `%` operator handles the cyclic indexing — it wraps the time index back around to position 1 after every \(s\) steps, so the same 12 seasonal effects repeat across all 10 cycles.
-
-## Fitting the Model
-
-With the model defined, fitting it in R is straightforward. We package the data into a list and pass it to `stan()`, running 4 chains with 2000 iterations each (the first 1000 are warmup).
+In this model the `season_raw` vector holds the unconstrained seasonal effects, and we shift them in `transformed parameters` by subtracting their mean. This centering happens before the likelihood is evaluated, so every posterior sample automatically satisfies the identifiability constraint. The `%` operator handles the cyclic indexing — it wraps the time index back around to position 1 after every \(s\) steps, so the same 12 seasonal effects repeat across all 10 cycles. With the model defined, fitting it in R is straightforward. We package the data into a list and pass it to `stan()`, running 4 chains with 2000 iterations each (the first 1000 are warmup).
 
 ```r
 library(rstan)
@@ -125,7 +117,7 @@ Looking at these three panels together tells a clear story. The observed series 
 One of the most useful things you can do here is to go beyond point estimates and shade credible intervals around each component. Something like `apply(posterior$mu, 2, quantile, probs = c(0.05, 0.95))` gives you the 5th and 95th percentiles of the trend at each time point, which you can plot as a ribbon. In practice, these intervals tend to widen at the edges of the observed data and in periods where the trend is changing direction quickly — exactly where you'd want to know your uncertainty is high.
 
 
-## Conclusion and Extensions
+## Conclusion 
 
 The model above is simple but it serves as a foundation for a range of more realistic applications. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope $\(\nu_t\)$ alongside the level:
 
