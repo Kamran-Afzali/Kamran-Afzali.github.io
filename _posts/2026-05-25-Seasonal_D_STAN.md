@@ -99,7 +99,7 @@ Once the model fit is done, take note of the $\(\hat{R}\)$ values and effective 
 
 ## Extracting and Visualizing the Components
 
-Once the model has run, we extract the posterior samples and summarize them with posterior means. Because we're working with full distributions, we could just as easily compute credible intervals or plot entire ensembles of trend trajectories — but posterior means give a clean starting point for visualization.
+Once the model has run, we extract the posterior samples and summarize them with posterior means. Because we're working with full distributions, we could just as easily compute credible intervals or a visualization with posterior samples.
 
 ```r
 posterior <- extract(fit)
@@ -112,12 +112,7 @@ plot(mu_hat, type = 'l', col = "blue", main = "Estimated Trend (mu)", ylab = "mu
 plot(season_hat, type = 'l', col = "darkgreen", main = "Estimated Seasonal Component", ylab = "season_t")
 ```
 
-Looking at these three panels together tells a clear story. The observed series looks messy — trend and seasonality are tangled together and the noise makes both hard to see cleanly. The estimated trend panel reveals the smooth underlying growth, freed from the seasonal oscillations. And the seasonal panel shows the repeating 12-period wave, now separated from both the trend and the noise.
-
 One of the most useful things you can do here is to go beyond point estimates and shade credible intervals around each component. Something like `apply(posterior$mu, 2, quantile, probs = c(0.05, 0.95))` gives you the 5th and 95th percentiles of the trend at each time point, which you can plot as a ribbon. In practice, these intervals tend to widen at the edges of the observed data and in periods where the trend is changing direction quickly — exactly where you'd want to know your uncertainty is high.
-
-
-## Conclusion 
 
 The model above is simple but it serves as a foundation for a range of more realistic applications. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope $\(\nu_t\)$ alongside the level:
 
@@ -125,5 +120,5 @@ $\[
 \mu_t = \mu_{t-1} + \nu_{t-1} + \eta_t, \quad \nu_t = \nu_{t-1} + \zeta_t
 \]$
 
-This allows the trend to accelerate or decelerate over time, which is often more realistic than assuming a constant growth rate. Google's BSTS package (and the related CausalImpact framework) uses exactly this kind of local linear trend as its backbone. Another useful direction is adding **regression components** — external predictors that explain some of the variation in $\(y_t\)$. Holiday indicators, weather variables, or economic covariates can all be incorporated by adding a linear predictor $\(\mathbf{x}_t^\top \boldsymbol{\beta}\)$ to the observation equation. The Bayesian framework handles this because the of uncertainty in the regression coefficients being integrated into uncertainty about the decomposed components. Finally, if you're working with multiple related time series **hierarchical seasonal decomposition** lets you share information across series. Individual series can have their own trend and seasonal parameters, but those parameters are drawn from a common prior, which regularizes the estimates and borrows strength where data is sparse. Bayesian seasonal decomposition is one of those techniques that has much more work upfront than just running a frequentist `stl()` you should, write a Stan model, wait for MCMC to run, and diagnose the convergence. But as a payoff you get uncertainty estimates that are statistically coherent, a model structure that can be extended in principled ways, and a decomposition that reflects what the data actually supports rather than what a deterministic algorithm happens to produce. For exploratory work, the posterior means alone are often enough to get a clean visual decomposition. For anything that feeds into a downstream decision — a forecast, an anomaly detection system, a causal analysis the full posterior matters, and the Bayesian approach is the right tool for the job.
+Another useful direction is adding **regression components** — external predictors that explain some of the variation in $\(y_t\)$. Holiday indicators, weather variables, or economic covariates can all be incorporated by adding a linear predictor $\(\mathbf{x}_t^\top \boldsymbol{\beta}\)$ to the observation equation. The Bayesian framework handles this because the of uncertainty in the regression coefficients being integrated into uncertainty about the decomposed components. Finally, if you're working with multiple related time series **hierarchical seasonal decomposition** lets you share information across series. Individual series can have their own trend and seasonal parameters, but those parameters are drawn from a common prior, which regularizes the estimates and borrows strength where data is sparse. Bayesian seasonal decomposition is one of those techniques that has much more work upfront than just running a frequentist `stl()` you should, write a Stan model, wait for MCMC to run, and diagnose the convergence. But as a payoff you get uncertainty estimates that are statistically coherent, a model structure that can be extended in principled ways, and a decomposition that reflects what the data actually supports rather than what a deterministic algorithm happens to produce. For exploratory work, the posterior means alone are often enough to get a clean visual decomposition. For anything that feeds into a downstream decision — a forecast, an anomaly detection system, a causal analysis the full posterior matters, and the Bayesian approach is the right tool for the job.
 
