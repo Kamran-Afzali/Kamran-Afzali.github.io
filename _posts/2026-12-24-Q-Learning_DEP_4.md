@@ -147,37 +147,227 @@ Mixture models provide one approach to this challenge by allowing different indi
 
 ```stan
 data {
-  // [Same as hierarchical model plus:]
-  int<lower=1> N_strategies;    // Number of possible strategies (e.g., 2)
+  int<lower=1> N_subj;
+  int<lower=1> N_trials;
+  int<lower=1> N_total;
+  int<lower=1, upper=N_subj> subj[N_total];
+  int<lower=1, upper=2>      choice[N_total];
+  int<lower=0, upper=1>      reward[N_total];
+  int<lower=0, upper=1>      group[N_subj];   // 0=control, 1=depressed
+  int<lower=1> N_strategies;                  // Should be 2
 }
 
 parameters {
-  // Strategy selection
-  simplex[N_strategies] strategy_prob[2];  // Strategy probabilities by group
-  
-  // Strategy-specific parameters
-  vector[2] mu_alpha_ql;       // Q-learning parameters by group
+  // Strategy mixing weights per group (simplex sums to 1)
+  simplex[N_strategies] strategy_prob[2];
+
+  // ---- Q-learning parameters (group-level, unconstrained) ----
+  vector[2] mu_alpha_ql;
   vector[2] mu_beta_ql;
-  vector[2] mu_pstay_wsls;     // WSLS parameters by group
+  vector<lower=0>[2] sigma_alpha_ql;
+  vector<lower=0>[2] sigma_beta_ql;
+
+  // ---- WSLS parameters (group-level, unconstrained) ----
+  // pstay: P(repeat last choice | rewarded)
+  // pshift: P(switch choice | not rewarded)
+  vector[2] mu_pstay_wsls;
   vector[2] mu_pshift_wsls;
-  
-  // [Additional variance parameters and individual effects]
+  vector<lower=0>[2] sigma_pstay_wsls;
+  vector<lower=0>[2] sigma_pshift_wsls;
+
+  // ---- Individual-level raw deviations (non-centered) ----
+  vector[N_subj] alpha_raw;
+  vector[N_subj] beta_raw;
+  vector[N_subj] pstay_raw;
+  vector[N_subj] pshift_raw;
+}
+
+transformed parameters {
+  // Constrained individual parameters
+  vector<lower=0, upper=1>[N_subj] alpha;   // Q-learning rate in (0,1)
+  vector<lower=0>[N_subj]          beta;    // Inverse temperature > 0
+  vector<lower=0, upper=1>[N_subj] pstay;  // Win-stay probability in (0,1)
+  vector<lower=0, upper=1>[N_subj] pshift; // Lose-shift probability in (0,1)
+
+  for (s in 1:N_subj) {
+    int g = group[s] + 1;  // Stan is 1-indexed; group 0->1, group 1->2
+
+    // Q-learning: alpha via Phi_approx (squashes to (0,1)), beta via exp (keeps positive)
+    alpha[s]  = Phi_approx(mu_alpha_ql[g]   + sigma_alpha_ql[g]   * alpha_raw[s]);
+    beta[s]   = exp(        mu_beta_ql[g]    + sigma_beta_ql[g]    * beta_raw[s]);
+
+    // WSLS: both probabilities via Phi_approx
+    pstay[s]  = Phi_approx(mu_pstay_wsls[g] + sigma_pstay_wsls[g] * pstay_raw[s]);
+    pshift[s] = Phi_approx(mu_pshift_wsls[g]+ sigma_pshift_wsls[g]* pshift_raw[s]);
+  }
 }
 
 model {
-  // [Mixture likelihood combining Q-learning and WSLS]
-  for (s in 1:N_subj) {
-    vector[N_strategies] log_lik_strategy = rep_vector(0, N_strategies);
-    
-    // Q-learning likelihood
-    log_lik_strategy[1] = compute_ql_likelihood(s, alpha[s], beta[s]);
-    
-    // WSLS likelihood  
-    log_lik_strategy[2] = compute_wsls_likelihood(s, pstay[s], pshift[s]);
-    
-    // Weight by strategy probabilities
-    target += log_sum_exp(log(strategy_prob[group[s] + 1]) + log_lik_strategy);
+  // ---- Priors: group-level ----
+  mu_alpha_ql     ~ normal(0, 1);
+  mu_beta_ql      ~ normal(1, 1);
+  sigma_alpha_ql  ~ normal(0, 0.5);
+  sigma_beta_ql   ~ normal(0, 0.5);
+
+  mu_pstay_wsls   ~ normal(1, 1);   // Phi_approx(1) ≈ 0.84, reasonable win-stay
+  mu_pshift_wsls  ~ normal(1, 1);   // Phi_approx(1) ≈ 0.84, reasonable lose-shift
+  sigma_pstay_wsls  ~ normal(0, 0.5);
+  sigma_pshift_wsls ~ normal(0, 0.5);
+
+  // Symmetric Dirichlet(2,2) prior — mildly favors equal mixing
+  for (g in 1:2)
+    strategy_prob[g] ~ dirichlet(rep_vector(2.0, N_strategies));
+
+  // ---- Priors: individual raw deviations (non-centered) ----
+  alpha_raw  ~ normal(0, 1);
+  beta_raw   ~ normal(0, 1);
+  pstay_raw  ~ normal(0, 1);
+  pshift_raw ~ normal(0, 1);
+
+  // ---- Mixture Likelihood ----
+  {
+    int idx = 1;
+
+    for (s in 1:N_subj) {
+      int g = group[s] + 1;
+
+      // Accumulate per-strategy log-likelihoods across all trials for subject s
+      real ll_ql   = 0;   // Q-learning log-likelihood for subject s
+      real ll_wsls = 0;   // WSLS log-likelihood for subject s
+
+      // ----- Q-learning trajectory -----
+      vector[2] Q = rep_vector(0.0, 2);
+
+      // ----- WSLS state -----
+      // We track the last choice and whether it was rewarded to compute WSLS probs.
+      // On trial 1 there is no prior trial, so we use a flat prior (0.5 each choice).
+      int   last_choice  = 0;   // 0 = no previous trial yet
+      int   last_reward  = -1;
+
+      for (t in 1:N_trials) {
+        int c = choice[idx];
+        int r = reward[idx];
+
+        // --- Q-learning action probabilities ---
+        vector[2] action_prob_ql = softmax(beta[s] * Q);
+        ll_ql += categorical_lpmf(c | action_prob_ql);
+
+        // Update Q-value for chosen action (Rescorla-Wagner)
+        Q[c] += alpha[s] * (r - Q[c]);
+
+        // --- WSLS action probabilities ---
+        vector[2] action_prob_wsls;
+        if (last_choice == 0) {
+          // First trial: uniform over choices
+          action_prob_wsls = rep_vector(0.5, 2);
+        } else {
+          // Determine WSLS probability of repeating last choice
+          real p_repeat;
+          if (last_reward == 1)
+            p_repeat = pstay[s];    // Win → stay
+          else
+            p_repeat = 1 - pshift[s]; // Lose → shift (so p_repeat = 1 - pshift)
+
+          // Build probability vector over choices {1, 2}
+          action_prob_wsls[last_choice]     = p_repeat;
+          action_prob_wsls[3 - last_choice] = 1 - p_repeat; // 3-1=2 or 3-2=1
+        }
+        ll_wsls += categorical_lpmf(c | action_prob_wsls);
+
+        // Update WSLS state
+        last_choice = c;
+        last_reward = r;
+        idx += 1;
+      }
+
+      // ---- Mix the two log-likelihoods using log_sum_exp ----
+      // log p(data_s) = log[ π_ql * L_ql  +  π_wsls * L_wsls ]
+      //              = log_sum_exp( log(π_ql) + ll_ql,
+      //                            log(π_wsls) + ll_wsls )
+      vector[N_strategies] log_lik_strategy;
+      log_lik_strategy[1] = log(strategy_prob[g][1]) + ll_ql;
+      log_lik_strategy[2] = log(strategy_prob[g][2]) + ll_wsls;
+
+      target += log_sum_exp(log_lik_strategy);
+    }
   }
+}
+
+generated quantities {
+  // Per-observation log-likelihoods for LOO-CV
+  vector[N_total] log_lik;
+
+  // Posterior strategy assignment probability per subject
+  // P(subject s uses strategy k) = softmax of log_lik_strategy
+  matrix[N_subj, N_strategies] strategy_assignment;
+
+  // Group-level differences
+  real group_diff_alpha;   // Depressed - control mean Q-learning rate
+  real group_diff_beta;    // Depressed - control mean inverse temperature
+  real group_diff_pstay;   // Depressed - control mean win-stay probability
+  real group_diff_pshift;  // Depressed - control mean lose-shift probability
+  real group_diff_ql_prob; // Depressed - control probability of using Q-learning
+
+  {
+    int idx = 1;
+
+    for (s in 1:N_subj) {
+      int g = group[s] + 1;
+
+      real ll_ql   = 0;
+      real ll_wsls = 0;
+
+      vector[2] Q           = rep_vector(0.0, 2);
+      int   last_choice     = 0;
+      int   last_reward     = -1;
+
+      for (t in 1:N_trials) {
+        int c = choice[idx];
+        int r = reward[idx];
+
+        // Q-learning
+        vector[2] action_prob_ql = softmax(beta[s] * Q);
+        real trial_ll_ql         = categorical_lpmf(c | action_prob_ql);
+        ll_ql += trial_ll_ql;
+        Q[c]  += alpha[s] * (r - Q[c]);
+
+        // WSLS
+        vector[2] action_prob_wsls;
+        if (last_choice == 0) {
+          action_prob_wsls = rep_vector(0.5, 2);
+        } else {
+          real p_repeat = (last_reward == 1) ? pstay[s] : (1 - pshift[s]);
+          action_prob_wsls[last_choice]     = p_repeat;
+          action_prob_wsls[3 - last_choice] = 1 - p_repeat;
+        }
+        real trial_ll_wsls = categorical_lpmf(c | action_prob_wsls);
+        ll_wsls += trial_ll_wsls;
+
+        // Per-trial log_lik: marginalise over strategies
+        vector[N_strategies] trial_log_mix;
+        trial_log_mix[1] = log(strategy_prob[g][1]) + trial_ll_ql;
+        trial_log_mix[2] = log(strategy_prob[g][2]) + trial_ll_wsls;
+        log_lik[idx] = log_sum_exp(trial_log_mix);
+
+        last_choice = c;
+        last_reward = r;
+        idx += 1;
+      }
+
+      // Posterior probability of each strategy for subject s
+      vector[N_strategies] log_post_strategy;
+      log_post_strategy[1] = log(strategy_prob[g][1]) + ll_ql;
+      log_post_strategy[2] = log(strategy_prob[g][2]) + ll_wsls;
+      strategy_assignment[s] = to_row_vector(softmax(log_post_strategy));
+    }
+  }
+
+  // Group differences (depressed [index 2] minus control [index 1])
+  group_diff_alpha   = Phi_approx(mu_alpha_ql[2])    - Phi_approx(mu_alpha_ql[1]);
+  group_diff_beta    = exp(mu_beta_ql[2])             - exp(mu_beta_ql[1]);
+  group_diff_pstay   = Phi_approx(mu_pstay_wsls[2])  - Phi_approx(mu_pstay_wsls[1]);
+  group_diff_pshift  = Phi_approx(mu_pshift_wsls[2]) - Phi_approx(mu_pshift_wsls[1]);
+  group_diff_ql_prob = strategy_prob[2][1]            - strategy_prob[1][1];
 }
 ```
 
