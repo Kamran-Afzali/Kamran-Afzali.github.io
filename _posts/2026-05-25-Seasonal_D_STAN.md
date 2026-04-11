@@ -73,6 +73,9 @@ model {
 
 This model specifies a Bayesian structural time series with additive trend and seasonal components, where the observed series $( y_t )$ is decomposed into a latent level $( \mu_t )$, a periodic seasonal effect, and Gaussian observation noise. The trend component $( \mu_t )$ evolves as a first-order random walk, formalized by the prior $( \mu_t \sim \mathcal{N}(\mu_{t-1}, \sigma_\mu) )$ for $( t = 2, \dots, N )$, which encodes local smoothness while allowing gradual, stochastic shifts over time. Seasonality is introduced through a vector of raw seasonal effects of length $( s )$, corresponding to the known period (e.g., 12 for monthly data), which are subsequently centered to enforce a sum-to-zero constraint; this transformation addresses identifiability by preventing confounding between the overall level and seasonal offsets. The centered seasonal vector is then recycled across time via modular indexing, so that each observation inherits the appropriate seasonal adjustment according to its position within the cycle. Both the observation noise $( \sigma )$, the trend innovation scale $( \sigma_\mu )$, and the seasonal variability $( \sigma_{\text{season}} )$ are assigned implicit priors through their role as scale parameters in normal distributions. Finally, the likelihood is specified as $( y_t \sim \mathcal{N}(\mu_t + \text{season}_t, \sigma) )$, implying that deviations from the combined latent structure are independently and normally distributed. Taken together, the model can be understood as a relatively flexible decomposition that captures smooth underlying dynamics and recurring seasonal patterns, while maintaining identifiability through centering constraints and borrowing strength across time via hierarchical structure. With the model defined, fitting it in R is straightforward. We package the data into a list and pass it to `stan()`, running 4 chains with 2000 iterations each (the first 1000 are warmup).
 
+## Model Fitting and Extracting the Components
+
+
 ```r
 library(rstan)
 
@@ -96,9 +99,6 @@ print(fit, pars = c("sigma", "sigma_mu", "sigma_season"))
 
 Once the model fit is done, take note of the $\(\hat{R}\)$ values and effective sample sizes printed by `print(fit)`. For a model of this complexity, you want $\(\hat{R} < 1.01\)$ for all parameters, which indicates the chains have converged to the same distribution. If the trend parameters are mixing slowly — which can happen when the noise level is high — you may need to increase iterations or consider reparameterizing. The posterior estimates for `sigma`, `sigma_mu`, and `sigma_season` are particularly informative. If `sigma_mu` comes back near zero, it's telling you the trend is essentially linear and doesn't need the flexibility of a random walk. If `sigma_season` is large relative to `sigma`, the seasonal component is being estimated with relatively high uncertainty — which might prompt you to question whether your chosen period is correct.
 
-
-## Extracting and Visualizing the Components
-
 Once the model has run, we extract the posterior samples and summarize them with posterior means. Because we're working with full distributions, we could just as easily compute credible intervals or a visualization with posterior samples.
 
 ```r
@@ -114,7 +114,9 @@ plot(season_hat, type = 'l', col = "darkgreen", main = "Estimated Seasonal Compo
 
 One of the most useful things you can do here is to go beyond point estimates and shade credible intervals around each component. Something like `apply(posterior$mu, 2, quantile, probs = c(0.05, 0.95))` gives you the 5th and 95th percentiles of the trend at each time point, which you can plot as a ribbon. In practice, these intervals tend to widen at the edges of the observed data and in periods where the trend is changing direction quickly — exactly where you'd want to know your uncertainty is high.
 
-The model above is simple but it serves as a foundation for a range of more realistic applications. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope $\(\nu_t\)$ alongside the level:
+## What comes next?
+
+The model above is simple but it serves as a foundation for a range of more complex models. A natural first extension is to introduce a **local linear trend**, which adds a time-varying slope $\(\nu_t\)$ alongside the level:
 
 $\[
 \mu_t = \mu_{t-1} + \nu_{t-1} + \eta_t, \quad \nu_t = \nu_{t-1} + \zeta_t
@@ -122,3 +124,10 @@ $\[
 
 Another useful direction is adding **regression components** — external predictors that explain some of the variation in $\(y_t\)$. Holiday indicators, weather variables, or economic covariates can all be incorporated by adding a linear predictor $\(\mathbf{x}_t^\top \boldsymbol{\beta}\)$ to the observation equation. The Bayesian framework handles this because the of uncertainty in the regression coefficients being integrated into uncertainty about the decomposed components. Finally, if you're working with multiple related time series **hierarchical seasonal decomposition** lets you share information across series. Individual series can have their own trend and seasonal parameters, but those parameters are drawn from a common prior, which regularizes the estimates and borrows strength where data is sparse. Bayesian seasonal decomposition is one of those techniques that has much more work upfront than just running a frequentist `stl()` you should, write a Stan model, wait for MCMC to run, and diagnose the convergence. But as a payoff you get uncertainty estimates that are statistically coherent, a model structure that can be extended in principled ways, and a decomposition that reflects what the data actually supports rather than what a deterministic algorithm happens to produce. For exploratory work, the posterior means alone are often enough to get a clean visual decomposition. For anything that feeds into a downstream decision — a forecast, an anomaly detection system, a causal analysis the full posterior matters, and the Bayesian approach is the right tool for the job.
 
+## **References**
+
+- [mc-stan time series](https://mc-stan.org/docs/stan-users-guide/time-series.html)
+- [minimizeregret time series](https://minimizeregret.com/short-time-series-prior-knowledge)
+- [bayesiancomputationbook](https://bayesiancomputationbook.com/markdown/chp_06.html)
+- [guillaume.baudart](https://guillaume.baudart.eu/papers/pldi21.pdf)
+- [cran.r-project](https://cran.r-project.org/web/packages/bayesforecast/bayesforecast.pdf)
