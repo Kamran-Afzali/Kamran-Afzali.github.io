@@ -114,8 +114,11 @@ parameters {
 transformed parameters {
   vector[N] mu;
   vector[N] eps;
-  mu = alpha;
-  eps = y - mu;
+
+  // Initialization
+  mu[1] = alpha;
+  eps[1] = y[1] - mu[1];
+
   for (t in 2:N) {
     mu[t] = alpha + phi * y[t - 1] + theta * eps[t - 1];
     eps[t] = y[t] - mu[t];
@@ -183,7 +186,8 @@ data {
 }
 transformed data {
   vector[N - 1] dy;
-  for (t in 2:N) dy[t - 1] = y[t] - y[t - 1];
+  for (t in 2:N)
+    dy[t - 1] = y[t] - y[t - 1];
 }
 parameters {
   real alpha;
@@ -191,19 +195,23 @@ parameters {
   real<lower=-1, upper=1> theta;
   real<lower=0> sigma;
 }
-transformed parameters {
+model {
   vector[N - 1] mu;
   vector[N - 1] eps;
-  mu  = alpha;
-  eps = dy - mu ;
+
+  // initialization
+  mu[1] = alpha;
+  eps[1] = dy[1] - mu[1];
+
   for (t in 2:(N - 1)) {
     mu[t] = alpha + phi * dy[t - 1] + theta * eps[t - 1];
     eps[t] = dy[t] - mu[t];
   }
+
+  // likelihood (conditional)
+  dy[2:(N - 1)] ~ normal(mu[2:(N - 1)], sigma);
 }
-model {
-  eps[2:(N - 1)] ~ normal(0, sigma);
-}
+
 ```
 
 The `transformed data` block creates `dy`, a differenced version of `y` with length `N - 1`. Everything else looks similar to the ARMA(1,1) model, except now we're working with the differenced series. 
