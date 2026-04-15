@@ -140,7 +140,220 @@ The key insight from posterior predictive validation is identifying systematic d
 ## Conclusion
 
 This post walked through the practical application of Bayesian parameter recovery to clinical reinforcement learning data. Rather than relying on simple point estimates, we built a hierarchical Bayesian model in Stan that simultaneously infers individual-level parameters (learning rate \(\alpha\) and inverse temperature \(\beta\)) and group-level distributions, enabling partial pooling across participants and principled group comparisons. We then validated these estimates using posterior predictive checks, examining whether the fitted model reproduces key behavioral signatures like learning curves, choice consistency, and exploration-exploitation balance. Together, these tools move us beyond asking "do depressed patients have lower learning rates?" toward a richer question: "how reliably can we estimate these parameters, and does our model faithfully capture the behavioral process we care about?" Bayesian parameter recovery doesn't eliminate uncertainty—it makes that uncertainty explicit and actionable, which is precisely what clinical translation requires. In the next blog post, we'll tackle one of the most consequential challenges in computational psychiatry: **Addressing Individual Heterogeneity and Mixture Models**—exploring how to handle the reality that not all patients within a diagnostic group are using the same learning strategy, and how mixture modeling approaches can uncover latent computational subtypes.
+```r
+# ============================================================
+# Parameter recovery and Bayesian analysis of clinical RL data
+# Hierarchical Q-learning model with Stan + posterior checks
+# ============================================================
+library(rstan)
+library(posterior)
+library(bayesplot)
+library(tidyverse)
+library(MASS)
 
+set.seed(1234)
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores())
+
+# ------------------------------------------------------------
+# 1) Simulate clinical reinforcement learning data
+# ------------------------------------------------------------
+
+n_subj_per_group <- 50
+n_groups <- 2
+n_subj <- n_subj_per_group * n_groups
+n_trials <- 200
+n_total <- n_subj * n_trials
+
+group <- rep(0:1, each = n_subj_per_group)  # 0 = control, 1 = depressed
+
+# True group-level parameters on unconstrained scale
+true_mu_alpha <- c(-0.2, -0.6)
+true_sigma_alpha <- c(0.5, 0.6)
+
+true_mu_beta <- c(log(4), log(2.5))
+true_sigma_beta <- c(0.35, 0.45)
+
+# Individual parameters
+alpha_true <- numeric(n_subj)
+beta_true <- numeric(n_subj)
+
+for (s in 1:n_subj) {
+  g <- group[s] + 1
+  alpha_true[s] <- plogis(rnorm(1, true_mu_alpha[g], true_sigma_alpha[g]))
+  beta_true[s] <- exp(rnorm(1, true_mu_beta[g], true_sigma_beta[g]))
+}
+
+# Task environment: probabilistic 2-armed bandit
+p_rew_arm1 <- 0.70
+p_rew_arm2 <- 0.30
+
+subj_id <- integer(n_total)
+trial_id <- integer(n_total)
+choice <- integer(n_total)
+reward <- integer(n_total)
+
+row_idx <- 1
+for (s in 1:n_subj) {
+  Q <- c(0, 0)
+  for (t in 1:n_trials) {
+    logits <- beta_true[s] * Q
+    probs <- exp(logits - max(logits))
+    probs <- probs / sum(probs)
+    
+    ch <- sample(1:2, size = 1, prob = probs)
+    rew <- rbinom(1, size = 1, prob = ifelse(ch == 1, p_rew_arm1, p_rew_arm2))
+    pe <- rew - Q[ch]
+    Q[ch] <- Q[ch] + alpha_true[s] * pe
+    
+    subj_id[row_idx] <- s
+    trial_id[row_idx] <- t
+    choice[row_idx] <- ch
+    reward[row_idx] <- rew
+    row_idx <- row_idx + 1
+  }
+}
+
+sim_data <- tibble(
+  subj = subj_id,
+  trial = trial_id,
+  choice = choice,
+  reward = reward,
+  group = group[subj_id]
+)
+
+# ------------------------------------------------------------
+# 2) Stan model
+# ------------------------------------------------------------
+
+stan_code <- "
+data {
+  int<lower=1> N_subj;
+  int<lower=1> N_trials;
+  int<lower=1> N_total;
+  int<lower=1> n_subj_per_group;
+  array[N_total] int<lower=1,upper=N_subj> subj;
+  array[N_total] int<lower=1,upper=2> choice;
+  array[N_total] int<lower=0,upper=1> reward;
+  array[N_subj] int<lower=0,upper=1> group;
+}
+
+parameters {
+  vector[2] mu_alpha;
+  vector[2] mu_beta;
+  vector<lower=0>[2] sigma_alpha;
+  vector<lower=0>[2] sigma_beta;
+
+  vector[N_subj] alpha_raw;
+  vector[N_subj] beta_raw;
+}
+
+transformed parameters {
+  vector<lower=0,upper=1>[N_subj] alpha;
+  vector<lower=0>[N_subj] beta;
+
+  for (s in 1:N_subj) {
+    alpha[s] = inv_logit(mu_alpha[group[s] + 1] + sigma_alpha[group[s] + 1] * alpha_raw[s]);
+    beta[s] = exp(mu_beta[group[s] + 1] + sigma_beta[group[s] + 1] * beta_raw[s]);
+  }
+}
+
+model {
+  mu_alpha ~ normal(0, 1);
+  mu_beta ~ normal(1, 1);
+  sigma_alpha ~ normal(0, 0.5);
+  sigma_beta ~ normal(0, 0.5);
+  alpha_raw ~ normal(0, 1);
+  beta_raw ~ normal(0, 1);
+
+  for (s in 1:N_subj) {
+    vector[2] Q = rep_vector(0.0, 2);
+    for (t in 1:N_trials) {
+      int i = (s - 1) * N_trials + t;
+      target += categorical_logit_lpmf(choice[i] | beta[s] * Q);
+      Q[choice[i]] += alpha[s] * (reward[i] - Q[choice[i]]);
+    }
+  }
+}
+
+generated quantities {
+  vector[N_total] log_lik;
+  array[N_total] int<lower=1,upper=2> y_rep;
+  real group_diff_alpha;
+  real group_diff_beta;
+
+  group_diff_alpha =
+    mean(segment(alpha, 1, n_subj_per_group)) -
+    mean(segment(alpha, n_subj_per_group + 1, n_subj_per_group));
+
+  group_diff_beta =
+    mean(segment(beta, 1, n_subj_per_group)) -
+    mean(segment(beta, n_subj_per_group + 1, n_subj_per_group));
+
+  for (s in 1:N_subj) {
+    vector[2] Q = rep_vector(0.0, 2);
+    for (t in 1:N_trials) {
+      int i = (s - 1) * N_trials + t;
+      log_lik[i] = categorical_logit_lpmf(choice[i] | beta[s] * Q);
+      y_rep[i] = categorical_logit_rng(beta[s] * Q);
+      Q[choice[i]] += alpha[s] * (reward[i] - Q[choice[i]]);
+    }
+  }
+}
+"
+
+# ------------------------------------------------------------
+# 3) Fit model
+# ------------------------------------------------------------
+
+stan_data <- list(
+  N_subj = n_subj,
+  N_trials = n_trials,
+  N_total = n_total,
+  n_subj_per_group = n_subj_per_group,
+  subj = sim_data$subj,
+  choice = sim_data$choice,
+  reward = sim_data$reward,
+  group = group
+)
+
+fit <- stan(
+  model_code = stan_code,
+  data = stan_data,
+  chains = 4,
+  iter = 2000,
+  warmup = 1000,
+  seed = 1234,
+  cores = parallel::detectCores()
+)
+
+print(
+  fit,
+  pars = c("mu_alpha", "mu_beta", "sigma_alpha", "sigma_beta",
+           "group_diff_alpha", "group_diff_beta"),
+  probs = c(0.025, 0.5, 0.975)
+)
+
+# ------------------------------------------------------------
+# 4) Optional posterior summaries
+# ------------------------------------------------------------
+
+post_df <- as_draws_df(fit)
+
+post_df %>%
+  summarise(
+    alpha_diff_mean = mean(group_diff_alpha),
+    alpha_diff_q025 = quantile(group_diff_alpha, 0.025),
+    alpha_diff_q975 = quantile(group_diff_alpha, 0.975),
+    beta_diff_mean  = mean(group_diff_beta),
+    beta_diff_q025  = quantile(group_diff_beta, 0.025),
+    beta_diff_q975  = quantile(group_diff_beta, 0.975)
+  ) %>%
+  print()
+
+# Optional traceplots
+mcmc_trace(as.array(fit), pars = c("group_diff_alpha", "group_diff_beta"))
+```
 # Addressing Individual Heterogeneity and Mixture Models in Computational Psychiatry: When One Model Doesn't Fit All
 
 In the [previous post](), we demonstrated how hierarchical Bayesian parameter recovery can extract reliable computational estimates from clinical reinforcement learning data, and how posterior predictive checks help validate whether those estimates faithfully capture observed behavior. A recurring assumption in that framework was that all participants, within a group, are governed by the same underlying computational architecture—differing only in their parameter values. In practice, this assumption rarely holds. Clinical populations are rarely homogeneous: within a group of depressed patients, some individuals may engage in deliberate, value-based learning well described by Q-learning, while others fall back on simpler heuristics like Win-Stay-Lose-Shift, perhaps because reduced cognitive resources or motivational deficits make elaborate credit assignment too costly. Treating these individuals as a single computational type and averaging across them doesn't just obscure heterogeneity—it can actively mislead, producing group-level parameter estimates that describe nobody in the sample particularly well. This post addresses that challenge directly. We introduce mixture models as a principled way to let the data speak about which computational strategy each participant most likely used, estimate strategy-specific parameters within a unified hierarchical Bayesian framework, and ask whether clinical groups differ not just in *how well* they learn, but in *how* they learn at all.
