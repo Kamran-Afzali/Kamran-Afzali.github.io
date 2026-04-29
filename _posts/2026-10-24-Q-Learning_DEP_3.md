@@ -72,10 +72,10 @@ Even in their current form these models have a few computational interpretations
 
 Moving beyond simple bandit tasks here we discussed depression not as a collection of fixed parameter changes, but as dynamic patterns emerging from complex interactions between learning, affect, social context, and evolving psychological traits. These models suggest that depressive cognition involves sophisticated feedback loops that can make initially adaptive responses become self-reinforcing patterns of dysfunction. While these computational approaches remain significant simplifications of human psychology, they offer frameworks for understanding how temporary mood episodes can create lasting behavioral changes, how social contexts shape individual psychology, and how therapeutic interventions might target specific components of complex cognitive-affective systems. As Computational Psychiatry continues developing, such models may eventually inform personalized interventions based on individual learning patterns and environmental contexts. The code implementations demonstrate that relatively simple extensions to standard  Reinforcement Learning can capture surprisingly rich behavioral phenomena. However, the true test of these models lies not in their computational sophistication, but in their ability to generate testable predictions about real human behavior and inform effective therapeutic approaches.
 
-# code
+## Toy model 1
 
 
-The provided R code implements a simulation of a mood-sensitive Q-learning agent operating within a stylized behavioral environment consisting of five states: ScreenTime, PhysicalActivity, Socializing, Alcohol, and Cinema. Each state serves both as a context and as a potential action target. Transition probabilities are constructed to favor self-directed actions, while a predefined reward matrix reflects the desirability of each action-state pairing. The agent, governed by mood-dependent learning dynamics, adapts its behavior across 200 episodes using a [[Reinforcement Learning]] algorithm that incorporates traditional parameters (learning rate, discount factor, and exploration rate), as well as psychological constructs such as rumination and [[Emotional Valence]]. Two distinct agent profiles—"Healthy" and "Depressed"—are defined through differing parameterizations of mood decay, rumination weights, and affective biases. The simulation captures how mood influences decision-making and learning, with trajectories logged for subsequent analysis. Visualizations illustrate the evolution of mood, cumulative reward acquisition, and state visitation patterns, revealing the behavioral divergence between the two agent profiles. This framework enables the investigation of affective-cognitive interactions in [[Reinforcement Learning]] and offers a computational lens through which mood disorders might be modeled and better understood.
+The provided R code implements a simulation of a mood-sensitive Q-learning agent operating within a stylized behavioral environment consisting of five states: ScreenTime, PhysicalActivity, Socializing, Alcohol, and Cinema. Each state serves both as a context and as a potential action target. Transition probabilities are constructed to favor self-directed actions, while a predefined reward matrix reflects the desirability of each action-state pairing. The agent, governed by mood-dependent learning dynamics, adapts its behavior across 200 episodes using a Reinforcement Learning algorithm that incorporates traditional parameters (learning rate, discount factor, and exploration rate), as well as psychological constructs such as rumination and Emotional Valence. Two distinct agent profiles—"Healthy" and "Depressed"—are defined through differing parameterizations of mood decay, rumination weights, and affective biases. The simulation captures how mood influences decision-making and learning, with trajectories logged for subsequent analysis. Visualizations illustrate the evolution of mood, cumulative reward acquisition, and state visitation patterns, revealing the behavioral divergence between the two agent profiles. This framework enables the investigation of affective-cognitive interactions in Reinforcement Learning and offers a computational lens through which mood disorders might be modeled and better understood.
 
 ```r
 set.seed(123)
@@ -245,6 +245,7 @@ ggplot(combined_df, aes(x = Episode, y = State, color = Group)) +
   labs(title = "State Visits Over Time") +
   theme_minimal()
 ``` 
+## Toy model 2
 
 This R script extends a mood-sensitive Q-learning framework by integrating a model of social influence into agent-based simulations. The environment consists of five behavioral states, each associated with specific reward structures and transition probabilities that favor action-related state persistence. A Q-learning agent learns over 200 episodes, adjusting its action values (Q-values) in response to both intrinsic mood dynamics and extrinsic peer feedback. Mood is influenced by a combination of reinforcement (positive or negative reward-based rumination) and social appraisal, which is modeled via a feedback mechanism. Depending on the specified mode—random or state-based—peer responses are either probabilistically assigned or derived from a normative evaluation of the selected action (e.g., rewarding socializing, penalizing alcohol use). Two agent profiles, representing "Healthy" and "Depressed" individuals, are simulated using distinct parameter configurations that modulate sensitivity to reward, social feedback, and mood inertia. The resulting trajectories are analyzed through visualizations of mood evolution, cumulative reward, behavioral state transitions, and peer feedback patterns. This simulation framework provides a computational approach for examining the interplay between affect, learning, and social context, offering insights into behavioral trajectories characteristic of differing mental health profiles.
 
@@ -433,7 +434,7 @@ ggplot(combined_df, aes(x = Episode, y = PeerFeedback, color = Group)) +
 ```
 
 
-
+## Toy model 3
 
 This script implements a simulation of Q-learning agents embedded within a behavioral environment, with a focus on dynamic identity traits and their influence on learning and affect. The environment comprises five states representing common daily activities, each associated with fixed rewards and uniform state transition probabilities. A central feature of the model is the integration of three mutable identity parameters—rumination bias, social sensitivity, and goal orientation—which evolve in response to experience. Mood updates are driven by both intrinsic reward processing and extrinsic peer feedback, with the magnitude and direction of these effects modulated by the agent’s current identity profile. Action selection follows an ε-greedy policy, and Q-values are updated using an optimism-weighted delta, accounting for motivational framing. Identity traits are adjusted across episodes based on recent affective and social experiences, providing a feedback loop between psychological traits and behavior. The simulation runs across multiple agents to generate heterogeneous trajectories, with visualizations depicting mood fluctuation and the evolution of identity traits over time. This model contributes to computational affective science by capturing the bidirectional interactions between mood, behavior, learning, and personality-like traits in a socially influenced decision-making context.
 
@@ -532,7 +533,7 @@ simulate_q_agent <- function(agent_id, episodes = 200,
       identity$goal_orientation <- 1 - mean(abs(recent_rewards), na.rm = TRUE)
     }
     
-    identity_trace[[t]] <- identity
+    identity_tracet <- identity
     mood_trace[t] <- mood
     reward_trace[t] <- reward
     state_trace[t] <- next_state_name
@@ -546,9 +547,9 @@ simulate_q_agent <- function(agent_id, episodes = 200,
       mood = mood_trace[i],
       reward = reward_trace[i],
       state = state_trace[i],
-      rumination_bias = identity_trace[[i]]$rumination_bias,
-      social_sensitivity = identity_trace[[i]]$social_sensitivity,
-      goal_orientation = identity_trace[[i]]$goal_orientation
+      rumination_bias = identity_tracei$rumination_bias,
+      social_sensitivity = identity_tracei$social_sensitivity,
+      goal_orientation = identity_tracei$goal_orientation
     )
   }))
   
