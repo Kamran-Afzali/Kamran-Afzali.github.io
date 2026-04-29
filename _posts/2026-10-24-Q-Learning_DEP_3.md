@@ -3,12 +3,57 @@
 
 Multi-armed bandit tasks, as we discussed in our previous posts, provide a framework for studying decision-making deficits in depression, but they take away much of the complexity of real-world behavior. Daily life involves navigating environments with states, social contexts, and personal characteristics that shape how we learn and choose. In this follow-up post we extend beyond simple bandit paradigms to explore how depressive patterns emerge in more realistic behavioral simulations. This post introduces three progressive models: a basic mood-sensitive Markov Decision Process (MDP), an agent influenced by social feedback, and finally an agent with dynamic identity traits that evolve based on experience. Each model reveals new insights into how depression might manifest not just as altered learning parameters, but as complex interactions between affect, environment, and developing psychological characteristics.
 
+
 ## From Bandits to Behavioral States
 
-Real behavior unfolds across multiple contexts rather than simple discrete choices. Our first extension models an agent navigating five behavioral states: ScreenTime, PhysicalActivity, Socializing, Alcohol use, and Cinema. Unlike bandit arms that exist in isolation, these states form an environment where actions influence both immediate rewards and future state transitions. The agent maintains Q-values for each state-action pair and updates them using standard temporal difference learning. like previous models (post 1 and 2) we have a **Mood-Dependent Learning Rate**, that is rather than fixed learning rates, we implement `alpha = alpha_base * exp(-mood_influence * mood)`. When mood is negative, the exponential term increases alpha, making the agent paradoxically more sensitive to new information when distressed. This captures clinical observations that depressed individuals can become hypervigilant to negative feedback while remaining relatively insensitive to positive outcomes. We also set up **Rumination-Based Mood Updates** where mood evolves based on differential weighting of positive versus negative experiences. Healthy agents weight successes more heavily (`rumination_weight_success = 0.6` vs `rumination_weight_failure = 0.4`), while depressed agents show the reverse pattern (`0.2` vs `0.8`). This asymmetry creates a self-reinforcing cycle where negative experiences have disproportionate impact on future learning. Also, rather than simply altering Q-values uniformly, we implement `biased_Q = Q + optimism - pessimism * (1 - Q)`. The pessimism term scales with how far Q-values are from their maximum, meaning the agent becomes increasingly pessimistic about options it hasn't fully explored—a computational implementation of the "unknown = bad" heuristic often seen in  Anxiety and Depression.
+Real behavior unfolds across multiple contexts rather than simple discrete choices. Our first extension models an agent navigating five behavioral states: ScreenTime, PhysicalActivity, Socializing, Alcohol use, and Cinema. Unlike bandit arms that exist in isolation, these states form a Markov Decision Process (MDP) defined by the tuple $(\mathcal{S}, \mathcal{A}, \mathcal{T}, \mathcal{R}, \gamma)$, where $\mathcal{S}$ is the state space, $\mathcal{A}$ the action space, $\mathcal{T}(s' \mid s, a)$ the transition distribution, $\mathcal{R}(s, a)$ the reward function, and $\gamma = 0.9$ a discount factor controlling how much the agent values future rewards. The transition structure is intentionally noisy: taking action $a$ moves the agent to the corresponding state with probability 0.6, with the remaining 0.4 spread uniformly across other states. This reflects the reality that choosing to go to the gym doesn't guarantee you'll feel like an active person afterward — the environment pushes back.
+
+The agent maintains a Q-table $Q(s, a)$ for each state-action pair and updates it via the standard temporal difference rule:
+
+$$
+Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
+$$
+
+What distinguishes this model from textbook Q-learning is that $\alpha$ is not fixed. Like previous models (posts 1 and 2), we implement a **mood-dependent learning rate**:
 
 ```r
-# Key parameter differences
+alpha <- alpha_base * exp(-mood_influence * mood_clamped)
+```
+
+Formally, $\alpha = \alpha_0 \cdot e^{-\lambda \cdot m}$, where $\lambda$ is `mood_influence` and $m \in [-1, 1]$ is the current mood. When mood is negative, the exponential term grows, amplifying the effective learning rate. The depressed agent uses $\lambda = 2.0$ versus $\lambda = 1.0$ for the healthy agent, meaning that at $m = -1$, its learning rate inflates by a factor of $e^2 \approx 7.4$ compared to $e^1 \approx 2.7$. This captures clinical observations that depressed individuals become hypervigilant to negative feedback while remaining relatively insensitive to positive outcomes — the distressed agent doesn't just feel worse, it *learns faster from bad experiences*, embedding them more deeply into its policy.
+
+Mood itself evolves through a **rumination-based update** that is asymmetric by design. After each episode, mood is updated as:
+
+$$
+m_t = \delta \cdot m_{t-1} + (1 - \delta) \cdot \Delta m
+$$
+
+where $\delta$ is `mood_decay` and $\Delta m$ is the mood update, scaled by `rumination_weight_success` for positive rewards and `rumination_weight_failure` for negative ones:
+
+```r
+if (reward > 0) {
+  mood_update <- rumination_weight_success * reward
+} else if (reward < 0) {
+  mood_update <- rumination_weight_failure * reward
+}
+mood <- mood_decay * mood + (1 - mood_decay) * mood_update
+```
+
+Healthy agents weight successes more heavily (0.6 vs. 0.4), while depressed agents show the reverse (0.2 vs. 0.8). This asymmetry is not merely a parameter curiosity — it creates a self-reinforcing cycle. A single bad experience generates a larger negative mood shift, which in turn inflates $\alpha$ on the next step, which causes the agent to over-update its Q-values downward, which biases future action selection toward avoidance. The math locks together into a loop that mirrors the cognitive model of depression.
+
+The final layer of distortion acts directly on action selection before any epsilon-greedy decision is made. Rather than simply altering Q-values uniformly, we compute a **cognitively biased Q-estimate**:
+
+$$
+\tilde{Q}(s, a) = Q(s, a) + \text{optimism} - \text{pessimism} \cdot (1 - Q(s, a))
+$$
+
+```r
+biased_Q <- Q[current_state, ] + optimism - pessimism * (1 - Q[current_state, ])
+```
+
+The pessimism term scales with how far each Q-value is from its maximum of 1, meaning the agent becomes increasingly skeptical about options it hasn't fully explored. A completely unlearned action ($Q = 0$) is penalized by the full pessimism coefficient, while a well-learned rewarding action ($Q \approx 1$) escapes the penalty almost entirely. This is a computational implementation of the "unknown = bad" heuristic frequently observed in anxiety and depression, and it has a concrete behavioral consequence: the depressed agent systematically underestimates the value of novel or unexplored activities, making it harder to escape low-reward behavioral attractors like ScreenTime or Alcohol.
+
+```r
 params_healthy <- list(
   mood_influence = 1.0,
   rumination_weight_success = 0.6,
@@ -25,6 +70,8 @@ params_depressed <- list(
   optimism = 0.0
 )
 ```
+
+Together, these three mechanisms — mood-amplified learning, asymmetric rumination, and pessimistic Q-bias — don't operate independently. They form a coupled dynamical system where each component feeds the others, producing qualitatively different behavioral trajectories even though both agents inhabit the exact same environment and start with identical Q-tables.
 
 ## Adding Social Influence
 
