@@ -75,7 +75,24 @@ Together, these three mechanisms — mood-amplified learning, asymmetric ruminat
 
 ## Adding Social Influence
 
-Mental health disorders rarely occur in social isolation. Our second model incorporates peer feedback as an additional influence on both learning and mood. This extension recognizes that depression often involves altered social cognition and increased sensitivity to social rejection. The agent receives peer feedback based on its chosen actions, implemented in two modes: random feedback simulating unpredictable social environments, or state-based feedback where certain behaviors (like socializing or exercise) receive positive responses while others (like alcohol use) receive negative feedback. We vary `social_feedback_weight` between healthy (0.3) and depressed (0.5) agents, reflecting empirical findings that individuals with depression show heightened sensitivity to social evaluation. The depressed agent's mood becomes more volatile and dependent on external validation:
+
+Mental health disorders rarely occur in social isolation. Our second model incorporates peer feedback as an additional influence on both learning and mood. This extension recognizes that depression often involves altered social cognition and increased sensitivity to social rejection. The agent receives peer feedback based on its chosen actions, implemented in two modes: random feedback simulating unpredictable social environments, or state-based feedback where certain behaviors (like socializing or exercise) receive positive responses while others (like alcohol use) receive negative feedback.
+
+```r
+peer_feedback <- if (peer_feedback_mode == "random") {
+  sample(c(-1, 0, 1), 1, prob = c(0.2, 0.6, 0.2))
+} else if (peer_feedback_mode == "state-based") {
+  if (env$states[action] %in% c("Socializing", "PhysicalActivity")) {
+    1
+  } else if (env$states[action] == "Alcohol") {
+    -1
+  } else {
+    0
+  }
+}
+```
+
+We vary `social_feedback_weight` between healthy (0.3) and depressed (0.5) agents, reflecting empirical findings that individuals with depression show heightened sensitivity to social evaluation. The depressed agent's mood becomes more volatile and dependent on external validation:
 
 ```r
 mood_reward <- if (reward > 0) rumination_weight_success * reward else rumination_weight_failure * reward
@@ -84,7 +101,49 @@ mood_update <- mood_reward + mood_social
 mood <- mood_decay * mood + (1 - mood_decay) * mood_update
 ```
 
-This social influence creates feedback loops where negative peer responses can trap the agent in maladaptive behavioral patterns. A depressed agent who receives critical feedback while socializing may subsequently avoid social contexts, leading to isolation and further mood deterioration—a computational parallel to social withdrawal in depression.
+This social influence creates feedback loops where negative peer responses can trap the agent in maladaptive behavioral patterns. A depressed agent who receives critical feedback while socializing may subsequently avoid social contexts, leading to isolation and further mood deterioration — a computational parallel to social withdrawal in depression.
+
+A key mechanism amplifying this dynamic is the mood-modulated learning rate. Rather than treating all experiences equally, the agent's capacity to update its beliefs scales with its current emotional state:
+
+```r
+alpha <- alpha_base * exp(-mood_influence * mood_clamped)
+```
+
+For the depressed agent, `mood_influence = 2.0` versus `1.0` for the healthy agent. When mood is negative, the exponential term inflates `alpha`, causing the agent to overweight recent negative experiences. When mood is slightly positive, `alpha` is suppressed, slowing the integration of rewarding feedback. This asymmetry means the depressed agent learns faster from bad outcomes than good ones — a computational analogue of negativity bias documented in clinical populations.
+
+The asymmetric rumination weights compound this further. While the healthy agent distributes rumination relatively evenly (`success = 0.6`, `failure = 0.4`), the depressed agent's configuration (`success = 0.2`, `failure = 0.8`) ensures that negative events linger disproportionately in mood state:
+
+```r
+# Healthy: balanced rumination
+params_healthy <- list(
+  rumination_weight_success = 0.6,
+  rumination_weight_failure = 0.4
+)
+
+# Depressed: failure-dominant rumination
+params_depressed <- list(
+  rumination_weight_success = 0.2,
+  rumination_weight_failure = 0.8
+)
+```
+
+Together, these parameters produce diverging behavioral trajectories. We can observe this directly by comparing Q-value matrices at the end of simulation — the depressed agent develops a Q-table that systematically undervalues prosocial behaviors and overestimates the relative appeal of avoidant ones like ScreenTime:
+
+```r
+# Extract final Q-values per group for inspection
+q_summary <- combined_df %>%
+  group_by(Group, Action) %>%
+  summarise(MeanReward = mean(Reward), .groups = "drop")
+
+ggplot(q_summary, aes(x = Action, y = MeanReward, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Mean Reward by Action and Group",
+       x = "Action (Behavior)", y = "Mean Reward") +
+  theme_minimal()
+```
+
+Cumulative reward plots reveal the downstream consequence: the depressed agent accumulates substantially lower total reward over 200 episodes, not because the environment treats it differently, but because its own internal dynamics steer it toward lower-value behavioral attractors. This illustrates how a computational model can reproduce the self-reinforcing nature of depression — where cognitive and social vulnerabilities interact to sustain maladaptive behavior even in an environment that offers pathways to positive outcomes.
+
 
 ## Dynamic Identity and Trait Evolution
 
