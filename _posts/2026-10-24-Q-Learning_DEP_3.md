@@ -147,23 +147,147 @@ Cumulative reward plots reveal the downstream consequence: the depressed agent a
 
 ## Dynamic Identity and Trait Evolution
 
-The third model moves beyond fixed agent parameters to explore how psychological traits themselves might evolve through experience as the characteristics change over time, potentially in ways that reinforce or ameliorate depressive patterns. We implement three evolving identity dimensions, **Rumination Bias** that increases when the agent experiences negative outcomes while in poor mood states. This creates a ratcheting effect where bad experiences during low mood periods make the agent increasingly likely to dwell on future negative outcomes. **Social Sensitivity** that adjusts based on the magnitude of peer feedback received. Agents who experience strong social responses become more reactive to future social cues, potentially leading to either social confidence or social anxiety depending on the valence of early experiences. Finally, **Goal Orientation**, that reflects the agent's recent reward volatility. Agents experiencing consistent outcomes develop stronger goal-directed behavior, while those facing unpredictable environments become more exploratory and less focused. These trait dynamics create emergent behavioral patterns that persist beyond individual learning episodes. An agent who early in simulation experiences negative outcomes while in poor mood develops increased rumination bias, making them more likely to focus on negative aspects of future experiences. This computational implementation captures how depressive cognition can become self-reinforcing through experience-dependent trait formation.
+The third model moves beyond fixed agent parameters to explore how psychological traits themselves might evolve through experience as the characteristics change over time, potentially in ways that reinforce or ameliorate depressive patterns. We implement three evolving identity dimensions.
+
+**Rumination Bias** increases when the agent experiences negative outcomes while in poor mood states, creating a ratcheting effect where bad experiences during low mood periods make the agent increasingly likely to dwell on future negative outcomes. Critically, this trait acts as a multiplier on mood dynamics: positive rewards are dampened by `(1 - rumination_bias)`, while negative rewards are amplified by `(1 + rumination_bias)`, so a fully ruminative agent recovers more slowly from setbacks and benefits less from successes.
 
 ```r
-# Identity evolution rules
+# Mood delta: positive rewards are muted; negative rewards are amplified
+mood_delta <- if (reward > 0) {
+  reward * (1 - identity$rumination_bias)   # recovery suppressed
+} else {
+  reward * (1 + identity$rumination_bias)   # suffering amplified
+}
+
+# Ratchet update: only increments, never decrements naturally
 if (reward < 0 && mood < -0.5) {
   identity$rumination_bias <- min(identity$rumination_bias + 0.01, 1)
 }
-if (abs(peer_feedback) > 0.2) {
-  identity$social_sensitivity <- max(min(identity$social_sensitivity + 0.01 * peer_feedback, 1), 0)
+```
+
+This asymmetry means that two agents starting with identical Q-tables but different `rumination_bias` values will diverge sharply in mood trajectories after a sequence of adverse outcomes. The deliberate absence of a downward correction rule represents an important modeling choice: recovery from ruminative cognitive styles requires active intervention rather than passive improvement, consistent with cognitive-behavioral accounts of depression maintenance.
+
+**Social Sensitivity** adjusts based on the magnitude of peer feedback received. Agents who experience strong social responses become more reactive to future social cues, potentially leading to either social confidence or social anxiety depending on the valence of early experiences. The update rule is bidirectional — positive peer signals gradually raise sensitivity, while negative ones suppress it — but is gated by a threshold (`|peer_feedback| > 0.2`) that filters out weak social signals below a perceptual threshold:
+
+```r
+# Peer feedback is only sampled in social/alcohol states
+peer_feedback_function <- function(state) {
+  if (state == "socializing") return(runif(1, -1, 1))   # wide valence range
+  if (state == "alcohol_use") return(runif(1, -0.5, 0.5)) # narrower range
+  return(0)
 }
+
+# Sensitivity update: gated by threshold, bounded in [0, 1]
+if (abs(peer_feedback) > 0.2) {
+  identity$social_sensitivity <- max(
+    min(identity$social_sensitivity + 0.01 * peer_feedback, 1),
+    0
+  )
+}
+```
+
+Because `peer_feedback` for `socializing` is drawn from `Uniform(-1, 1)`, early social encounters are essentially random. This means that two initially identical agents can bifurcate purely by chance: one accumulates positive social experiences and becomes increasingly socially sensitive in a self-affirming direction, while the other accumulates negative feedback and progressively inhibits social engagement. This captures the developmental sensitivity to early peer environments that is well-documented in adolescent psychopathology research.
+
+**Goal Orientation** reflects the agent's recent reward volatility rather than absolute performance. Rather than updating incrementally, it is recomputed every episode (after a 10-trial burn-in) as the complement of mean absolute reward over the previous 10 steps:
+
+```r
 if (t > 10) {
   recent_rewards <- reward_trace[(t-10):(t-1)]
   identity$goal_orientation <- 1 - mean(abs(recent_rewards), na.rm = TRUE)
 }
 ```
 
-Across all three models, several patterns emerge that align with clinical observations of depression. Depressed agents exhibit **reduced behavioral flexibility**, showing less exploration of potentially rewarding states, particularly when mood is low; this computational rigidity mirrors the behavioral activation deficits observed clinically, where individuals struggle to engage in activities that might be rewarding. At the same time, negative feedback tends to be amplified: the interaction between rumination biases and mood-dependent learning creates a dynamic in which adverse experiences cascade forward, such that a single negative outcome can shift mood, alter learning rates, and bias subsequent choices toward previously successful yet potentially suboptimal actions. **Sensitivity to social feedback** also appears heightened, with depressed agents displaying greater volatility in response to peer input, producing more erratic behavioral patterns and, when feedback is negative, reinforcing tendencies toward social withdrawal. Finally, the dynamic trait model suggests a form of **identity drift**, where past mood episodes can produce lasting changes in psychological characteristics, allowing short-term negative experiences—especially during vulnerable periods—to reshape how an agent approaches future situations.
+This formulation has an important structural property: agents in a **consistent environment** — whether consistently rewarding or consistently punishing — develop high goal orientation, while agents facing **reward volatility** see goal orientation collapse. Concretely, an agent repeatedly transitioning through `physical_activity` (reward = 1.0) achieves `goal_orientation ≈ 0.0`, whereas an agent alternating between `physical_activity` and `alcohol_use` (rewards ±1.0) settles near `goal_orientation ≈ 0.0` as well — but for different reasons. The informationally meaningful zone is the middle range, where moderate but stable reward (`cinema`, reward = 0.5) produces `goal_orientation ≈ 0.5`, reflecting reliable but not maximal behavioral engagement.
+
+```r
+# Illustrative goal orientation values by behavioral pattern:
+# Pattern: all physical_activity → mean(|rewards|) = 1.0 → goal_orientation = 0.0
+# Pattern: alternating phys/alcohol → mean(|rewards|) = 1.0 → goal_orientation = 0.0
+# Pattern: all cinema            → mean(|rewards|) = 0.5 → goal_orientation = 0.5
+# Pattern: all screen_time       → mean(|rewards|) = 0.5 → goal_orientation = 0.5
+# Pattern: mixed low-reward      → mean(|rewards|) ≈ 0.3 → goal_orientation ≈ 0.7
+```
+
+This highlights a subtle but significant modeling limitation: `goal_orientation` as currently formulated captures reward *magnitude* consistency, not behavioral *direction* consistency. An agent locked in a single harmful behavior (pure `alcohol_use`) registers identically high goal orientation as one locked in purely beneficial behavior. A more psychologically faithful implementation might compute goal orientation over state-transition entropy rather than reward magnitude, penalizing behavioral rigidity regardless of valence.
+
+These three traits do not operate in isolation — they interact through shared dependence on mood and reward, creating emergent feedback loops. The most consequential loop involves the conjunction of `rumination_bias` and `social_sensitivity`: a ruminative agent who encounters negative peer feedback during socialization experiences both amplified mood damage (via rumination) and suppressed social sensitivity (via the feedback update), making subsequent socialization less likely to be pursued and, when pursued, less rewarding. This mirrors the **social withdrawal spiral** observed in clinical depression, where withdrawal from social activities reduces opportunities for positive feedback, which further erodes motivation to engage.
+
+```r
+# Full identity update block — showing joint trait dynamics in context
+for (t in 1:episodes) {
+  # ... action selection and environment step ...
+  
+  # Mood dynamics: rumination_bias acts here
+  mood_delta <- if (reward > 0) {
+    reward * (1 - identity$rumination_bias)
+  } else {
+    reward * (1 + identity$rumination_bias)
+  }
+  mood_delta <- mood_delta + identity$social_sensitivity * peer_feedback
+  mood <- 0.9 * mood + 0.1 * mood_delta
+  
+  # --- Identity trait updates ---
+  
+  # Rumination ratchet: only tightens under joint negative conditions
+  if (reward < 0 && mood < -0.5) {
+    identity$rumination_bias <- min(identity$rumination_bias + 0.01, 1)
+  }
+  
+  # Social sensitivity: bidirectional, threshold-gated
+  if (abs(peer_feedback) > 0.2) {
+    identity$social_sensitivity <- max(
+      min(identity$social_sensitivity + 0.01 * peer_feedback, 1),
+      0
+    )
+  }
+  
+  # Goal orientation: recomputed over recent reward history
+  if (t > 10) {
+    recent_rewards <- reward_trace[(t-10):(t-1)]
+    identity$goal_orientation <- 1 - mean(abs(recent_rewards), na.rm = TRUE)
+  }
+}
+```
+
+The Q-learning update further responds to the `optimism` parameter, which is itself a proxy for the aggregate influence of past identity states on future learning. A fully integrated model might allow `optimism` to co-vary with `rumination_bias` across episodes — as rumination increases, the agent's effective optimism decreases, biasing the Q-update to weight negative TD errors more heavily and slowing recovery of positive action values.
+
+These trait dynamics create emergent behavioral patterns that persist beyond individual learning episodes. An agent who early in simulation experiences negative outcomes while in poor mood develops increased rumination bias, making them more likely to focus on negative aspects of future experiences. Over time, this produces a characteristic signature in the agent's trajectory: early mood instability that stabilizes at a **chronically lower baseline** than agents who escaped the early negative cascade — a computational analog of **mood-state-dependent maintenance** of depression.
+
+The visualization of these patterns across 20 agents reveals considerable inter-individual heterogeneity from identical priors, since all agents begin with `rumination_bias = 0.5`, `social_sensitivity = 0.5`, and `goal_orientation = 0.5`:
+
+```r
+# Visualize divergence in identity traits across agents
+traits_long <- results %>%
+  pivot_longer(
+    cols = c(rumination_bias, social_sensitivity, goal_orientation),
+    names_to  = "trait",
+    values_to = "value"
+  ) %>%
+  mutate(
+    trial = as.numeric(trial),
+    value = as.numeric(value)
+  )
+
+# Overlay mean trajectory to show population-level drift
+mean_trajectories <- traits_long %>%
+  group_by(trial, trait) %>%
+  summarise(mean_value = mean(value), .groups = "drop")
+
+ggplot(traits_long, aes(x = trial, y = value)) +
+  geom_line(aes(color = factor(agent)), alpha = 0.3, linewidth = 0.4) +
+  geom_line(data = mean_trajectories,
+            aes(y = mean_value), color = "black", linewidth = 1.2) +
+  facet_wrap(~trait, scales = "free_y", labeller = label_parsed) +
+  labs(
+    title   = "Identity Trait Evolution Across Agents",
+    subtitle = "Thin lines = individual agents; bold = population mean",
+    x = "Trial", y = "Trait Value"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+This computational implementation captures how depressive cognition can become self-reinforcing through experience-dependent trait formation. The critical insight is that the model produces **individual differences from shared initial conditions** without any pre-specified heterogeneity, suggesting that stochastic variation in early experience — rather than differences in initial vulnerability — may be sufficient to generate the wide range of outcomes observed in longitudinal studies of mood disorder onset.
 
 ## Limitations and Future Directions
 
@@ -171,12 +295,7 @@ These models are more expressive than simple bandit formulations, but they still
 
 If the framework were to be extended, several directions seem necessary. One could imagine introducing environmental volatility, where reward structures are not fixed but drift over time, forcing the agent to continuously recalibrate. Similarly, incorporating multiple social agents—each with their own learning dynamics and mood trajectories—would move the model closer to something resembling actual social systems. A hierarchical organization of goals could also be relevant, allowing agents to pursue short-term and long-term objectives that occasionally come into tension. Memory processes, particularly those resembling rumination, would add another layer by making past experiences persist and shape present decisions in a more structured way. Finally, one might explicitly model therapeutic interventions as perturbations to learning parameters or trait dynamics, rather than treating them as external to the system.
 
-Even in their current form these models have a few computational interpretations of therapeutic practice. One of the more immediate is the idea of learning asymmetries. Cognitive-behavioral therapy, with its emphasis on rebalancing attention between positive and negative outcomes, can be read as an attempt to correct skewed update dynamics—essentially reducing the over-weighting of negative feedback that resembles rumination in the model. From this perspective, therapy is not just changing thoughts, but recalibrating how experience is integrated over time. The role of social context where the feedback from others directly shapes both mood and learning trajectories, suggests that modifying that feedback—whether through social skills training or by altering one’s environment—could have effects that propagate beyond any single interaction. The model hints at a kind of cascade, where small changes in social input accumulate into broader shifts in behavior and affect. Likewise, the treatment of identity traits are often described as stable such as sensitivity to rejection or baseline optimism—appear here as evolving quantities, contingent on experience. This suggests, perhaps cautiously, that such traits may be more plastic than they are typically assumed to be. Interventions that introduce positive or corrective experiences at particular moments might not just produce temporary improvements, but alter longer-term trajectories. Finally, the idea of mood-dependent learning rates introduces a temporal dimension to intervention. If the capacity to update beliefs varies with mood, then the timing of therapeutic input may matter as much as its content. There may be windows in which individuals are more receptive to integrating new information in a constructive way, and others in which learning is either dampened or biased. The model does not resolve how to identify these moments in practice, but it does make the possibility harder to ignore.
-
-
-## Conclusion
-
-Moving beyond simple bandit tasks here we discussed depression not as a collection of fixed parameter changes, but as dynamic patterns emerging from complex interactions between learning, affect, social context, and evolving psychological traits. These models suggest that depressive cognition involves sophisticated feedback loops that can make initially adaptive responses become self-reinforcing patterns of dysfunction. While these computational approaches remain significant simplifications of human psychology, they offer frameworks for understanding how temporary mood episodes can create lasting behavioral changes, how social contexts shape individual psychology, and how therapeutic interventions might target specific components of complex cognitive-affective systems. As Computational Psychiatry continues developing, such models may eventually inform personalized interventions based on individual learning patterns and environmental contexts. The code implementations demonstrate that relatively simple extensions to standard  Reinforcement Learning can capture surprisingly rich behavioral phenomena. However, the true test of these models lies not in their computational sophistication, but in their ability to generate testable predictions about real human behavior and inform effective therapeutic approaches.
+Even in their current form these models have a few computational interpretations of therapeutic practice. One of the more immediate is the idea of learning asymmetries. Cognitive-behavioral therapy, with its emphasis on rebalancing attention between positive and negative outcomes, can be read as an attempt to correct skewed update dynamics—essentially reducing the over-weighting of negative feedback that resembles rumination in the model. From this perspective, therapy is not just changing thoughts, but recalibrating how experience is integrated over time. The role of social context where the feedback from others directly shapes both mood and learning trajectories, suggests that modifying that feedback—whether through social skills training or by altering one’s environment—could have effects that propagate beyond any single interaction. The model hints at a kind of cascade, where small changes in social input accumulate into broader shifts in behavior and affect. Likewise, the treatment of identity traits are often described as stable such as sensitivity to rejection or baseline optimism—appear here as evolving quantities, contingent on experience. This suggests, perhaps cautiously, that such traits may be more plastic than they are typically assumed to be. Interventions that introduce positive or corrective experiences at particular moments might not just produce temporary improvements, but alter longer-term trajectories. Finally, the idea of mood-dependent learning rates introduces a temporal dimension to intervention. If the capacity to update beliefs varies with mood, then the timing of therapeutic input may matter as much as its content. There may be windows in which individuals are more receptive to integrating new information in a constructive way, and others in which learning is either dampened or biased. The model does not resolve how to identify these moments in practice, but it does make the possibility harder to ignore. As Computational Psychiatry continues developing, such models may eventually inform personalized interventions based on individual learning patterns and environmental contexts. The code implementations demonstrate that relatively simple extensions to standard  Reinforcement Learning can capture surprisingly rich behavioral phenomena. However, the true test of these models lies not in their computational sophistication, but in their ability to generate testable predictions about real human behavior and inform effective therapeutic approaches.
 
 ## Toy model 1
 
