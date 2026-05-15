@@ -27,7 +27,12 @@ encoded as `Q[action] <- Q[action] + alpha * (reward - Q[action])`. Two agents w
 To recover latent learning parameters from behavioral data, we specified a hierarchical Bayesian Q-learning model in Stan, where the learning rate and inverse temperature are assigned weakly informative priors: $\alpha \sim \text{Beta}(1,1)$ and $\beta \sim \mathcal{N}(0, 5)$. At each observation $n$, the likelihood of the chosen action $A_n$ is evaluated under a categorical-logit distribution,
 
 $$
-\log p(A_n \mid Q_n, \beta) = \text{categorical\_logit\_lpmf}(A_n \mid \beta \cdot \mathbf{Q}_n)
+\log p(A_n \mid Q_n, \beta)
+=
+\log \operatorname{Categorical}
+\left(
+A_n \mid \beta \mathbf{Q}_n
+\right)
 $$
 
 accumulated via `target += categorical_logit_lpmf(A[n] | logit_p)`, after which Q-values are updated sequentially within the Stan model block. Posterior sampling was conducted using NUTS with 4 chains of 2,000 iterations (1,000 warmup) and `adapt_delta = 0.95` to ensure numerical stability. Posterior mean estimates $\hat{\alpha}$ and $\hat{\beta}$ were extracted via `alpha_hat <- mean(q_post$alpha)` and used to generate trial-wise predicted choice probabilities $\hat{\pi}_t(a=1)$, which were binned into windows of 50 trials and compared against empirical choice frequencies — providing a posterior predictive check of model adequacy.
