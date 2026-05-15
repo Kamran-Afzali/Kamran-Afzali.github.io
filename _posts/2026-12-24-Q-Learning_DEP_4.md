@@ -6,6 +6,33 @@ Translating theoretical computational psychiatry models into clinical insights i
 
 Unlike controlled simulation studies where we know the true generating parameters, in clinical behavioral data, when a depressed patient performs trials of a two-armed bandit task, we observe only their choices and outcomes—the underlying learning rate, reward sensitivity, and decision noise remain hidden. Yet these latent parameters may be precisely what distinguishes healthy from pathological cognition. Consider a typical clinical dataset: 50 depressed patients and 50 healthy controls, each completing 200 trials of a probabilistic learning task. Standard analysis might fit Q-learning models to each participant, extract point estimates of α (learning rate) and β (inverse temperature), then compare group means with t-tests. This approach ignores parameter uncertainty, model fit quality, and the possibility that different individuals might be using entirely different learning strategies. If we conclude that depression involves reduced learning rates based on model fitting, this could influence treatment decisions, theoretical understanding, and future research directions. But what if our parameter estimates are unreliable due to limited data, model misspecification, or individual heterogeneity? Bayesian approaches provide tools to quantify this uncertainty and validate our computational inferences.
 
+
+### Simulation of Reinforcement Learning Under Healthy and Depressed Conditions
+
+We implemented a Q-learning agent operating in a stationary two-armed bandit environment, where each arm \(a \in \{1, 2\}\) yields a binary reward \(r_t \in \{0, 1\}\) with probabilities \(\mathbf{p} = [0.8, 0.2]\). At each trial \(t\), the agent selects an action according to a softmax (Boltzmann) policy, where the probability of choosing action \(a\) is given by:
+
+\[
+\pi(a \mid Q_t) = \frac{\exp(\beta \cdot Q_t(a))}{\sum_{a'} \exp(\beta \cdot Q_t(a'))}
+\]
+
+implemented in R as `probs <- exp(Q * beta) / sum(exp(Q * beta))`. Following action selection, Q-values are updated via the delta rule:
+
+\[
+Q_{t+1}(a_t) \leftarrow Q_t(a_t) + \alpha \bigl(r_t - Q_t(a_t)\bigr)
+\]
+
+encoded as `Q[action] <- Q[action] + alpha * (reward - Q[action])`. Two agents were simulated over 2,000 trials: a *healthy* agent with \(\alpha = 0.4\), \(\beta = 5\) (fast belief updating, high reward sensitivity) and a *depressed* agent with \(\alpha = 0.05\), \(\beta = 2\) (sluggish updating, blunted sensitivity), reflecting empirical findings that depression is associated with reduced prediction error signaling.
+
+### Bayesian Parameter Recovery via Stan
+
+To recover latent learning parameters from behavioral data, we specified a hierarchical Bayesian Q-learning model in Stan, where the learning rate and inverse temperature are assigned weakly informative priors: \(\alpha \sim \text{Beta}(1,1)\) and \(\beta \sim \mathcal{N}(0, 5)\). At each observation \(n\), the likelihood of the chosen action \(A_n\) is evaluated under a categorical-logit distribution,
+
+\[
+\log p(A_n \mid Q_n, \beta) = \text{categorical\_logit\_lpmf}(A_n \mid \beta \cdot \mathbf{Q}_n)
+\]
+
+accumulated via `target += categorical_logit_lpmf(A[n] | logit_p)`, after which Q-values are updated sequentially within the Stan model block. Posterior sampling was conducted using NUTS with 4 chains of 2,000 iterations (1,000 warmup) and `adapt_delta = 0.95` to ensure numerical stability. Posterior mean estimates \(\hat{\alpha}\) and \(\hat{\beta}\) were extracted via `alpha_hat <- mean(q_post$alpha)` and used to generate trial-wise predicted choice probabilities \(\hat{\pi}_t(a=1)\), which were binned into windows of 50 trials and compared against empirical choice frequencies — providing a posterior predictive check of model adequacy.
+
 ## Hierarchical Bayesian Parameter Recovery
 
 It is possibe to approach parameter recovery as a hierarchical inference problem, where we simultaneously model individual-level parameters and group-level distributions. This approach provides advantages like improved parameter estimates through partial pooling, explicit modeling of individual differences, and natural incorporation of group-level comparisons.
