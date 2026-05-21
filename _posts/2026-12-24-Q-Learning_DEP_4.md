@@ -39,85 +39,92 @@ In contrast, the first Stan model embeds a full Q‑learning process. There, act
 
 ## Hierarchical Bayesian Parameter Recovery
 
-It is possibe to approach parameter recovery as a hierarchical inference problem, where we simultaneously model individual-level parameters and group-level distributions. This approach provides advantages like improved parameter estimates through partial pooling, explicit modeling of individual differences, and natural incorporation of group-level comparisons.
+It is possibe to approach parameter recovery as a hierarchical inference
+problem, where we simultaneously model individual-level parameters and
+group-level distributions. This approach provides advantages like
+improved parameter estimates through partial pooling, explicit modeling
+of individual differences, and natural incorporation of group-level
+comparisons. Such a hierarchical structure allows parameters for
+participants with limited or noisy data to borrow some precision from
+the group, leading to more stable estimates. Also, as we explicitly
+model the distribution of individual differences within each group,
+capturing heterogeneity that might be clinically relevant. This latter
+also facilitates group comparisons from the posterior distributions
+rather than requiring separate statistical tests. The third model
+implements a full parameter‑recovery pipeline for a hierarchical
+reinforcement learning model, starting from synthetic data generation
+and ending with Bayesian inference and posterior diagnostics. First, it
+simulates a two‑group clinical sample performing a probabilistic
+two‑armed bandit task, where each subject $s$ is endowed with a learning
+rate $\alpha_s \in (0,1)$ and an inverse temperature $\beta_s > 0$.
+Group membership $G_s \in \{0,1\}$ (control vs. depressed) determines
+the distribution of these parameters via group‑specific Gaussian
+hyperparameters on unconstrained scales, for example
+$\tilde{\alpha}_s \mid G_s=g \sim \mathcal{N}(\mu_{\alpha,g}, \sigma_{\alpha,g}^2)$
+and $\alpha_s = \text{logit}^{-1}(\tilde{\alpha}_s)$, with an analogous
+log‑scale parameterization for $\beta_s$. Within each subject, the code
+simulates behavior using Q‑learning: starting from $Q_{s,a}(1)=0$ for
+arms $a\in\{1,2\}$, choices are drawn from a softmax policy
+$P(A_t=a) = \frac{\exp(\beta_s Q_{s,a}(t))}{\sum_{a'} \exp(\beta_s Q_{s,a'}(t))}$,
+rewards are sampled from Bernoulli distributions with fixed
+probabilities (0.70 vs. 0.30), and Q‑values are updated as
+$Q_{s,A_t}(t+1) = Q_{s,A_t}(t) + \alpha_s (R_t - Q_{s,A_t}(t))$. In R,
+this dynamics is encoded as follows, where `beta_true[s] * Q` implements
+the trial‑wise logits and `Q[ch] <- Q[ch] + alpha_true[s] * pe`
+corresponds to the prediction‑error update:
 
-```stan
-data {
-  int<lower=1> N_subj;          // Number of subjects
-  int<lower=1> N_trials;        // Trials per subject
-  int<lower=1> N_total;         // Total observations
-  int<lower=1,upper=N_subj> subj[N_total];  // Subject index
-  int<lower=1,upper=2> choice[N_total];     // Choices (1 or 2)
-  int<lower=0,upper=1> reward[N_total];     // Rewards (0 or 1)
-  int<lower=0,upper=1> group[N_subj];       // Group membership (0=control, 1=depressed)
-}
 
-parameters {
-  // Group-level parameters
-  vector[2] mu_alpha;           // Mean learning rate by group
-  vector[2] mu_beta;            // Mean inverse temp by group
-  vector<lower=0>[2] sigma_alpha;  // SD learning rate by group
-  vector<lower=0>[2] sigma_beta;   // SD inverse temp by group
-  
-  // Individual-level parameters (raw)
-  vector[N_subj] alpha_raw;
-  vector[N_subj] beta_raw;
-}
-
-transformed parameters {
-  // Individual parameters (constrained)
-  vector<lower=0,upper=1>[N_subj] alpha;
-  vector<lower=0>[N_subj] beta;
-  
-  for (s in 1:N_subj) {
-    alpha[s] = Phi_approx(mu_alpha[group[s] + 1] + sigma_alpha[group[s] + 1] * alpha_raw[s]);
-    beta[s] = exp(mu_beta[group[s] + 1] + sigma_beta[group[s] + 1] * beta_raw[s]);
+```r
+for (s in 1:n_subj) {
+  Q <- c(0, 0)
+  for (t in 1:n_trials) {
+    logits <- beta_true[s] * Q
+    probs <- exp(logits - max(logits)); probs <- probs / sum(probs)
+    ch <- sample(1:2, size = 1, prob = probs)
+    rew <- rbinom(1, 1, ifelse(ch == 1, p_rew_arm1, p_rew_arm2))
+    pe <- rew - Q[ch]
+    Q[ch] <- Q[ch] + alpha_true[s] * pe
+    # store subj, trial, choice, reward
   }
-}
-
-model {
-  // Priors
-  mu_alpha ~ normal(0, 1);
-  mu_beta ~ normal(1, 1);
-  sigma_alpha ~ normal(0, 0.5);
-  sigma_beta ~ normal(0, 0.5);
-  alpha_raw ~ normal(0, 1);
-  beta_raw ~ normal(0, 1);
-  
-  // Likelihood
-  {
-    vector[N_total] log_lik;
-    int idx = 1;
-    
-    for (s in 1:N_subj) {
-      vector[2] Q = rep_vector(0.0, 2);
-      
-      for (t in 1:N_trials) {
-        vector[2] action_prob = softmax(beta[s] * Q);
-        log_lik[idx] = categorical_lpmf(choice[idx] | action_prob);
-        
-        // Update Q-values
-        Q[choice[idx]] += alpha[s] * (reward[idx] - Q[choice[idx]]);
-        idx += 1;
-      }
-    }
-    
-    target += sum(log_lik);
-  }
-}
-
-generated quantities {
-  // Posterior predictions and diagnostics
-  vector[N_total] log_lik;
-  vector[N_subj] alpha_diff;    // Individual deviations from group mean
-  real group_diff_alpha;       // Group difference in learning rate
-  real group_diff_beta;        // Group difference in inverse temperature
-  
-  // [Implementation of posterior predictions and group comparisons]
 }
 ```
 
-Such a hierarchical structure allows parameters for participants with limited or noisy data to borrow some precision from the group, leading to more stable estimates. Also, as we explicitly model the distribution of individual differences within each group, capturing heterogeneity that might be clinically relevant. This latter also facilitates group comparisons from the posterior distributions rather than requiring separate statistical tests.
+The Stan model then mirrors this generative process in a hierarchical
+Bayesian framework to estimate both group‑level and individual‑level
+parameters from the simulated clinical‑style dataset. In the
+`parameters` and `transformed parameters` blocks, the model defines
+group‑specific means and standard deviations for $\alpha_s$ and
+$\beta_s$, and transforms standardized subject‑level variables into
+interpretable scales via
+$\alpha_s = \text{logit}^{-1}(\mu_{\alpha,G_s+1} + \sigma_{\alpha,G_s+1} \alpha^{\text{raw}}_s)$
+and
+$\beta_s = \exp(\mu_{\beta,G_s+1} + \sigma_{\beta,G_s+1} \beta^{\text{raw}}_s)$.
+The `model` block encodes the Q‑learning likelihood by iterating over
+subjects and trials, adding categorical‑logit log probabilities to the
+target density and updating Q‑values in lockstep with the observed
+rewards, as shown below:
+
+``` stan
+for (s in 1:N_subj) {
+  vector[2] Q = rep_vector(0.0, 2);
+  for (t in 1:N_trials) {
+    int i = (s - 1) * N_trials + t;
+    target += categorical_logit_lpmf(choice[i] | beta[s] * Q);
+    Q[choice[i]] += alpha[s] * (reward[i] - Q[choice[i]]);
+  }
+}
+```
+
+Finally, the `generated quantities` block computes trial‑wise
+log‑likelihoods, posterior predictive choices via
+`categorical_logit_rng`, and group‑level contrasts in mean $\alpha_s$
+and $\beta_s$, enabling posterior summaries and convergence checks that
+close the loop on parameter recovery for clinical reinforcement learning
+data. If you wanted to adapt this for a different clinical contrast (for
+example, three diagnostic groups or changing reward contingencies), what
+part of the Stan code would you target first and how would you change
+the formal group indexing $G_s$?
+
 
 ## Validating Parameter Recovery with Posterior Predictive Checks
 
