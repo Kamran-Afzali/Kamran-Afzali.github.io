@@ -1,350 +1,157 @@
-Now I have enough context to thoroughly improve the blog post. Let me identify the key issues and rewrite it:
+# Addressing Individual Heterogeneity and Mixture Models in Computational Psychiatry
 
-**Key findings:**
-1. **Stan syntax bug**: `simplex[N_strategies] strategy_prob [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf)` uses old array syntax — modern Stan (2.26+) requires `array [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) simplex[N_strategies] strategy_prob` [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan)
-2. The large Stan block needs breaking into labeled subsections
-3. The introductory section duplicates the opening paragraph almost verbatim
-4. The conclusion section is a summary paragraph (violates good structure — circular restatement)
-5. WSLS description is accurate [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf)
-6. `log_sum_exp` usage for marginalizing discrete latent variables is correct [mc-stan](https://mc-stan.org/docs/stan-users-guide/latent-discrete.html)
-7. The `group_diff_*` computed quantities use point estimates from group-level means (not individual posteriors) — technically a minor limitation worth noting
-8. Minor: the regex `"alpha\\\\["` in R has double-escaped backslashes which would be `alpha\\[` — should be `"alpha\\["` (two backslashes become one in R string, then one backslash in regex)
+One of the main lessons from computational psychiatry is that a diagnosis rarely maps onto a single decision strategy. This follow-up post extends the earlier Bayesian recovery framework by treating each participant as potentially belonging to one of multiple latent strategy classes, and it uses a mixture model to infer who is learning values and who is following a simpler win–stay/lose–shift heuristic.[^1][^2]
 
-***
+The code you provided is a strong example of this idea in practice: it simulates control and depressed groups with different strategy proportions, fits a Bayesian mixture of Q-learning and WSLS, and then checks whether the model can recover both individual strategies and group-level shifts in latent composition.[^3][^1]
 
-Here is the improved blog post:
+## Why mixture models matter
 
-***
+A standard hierarchical RL model assumes that all participants share the same generative form and differ only in parameter values. That assumption is often too strong for clinical data, where two people with the same symptom score may use different cognitive policies even on the same task. A mixture model relaxes that assumption by letting the data decide whether a subject is better explained by Q-learning or WSLS, while still estimating group-specific mixing weights.[^4][^5]
 
-# Addressing Individual Heterogeneity and Mixture Models in Computational Psychiatry: When One Model Doesn't Fit All
+Formally, if $z_s \in \{1,2\}$ is the latent strategy for subject $s$, the likelihood becomes a marginal mixture:
 
-In the [previous post](), we demonstrated how hierarchical Bayesian parameter recovery can extract reliable computational estimates from clinical reinforcement learning data, and how posterior predictive checks help validate whether those estimates faithfully capture observed behavior. A recurring assumption in that framework was that all participants within a group are governed by the same underlying computational architecture—differing only in their parameter values. In practice, this assumption rarely holds.
+$$
+p(\mathbf{y}_s \mid \theta) = \sum_{k=1}^{K} p(z_s = k \mid g_s)\, p(\mathbf{y}_s \mid z_s = k, \theta_k),
+$$
 
-Clinical populations are rarely homogeneous. Within a group of depressed patients, some individuals may engage in deliberate, value-based learning well described by Q-learning, while others fall back on simpler heuristics like Win-Stay-Lose-Shift (WSLS)—perhaps because reduced cognitive resources or motivational deficits make elaborate credit assignment too costly. Treating these individuals as a single computational type and averaging across them doesn't just obscure heterogeneity: it can actively mislead, producing group-level parameter estimates that describe nobody in the sample particularly well. This post addresses that challenge directly. We introduce mixture models as a principled way to let the data speak about which computational strategy each participant most likely used, estimate strategy-specific parameters within a unified hierarchical Bayesian framework, and ask whether clinical groups differ not just in *how well* they learn, but in *how* they learn at all.
+where $g_s$ is group membership, $p(z_s = k \mid g_s)$ is the group-specific mixing probability, and $p(\mathbf{y}_s \mid z_s = k, \theta_k)$ is the strategy-specific likelihood.[^2][^1]
 
-***
+## Simulating heterogeneous behavior
 
-## Why Mixture Models?
+Your simulation section is doing something important conceptually: it makes heterogeneity explicit before inference. Controls are generated with a 60/40 split between Q-learning and WSLS, while depressed participants are generated with a 30/70 split, which creates a clinically plausible shift in strategy composition rather than only a shift in parameter magnitude.
 
-Traditional group-level analyses assume every participant uses the same cognitive strategy and differ only in the *degree* of its expression. When that assumption fails, estimates become blends of qualitatively different processes—mechanistically uninterpretable. Mixture models relax this assumption by assigning each participant a latent probability of belonging to each strategy class.
-
-Concretely, we consider two strategies:
-
-- **Q-learning** — a model-free reinforcement learning algorithm that maintains expected reward values for each choice and updates them via prediction errors (Rescorla-Wagner rule).
-- **Win-Stay-Lose-Shift (WSLS)** — a simpler heuristic that repeats the last choice if it was rewarded (win-stay probability *p*_stay) and switches otherwise (lose-shift probability *p*_shift). Research confirms that a two-parameter WSLS fit with separate stay and shift probabilities outperforms a one-parameter version or pure deterministic WSLS [].
-
-Because the strategy assignment is latent (unobserved), we marginalize over it using `log_sum_exp`, which computes the mixture likelihood in a numerically stable way on the log scale [][].
-
-***
-
-## The Stan Model
-
-The full model is built in four logical layers. We walk through each in turn.
-
-### 1. Data Block
-
-```stan
-data {
-  int<lower=1> N_subj;
-  int<lower=1> N_trials;
-  int<lower=1> N_total;
-  int<lower=1, upper=N_subj> subj[N_total];
-  int<lower=1, upper=2>      choice[N_total];
-  int<lower=0, upper=1>      reward[N_total];
-  int<lower=0, upper=1>      group[N_subj];   // 0=control, 1=depressed
-  int<lower=1>               N_strategies;    // = 2
-}
-```
-
-All trials are stored in long format. The `group` indicator (0/1) is later shifted to 1/2 for Stan's 1-based indexing.
-
-***
-
-### 2. Parameters and Transformed Parameters
-
-We use a **non-centered parameterization** throughout to improve sampler geometry in hierarchical models. Raw individual deviations are drawn from N(0,1) and then mapped to constrained spaces.
-
-> **Note on Stan array syntax**: Modern Stan (≥ 2.26) requires the new array declaration syntax. `simplex[K] x[N]` (old style) should be written `array[N] simplex[K] x`. The code below uses the current syntax.
-
-```stan
-parameters {
-  // Strategy mixing weights per group
-  array [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) simplex[N_strategies] strategy_prob;
-
-  // Q-learning group-level hyperparameters (unconstrained)
-  vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) mu_alpha_ql;
-  vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) mu_beta_ql;
-  vector<lower=0> [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) sigma_alpha_ql;
-  vector<lower=0> [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) sigma_beta_ql;
-
-  // WSLS group-level hyperparameters (unconstrained)
-  vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) mu_pstay_wsls;
-  vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) mu_pshift_wsls;
-  vector<lower=0> [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) sigma_pstay_wsls;
-  vector<lower=0> [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) sigma_pshift_wsls;
-
-  // Non-centered individual deviations
-  vector[N_subj] alpha_raw;
-  vector[N_subj] beta_raw;
-  vector[N_subj] pstay_raw;
-  vector[N_subj] pshift_raw;
-}
-```
-
-The `transformed parameters` block applies the non-centered reparameterization:
-
-```stan
-transformed parameters {
-  vector<lower=0, upper=1>[N_subj] alpha;
-  vector<lower=0>[N_subj]          beta;
-  vector<lower=0, upper=1>[N_subj] pstay;
-  vector<lower=0, upper=1>[N_subj] pshift;
-
-  for (s in 1:N_subj) {
-    int g = group[s] + 1;  // 0-indexed group → 1-indexed
-
-    // Phi_approx squashes to (0,1); exp keeps positive
-    alpha[s]  = Phi_approx(mu_alpha_ql[g]    + sigma_alpha_ql[g]    * alpha_raw[s]);
-    beta[s]   = exp(        mu_beta_ql[g]     + sigma_beta_ql[g]     * beta_raw[s]);
-    pstay[s]  = Phi_approx(mu_pstay_wsls[g]  + sigma_pstay_wsls[g]  * pstay_raw[s]);
-    pshift[s] = Phi_approx(mu_pshift_wsls[g] + sigma_pshift_wsls[g] * pshift_raw[s]);
-  }
-}
-```
-
-***
-
-### 3. Model Block: Priors and Mixture Likelihood
-
-**Priors** are set on the group-level hyperparameters. `Phi_approx(1) ≈ 0.84`, so `normal(1, 1)` on the unconstrained scale is a weakly informative prior centered near a high win-stay / lose-shift probability:
-
-```stan
-model {
-  // Group-level priors
-  mu_alpha_ql      ~ normal(0, 1);
-  mu_beta_ql       ~ normal(1, 1);
-  sigma_alpha_ql   ~ normal(0, 0.5);
-  sigma_beta_ql    ~ normal(0, 0.5);
-
-  mu_pstay_wsls    ~ normal(1, 1);
-  mu_pshift_wsls   ~ normal(1, 1);
-  sigma_pstay_wsls  ~ normal(0, 0.5);
-  sigma_pshift_wsls ~ normal(0, 0.5);
-
-  // Symmetric Dirichlet(2, 2): mildly favors equal mixing
-  for (g in 1:2)
-    strategy_prob[g] ~ dirichlet(rep_vector(2.0, N_strategies));
-
-  // Individual-level non-centered priors
-  alpha_raw  ~ normal(0, 1);
-  beta_raw   ~ normal(0, 1);
-  pstay_raw  ~ normal(0, 1);
-  pshift_raw ~ normal(0, 1);
-```
-
-The **mixture likelihood** marginalizes over the latent strategy assignment using `log_sum_exp`. This is the key computational move: because we never directly observe which strategy a participant used, we integrate it out []:
-
-```stan
-  // Mixture likelihood
-  {
-    int idx = 1;
-    for (s in 1:N_subj) {
-      int g = group[s] + 1;
-      real ll_ql   = 0;
-      real ll_wsls = 0;
-      vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) Q  = rep_vector(0.0, 2);
-      int last_choice = 0;
-      int last_reward = -1;
-
-      for (t in 1:N_trials) {
-        int c = choice[idx];
-        int r = reward[idx];
-
-        // Q-learning log-likelihood contribution
-        vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) action_prob_ql = softmax(beta[s] * Q);
-        ll_ql += categorical_lpmf(c | action_prob_ql);
-        Q[c]  += alpha[s] * (r - Q[c]);   // Rescorla-Wagner update
-
-        // WSLS log-likelihood contribution
-        vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) action_prob_wsls;
-        if (last_choice == 0) {
-          action_prob_wsls = rep_vector(0.5, 2);  // Flat prior on trial 1
-        } else {
-          real p_repeat = (last_reward == 1) ? pstay[s] : (1 - pshift[s]);
-          action_prob_wsls[last_choice]     = p_repeat;
-          action_prob_wsls[3 - last_choice] = 1 - p_repeat;
-        }
-        ll_wsls += categorical_lpmf(c | action_prob_wsls);
-
-        last_choice = c;
-        last_reward = r;
-        idx += 1;
-      }
-
-      // log p(data_s) = log[ π_ql·L_ql + π_wsls·L_wsls ]
-      vector[N_strategies] log_lik_strategy;
-      log_lik_strategy [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan) = log(strategy_prob[g] [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan)) + ll_ql;
-      log_lik_strategy [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) = log(strategy_prob[g] [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf)) + ll_wsls;
-      target += log_sum_exp(log_lik_strategy);
-    }
-  }
-}
-```
-
-***
-
-### 4. Generated Quantities
-
-The `generated quantities` block serves two purposes: computing per-observation log-likelihoods for LOO-CV, and recovering each participant's posterior probability of belonging to each strategy class (called *strategy assignment*).
-
-```stan
-generated quantities {
-  vector[N_total]              log_lik;            // For LOO-CV
-  matrix[N_subj, N_strategies] strategy_assignment; // P(strategy | data)
-
-  // Group-level differences (depressed minus control),
-  // computed at the group-mean level. Note: these are point summaries
-  // of hyperparameters, not averages of individual posteriors.
-  real group_diff_alpha;
-  real group_diff_beta;
-  real group_diff_pstay;
-  real group_diff_pshift;
-  real group_diff_ql_prob;
-
-  {
-    int idx = 1;
-    for (s in 1:N_subj) {
-      int g = group[s] + 1;
-      real ll_ql   = 0;
-      real ll_wsls = 0;
-      vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) Q  = rep_vector(0.0, 2);
-      int last_choice = 0;
-      int last_reward = -1;
-
-      for (t in 1:N_trials) {
-        int c = choice[idx];
-        int r = reward[idx];
-
-        vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) action_prob_ql = softmax(beta[s] * Q);
-        real trial_ll_ql         = categorical_lpmf(c | action_prob_ql);
-        ll_ql += trial_ll_ql;
-        Q[c]  += alpha[s] * (r - Q[c]);
-
-        vector [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) action_prob_wsls;
-        if (last_choice == 0) {
-          action_prob_wsls = rep_vector(0.5, 2);
-        } else {
-          real p_repeat = (last_reward == 1) ? pstay[s] : (1 - pshift[s]);
-          action_prob_wsls[last_choice]     = p_repeat;
-          action_prob_wsls[3 - last_choice] = 1 - p_repeat;
-        }
-        real trial_ll_wsls = categorical_lpmf(c | action_prob_wsls);
-        ll_wsls += trial_ll_wsls;
-
-        // Marginalise over strategies for per-trial log_lik
-        vector[N_strategies] trial_log_mix;
-        trial_log_mix [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan) = log(strategy_prob[g] [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan)) + trial_ll_ql;
-        trial_log_mix [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) = log(strategy_prob[g] [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf)) + trial_ll_wsls;
-        log_lik[idx] = log_sum_exp(trial_log_mix);
-
-        last_choice = c;
-        last_reward = r;
-        idx += 1;
-      }
-
-      // Softmax of per-strategy log-posteriors → assignment probabilities
-      vector[N_strategies] log_post;
-      log_post [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan) = log(strategy_prob[g] [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan)) + ll_ql;
-      log_post [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf) = log(strategy_prob[g] [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf)) + ll_wsls;
-      strategy_assignment[s] = to_row_vector(softmax(log_post));
-    }
-  }
-
-  group_diff_alpha   = Phi_approx(mu_alpha_ql [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf))    - Phi_approx(mu_alpha_ql [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan));
-  group_diff_beta    = exp(mu_beta_ql [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf))             - exp(mu_beta_ql [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan));
-  group_diff_pstay   = Phi_approx(mu_pstay_wsls [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf))  - Phi_approx(mu_pstay_wsls [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan));
-  group_diff_pshift  = Phi_approx(mu_pshift_wsls [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf)) - Phi_approx(mu_pshift_wsls [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan));
-  group_diff_ql_prob = strategy_prob [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf)            - strategy_prob [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan);
-}
-```
-
-This approach reveals whether clinical populations are characterized by altered parameters within preserved computational architectures (e.g., reduced learning rates in Q-learning) or fundamental changes in learning strategy (e.g., a shift from Q-learning to simple heuristics). The clinical implications differ substantially: parameter changes might respond to targeted interventions, while strategy changes may call for different therapeutic approaches altogether.
-
-***
-
-## Beyond Group Differences: Clinical Applications
-
-The ultimate aim of computational psychiatry extends beyond detecting group-level differences to establishing meaningful links between computational parameters and clinically relevant outcomes. Several application directions follow naturally:
-
-- **Symptom correlation**: A relationship between learning rate α and anhedonia scores (e.g., the Snaith–Hamilton Pleasure Scale) would suggest a mechanistic connection between prediction-error signaling and motivational deficits.
-- **Longitudinal tracking**: Reliably recovered parameters can serve as computational "vital signs," monitored across treatment episodes to anticipate relapse or recovery.
-- **Treatment stratification**: Patients characterized by low learning rates may respond differently to specific behavioral or pharmacological interventions than those exhibiting high decision noise.
-- **Biological validation**: Correlating parameters with neural or genetic measures provides convergent evidence that they capture aspects of underlying pathophysiology rather than merely fitting behavioral curves.
+That distinction matters because a group difference in mean learning rate can be misleading if half the depressed group is actually using a qualitatively different strategy. In that sense, the simulation is a stress test for whether a model can recover latent subtypes instead of averaging them away.[^6]
 
 ```r
-analyze_clinical_correlations <- function(fit, clinical_data) {
-  posterior_means <- summary(fit, pars = c("alpha", "beta"))$summary[, "mean"]
-
-  # grep uses a single backslash in the regex; \\ in R string = one literal backslash
-  alpha_estimates <- posterior_means[grep("alpha\\[", names(posterior_means))]
-  beta_estimates  <- posterior_means[grep("beta\\[",  names(posterior_means))]
-
-  depression_scores <- clinical_data$beck_depression_inventory
-  anhedonia_scores  <- clinical_data$snaith_hamilton_pleasure_scale
-
-  list(
-    alpha_depression = cor.test(alpha_estimates, depression_scores),
-    alpha_anhedonia  = cor.test(alpha_estimates, anhedonia_scores),
-    beta_depression  = cor.test(beta_estimates,  depression_scores),
-    beta_anhedonia   = cor.test(beta_estimates,  anhedonia_scores)
-  )
+simulate_subject <- function(strategy, N_trials, alpha = NULL, beta = NULL,
+                             pstay = NULL, pshift = NULL,
+                             reward_prob_good = 0.70,
+                             reward_prob_bad = 0.30) {
+  ...
 }
 ```
 
-Note that `cor.test` returns a frequentist point estimate. For a fully Bayesian workflow consistent with the rest of the pipeline, consider using the `BayesFactor` package or propagating parameter uncertainty through a joint regression model rather than plugging in posterior means.
+This function cleanly separates the two generative processes. The Q-learning branch uses a softmax policy and prediction-error updating, while the WSLS branch uses only the previous trial’s reward and choice history.
 
-***
+## The mixture likelihood
 
-## Model Comparison in Clinical Contexts
+The Stan model is the heart of the post. It computes two subject-level log-likelihoods, one under Q-learning and one under WSLS, and then combines them using a log-sum-exp mixture. This is the right probabilistic structure for latent class inference because it avoids hard assignment during sampling and preserves posterior uncertainty over strategies.[^3]
 
-When working with clinical data, we often face competing hypotheses about which computational model best explains observed behavior. Rather than assuming Q-learning applies universally, leave-one-out cross-validation (LOO-CV) enables principled comparison between candidates:
+A useful way to read the model is:
+
+$$
+\log p(\mathbf{y}_s) = \log \left[ \pi_{g_s,1}\, p(\mathbf{y}_s \mid z_s=1) + \pi_{g_s,2}\, p(\mathbf{y}_s \mid z_s=2) \right],
+$$
+
+where $\pi_{g_s,k}$ is the strategy probability for group $g_s$. In your code, this is implemented via `strategy_prob[g] ~ dirichlet(...)` and `target += log_sum_exp(log_lik_s)`.
+
+```stan
+vector[N_strategies] log_lik_s;
+log_lik_s[^1] = log(strategy_prob[g][^1]) + ll_ql;
+log_lik_s[^2] = log(strategy_prob[g][^2]) + ll_wsls;
+target += log_sum_exp(log_lik_s);
+```
+
+That block is the most consequential part of the model. It says that the observed sequence may have arisen from either strategy, and the posterior should weigh both explanations rather than forcing a premature decision.
+
+## Parameterization and priors
+
+The model uses non-centered parameterizations for subject-level parameters, which is particularly helpful in hierarchical Bayes because it improves geometry and reduces sampling pathologies. Q-learning parameters are mapped to constrained spaces with `Phi_approx` and `exp`, while WSLS parameters are transformed through `Phi_approx` to keep them in $(0,1)$.
+
+The group-specific hyperparameters are given weakly informative priors:
+
+$$
+\mu_{\alpha,\text{ql}} \sim \mathcal{N}(0,1), \qquad \sigma_{\alpha,\text{ql}} \sim \mathcal{N}^+(0,0.5),
+$$
+
+with analogous priors for $\beta$, $p_{\text{stay}}$, and $p_{\text{shift}}$. This is sensible because the model needs regularization, but not so much that it erases the between-group differences the simulation was built to detect.[^7][^6]
+
+```stan
+alpha[s]  = Phi_approx(mu_alpha_ql[g] + sigma_alpha_ql[g] * alpha_raw[s]);
+beta[s]   = exp(mu_beta_ql[g] + sigma_beta_ql[g] * beta_raw[s]);
+pstay[s]  = Phi_approx(mu_pstay_wsls[g] + sigma_pstay_wsls[g] * pstay_raw[s]);
+pshift[s] = Phi_approx(mu_pshift_wsls[g] + sigma_pshift_wsls[g] * pshift_raw[s]);
+```
+
+These transformations also make the model interpretable: the latent raw variables remain unconstrained, while the resulting parameters preserve their behavioral meaning.
+
+## Strategy assignment
+
+The strategy assignment output is one of the most clinically interesting parts of the workflow. Rather than producing a single label, the model yields a posterior probability that each subject used Q-learning versus WSLS. That lets you quantify uncertainty in classification and avoid overconfident subtype assignment.[^4]
+
+```stan
+strategy_assignment[s] = to_row_vector(softmax(log_post));
+```
+
+In effect, this creates a probabilistic phenotype for each participant. A subject with $P(\text{QL}\mid \mathbf{y})=0.55$ should not be treated the same way as one with $P(\text{QL}\mid \mathbf{y})=0.98$, even if both would be labeled “Q-learning” under a hard threshold.
+
+## Recovery and group contrasts
+
+The parameter recovery section is especially valuable because it checks whether the model can recover the true latent values used in simulation. For subjects who truly use Q-learning, the recovered $\alpha$ and $\beta$ should correlate with the generating values; for WSLS subjects, the recovered $p_{\text{stay}}$ and $p_{\text{shift}}$ should do the same.
+
+The group-level posterior contrasts are the right way to summarize clinical differences:
+
+$$
+\Delta \alpha = \alpha_{\text{depressed}} - \alpha_{\text{control}}, \qquad
+\Delta \pi_{\text{QL}} = \pi_{\text{depressed,QL}} - \pi_{\text{control,QL}}.
+$$
+
+These contrasts answer a more nuanced question than “is depression associated with lower learning rate?” They ask whether depression is associated with a shift in the *composition* of decision strategies, a shift in the *parameters* of one strategy, or both.[^1][^2]
 
 ```r
-compare_clinical_models <- function(data) {
-  models <- list(
-    "Q-learning"  = fit_q_learning(data),
-    "WSLS"        = fit_wsls(data),
-    "Dual-system" = fit_dual_system(data),
-    "Decay"       = fit_q_learning_decay(data)
-  )
-
-  loo_results    <- map(models, ~ loo(extract_log_lik(.x)))
-  loo_comparison <- loo_compare(loo_results)
-  model_weights  <- loo_model_weights(loo_results)
-
-  list(
-    comparison  = loo_comparison,
-    weights     = model_weights,
-    best_model  = rownames(loo_comparison) [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan)
-  )
-}
+group_diff_ql_prob = strategy_prob[^2][^1] - strategy_prob[^1][^1]
 ```
 
-The results can reveal qualitatively important differences: if depressed individuals are better explained by WSLS while controls are better explained by Q-learning, this suggests cognitive simplification under depressive symptoms—a pattern with different mechanistic implications than a simple parameter shift within a shared architecture.
+That quantity is especially important because it captures the core synthetic manipulation in your simulation: depressed participants are generated to be more WSLS-heavy, not just more noisy.
 
-***
+## Posterior predictive checks
 
-## Practical Considerations
+The posterior predictive check in your code is appropriately subject-level. Instead of comparing only aggregate histograms, it simulates each subject’s choice rate from posterior draws and compares observed versus predicted proportions. That is useful because a mixture model can fit group averages well while still failing to reproduce individual trajectories.[^6][^7]
 
-Applying these methods to clinical data raises several concerns that are easy to overlook but difficult to ignore in practice:
+```r
+p_ppc <- ggplot(ppc_df, aes(x = observed, y = pred_mean, colour = group)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed")
+```
 
-- **Sample size**: Hierarchical models require sufficient data at both the individual and group levels. Underpowered studies produce unstable parameter estimates where apparent group differences reflect noise rather than structure.
-- **Data quality**: Clinical data typically involves higher variability, missing observations, and inconsistent task engagement. Robust preprocessing and model diagnostics (R-hat, effective sample size) are not optional.
-- **Effect size over significance**: A statistically credible parameter shift does not automatically imply clinical relevance. Posterior intervals and effect sizes, examined alongside symptom profiles, are more informative than binary credibility thresholds.
-- **Generalizability**: Parameters inferred from tightly controlled laboratory tasks may not extend cleanly to everyday behavior. Converging evidence across paradigms mitigates this concern.
-- **Group-difference summaries**: The `group_diff_*` quantities in the model above are computed from group-level hyperparameter means (e.g., `Phi_approx(mu_alpha_ql [otto.lab.mcgill](https://otto.lab.mcgill.ca/papers/WorthyHawthorneOtto_2012.pdf)) - Phi_approx(mu_alpha_ql [stackoverflow](https://stackoverflow.com/questions/58191561/matrix-with-simplex-columns-in-stan))`). This is a valid summary of the typical participant, but it does not propagate the full uncertainty in individual-level variation. For richer inference, consider computing group differences at the individual level and summarizing their posterior distribution.
+If the points cluster near the diagonal and the posterior intervals cover the observed values, the model is capturing the data-generating process reasonably well. If not, the mismatch often reveals either a missing strategy class or a need for time-varying mixtures.
 
-Looking ahead, the field is moving cautiously toward computational tools that can support clinical decision-making. Real-time parameter estimation via online Bayesian updating, integration of behavioral measures with neural and genetic data, and the identification of computational phenotypes associated with differential treatment response are all active research directions. Digital therapeutics offer a naturalistic setting where individualized parameter estimates could inform adaptive, personalized cognitive interventions.
+## Clinical interpretation
+
+The clinical payoff of this model is not just better fit; it is better theory. A depressed group that appears to have a lower mean $\alpha$ in a single-process model may instead be a heterogeneous mixture in which some patients learn normally but rely on habit-like decision rules, while others truly show reduced learning. Those are very different mechanistic stories, and they would imply different interventions.[^5][^4]
+
+Your simulated clinical correlation analysis pushes in the same direction by linking estimated parameters to depressive symptom measures such as BDI and SHAPS. That kind of analysis is most meaningful once the model has already separated strategy composition from within-strategy parameter variation.
+
+
+
+
+## Closing direction
+
+This post advances the earlier Bayesian recovery framework by moving from “how well do we estimate parameters?” to “what if different people are generated by different decision processes?” That shift is essential in computational psychiatry, because heterogeneity is often the signal rather than the noise. The key idea is simple but powerful: when one model does not fit all, the right answer is not to average harder — it is to model the mixture.[^2][^1] A natural next extension is a three-state model, for example Q-learning, WSLS, and random choice. That would make the story even more realistic in clinical data, where some participants may not fit either canonical strategy well.
+
+
+
+
+[^1]: https://github.com/Brody-Lab/MixtureAgentsModels
+
+[^2]: https://elifesciences.org/reviewed-preprints/97612v1
+
+[^3]: https://discourse.mc-stan.org/t/bayesian-mixture-model/33788
+
+[^4]: https://arxiv.org/html/2401.13929v1
+
+[^5]: https://pmc.ncbi.nlm.nih.gov/articles/PMC12090054/
+
+[^6]: https://www.biorxiv.org/content/10.1101/2020.10.19.345512.full
+
+[^7]: https://pmc.ncbi.nlm.nih.gov/articles/PMC10522800/
+
+[^8]: https://arxiv.org/abs/2603.27766
+
+[^9]: https://www.reddit.com/r/AskStatistics/comments/e7n051/machine_learning_vs_bayesian_inference_stanpymc3/
+
+[^10]: https://www.mit.edu/~paris/pubs/subakan-nips2014.pdf
+
+[^11]: https://www.youtube.com/watch?v=Hfgj8V_b6EE
 
 
 ```r
