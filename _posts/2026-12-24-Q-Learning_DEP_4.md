@@ -120,10 +120,7 @@ log‑likelihoods, posterior predictive choices via
 `categorical_logit_rng`, and group‑level contrasts in mean $\alpha_s$
 and $\beta_s$, enabling posterior summaries and convergence checks that
 close the loop on parameter recovery for clinical reinforcement learning
-data. If you wanted to adapt this for a different clinical contrast (for
-example, three diagnostic groups or changing reward contingencies), what
-part of the Stan code would you target first and how would you change
-the formal group indexing $G_s$?
+data.
 
 
 ## Validating Parameter Recovery with Posterior Predictive Checks
