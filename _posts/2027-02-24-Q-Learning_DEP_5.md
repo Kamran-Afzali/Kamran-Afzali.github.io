@@ -1,12 +1,12 @@
 # Addressing Individual Heterogeneity and Mixture Models in Computational Psychiatry
 
-One of the main lessons from computational psychiatry is that a diagnosis rarely maps onto a single decision strategy. This follow-up post extends the earlier Bayesian recovery framework by treating each participant as potentially belonging to one of multiple latent strategy classes, and it uses a mixture model to infer who is learning values and who is following a simpler win–stay/lose–shift heuristic.[^1][^2]
+One of the main lessons from computational psychiatry is that a diagnosis rarely maps onto a single decision strategy. This follow-up post extends the earlier Bayesian recovery framework by treating each participant as potentially belonging to one of multiple latent strategy classes, and it uses a mixture model to infer who is learning values and who is following a simpler win–stay/lose–shift heuristic.
 
-The code you provided is a strong example of this idea in practice: it simulates control and depressed groups with different strategy proportions, fits a Bayesian mixture of Q-learning and WSLS, and then checks whether the model can recover both individual strategies and group-level shifts in latent composition.[^3][^1]
+The code you provided is a strong example of this idea in practice: it simulates control and depressed groups with different strategy proportions, fits a Bayesian mixture of Q-learning and WSLS, and then checks whether the model can recover both individual strategies and group-level shifts in latent composition.
 
 ## Why mixture models matter
 
-A standard hierarchical RL model assumes that all participants share the same generative form and differ only in parameter values. That assumption is often too strong for clinical data, where two people with the same symptom score may use different cognitive policies even on the same task. A mixture model relaxes that assumption by letting the data decide whether a subject is better explained by Q-learning or WSLS, while still estimating group-specific mixing weights.[^4][^5]
+A standard hierarchical RL model assumes that all participants share the same generative form and differ only in parameter values. That assumption is often too strong for clinical data, where two people with the same symptom score may use different cognitive policies even on the same task. A mixture model relaxes that assumption by letting the data decide whether a subject is better explained by Q-learning or WSLS, while still estimating group-specific mixing weights.
 
 Formally, if $z_s \in \{1,2\}$ is the latent strategy for subject $s$, the likelihood becomes a marginal mixture:
 
@@ -14,13 +14,13 @@ $$
 p(\mathbf{y}_s \mid \theta) = \sum_{k=1}^{K} p(z_s = k \mid g_s)\, p(\mathbf{y}_s \mid z_s = k, \theta_k),
 $$
 
-where $g_s$ is group membership, $p(z_s = k \mid g_s)$ is the group-specific mixing probability, and $p(\mathbf{y}_s \mid z_s = k, \theta_k)$ is the strategy-specific likelihood.[^2][^1]
+where $g_s$ is group membership, $p(z_s = k \mid g_s)$ is the group-specific mixing probability, and $p(\mathbf{y}_s \mid z_s = k, \theta_k)$ is the strategy-specific likelihood.
 
 ## Simulating heterogeneous behavior
 
 Your simulation section is doing something important conceptually: it makes heterogeneity explicit before inference. Controls are generated with a 60/40 split between Q-learning and WSLS, while depressed participants are generated with a 30/70 split, which creates a clinically plausible shift in strategy composition rather than only a shift in parameter magnitude.
 
-That distinction matters because a group difference in mean learning rate can be misleading if half the depressed group is actually using a qualitatively different strategy. In that sense, the simulation is a stress test for whether a model can recover latent subtypes instead of averaging them away.[^6]
+That distinction matters because a group difference in mean learning rate can be misleading if half the depressed group is actually using a qualitatively different strategy. In that sense, the simulation is a stress test for whether a model can recover latent subtypes instead of averaging them away.
 
 ```r
 simulate_subject <- function(strategy, N_trials, alpha = NULL, beta = NULL,
@@ -35,7 +35,7 @@ This function cleanly separates the two generative processes. The Q-learning bra
 
 ## The mixture likelihood
 
-The Stan model is the heart of the post. It computes two subject-level log-likelihoods, one under Q-learning and one under WSLS, and then combines them using a log-sum-exp mixture. This is the right probabilistic structure for latent class inference because it avoids hard assignment during sampling and preserves posterior uncertainty over strategies.[^3]
+The Stan model is the heart of the post. It computes two subject-level log-likelihoods, one under Q-learning and one under WSLS, and then combines them using a log-sum-exp mixture. This is the right probabilistic structure for latent class inference because it avoids hard assignment during sampling and preserves posterior uncertainty over strategies.
 
 A useful way to read the model is:
 
@@ -47,8 +47,8 @@ where $\pi_{g_s,k}$ is the strategy probability for group $g_s$. In your code, t
 
 ```stan
 vector[N_strategies] log_lik_s;
-log_lik_s[^1] = log(strategy_prob[g][^1]) + ll_ql;
-log_lik_s[^2] = log(strategy_prob[g][^2]) + ll_wsls;
+log_lik_s = log(strategy_prob[g]) + ll_ql;
+log_lik_s = log(strategy_prob[g]) + ll_wsls;
 target += log_sum_exp(log_lik_s);
 ```
 
@@ -64,7 +64,7 @@ $$
 \mu_{\alpha,\text{ql}} \sim \mathcal{N}(0,1), \qquad \sigma_{\alpha,\text{ql}} \sim \mathcal{N}^+(0,0.5),
 $$
 
-with analogous priors for $\beta$, $p_{\text{stay}}$, and $p_{\text{shift}}$. This is sensible because the model needs regularization, but not so much that it erases the between-group differences the simulation was built to detect.[^7][^6]
+with analogous priors for $\beta$, $p_{\text{stay}}$, and $p_{\text{shift}}$. This is sensible because the model needs regularization, but not so much that it erases the between-group differences the simulation was built to detect.
 
 ```stan
 alpha[s]  = Phi_approx(mu_alpha_ql[g] + sigma_alpha_ql[g] * alpha_raw[s]);
@@ -77,7 +77,7 @@ These transformations also make the model interpretable: the latent raw variable
 
 ## Strategy assignment
 
-The strategy assignment output is one of the most clinically interesting parts of the workflow. Rather than producing a single label, the model yields a posterior probability that each subject used Q-learning versus WSLS. That lets you quantify uncertainty in classification and avoid overconfident subtype assignment.[^4]
+The strategy assignment output is one of the most clinically interesting parts of the workflow. Rather than producing a single label, the model yields a posterior probability that each subject used Q-learning versus WSLS. That lets you quantify uncertainty in classification and avoid overconfident subtype assignment.
 
 ```stan
 strategy_assignment[s] = to_row_vector(softmax(log_post));
@@ -96,17 +96,17 @@ $$
 \Delta \pi_{\text{QL}} = \pi_{\text{depressed,QL}} - \pi_{\text{control,QL}}.
 $$
 
-These contrasts answer a more nuanced question than “is depression associated with lower learning rate?” They ask whether depression is associated with a shift in the *composition* of decision strategies, a shift in the *parameters* of one strategy, or both.[^1][^2]
+These contrasts answer a more nuanced question than “is depression associated with lower learning rate?” They ask whether depression is associated with a shift in the *composition* of decision strategies, a shift in the *parameters* of one strategy, or both.
 
 ```r
-group_diff_ql_prob = strategy_prob[^2][^1] - strategy_prob[^1][^1]
+group_diff_ql_prob = strategy_prob - strategy_prob
 ```
 
 That quantity is especially important because it captures the core synthetic manipulation in your simulation: depressed participants are generated to be more WSLS-heavy, not just more noisy.
 
 ## Posterior predictive checks
 
-The posterior predictive check in your code is appropriately subject-level. Instead of comparing only aggregate histograms, it simulates each subject’s choice rate from posterior draws and compares observed versus predicted proportions. That is useful because a mixture model can fit group averages well while still failing to reproduce individual trajectories.[^6][^7]
+The posterior predictive check in your code is appropriately subject-level. Instead of comparing only aggregate histograms, it simulates each subject’s choice rate from posterior draws and compares observed versus predicted proportions. That is useful because a mixture model can fit group averages well while still failing to reproduce individual trajectories.
 
 ```r
 p_ppc <- ggplot(ppc_df, aes(x = observed, y = pred_mean, colour = group)) +
@@ -117,7 +117,7 @@ If the points cluster near the diagonal and the posterior intervals cover the ob
 
 ## Clinical interpretation
 
-The clinical payoff of this model is not just better fit; it is better theory. A depressed group that appears to have a lower mean $\alpha$ in a single-process model may instead be a heterogeneous mixture in which some patients learn normally but rely on habit-like decision rules, while others truly show reduced learning. Those are very different mechanistic stories, and they would imply different interventions.[^5][^4]
+The clinical payoff of this model is not just better fit; it is better theory. A depressed group that appears to have a lower mean $\alpha$ in a single-process model may instead be a heterogeneous mixture in which some patients learn normally but rely on habit-like decision rules, while others truly show reduced learning. Those are very different mechanistic stories, and they would imply different interventions.
 
 Your simulated clinical correlation analysis pushes in the same direction by linking estimated parameters to depressive symptom measures such as BDI and SHAPS. That kind of analysis is most meaningful once the model has already separated strategy composition from within-strategy parameter variation.
 
@@ -126,7 +126,7 @@ Your simulated clinical correlation analysis pushes in the same direction by lin
 
 ## Closing direction
 
-This post advances the earlier Bayesian recovery framework by moving from “how well do we estimate parameters?” to “what if different people are generated by different decision processes?” That shift is essential in computational psychiatry, because heterogeneity is often the signal rather than the noise. The key idea is simple but powerful: when one model does not fit all, the right answer is not to average harder — it is to model the mixture.[^2][^1] A natural next extension is a three-state model, for example Q-learning, WSLS, and random choice. That would make the story even more realistic in clinical data, where some participants may not fit either canonical strategy well.
+This post advances the earlier Bayesian recovery framework by moving from “how well do we estimate parameters?” to “what if different people are generated by different decision processes?” That shift is essential in computational psychiatry, because heterogeneity is often the signal rather than the noise. The key idea is simple but powerful: when one model does not fit all, the right answer is not to average harder — it is to model the mixture. A natural next extension is a three-state model, for example Q-learning, WSLS, and random choice. That would make the story even more realistic in clinical data, where some participants may not fit either canonical strategy well.
 
 
 
