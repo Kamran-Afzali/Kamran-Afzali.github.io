@@ -4,8 +4,6 @@ Mental health disorders like depression involve complex feedback loops between c
 
 This post explores a novel application of POMDPs to simulate depression-related biases in action selection and perceptual inference, using the R `pomdp` package to develop a model that captures how behavior influences—and is influenced by—an agent's internal emotional state.
 
-## The POMDP Framework for Mental Health
-
 A POMDP is a mathematical model designed for agents making decisions under uncertainty. Unlike fully observable Markov Decision Processes, where the agent has complete knowledge of its current state, a POMDP acknowledges the gap between what an agent knows and the actual environment. The agent must rely on indirect observations to update its beliefs and determine optimal actions.
 
 This framework maps naturally onto psychological processes. Consider how individuals must infer their emotional state based on bodily sensations, social feedback, and cognitive appraisals—they rarely have direct access to their "true" mood state. Similarly, the behaviors they choose don't just respond to their mood; they actively shape what kinds of stimuli they're likely to perceive and how they interpret those stimuli.
