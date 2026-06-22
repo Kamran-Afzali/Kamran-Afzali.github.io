@@ -150,4 +150,79 @@ For each idea, I’d specify the model with the same scaffold:
 
 A small caution: if every level “learns” freely, the model can become uninterpretable fast. The safer design is to let one or two levels truly learn and treat the others as adaptive but more rule-bound, then add levels of RL only when each addition answers a substantive question rather than just increasing complexity. [publichealth.columbia](https://www.publichealth.columbia.edu/research/population-health-methods/agent-based-modeling)
 
-Would you like me to turn these 10 ideas into a more formal research-note format with, for each one, state variables, action sets, reward equations, and Mesa-style update pseudocode?
+Here are 10 Mesa ABM ideas that fit your hybrid brief: ABM combined with machine learning, system dynamics, or both, with mental health as the application domain. ABM is especially suitable when you care about heterogeneous people, social interaction, and feedback with environment; hybridization makes sense when you also need macro-level stocks/flows or learned prediction layers. [yelp](https://www.yelp.com/biz/blue-water-psychiatry-mesa/)
+
+## 10 model ideas
+
+1. **Campus stress contagion with ML relapse prediction**  
+Agents are students on a social network, with daily states such as stress, sleep debt, help-seeking, and class attendance. A learned model predicts short-term symptom escalation from recent behavior history, while the ABM handles peer influence, workload shocks, and intervention diffusion across dorm/class networks. [arxiv](https://arxiv.org/abs/2303.11272)
+Why hybrid: the ABM captures local contagion and heterogeneity, while ML approximates risk from high-dimensional digital phenotyping features that are awkward to hand-code. [arxiv](https://www.arxiv.org/abs/2508.02679)
+
+2. **Community depression-care ecosystem with ABM-SD integration**  
+Agents are patients, clinicians, case workers, and households; the system dynamics layer tracks clinic capacity, referral queues, burnout, and budget constraints. This follows a pattern already used in community mental health modeling, where micro-level patient pathways interact with organizational and societal dynamics. [semanticscholar](https://www.semanticscholar.org/paper/Multi-Agent-Based-Simulation-of-a-Complex-Ecosystem-Kalton-Falconer/18c1bfee8ed13cfc495723986944df7882cfc6be)
+Why hybrid: ABM is good for individual trajectories and care-seeking; SD is better for waiting lists, service pressure, and delayed feedback at the system level. [publichealthscotland](https://publichealthscotland.scot/repository/a-framework-for-conceptualising-hybrid-system-dynamics-and-agent-based-simulation-models/)
+
+3. **Online peer-support platform with matching algorithm learning**  
+Agents are help-seekers and peer supporters, with traits for severity, response preferences, availability, and dropout risk. The ABM simulates matching, waiting time, and support outcomes, while an ML recommender or bandit policy updates matching decisions from prior interaction success. [youtube](https://www.youtube.com/watch?v=mkrEFG_mzig)
+Why hybrid: the mental-health platform problem is inherently agent-level, but the matching policy can be learned rather than fixed. [arxiv](https://arxiv.org/abs/2303.11272)
+
+4. **Workplace burnout model with SD workload loops and agent adaptation**  
+Agents are employees and managers embedded in teams, with job demands, recovery, presenteeism, and informal support. The SD component tracks project backlog, organizational pressure, turnover, and staffing shortages, while agents decide whether to rest, seek help, reduce effort, or exit. [publichealthscotland](https://publichealthscotland.scot/repository/a-framework-for-conceptualising-hybrid-system-dynamics-and-agent-based-simulation-models/)
+Why hybrid: burnout often emerges from both local social norms and slow-moving organizational accumulation processes, which is exactly where ABM-SD coupling is useful. [arxiv](https://arxiv.org/abs/2303.11272)
+
+5. **Substance use and comorbid mental health under neighborhood stress**  
+Agents differ in trauma history, social support, treatment access, and exposure to neighborhood disorder. A supervised model estimates overdose, relapse, or acute psychiatric crisis risk from recent trajectories, while the ABM represents peer influence, service contact, and spatial exposure. [yelp](https://www.yelp.com/biz/blue-water-psychiatry-mesa/)
+Why hybrid: ML can stand in for empirically estimated risk surfaces, while ABM lets you test policies such as outreach placement, housing stabilization, or peer-support seeding. [yelp](https://www.yelp.com/biz/blue-water-psychiatry-mesa/)
+
+6. **Suicide prevention pathway model with triage prediction**  
+Agents include at-risk individuals, family members, schools, emergency services, and outpatient providers. The ML layer predicts near-term crisis severity or disengagement risk; the ABM simulates disclosure, referral, missed appointments, social support, and contagion through close contacts. [yelp](https://www.yelp.com/biz/blue-water-psychiatry-mesa/)
+Why hybrid: this may be useful when you want to compare targeted outreach rules against universal interventions under constrained service capacity. [yelp](https://www.yelp.com/biz/blue-water-psychiatry-mesa/)
+
+7. **Adolescent social media and anxiety model with learned content effects**  
+Agents are adolescents connected by friendship and platform networks, each with baseline vulnerability, coping style, and offline support. ML estimates the short-run effect of exposure patterns on mood or anxiety symptoms, while the ABM captures norm formation, comparison processes, cyberbullying, and school spillovers. [arxiv](https://www.arxiv.org/abs/2508.02679)
+Why hybrid: content exposure effects are noisy and high-dimensional, so learned modules are plausible; peer dynamics and intervention spillovers still need ABM. [arxiv](https://www.arxiv.org/abs/2508.02679)
+
+8. **Psychiatric readmission model with care coordination policies**  
+Agents move through hospital, outpatient, housing, and justice-related contacts, with transitions shaped by adherence, social instability, and follow-up intensity. This idea is close to published work modeling serious mental illness care ecosystems and readmission, and you could add ML to estimate readmission hazard from claims-like histories. [semanticscholar](https://www.semanticscholar.org/paper/Multi-Agent-Based-Simulation-of-a-Complex-Ecosystem-Kalton-Falconer/18c1bfee8ed13cfc495723986944df7882cfc6be)
+Why hybrid: ABM handles fragmented pathways and heterogeneous lives; ML gives you a data-driven readmission risk component instead of manually tuned thresholds. [semanticscholar](https://www.semanticscholar.org/paper/Multi-Agent-Based-Simulation-of-a-Complex-Ecosystem-Kalton-Falconer/18c1bfee8ed13cfc495723986944df7882cfc6be)
+
+9. **Digital CBT engagement model with adaptive intervention policy**  
+Agents use an app with modules, reminders, peer forums, and therapist escalation options. A reinforcement-learning or contextual-bandit policy chooses message timing or module sequence, while the ABM simulates adherence fatigue, symptom change, dropout, and peer spillovers. [arxiv](https://arxiv.org/pdf/1902.01642.pdf)
+Why hybrid: digital mental health scenarios are a natural fit for simulation, and adaptive policies are easier to evaluate safely in silico before real deployment. [arxiv](https://arxiv.org/pdf/1902.01642.pdf)
+
+10. **Post-disaster community mental health recovery model**  
+Agents represent households, responders, clinicians, and community organizations after a flood, wildfire, or displacement event. The SD layer tracks resource depletion, housing recovery, and clinic capacity; the ABM models trauma exposure, mutual aid, migration, and service uptake, with ML predicting who is likely to deteriorate without follow-up. [publichealthscotland](https://publichealthscotland.scot/repository/a-framework-for-conceptualising-hybrid-system-dynamics-and-agent-based-simulation-models/)
+Why hybrid: recovery is shaped by both individual social processes and slow macro constraints, so a single-paradigm model may miss important feedbacks. [arxiv](https://arxiv.org/abs/2303.11272)
+
+## Good candidates
+
+If you want ideas that are both publishable and feasible in Mesa, three stand out. A community depression-care ecosystem, an online peer-support matching model, and a psychiatric readmission/care-coordination model all have some grounding in existing mental health ABM literature and clear hybrid extensions. [semanticscholar](https://www.semanticscholar.org/paper/Multi-Agent-Based-Simulation-of-a-Complex-Ecosystem-Kalton-Falconer/18c1bfee8ed13cfc495723986944df7882cfc6be)
+
+A small caution: hybrid models get complicated fast, and public-health ABMs often fail less because of coding than because behavior rules, calibration data, and validation targets are underspecified. The literature is fairly explicit that specification, process-oriented data, and sensitivity analysis are the main pain points. [arxiv](https://arxiv.org/abs/2303.11272)
+
+## Mesa framing
+
+A practical Mesa architecture would usually separate: agent rules, network/environment, a learned prediction module, and an optional SD layer for stocks and delays. Mesa is one reasonable choice for Python-based ABM work, especially when you want to integrate libraries like NetworkX and scikit-learn in the same stack. [journals.sagepub](https://journals.sagepub.com/doi/abs/10.1177/00375497221077425)
+
+A minimal hybrid pattern could look like this:
+
+- Mesa agents hold mental-state variables, history buffers, and local network ties.
+- NetworkX handles social or service-contact graphs.
+- Scikit-learn or another predictor estimates risk, adherence, or next-state probabilities.
+- A small SD module updates system-level quantities each tick, such as queue length, workforce capacity, or budget pressure. [journals.sagepub](https://journals.sagepub.com/doi/abs/10.1177/00375497221077425)
+
+## Starting schema
+
+If you want a clean template for any of the 10, use this structure:
+
+| Component | Suggested choices |
+|---|---|
+| Agents | Person, clinician, peer supporter, household, organization |
+| Mental health states | Symptom severity, functioning, help-seeking propensity, adherence, social support |
+| Environment | Social network, neighborhood, school/workplace, service system |
+| ML module | Predict relapse, dropout, crisis, response to intervention |
+| SD module | Waitlists, staffing, burnout, service capacity, funding |
+| Outcomes | Symptom trajectories, inequity, hospitalization, readmission, dropout, cost |
+| Policies | Outreach targeting, staffing changes, matching algorithm, digital intervention timing |
+
+The strongest version, in my view, is the one where ML predicts something narrow and empirical, while ABM carries the causal story and counterfactual interventions. If ML tries to do everything, the model becomes hard to interpret; if ABM tries to do everything, calibration may become arbitrary. [arxiv](https://arxiv.org/abs/2303.11272)
