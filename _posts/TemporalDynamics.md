@@ -1,5 +1,3 @@
-
-
 # Temporal Dynamics in Computational Psychiatry: When Time Becomes the Therapy
 
 Mental health does not exist in snapshots. Depression, anxiety, bipolar disorder, and other psychiatric conditions unfold across time, shifting between states of stability and crisis, responding to life events with varying degrees of resilience, and following trajectories that defy simple linear prediction. Yet traditional psychiatric assessment relies heavily on static measurements—questionnaires administered at single time points, diagnostic interviews that ask patients to recall symptoms over weeks or months, and treatment decisions based on sparse clinical observations. Computational psychiatry is transforming this landscape by placing temporal dynamics at its core, using mathematical models to capture how psychological states evolve, transition, and respond to intervention across multiple timescales.
@@ -664,3 +662,159 @@ plots2$mood
 The visualization reveals a delay between worsening conditions and onset, followed by prolonged depressed state during recovery, with mood normalizing only once $H$ crosses the lower threshold. This clarifies why modest interventions may appear ineffective: improvements that shift $H$ into the hysteresis band without crossing $T_{\text{off}}$ produce no observable symptom relief despite representing genuine progress toward a tipping point.
 
 These computational results demonstrate that warning signals begin increasing approximately 20-30 days before major stressors trigger transitions to depression. Autocorrelation rises from around 0.5 in stable periods to above 0.8 as the system approaches its tipping point, while return rate decreases correspondingly. If implemented through smartphone applications or wearable devices collecting daily mood patterns, these metrics could trigger preventive interventions—increased therapy frequency, medication adjustments, or enhanced social support—potentially averting transitions entirely.
+
+
+
+## Hidden Markov Models: Inferring Latent Psychological States
+
+While dynamical systems provide theoretical foundations, clinical practice requires methods to infer latent states from observable behavioral data. Hidden Markov Models (HMMs) offer a principled statistical framework for recovering underlying discrete states from continuous noisy observations. The essential idea: psychological systems exist in discrete hidden states (resilient, vulnerable, depressed) corresponding to different regions of the dynamical landscape, and our observations are probabilistic samples from emission distributions associated with each state.[^8]
+
+An HMM comprises three components:[^8]
+
+1. Hidden states $S = \{s_1, s_2, \ldots, s_K\}$ representing psychological configurations
+2. Transition matrix $A$ where $a_{ij} = P(s_t = j | s_{t-1} = i)$
+3. Emission distributions $P(x_t | s_t)$ characterizing observed measurements given current state
+
+The connection to dynamical systems becomes clear when recognizing that different attractor basins correspond to different HMM states. Systems near healthy attractors show rapid recovery and low variance; those near depressed attractors show slow dynamics and high sensitivity.[^8]
+
+### Fitting HMMs to Mood Time Series in R
+
+```r
+library(depmixS4)
+
+set.seed(123)
+
+generate_mood_with_states <- function(T = 3000, dt = 0.01) {
+  n_steps <- as.integer(T / dt) + 1
+  time <- seq(0, T, length.out = n_steps)
+  mood <- numeric(n_steps)
+  true_state <- numeric(n_steps)
+  mood[1] <- 0.5
+  
+  for (i in 2:n_steps) {
+    t <- time[i]
+    
+    if (t < 800) {
+      true_state[i] <- 1
+      r <- 0.4
+      sigma <- 0.10
+    } else if (t < 1200) {
+      true_state[i] <- 2
+      r <- 0.0
+      sigma <- 0.15
+    } else if (t < 2200) {
+      true_state[i] <- 3
+      r <- -0.3
+      sigma <- 0.12
+    } else {
+      true_state[i] <- 2
+      r <- 0.0
+      sigma <- 0.14
+    }
+    
+    stress <- 0
+    if (t > 750 && t < 850) stress <- -0.3
+    if (t > 2100 && t < 2150) stress <- 0.4
+    
+    drift <- r * mood[i - 1] - mood[i - 1]^3 + stress
+    mood[i] <- mood[i - 1] + drift * dt + sigma * sqrt(dt) * rnorm(1)
+    mood[i] <- max(-2, min(2, mood[i]))
+  }
+  
+  data.frame(time = time, mood = mood, true_state = true_state)
+}
+
+mood_data <- generate_mood_with_states()
+
+daily_indices <- seq(1, nrow(mood_data), by = 100)
+observed_data <- mood_data[daily_indices, ]
+observed_data$observed_mood <- observed_data$mood + rnorm(nrow(observed_data), 0, 0.15)
+
+hmm_data <- data.frame(
+  observed_mood = observed_data$observed_mood,
+  subject = factor(1)
+)
+
+hmm_model <- depmix(
+  response = observed_mood ~ 1,
+  data = hmm_data,
+  nstates = 3,
+  family = gaussian()
+)
+
+fitted_hmm <- fit(hmm_model, verbose = FALSE)
+
+hmm_summary <- summary(fitted_hmm)
+posterior_states <- posterior(fitted_hmm)
+
+state_names <- paste0("State ", 1:3)
+
+observed_data$hmm_state <- factor(
+  posterior_states$state,
+  levels = 1:3,
+  labels = state_names
+)
+
+state_probs <- posterior_states[, c("S1", "S2", "S3")]
+
+par(mfrow = c(3, 1), mar = c(4, 4, 2, 1))
+
+plot(
+  observed_data$time,
+  observed_data$observed_mood,
+  type = "l",
+  col = "gray40",
+  xlab = "Time",
+  ylab = "Observed mood",
+  main = "Observed mood with true latent state"
+)
+points(
+  observed_data$time,
+  observed_data$observed_mood,
+  pch = 16,
+  cex = 0.5,
+  col = observed_data$true_state
+)
+
+legend(
+  "topright",
+  legend = c("True state 1", "True state 2", "True state 3"),
+  col = 1:3,
+  pch = 16,
+  bty = "n"
+)
+
+plot(
+  observed_data$time,
+  as.numeric(observed_data$hmm_state),
+  type = "s",
+  xlab = "Time",
+  ylab = "Inferred state",
+  ylim = c(1, 3),
+  yaxt = "n",
+  main = "Viterbi-decoded HMM state sequence"
+)
+axis(2, at = 1:3, labels = state_names)
+
+plot(
+  observed_data$time,
+  state_probs[, 1],
+  type = "l",
+  col = "red",
+  ylim = c(0, 1),
+  xlab = "Time",
+  ylab = "Posterior probability",
+  main = "Posterior probability of state 1"
+)
+lines(observed_data$time, state_probs[, 2], col = "blue")
+lines(observed_data$time, state_probs[, 3], col = "darkgreen")
+legend(
+  "topright",
+  legend = state_names,
+  col = c("red", "blue", "darkgreen"),
+  lty = 1,
+  bty = "n"
+)
+```
+
+The fitted HMM typically identifies three distinct states with characteristic emission distributions. The posterior probability distributions reveal uncertainty in state membership, with probabilities becoming diffuse during transition periods, indicating movement between attractors. This uncertainty quantification is crucial for clinical applications, allowing identification not just of current state but confidence in that assessment.
