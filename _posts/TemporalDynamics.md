@@ -667,15 +667,15 @@ These computational results demonstrate that warning signals begin increasing ap
 
 ## Hidden Markov Models: Inferring Latent Psychological States
 
-While dynamical systems provide theoretical foundations, clinical practice requires methods to infer latent states from observable behavioral data. Hidden Markov Models (HMMs) offer a principled statistical framework for recovering underlying discrete states from continuous noisy observations. The essential idea: psychological systems exist in discrete hidden states (resilient, vulnerable, depressed) corresponding to different regions of the dynamical landscape, and our observations are probabilistic samples from emission distributions associated with each state.[^8]
+While dynamical systems provide theoretical foundations, clinical practice requires methods to infer latent states from observable behavioral data. Hidden Markov Models (HMMs) offer a principled statistical framework for recovering underlying discrete states from continuous noisy observations. The essential idea: psychological systems exist in discrete hidden states (resilient, vulnerable, depressed) corresponding to different regions of the dynamical landscape, and our observations are probabilistic samples from emission distributions associated with each state.
 
-An HMM comprises three components:[^8]
+An HMM comprises three components:
 
 1. Hidden states $S = \{s_1, s_2, \ldots, s_K\}$ representing psychological configurations
 2. Transition matrix $A$ where $a_{ij} = P(s_t = j | s_{t-1} = i)$
 3. Emission distributions $P(x_t | s_t)$ characterizing observed measurements given current state
 
-The connection to dynamical systems becomes clear when recognizing that different attractor basins correspond to different HMM states. Systems near healthy attractors show rapid recovery and low variance; those near depressed attractors show slow dynamics and high sensitivity.[^8]
+The connection to dynamical systems becomes clear when recognizing that different attractor basins correspond to different HMM states. Systems near healthy attractors show rapid recovery and low variance; those near depressed attractors show slow dynamics and high sensitivity.
 
 ### Fitting HMMs to Mood Time Series in R
 
