@@ -1,4 +1,4 @@
-# Temporal Dynamics in Computational Psychiatry: When Time Becomes the Therapy
+# Temporal Dynamics in Computational Psychiatry
 
 Mental health does not exist in snapshots. Depression, anxiety, bipolar disorder, and other psychiatric conditions unfold across time, shifting between states of stability and crisis, responding to life events with varying degrees of resilience, and following trajectories that defy simple linear prediction. Yet traditional psychiatric assessment relies heavily on static measurements—questionnaires administered at single time points, diagnostic interviews that ask patients to recall symptoms over weeks or months, and treatment decisions based on sparse clinical observations. Computational psychiatry is transforming this landscape by placing temporal dynamics at its core, using mathematical models to capture how psychological states evolve, transition, and respond to intervention across multiple timescales.
 
