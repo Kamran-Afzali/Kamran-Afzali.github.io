@@ -7,7 +7,7 @@ tags: [Computational psychiatry, Decision-Making, Reinforcement learning]
 date-string: July 2026
 ---
 
-# Modeling Affective Dynamics in Reinforcement Learning: A Comprehensive Study of Mood-Modulated Decision-Making in Healthy and Depressed Agents
+# Modeling Affective Dynamics in Reinforcement Learning: Mood-Modulated Decision-Making
 
 ## Introduction
 
