@@ -1,13 +1,13 @@
 ---
 layout: post
 categories: posts
-title: Modeling Affective Dynamics in Reinforcement Learning 
+title: Mood-Modulated Decision-Making  
 featured-image: /images/comp01.png
 tags: [Computational psychiatry, Decision-Making, Reinforcement learning]
 date-string: July 2026
 ---
 
-# Modeling Affective Dynamics in Reinforcement Learning: Mood-Modulated Decision-Making
+# Mood-Modulated Decision-Making and Affective Dynamics in Reinforcement Learning
 
 ## Introduction
 
