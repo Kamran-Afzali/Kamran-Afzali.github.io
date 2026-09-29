@@ -144,7 +144,6 @@ ggplot(q_summary, aes(x = Action, y = MeanReward, fill = Group)) +
 
 Cumulative reward plots reveal the downstream consequence: the depressed agent accumulates substantially lower total reward over 200 episodes, not because the environment treats it differently, but because its own internal dynamics steer it toward lower-value behavioral attractors. This illustrates how a computational model can reproduce the self-reinforcing nature of depression — where cognitive and social vulnerabilities interact to sustain maladaptive behavior even in an environment that offers pathways to positive outcomes.
 
-
 ## Dynamic Identity and Trait Evolution
 
 The third model moves beyond fixed agent parameters to explore how psychological traits themselves might evolve through experience as the characteristics change over time, potentially in ways that reinforce or ameliorate depressive patterns. We implement three evolving identity dimensions.
