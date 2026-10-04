@@ -14,7 +14,7 @@ $$
 Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
 $$
 
-What distinguishes this model from textbook Q-learning is that $\alpha$ is not fixed. Like previous models (posts 1 and 2), we implement a **mood-dependent learning rate**:
+What distinguishes this model from _vanilla_ Q-learning is that $\alpha$ is not fixed. Like previous models (posts 1 and 2), we implement a **mood-dependent learning rate**:
 
 ```r
 alpha <- alpha_base * exp(-mood_influence * mood_clamped)
