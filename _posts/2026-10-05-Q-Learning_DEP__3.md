@@ -78,7 +78,7 @@ Although this is a sequential environment, the transition probabilities do not d
 The reward function does depend on the current state. Its rows index current contexts and its columns index selected actions:
 
 | Current state    | ScreenTime | PhysicalActivity | Socializing | Alcohol | Cinema |
-|------------------|-----------:|-----------------:|------------:|--------:|-------:|
+|------------|-----------:|-----------:|-----------:|-----------:|-----------:|
 | ScreenTime       |          0 |                1 |           2 |      −2 |      1 |
 | PhysicalActivity |          1 |                0 |           2 |      −1 |      2 |
 | Socializing      |          2 |                1 |           0 |      −2 |      2 |
