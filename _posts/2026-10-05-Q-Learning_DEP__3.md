@@ -535,3 +535,4 @@ ggplot(combined_df, aes(x = Episode, y = State, color = Group)) +
   labs(title = "State Visits Over Time") +
   theme_minimal()
 ```
+
