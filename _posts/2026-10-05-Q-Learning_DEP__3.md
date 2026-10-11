@@ -2,6 +2,7 @@
 layout: post
 categories: posts
 title: Mood, Social Feedback, and Sequential Decision-Making
+featured-image: /images/comp01.png
 tags: [Computational psychiatry, Decision-Making, Reinforcement learning, Social feedback]
 date-string: October 2026
 ---
