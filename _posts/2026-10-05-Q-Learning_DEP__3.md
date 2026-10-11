@@ -306,11 +306,7 @@ Lower $\lambda$ means faster adaptation and less persistence of previous mood. I
 
 The script generates one trajectory per profile over 200 decision steps. Although the variable is named `n_episodes`, the agent is not reset after each step, and no terminal state is defined. These are therefore continuing-task time steps rather than 200 independent episodes.
 
-The four plots describe complementary aspects of those trajectories. Mood records the accumulated affective response to outcomes and feedback. Cumulative reward measures undiscounted task performance, although Q-learning uses a discounted objective. State visits show where the agent actually arrives, which need not match its selected actions. Peer feedback reflects the action sequence under the prescribed approval rule; it does not represent an independently adapting social partner.
-
-Without executing the script, we should not assign numerical endpoints or claim a particular ordering of the reward curves. More importantly, even a visible difference between the two plotted trajectories would not establish a reliable group effect. The agents encounter different stochastic transitions and exploratory choices, and each profile is represented by only one realization.
-
-A modest extension would replicate the simulation across seeds and retain an agent identifier:
+The four plots describe complementary aspects of those trajectories. Mood records the accumulated affective response to outcomes and feedback. Cumulative reward measures undiscounted task performance, although Q-learning uses a discounted objective. State visits show where the agent actually arrives, which need not match its selected actions. Peer feedback reflects the action sequence under the prescribed approval rule; it does not represent an independently adapting social partner. An extension would replicate the simulation across seeds and retain an agent identifier:
 
 ``` r
 run_replicates <- function(params, group, n_agents = 100) {
