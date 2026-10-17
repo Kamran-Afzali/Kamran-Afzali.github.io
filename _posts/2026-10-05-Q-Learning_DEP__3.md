@@ -11,197 +11,120 @@ date-string: October 2026
 
 ## Introduction
 
-In the previous post, we explored how mood, asymmetric responses to outcomes, and learned helplessness can be incorporated into reinforcement learning models. Our agents interacted with a multi-armed bandit environment, where each choice produced an immediate outcome without changing the context of subsequent decisions. That framework allowed us to examine feedback between affect and learning, but it left out an important feature of everyday behavior: actions influence not only what happens now, but also which situations become available next.
+In the previous post, we incorporated mood, asymmetric responses to outcomes, and learned helplessness into reinforcement learning models. Those agents faced a multi-armed bandit, where each choice produced an immediate outcome and left the context of later decisions unchanged. That setup allowed us to study feedback between affect and learning, but it omitted a familiar feature of everyday behavior: actions shape both what happens now and which situations become available next.
 
-Choosing to exercise, socialize, or spend time on a screen can alter the circumstances in which later decisions occur. These choices may also elicit responses from other people. A computational account of affective decision-making therefore needs to distinguish immediate reward, transitions between behavioral contexts, and social feedback. Their effects can overlap, but they need not operate through the same mechanism.
+Choosing to exercise, socialize, or spend an evening on a screen changes the circumstances of later choices, and it may also draw responses from other people. A computational account of affective decision-making therefore has to separate three things: immediate reward, transitions between behavioral contexts, and social feedback. They can overlap, but they need not act through the same mechanism.
 
-Here we extend the earlier posts to a finite-state Markov decision process. Agents move among five activity contexts, learn state-dependent action values through Q-learning, and update mood using both task rewards and peer feedback. Mood, in turn, changes the learning rate. We compare two illustrative parameterizations, labeled “Healthy” and “Depressed” in the code, that differ in affective persistence, outcome weighting, mood-dependent learning, and sensitivity to social feedback.
+Here we extend the earlier work to a finite-state Markov decision process. Agents move among five activity contexts, learn state-dependent action values with Q-learning, and update mood from both task rewards and peer feedback. Mood, in turn, changes the learning rate. We compare two illustrative parameter profiles, labeled "Healthy" and "Depressed" in the code, which differ in mood persistence, outcome weighting, mood-dependent learning, and sensitivity to social feedback.
 
-These labels describe simulated parameter profiles rather than validated clinical populations. The model does not establish that people with depression learn or respond socially in the ways specified here. Its purpose is narrower: to make assumptions explicit and examine their computational consequences. Several details of the implementation also constrain what we can infer, particularly the fixed exploration rate and the proposed pessimism and optimism terms.
+These labels describe simulated parameter sets, not validated clinical populations. The model does not show that people with depression learn or respond socially in the ways specified here. Its purpose is narrower: to make assumptions explicit and to examine what follows from them. Two implementation details limit what can be inferred, namely the fixed exploration rate and the inert optimism and pessimism terms discussed below.
 
 ## From Bandits to Behavioral States
 
-The environment consists of five states:
+The environment has five states:
 
 $$
-\mathcal{S}
-=
-\{
-\text{ScreenTime},
-\text{PhysicalActivity},
-\text{Socializing},
-\text{Alcohol},
-\text{Cinema}
-\}.
+\mathcal{S}=\{\text{ScreenTime},\text{PhysicalActivity},\text{Socializing},\text{Alcohol},\text{Cinema}\}.
 $$
 
-The action set uses the same labels. An action represents an attempt to move toward a particular activity, whereas the state represents the agent’s current context. The distinction matters because actions do not determine the next state with certainty.
+The action set uses the same labels. An action is an attempt to move toward an activity, whereas the state is the agent's current context. The distinction matters because actions do not fix the next state.
 
-We write the environment as
-
-$$
-\mathcal{M}
-=
-(\mathcal{S},\mathcal{A},P,R,\gamma),
-$$
-
-where $P(s'\mid s,a)$ is the transition probability, $R(s,a)$ is the immediate reward, and $\gamma$ discounts future rewards. In this implementation, $\gamma=0.9$.
-
-For every current state, choosing action $a$ gives a probability of $0.6$ of entering the corresponding state and a probability of $0.1$ of entering each alternative:
+We write the environment as $\mathcal{M}=(\mathcal{S},\mathcal{A},P,R,\gamma)$, where $P(s'\mid s,a)$ is the transition probability, $R(s,a)$ the immediate reward, and $\gamma=0.9$ the discount factor. Whatever the current state, choosing action $a$ leads to the matching state with probability $0.6$ and to each other state with probability $0.1$:
 
 $$
-P(s'\mid s,a)
-=
+P(s'\mid s,a)=
 \begin{cases}
 0.6, & s'=a,\\
 0.1, & s'\neq a.
 \end{cases}
 $$
 
-The R code constructs this transition structure as follows:
-
 ``` r
-transition_probs <- array(
-  0, dim = c(n_states, n_states, n_states)
-)
+transition_probs <- array(0, dim = c(n_states, n_states, n_states))
 
 for (s in 1:n_states) {
   for (a in 1:n_states) {
     prob <- rep(0.1, n_states)
     prob[a] <- 0.6
-    transition_probs[s, , a] <- prob / sum(prob)
+    transition_probs[s, , a] <- prob
   }
 }
 ```
 
-Although this is a sequential environment, the transition probabilities do not depend on the current state. Attempting to socialize has the same probability of reaching the socializing state whether the agent is currently exercising or drinking alcohol. The model therefore represents imperfect control over the next activity, but not state-dependent barriers to changing activities.
+Although the environment is sequential, these probabilities do not depend on the current state. Trying to socialize is equally likely to succeed from the couch or from a bar. The model captures imperfect control over the next activity, but not state-dependent barriers to changing activities.
 
-The reward function does depend on the current state. Its rows index current contexts and its columns index selected actions:
+The reward function does depend on the current state. Rows index the current context, columns the selected action:
 
 | Current state    | ScreenTime | PhysicalActivity | Socializing | Alcohol | Cinema |
-|------------|-----------:|-----------:|-----------:|-----------:|-----------:|
+|------------------|-----------:|-----------------:|------------:|--------:|-------:|
 | ScreenTime       |          0 |                1 |           2 |      −2 |      1 |
 | PhysicalActivity |          1 |                0 |           2 |      −1 |      2 |
 | Socializing      |          2 |                1 |           0 |      −2 |      2 |
 | Alcohol          |         −2 |               −1 |           0 |       0 |     −1 |
 | Cinema           |          1 |                2 |           2 |      −1 |      0 |
 
-These values define a hypothetical task rather than empirical estimates of the psychological effects of each activity. In particular, the negative rewards assigned to alcohol and the positive rewards assigned to several social or physical activities are modeling choices. They should not be interpreted as universal valuations.
+These values define a hypothetical task. They are not empirical estimates of how any activity affects anyone, and the negative values for alcohol and positive values for social or physical activity are modeling choices.
 
-Reward is determined by the current state and intended action, not by the state actually reached:
+Reward depends on the current state and the intended action, not on the state actually reached:
 
 $$
 r_t=R(s_t,a_t).
 $$
 
-For example, selecting Socializing from ScreenTime produces a reward of $2$, even if the stochastic transition takes the agent elsewhere. This separates the immediate value of an attempted activity from its success in changing the next context. An alternative model could make reward depend on the realized transition, $R(s_t,a_t,s_{t+1})$, if the intended interpretation required successful participation.
+Selecting Socializing from ScreenTime yields a reward of $2$ even if the stochastic transition lands elsewhere. This separates the value of attempting an activity from success in changing context. If the intended interpretation required successful participation, reward could instead depend on the realized transition, $R(s_t,a_t,s_{t+1})$.
 
-Unlike a bandit, the agent must now consider both immediate reward and the value of the resulting state. An action with a modest immediate payoff may still be useful if it tends to lead toward a context with favorable future opportunities.
+Unlike in a bandit, the agent must weigh immediate reward against the value of the state it is likely to reach. An action with a modest payoff may still be worthwhile if it tends to lead somewhere favorable.
 
 ## Learning, Mood, and Social Feedback
 
-The agent maintains an action-value matrix $Q_t(s,a)$, initialized to zero. Each entry estimates the discounted return associated with selecting action $a$ in state $s$. Learning follows the temporal-difference update
+The agent keeps an action-value matrix $Q_t(s,a)$, initialized at zero, and updates it with the temporal-difference rule
 
 $$
-\delta_t
-=
-r_t
-+
-\gamma\max_{a'}Q_t(s_{t+1},a')
--
-Q_t(s_t,a_t),
+\delta_t=r_t+\gamma\max_{a'}Q_t(s_{t+1},a')-Q_t(s_t,a_t),
+\qquad
+Q_{t+1}(s_t,a_t)=Q_t(s_t,a_t)+\alpha_t\delta_t.
 $$
 
-$$
-Q_{t+1}(s_t,a_t)
-=
-Q_t(s_t,a_t)+\alpha_t\delta_t.
-$$
-
-All unselected entries remain unchanged. Unlike the previous Bayesian model, this implementation does not maintain posterior distributions or explicit uncertainty estimates. It uses point estimates of action values and a mood-dependent update rate.
+Unselected entries are unchanged. Unlike the earlier Bayesian model, there are no posterior distributions or explicit uncertainty estimates, only point estimates and a mood-dependent update rate.
 
 ### Mood-dependent learning
 
-Mood is clamped before it influences learning:
+Mood is clamped before it affects learning, $\bar m_t=\max(-1,\min(m_t,1))$, and the effective learning rate is
 
 $$
-\bar m_t
-=
-\max(-1,\min(m_t,1)).
+\alpha_t=\alpha_{\text{base}}\exp(-\beta\bar m_t),
 $$
 
-The effective learning rate is
+where $\beta$ is `mood_influence`. Negative mood raises the learning rate and positive mood lowers it. With $\alpha_{\text{base}}=0.1$, the healthy-like profile ($\beta=1$) ranges from about $0.037$ to $0.272$, and the depressed-like profile ($\beta=2$) from about $0.014$ to $0.739$.
 
-$$
-\alpha_t
-=
-\alpha_{\text{base}}
-\exp(-\beta\bar m_t),
-$$
+This is not reduced learning under low mood, and it is not selective amplification of negative prediction errors. Low mood increases sensitivity to whatever error comes next, positive or negative. After a bad experience that could speed further downward revision, but after a better-than-expected outcome it could just as easily speed recovery.
 
-where $\beta$ corresponds to `mood_influence`.
-
-``` r
-mood_clamped <- max(min(mood, 1), -1)
-
-alpha <- alpha_base *
-  exp(-mood_influence * mood_clamped)
-
-Q[current_state, action] <- Q[current_state, action] +
-  alpha * (
-    reward +
-    gamma * max(Q[next_state, ]) -
-    Q[current_state, action]
-  )
-```
-
-This equation has a specific directional implication: negative mood increases the learning rate, while positive mood decreases it. With $\alpha_{\text{base}}=0.1$, the healthy-like profile has an effective learning-rate range of approximately $0.037$ to $0.272$. The depressed-like profile, with $\beta=2$, has a wider range of approximately $0.014$ to $0.739$.
-
-The mechanism therefore does not implement reduced learning under negative mood. Nor does it selectively increase learning from negative prediction errors. Negative mood increases sensitivity to whichever temporal-difference error occurs next, whether positive or negative. Following an unfavorable experience, this could accelerate further downward revisions of value, but it could also accelerate recovery when a better-than-expected outcome follows.
-
-Mood before the current outcome determines the learning rate for that outcome. The reward and peer feedback observed at time $t$ update mood afterward and consequently influence learning on later steps.
+Timing matters. Mood before the current outcome sets the learning rate for that outcome. The reward and feedback at time $t$ update mood afterward, so they affect learning only on later steps.
 
 ### Action selection and valuation biases
 
-Actions are selected using an $\epsilon$-greedy policy with $\epsilon=0.1$. With probability $0.1$, the agent samples uniformly from all five actions; otherwise, it selects the action with the highest transformed value:
+Actions follow an $\epsilon$-greedy policy with $\epsilon=0.1$. With probability $0.1$ the agent picks uniformly among the five actions. Otherwise it picks the action with the highest transformed value
 
 $$
-\widetilde Q_t(s,a)
-=
-Q_t(s,a)+o-p\bigl(1-Q_t(s,a)\bigr),
+\widetilde Q_t(s,a)=Q_t(s,a)+o-p\bigl(1-Q_t(s,a)\bigr),
 $$
 
-where $o$ and $p$ denote optimism and pessimism.
-
-A useful algebraic simplification reveals a limitation:
+with $o$ and $p$ denoting optimism and pessimism. This simplifies to
 
 $$
-\widetilde Q_t(s,a)
-=
-(1+p)Q_t(s,a)+(o-p).
+\widetilde Q_t(s,a)=(1+p)Q_t(s,a)+(o-p).
 $$
 
-For the parameter values used here, $1+p>0$. The transformation therefore preserves action rankings:
+For $1+p>0$ the transformation is a positive affine map, so $\arg\max_a\widetilde Q_t(s,a)=\arg\max_a Q_t(s,a)$. The two parameters therefore have no behavioral effect here, and they do not enter the Q-update either. A model in which pessimism shifts initial beliefs, subjective rewards, or expected transition success could change behavior, but this one does not. We keep the parameters in the code to make that point concrete.
 
-$$
-\arg\max_a\widetilde Q_t(s,a)
-=
-\arg\max_a Q_t(s,a).
-$$
-
-The optimism and pessimism parameters do not change greedy choices. They also do not affect the Q-learning update, which uses the original $Q$-values. Under this implementation, these parameters have no behavioral effect.
-
-This is worth distinguishing from a model in which pessimism changes initial beliefs, subjective rewards, or expectations about future transitions. Those mechanisms could alter behavior, but they are not implemented by a positive affine transformation followed by an argmax policy.
-
-Exploration is also independent of mood. Both agents use the same fixed $\epsilon$, so differences between their trajectories cannot be attributed to a programmed increase in random exploration under negative affect. When values tie, R’s `which.max()` selects the first maximum. Because all values initially equal zero, the first non-exploratory choice favors ScreenTime by indexing convention rather than preference.
+Exploration is also independent of mood. Both agents share the same $\epsilon$, so differences between them cannot come from a programmed increase in random exploration under negative affect. Ties among maximal values are broken at random. R's `which.max()` would instead always return the first index, and since all values start at zero, that would send early non-exploratory choices to ScreenTime by convention rather than preference.
 
 ### Socially informed mood
 
-Peer feedback contributes to mood but not directly to task reward. Under the state-based mode used in both simulations,
+Peer feedback feeds mood but not the task reward. In the default action-based mode,
 
 $$
-F(a_t)
-=
+F(a_t)=
 \begin{cases}
 1, & a_t\in\{\text{Socializing},\text{PhysicalActivity}\},\\
 -1, & a_t=\text{Alcohol},\\
@@ -209,67 +132,38 @@ F(a_t)
 \end{cases}
 $$
 
-Despite its name, this mode is action-based: feedback depends on the selected action, not the realized next state. The code also permits random feedback drawn from $\{-1,0,1\}$ with probabilities $0.2$, $0.6$, and $0.2$, respectively.
+Feedback depends on the selected action, not the realized next state. A random mode is also available, drawing from $\{-1,0,1\}$ with probabilities $0.2$, $0.6$, and $0.2$.
 
-Reward contributes to mood through an asymmetric transformation:
+Reward enters mood through an asymmetric weighting,
 
 $$
-g(r_t)
-=
+g(r_t)=
 \begin{cases}
 w_+r_t, & r_t>0,\\
 w_-r_t, & r_t<0,\\
-0, & r_t=0.
+0, & r_t=0,
 \end{cases}
 $$
 
-Mood then evolves according to
+and mood evolves as
 
 $$
-m_{t+1}
-=
-\lambda m_t
-+
-(1-\lambda)
-\left[g(r_t)+\omega F(a_t)\right],
+m_{t+1}=\lambda m_t+(1-\lambda)\bigl[g(r_t)+\omega F(a_t)\bigr],
 $$
 
-where $\lambda$ controls affective persistence and $\omega$ controls sensitivity to feedback.
-
-``` r
-mood_reward <- if (reward > 0) {
-  rumination_weight_success * reward
-} else {
-  rumination_weight_failure * reward
-}
-
-mood_social <- social_feedback_weight * peer_feedback
-
-mood <- mood_decay * mood +
-  (1 - mood_decay) * (mood_reward + mood_social)
-```
-
-The resulting feedback pathway is indirect:
+where $\lambda$ sets affective persistence and $\omega$ sensitivity to feedback. The resulting pathway is indirect:
 
 $$
-a_t
-\longrightarrow
-F(a_t)
-\longrightarrow
-m_{t+1}
-\longrightarrow
-\alpha_{t+1}
-\longrightarrow
-Q_{t+2}.
+a_t\rightarrow F(a_t)\rightarrow m_{t+1}\rightarrow\alpha_{t+1}\rightarrow Q_{t+2}.
 $$
 
-Social approval changes subsequent learning through mood. It is not added to the reward in the temporal-difference target, and the agent does not explicitly learn a separate value function for social approval.
+Social approval changes later learning only through mood. It is not part of the temporal-difference target, and the agent does not learn a separate value for approval.
 
-The “rumination” parameters likewise describe asymmetric outcome weighting rather than repeated mental rehearsal. The model contains no memory replay or sustained attention to a particular negative event. Asymmetry is a useful abstraction, but it should not be equated with a complete mechanism of rumination.
+The weights $w_+$ and $w_-$ describe asymmetric outcome weighting. They are not a model of rumination, which would require something like memory replay or sustained attention to a particular negative event. The model has neither.
 
 ## Simulation and Interpretation
 
-The two profiles differ across several parameters:
+The two profiles differ in several parameters at once:
 
 | Parameter                                  | Healthy-like | Depressed-like |
 |--------------------------------------------|-------------:|---------------:|
@@ -279,45 +173,201 @@ The two profiles differ across several parameters:
 | Positive outcome weight, $w_+$             |          0.6 |            0.2 |
 | Negative outcome weight, $w_-$             |          0.4 |            0.8 |
 | Social feedback weight, $\omega$           |          0.3 |            0.5 |
-| Pessimism, $p$                             |          0.0 |            0.3 |
-| Optimism, $o$                              |          0.1 |            0.0 |
+| Pessimism, $p$ (inert)                     |          0.0 |            0.3 |
+| Optimism, $o$ (inert)                      |          0.1 |            0.0 |
 
-Both simulations use state-based feedback, $\gamma=0.9$, and $\epsilon=0.1$. The depressed-like profile assigns less affective weight to positive outcomes and more weight to negative outcomes. Its larger social feedback coefficient increases responsiveness to both approval and disapproval; it does not selectively encode sensitivity to rejection.
+Both use action-based feedback, $\gamma=0.9$, and $\epsilon=0.1$. The depressed-like profile gives less weight to positive outcomes and more to negative ones. Its larger $\omega$ raises responsiveness to approval and disapproval alike, so it does not encode sensitivity to rejection specifically.
 
-A concrete example helps separate these effects. From ScreenTime, selecting Socializing yields $r_t=2$ and $F(a_t)=1$. The healthy-like mood input is
+A worked example separates these effects. From ScreenTime, selecting Socializing gives $r_t=2$ and $F=1$. The mood input is $0.6(2)+0.3(1)=1.5$ for the healthy-like agent and $0.2(2)+0.5(1)=0.9$ for the depressed-like agent. From neutral mood the one-step changes are $0.05(1.5)=0.075$ and $0.1(0.9)=0.09$. The depressed-like agent shows the larger immediate rise because its lower $\lambda$ gives more weight to the current input. A smaller positive reward weight does not by itself imply a smaller one-step response.
 
-$$
-0.6(2)+0.3(1)=1.5,
-$$
+Selecting Alcohol from the same state gives $r_t=-2$ and $F=-1$. The inputs are $0.4(-2)+0.3(-1)=-1.1$ and $0.8(-2)+0.5(-1)=-2.1$, so the initial changes are $-0.055$ and $-0.21$. Here stronger negative weighting, greater feedback sensitivity, and faster adjustment all point the same way.
 
-whereas the depressed-like input is
+Lower $\lambda$ means faster adaptation, not necessarily greater volatility, since observed fluctuations also depend on the sequence and size of outcomes.
 
-$$
-0.2(2)+0.5(1)=0.9.
-$$
+### What the figures can show
 
-However, starting from neutral mood, the immediate changes are $0.05(1.5)=0.075$ and $0.1(0.9)=0.09$, respectively. The depressed-like agent initially shows the larger mood increase because its lower persistence parameter gives more weight to the current input. A smaller positive reward weight does not, by itself, imply a smaller one-step affective response.
+The script produces one trajectory per profile over 200 decision steps. The agent is never reset and no terminal state exists, so these are continuing-task time steps, not 200 independent episodes. Four plots are generated:
 
-For the same state, selecting Alcohol produces $r_t=-2$ and feedback of $-1$. The mood inputs become $-1.1$ and $-2.1$, giving initial mood changes of $-0.055$ and $-0.21$. Here, stronger negative weighting, greater feedback sensitivity, and faster mood adjustment all act in the same direction.
+-   Mood: the accumulated affective response to outcomes and feedback.
+-   Cumulative reward: undiscounted task performance, although Q-learning optimizes a discounted objective.
+-   State visits: where the agent actually arrives, which need not match what it chose.
+-   Cumulative peer feedback: the output of a prescribed approval rule, not of an adapting social partner.
 
-Lower $\lambda$ means faster adaptation and less persistence of previous mood. It does not independently establish greater volatility: observed fluctuations also depend on the sequence and magnitude of outcomes.
+A single trajectory per group, from one seed and one random starting state, is weak evidence. The replication code in the full script addresses this. Matching seeds across groups helps organize comparisons but does not guarantee identical environmental experience once policies diverge. Replication estimates simulation variability and says nothing about clinical populations.
 
-### What the figures establish
+### Limitations and next steps
 
-The script generates one trajectory per profile over 200 decision steps. Although the variable is named `n_episodes`, the agent is not reset after each step, and no terminal state is defined. These are therefore continuing-task time steps rather than 200 independent episodes.
+The model's contribution is the coupling of activity selection, social evaluation, mood, and learning in one transparent sequential framework. It does not show that these profiles reproduce depression.
 
-The four plots describe complementary aspects of those trajectories. Mood records the accumulated affective response to outcomes and feedback. Cumulative reward measures undiscounted task performance, although Q-learning uses a discounted objective. State visits show where the agent actually arrives, which need not match its selected actions. Peer feedback reflects the action sequence under the prescribed approval rule; it does not represent an independently adapting social partner. An extension would replicate the simulation across seeds and retain an agent identifier:
+Several assumptions deserve testing. Social feedback is externally prescribed and identical across profiles, so there are no reciprocal relationships, disagreeing peers, or uncertainty about others' intentions. Mood depends on weighted reward levels, not prediction errors, so a good outcome lifts mood equally whether expected or surprising. This differs from Eldar and colleagues' account of mood as momentum in prediction errors (2016), and a prediction-error version would be a natural contrast. The agent also learns values over activity states without representing mood as part of the state, even though mood alters the learning dynamics.
+
+The comparison changes several parameters at once, so differences in outcomes cannot be tied to one mechanism. Varying $\omega$ with outcome weights fixed would isolate the social pathway, and varying $\beta$ with mood dynamics fixed would isolate mood-dependent learning. If optimism and pessimism are meant to influence choice, they need reformulating as action-specific priors, biased perceived rewards, or altered beliefs about transition success. These imply different empirical predictions and are not interchangeable.
+
+Clinical interpretation would require estimating parameters from behavioral and mood data. For now the simulation offers hypotheses: social feedback may alter later learning through affect, asymmetric weighting may shape mood trajectories, and mood-dependent learning may either entrench unfavorable evaluations or speed their correction. Which pathway dominates is an empirical question.
+
+## References
+
+Eldar, E., Rutledge, R. B., Dolan, R. J., & Niv, Y. (2016). Mood as representation of momentum. *Trends in Cognitive Sciences, 20*(1), 15–24. <https://doi.org/10.1016/j.tics.2015.07.010>
+
+Huys, Q. J. M., Daw, N. D., & Dayan, P. (2015). Depression: A decision-theoretic analysis. *Annual Review of Neuroscience, 38*, 1–23. <https://doi.org/10.1146/annurev-neuro-071714-033928>
+
+Watkins, C. J. C. H., & Dayan, P. (1992). Q-learning. *Machine Learning, 8*, 279–292. <https://doi.org/10.1007/BF00992698>
+
+## Full Code
+
+The script simulates a mood-sensitive Q-learning agent in a five-state behavioral environment. Mood is updated from asymmetrically weighted rewards and prescribed peer feedback, and it scales the learning rate. Two parameter profiles are compared over 200 steps, then replicated across 100 seeds. The profiles are illustrative and do not represent clinical groups.
 
 ``` r
-run_replicates <- function(params, group, n_agents = 100) {
+library(ggplot2)
+library(dplyr)
+
+# ---- ENVIRONMENT ----
+
+states   <- c("ScreenTime", "PhysicalActivity", "Socializing", "Alcohol", "Cinema")
+n_states <- length(states)
+
+transition_probs <- array(0, dim = c(n_states, n_states, n_states))
+for (s in 1:n_states) {
+  for (a in 1:n_states) {
+    prob <- rep(0.1, n_states)
+    prob[a] <- 0.6
+    transition_probs[s, , a] <- prob
+  }
+}
+
+rewards <- matrix(c(
+   0,  1,  2, -2,  1,   # ScreenTime
+   1,  0,  2, -1,  2,   # PhysicalActivity
+   2,  1,  0, -2,  2,   # Socializing
+  -2, -1,  0,  0, -1,   # Alcohol
+   1,  2,  2, -1,  0    # Cinema
+), nrow = n_states, byrow = TRUE)
+
+env <- list(states = states, transition_probs = transition_probs, rewards = rewards)
+
+# ---- HELPERS ----
+
+argmax_random <- function(x, tol = 1e-12) {
+  idx <- which(x >= max(x) - tol)
+  idx[sample.int(length(idx), 1)]
+}
+
+peer_feedback <- function(action, states, mode = c("action_based", "random")) {
+  mode <- match.arg(mode)
+  if (mode == "random") {
+    return(sample(c(-1, 0, 1), 1, prob = c(0.2, 0.6, 0.2)))
+  }
+  a <- states[action]
+  if (a %in% c("Socializing", "PhysicalActivity")) 1
+  else if (a == "Alcohol") -1
+  else 0
+}
+
+# ---- AGENT ----
+
+simulate_q_agent <- function(
+    env,
+    n_steps = 200,
+    alpha_base = 0.1,
+    gamma = 0.9,
+    epsilon = 0.1,
+    mood_decay = 0.95,
+    mood_influence = 1.0,
+    w_pos = 0.5,
+    w_neg = 0.5,
+    social_weight = 0.3,
+    feedback_mode = "action_based",
+    pessimism = 0.0,
+    optimism = 0.0
+) {
+  n_s <- nrow(env$transition_probs)
+  n_a <- length(env$states)
+  Q <- matrix(0, nrow = n_s, ncol = n_a)
+  mood <- 0
+  state <- sample.int(n_s, 1)
+
+  out <- data.frame(
+    Step = seq_len(n_steps), State = NA_character_, Action = NA_character_,
+    Reward = NA_real_, Feedback = NA_real_, Alpha = NA_real_, Mood = NA_real_
+  )
+
+  for (t in seq_len(n_steps)) {
+    biased_Q <- Q[state, ] + optimism - pessimism * (1 - Q[state, ])  # rank-preserving
+    action <- if (runif(1) < epsilon) sample.int(n_a, 1) else argmax_random(biased_Q)
+
+    next_state <- sample.int(n_s, 1, prob = env$transition_probs[state, , action])
+    reward <- env$rewards[state, action]
+
+    # mood before this outcome sets the learning rate
+    alpha <- alpha_base * exp(-mood_influence * max(min(mood, 1), -1))
+    Q[state, action] <- Q[state, action] +
+      alpha * (reward + gamma * max(Q[next_state, ]) - Q[state, action])
+
+    # mood update from reward and peer feedback
+    fb <- peer_feedback(action, env$states, feedback_mode)
+    mood_reward <- if (reward > 0) w_pos * reward else if (reward < 0) w_neg * reward else 0
+    mood <- mood_decay * mood + (1 - mood_decay) * (mood_reward + social_weight * fb)
+
+    out[t, c("State", "Action", "Reward", "Feedback", "Alpha", "Mood")] <-
+      list(env$states[state], env$states[action], reward, fb, alpha, mood)
+
+    state <- next_state
+  }
+  out
+}
+
+# ---- PARAMETERS ----
+
+params_healthy <- list(
+  alpha_base = 0.1, mood_decay = 0.95, mood_influence = 1.0,
+  w_pos = 0.6, w_neg = 0.4, social_weight = 0.3,
+  pessimism = 0.0, optimism = 0.1
+)
+
+params_depressed <- list(
+  alpha_base = 0.1, mood_decay = 0.90, mood_influence = 2.0,
+  w_pos = 0.2, w_neg = 0.8, social_weight = 0.5,
+  pessimism = 0.3, optimism = 0.0
+)
+
+# ---- SINGLE TRAJECTORY PER PROFILE ----
+
+set.seed(42)
+healthy_df   <- do.call(simulate_q_agent, c(list(env = env), params_healthy))
+healthy_df$Group <- "Healthy"
+depressed_df <- do.call(simulate_q_agent, c(list(env = env), params_depressed))
+depressed_df$Group <- "Depressed"
+
+combined_df <- bind_rows(healthy_df, depressed_df) %>%
+  group_by(Group) %>%
+  mutate(CumulativeReward   = cumsum(Reward),
+         CumulativeFeedback = cumsum(Feedback)) %>%
+  ungroup()
+
+# ---- FIGURES ----
+
+ggplot(combined_df, aes(Step, Mood, color = Group)) +
+  geom_line(linewidth = 1) +
+  labs(title = "Mood Trajectories", y = "Mood") + theme_minimal()
+
+ggplot(combined_df, aes(Step, CumulativeReward, color = Group)) +
+  geom_line(linewidth = 1) +
+  labs(title = "Cumulative Reward", y = "Cumulative reward") + theme_minimal()
+
+ggplot(combined_df, aes(Step, State, color = Group)) +
+  geom_point(alpha = 0.5, size = 2) +
+  labs(title = "State Visits") + theme_minimal()
+
+ggplot(combined_df, aes(Step, CumulativeFeedback, color = Group)) +
+  geom_line(linewidth = 1) +
+  labs(title = "Cumulative Peer Feedback", y = "Cumulative feedback") + theme_minimal()
+
+# ---- REPLICATION ----
+
+run_replicates <- function(params, group, n_agents = 100, n_steps = 200) {
   bind_rows(lapply(seq_len(n_agents), function(i) {
     set.seed(1000 + i)
-
-    df <- do.call(
-      simulate_q_agent,
-      c(list(env = env, n_episodes = 200), params)
-    )
-
+    df <- do.call(simulate_q_agent, c(list(env = env, n_steps = n_steps), params))
     df$Agent <- i
     df$Group <- group
     df
@@ -329,207 +379,15 @@ replicated_df <- bind_rows(
   run_replicates(params_depressed, "Depressed")
 )
 
-reward_summary <- replicated_df %>%
+agent_summary <- replicated_df %>%
   group_by(Group, Agent) %>%
-  summarise(
-    TotalReward = sum(Reward),
-    MeanMood = mean(Mood),
-    .groups = "drop"
-  )
-```
+  summarise(TotalReward = sum(Reward),
+            MeanMood    = mean(Mood),
+            MoodSD      = sd(Mood),
+            .groups = "drop")
 
-Using corresponding seeds helps organize comparisons, but does not guarantee identical environmental experiences once policies diverge. Replication would estimate simulation variability; it would still not provide evidence about clinical populations.
-
-### Limitations and next steps
-
-The present model couples activity selection, social evaluation, mood, and learning within a transparent sequential framework. Its main contribution is this coupling, rather than a demonstration that the chosen profiles reproduce depression.
-
-Several assumptions deserve further testing. Social feedback is externally prescribed and identical across profiles, so the environment contains no reciprocal relationships, disagreement between peers, or uncertainty about another person’s intentions. Mood depends on weighted reward levels rather than prediction errors, making a favorable outcome equally mood-enhancing whether expected or surprising. The agent also learns values over activity states without explicitly representing mood as part of the state, even though mood changes the learning dynamics.
-
-A useful next analysis would vary mechanisms separately. Holding outcome weights constant while changing social sensitivity would isolate one pathway; holding mood dynamics constant while changing $\beta$ would isolate another. In contrast, the current comparison changes several parameters simultaneously, so any difference in performance cannot be attributed to a single mechanism.
-
-The optimism and pessimism terms require particular revision if they are intended to influence choice. Action-specific priors, biased perceived rewards, or altered beliefs about transition success would provide more consequential formulations. These alternatives would also imply different empirical predictions and should not be treated as interchangeable.
-
-Finally, the parameter profiles would need estimation from behavioral and mood data before supporting clinical interpretations. The current simulation offers a set of explicit hypotheses: social feedback may alter later learning through affect, asymmetric outcome weighting may shape mood trajectories, and mood-dependent learning may either reinforce unfavorable evaluations or accelerate their correction. Which pathway dominates remains a question for simulation analysis and empirical testing.
-
-## References
-
-Eldar, E., Rutledge, R. B., Dolan, R. J., & Niv, Y. (2016). Mood as representation of momentum. *Trends in Cognitive Sciences, 20*(1), 15–24. <https://doi.org/10.1016/j.tics.2015.07.010> [pubmed.ncbi.nlm.nih](https://pubmed.ncbi.nlm.nih.gov/26545853/)
-
-Huys, Q. J. M., Daw, N. D., & Dayan, P. (2015). Depression: A decision-theoretic analysis. *Annual Review of Neuroscience, 38*, 1–23. <https://doi.org/10.1146/annurev-neuro-071714-033928> [tnu.ethz](https://www.tnu.ethz.ch/fileadmin/user_upload/documents/Publications/2015/2015_Huys_Daw_Dayan.pdf)
-
-Watkins, C. J. C. H., & Dayan, P. (1992). Q-learning. *Machine Learning, 8*, 279–292. <https://doi.org/10.1007/BF00992698> [link.springer](https://link.springer.com/article/10.1007/BF00992698)
-
-## Full Code
-
-The provided R code implements a simulation of a mood-sensitive Q-learning agent operating within a stylized behavioral environment consisting of five states: ScreenTime, PhysicalActivity, Socializing, Alcohol, and Cinema. Each state serves both as a context and as a potential action target. Transition probabilities are constructed to favor self-directed actions, while a predefined reward matrix reflects the desirability of each action-state pairing. The agent, governed by mood-dependent learning dynamics, adapts its behavior across 200 episodes using a Reinforcement Learning algorithm that incorporates traditional parameters (learning rate, discount factor, and exploration rate), as well as psychological constructs such as rumination and Emotional Valence. Two distinct agent profiles—"Healthy" and "Depressed"—are defined through differing parameterizations of mood decay, rumination weights, and affective biases. The simulation captures how mood influences decision-making and learning, with trajectories logged for subsequent analysis. Visualizations illustrate the evolution of mood, cumulative reward acquisition, and state visitation patterns, revealing the behavioral divergence between the two agent profiles. This framework enables the investigation of affective-cognitive interactions in Reinforcement Learning and offers a computational lens through which mood disorders might be modeled and better understood.
-
-``` r
-set.seed(123)
-library(ggplot2)
-library(reshape2)
-library(dplyr)
-
-# ---- ENVIRONMENT SETUP ----
-
-states <- c("ScreenTime", "PhysicalActivity", "Socializing", "Alcohol", "Cinema")
-n_states <- length(states)
-actions <- 1:n_states
-
-# Transition probabilities: [from_state, to_state, action]
-transition_probs <- array(0, dim = c(n_states, n_states, n_states))
-for (s in 1:n_states) {
-  for (a in 1:n_states) {
-    prob <- rep(0.1, n_states)
-    prob[a] <- 0.6  # High chance of transitioning to action-related state
-    transition_probs[s, , a] <- prob / sum(prob)
-  }
-}
-
-# Rewards for each [state, action]
-rewards <- matrix(c(
-  0, 1, 2, -2, 1,   # ScreenTime
-  1, 0, 2, -1, 2,   # PhysicalActivity
-  2, 1, 0, -2, 2,   # Socializing
-  -2, -1, 0, 0, -1,  # Alcohol
-  1, 2, 2, -1, 0    # Cinema
-), nrow = n_states, byrow = TRUE)
-
-env <- list(
-  states = states,
-  transition_probs = transition_probs,
-  rewards = rewards
-)
-
-# ---- Q-LEARNING AGENT FUNCTION ----
-
-simulate_q_agent <- function(
-    env, 
-    n_episodes = 200,
-    alpha_base = 0.1,
-    gamma = 0.9,
-    epsilon = 0.1,
-    mood_decay = 0.95,
-    mood_influence = 1.5,
-    rumination_weight_success = 0.5,
-    rumination_weight_failure = 0.5,
-    pessimism = 0.0,
-    optimism = 0.0
-) {
-  n_states <- nrow(env$transition_probs)
-  n_actions <- length(env$states)
-  Q <- matrix(0, nrow = n_states, ncol = n_actions)
-  mood <- 0
-  current_state <- sample(1:n_states, 1)
-  
-  trajectory <- data.frame(
-    Episode = integer(n_episodes),
-    State = character(n_episodes),
-    Action = character(n_episodes),
-    Reward = numeric(n_episodes),
-    Mood = numeric(n_episodes)
-  )
-  
-  for (ep in 1:n_episodes) {
-    mood_clamped <- max(min(mood, 1), -1)
-    
-    biased_Q <- Q[current_state, ] + optimism - pessimism * (1 - Q[current_state, ])
-    
-    if (runif(1) < epsilon) {
-      action <- sample(1:n_actions, 1)
-    } else {
-      action <- which.max(biased_Q)
-    }
-    
-    next_state <- sample(1:n_states, 1, prob = env$transition_probs[current_state, , action])
-    reward <- env$rewards[current_state, action]
-    
-    # Mood-influenced learning rate
-    alpha <- alpha_base * exp(-mood_influence * mood_clamped)
-    
-    # Q-learning update
-    Q[current_state, action] <- Q[current_state, action] + 
-      alpha * (reward + gamma * max(Q[next_state, ]) - Q[current_state, action])
-    
-    # Rumination-based mood update
-    if (reward > 0) {
-      mood_update <- rumination_weight_success * reward
-    } else if (reward < 0) {
-      mood_update <- rumination_weight_failure * reward
-    } else {
-      mood_update <- 0
-    }
-    mood <- mood_decay * mood + (1 - mood_decay) * mood_update
-    
-    # Record trajectory
-    trajectory[ep, ] <- list(
-      Episode = ep,
-      State = env$states[current_state],
-      Action = env$states[action],
-      Reward = reward,
-      Mood = mood
-    )
-    
-    current_state <- next_state
-  }
-  trajectory
-}
-
-# ---- AGENT PARAMETERS ----
-
-params_healthy <- list(
-  alpha_base = 0.1,
-  mood_decay = 0.95,
-  mood_influence = 1.0,
-  rumination_weight_success = 0.6,
-  rumination_weight_failure = 0.4,
-  pessimism = 0.0,
-  optimism = 0.1
-)
-
-params_depressed <- list(
-  alpha_base = 0.1,
-  mood_decay = 0.9,
-  mood_influence = 2.0,
-  rumination_weight_success = 0.2,
-  rumination_weight_failure = 0.8,
-  pessimism = 0.3,
-  optimism = 0.0
-)
-
-# ---- SIMULATION ----
-
-set.seed(42)
-healthy_df <- do.call(simulate_q_agent, c(list(env = env), params_healthy))
-healthy_df$Group <- "Healthy"
-
-depressed_df <- do.call(simulate_q_agent, c(list(env = env), params_depressed))
-depressed_df$Group <- "Depressed"
-
-combined_df <- bind_rows(healthy_df, depressed_df)
-
-# ---- VISUALIZATION ----
-
-# Mood plot
-ggplot(combined_df, aes(x = Episode, y = Mood, color = Group)) +
-  geom_line(size = 1) +
-  labs(title = "Mood Trajectories", y = "Mood") +
-  theme_minimal()
-
-# Cumulative reward plot
-combined_df <- combined_df %>%
+agent_summary %>%
   group_by(Group) %>%
-  mutate(CumulativeReward = cumsum(Reward))
-
-ggplot(combined_df, aes(x = Episode, y = CumulativeReward, color = Group)) +
-  geom_line(size = 1) +
-  labs(title = "Cumulative Reward Over Time", y = "Cumulative Reward") +
-  theme_minimal()
-
-# State transitions
-ggplot(combined_df, aes(x = Episode, y = State, color = Group)) +
-  geom_point(alpha = 0.5, size = 2) +
-  labs(title = "State Visits Over Time") +
-  theme_minimal()
+  summarise(across(c(TotalReward, MeanMood, MoodSD),
+                   list(mean = mean, sd = sd), .names = "{.col}_{.fn}"))
 ```
-
