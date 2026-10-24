@@ -391,7 +391,7 @@ Positive feedback increases mood relative to otherwise identical conditions and 
 The profiles differ in several mechanisms simultaneously:
 
 | Parameter                                    | Healthy-like | Depressed-like |
-|----------------------------------------|---------------:|---------------:|
+|--------------------------------------|----------------:|----------------:|
 | Base learning rate, $\alpha_{\mathrm{base}}$ |          0.1 |            0.1 |
 | Mood persistence, $\lambda$                  |         0.95 |           0.90 |
 | Mood influence, $\beta$                      |          1.0 |            2.0 |
