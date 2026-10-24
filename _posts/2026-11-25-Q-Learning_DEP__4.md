@@ -3,7 +3,7 @@ layout: post
 categories: posts
 title: Social Feedback and Mood-Dependent Learning in a Sequential Environment
 tags: [Computational psychiatry, Decision-making, Reinforcement learning, Social feedback]
-date-string: October 2026
+date-string: November 2026
 ---
 
 # Social Feedback and Mood-Dependent Learning in a Sequential Environment
