@@ -90,7 +90,7 @@ The transition distribution also does not depend on the current state. The model
 Rewards depend on the current state and selected action:
 
 | Current state    | ScreenTime | PhysicalActivity | Socializing | Alcohol | Cinema |
-|------------|-----------:|-----------:|-----------:|-----------:|-----------:|
+|------------------|-----------:|-----------------:|------------:|--------:|-------:|
 | ScreenTime       |          0 |                1 |           2 |      −2 |      1 |
 | PhysicalActivity |          1 |                0 |           2 |      −1 |      2 |
 | Socializing      |          2 |                1 |           0 |      −2 |      2 |
@@ -391,7 +391,7 @@ Positive feedback increases mood relative to otherwise identical conditions and 
 The profiles differ in several mechanisms simultaneously:
 
 | Parameter                                    | Healthy-like | Depressed-like |
-|--------------------------------------|----------------:|----------------:|
+|----------------------------------------------|-------------:|---------------:|
 | Base learning rate, $\alpha_{\mathrm{base}}$ |          0.1 |            0.1 |
 | Mood persistence, $\lambda$                  |         0.95 |           0.90 |
 | Mood influence, $\beta$                      |          1.0 |            2.0 |
