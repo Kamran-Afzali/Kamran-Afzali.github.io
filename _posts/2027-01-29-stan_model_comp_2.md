@@ -168,8 +168,6 @@ loo_model_weights(list(Poisson = loo_pois, NegBin = loo_nb), method = "pseudobma
 
 With only one adequate model among two, the stacking weight should be close to 1 for it, and the exercise is mainly useful as a template. Stacking pays off when models capture different aspects of the data, such as a parametric and a flexible alternative that each win in different regions of the covariate space.
 
-## Limitations to keep in mind
-
 Elpd differences are estimates with noise, and the noise is hard to quantify when $n$ is small or the models are similar. Cross-validation estimates can be optimistic for the selected model when many models are compared. Both WAIC and LOO depend on the prior through the posterior, so they are not prior-free; the more accurate statement is that they are less sensitive to diffuse priors than marginal likelihoods, as Part 3 will show. And a model with higher elpd is not necessarily the more interpretable or scientifically useful one.
 
 ## References
