@@ -1,5 +1,3 @@
-
-
 # Model Comparison in Bayesian Analysis, Part 3: Bayes Factors and Marginal Likelihoods
 
 *Series: Bayesian model comparison and selection. Part 3 of 3. Part 1 covered posterior predictive checks; Part 2 covered WAIC, LOO-CV and stacking.*
