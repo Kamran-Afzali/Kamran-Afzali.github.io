@@ -1,10 +1,13 @@
 ---
-editor_options: 
-  markdown: 
-    wrap: 72
+layout: post
+categories: posts
+title: Collective Active Inference and Group-Level Free Energy Minimization
+featured-image: /images/NIb.jpg
+tags: [Federated Learning, Active Inference]
+date-string: November 2026
 ---
 
-### Collective Active Inference and Group-Level Free Energy Minimization
+# Collective Active Inference and Group-Level Free Energy Minimization
 
 Following on our previous posts on the free energy principle (FEP), this
 post explores how collective active inference might account for social
@@ -20,11 +23,9 @@ partially aligned models. The extension introduces new complexities,
 particularly around how diverse beliefs are integrated and under what
 conditions individual adaptation supports collective performance.
 
-## From Individual Inference to Collective Behavior
-
 Collective active inference considers how individuals, each responding
 to local information, can produce coordinated group behavior. In
-*Collective behavior from surprise minimization*, researchers show that
+*Collective behavior from surprise minimization*, research show that
 cohesion, milling, and directed movement can emerge in simulated groups
 of active inference agents without explicitly prescribing the
 corresponding behavioral rules. The model also connects individual
@@ -49,19 +50,14 @@ environment, they may distribute parts of the inference process across
 the group. Rather than requiring every agent to observe everything
 directly, agents can use information supplied by others to update their
 own beliefs. This provides one way to connect individual information
-processing with collective problem-solving.
-[mdpi](https://www.mdpi.com/1099-4300/23/7/830)
-
-Such coordination requires some common ground: agents need a way to
+processing with collective problem-solving. Such coordination requires some common ground: agents need a way to
 interpret one another’s observations, actions, or messages. In a formal
 model, this may involve specifying corresponding representations across
 agents. An “isomorphism between beliefs” would describe a
 structure-preserving correspondence between those representations. It
 should not be treated as a general requirement for all forms of
 cooperation, however. The extent of the correspondence needed depends on
-the task and the architecture of the model.
-
-Belief sharing is particularly relevant when agents have complementary
+the task and the architecture of the model. Belief sharing is particularly relevant when agents have complementary
 perspectives. One agent may observe something that another cannot,
 allowing the group to draw on information distributed across its
 members. Still, receiving social information is not enough; agents must
@@ -70,7 +66,6 @@ model, excessive reliance on social information can reduce sensitivity
 to useful external information, whereas insufficient reliance can
 undermine group cohesion. Collective accuracy depends on balancing these
 sources rather than simply maximizing agreement.
-[pnas](https://www.pnas.org/doi/10.1073/pnas.2320239121)
 
 ## Communication and Coordinated Inference
 
@@ -82,7 +77,6 @@ process can be modeled through the relationships among observations,
 beliefs about other agents, and subsequent actions. Kaufmann and
 colleagues explore a related mechanism by equipping agents with the
 ability to infer aspects of a partner’s state and goals.
-[mdpi](https://www.mdpi.com/1099-4300/23/7/830)
 
 The broader idea of federated inference concerns how inference can be
 distributed across interacting agents rather than concentrated in a
@@ -90,7 +84,7 @@ single controller. Friston and colleagues’ *Designing ecosystems of
 intelligence from first principles* (2024) develops a related approach
 to distributed intelligence. The practical question is how agents can
 exchange useful information while retaining their own perspectives and
-responsibilities. [arxiv](https://arxiv.org/html/2501.19368v1)
+responsibilities.
 
 Language raises a further question: how do agents establish and maintain
 the conventions that make their messages interpretable? Shared
