@@ -2,21 +2,17 @@
 layout: post
 categories: posts
 title: Identity as a Slow Variable in Mood-Sensitive Reinforcement Learning
-tags: [Computational psychiatry, Decision-making, Reinforcement learning, Identity, Social feedback]
-date-string: October 2026
+tags: [Computational psychiatry, Decision-making, Reinforcement learning, Social feedback]
+date-string: January 2027
 ---
 
 # Identity as a Slow Variable in Mood-Sensitive Reinforcement Learning
 
 ## Introduction
 
-The earlier posts in this series treated mood as a fast variable that tracks recent outcomes and, in some versions, rescales the learning rate. Parameters such as outcome weighting or sensitivity to feedback were fixed for the whole simulation. That is convenient, but it sits uneasily with how people talk about traits, which are supposed to be stable yet not immutable. A tendency to dwell on bad outcomes may itself be shaped by a history of bad outcomes.
+The earlier posts in this series treated mood as a fast variable that tracks recent outcomes and, in some versions, rescales the learning rate. Parameters such as outcome weighting or sensitivity to feedback were fixed for the whole simulation. That is convenient, but it sits uneasily with how people talk about traits, which are supposed to be stable yet not immutable. A tendency to dwell on bad outcomes may itself be shaped by a history of bad outcomes. Here we add a slower layer. Three "identity" quantities (rumination bias, social sensitivity, and goal orientation) are updated by experience and in turn shape how outcomes are converted into mood. The agent still learns action values with Q-learning, now with an asymmetric learning rate governed by an optimism parameter.
 
-Here we add a slower layer. Three "identity" quantities (rumination bias, social sensitivity, and goal orientation) are updated by experience and in turn shape how outcomes are converted into mood. The agent still learns action values with Q-learning, now with an asymmetric learning rate governed by an optimism parameter.
-
-The labels are borrowed from psychology, but the quantities are simple state variables with hand-chosen update rules. Nothing here is fitted to data, and a simulated agent drifting toward a "ruminative" setting says little about how rumination develops in people. The more useful question is narrower: what does this particular set of assumptions do, and what does it fail to do?
-
-I should say at the outset that this version differs from the previous ones in ways that matter. Mood no longer modulates learning, the transitions ignore the chosen action, and reward depends on the state reached rather than the state left. Those changes are discussed below, because they determine what the simulations can show.
+The labels are borrowed from psychology, but the quantities are simple state variables with hand-chosen update rules. Nothing here is fitted to data, and a simulated agent drifting toward a "ruminative" setting says little about how rumination develops in people. The more useful question is narrower: what does this particular set of assumptions do, and what does it fail to do? Here, mood no longer modulates learning, the transitions ignore the chosen action, and reward depends on the state reached rather than the state left. Those changes are discussed below, because they determine what the simulations can show.
 
 ## The Environment
 
@@ -33,9 +29,7 @@ r_t=R(s_{t+1}),\qquad
 R=\{-0.5,\;1.0,\;0.8,\;-1.0,\;0.5\}
 $$
 
-in the order listed above. Peer feedback is also tied to the state reached. Arriving in socializing yields feedback drawn from $U(-1,1)$, arriving in alcohol use yields $U(-0.5,0.5)$, and every other state yields zero. Both distributions are symmetric around zero, so feedback has no average direction. It adds variability to mood and, as we will see, to one of the traits, but it carries no systematic approval or disapproval.
-
-A consequence follows immediately, and it shapes everything else. Because the next state is independent of the action, the agent cannot influence what happens to it. Expected reward per step is $(-0.5+1.0+0.8-1.0+0.5)/5=0.16$ whatever policy is followed. In this respect the environment resembles an uncontrollable setting, which is a different thing from the controllable sequential task used earlier.
+in the order listed above. Peer feedback is also tied to the state reached. Arriving in socializing yields feedback drawn from $U(-1,1)$, arriving in alcohol use yields $U(-0.5,0.5)$, and every other state yields zero. Both distributions are symmetric around zero, so feedback has no average direction. It adds variability to mood and, as we will see, to one of the traits, but it carries no systematic approval or disapproval. A consequence follows immediately, and it shapes everything else. Because the next state is independent of the action, the agent cannot influence what happens to it. Expected reward per step is $(-0.5+1.0+0.8-1.0+0.5)/5=0.16$ whatever policy is followed. In this respect the environment resembles an uncontrollable setting, which is a different thing from the controllable sequential task used earlier.
 
 ## Learning with an Optimism Parameter
 
@@ -57,9 +51,7 @@ $$
 
 where $\kappa$ is the `optimism` argument. At $\kappa=1$ the two rates coincide. Values above 1 weight positive errors more heavily, and values below 1 weight negative errors more heavily. This is a more consequential mechanism than the additive optimism and pessimism terms of the previous post, which turned out to leave the argmax unchanged. Here the asymmetry changes what the agent learns.
 
-All simulated agents in the script use the default $\kappa=1$, so the asymmetric branch is present but inactive. I mention it because a reader could reasonably assume that optimism varies across agents. It does not.
-
-Mood does not appear anywhere in this update. That is a real departure from the earlier posts, in which negative mood raised the learning rate. In the present script, mood is an output of the model, and learning is unaffected by it.
+All simulated agents in the script use the default $\kappa=1$, so the asymmetric branch is present but inactive. Also in the present script, mood is an output of the model, and learning is unaffected by it.
 
 ## Mood and Identity
 
