@@ -103,18 +103,14 @@ collective active inference. From this perspective, social learning and
 communication could help individuals preserve, revise, and transmit
 models of their environment across generations. The central question is
 whether these processes can explain not only the maintenance of shared
-knowledge but also its modification and accumulation.
-
-Social norms and institutions can likewise be considered within this
+knowledge but also its modification and accumulation. Social norms and institutions can likewise be considered within this
 framework. Shared expectations may help people anticipate one another’s
 behavior and coordinate without repeatedly negotiating every
 interaction. Kaufmann and colleagues discuss shared norms as a possible
 extension of the cognitive capabilities supporting collective
 intelligence, although their simulations focus on theory of mind and
 goal alignment rather than directly testing institutional or cultural
-change. [mdpi](https://www.mdpi.com/1099-4300/23/7/830)
-
-An active inference interpretation does not, however, establish that
+change. An active inference interpretation does not, however, establish that
 norms will adapt successfully when circumstances change. Nor does
 reduced uncertainty necessarily imply a desirable social outcome. A
 convincing account must distinguish the stability of a shared
@@ -129,26 +125,19 @@ between individual autonomy and group-level coherence. Individuals must
 respond to their own circumstances while also coordinating with others.
 Their goals may overlap, but they need not coincide. A group-level
 account therefore needs to explain how local and collective objectives
-become aligned—and what happens when they do not.
-[mdpi](https://www.mdpi.com/1099-4300/23/7/830)
-
-Kaufmann and colleagues (2021) examine this problem using a minimal
+become aligned—and what happens when they do not. Kaufmann and colleagues (2021) examine this problem using a minimal
 model of two interacting agents. They compare agents with different
 combinations of theory of mind and goal alignment. Their illustrative
 simulations suggest that these capabilities can improve collective
 performance by helping reconcile individual and shared objectives. The
 result is useful as a demonstration of a possible mechanism, but it
 should not be read as evidence that the same intervention will improve
-decision-making in human organizations.
-[mdpi](https://www.mdpi.com/1099-4300/23/7/830)
-
-Decentralized coordination also does not necessarily require explicit
+decision-making in human organizations. Decentralized coordination also does not necessarily require explicit
 belief sharing. In the collective-motion model, organized behavior
 emerges through agents sensing and responding to their neighbors.
 Distinguishing coordination through local interaction from coordination
 through explicit communication helps clarify which mechanisms a
 particular model actually explains.
-[pnas](https://www.pnas.org/doi/10.1073/pnas.2320239121)
 
 ## Practical Applications and Future Directions
 
