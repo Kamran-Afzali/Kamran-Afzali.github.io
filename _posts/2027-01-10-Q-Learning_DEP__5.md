@@ -104,9 +104,7 @@ The mood plot and the trait plot from the script show the same pattern at the le
 
 ## Limitations
 
-Several design choices constrain what can be concluded.
-
-The environment offers no control. Since transitions are uniform and independent of the action, Q-learning has nothing to learn, and the finding that reward is policy-independent is built in. If the aim is to model uncontrollability, that is arguably a feature, but it should then be framed as such and contrasted with a controllable version.
+Several design choices should be considered as limitations, the environment offers no control. Since transitions are uniform and independent of the action, Q-learning has nothing to learn, and the finding that reward is policy-independent is built in. If the aim is to model uncontrollability, that is arguably a feature, but it should then be framed as such and contrasted with a controllable version.
 
 The identity layer is causally downstream of mood only. Traits do not influence learning rates, exploration, or action choice, so they cannot change behavior in this model. A stronger test of the idea that traits and decisions co-evolve would let at least one trait alter learning or policy.
 
@@ -115,12 +113,6 @@ Mood and the learning rule are decoupled from each other, unlike in the earlier 
 The agents are homogeneous. Without varying $\kappa$, $b_0$, $s_0$, or the mood persistence, the "agents" are replicates of a single configuration, and spread across them reflects chance alone. No group comparison, "Healthy" versus "Depressed" or otherwise, is made here.
 
 Finally, the trait update rules are arbitrary in their constants (0.01 steps, a threshold of $-0.5$, a ten-step window). Different choices would change the speed and perhaps the direction of drift. Sensitivity analyses over these constants would be the minimum needed before reading anything into the trajectories.
-
-## Closing the Series
-
-Across the posts, the models have moved from a bandit with mood-dependent learning to a sequential task with social feedback, and finally to one in which dispositions change over time. Each step made some assumptions explicit and exposed others. The most durable lessons are methodological. Parameters with psychological names do not necessarily do psychological work (the optimism and pessimism terms in the second model were inert). Equally, mechanisms that look sensible in isolation can be disconnected from behavior once the loop is written out, as the traits here are.
-
-What this line of work can offer, I think, is a set of explicit hypotheses and the ability to check whether a proposed mechanism produces the pattern it is claimed to explain. It cannot say whether those patterns occur in people. For that, the parameters would have to be estimated from behavioral and mood data, preferably in a task where choices matter, and the competing mechanisms compared on their fit and their out-of-sample predictions.
 
 ## References
 
