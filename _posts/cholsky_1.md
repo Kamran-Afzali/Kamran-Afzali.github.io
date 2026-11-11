@@ -56,10 +56,6 @@ L
 all.equal(L %*% t(L), Sigma)
 ```
 
-The final line should return `TRUE`. A matrix that is not positive definite makes `chol()` stop with an error.
-
-#### Generating Correlated Samples
-
 ``` r
 set.seed(123)
 n <- 10000
@@ -180,7 +176,7 @@ Compare the posterior means with `mu_true`, `sigma_true` and `Omega_true`. With 
 
 #### Why Not Use a Full Covariance Matrix?
 
-Declaring `cov_matrix[K] Sigma` and using `multi_normal` works, and many tutorials do this. One such example builds `R` and `Sigma` as transformed parameters from `Lcorr`, then calls `multi_normal(mu, Sigma)`. A Stan forum reply to a similar model suggests simplifying with `multi_normal_cholesky`, which takes the Cholesky factor directly. The Cholesky route avoids repeated factorisation inside the likelihood, which is usually the main cost. [jakejing.github](https://jakejing.github.io/posts/2021/02/blog-post-1/)
+Declaring `cov_matrix[K] Sigma` and using `multi_normal` works, and many tutorials do this. One such example builds `R` and `Sigma` as transformed parameters from `Lcorr`, then calls `multi_normal(mu, Sigma)`. A Stan forum reply to a similar model suggests simplifying with `multi_normal_cholesky`, which takes the Cholesky factor directly. The Cholesky route avoids repeated factorisation inside the likelihood, which is usually the main cost.
 
 #### Non-Centred Parameterisation
 
@@ -204,8 +200,6 @@ model {
   tau ~ normal(0, 1);
 }
 ```
-
-### Summary
 
 The Cholesky factor turns a constrained matrix problem into a triangular one. It supports efficient sampling, stable density evaluation and a clean split between scales and correlations. In R, remember that `chol()` returns the upper factor. In Stan, prefer `cholesky_factor_corr`, `lkj_corr_cholesky` and `multi_normal_cholesky` over their full-matrix counterparts. The next post will use these pieces for multinomial regression with correlated effects, where they connect back to the Dirichlet material.
 
