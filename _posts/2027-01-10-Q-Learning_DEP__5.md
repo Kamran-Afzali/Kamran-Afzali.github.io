@@ -124,7 +124,7 @@ Watkins, C. J. C. H., & Dayan, P. (1992). Q-learning. *Machine Learning, 8*, 279
 
 ## Full Code
 
-``` r
+``` {r}
 set.seed(123)
 library(ggplot2)
 library(dplyr)
