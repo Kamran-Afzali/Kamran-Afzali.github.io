@@ -10,15 +10,9 @@ date-string: November 2026
 
 ## Introduction
 
-In the previous post, we considered how mood can influence learning in a sequential decision-making environment. An agent moved between behavioral contexts, received rewards, and updated its estimates of which actions were worthwhile. Mood depended on recent outcomes and, in turn, changed the rate at which the agent learned from subsequent experiences. This established a feedback loop between affect and value learning, but it did not distinguish the consequences of an activity from the responses that activity might elicit from other people.
+In the previous post, we considered how mood can influence learning in a sequential decision-making environment. An agent moved between behavioral contexts, received rewards, and updated its estimates of which actions were worthwhile. Mood depended on recent outcomes and, in turn, changed the rate at which the agent learned from subsequent experiences. This established a feedback loop between affect and value learning, but it did not distinguish the consequences of an activity from the responses that activity might elicit from other people. Attempting to socialize may produce a task reward and receive social approval, whereas another action may have an immediate payoff but attract disapproval. These signals need not agree, and they need not enter the learning process in the same way. A model that combines them into a single reward would make different assumptions from one in which social feedback changes mood without directly changing the value-learning target.
 
-That distinction matters. Attempting to socialize may produce a task reward and receive social approval, whereas another action may have an immediate payoff but attract disapproval. These signals need not agree, and they need not enter the learning process in the same way. A model that combines them into a single reward would make different assumptions from one in which social feedback changes mood without directly changing the value-learning target.
-
-Here we implement the second possibility. The agent learns task-related action values through Q-learning, while its mood responds to both rewards and peer feedback. Social appraisal therefore influences subsequent learning indirectly: it changes mood, which changes the learning rate applied to later outcomes.
-
-We compare two parameter profiles, labeled “Healthy” and “Depressed” in the code. These labels identify illustrative configurations rather than clinically validated populations. The simulation does not establish that depression corresponds to the specified parameter values, nor that the resulting trajectories reproduce observed symptoms. Its purpose is to make a proposed mechanism explicit and examine what follows from its implementation.
-
-The central distinction is **indirect** social influence. Peer feedback enters the affective update, but not the temporal-difference reward target.
+Here we implement the second possibility. The agent learns task-related action values through Q-learning, while its mood responds to both rewards and peer feedback. Social appraisal therefore influences subsequent learning indirectly: it changes mood, which changes the learning rate applied to later outcomes. We compare two parameter profiles, labeled “Healthy” and “Depressed” in the code. These labels identify illustrative configurations rather than clinically validated populations. The simulation does not establish that depression corresponds to the specified parameter values, nor that the resulting trajectories reproduce observed symptoms. Its purpose is to make a proposed mechanism explicit and examine what follows from its implementation. The central distinction is **indirect** social influence. Peer feedback enters the affective update, but not the temporal-difference reward target.
 
 ## A Sequential Behavioral Environment
 
@@ -81,16 +75,14 @@ P(s'\mid s,a)
 \end{cases}
 $$
 
-This is action-directed movement, not necessarily state persistence. Selecting PhysicalActivity increases the probability of reaching PhysicalActivity whether the agent currently occupies ScreenTime, Alcohol, or another context.
-
-The transition distribution also does not depend on the current state. The model therefore includes imperfect control over the next activity, but it does not represent context-specific obstacles. Moving toward socializing is no more difficult from Alcohol than from Cinema.
+This is action-directed movement, not necessarily state persistence. Selecting PhysicalActivity increases the probability of reaching PhysicalActivity whether the agent currently occupies ScreenTime, Alcohol, or another context. The transition distribution also does not depend on the current state. The model therefore includes imperfect control over the next activity, but it does not represent context-specific obstacles. Moving toward socializing is no more difficult from Alcohol than from Cinema.
 
 ### Immediate reward and future opportunities
 
 Rewards depend on the current state and selected action:
 
 | Current state    | ScreenTime | PhysicalActivity | Socializing | Alcohol | Cinema |
-|------------------|-----------:|-----------------:|------------:|--------:|-------:|
+|------------|-----------:|-----------:|-----------:|-----------:|-----------:|
 | ScreenTime       |          0 |                1 |           2 |      −2 |      1 |
 | PhysicalActivity |          1 |                0 |           2 |      −1 |      2 |
 | Socializing      |          2 |                1 |           0 |      −2 |      2 |
@@ -125,7 +117,7 @@ $$
 r_t=R(s_t,a_t),
 $$
 
-rather than a function of the state actually reached. Selecting Socializing from ScreenTime yields $r_t=2$, even if the transition leads to Cinema. The model thus assigns value to the attempted action separately from its success in changing context.
+rather than a function of the state actually reached. Selecting Socializing from ScreenTime yields $r_t=2$, even if the transition leads to Cinema. The model assigns value to the attempted action separately from its success in changing context.
 
 Nevertheless, the next state matters for future decisions. An action may be useful because of its immediate reward, because it tends to lead to a favorable context, or because of both. This is the sequential component that distinguishes the task from a bandit environment.
 
@@ -389,7 +381,7 @@ Positive feedback increases mood relative to otherwise identical conditions and 
 The profiles differ in several mechanisms simultaneously:
 
 | Parameter                                    | Healthy-like | Depressed-like |
-|----------------------------------------------|-------------:|---------------:|
+|----------------------------------------|---------------:|---------------:|
 | Base learning rate, $\alpha_{\mathrm{base}}$ |          0.1 |            0.1 |
 | Mood persistence, $\lambda$                  |         0.95 |           0.90 |
 | Mood influence, $\beta$                      |          1.0 |            2.0 |
