@@ -4,7 +4,7 @@ categories: posts
 title: Cholesky Factor in R and Stan
 featured-image: /images/stan.png
 tags: [STAN, R, Bayes, Linear Algebra]
-date-string: November 2027
+date-string: February 2027
 ---
 
 ### Cholesky Factor in R and Stan
