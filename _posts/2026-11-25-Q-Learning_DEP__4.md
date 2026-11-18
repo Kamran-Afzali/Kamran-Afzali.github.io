@@ -10,7 +10,7 @@ date-string: November 2026
 
 ## Introduction
 
-In the previous post, we considered how mood can influence learning in a sequential decision-making environment. An agent moved between behavioral contexts, received rewards, and updated its estimates of which actions were worthwhile. Mood depended on recent outcomes and, in turn, changed the rate at which the agent learned from subsequent experiences. This established a feedback loop between affect and value learning, but it did not distinguish the consequences of an activity from the responses that activity might elicit from other people. Attempting to socialize may produce a task reward and receive social approval, whereas another action may have an immediate payoff but attract disapproval. These signals need not agree, and they need not enter the learning process in the same way. A model that combines them into a single reward would make different assumptions from one in which social feedback changes mood without directly changing the value-learning target.
+In the previous [post](https://kamran-afzali.github.io/posts/2026-10-05/Q-Learning_DEP__3.html), we discussed how mood can influence learning in a sequential decision-making environment. An agent moved between behavioral contexts, received rewards, and updated its estimates of which actions were worthwhile. Mood depended on recent outcomes and, in turn, changed the rate at which the agent learned from subsequent experiences. This established a feedback loop between affect and value learning, but it did not distinguish the consequences of an activity from the responses that activity might elicit from other people. Attempting to socialize may produce a task reward and receive social approval, whereas another action may have an immediate payoff but attract disapproval. These signals need not agree, and they need not enter the learning process in the same way. A model that combines them into a single reward would make different assumptions from one in which social feedback changes mood without directly changing the value-learning target.
 
 Here we implement the second possibility. The agent learns task-related action values through Q-learning, while its mood responds to both rewards and peer feedback. Social appraisal therefore influences subsequent learning indirectly: it changes mood, which changes the learning rate applied to later outcomes. We compare two parameter profiles, labeled “Healthy” and “Depressed” in the code. These labels identify illustrative configurations rather than clinically validated populations. The simulation does not establish that depression corresponds to the specified parameter values, nor that the resulting trajectories reproduce observed symptoms. Its purpose is to make a proposed mechanism explicit and examine what follows from its implementation. The central distinction is **indirect** social influence. Peer feedback enters the affective update, but not the temporal-difference reward target.
 
@@ -75,7 +75,7 @@ P(s'\mid s,a)
 \end{cases}
 $$
 
-This is action-directed movement, not necessarily state persistence. Selecting PhysicalActivity increases the probability of reaching PhysicalActivity whether the agent currently occupies ScreenTime, Alcohol, or another context. The transition distribution also does not depend on the current state. The model therefore includes imperfect control over the next activity, but it does not represent context-specific obstacles. Moving toward socializing is no more difficult from Alcohol than from Cinema.
+This is action-directed movement, not necessarily state persistence. Selecting Physical Activity increases the probability of reaching Physical Activity whether the agent currently occupies Screen Time, Alcohol, or another context. The transition distribution also does not depend on the current state. The model therefore includes imperfect control over the next activity, but it does not represent context-specific obstacles. Moving toward socializing is no more difficult from Alcohol than from Cinema.
 
 ### Immediate reward and future opportunities
 
@@ -381,7 +381,7 @@ Positive feedback increases mood relative to otherwise identical conditions and 
 The profiles differ in several mechanisms simultaneously:
 
 | Parameter                                    | Healthy-like | Depressed-like |
-|----------------------------------------|---------------:|---------------:|
+|--------------------------------------|----------------:|----------------:|
 | Base learning rate, $\alpha_{\mathrm{base}}$ |          0.1 |            0.1 |
 | Mood persistence, $\lambda$                  |         0.95 |           0.90 |
 | Mood influence, $\beta$                      |          1.0 |            2.0 |
@@ -425,7 +425,7 @@ Its lower persistence parameter also means that previous mood decays faster. The
 
 ### A one-step comparison
 
-From ScreenTime, selecting Socializing gives $r_t=2$ and $F_t=1$. The healthy-like input is
+From Screen Time, selecting Socializing gives $r_t=2$ and $F_t=1$. The healthy-like input is
 
 $$
 u_t^{(H)}=0.6(2)+0.3=1.5,
@@ -699,13 +699,15 @@ This snippet is a proposed extension, not part of the supplied implementation. I
 
 The present framework is best understood as a set of explicit computational hypotheses. Social appraisal can influence later value learning through mood; asymmetric reward weighting can change affective trajectories; and faster learning under negative mood can amplify unfavorable revisions or accelerate their correction. Establishing which effects dominate requires replicated simulations. Establishing whether they describe human behavior requires behavioral and affective data.
 
-## Scientific Literature
+## References
 
 Eldar, E., Rutledge, R. B., Dolan, R. J., & Niv, Y. (2016). Mood as representation of momentum. *Trends in Cognitive Sciences, 20*(1), 15–24. <https://doi.org/10.1016/j.tics.2015.07.010> [pubmed.ncbi.nlm.nih](https://pubmed.ncbi.nlm.nih.gov/26545853/)
 
 Huys, Q. J. M., Daw, N. D., & Dayan, P. (2015). Depression: A decision-theoretic analysis. *Annual Review of Neuroscience, 38*, 1–23. <https://doi.org/10.1146/annurev-neuro-071714-033928> [pubmed.ncbi.nlm.nih](https://pubmed.ncbi.nlm.nih.gov/25705929/)
 
 Watkins, C. J. C. H., & Dayan, P. (1992). Q-learning. *Machine Learning, 8*, 279–292. <https://doi.org/10.1007/BF00992698> [link.springer](https://link.springer.com/article/10.1007/BF00992698)
+
+## Codes
 
 ``` r
 set.seed(123)
