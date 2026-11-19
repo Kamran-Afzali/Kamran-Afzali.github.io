@@ -4,12 +4,12 @@ categories: posts
 title: Multinomial Regression with Correlated Effects in R and Stan
 featured-image: /images/stan.png
 tags: [STAN, R, Bayes, Multinomial, Linear Algebra]
-date-string: November 2026
+date-string: November 2027
 ---
 
 ### Multinomial Regression with Correlated Effects in R and Stan
 
-The previous post introduced the Cholesky factor as a way to separate scales from correlations. Here the same pieces go into a multinomial logit model where group-level effects for different outcome categories are allowed to correlate. The setting is common: students choosing among programmes, patients assigned to treatments, customers picking one of four brands. Groups such as schools, clinics or shops tend to favour some categories together, and a model that treats those tendencies as independent discards that information.
+The previous post introduced the Cholesky factor as a way to separate scales from correlations. Here the same pieces go into a multinomial logit model where group-level effects for different outcome categories are allowed to correlate. The setting is common: students choosing among programs, patients assigned to treatments, groups such as schools, clinics or hospitals tend to favour some categories together, and a model that treats those tendencies as independent discards that information.
 
 #### The Model
 
@@ -20,7 +20,7 @@ $$
 \eta_{nk} = \alpha_k + x_n \beta_k + u_{j[n],k}.
 $$
 
-Adding a constant to every $\eta_{nm}$ leaves the probabilities unchanged, so the parameters are not identified as written. Stan's softmax regression function places no restrictions on the coefficient matrix, and the documentation leaves it to the user to supply a reference category, a suitable prior or some other means of identification. Rodríguez's multilevel course notes take the same route. They fix one category as the reference and note that the $k$-th linear predictor is then the log-relative probability of category $k$ against it. Here the last category is the reference, with $\alpha_K = 0$, $\beta_K = 0$ and $u_{j,K} = 0$, which leaves $K-1$ free linear predictors. [mc-stan](https://mc-stan.org/docs/2_28/functions-reference/categorical-logit-glm.html)
+Adding a constant to every $\eta_{nm}$ leaves the probabilities unchanged, so the parameters are not identified as written. Stan's softmax regression function places no restrictions on the coefficient matrix, and the documentation leaves it to the user to supply a reference category, a suitable prior or some other means of identification. Rodríguez's multilevel course notes take the same route. They fix one category as the reference and note that the $k$-th linear predictor is then the log-relative probability of category $k$ against it. Here the last category is the reference, with $\alpha_K = 0$, $\beta_K = 0$ and $u_{j,K} = 0$, which leaves $K-1$ free linear predictors.
 
 The group effects for the non-reference categories are drawn jointly:
 
@@ -29,7 +29,7 @@ u_j \sim N\!\left(0, \Sigma_u\right), \qquad
 \Sigma_u = \mathrm{diag}(\tau)\, \Omega\, \mathrm{diag}(\tau),
 $$
 
-where $\tau$ holds the standard deviations and $\Omega$ is a $(K-1)\times(K-1)$ correlation matrix. Each $u_{jk}$ can be read as a latent propensity of group $j$ to choose category $k$ over the reference, net of covariates. A positive $\Omega_{12}$ says that groups leaning towards category 1 also tend to lean towards category 2. [grodri.github](https://grodri.github.io/multilevel/pop510slides12.pdf)
+where $\tau$ holds the standard deviations and $\Omega$ is a $(K-1)\times(K-1)$ correlation matrix. Each $u_{jk}$ can be read as a latent propensity of group $j$ to choose category $k$ over the reference, net of covariates. A positive $\Omega_{12}$ says that groups leaning towards category 1 also tend to lean towards category 2.
 
 #### Cholesky Parameterisation
 
@@ -49,7 +49,7 @@ The second caveat concerns the logit itself. The multinomial logit keeps the ind
 
 #### A Real Example of the Same Structure
 
-Rodríguez fits this class of model to the McKinney Homeless Study, which has 361 at-risk individuals followed over four waves. The outcome is housing status (street, community, independent), and each person gets two correlated random intercepts. His maximum likelihood fit gives a correlation of 0.66 between the community-versus-street and independent-versus-street effects, and the Bayesian posterior mean is 0.625 with a 95% interval of roughly 0.43 to 0.78. Two details are worth noting. He used the explicit `corr_matrix` with `lkj_corr(2)` and `multi_normal`, which is the older form that the current documentation discourages. He also reports that uniform priors on the scales worked better than half-Cauchy, so the prior on $\tau$ below is a choice that deserves a sensitivity check. [grodri.github](https://grodri.github.io/multilevel/pop510slides12.pdf)
+Rodríguez fits this class of model to the McKinney Homeless Study, which has 361 at-risk individuals followed over four waves. The outcome is housing status (street, community, independent), and each person gets two correlated random intercepts. His maximum likelihood fit gives a correlation of 0.66 between the community-versus-street and independent-versus-street effects, and the Bayesian posterior mean is 0.625 with a 95% interval of roughly 0.43 to 0.78. Two details are worth noting. He used the explicit `corr_matrix` with `lkj_corr(2)` and `multi_normal`, which is the older form that the current documentation discourages. He also reports that uniform priors on the scales worked better than half-Cauchy, so the prior on $\tau$ below is a choice that deserves a sensitivity check.
 
 ### Multinomial Regression in R
 
@@ -169,8 +169,6 @@ The loop over `n` is easy to read but not the quickest option. Stan's `categoric
 
 Refit with independent group effects by replacing `L_Omega` with the identity, so that `u = diag_pre_multiply(tau, I) * z`, and compare the two fits with `loo`. If the correlated model gains nothing in expected predictive accuracy, the extra structure may not be earning its place. Two cautions apply. With this likelihood, `loo` as written leaves out single observations, which still borrows strength from the same group's other rows, so it says little about prediction for new groups. And a null result does not make the correlations meaningless. It may only mean the data carry little information about them.
 
-#### Summary of Practice
-
 The multinomial logit needs a reference category to be identified, and the correlations among group effects are defined relative to it. The Cholesky route keeps the sampler working with independent normals, separates scales from correlations, and uses the LKJ prior in the form Stan recommends . Read the entries of $\Omega$ cautiously, particularly with few groups.
 
 ### References
@@ -178,3 +176,4 @@ The multinomial logit needs a reference category to be identified, and the corre
 -   [Stan Functions Reference: Categorical logit generalized linear model (softmax regression)](https://mc-stan.org/docs/2_28/functions-reference/categorical-logit-glm.html)
 -   [Stan Functions Reference: Cholesky LKJ correlation distribution](https://mc-stan.org/docs/2_27/functions-reference/cholesky-lkj-correlation-distribution.html)
 -   [Rodríguez, G. Multilevel Models, Chapter 12: Models for Nominal Data (course slides)](https://grodri.github.io/multilevel/pop510slides12.pdf)
+-   [grodri.github](https://grodri.github.io/multilevel/pop510slides12.pdf)
