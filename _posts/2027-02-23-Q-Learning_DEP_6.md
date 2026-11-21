@@ -1,41 +1,128 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
 
+# Parameter Recovery and Bayesian Analysis of Reinforcement Learning Data in Computational Psychiatry
 
-# Parameter Recovery and Bayesian Analysis of Reinforcement Learning Data in Computational Psychiatry: 
+Going from theoretical computational psychiatry models into clinical
+insights is difficult and needs some knowledge about parameter recovery
+and Bayesian modeling. When we collect behavioral data from clinical
+populations performing reinforcement learning tasks, the next step is to
+recover the computational parameters and to understand what do these
+parameters mean. In this post we discuss how to apply Bayesian parameter
+recovery techniques to real clinical data, focusing on the practical
+challenges of working with behavioral datasets where we assume an
+underlying reinforcement learning process generated the observed
+choices. We'll explore how to validate our parameter estimates, assess
+model reliability, and interpret individual differences in a clinically
+meaningful way.
 
-Translating theoretical computational psychiatry models into clinical insights is a difficult task that needs some knowledge about parameter recovery and bayesian modeling. When we collect behavioral data from clinical populations performing reinforcement learning tasks, the next step is to reliably recover the computational parameters that drove their behavior, and to understand what do these parameters tell us about psychiatric symptoms. In this post demonstrates how we apply Bayesian parameter recovery techniques to real clinical data, focusing on the practical challenges of working with behavioral datasets where we assume an underlying reinforcement learning process generated the observed choices. We'll explore how to validate our parameter estimates, assess model reliability, and interpret individual differences in a clinically meaningful way.
-
-Unlike controlled simulation studies where we know the true generating parameters, in clinical behavioral data, when a depressed patient performs trials of a two-armed bandit task, we observe only their choices and outcomes—the underlying learning rate, reward sensitivity, and decision noise remain hidden. Yet these latent parameters may be precisely what distinguishes healthy from pathological cognition. Consider a typical clinical dataset: 50 depressed patients and 50 healthy controls, each completing 200 trials of a probabilistic learning task. Standard analysis might fit Q-learning models to each participant, extract point estimates of α (learning rate) and β (inverse temperature), then compare group means with t-tests. This approach ignores parameter uncertainty, model fit quality, and the possibility that different individuals might be using entirely different learning strategies. If we conclude that depression involves reduced learning rates based on model fitting, this could influence treatment decisions, theoretical understanding, and future research directions. But what if our parameter estimates are unreliable due to limited data, model misspecification, or individual heterogeneity? Bayesian approaches provide tools to quantify this uncertainty and validate our computational inferences.
-
+Unlike controlled simulation studies where we know the true generating
+parameters, in clinical behavioral data, when a depressed patient
+performs trials of a two-armed bandit task, we observe only their
+choices and outcomes, the underlying learning rate, reward sensitivity,
+and decision noise remain hidden. Yet these latent parameters may be
+precisely what distinguishes healthy from pathological cognition.
+Consider a typical clinical dataset: 50 depressed patients and 50
+healthy controls, each completing 200 trials of a probabilistic learning
+task. Standard analysis might fit Q-learning models to each participant,
+extract point estimates of α (learning rate) and β (inverse
+temperature), then compare group means with t-tests. This approach
+ignores parameter uncertainty, model fit quality, and the possibility
+that different individuals might be using entirely different learning
+strategies. If we conclude that depression involves reduced learning
+rates based on model fitting, this could influence treatment decisions,
+theoretical understanding, and future research directions. But what if
+our parameter estimates are unreliable due to limited data, model
+misspecification, or individual heterogeneity? Bayesian approaches
+provide tools to quantify this uncertainty and validate our
+computational inferences.
 
 ## Reinforcement Learning Under and Parameter Recovery for Healthy and Depressed Conditions for one subject
 
-
-In the first model we implemented a Q-learning agent operating in a stationary two-armed bandit environment, where each arm $a \in \{1, 2\}$ yields a binary reward $r_t \in \{0, 1\}$ with probabilities $\mathbf{p} = [0.8, 0.2]$. At each trial $t$, the agent selects an action according to a softmax (Boltzmann) policy, where the probability of choosing action $a$ is given by:
+In the first model we implemented a Q-learning agent operating in a
+stationary two-armed bandit environment, where each arm $a \in \{1, 2\}$
+yields a binary reward $r_t \in \{0, 1\}$ with probabilities
+$\mathbf{p} = [0.8, 0.2]$. At each trial $t$, the agent selects an
+action according to a softmax (Boltzmann) policy, where the probability
+of choosing action $a$ is given by:
 
 $$
 \pi(a \mid Q_t) = \frac{\exp(\beta \cdot Q_t(a))}{\sum_{a'} \exp(\beta \cdot Q_t(a'))}
 $$
 
-implemented in R as `probs <- exp(Q * beta) / sum(exp(Q * beta))`. Following action selection, Q-values are updated via the delta rule:
+implemented in R as `probs <- exp(Q * beta) / sum(exp(Q * beta))`.
+Following action selection, Q-values are updated via the delta rule:
 
 $$
 Q_{t+1}(a_t) \leftarrow Q_t(a_t) + \alpha \bigl(r_t - Q_t(a_t)\bigr)
 $$
 
-encoded as `Q[action] <- Q[action] + alpha * (reward - Q[action])`. Two agents were simulated over 2,000 trials: a *healthy* agent with $\alpha = 0.4$, $\beta = 5$ (fast belief updating, high reward sensitivity) and a *depressed* agent with $\alpha = 0.05$, $\beta = 2$ (sluggish updating, blunted sensitivity), reflecting empirical findings that depression is associated with reduced prediction error signaling.
+encoded as `Q[action] <- Q[action] + alpha * (reward - Q[action])`. Two
+agents were simulated over 2,000 trials: a *healthy* agent with
+$\alpha = 0.4$, $\beta = 5$ (fast belief updating, high reward
+sensitivity) and a *depressed* agent with $\alpha = 0.05$, $\beta = 2$
+(sluggish updating, blunted sensitivity), reflecting empirical findings
+that depression is associated with reduced prediction error signaling.
 
-To recover latent learning parameters from behavioral data, we specified a hierarchical Bayesian Q-learning model in Stan, where the learning rate and inverse temperature are assigned weakly informative priors: $\alpha \sim \text{Beta}(1,1)$ and $\beta \sim \mathcal{N}(0, 5)$. At each observation $n$, the likelihood of the chosen action $A_n$ is evaluated under a categorical-logit distribution,
+To recover latent learning parameters from behavioral data, we specified
+a hierarchical Bayesian Q-learning model in Stan, where the learning
+rate and inverse temperature are assigned weakly informative priors:
+$\alpha \sim \text{Beta}(1,1)$ and $\beta \sim \mathcal{N}(0, 5)$. At
+each observation $n$, the likelihood of the chosen action $A_n$ is
+evaluated under a categorical-logit distribution,
 
 $$ \log p(A_n \mid Q_n, \beta) = \text{categoricallpmf}(A_n \mid \beta \cdot \mathbf{Q}_n) $$
 
-accumulated via `target += categorical_logit_lpmf(A[n] | logit_p)`, after which Q-values are updated sequentially within the Stan model block. Posterior sampling was conducted using NUTS with 4 chains of 2,000 iterations (1,000 warmup) and `adapt_delta = 0.95` to ensure numerical stability. Posterior mean estimates $\hat{\alpha}$ and $\hat{\beta}$ were extracted via `alpha_hat <- mean(q_post$alpha)` and used to generate trial-wise predicted choice probabilities $\hat{\pi}_t(a=1)$, which were binned into windows of 50 trials and compared against empirical choice frequencies — providing a posterior predictive check of model adequacy.
+accumulated via `target += categorical_logit_lpmf(A[n] | logit_p)`,
+after which Q-values are updated sequentially within the Stan model
+block. Posterior sampling was conducted using NUTS with 4 chains of
+2,000 iterations (1,000 warmup) and `adapt_delta = 0.95` to ensure
+numerical stability. Posterior mean estimates $\hat{\alpha}$ and
+$\hat{\beta}$ were extracted via `alpha_hat <- mean(q_post$alpha)` and
+used to generate trial-wise predicted choice probabilities
+$\hat{\pi}_t(a=1)$, which were binned into windows of 50 trials and
+compared against empirical choice frequencies — providing a posterior
+predictive check of model adequacy.
 
-## win–stay/lose–shift (WSLS) model 
+## win–stay/lose–shift (WSLS) model
 
-The second model replaces latent value learning with a simple win–stay/lose–shift (WSLS) heuristic, allowing a direct comparison between a cognitively “richer” Q‑learning account and a minimal history‑based rule. Formally, the WSLS Stan model assumes that choices on trial $n$ depend only on the previous action $A_{n-1}$ and reward $R_{n-1}$. Two parameters govern behavior: $p_{\text{stay}} \in [0,1]$, the probability of repeating the last action after a reward, and $p_{\text{shift}} \in [0,1]$, the probability of switching after no reward. In Stan, these are given beta priors and the likelihood is constructed by treating “stay vs switch” as a Bernoulli outcome conditional on the previous reward: if $R_{n-1}=1$, the model uses `bernoulli_lpmf(A[n] == A[n-1] ? 1 : 0 | p_stay)`; if $R_{n-1}=0$, it uses `bernoulli_lpmf(A[n] != A[n-1] ? 1 : 0 | p_shift)`. This yields a compact generative story: after wins, repeat with probability $p_{\text{stay}}$; after losses, switch with probability $p_{\text{shift}}$, with no internal value state or multi‑trial integration of outcomes.
+The second model replaces latent value learning with a simple
+win–stay/lose–shift (WSLS) heuristic, allowing a direct comparison
+between a cognitively “richer” Q‑learning account and a minimal
+history‑based rule. Formally, the WSLS Stan model assumes that choices
+on trial $n$ depend only on the previous action $A_{n-1}$ and reward
+$R_{n-1}$. Two parameters govern behavior: $p_{\text{stay}} \in [0,1]$,
+the probability of repeating the last action after a reward, and
+$p_{\text{shift}} \in [0,1]$, the probability of switching after no
+reward. In Stan, these are given beta priors and the likelihood is
+constructed by treating “stay vs switch” as a Bernoulli outcome
+conditional on the previous reward: if $R_{n-1}=1$, the model uses
+`bernoulli_lpmf(A[n] == A[n-1] ? 1 : 0 | p_stay)`; if $R_{n-1}=0$, it
+uses `bernoulli_lpmf(A[n] != A[n-1] ? 1 : 0 | p_shift)`. This yields a
+compact generative story: after wins, repeat with probability
+$p_{\text{stay}}$; after losses, switch with probability
+$p_{\text{shift}}$, with no internal value state or multi‑trial
+integration of outcomes.
 
-In contrast, the first Stan model embeds a full Q‑learning process. There, action probabilities arise from a softmax over learned values $Q_t(a)$, updated trial by trial via $Q_{t+1}(a_t) = Q_t(a_t) + \alpha (R_t - Q_t(a_t))$, with $\alpha$ (learning rate) and $\beta$ (inverse temperature) estimated from the data. The likelihood loop explicitly simulates this latent trajectory inside Stan: `vector[2] Q = rep_vector(0, 2);` followed by updates `Q[A[n]] += alpha * (R[n] - Q[A[n]]);` and a `categorical_logit_lpmf` over `beta * Q`. The WSLS model, by contrast, never constructs a value function; it directly models choice as an outcome‑contingent habit. By fitting both models to the same simulated or empirical sequences, generating posterior predictive probabilities (e.g., with `predict_q_learning` vs `predict_wsls`), and comparing their leave‑one‑out performance, one can test whether behavior is better captured by incremental value learning or by a simple win/lose contingency rule.
-
+In contrast, the first Stan model embeds a full Q‑learning process.
+There, action probabilities arise from a softmax over learned values
+$Q_t(a)$, updated trial by trial via
+$Q_{t+1}(a_t) = Q_t(a_t) + \alpha (R_t - Q_t(a_t))$, with $\alpha$
+(learning rate) and $\beta$ (inverse temperature) estimated from the
+data. The likelihood loop explicitly simulates this latent trajectory
+inside Stan: `vector[2] Q = rep_vector(0, 2);` followed by updates
+`Q[A[n]] += alpha * (R[n] - Q[A[n]]);` and a `categorical_logit_lpmf`
+over `beta * Q`. The WSLS model, by contrast, never constructs a value
+function; it directly models choice as an outcome‑contingent habit. By
+fitting both models to the same simulated or empirical sequences,
+generating posterior predictive probabilities (e.g., with
+`predict_q_learning` vs `predict_wsls`), and comparing their
+leave‑one‑out performance, one can test whether behavior is better
+captured by incremental value learning or by a simple win/lose
+contingency rule.
 
 ## Hierarchical Bayesian Parameter Recovery
 
@@ -73,8 +160,7 @@ this dynamics is encoded as follows, where `beta_true[s] * Q` implements
 the trial‑wise logits and `Q[ch] <- Q[ch] + alpha_true[s] * pe`
 corresponds to the prediction‑error update:
 
-
-```r
+``` r
 for (s in 1:n_subj) {
   Q <- c(0, 0)
   for (t in 1:n_trials) {
@@ -122,12 +208,26 @@ and $\beta_s$, enabling posterior summaries and convergence checks that
 close the loop on parameter recovery for clinical reinforcement learning
 data.
 
-
 ## Validating Parameter Recovery with Posterior Predictive Checks
 
-Parameter estimates are only meaningful if our model captures the behavioral patterns in the data. For this reason, posterior predictive checking is a systematic approach to model validation by generating simulated data from fitted models and comparing against observed behavior. For clinical RL data, several behavioral signatures are particularly important to capture **Learning Curves** that reffers to if the model reproduce the trial-by-trial evolution of choice preferences? Healthy individuals might show rapid convergence to optimal choices, while depressed participants might show slower or more volatile learning. **Choice Consistency**, that shows how well does the model capture the relationship between choice probability and reward history. Individual differences in this relationship might reflect distinct computational phenotypes. **Perseveration vs. Exploration**, where the model account for how participants balance exploitation of known good options against exploration of alternatives? This balance might be disrupted in various psychiatric conditions.
+Parameter estimates are only meaningful if our model captures the
+behavioral patterns in the data. For this reason, posterior predictive
+checking is a systematic approach to model validation by generating
+simulated data from fitted models and comparing against observed
+behavior. For clinical RL data, several behavioral signatures are
+particularly important to capture **Learning Curves** that reffers to if
+the model reproduce the trial-by-trial evolution of choice preferences?
+Healthy individuals might show rapid convergence to optimal choices,
+while depressed participants might show slower or more volatile
+learning. **Choice Consistency**, that shows how well does the model
+capture the relationship between choice probability and reward history.
+Individual differences in this relationship might reflect distinct
+computational phenotypes. **Perseveration vs. Exploration**, where the
+model account for how participants balance exploitation of known good
+options against exploration of alternatives? This balance might be
+disrupted in various psychiatric conditions.
 
-```r
+``` r
 # Posterior predictive validation
 validate_learning_curves <- function(fit, observed_data) {
   posterior_samples <- extract(fit)
@@ -170,16 +270,41 @@ plot_learning_validation <- function(predictions, observed_choices) {
 }
 ```
 
-The key insight from posterior predictive validation is identifying systematic discrepancies between model predictions and observed behavior. If the model consistently under-predicts learning speed in depressed participants, this might indicate that our Q-learning framework misses important aspects of how depression affects reinforcement learning. Such discrepancies guide model refinement and theoretical development.
+The key insight from posterior predictive validation is identifying
+systematic discrepancies between model predictions and observed
+behavior. If the model consistently under-predicts learning speed in
+depressed participants, this might indicate that our Q-learning
+framework misses important aspects of how depression affects
+reinforcement learning. Such discrepancies guide model refinement and
+theoretical development.
 
 ## Conclusion
 
-This post walked through the practical application of Bayesian parameter recovery to clinical reinforcement learning data. Rather than relying on simple point estimates, we built a hierarchical Bayesian model in Stan that simultaneously infers individual-level parameters (learning rate \(\alpha\) and inverse temperature \(\beta\)) and group-level distributions, enabling partial pooling across participants and principled group comparisons. We then validated these estimates using posterior predictive checks, examining whether the fitted model reproduces key behavioral signatures like learning curves, choice consistency, and exploration-exploitation balance. Together, these tools move us beyond asking "do depressed patients have lower learning rates?" toward a richer question: "how reliably can we estimate these parameters, and does our model faithfully capture the behavioral process we care about?" Bayesian parameter recovery doesn't eliminate uncertainty—it makes that uncertainty explicit and actionable, which is precisely what clinical translation requires. In the next blog post, we'll tackle one of the most consequential challenges in computational psychiatry: **Addressing Individual Heterogeneity and Mixture Models**—exploring how to handle the reality that not all patients within a diagnostic group are using the same learning strategy, and how mixture modeling approaches can uncover latent computational subtypes.
-
+This post walked through the practical application of Bayesian parameter
+recovery to clinical reinforcement learning data. Rather than relying on
+simple point estimates, we built a hierarchical Bayesian model in Stan
+that simultaneously infers individual-level parameters (learning rate
+$\alpha$ and inverse temperature $\beta$) and group-level distributions,
+enabling partial pooling across participants and principled group
+comparisons. We then validated these estimates using posterior
+predictive checks, examining whether the fitted model reproduces key
+behavioral signatures like learning curves, choice consistency, and
+exploration-exploitation balance. Together, these tools move us beyond
+asking "do depressed patients have lower learning rates?" toward a
+richer question: "how reliably can we estimate these parameters, and
+does our model faithfully capture the behavioral process we care about?"
+Bayesian parameter recovery doesn't eliminate uncertainty—it makes that
+uncertainty explicit and actionable, which is precisely what clinical
+translation requires. In the next blog post, we'll tackle one of the
+most consequential challenges in computational psychiatry: **Addressing
+Individual Heterogeneity and Mixture Models**—exploring how to handle
+the reality that not all patients within a diagnostic group are using
+the same learning strategy, and how mixture modeling approaches can
+uncover latent computational subtypes.
 
 ## Full code for simulations
 
-```r
+``` r
 set.seed(42)
 
 # Environment: Two-armed bandit
@@ -359,20 +484,9 @@ ggplot(df_binned, aes(x = BinMid)) +
   ) +
   theme_minimal() +
   scale_y_continuous(limits = c(0, 1))
-
 ```
 
-
-
-
-
-
-
-
-
-
-
-```r
+``` r
 stan_model_2='
 data {
   int<lower=1> N;
@@ -494,8 +608,7 @@ loo_wsls <- loo(log_lik_wsls)
 loo_compare(loo_q, loo_wsls)
 ```
 
-
-```r
+``` r
 # ============================================================
 # Parameter recovery and Bayesian analysis of clinical RL data
 # Hierarchical Q-learning model with Stan + posterior checks
