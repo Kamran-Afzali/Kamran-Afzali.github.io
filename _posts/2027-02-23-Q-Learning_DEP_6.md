@@ -126,26 +126,23 @@ contingency rule.
 
 ## Hierarchical Bayesian Parameter Recovery
 
-It is possibe to approach parameter recovery as a hierarchical inference
-problem, where we simultaneously model individual-level parameters and
+It is possibe to approach parameter recovery as a hierarchical Bayesian
+model, where we simultaneously model individual-level parameters and
 group-level distributions. This approach provides advantages like
 improved parameter estimates through partial pooling, explicit modeling
 of individual differences, and natural incorporation of group-level
-comparisons. Such a hierarchical structure allows parameters for
+comparisons. The hierarchical/multilevel structure allows parameters for
 participants with limited or noisy data to borrow some precision from
 the group, leading to more stable estimates. Also, as we explicitly
 model the distribution of individual differences within each group,
-capturing heterogeneity that might be clinically relevant. This latter
-also facilitates group comparisons from the posterior distributions
-rather than requiring separate statistical tests. The third model
-implements a full parameter‑recovery pipeline for a hierarchical
-reinforcement learning model, starting from synthetic data generation
-and ending with Bayesian inference and posterior diagnostics. First, it
-simulates a two‑group clinical sample performing a probabilistic
-two‑armed bandit task, where each subject $s$ is endowed with a learning
-rate $\alpha_s \in (0,1)$ and an inverse temperature $\beta_s > 0$.
-Group membership $G_s \in \{0,1\}$ (control vs. depressed) determines
-the distribution of these parameters via group‑specific Gaussian
+capturing heterogeneity that might be clinically relevant. This also
+facilitates group comparisons from the posterior distributions rather
+than requiring separate statistical tests. First, it simulates a
+two‑group clinical sample performing a probabilistic two‑armed bandit
+task, where each subject $s$ is endowed with a learning rate
+$\alpha_s \in (0,1)$ and an inverse temperature $\beta_s > 0$. Group
+membership $G_s \in \{0,1\}$ (control vs. depressed) determines the
+distribution of these parameters via group‑specific Gaussian
 hyperparameters on unconstrained scales, for example
 $\tilde{\alpha}_s \mid G_s=g \sim \mathcal{N}(\mu_{\alpha,g}, \sigma_{\alpha,g}^2)$
 and $\alpha_s = \text{logit}^{-1}(\tilde{\alpha}_s)$, with an analogous
