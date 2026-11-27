@@ -6,298 +6,374 @@ editor_options:
 
 # Parameter Recovery and Bayesian Analysis of Reinforcement Learning Data in Computational Psychiatry
 
-Going from theoretical computational psychiatry models into clinical
-insights is difficult and needs some knowledge about parameter recovery
-and Bayesian modeling. When we collect behavioral data from clinical
-populations performing reinforcement learning tasks, the next step is to
-recover the computational parameters and to understand what do these
-parameters mean. In this post we discuss how to apply Bayesian parameter
-recovery techniques to real clinical data, focusing on the practical
-challenges of working with behavioral datasets where we assume an
-underlying reinforcement learning process generated the observed
-choices. We'll explore how to validate our parameter estimates, assess
-model reliability, and interpret individual differences in a clinically
-meaningful way.
+I haven't run any of the code below, so test it before publishing. The hyperparameter priors in particular are reasonable defaults, not tuned values. I also left out literature claims I couldn't source here. Add citations where I've flagged them.
 
-Unlike controlled simulation studies where we know the true generating
-parameters, in clinical behavioral data, when a depressed patient
-performs trials of a two-armed bandit task, we observe only their
-choices and outcomes, the underlying learning rate, reward sensitivity,
-and decision noise remain hidden. Yet these latent parameters may be
-precisely what distinguishes healthy from pathological cognition.
-Consider a typical clinical dataset: 50 depressed patients and 50
-healthy controls, each completing 200 trials of a probabilistic learning
-task. Standard analysis might fit Q-learning models to each participant,
-extract point estimates of α (learning rate) and β (inverse
-temperature), then compare group means with t-tests. This approach
-ignores parameter uncertainty, model fit quality, and the possibility
-that different individuals might be using entirely different learning
-strategies. If we conclude that depression involves reduced learning
-rates based on model fitting, this could influence treatment decisions,
-theoretical understanding, and future research directions. But what if
-our parameter estimates are unreliable due to limited data, model
-misspecification, or individual heterogeneity? Bayesian approaches
-provide tools to quantify this uncertainty and validate our
-computational inferences.
+***
 
-## Reinforcement Learning Under and Parameter Recovery for Healthy and Depressed Conditions for one subject
+Moving from a theoretical computational model to a clinical inference takes more than fitting it. Suppose we collect choices from patients doing a reinforcement learning task. The learning rate, reward sensitivity and decision noise are never observed, only the choices and outcomes. Whether those latent quantities can be recovered from the data we have is an empirical question, and it should be answered before anyone interprets a group difference.
 
-In the first model we implemented a Q-learning agent operating in a
-stationary two-armed bandit environment, where each arm $a \in \{1, 2\}$
-yields a binary reward $r_t \in \{0, 1\}$ with probabilities
-$\mathbf{p} = [0.8, 0.2]$. At each trial $t$, the agent selects an
-action according to a softmax (Boltzmann) policy, where the probability
-of choosing action $a$ is given by:
+Take a typical design: 50 patients with depression and 50 controls, each doing 200 trials of a probabilistic two-armed bandit. A common analysis fits a Q-learning model to each person by maximum likelihood, extracts point estimates of the learning rate α and inverse temperature β, and compares group means with a t-test. That treats noisy estimates as if they were data. It ignores their uncertainty and the trade-off between α and β. It also assumes everyone follows the same learning process.
+
+Bayesian hierarchical modelling doesn't remove these problems, but it makes them visible. Partial pooling stabilises noisy individual estimates. Posterior distributions carry the uncertainty forward into group comparisons. Posterior predictive checks show where the model fails to reproduce behaviour. Here we do three things on simulated data, where the truth is known:
+
+1. Fit a single-subject Q-learning model.
+2. Compare it with a win–stay/lose–shift (WSLS) heuristic.
+3. Fit a hierarchical two-group model and check how well its parameters are recovered.
+
+## Simulating a Q-learning agent
+
+The environment is a stationary two-armed bandit with binary rewards. Arm 1 pays off with probability 0.8 and arm 2 with 0.2. On each trial the agent chooses with a softmax policy:
 
 $$
-\pi(a \mid Q_t) = \frac{\exp(\beta \cdot Q_t(a))}{\sum_{a'} \exp(\beta \cdot Q_t(a'))}
+\pi(a \mid Q_t) = \frac{\exp(\beta\, Q_t(a))}{\sum_{a'} \exp(\beta\, Q_t(a'))}
 $$
 
-implemented in R as `probs <- exp(Q * beta) / sum(exp(Q * beta))`.
-Following action selection, Q-values are updated via the delta rule:
+After the outcome, the chosen action's value is updated with the delta rule:
 
 $$
-Q_{t+1}(a_t) \leftarrow Q_t(a_t) + \alpha \bigl(r_t - Q_t(a_t)\bigr)
+Q_{t+1}(a_t) = Q_t(a_t) + \alpha\,\bigl(r_t - Q_t(a_t)\bigr)
 $$
 
-encoded as `Q[action] <- Q[action] + alpha * (reward - Q[action])`. Two
-agents were simulated over 2,000 trials: a *healthy* agent with
-$\alpha = 0.4$, $\beta = 5$ (fast belief updating, high reward
-sensitivity) and a *depressed* agent with $\alpha = 0.05$, $\beta = 2$
-(sluggish updating, blunted sensitivity), reflecting empirical findings
-that depression is associated with reduced prediction error signaling.
+We simulate two agents for 2,000 trials. The "healthy-like" agent has α = 0.4 and β = 5. The "depressed-like" agent has α = 0.05 and β = 2. These values are chosen by us to produce contrasting behaviour. They don't come from data, and the labels are a convenience. Whether depression is characterised by lower learning rates, lower reward sensitivity, or neither is an empirical and somewhat contested question in the literature [add citations]. Simulated parameters can't settle it.
 
-To recover latent learning parameters from behavioral data, we specified
-a hierarchical Bayesian Q-learning model in Stan, where the learning
-rate and inverse temperature are assigned weakly informative priors:
-$\alpha \sim \text{Beta}(1,1)$ and $\beta \sim \mathcal{N}(0, 5)$. At
-each observation $n$, the likelihood of the chosen action $A_n$ is
-evaluated under a categorical-logit distribution,
+```r
+set.seed(42)
+library(dplyr); library(ggplot2); library(rstan); library(bayesplot); library(loo)
+options(mc.cores = 4); rstan_options(auto_write = TRUE)
 
-$$ \log p(A_n \mid Q_n, \beta) = \text{categoricallpmf}(A_n \mid \beta \cdot \mathbf{Q}_n) $$
+softmax <- function(x) { e <- exp(x - max(x)); e / sum(e) }
 
-accumulated via `target += categorical_logit_lpmf(A[n] | logit_p)`,
-after which Q-values are updated sequentially within the Stan model
-block. Posterior sampling was conducted using NUTS with 4 chains of
-2,000 iterations (1,000 warmup) and `adapt_delta = 0.95` to ensure
-numerical stability. Posterior mean estimates $\hat{\alpha}$ and
-$\hat{\beta}$ were extracted via `alpha_hat <- mean(q_post$alpha)` and
-used to generate trial-wise predicted choice probabilities
-$\hat{\pi}_t(a=1)$, which were binned into windows of 50 trials and
-compared against empirical choice frequencies — providing a posterior
-predictive check of model adequacy.
-
-## win–stay/lose–shift (WSLS) model
-
-The second model replaces latent value learning with a simple
-win–stay/lose–shift (WSLS) heuristic, allowing a direct comparison
-between a cognitively “richer” Q‑learning account and a minimal
-history‑based rule. Formally, the WSLS Stan model assumes that choices
-on trial $n$ depend only on the previous action $A_{n-1}$ and reward
-$R_{n-1}$. Two parameters govern behavior: $p_{\text{stay}} \in [0,1]$,
-the probability of repeating the last action after a reward, and
-$p_{\text{shift}} \in [0,1]$, the probability of switching after no
-reward. In Stan, these are given beta priors and the likelihood is
-constructed by treating “stay vs switch” as a Bernoulli outcome
-conditional on the previous reward: if $R_{n-1}=1$, the model uses
-`bernoulli_lpmf(A[n] == A[n-1] ? 1 : 0 | p_stay)`; if $R_{n-1}=0$, it
-uses `bernoulli_lpmf(A[n] != A[n-1] ? 1 : 0 | p_shift)`. This yields a
-compact generative story: after wins, repeat with probability
-$p_{\text{stay}}$; after losses, switch with probability
-$p_{\text{shift}}$, with no internal value state or multi‑trial
-integration of outcomes.
-
-In contrast, the first Stan model embeds a full Q‑learning process.
-There, action probabilities arise from a softmax over learned values
-$Q_t(a)$, updated trial by trial via
-$Q_{t+1}(a_t) = Q_t(a_t) + \alpha (R_t - Q_t(a_t))$, with $\alpha$
-(learning rate) and $\beta$ (inverse temperature) estimated from the
-data. The likelihood loop explicitly simulates this latent trajectory
-inside Stan: `vector[2] Q = rep_vector(0, 2);` followed by updates
-`Q[A[n]] += alpha * (R[n] - Q[A[n]]);` and a `categorical_logit_lpmf`
-over `beta * Q`. The WSLS model, by contrast, never constructs a value
-function; it directly models choice as an outcome‑contingent habit. By
-fitting both models to the same simulated or empirical sequences,
-generating posterior predictive probabilities (e.g., with
-`predict_q_learning` vs `predict_wsls`), and comparing their
-leave‑one‑out performance, one can test whether behavior is better
-captured by incremental value learning or by a simple win/lose
-contingency rule.
-
-## Hierarchical Bayesian Parameter Recovery
-
-It is possibe to approach parameter recovery as a hierarchical Bayesian
-model, where we simultaneously model individual-level parameters and
-group-level distributions. This approach provides advantages like
-improved parameter estimates through partial pooling, explicit modeling
-of individual differences, and natural incorporation of group-level
-comparisons. The hierarchical/multilevel structure allows parameters for
-participants with limited or noisy data to borrow some precision from
-the group, leading to more stable estimates. Also, as we explicitly
-model the distribution of individual differences within each group,
-capturing heterogeneity that might be clinically relevant. This also
-facilitates group comparisons from the posterior distributions rather
-than requiring separate statistical tests. First, it simulates a
-two‑group clinical sample performing a probabilistic two‑armed bandit
-task, where each subject $s$ is endowed with a learning rate
-$\alpha_s \in (0,1)$ and an inverse temperature $\beta_s > 0$. Group
-membership $G_s \in \{0,1\}$ (control vs. depressed) determines the
-distribution of these parameters via group‑specific Gaussian
-hyperparameters on unconstrained scales, for example
-$\tilde{\alpha}_s \mid G_s=g \sim \mathcal{N}(\mu_{\alpha,g}, \sigma_{\alpha,g}^2)$
-and $\alpha_s = \text{logit}^{-1}(\tilde{\alpha}_s)$, with an analogous
-log‑scale parameterization for $\beta_s$. Within each subject, the code
-simulates behavior using Q‑learning: starting from $Q_{s,a}(1)=0$ for
-arms $a\in\{1,2\}$, choices are drawn from a softmax policy
-$P(A_t=a) = \frac{\exp(\beta_s Q_{s,a}(t))}{\sum_{a'} \exp(\beta_s Q_{s,a'}(t))}$,
-rewards are sampled from Bernoulli distributions with fixed
-probabilities (0.70 vs. 0.30), and Q‑values are updated as
-$Q_{s,A_t}(t+1) = Q_{s,A_t}(t) + \alpha_s (R_t - Q_{s,A_t}(t))$. In R,
-this dynamics is encoded as follows, where `beta_true[s] * Q` implements
-the trial‑wise logits and `Q[ch] <- Q[ch] + alpha_true[s] * pe`
-corresponds to the prediction‑error update:
-
-``` r
-for (s in 1:n_subj) {
+simulate_q <- function(alpha, beta, n_trials, reward_probs = c(0.8, 0.2)) {
   Q <- c(0, 0)
-  for (t in 1:n_trials) {
-    logits <- beta_true[s] * Q
-    probs <- exp(logits - max(logits)); probs <- probs / sum(probs)
-    ch <- sample(1:2, size = 1, prob = probs)
-    rew <- rbinom(1, 1, ifelse(ch == 1, p_rew_arm1, p_rew_arm2))
-    pe <- rew - Q[ch]
-    Q[ch] <- Q[ch] + alpha_true[s] * pe
-    # store subj, trial, choice, reward
+  A <- integer(n_trials); R <- integer(n_trials)
+  for (t in seq_len(n_trials)) {
+    A[t] <- sample(1:2, 1, prob = softmax(beta * Q))
+    R[t] <- rbinom(1, 1, reward_probs[A[t]])
+    Q[A[t]] <- Q[A[t]] + alpha * (R[t] - Q[A[t]])
   }
+  list(actions = A, rewards = R)
 }
+
+healthy   <- simulate_q(alpha = 0.40, beta = 5, n_trials = 2000)
+depressed <- simulate_q(alpha = 0.05, beta = 2, n_trials = 2000)
+
+df <- tibble(Trial = 1:2000,
+             Healthy = cumsum(healthy$rewards),
+             Depressed = cumsum(depressed$rewards)) |>
+  tidyr::pivot_longer(-Trial, names_to = "Agent", values_to = "CumulativeReward")
+
+ggplot(df, aes(Trial, CumulativeReward, colour = Agent)) +
+  geom_line(linewidth = 1) + theme_minimal() +
+  labs(title = "Cumulative reward: healthy-like vs depressed-like agent")
 ```
 
-The Stan model then mirrors this generative process in a hierarchical
-Bayesian framework to estimate both group‑level and individual‑level
-parameters from the simulated clinical‑style dataset. In the
-`parameters` and `transformed parameters` blocks, the model defines
-group‑specific means and standard deviations for $\alpha_s$ and
-$\beta_s$, and transforms standardized subject‑level variables into
-interpretable scales via
-$\alpha_s = \text{logit}^{-1}(\mu_{\alpha,G_s+1} + \sigma_{\alpha,G_s+1} \alpha^{\text{raw}}_s)$
-and
-$\beta_s = \exp(\mu_{\beta,G_s+1} + \sigma_{\beta,G_s+1} \beta^{\text{raw}}_s)$.
-The `model` block encodes the Q‑learning likelihood by iterating over
-subjects and trials, adding categorical‑logit log probabilities to the
-target density and updating Q‑values in lockstep with the observed
-rewards, as shown below:
+## Single-subject Bayesian Q-learning
 
-``` stan
-for (s in 1:N_subj) {
-  vector[2] Q = rep_vector(0.0, 2);
-  for (t in 1:N_trials) {
-    int i = (s - 1) * N_trials + t;
-    target += categorical_logit_lpmf(choice[i] | beta[s] * Q);
-    Q[choice[i]] += alpha[s] * (reward[i] - Q[choice[i]]);
+The Stan model uses weakly informative priors: α ~ Beta(1, 1) and β ~ half-normal(0, 5). Stan parameterises the normal by its standard deviation, so 5 is an SD. The half-normal comes from the lower bound of 0 on β. The likelihood is a categorical-logit over β·Q, with Q updated sequentially. We also store pointwise log-likelihoods, starting from trial 2, so the model can later be compared with WSLS on exactly the same observations.
+
+```r
+stan_q <- "
+data {
+  int<lower=2> N;
+  array[N] int<lower=1, upper=2> A;
+  array[N] int<lower=0, upper=1> R;
+}
+parameters {
+  real<lower=0, upper=1> alpha;
+  real<lower=0> beta;
+}
+model {
+  vector[2] Q = rep_vector(0, 2);
+  alpha ~ beta(1, 1);
+  beta ~ normal(0, 5);
+  for (n in 1:N) {
+    target += categorical_logit_lpmf(A[n] | beta * Q);
+    Q[A[n]] += alpha * (R[n] - Q[A[n]]);
   }
 }
-```
-
-Finally, the `generated quantities` block computes trial‑wise
-log‑likelihoods, posterior predictive choices via
-`categorical_logit_rng`, and group‑level contrasts in mean $\alpha_s$
-and $\beta_s$, enabling posterior summaries and convergence checks that
-close the loop on parameter recovery for clinical reinforcement learning
-data.
-
-## Validating Parameter Recovery with Posterior Predictive Checks
-
-Parameter estimates are only meaningful if our model captures the
-behavioral patterns in the data. For this reason, posterior predictive
-checking is a systematic approach to model validation by generating
-simulated data from fitted models and comparing against observed
-behavior. For clinical RL data, several behavioral signatures are
-particularly important to capture **Learning Curves** that reffers to if
-the model reproduce the trial-by-trial evolution of choice preferences?
-Healthy individuals might show rapid convergence to optimal choices,
-while depressed participants might show slower or more volatile
-learning. **Choice Consistency**, that shows how well does the model
-capture the relationship between choice probability and reward history.
-Individual differences in this relationship might reflect distinct
-computational phenotypes. **Perseveration vs. Exploration**, where the
-model account for how participants balance exploitation of known good
-options against exploration of alternatives? This balance might be
-disrupted in various psychiatric conditions.
-
-``` r
-# Posterior predictive validation
-validate_learning_curves <- function(fit, observed_data) {
-  posterior_samples <- extract(fit)
-  n_samples <- 100  # Use subset of posterior samples
-  
-  predictions <- array(dim = c(n_samples, n_subjects, n_trials))
-  
-  for (i in 1:n_samples) {
-    for (s in 1:n_subjects) {
-      alpha_s <- posterior_samples$alpha[i, s]
-      beta_s <- posterior_samples$beta[i, s]
-      
-      # Simulate choices using fitted parameters
-      Q <- c(0, 0)
-      for (t in 1:n_trials) {
-        action_probs <- softmax(beta_s * Q)
-        choice <- sample(1:2, 1, prob = action_probs)
-        reward <- observed_data$rewards[s, t]  # Use actual rewards
-        
-        predictions[i, s, t] <- choice
-        Q[choice] <- Q[choice] + alpha_s * (reward - Q[choice])
-      }
+generated quantities {
+  vector[N - 1] log_lik;
+  {
+    vector[2] Q = rep_vector(0, 2);
+    for (n in 1:N) {
+      if (n > 1) log_lik[n - 1] = categorical_logit_lpmf(A[n] | beta * Q);
+      Q[A[n]] += alpha * (R[n] - Q[A[n]]);
     }
   }
-  
-  return(predictions)
+}
+"
+
+sim <- healthy
+stan_data <- list(N = length(sim$actions), A = sim$actions, R = sim$rewards)
+fit_q <- stan(model_code = stan_q, data = stan_data,
+              iter = 2000, warmup = 1000, chains = 4, seed = 42,
+              control = list(adapt_delta = 0.95))
+print(fit_q, pars = c("alpha", "beta"))
+mcmc_areas(as.array(fit_q), pars = c("alpha", "beta"))
+```
+
+Before reading the posteriors, check R-hat (should be near 1.00), effective sample sizes and divergent transitions. Then look at the joint posterior of α and β. With few trials the two trade off, since a fast learner with low noise and a slow learner with high sensitivity can produce similar choices:
+
+```r
+post <- rstan::extract(fit_q)
+cor(post$alpha, post$beta)
+mcmc_scatter(as.array(fit_q), pars = c("alpha", "beta"), alpha = 0.2)
+```
+
+## A free-running posterior predictive check
+
+A common shortcut is to plug posterior means into the model and compute the probability of each observed choice given the observed history. That check is weak for two reasons. It discards posterior uncertainty, and because it conditions on the participant's own past actions, it tends to track the data closely whatever the model's quality. A stronger test lets the fitted model generate its own choices and its own rewards from the environment, then compares those simulated learning curves with the observed one.
+
+```r
+ppc_free_running <- function(post, n_trials, reward_probs, n_draws = 200) {
+  idx <- sample(length(post$alpha), n_draws)
+  sapply(idx, function(i) {
+    sim <- simulate_q(post$alpha[i], post$beta[i], n_trials, reward_probs)
+    as.numeric(sim$actions == 1)
+  })
 }
 
-# Compare predicted vs observed learning curves
-plot_learning_validation <- function(predictions, observed_choices) {
-  # Aggregate predictions across posterior samples
-  pred_mean <- apply(predictions == 1, c(2, 3), mean)  # P(choose option 1)
-  pred_ci <- apply(predictions == 1, c(2, 3), function(x) quantile(x, c(0.025, 0.975)))
-  
-  # Plot for each group
-  for (group in c("Control", "Depressed")) {
-    # Implementation of group-specific learning curve plots
-    # with confidence intervals from posterior predictions
+bin_curve <- function(x, bin = 50) {
+  tapply(x, ceiling(seq_along(x) / bin), mean)
+}
+
+pred <- ppc_free_running(post, n_trials = 2000, reward_probs = c(0.8, 0.2))
+pred_binned <- apply(pred, 2, bin_curve)
+obs_binned  <- bin_curve(as.numeric(sim$actions == 1))
+
+ppc_df <- tibble(
+  Bin   = seq_along(obs_binned),
+  Obs   = as.numeric(obs_binned),
+  Mean  = rowMeans(pred_binned),
+  Lo    = apply(pred_binned, 1, quantile, 0.025),
+  Hi    = apply(pred_binned, 1, quantile, 0.975)
+)
+
+ggplot(ppc_df, aes(Bin)) +
+  geom_ribbon(aes(ymin = Lo, ymax = Hi), fill = "steelblue", alpha = 0.3) +
+  geom_line(aes(y = Mean), colour = "steelblue") +
+  geom_point(aes(y = Obs), colour = "red") +
+  scale_y_continuous(limits = c(0, 1)) + theme_minimal() +
+  labs(x = "Trial bin (50 trials)", y = "P(choose arm 1)",
+       title = "Free-running posterior predictive check")
+```
+
+With a single observed sequence, the observed curve will wander within a fairly wide band by chance. Observed points sitting outside the band across several consecutive bins would be the signal worth worrying about.
+
+## Win–stay/lose–shift as a rival model
+
+The WSLS model drops latent values entirely. Choice on trial n depends only on the previous action and its outcome. After a reward the agent repeats its choice with probability p_stay. After no reward it switches with probability p_shift. The first trial has no history, so it is excluded from the likelihood. This is also why the Q-learning log-likelihood above starts at trial 2.
+
+```r
+stan_wsls <- "
+data {
+  int<lower=2> N;
+  array[N] int<lower=1, upper=2> A;
+  array[N] int<lower=0, upper=1> R;
+}
+parameters {
+  real<lower=0, upper=1> p_stay;
+  real<lower=0, upper=1> p_shift;
+}
+model {
+  p_stay ~ beta(1, 1);
+  p_shift ~ beta(1, 1);
+  for (n in 2:N) {
+    if (R[n - 1] == 1) target += bernoulli_lpmf(A[n] == A[n - 1] | p_stay);
+    else               target += bernoulli_lpmf(A[n] != A[n - 1] | p_shift);
   }
+}
+generated quantities {
+  vector[N - 1] log_lik;
+  for (n in 2:N) {
+    if (R[n - 1] == 1) log_lik[n - 1] = bernoulli_lpmf(A[n] == A[n - 1] | p_stay);
+    else               log_lik[n - 1] = bernoulli_lpmf(A[n] != A[n - 1] | p_shift);
+  }
+}
+"
+
+fit_w <- stan(model_code = stan_wsls, data = stan_data,
+              iter = 2000, warmup = 1000, chains = 4, seed = 42)
+
+loo_q <- loo(extract_log_lik(fit_q, "log_lik"))
+loo_w <- loo(extract_log_lik(fit_w, "log_lik"))
+loo_compare(loo_q, loo_w)
+```
+
+The comparison uses expected log predictive density from leave-one-out cross-validation. A difference of a few units relative to its standard error is weak evidence. For a Q-learning agent with high β, WSLS may fit reasonably well, because strong exploitation makes the choices look like repeated wins and shifts. Whether the two models can be told apart depends on the parameters and the number of trials. A model-recovery exercise, simulating from each model and checking that the comparison picks the right one, answers that directly.
+
+## Hierarchical parameter recovery
+
+Now we move to the clinical-style design. Each subject s has a learning rate α_s and inverse temperature β_s drawn from group-specific distributions on unconstrained scales:
+
+$$
+\text{logit}(\alpha_s) = \mu_{\alpha,g} + \sigma_{\alpha,g}\,\alpha^{\text{raw}}_s, \qquad
+\log(\beta_s) = \mu_{\beta,g} + \sigma_{\beta,g}\,\beta^{\text{raw}}_s
+$$
+
+where g is the subject's group and the raw terms are standard normal (the non-centred parameterisation, which usually helps sampling in hierarchical models). Here the reward probabilities are 0.7 and 0.3. These are the same as in the dataset we simulate below, so the model and the generating process line up. The group means below are again assumptions, with the "depressed" group given a lower α and β.
+
+```r
+n_per_group <- 50; n_trials <- 200
+group <- rep(c(0, 1), each = n_per_group)
+n_subj <- length(group)
+p_rew <- c(0.7, 0.3)
+
+true_mu_alpha <- c(qlogis(0.40), qlogis(0.20))
+true_mu_beta  <- c(log(4), log(2.5))
+true_sd_alpha <- c(0.5, 0.5)
+true_sd_beta  <- c(0.3, 0.3)
+
+alpha_true <- plogis(rnorm(n_subj, true_mu_alpha[group + 1], true_sd_alpha[group + 1]))
+beta_true  <- exp(rnorm(n_subj, true_mu_beta[group + 1], true_sd_beta[group + 1]))
+
+choice <- matrix(NA_integer_, n_subj, n_trials)
+reward <- matrix(NA_integer_, n_subj, n_trials)
+for (s in seq_len(n_subj)) {
+  sim_s <- simulate_q(alpha_true[s], beta_true[s], n_trials, p_rew)
+  choice[s, ] <- sim_s$actions
+  reward[s, ] <- sim_s$rewards
 }
 ```
 
-The key insight from posterior predictive validation is identifying
-systematic discrepancies between model predictions and observed
-behavior. If the model consistently under-predicts learning speed in
-depressed participants, this might indicate that our Q-learning
-framework misses important aspects of how depression affects
-reinforcement learning. Such discrepancies guide model refinement and
-theoretical development.
+The Stan model mirrors this process. Hyperpriors are weakly informative. The group SDs are half-normal because of their lower bound. The generated quantities block returns group contrasts and one summed log-likelihood per subject, which is what leave-one-subject-out comparison needs.
 
-## Conclusion
+```r
+stan_hier <- "
+data {
+  int<lower=1> N_subj;
+  int<lower=2> N_trials;
+  array[N_subj] int<lower=0, upper=1> group;
+  array[N_subj, N_trials] int<lower=1, upper=2> choice;
+  array[N_subj, N_trials] int<lower=0, upper=1> reward;
+}
+parameters {
+  vector[2] mu_alpha;
+  vector[2] mu_beta;
+  vector<lower=0>[2] sigma_alpha;
+  vector<lower=0>[2] sigma_beta;
+  vector[N_subj] alpha_raw;
+  vector[N_subj] beta_raw;
+}
+transformed parameters {
+  vector<lower=0, upper=1>[N_subj] alpha;
+  vector<lower=0>[N_subj] beta;
+  for (s in 1:N_subj) {
+    int g = group[s] + 1;
+    alpha[s] = inv_logit(mu_alpha[g] + sigma_alpha[g] * alpha_raw[s]);
+    beta[s]  = exp(mu_beta[g] + sigma_beta[g] * beta_raw[s]);
+  }
+}
+model {
+  mu_alpha ~ normal(0, 1);
+  mu_beta ~ normal(0.5, 1);
+  sigma_alpha ~ normal(0, 1);
+  sigma_beta ~ normal(0, 1);
+  alpha_raw ~ std_normal();
+  beta_raw ~ std_normal();
+  for (s in 1:N_subj) {
+    vector[2] Q = rep_vector(0, 2);
+    for (t in 1:N_trials) {
+      target += categorical_logit_lpmf(choice[s, t] | beta[s] * Q);
+      Q[choice[s, t]] += alpha[s] * (reward[s, t] - Q[choice[s, t]]);
+    }
+  }
+}
+generated quantities {
+  real delta_mu_alpha = mu_alpha[2] - mu_alpha[1];
+  real delta_mu_beta  = mu_beta[2] - mu_beta[1];
+  vector[N_subj] log_lik_subj;
+  for (s in 1:N_subj) {
+    vector[2] Q = rep_vector(0, 2);
+    log_lik_subj[s] = 0;
+    for (t in 1:N_trials) {
+      log_lik_subj[s] += categorical_logit_lpmf(choice[s, t] | beta[s] * Q);
+      Q[choice[s, t]] += alpha[s] * (reward[s, t] - Q[choice[s, t]]);
+    }
+  }
+}
+"
 
-This post walked through the practical application of Bayesian parameter
-recovery to clinical reinforcement learning data. Rather than relying on
-simple point estimates, we built a hierarchical Bayesian model in Stan
-that simultaneously infers individual-level parameters (learning rate
-$\alpha$ and inverse temperature $\beta$) and group-level distributions,
-enabling partial pooling across participants and principled group
-comparisons. We then validated these estimates using posterior
-predictive checks, examining whether the fitted model reproduces key
-behavioral signatures like learning curves, choice consistency, and
-exploration-exploitation balance. Together, these tools move us beyond
-asking "do depressed patients have lower learning rates?" toward a
-richer question: "how reliably can we estimate these parameters, and
-does our model faithfully capture the behavioral process we care about?"
-Bayesian parameter recovery doesn't eliminate uncertainty—it makes that
-uncertainty explicit and actionable, which is precisely what clinical
-translation requires. In the next blog post, we'll tackle one of the
-most consequential challenges in computational psychiatry: **Addressing
-Individual Heterogeneity and Mixture Models**—exploring how to handle
-the reality that not all patients within a diagnostic group are using
-the same learning strategy, and how mixture modeling approaches can
-uncover latent computational subtypes.
+fit_h <- stan(model_code = stan_hier,
+              data = list(N_subj = n_subj, N_trials = n_trials, group = group,
+                          choice = choice, reward = reward),
+              iter = 2000, warmup = 1000, chains = 4, seed = 42,
+              control = list(adapt_delta = 0.95))
+
+print(fit_h, pars = c("mu_alpha", "mu_beta", "sigma_alpha", "sigma_beta",
+                      "delta_mu_alpha", "delta_mu_beta"))
+```
+
+The group contrasts are differences on the logit and log scales. Their posteriors, with 95% credible intervals, give the group comparison directly. In this simulation the true values are about −0.97 for α (logit 0.2 minus logit 0.4) and −0.47 for β (log 2.5 minus log 4). A credible interval that excludes zero tells us a difference was detected. It doesn't establish that the model is right.
+
+## Checking parameter recovery
+
+Recovery has to be shown against the truth, which we can do only because we simulated the data. Compare posterior means with true values per subject, then examine bias, correlation and interval coverage.
+
+```r
+p <- rstan::extract(fit_h)
+rec <- tibble(
+  subj = 1:n_subj, group = factor(group, labels = c("Control", "Depressed")),
+  alpha_true, beta_true,
+  alpha_est = colMeans(p$alpha), beta_est = colMeans(p$beta),
+  alpha_lo = apply(p$alpha, 2, quantile, 0.025), alpha_hi = apply(p$alpha, 2, quantile, 0.975),
+  beta_lo  = apply(p$beta,  2, quantile, 0.025), beta_hi  = apply(p$beta,  2, quantile, 0.975)
+)
+
+with(rec, c(r_alpha = cor(alpha_true, alpha_est), r_beta = cor(beta_true, beta_est),
+            bias_alpha = mean(alpha_est - alpha_true),
+            bias_beta  = mean(beta_est - beta_true),
+            cover_alpha = mean(alpha_true >= alpha_lo & alpha_true <= alpha_hi),
+            cover_beta  = mean(beta_true  >= beta_lo  & beta_true  <= beta_hi)))
+
+ggplot(rec, aes(alpha_true, alpha_est, colour = group)) +
+  geom_pointrange(aes(ymin = alpha_lo, ymax = alpha_hi), alpha = 0.6) +
+  geom_abline(linetype = "dashed") + theme_minimal() +
+  labs(title = "Recovery of learning rate")
+```
+
+Three outcomes are worth looking for:
+
+- **Shrinkage.** Partial pooling pulls extreme estimates toward the group mean. This is expected, and it can inflate correlations with the truth while compressing the range.
+- **Coverage.** About 95% of true values should fall in their 95% intervals. Much lower coverage suggests overconfident estimates.
+- **Trade-off between α and β.** Compute `cor(p$alpha[, s], p$beta[, s])` for several subjects. A strongly negative or positive value signals that the two parameters aren't separately identifiable at 200 trials.
+
+A single simulation of 100 subjects can't establish recovery in general. For a stronger claim, repeat the exercise over many simulated datasets and a plausible range of true parameters. Also check that recovery holds at the parameter values that matter, since a low learning rate such as 0.05 is intrinsically harder to estimate.
+
+## Hierarchical posterior predictive checks
+
+The same logic applies at the group level: let the fitted model generate new data, including rewards, and compare it with the observed data. Behavioural signatures to compare include learning curves, the dependence of choice on recent reward history, and how often subjects switch arms. The last one captures perseveration against exploration.
+
+```r
+ppc_group <- function(p, group, n_trials, p_rew, n_draws = 100) {
+  idx <- sample(dim(p$alpha)[1], n_draws)
+  sapply(idx, function(i) {
+    sapply(seq_along(group), function(s) {
+      sim_s <- simulate_q(p$alpha[i, s], p$beta[i, s], n_trials, p_rew)
+      c(p_best = mean(sim_s$actions == 1),
+        switch_rate = mean(diff(sim_s$actions) != 0))
+    }, simplify = "array")
+  }, simplify = "array")
+}
+
+pred_stats <- ppc_group(p, group, n_trials, p_rew)
+
+obs_stats <- tibble(
+  group = factor(group, labels = c("Control", "Depressed")),
+  p_best = rowMeans(choice == 1),
+  switch_rate = apply(choice, 1, function(x) mean(diff(x) != 0))
+)
+```
+
+Summarise `pred_stats` by group for each draw, then plot the group means against the corresponding observed means. Systematic misses are the useful finding. If the model under-predicts learning speed in the patient group, for instance, then a single learning rate may be missing something about how that group learns. Candidates include separate rates for positive and negative prediction errors, choice perseveration, and value decay. In real data the discrepancies would motivate model refinement. In this simulation we know the generating model, so large misses would point to a coding error.
+
+## Limits and next steps
+
+Hierarchical modelling and predictive checks don't solve model misspecification or heterogeneity, and I'd be cautious about claiming otherwise. They diagnose these problems. Partial pooling can even mask them. If a subset of patients uses a different strategy altogether, a single group-level distribution will give a misleading picture of the group.
+
+Clinical readings need further caution. A posterior difference in α between groups is a statement about a parameter in one model, estimated on one task. It isn't direct evidence about the biological processes behind depression. The better question is how reliably these parameters can be estimated, and whether the model describes the behaviour we care about.
+
+The next post takes up that heterogeneity directly, using mixture models to ask whether patients with the same diagnosis may be using different learning strategies.
 
 ## Full code for simulations
 
@@ -481,341 +557,4 @@ ggplot(df_binned, aes(x = BinMid)) +
   ) +
   theme_minimal() +
   scale_y_continuous(limits = c(0, 1))
-```
-
-``` r
-stan_model_2='
-data {
-  int<lower=1> N;
-  int<lower=1, upper=2> A[N];  // Actions
-  int<lower=0, upper=1> R[N];  // Rewards
-}
-
-parameters {
-  real<lower=0, upper=1> p_stay;   // Prob. of repeating action after reward
-  real<lower=0, upper=1> p_shift;  // Prob. of switching action after no reward
-}
-
-model {
-  p_stay ~ beta(1, 1);
-  p_shift ~ beta(1, 1);
-
-  for (n in 2:N) {
-    if (R[n - 1] == 1) {
-      target += bernoulli_lpmf(A[n] == A[n - 1] ? 1 : 0 | p_stay);
-    } else {
-      target += bernoulli_lpmf(A[n] != A[n - 1] ? 1 : 0 | p_shift);
-    }
-  }
-}
-
-generated quantities {
-  vector[N] log_lik;
-
-  for (n in 1:N) {
-    if (n == 1) {
-      log_lik[n] = 0;  // undefined for first trial
-    } else {
-      if (R[n - 1] == 1) {
-        log_lik[n] = bernoulli_lpmf(A[n] == A[n - 1] ? 1 : 0 | p_stay);
-      } else {
-        log_lik[n] = bernoulli_lpmf(A[n] != A[n - 1] ? 1 : 0 | p_shift);
-      }
-    }
-  }
-}
-'
-
-
-stan_data <- list(
-  N = length(sim_data$actions),
-  A = sim_data$actions,
-  R = as.integer(sim_data$rewards)
-)
-
-# Fit Q-learning model
-fit_wsls <- stan(  model_code = stan_model_2, data = stan_data,
-              iter = 2000, warmup = 1000, chains = 4, seed = 42)
-
-summary(fit_wsls)
-
-wsls_post <- rstan::extract(fit_wsls)
-p_stay_hat <- mean(wsls_post$p_stay)
-p_shift_hat <- mean(wsls_post$p_shift)
-
-predict_wsls <- function(p_stay, p_shift, actions, rewards) {
-  N <- length(actions)
-  probs <- numeric(N)
-  probs[1] <- 0.5  # No previous trial to inform the first choice
-  
-  for (i in 2:N) {
-    if (rewards[i - 1] == 1) {
-      # If rewarded, probability of repeating last action
-      probs[i] <- if (actions[i - 1] == 1) p_stay else 1 - p_stay
-    } else {
-      # If not rewarded, probability of switching
-      probs[i] <- if (actions[i - 1] == 1) 1 - p_shift else p_shift
-    }
-  }
-  probs
-}
-
-predicted_probs_wsls <- predict_wsls(p_stay_hat, p_shift_hat, sim_data$actions, sim_data$rewards)
-
-
-df_wsls <- data.frame(
-  Trial = 1:length(predicted_probs_wsls),
-  Predicted = predicted_probs_wsls,
-  Actual = as.numeric(sim_data$actions == 1)
-)
-
-library(dplyr)
-
-df_binned_wsls <- df_wsls %>%
-  mutate(Bin = cut(Trial, breaks = seq(0, length(Trial), by = 50), include.lowest = TRUE)) %>%
-  group_by(Bin) %>%
-  summarise(
-    BinMid = mean(Trial),
-    PredictedProb = mean(Predicted),
-    ActualProb = mean(Actual)
-  )
-
-library(ggplot2)
-
-ggplot(df_binned_wsls, aes(x = BinMid)) +
-  geom_line(aes(y = PredictedProb), color = "blue", size = 1.2) +
-  geom_point(aes(y = ActualProb), color = "red", size = 2) +
-  geom_line(aes(y = ActualProb), color = "red", linetype = "dashed", size = 1) +
-  labs(
-    title = "WSLS Model Predictions vs. Actual Behavior (Binned)",
-    x = "Trial (Binned)", y = "Probability of Choosing Action 1"
-  ) +
-  theme_minimal() +
-  scale_y_continuous(limits = c(0, 1))
-
-# Compare models using LOO
-library(loo)
-
-log_lik_q <- extract_log_lik(fit_q)
-log_lik_wsls <- extract_log_lik(fit_wsls)
-
-loo_q <- loo(log_lik_q)
-loo_wsls <- loo(log_lik_wsls)
-
-loo_compare(loo_q, loo_wsls)
-```
-
-``` r
-# ============================================================
-# Parameter recovery and Bayesian analysis of clinical RL data
-# Hierarchical Q-learning model with Stan + posterior checks
-# ============================================================
-library(rstan)
-library(posterior)
-library(bayesplot)
-library(tidyverse)
-library(MASS)
-
-set.seed(1234)
-rstan_options(auto_write = TRUE)
-options(mc.cores = parallel::detectCores())
-
-# ------------------------------------------------------------
-# 1) Simulate clinical reinforcement learning data
-# ------------------------------------------------------------
-
-n_subj_per_group <- 50
-n_groups <- 2
-n_subj <- n_subj_per_group * n_groups
-n_trials <- 200
-n_total <- n_subj * n_trials
-
-group <- rep(0:1, each = n_subj_per_group)  # 0 = control, 1 = depressed
-
-# True group-level parameters on unconstrained scale
-true_mu_alpha <- c(-0.2, -0.6)
-true_sigma_alpha <- c(0.5, 0.6)
-
-true_mu_beta <- c(log(4), log(2.5))
-true_sigma_beta <- c(0.35, 0.45)
-
-# Individual parameters
-alpha_true <- numeric(n_subj)
-beta_true <- numeric(n_subj)
-
-for (s in 1:n_subj) {
-  g <- group[s] + 1
-  alpha_true[s] <- plogis(rnorm(1, true_mu_alpha[g], true_sigma_alpha[g]))
-  beta_true[s] <- exp(rnorm(1, true_mu_beta[g], true_sigma_beta[g]))
-}
-
-# Task environment: probabilistic 2-armed bandit
-p_rew_arm1 <- 0.70
-p_rew_arm2 <- 0.30
-
-subj_id <- integer(n_total)
-trial_id <- integer(n_total)
-choice <- integer(n_total)
-reward <- integer(n_total)
-
-row_idx <- 1
-for (s in 1:n_subj) {
-  Q <- c(0, 0)
-  for (t in 1:n_trials) {
-    logits <- beta_true[s] * Q
-    probs <- exp(logits - max(logits))
-    probs <- probs / sum(probs)
-    
-    ch <- sample(1:2, size = 1, prob = probs)
-    rew <- rbinom(1, size = 1, prob = ifelse(ch == 1, p_rew_arm1, p_rew_arm2))
-    pe <- rew - Q[ch]
-    Q[ch] <- Q[ch] + alpha_true[s] * pe
-    
-    subj_id[row_idx] <- s
-    trial_id[row_idx] <- t
-    choice[row_idx] <- ch
-    reward[row_idx] <- rew
-    row_idx <- row_idx + 1
-  }
-}
-
-sim_data <- tibble(
-  subj = subj_id,
-  trial = trial_id,
-  choice = choice,
-  reward = reward,
-  group = group[subj_id]
-)
-
-# ------------------------------------------------------------
-# 2) Stan model
-# ------------------------------------------------------------
-
-stan_code <- "
-data {
-  int<lower=1> N_subj;
-  int<lower=1> N_trials;
-  int<lower=1> N_total;
-  int<lower=1> n_subj_per_group;
-  array[N_total] int<lower=1,upper=N_subj> subj;
-  array[N_total] int<lower=1,upper=2> choice;
-  array[N_total] int<lower=0,upper=1> reward;
-  array[N_subj] int<lower=0,upper=1> group;
-}
-
-parameters {
-  vector[2] mu_alpha;
-  vector[2] mu_beta;
-  vector<lower=0>[2] sigma_alpha;
-  vector<lower=0>[2] sigma_beta;
-
-  vector[N_subj] alpha_raw;
-  vector[N_subj] beta_raw;
-}
-
-transformed parameters {
-  vector<lower=0,upper=1>[N_subj] alpha;
-  vector<lower=0>[N_subj] beta;
-
-  for (s in 1:N_subj) {
-    alpha[s] = inv_logit(mu_alpha[group[s] + 1] + sigma_alpha[group[s] + 1] * alpha_raw[s]);
-    beta[s] = exp(mu_beta[group[s] + 1] + sigma_beta[group[s] + 1] * beta_raw[s]);
-  }
-}
-
-model {
-  mu_alpha ~ normal(0, 1);
-  mu_beta ~ normal(1, 1);
-  sigma_alpha ~ normal(0, 0.5);
-  sigma_beta ~ normal(0, 0.5);
-  alpha_raw ~ normal(0, 1);
-  beta_raw ~ normal(0, 1);
-
-  for (s in 1:N_subj) {
-    vector[2] Q = rep_vector(0.0, 2);
-    for (t in 1:N_trials) {
-      int i = (s - 1) * N_trials + t;
-      target += categorical_logit_lpmf(choice[i] | beta[s] * Q);
-      Q[choice[i]] += alpha[s] * (reward[i] - Q[choice[i]]);
-    }
-  }
-}
-
-generated quantities {
-  vector[N_total] log_lik;
-  array[N_total] int<lower=1,upper=2> y_rep;
-  real group_diff_alpha;
-  real group_diff_beta;
-
-  group_diff_alpha =
-    mean(segment(alpha, 1, n_subj_per_group)) -
-    mean(segment(alpha, n_subj_per_group + 1, n_subj_per_group));
-
-  group_diff_beta =
-    mean(segment(beta, 1, n_subj_per_group)) -
-    mean(segment(beta, n_subj_per_group + 1, n_subj_per_group));
-
-  for (s in 1:N_subj) {
-    vector[2] Q = rep_vector(0.0, 2);
-    for (t in 1:N_trials) {
-      int i = (s - 1) * N_trials + t;
-      log_lik[i] = categorical_logit_lpmf(choice[i] | beta[s] * Q);
-      y_rep[i] = categorical_logit_rng(beta[s] * Q);
-      Q[choice[i]] += alpha[s] * (reward[i] - Q[choice[i]]);
-    }
-  }
-}
-"
-
-# ------------------------------------------------------------
-# 3) Fit model
-# ------------------------------------------------------------
-
-stan_data <- list(
-  N_subj = n_subj,
-  N_trials = n_trials,
-  N_total = n_total,
-  n_subj_per_group = n_subj_per_group,
-  subj = sim_data$subj,
-  choice = sim_data$choice,
-  reward = sim_data$reward,
-  group = group
-)
-
-fit <- stan(
-  model_code = stan_code,
-  data = stan_data,
-  chains = 4,
-  iter = 2000,
-  warmup = 1000,
-  seed = 1234,
-  cores = parallel::detectCores()
-)
-
-print(
-  fit,
-  pars = c("mu_alpha", "mu_beta", "sigma_alpha", "sigma_beta",
-           "group_diff_alpha", "group_diff_beta"),
-  probs = c(0.025, 0.5, 0.975)
-)
-
-# ------------------------------------------------------------
-# 4) Optional posterior summaries
-# ------------------------------------------------------------
-
-post_df <- as_draws_df(fit)
-
-post_df %>%
-  summarise(
-    alpha_diff_mean = mean(group_diff_alpha),
-    alpha_diff_q025 = quantile(group_diff_alpha, 0.025),
-    alpha_diff_q975 = quantile(group_diff_alpha, 0.975),
-    beta_diff_mean  = mean(group_diff_beta),
-    beta_diff_q025  = quantile(group_diff_beta, 0.025),
-    beta_diff_q975  = quantile(group_diff_beta, 0.975)
-  ) %>%
-  print()
-
-# Optional traceplots
-mcmc_trace(as.array(fit), pars = c("group_diff_alpha", "group_diff_beta"))
 ```
